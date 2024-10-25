@@ -4,7 +4,7 @@
 
 import type { Alert, SimplifiedAlert } from '@/types/alerts.types';
 import type { Line, Pattern, PatternGroup, Route, Shape } from '@/types/lines.types.js';
-import type { DemandByLineMetrics } from '@/types/metrics.types';
+import type { DemandMetrics } from '@/types/metrics.types';
 import type { Stop } from '@/types/stops.types';
 
 import { useLinesContext } from '@/contexts/Lines.context';
@@ -38,7 +38,7 @@ interface LinesDetailContextState {
 		} | null
 		all_patterns: null | Pattern[]
 		all_routes: Route[] | undefined
-		demand: DemandByLineMetrics | null
+		demand: DemandMetrics | null
 		drawer_open: boolean
 		line: Line | null
 		service: null | ServiceMetrics[]
@@ -84,7 +84,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 	// const [dataRoutesState, setDataRoutesState] = useState<null | Route[]>(null);
 	const [dataAllPatternsState, setDataAllPatternsState] = useState<null | Pattern[]>(null);
 	const [dataValidPatternGroupsState, setDataValidPatternGroupsState] = useState<null | PatternGroup[]>(null);
-	const [dataDemandForCurrentLineState, setDataDemandForCurrentLineState] = useState<DemandByLineMetrics | null>(null);
+	const [dataDemandForCurrentLineState, setDataDemandForCurrentLineState] = useState<DemandMetrics | null>(null);
 
 	const [dataActiveAlertsState, setDataActiveAlertsState] = useState<null | SimplifiedAlert[]>(null);
 	const [dataActivePatternGroupState, setDataActivePatternGroupState] = useState<null | PatternGroup>(null);
@@ -104,7 +104,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 	// B. Fetch data
 
 	const { data: allAlertsData, isLoading: allAlertsLoading } = useSWR<Alert[], Error>(`${Routes.API}/alerts`);
-	const { data: allDemandByLineData } = useSWR<DemandByLineMetrics[], Error>(`${Routes.API}/metrics/demand/by_line`);
+	const { data: allDemandByLineData } = useSWR<DemandMetrics[], Error>(`${Routes.API}/metrics/demand/by_line`);
 	const { data: allServiceMetricsData } = useSWR<ServiceMetrics[], Error>(`${Routes.API}/metrics/service/by_line/${lineId}`);
 
 	const dataLineState = useMemo<Line | undefined>(() => {
@@ -231,7 +231,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 
 	useEffect(() => {
 		if (!allDemandByLineData) return;
-		const demandForCurrentLine = allDemandByLineData.find(demandByLineItem => demandByLineItem.line_id === dataLineState?.id);
+		const demandForCurrentLine = allDemandByLineData.find(demandByLineItem => demandByLineItem.item_id === dataLineState?.id);
 		setDataDemandForCurrentLineState(demandForCurrentLine || null);
 	}, [allDemandByLineData, lineId]);
 

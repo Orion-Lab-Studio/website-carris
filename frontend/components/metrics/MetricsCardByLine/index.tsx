@@ -5,11 +5,13 @@
 import MetricsSectionDemandSkeleton from '@/components/home/MetricsSectionDemandSkeleton';
 import LineBadge from '@/components/lines/LineBadge';
 import { useLinesContext } from '@/contexts/Lines.context';
+import { DemandMetrics } from '@/types/metrics.types';
 import { Routes } from '@/utils/routes';
 import { LineChart } from '@mantine/charts';
 import { ActionIcon, Popover, useComputedColorScheme } from '@mantine/core';
 import { IconInfoCircleFilled } from '@tabler/icons-react';
 import classNames from 'classnames';
+import { DateTime } from 'luxon';
 import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 import { useMemo, useState } from 'react';
@@ -39,7 +41,7 @@ export default function Component({
 	//
 	// B. Fetch data
 
-	const { data: metricsData } = useSWR(
+	const { data: metricsData } = useSWR<DemandMetrics[]>(
 		`${Routes.API}/metrics/demand/by_line`,
 	);
 
@@ -52,24 +54,15 @@ export default function Component({
 			.sort((a, b) => b.total_qty - a.total_qty)
 			.slice(0, 3);
 
-		console.log('========>', top[0]);
-		setSelectedLineId(top[0]?.line_id || '');
+		setSelectedLineId(top[0]?.item_id || '');
 		return top;
 	}, [metricsData]);
-
-	// const selectedValue = useMemo(() => {
-	// 	if (!metricsData) return null;
-	// 	return metricsData
-	// 		.find(line => line.line_id === selectedLineId)
-	// 		?.total_qty.toLocaleString('en', { useGrouping: true })
-	// 		.replace(/,/g, ' ');
-	// }, [metricsData, selectedLineId]);
 
 	const selectedDistribution = useMemo(() => {
 		if (!metricsData) return null;
 		const metrics = metricsData.find(
-			line => line.line_id === selectedLineId,
-		)?.by_hour;
+			line => line.item_id === selectedLineId,
+		)?.by_day.find(day => day.day === DateTime.now().setZone('Europe/Lisbon').toFormat('yyyy-MM-dd'))?.by_hour;
 		if (!metrics) return null;
 		return metrics
 			.sort((a, b) => a.hour - b.hour)
@@ -127,22 +120,22 @@ export default function Component({
 			<div className={styles.metricsWrapper}>
 				<div className={`${styles.rowWrapper} ${styles.primary}`}>
 					<div className={styles.realtimeValueWrapper}>
-						{topThree.map(line => (
+						{topThree?.map(line => (
 							<div
-								key={line.id}
-								onClick={() => setSelectedLineId(line.id)}
+								key={line.item_id}
+								onClick={() => setSelectedLineId(line.item_id)}
 								className={classNames(
 									styles.realtimeValueWrapperItem,
 									{
 										[styles.selected]:
-											line.id === selectedLineId,
+											line.item_id === selectedLineId,
 									},
 								)}
 							>
 								<LineBadge
-									key={line.id}
+									key={line.item_id}
 									line={linesContext.data.lines.find(
-										raw => raw.id === line.id,
+										raw => raw.id === line.item_id,
 									)}
 								/>
 							</div>
@@ -160,7 +153,7 @@ export default function Component({
 				<div className={styles.graphWrapper}>
 					<LineChart
 						curveType="natural"
-						data={selectedDistribution}
+						data={selectedDistribution || []}
 						dataKey="hour"
 						gridAxis="none"
 						h={80}

@@ -38,9 +38,9 @@ export default function createTimetable(primaryPatternGroup: PatternGroup, secon
 	// 3.
 	// Create the timetable for the primary pattern first
 
-	primaryPatternGroup.trips.forEach((trip) => {
+	primaryPatternGroup.trip_groups.forEach((trip) => {
 		// Check if the trip is valid for the given operational day
-		if (!trip.dates.includes(operationalDay)) return;
+		if (!trip.valid_on.includes(operationalDay)) return;
 		// Find the schedule for the given Stop ID and Stop Sequence
 		trip.schedule.forEach((schedule) => {
 			// Skip if the schedule is not for the given stop and sequence combination
@@ -68,9 +68,9 @@ export default function createTimetable(primaryPatternGroup: PatternGroup, secon
 
 	validSecondaryPatternGroups.forEach((patternGroup) => {
 		// For each trip in the pattern group
-		patternGroup.trips.forEach((trip) => {
+		patternGroup.trip_groups.forEach((trip) => {
 			// Check if the trip is valid for the given operational day
-			if (!trip.dates.includes(operationalDay)) return;
+			if (!trip.valid_on.includes(operationalDay)) return;
 			// Find the schedule for the given Stop ID and Stop Sequence
 			trip.schedule.forEach((schedule) => {
 				// Skip if the schedule is not for the given stop and sequence combination

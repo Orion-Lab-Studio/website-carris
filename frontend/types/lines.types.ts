@@ -53,7 +53,7 @@ export interface PatternGroup {
 	shape_id: string
 	short_name: string
 	text_color: string
-	trips: Trip[]
+	trip_groups: Trip[]
 	valid_on: string[]
 }
 
@@ -71,9 +71,11 @@ export interface Path {
 };
 
 export interface Trip {
-	dates: string[]
 	schedule: Schedule[]
+	service_ids: string[]
+	trip_group_id: string
 	trip_ids: string[]
+	valid_on: string[]
 };
 
 export interface Schedule {

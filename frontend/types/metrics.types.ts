@@ -43,17 +43,17 @@ export interface ServiceMetrics {
 	totalTripCount: number
 }
 
-export interface DemandByLineMetrics {
+export interface DemandMetrics {
 	by_day: {
-		day: number
-		qty: number
-	}[]
-	by_hour: {
-		hour: number
+		by_hour: {
+			hour: number
+			qty: number
+		}[]
+		day: string
 		qty: number
 	}[]
 	end_date: string
-	line_id: string
+	item_id: string
 	start_date: string
 	total_qty: number
 };
