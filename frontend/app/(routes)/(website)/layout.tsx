@@ -8,6 +8,7 @@ import { ProfileProviders } from '@/providers/profile-providers';
 import { ThemeProviders } from '@/providers/theme-providers';
 import { websiteTheme } from '@/themes/website/website.theme';
 import { Notifications } from '@mantine/notifications';
+import { NuqsAdapter } from 'nuqs/adapters/next';
 
 /* * */
 
@@ -15,16 +16,18 @@ export default function Layout({ children }) {
 	return (
 		<ConfigProviders>
 			<ThemeProviders themeData={websiteTheme} themeId="website">
-				<DataProviders>
-					<ProfileProviders>
-						<MapProviders>
-							<Notifications styles={{ root: { marginTop: '60px' } }} />
-							<WebsiteViewport>
-								{children}
-							</WebsiteViewport>
-						</MapProviders>
-					</ProfileProviders>
-				</DataProviders>
+				<NuqsAdapter>
+					<DataProviders>
+						<ProfileProviders>
+							<MapProviders>
+								<Notifications styles={{ root: { marginTop: '60px' } }} />
+								<WebsiteViewport>
+									{children}
+								</WebsiteViewport>
+							</MapProviders>
+						</ProfileProviders>
+					</DataProviders>
+				</NuqsAdapter>
 			</ThemeProviders>
 		</ConfigProviders>
 	);
