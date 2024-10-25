@@ -245,9 +245,9 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		const validScheduledTrips: Arrival[] = [];
 
 		for (const patternGroup of dataValidPatternGroupsState || []) {
-			for (const trip of patternGroup.trips) {
+			for (const trip of patternGroup.trip_groups) {
 				// Skip if trip is not valid for the selected operational day
-				if (!trip.dates.includes(operationalDayContext.data.selected_day)) continue;
+				if (!trip.valid_on.includes(operationalDayContext.data.selected_day)) continue;
 				// Find the schedule for the given Stop ID
 				for (const stopTime of trip.schedule) {
 					// Skip if not for the selected stop
@@ -322,7 +322,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 	};
 
 	const setActiveTripId = (tripId: string, stopSequence: number) => {
-		const activePatternGroup = dataValidPatternGroupsState?.find(patternGroup => patternGroup.trips.find(trip => trip.trip_ids.includes(tripId)));
+		const activePatternGroup = dataValidPatternGroupsState?.find(patternGroup => patternGroup.trip_groups.find(trip => trip.trip_ids.includes(tripId)));
 		if (activePatternGroup) {
 			setDataActivePatternGroupState(activePatternGroup);
 		}
