@@ -4,6 +4,7 @@
 
 import type { Line, Route } from '@/types/lines.types.js';
 
+import { ServiceMetrics } from '@/types/metrics.types';
 import { Routes } from '@/utils/routes';
 import { createContext, useContext } from 'react';
 import useSWR from 'swr';
@@ -14,10 +15,12 @@ interface LinesContextState {
 	actions: {
 		getLineDataById: (lineId: string) => Line | undefined
 		getRouteDataById: (routeId: string) => Route | undefined
+		getServiceMetricsByLineId: (lineId: string) => ServiceMetrics[] | undefined
 	}
 	data: {
 		lines: Line[]
 		routes: Route[]
+		service_metrics: ServiceMetrics[]
 	}
 	flags: {
 		is_loading: boolean
@@ -46,6 +49,7 @@ export const LinesContextProvider = ({ children }) => {
 
 	const { data: allLinesData, isLoading: allLinesLoading } = useSWR<Line[], Error>(`${Routes.API}/lines`);
 	const { data: allRoutesData, isLoading: allRoutesLoading } = useSWR<Route[], Error>(`${Routes.API}/routes`);
+	const { data: allServiceMetricsData } = useSWR<ServiceMetrics[], Error>(`${Routes.API}/metrics/service/all`);
 
 	//
 	// B. Handle actions
@@ -58,6 +62,10 @@ export const LinesContextProvider = ({ children }) => {
 		return allRoutesData?.find(route => route.id === routeId);
 	};
 
+	const getServiceMetricsByLineId = (lineId: string) => {
+		return allServiceMetricsData?.filter(serviceMetrics => serviceMetrics.lineId === lineId);
+	};
+
 	//
 	// C. Define context value
 
@@ -65,10 +73,12 @@ export const LinesContextProvider = ({ children }) => {
 		actions: {
 			getLineDataById,
 			getRouteDataById,
+			getServiceMetricsByLineId,
 		},
 		data: {
 			lines: allLinesData || [],
 			routes: allRoutesData || [],
+			service_metrics: allServiceMetricsData || [],
 		},
 		flags: {
 			is_loading: allLinesLoading || allRoutesLoading,

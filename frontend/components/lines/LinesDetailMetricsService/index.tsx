@@ -39,7 +39,7 @@ export default function DemandMetrics() {
 		if (!last15DaysService) return [];
 
 		return last15DaysService.map(service => ({
-			operationalDay: DateTime.fromFormat(service.operationalDay, 'yyyyMMdd').toFormat('dd/MM'),
+			operationalDay: DateTime.fromFormat(service.operationalDay, 'yyyy-MM-dd').toFormat('dd/MM'),
 			percentage: Number(((Number(service.passTripCount) / Number(service.totalTripCount)) * 100).toFixed(2)),
 		}));
 	}, [last15DaysService]);

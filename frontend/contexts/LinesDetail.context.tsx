@@ -41,7 +41,7 @@ interface LinesDetailContextState {
 		demand: DemandMetrics | null
 		drawer_open: boolean
 		line: Line | null
-		service: null | ServiceMetrics[]
+		service: ServiceMetrics[] | undefined
 		timetable: string
 		valid_pattern_groups: null | PatternGroup[]
 	}
@@ -89,7 +89,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 	const [dataActiveAlertsState, setDataActiveAlertsState] = useState<null | SimplifiedAlert[]>(null);
 	const [dataActivePatternGroupState, setDataActivePatternGroupState] = useState<null | PatternGroup>(null);
 	const [dataActiveShapeState, setDataActiveShapeState] = useState<null | Shape>(null);
-	const [dataServiceMetricsState, setDataServiceMetricsState] = useState<null | ServiceMetrics[]>(null);
+	const [dataServiceMetricsState, setDataServiceMetricsState] = useState<ServiceMetrics[]>();
 	const [dataActiveStopState, setDataActiveStopState] = useState<{ sequence: number, stop: Stop } | null>(null);
 
 	const [flagIsFavoriteState, setFlagIsFavoriteState] = useState<boolean>(false);
@@ -105,10 +105,12 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 
 	const { data: allAlertsData, isLoading: allAlertsLoading } = useSWR<Alert[], Error>(`${Routes.API}/alerts`);
 	const { data: allDemandByLineData } = useSWR<DemandMetrics[], Error>(`${Routes.API}/metrics/demand/by_line`);
-	const { data: allServiceMetricsData } = useSWR<ServiceMetrics[], Error>(`${Routes.API}/metrics/service/by_line/${lineId}`);
 
 	const dataLineState = useMemo<Line | undefined>(() => {
 		const lineData = linesContext.actions.getLineDataById(lineId);
+		const serviceMetrics = linesContext.actions.getServiceMetricsByLineId(lineId);
+		console.log('serviceMetrics', lineId, serviceMetrics);
+		setDataServiceMetricsState(serviceMetrics);
 		if (!lineData) return;
 		else return lineData;
 	}, [lineId, linesContext.data.lines]);
@@ -135,7 +137,6 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 							return patternData.map((patternGroup) => {
 								patternGroup.path = patternGroup.path.map((waypoint) => {
 									const stopData = stopsContext.actions.getStopById(waypoint.stop_id);
-									console.log('stopData', stopData);
 									if (!stopData) return waypoint;
 									return { ...waypoint, stop: stopData };
 								});
@@ -234,11 +235,6 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 		const demandForCurrentLine = allDemandByLineData.find(demandByLineItem => demandByLineItem.item_id === dataLineState?.id);
 		setDataDemandForCurrentLineState(demandForCurrentLine || null);
 	}, [allDemandByLineData, lineId]);
-
-	useEffect(() => {
-		if (!allServiceMetricsData) return;
-		setDataServiceMetricsState(allServiceMetricsData);
-	}, [allServiceMetricsData]);
 
 	//
 	// D. Handle actions
