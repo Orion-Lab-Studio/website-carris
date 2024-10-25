@@ -39,30 +39,19 @@ export default function Component({ className }: { className?: string }) {
 		if (!metricsData) return null;
 		let todayOperationalDay: string;
 		if (DateTime.now().setZone('Europe/Lisbon').get('hour') < 4) {
-			todayOperationalDay = DateTime.now().setZone('Europe/Lisbon').minus({ days: 1 }).toFormat('yyyyLLdd');
+			todayOperationalDay = DateTime.now().setZone('Europe/Lisbon').minus({ days: 1 }).toFormat('yyyy-LL-dd');
 		}
 		else {
-			todayOperationalDay = DateTime.now().setZone('Europe/Lisbon').toFormat('yyyyLLdd');
+			todayOperationalDay = DateTime.now().setZone('Europe/Lisbon').toFormat('yyyy-LL-dd');
 		}
+
 		return metricsData?.find(day => day.operational_day === todayOperationalDay)?.total_qty;
 	}, [metricsData]);
-
-	// const yesterdayTotal = useMemo(() => {
-	// 	if (!metricsData) return null;
-	// 	let yesterdayOperationalDay: string;
-	// 	if (DateTime.now().setZone('Europe/Lisbon').get('hour') < 4) {
-	// 		yesterdayOperationalDay = DateTime.now().setZone('Europe/Lisbon').minus({ days: 2 }).toFormat('yyyyLLdd');
-	// 	}
-	// 	else {
-	// 		yesterdayOperationalDay = DateTime.now().setZone('Europe/Lisbon').minus({ days: 1 }).toFormat('yyyyLLdd');
-	// 	}
-	// 	return metricsData?.find(day => day.operational_day === yesterdayOperationalDay)?.total_qty;
-	// }, [metricsData]);
 
 	const weekDistribution = useMemo(() => {
 		if (!metricsData) return [];
 		return metricsData?.map(day => ({
-			operational_day: DateTime.fromFormat(day.operational_day, 'yyyyLLdd').toFormat('dd/LL'),
+			operational_day: DateTime.fromFormat(day.operational_day, 'yyyy-LL-dd').toFormat('dd/LL'),
 			total_qty: day.total_qty,
 		}));
 	}, [metricsData]);
@@ -91,14 +80,9 @@ export default function Component({ className }: { className?: string }) {
 				<div className={`${styles.rowWrapper} ${styles.primary}`}>
 					<div className={styles.realtimeValueWrapper}>
 						<p className={styles.value}>{t('today.value', { value: todayTotal })}</p>
-						{/* <LiveIcon color="var(--color-status-info-text)" /> */}
 					</div>
 					<p className={styles.label}>{t('today.label')}</p>
 				</div>
-				{/* <div className={`${styles.rowWrapper} ${styles.secondary}`}>
-					<p className={styles.value}>{t('yesterday.value', { value: yesterdayTotal })}</p>
-					<p className={styles.label}>{t('yesterday.label')}</p>
-				</div> */}
 			</div>
 			<div className={styles.graphWrapper}>
 				<LineChart
