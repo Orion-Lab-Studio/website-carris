@@ -44,8 +44,6 @@ export default function SingleStop({ isFirstStop, isLastStop, isSelected, stopDa
 	//
 	// D. Render components
 
-	console.log('========> stopData', stopData);
-
 	return (
 		<div className={`${styles.container} ${isFirstStop && styles.isFirstStop} ${isLastStop && styles.isLastStop} ${isSelected && styles.isSelected}`}>
 			<p className={styles.stopName}>{stopData.stop_name}</p>
