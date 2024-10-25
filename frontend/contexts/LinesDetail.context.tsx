@@ -113,7 +113,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 		setDataServiceMetricsState(serviceMetrics);
 		if (!lineData) return;
 		else return lineData;
-	}, [lineId, linesContext.data.lines]);
+	}, [lineId, linesContext.data.lines, linesContext.data.service_metrics]);
 
 	const dataRoutesState = useMemo<Route[] | undefined>(() => {
 		if (!dataLineState) return;
