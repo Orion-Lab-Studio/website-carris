@@ -39,9 +39,7 @@ export default function Component({ data }: Props) {
 							<Accordion.Item key={topicItem._id} value={topicItem.title}>
 								<Accordion.Control>{topicItem.title}</Accordion.Control>
 								<Accordion.Panel>
-									<div className={styles.innerWrapper}>
-										<div dangerouslySetInnerHTML={{ __html: topicItem.body }} />
-									</div>
+									<div className={styles.innerWrapper} dangerouslySetInnerHTML={{ __html: topicItem.body }} />
 								</Accordion.Panel>
 							</Accordion.Item>
 						))}

@@ -1,5 +1,15 @@
 /* * */
 
+interface NewsData {
+	_id: number
+	content: string
+	cover_image_src: string
+	publish_date: string
+	title: string
+}
+
+/* * */
+
 export async function GET() {
 	//
 
@@ -7,7 +17,7 @@ export async function GET() {
 
 	if (!allNewsData) return Response.json([], { status: 500, statusText: 'Unable to fetch news data' });
 
-	const allNewsDataFormatted = [];
+	const allNewsDataFormatted: NewsData[] = [];
 
 	for (const newsData of allNewsData) {
 		//
