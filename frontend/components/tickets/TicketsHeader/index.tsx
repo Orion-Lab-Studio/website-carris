@@ -1,10 +1,8 @@
 /* * */
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/common/Card';
 import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { IconsCommon, ImagesCommon } from '@/settings/assets.settings';
 import { Image } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
@@ -27,29 +25,23 @@ export function TicketsHeader() {
 		<Surface>
 			<Section heading={t('heading')} subheading={t('subheading')} withPadding>
 				<Grid columns="ab" withGap>
-					<Card>
-						<CardHeader>
-							<div className={styles.images}>
-								<Image alt="Icon Coins" src={IconsCommon.RECEIPT} />
-								<Image alt="Icon Receipt" src={IconsCommon.RECEIPT} />
-							</div>
-						</CardHeader>
-						<CardContent>
-							<CardTitle>{t('onboard.title')}</CardTitle>
-							<CardDescription>{t('onboard.description')}</CardDescription>
-						</CardContent>
-					</Card>
-					<Card>
-						<CardHeader>
-							<div className={styles.images}>
-								<Image alt="Bilhete Navegante Ocasional" src={ImagesCommon.NAVEGANTE_OCCASIONAL} />
-							</div>
-						</CardHeader>
-						<CardContent>
-							<CardTitle>{t('prepaid.title')}</CardTitle>
-							<CardDescription>{t('prepaid.description')}</CardDescription>
-						</CardContent>
-					</Card>
+
+					<div className={styles.cardWrapper}>
+						<Image alt={t('onboard.title')} className={styles.cardImage} src="/assets/tickets/onboard.svg" />
+						<div className={styles.cardContents}>
+							<p className={styles.cardTitle}>{t('onboard.title')}</p>
+							<p className={styles.cardDescription}>{t('onboard.description')}</p>
+						</div>
+					</div>
+
+					<div className={styles.cardWrapper}>
+						<Image alt={t('prepaid.title')} className={styles.cardImage} src="/assets/tickets/prepaid.svg" />
+						<div className={styles.cardContents}>
+							<p className={styles.cardTitle}>{t('prepaid.title')}</p>
+							<p className={styles.cardDescription}>{t('prepaid.description')}</p>
+						</div>
+					</div>
+
 				</Grid>
 			</Section>
 		</Surface>

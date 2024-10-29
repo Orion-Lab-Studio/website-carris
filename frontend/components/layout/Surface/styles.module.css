@@ -38,6 +38,21 @@
 }
 
 /* * */
+/* CONTAINER / VARIANTS / PERSISTENT */
+
+.container.persistent {
+	background-color: var(--color-system-background-100);
+	border: 1px solid var(--color-system-border-100);
+}
+
+@media screen and (width <= 650px) {
+	.container.persistent {
+		border-right: none;
+		border-left: none;
+	}
+}
+
+/* * */
 /* CONTAINER / VARIANTS / BRAND */
 
 .container.brand {

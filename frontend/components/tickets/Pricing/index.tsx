@@ -1,8 +1,8 @@
 /* * */
 
-import LineBadgeBaseIcon from '@/components/common/LineBadgeBaseIcon';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
+import LineBadge from '@/components/lines/LineBadge';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
@@ -23,121 +23,112 @@ export function Pricing() {
 	return (
 		<>
 
-			<Surface>
-				<Section withPadding>
-					<div className={styles.container}>
-						<div className={styles.info}>
-							<LineBadgeBaseIcon line_variant="close" />
-							<h3>{t('proxima.title')}</h3>
-							<p>{t('proxima.description')}</p>
+			<Surface variant="persistent">
+				<div className={styles.container}>
+					<div className={styles.info}>
+						<LineBadge color="var(--color-lines-proxima)" />
+						<h3 className={styles.title}>{t('proxima.title')}</h3>
+						<p className={styles.description}>{t('proxima.description')}</p>
+					</div>
+					<div className={styles.pricing}>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>1,25€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.onboard')}</p>
 						</div>
-						<div className={styles.pricing}>
-							<div className={styles.pricingItem}>
-								<h3>1,25€</h3>
-								<p>{t('ticket_types.onboard')}</p>
-							</div>
-							<div className={styles.pricingItem}>
-								<h3>0,85€</h3>
-								<p>{t('ticket_types.prepaid')}</p>
-							</div>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>0,85€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.prepaid')}</p>
 						</div>
 					</div>
-				</Section>
+				</div>
 			</Surface>
 
-			<Surface>
-				<Section withPadding>
-					<div className={styles.container}>
-						<div className={styles.info}>
-							<LineBadgeBaseIcon line_variant="long" />
-							<h3>{t('longa.title')}</h3>
-							<p>{t('longa.description')}</p>
+			<Surface variant="persistent">
+				<div className={styles.container}>
+					<div className={styles.info}>
+						<LineBadge color="var(--color-lines-longa)" />
+						<h3 className={styles.title}>{t('longa.title')}</h3>
+						<p className={styles.description}>{t('longa.description')}</p>
+					</div>
+					<div className={styles.pricing}>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>2,60€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.onboard')}</p>
 						</div>
-						<div className={styles.pricing}>
-							<div className={styles.pricingItem}>
-								<h3>2,60€</h3>
-								<p>{t('ticket_types.onboard')}</p>
-							</div>
-							<div className={styles.pricingItem}>
-								<h3>1,55€</h3>
-								<p>{t('ticket_types.prepaid')}</p>
-							</div>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>1,55€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.prepaid')}</p>
 						</div>
 					</div>
-				</Section>
+				</div>
 			</Surface>
 
-			<Surface>
-				<Section withPadding>
-					<div className={styles.container}>
-						<div className={styles.info}>
-							<LineBadgeBaseIcon line_variant="fast" />
-							<h3>{t('rapida.title')}</h3>
-							<p>{t('rapida.description')}</p>
+			<Surface variant="persistent">
+				<div className={styles.container}>
+					<div className={styles.info}>
+						<LineBadge color="var(--color-lines-rapida)" />
+						<h3 className={styles.title}>{t('rapida.title')}</h3>
+						<p className={styles.description}>{t('rapida.description')}</p>
+					</div>
+					<div className={styles.pricing}>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>4,50€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.onboard')}</p>
 						</div>
-						<div className={styles.pricing}>
-							<div className={styles.pricingItem}>
-								<h3>4,50€</h3>
-								<p>{t('ticket_types.onboard')}</p>
-							</div>
-							<div className={styles.pricingItem}>
-								<h3>3,10€</h3>
-								<p>{t('ticket_types.prepaid')}</p>
-							</div>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>3,10€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.prepaid')}</p>
 						</div>
 					</div>
-				</Section>
+				</div>
 			</Surface>
 
-			<Surface>
-				<Section withPadding>
-					<div className={styles.container}>
-						<div className={styles.info}>
-							<LineBadgeBaseIcon line_variant="inter-regional" />
-							<h3>{t('inter-regional.title')}</h3>
-							<p>{t('inter-regional.description')}</p>
+			<Surface variant="persistent">
+				<div className={styles.container}>
+					<div className={styles.info}>
+						<LineBadge color="var(--color-lines-inter-regional)" />
+						<h3 className={styles.title}>{t('inter-regional.title')}</h3>
+						<p className={styles.description}>{t('inter-regional.description')}</p>
+					</div>
+					<div className={styles.pricing}>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>3,10€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.onboard')}</p>
+							<p className={styles.priceLabel}>{t('ticket_types.onboard_start_by_29')}</p>
 						</div>
-						<div className={styles.pricing}>
-							<div className={styles.pricingItem}>
-								<div>
-									<h3>3,10€</h3>
-									<p>{t('ticket_types.onboard_start_by_29')}</p>
-								</div>
-								<div style={{ marginTop: 30 }}>
-									<h3>3,60€</h3>
-									<p>{t('ticket_types.onboard_start_by_49')}</p>
-								</div>
-							</div>
-							<div className={styles.pricingItem}>
-								<h3>1,55€</h3>
-								<p>{t('ticket_types.prepaid')}</p>
-							</div>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>3,60€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.onboard')}</p>
+							<p className={styles.priceLabel}>{t('ticket_types.onboard_start_by_49')}</p>
+						</div>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>1,55€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.prepaid')}</p>
 						</div>
 					</div>
-				</Section>
+				</div>
 			</Surface>
 
-			<Surface>
-				<Section withPadding>
-					<div className={styles.container}>
-						<div className={styles.info}>
-							<LineBadgeBaseIcon line_variant="sea" />
-							<h3>{t('mar.title')}</h3>
-							<p>{t('mar.description')}</p>
+			<Surface variant="persistent">
+				<div className={styles.container}>
+					<div className={styles.info}>
+						<LineBadge color="var(--color-lines-mar)" />
+						<h3 className={styles.title}>{t('mar.title')}</h3>
+						<p className={styles.description}>{t('mar.description')}</p>
+					</div>
+					<div className={styles.pricing}>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>4,50€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.onboard')}</p>
 						</div>
-						<div className={styles.pricing}>
-							<div className={styles.pricingItem}>
-								<h3>4,50€</h3>
-								<p>{t('ticket_types.onboard')}</p>
-							</div>
-							<div className={styles.pricingItem}>
-								<h3>3,10€</h3>
-								<p>{t('ticket_types.prepaid')}</p>
-							</div>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>3,10€</h3>
+							<p className={styles.priceLabel}>{t('ticket_types.prepaid')}</p>
 						</div>
 					</div>
-				</Section>
+				</div>
 			</Surface>
+
 		</>
 	);
 

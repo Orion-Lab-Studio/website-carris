@@ -1,5 +1,5 @@
 interface Variant {
-	line_variant: 'close' | 'fast' | 'inter-regional' | 'long' | 'sea'
+	variant: 'inter-regional' | 'longa' | 'mar' | 'proxima' | 'rapida'
 }
 
 interface Fill {
@@ -18,20 +18,20 @@ export default function Component(props: Props) {
 	else if ('line_variant' in props) {
 		// Use different colors based on the variant prop
 		switch (props.line_variant) {
-			case 'close':
-				fillColor = '#3D85C6';
-				break;
-			case 'fast':
-				fillColor = '#FDB71A';
-				break;
 			case 'inter-regional':
 				fillColor = '#BB3E96';
 				break;
-			case 'long':
+			case 'longa':
 				fillColor = '#C61D23';
 				break;
-			case 'sea':
+			case 'mar':
 				fillColor = '#0C807E';
+				break;
+			case 'proxima':
+				fillColor = '#3D85C6';
+				break;
+			case 'rapida':
+				fillColor = '#FDB71A';
 				break;
 			default:
 				fillColor = '#000';
