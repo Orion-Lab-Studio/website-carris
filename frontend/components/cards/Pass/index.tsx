@@ -2,14 +2,14 @@
 
 /* * */
 
+import metropolitanoAnimation from '@/assets/animations/cards/metropolitano.json';
+import municipalAnimation from '@/assets/animations/cards/municipal.json';
 import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import Lottie from 'lottie-react';
 import { useTranslations } from 'next-intl';
 
-import metropolitanoAnimation from './metropolitano.json';
-import municipalAnimation from './municipal.json';
 import styles from './styles.module.css';
 
 /* * */
