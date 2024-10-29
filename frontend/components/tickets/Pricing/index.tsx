@@ -27,7 +27,6 @@ export function Pricing() {
 					<div className={styles.info}>
 						<LineBadge color="var(--color-lines-proxima)" />
 						<h3 className={styles.title}>{t('proxima.title')}</h3>
-						<p className={styles.description}>{t('proxima.description')}</p>
 					</div>
 					<div className={styles.pricing}>
 						<div className={styles.pricingItem}>
@@ -47,7 +46,6 @@ export function Pricing() {
 					<div className={styles.info}>
 						<LineBadge color="var(--color-lines-longa)" />
 						<h3 className={styles.title}>{t('longa.title')}</h3>
-						<p className={styles.description}>{t('longa.description')}</p>
 					</div>
 					<div className={styles.pricing}>
 						<div className={styles.pricingItem}>
@@ -67,7 +65,6 @@ export function Pricing() {
 					<div className={styles.info}>
 						<LineBadge color="var(--color-lines-rapida)" />
 						<h3 className={styles.title}>{t('rapida.title')}</h3>
-						<p className={styles.description}>{t('rapida.description')}</p>
 					</div>
 					<div className={styles.pricing}>
 						<div className={styles.pricingItem}>
@@ -87,7 +84,6 @@ export function Pricing() {
 					<div className={styles.info}>
 						<LineBadge color="var(--color-lines-inter-regional)" />
 						<h3 className={styles.title}>{t('inter-regional.title')}</h3>
-						<p className={styles.description}>{t('inter-regional.description')}</p>
 					</div>
 					<div className={styles.pricing}>
 						<div className={styles.pricingItem}>
@@ -113,7 +109,6 @@ export function Pricing() {
 					<div className={styles.info}>
 						<LineBadge color="var(--color-lines-mar)" />
 						<h3 className={styles.title}>{t('mar.title')}</h3>
-						<p className={styles.description}>{t('mar.description')}</p>
 					</div>
 					<div className={styles.pricing}>
 						<div className={styles.pricingItem}>

@@ -28,6 +28,7 @@
 		"embla-carousel-wheel-gestures": "8.0.1",
 		"inflected": "2.1.0",
 		"jsonwebtoken": "9.0.2",
+		"lottie-react": "^2.4.0",
 		"luxon": "3.5.0",
 		"maplibre-gl": "4.7.1",
 		"next": "15.0.1",

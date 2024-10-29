@@ -22,7 +22,7 @@ export function TicketsHeader() {
 	// B. Render components
 
 	return (
-		<Surface>
+		<Surface variant="brand2">
 			<Section heading={t('heading')} subheading={t('subheading')} withPadding>
 				<Grid columns="ab" withGap>
 

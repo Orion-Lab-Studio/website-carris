@@ -1,13 +1,15 @@
+'use client';
+
 /* * */
 
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/common/Card';
 import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { IconsCommon, ImagesCommon } from '@/settings/assets.settings';
-import { Image } from '@mantine/core';
+import Lottie from 'lottie-react';
 import { useTranslations } from 'next-intl';
 
+import metropolitanoAnimation from './metropolitano.json';
+import municipalAnimation from './municipal.json';
 import styles from './styles.module.css';
 
 /* * */
@@ -23,32 +25,26 @@ export function Pass() {
 	// B. Render components
 
 	return (
-		<Surface>
+		<Surface variant="brand2">
 			<Section heading={t('heading')} subheading={t('subheading')} withPadding>
 				<Grid columns="ab" withGap>
-					<Card>
-						<CardHeader>
-							<div className={styles.images}>
-								<Image alt="Icon Coins" src={IconsCommon.QUESTION} />
-								<Image alt="Icon Receipt" src={IconsCommon.TICKET} />
-							</div>
-						</CardHeader>
-						<CardContent>
-							<CardTitle>{t('wizard.title')}</CardTitle>
-							<CardDescription>{t('wizard.description')}</CardDescription>
-						</CardContent>
-					</Card>
-					<Card>
-						<CardHeader>
-							<div className={styles.images}>
-								<Image alt="Bilhete Navegante Ocasional" src={ImagesCommon.NAVEGANTE_CARD} />
-							</div>
-						</CardHeader>
-						<CardContent>
-							<CardTitle>{t('navegante.title')}</CardTitle>
-							<CardDescription>{t('navegante.description')}</CardDescription>
-						</CardContent>
-					</Card>
+
+					<div className={styles.cardWrapper}>
+						<Lottie animationData={metropolitanoAnimation} />
+						<div className={styles.cardContents}>
+							<p className={styles.cardTitle}>{t('metropolitano.title')}</p>
+							<p className={styles.cardDescription}>{t('metropolitano.description')}</p>
+						</div>
+					</div>
+
+					<div className={styles.cardWrapper}>
+						<Lottie animationData={municipalAnimation} />
+						<div className={styles.cardContents}>
+							<p className={styles.cardTitle}>{t('municipal.title')}</p>
+							<p className={styles.cardDescription}>{t('municipal.description')}</p>
+						</div>
+					</div>
+
 				</Grid>
 			</Section>
 		</Surface>

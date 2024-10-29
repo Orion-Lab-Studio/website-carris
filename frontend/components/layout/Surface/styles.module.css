@@ -60,6 +60,15 @@
 }
 
 /* * */
+/* CONTAINER / VARIANTS / BRAND2 */
+
+/* stylelint-disable-next-line selector-class-pattern */
+.container.brand2 {
+	background-color: var(--color-system-background-100);
+	border: 5px solid var(--color-brand);
+}
+
+/* * */
 /* CONTAINER / VARIANTS / MUTED */
 
 .container.muted {
