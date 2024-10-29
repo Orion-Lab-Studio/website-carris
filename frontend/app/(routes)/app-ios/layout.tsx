@@ -1,20 +1,20 @@
 /* * */
 
-import AppWrapper from '@/components/viewport/AppWrapper';
-import { EnvironmentContextProvider } from '@/contexts/Environment.context';
-
-import Providers from './providers';
+import { AppViewport } from '@/components/viewport/AppViewport';
+import { ConfigProviders } from '@/providers/config-providers';
+import { ThemeProviders } from '@/providers/theme-providers';
+import { appIosTheme } from '@/themes/app-ios/app-ios.theme';
 
 /* * */
 
 export default function Layout({ children }) {
 	return (
-		<Providers>
-			<AppWrapper>
-				<EnvironmentContextProvider value="app-ios">
+		<ConfigProviders>
+			<ThemeProviders themeData={appIosTheme} themeId="app-ios">
+				<AppViewport>
 					{children}
-				</EnvironmentContextProvider>
-			</AppWrapper>
-		</Providers>
+				</AppViewport>
+			</ThemeProviders>
+		</ConfigProviders>
 	);
 }

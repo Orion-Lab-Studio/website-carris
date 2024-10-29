@@ -18,14 +18,17 @@ import styles from './styles.module.css';
 
 interface SelectLineProps {
 	data: Line[]
+	label?: string
+	nothingFound?: string
 	onSelectLineId: (lineId: null | string) => void
+	placeholder?: string
 	selectedLineId: null | string
 	variant: 'default' | 'white'
 }
 
 /* * */
 
-export default function Component({ data = [], onSelectLineId, selectedLineId, variant }: SelectLineProps) {
+export function SelectLine({ data = [], label, nothingFound, onSelectLineId, placeholder, selectedLineId, variant }: SelectLineProps) {
 	//
 
 	//
@@ -40,14 +43,14 @@ export default function Component({ data = [], onSelectLineId, selectedLineId, v
 	// B. Transform data
 
 	const { search } = useMemo(() => createDocCollection(data.map(d => ({ boost: false, ...d })), {
-		line_id: 2,
+		id: 2,
 		localities: 1,
 		long_name: 1,
 		short_name: 1,
 	}), [data]);
 
 	const selectedLineData = useMemo(() => {
-		return data.find(item => item.line_id === selectedLineId);
+		return data.find(item => item.id === selectedLineId);
 	}, [selectedLineId, data]);
 
 	//
@@ -114,14 +117,14 @@ export default function Component({ data = [], onSelectLineId, selectedLineId, v
 					)
 					: (
 						<TextInput
-							aria-label={t('label')}
+							aria-label={label || t('label')}
 							autoComplete="off"
 							leftSection={<IconArrowLoopRight size={20} />}
 							onBlur={handleExitSearchField}
 							onChange={handleSearchQueryChange}
 							onClick={handleClickSearchField}
 							onFocus={handleClickSearchField}
-							placeholder={t('placeholder')}
+							placeholder={placeholder || t('placeholder')}
 							type="search"
 							value={searchQuery}
 							variant={variant}
@@ -143,9 +146,9 @@ export default function Component({ data = [], onSelectLineId, selectedLineId, v
 			<Combobox.Dropdown>
 				<Combobox.Options mah={200} style={{ overflowY: 'auto' }}>
 					{allLinesDataFilteredBySearchQuery.length === 0
-						? <Combobox.Empty>{t('nothing_found')}</Combobox.Empty>
+						? <Combobox.Empty>{nothingFound || t('nothing_found')}</Combobox.Empty>
 						: allLinesDataFilteredBySearchQuery.map(item => (
-							<Combobox.Option key={item.line_id} className={item.line_id === selectedLineData?.line_id ? styles.selected : ''} value={item.line_id}>
+							<Combobox.Option key={item.id} className={item.id === selectedLineData?.id ? styles.selected : ''} value={item.id}>
 								<div className={styles.comboboxOption}>
 									<LineDisplay line={item} />
 								</div>

@@ -111,12 +111,12 @@ export interface Pattern {
 	direction: number
 	facilities: string[]
 	headsign: string
+	id: string
 	line_id: string
 	localities: string[]
 	municipality_ids: string[]
 	path: Path[]
-	pattern_group_id: string
-	pattern_id: string
+	pattern_version_id: string
 	route_id: string
 	shape_id: string
 	short_name: string
@@ -251,11 +251,4 @@ export interface PatternRealtime {
 	stop_sequence: number
 	trip_id: string
 	vehicle_id: null | string
-};
-
-export interface DemandByLine {
-	end_date: string
-	line_id: string
-	start_date: string
-	total_qty: number
 };

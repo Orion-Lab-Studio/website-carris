@@ -33,3 +33,27 @@ export interface OperatorMetrics {
 	timestamp: number
 	value: number
 }
+
+export interface ServiceMetrics {
+	agencyId: string
+	lineId: string
+	operationalDay: string
+	passTripCount: number
+	passTripPercentage: number
+	totalTripCount: number
+}
+
+export interface DemandMetrics {
+	by_day: {
+		by_hour: {
+			hour: number
+			qty: number
+		}[]
+		day: string
+		qty: number
+	}[]
+	end_date: string
+	item_id: string
+	start_date: string
+	total_qty: number
+};

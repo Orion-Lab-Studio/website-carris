@@ -1,8 +1,5 @@
 /* * */
 
-import { DiscountTableDesktop } from '@/components/cards/DiscountTableDesktop';
-import { DiscountTableMobile } from '@/components/cards/DiscountTableMobile';
-import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { Discount } from '@/types/discount.types';
 import { useTranslations } from 'next-intl';
@@ -38,16 +35,28 @@ export function Discounts() {
 	// C. Render components
 
 	return (
-		<Surface>
-			<Section heading={t('heading')} subheading={t('subheading')} withPadding>
-				<div className={styles.desktop}>
-					<DiscountTableDesktop discounts={formattedDiscounts} />
+		formattedDiscounts.map(discount => (
+			<Surface key={discount.id} variant="persistent">
+				<div className={styles.container}>
+					<div className={styles.info}>
+						<h3 className={styles.title}>{discount.title}</h3>
+						<p className={styles.description}>{discount.description}</p>
+					</div>
+					<div className={styles.pricing}>
+						<div className={styles.pricingItem}>
+							<h3 className={styles.priceValue}>{discount.price_metropolitano}</h3>
+							<p className={styles.priceLabel}>{t('pass_types.metropolitano')}</p>
+							{discount.id === 'family' && <p className={styles.priceLabel}>{t('pass_types.family')}</p>}
+						</div>
+						<div className={styles.pricingItem}>
+							<h3 className={`${styles.priceValue} ${discount.price_municipal.toLowerCase() === 'n/a' && styles.na}`}>{discount.price_municipal}</h3>
+							<p className={`${styles.priceLabel} ${discount.price_municipal.toLowerCase() === 'n/a' && styles.na}`}>{t('pass_types.municipal')}</p>
+							{discount.id === 'family' && <p className={styles.priceLabel}>{t('pass_types.family')}</p>}
+						</div>
+					</div>
 				</div>
-				<div className={styles.mobile}>
-					<DiscountTableMobile discounts={formattedDiscounts} />
-				</div>
-			</Section>
-		</Surface>
+			</Surface>
+		))
 	);
 
 	//

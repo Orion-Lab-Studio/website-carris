@@ -38,9 +38,9 @@ export default function createTimetable(primaryPatternGroup: PatternGroup, secon
 	// 3.
 	// Create the timetable for the primary pattern first
 
-	primaryPatternGroup.trips.forEach((trip) => {
+	primaryPatternGroup.trip_groups.forEach((trip) => {
 		// Check if the trip is valid for the given operational day
-		if (!trip.dates.includes(operationalDay)) return;
+		if (!trip.valid_on.includes(operationalDay)) return;
 		// Find the schedule for the given Stop ID and Stop Sequence
 		trip.schedule.forEach((schedule) => {
 			// Skip if the schedule is not for the given stop and sequence combination
@@ -68,9 +68,9 @@ export default function createTimetable(primaryPatternGroup: PatternGroup, secon
 
 	validSecondaryPatternGroups.forEach((patternGroup) => {
 		// For each trip in the pattern group
-		patternGroup.trips.forEach((trip) => {
+		patternGroup.trip_groups.forEach((trip) => {
 			// Check if the trip is valid for the given operational day
-			if (!trip.dates.includes(operationalDay)) return;
+			if (!trip.valid_on.includes(operationalDay)) return;
 			// Find the schedule for the given Stop ID and Stop Sequence
 			trip.schedule.forEach((schedule) => {
 				// Skip if the schedule is not for the given stop and sequence combination
@@ -87,15 +87,15 @@ export default function createTimetable(primaryPatternGroup: PatternGroup, secon
 				// Find or create the minute entry in the timetable
 				const minuteEntry = hourEntry.minutes.find(m => m.minute_value === minuteValue && m.exception_ids === undefined);
 				// Since we're processing secondary Patterns, we have to reuse or create exceptions for each minute entry.
-				let existingException = timetableResult.exceptions.find(exception => exception.pattern_id === patternGroup.pattern_id);
+				let existingException = timetableResult.exceptions.find(exception => exception.pattern_id === patternGroup.id);
 				// Create a new exception if it doesn't exist yet
 				if (!existingException) {
-					const mentionedRoute = mentionedRoutes.find(route => route.route_id === patternGroup.route_id);
+					const mentionedRoute = mentionedRoutes.find(route => route.id === patternGroup.route_id);
 					existingException = {
 						exception_id: String.fromCharCode(97 + timetableResult.exceptions.length), // 'a' is 97 in ASCII
-						pattern_group_id: patternGroup.pattern_group_id,
 						pattern_headsign: patternGroup.headsign,
-						pattern_id: patternGroup.pattern_id,
+						pattern_id: patternGroup.id,
+						pattern_version_id: patternGroup.pattern_version_id,
 						route_long_name: mentionedRoute?.long_name ?? '-',
 						type: 'variant',
 					};

@@ -51,41 +51,48 @@ export function StopsDetailHeader() {
 	return (
 		<Surface>
 
-			<Section withBottomDivider withPadding>
+			<Section withGap withPadding>
 
 				<div className={styles.badgesWrapper}>
 					<CopyBadge
 						label={'#' + stopsDetailContext.data.stop.id}
-						size="lg"
 						value={stopsDetailContext.data.stop.id}
 					/>
 					<CopyBadge
 						hasBorder={false}
 						label={`${stopsDetailContext.data.stop.lat}, ${stopsDetailContext.data.stop.lon}`}
-						size="lg"
 						value={stopsDetailContext.data.stop.lat + '\t' + stopsDetailContext.data.stop.lon}
 					/>
 				</div>
 
 				<div className={styles.headingWrapper}>
 					<div className={styles.nameWrapper}>
-						<StopDisplayName size="lg" stopName={stopsDetailContext.data.stop.name} />
+						<StopDisplayName size="lg" stopName={stopsDetailContext.data.stop.stop_name} />
 						<StopDisplayTts stopId={stopsDetailContext.data.stop.id} />
 						<FavoriteToggle color="var(--color-brand)" isActive={stopsDetailContext.flags.is_favorite} onToggle={handleToggleFavorite} />
 					</div>
 					<StopDisplayLocation locality={stopsDetailContext.data.stop.locality} municipalityName={stopsDetailContext.data.stop.municipality_name} size="lg" />
 				</div>
 
-				<div className={styles.iconsWrapper}>
-					{stopsDetailContext.data.stop.facilities.map(facility => (
-						<IconDisplay key={facility} category="facilities" name={facility} />
-					))}
-				</div>
 			</Section>
 
-			<Section withPadding>
-				<div className={styles.lineBadgesWrapper}>
-					{stopsDetailContext.data.lines && stopsDetailContext.data.lines.map(line => <LineBadge key={line.line_id} line={line} size="lg" />)}
+			<Section>
+				<div className={styles.iconsWrapper}>
+					{stopsDetailContext.data.stop.facilities && (
+						<>
+							{stopsDetailContext.data.stop.facilities.map(facility => (
+								<div className={styles.iconFacilityWrapper}>
+									<IconDisplay key={facility} category="facilities" name={facility} />
+								</div>
+							))}
+							<div className={styles.iconsDivider} />
+						</>
+					)}
+					{stopsDetailContext.data.lines && stopsDetailContext.data.lines.map(line => (
+						<div className={styles.iconLineBadgeWrapper}>
+							<LineBadge key={line.id} line={line} />
+						</div>
+					))}
 				</div>
 			</Section>
 

@@ -1,9 +1,9 @@
 /* * */
 
-import { fetchFaqs } from '@/actions/faq.actions';
+import faqData from './data.json';
 
 /* * */
 
 export async function GET() {
-	return Response.json(await fetchFaqs());
+	return Response.json(faqData);
 }

@@ -104,7 +104,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 	 * Use data from stopsContext to avoid fetching the same data twice.
 	 */
 	useEffect(() => {
-		if (!dataActiveStopIdState || !stopsContext.data.raw || !stopsContext.data.raw.length) return;
+		if (!dataActiveStopIdState || !stopsContext.data.stops || !stopsContext.data.stops.length) return;
 		const foundStopData = stopsContext.actions.getStopById(dataActiveStopIdState);
 		if (foundStopData) {
 			setDataStopState(foundStopData);
@@ -113,7 +113,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		else {
 			notFound();
 		}
-	}, [stopsContext.data.raw, dataActiveStopIdState]);
+	}, [stopsContext.data.stops, dataActiveStopIdState]);
 
 	/**
 	 * Fetch line data for the selected stop.
@@ -245,9 +245,9 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		const validScheduledTrips: Arrival[] = [];
 
 		for (const patternGroup of dataValidPatternGroupsState || []) {
-			for (const trip of patternGroup.trips) {
+			for (const trip of patternGroup.trip_groups) {
 				// Skip if trip is not valid for the selected operational day
-				if (!trip.dates.includes(operationalDayContext.data.selected_day)) continue;
+				if (!trip.valid_on.includes(operationalDayContext.data.selected_day)) continue;
 				// Find the schedule for the given Stop ID
 				for (const stopTime of trip.schedule) {
 					// Skip if not for the selected stop
@@ -268,7 +268,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 						line_id: patternGroup.line_id,
 						observed_arrival: null,
 						observed_arrival_unix: null,
-						pattern_id: patternGroup.pattern_id,
+						pattern_id: patternGroup.id,
 						route_id: patternGroup.route_id,
 						scheduled_arrival: stopTime.arrival_time_24h,
 						scheduled_arrival_unix: arrivalUnixTimestamp,
@@ -322,7 +322,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 	};
 
 	const setActiveTripId = (tripId: string, stopSequence: number) => {
-		const activePatternGroup = dataValidPatternGroupsState?.find(patternGroup => patternGroup.trips.find(trip => trip.trip_ids.includes(tripId)));
+		const activePatternGroup = dataValidPatternGroupsState?.find(patternGroup => patternGroup.trip_groups.find(trip => trip.trip_ids.includes(tripId)));
 		if (activePatternGroup) {
 			setDataActivePatternGroupState(activePatternGroup);
 		}

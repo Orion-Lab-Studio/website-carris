@@ -6,12 +6,12 @@ import FoundItemsCounter from '@/components/common/FoundItemsCounter';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { useLinesListContext } from '@/contexts/LinesList.context';
-import { useProfileContext } from '@/contexts/Profile.context';
+import { useProfileListContext } from '@/contexts/ProfileList.context';
 import { useStopsListContext } from '@/contexts/StopsList.context';
 import { SegmentedControl } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
-import styles from './styles.module.css';
+// import styles from './styles.module.css';
 
 /* * */
 
@@ -21,7 +21,7 @@ export default function Component() {
 	//
 	// A. Setup variables
 	const t = useTranslations('favorites.PageToolbar');
-	const profileContext = useProfileContext();
+	const profileListContext = useProfileListContext();
 	const linesContext = useLinesListContext();
 	const stopsContext = useStopsListContext();
 
@@ -39,11 +39,11 @@ export default function Component() {
 	return (
 		<Surface>
 			<Section withPadding>
-				<SegmentedControl data={currentViewOptions} onChange={profileContext.actions.updateFilterByFavorite} value={profileContext.filters.favorites} fullWidth />
-				{profileContext.filters.favorites === 'lines' && (
+				<SegmentedControl data={currentViewOptions} onChange={profileListContext.actions.updateFilterByCurrentView} value={profileListContext.filters.by_current_view} fullWidth />
+				{profileListContext.filters.by_current_view === 'lines' && (
 					<FoundItemsCounter text={t('found_items_counter.lines', { count: linesContext.data.favorites.length })} />
 				)}
-				{profileContext.filters.favorites === 'stops' && (
+				{profileListContext.filters.by_current_view === 'stops' && (
 					<FoundItemsCounter text={t('found_items_counter.stops', { count: stopsContext.data.favorites.length })} />
 				)}
 			</Section>

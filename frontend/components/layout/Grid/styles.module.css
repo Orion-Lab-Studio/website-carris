@@ -7,6 +7,36 @@
 }
 
 /* * */
+/* CONTAINER / hAlign */
+
+.hAlignstart {
+	justify-content: flex-start;
+}
+
+.hAligncenter {
+	justify-content: center;
+}
+
+.hAlignend {
+	justify-content: flex-end;
+}
+
+/* * */
+/* CONTAINER / vAlign */
+
+.vAlignstart {
+	align-items: flex-start;
+}
+
+.vAligncenter {
+	align-items: center;
+}
+
+.vAlignend {
+	align-items: flex-end;
+}
+
+/* * */
 /* CONTAINER / WITH GAP */
 
 .container.withGap  {

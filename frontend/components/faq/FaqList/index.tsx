@@ -13,13 +13,13 @@ import styles from './styles.module.css';
 
 /* * */
 
-interface FaqListProps {
+interface Props {
 	data: FaqGroupByTopic[]
 }
 
 /* * */
 
-export default function Component({ data }: FaqListProps) {
+export default function Component({ data }: Props) {
 	//
 
 	//
@@ -39,9 +39,7 @@ export default function Component({ data }: FaqListProps) {
 							<Accordion.Item key={topicItem._id} value={topicItem.title}>
 								<Accordion.Control>{topicItem.title}</Accordion.Control>
 								<Accordion.Panel>
-									<div className={styles.innerWrapper}>
-										<div dangerouslySetInnerHTML={{ __html: topicItem.body }} />
-									</div>
+									<div className={styles.innerWrapper} dangerouslySetInnerHTML={{ __html: topicItem.body }} />
 								</Accordion.Panel>
 							</Accordion.Item>
 						))}
