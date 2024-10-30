@@ -53,6 +53,21 @@
 }
 
 /* * */
+/* CONTAINER / VARIANTS / ALERTS */
+
+.container.alerts {
+	background-color: var(--color-system-background-100);
+	border: 1px solid var(--color-system-border-100);
+}
+
+@media screen and (width <= 650px) {
+	.container.alerts {
+		border-right: none;
+		border-left: none;
+	}
+}
+
+/* * */
 /* CONTAINER / VARIANTS / BRAND */
 
 .container.brand {

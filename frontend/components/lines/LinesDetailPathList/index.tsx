@@ -24,7 +24,7 @@ export default function Component() {
 	//
 	// B. Fetch data
 
-	const { data: patternRealtime } = useSWR<PatternRealtime[]>(linesDetailContext.data.active_pattern_group?.id && `${Routes.API}/patterns/${linesDetailContext.data.active_pattern_group.id}/realtime`, { refreshInterval: 10000 });
+	const { data: patternRealtime } = useSWR<PatternRealtime[]>(linesDetailContext.data.active_pattern_group?.id && `${Routes.API}/arrivals/by_pattern/${linesDetailContext.data.active_pattern_group.id}`, { refreshInterval: 10000 });
 
 	// C. Transform data
 

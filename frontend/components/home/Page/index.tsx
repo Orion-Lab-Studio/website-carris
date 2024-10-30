@@ -1,5 +1,6 @@
 /* * */
 
+import { AlertsSection } from '@/components/home/AlertsSection';
 import { FeaturedSection } from '@/components/home/FeaturedSection';
 import { MainCarousel } from '@/components/home/MainCarousel';
 // import { MetricsSection } from '@/components/home/MetricsSection';
@@ -27,6 +28,7 @@ export function HomePage() {
 				</div>
 			</Grid>
 			<SchedulesSection />
+			<AlertsSection />
 			<NewsSection />
 			<TarifsSection />
 			<SupportSection />

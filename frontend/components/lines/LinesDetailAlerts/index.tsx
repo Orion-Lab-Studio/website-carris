@@ -2,9 +2,11 @@
 
 /* * */
 
-import AlertsCarousel from '@/components/common/AlertsCarousel';
+import { AlertsCarousel } from '@/components/common/AlertsCarousel';
+import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
+import { useTranslations } from 'next-intl';
 
 /* * */
 
@@ -14,6 +16,7 @@ export default function Component() {
 	//
 	// A. Setup variables
 
+	const t = useTranslations('lines.LinesDetailAlerts');
 	const linesDetailContext = useLinesDetailContext();
 
 	//
@@ -24,8 +27,10 @@ export default function Component() {
 	}
 
 	return (
-		<Surface>
-			<AlertsCarousel alerts={linesDetailContext.data.active_alerts} />
+		<Surface variant="alerts">
+			<Section heading={t('heading')} withGap>
+				<AlertsCarousel alerts={linesDetailContext.data.active_alerts} />
+			</Section>
 		</Surface>
 	);
 

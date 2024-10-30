@@ -97,12 +97,13 @@ export const MapOptionsContextProvider = ({ children }) => {
 		setDataMapState(map);
 	};
 
-	const centerMap = (source = 'stops') => {
-		if (!dataMapState) return;
-		const stops = dataMapState.getSource(source);
-		if (!stops) return;
+	const centerMap = (sourceId: string) => {
+		if (!dataMapState || !sourceId) return;
 
-		const combine = turf.combine(stops.serialize().data);
+		const sourceData = dataMapState.getSource(sourceId);
+		if (!sourceData) return;
+
+		const combine = turf.combine(sourceData.serialize().data);
 		const coordinates = combine.features[0].geometry.coordinates;
 
 		// Calculate bounds
@@ -112,10 +113,10 @@ export const MapOptionsContextProvider = ({ children }) => {
 
 		dataMapState.fitBounds(
 			bounds,
-			{ padding: 130 },
+			{ padding: 25 },
 		);
 
-		return;
+		// return;
 	};
 
 	//

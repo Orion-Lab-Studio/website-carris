@@ -7,7 +7,7 @@ import styles from './styles.module.css';
 interface Props {
 	children?: React.ReactNode
 	forceOverflow?: boolean
-	variant?: 'brand' | 'brand2' | 'default' | 'muted' | 'persistent' | 'standout' | 'success' | 'warning'
+	variant?: 'alerts' | 'brand' | 'brand2' | 'default' | 'muted' | 'persistent' | 'standout' | 'success' | 'warning'
 }
 
 /* * */
@@ -21,6 +21,14 @@ export function Surface({ children, forceOverflow, variant = 'default' }: Props)
 				<div className={styles.inner}>
 					{children}
 				</div>
+			</div>
+		);
+	}
+
+	if (variant === 'alerts') {
+		return (
+			<div className={`${styles.container} ${styles[variant]} ${forceOverflow && styles.forceOverflow}`}>
+				{children}
 			</div>
 		);
 	}

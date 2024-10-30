@@ -5,6 +5,7 @@ import type { SimplifiedAlert } from '@/types/alerts.types';
 import AlertsCarouselSlide from '@/components/common/AlertsCarouselSlide';
 import Carousel from '@/components/common/Carousel';
 import { Section } from '@/components/layout/Section';
+import { Surface } from '@/components/layout/Surface';
 import { IconBellRingingFilled } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
@@ -18,7 +19,7 @@ interface Props {
 
 /* * */
 
-export default function Component({ alerts }: Props) {
+export function AlertsCarousel({ alerts }: Props) {
 	//
 
 	//
@@ -37,13 +38,15 @@ export default function Component({ alerts }: Props) {
 	}));
 
 	return (
-		<Section withGap>
-			<div className={styles.headingWrapper}>
-				<IconBellRingingFilled size={20} />
-				{t('heading')}
-			</div>
-			<Carousel slides={carouselSlides} />
-		</Section>
+		// <Surface variant="alerts">
+		// 	<Section withGap>
+		// 		<div className={styles.headingWrapper}>
+		// 			<IconBellRingingFilled size={20} />
+		// 			{t('heading')}
+		// 		</div>
+		<Carousel slides={carouselSlides} />
+		// 	</Section>
+		// </Surface>
 	);
 
 	//

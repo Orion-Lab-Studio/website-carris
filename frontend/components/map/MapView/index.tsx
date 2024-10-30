@@ -31,7 +31,6 @@ const MAP_LOAD_ASSETS = [
 export type MapStyle = 'map' | 'satellite';
 
 interface Props {
-	centerLayer?: string
 	children: React.ReactNode
 	fullscreen?: boolean
 	geolocate?: boolean
@@ -48,6 +47,7 @@ interface Props {
 	onMove?: (arg0) => void
 	onMoveEnd?: (arg0) => void
 	onMoveStart?: (arg0) => void
+	primarySourceId?: string
 	scale?: boolean
 	scrollZoom?: boolean
 	toolbar?: boolean
@@ -56,7 +56,6 @@ interface Props {
 /* * */
 
 export function MapView({
-	centerLayer,
 	children,
 	fullscreen = true,
 	geolocate = true,
@@ -71,6 +70,7 @@ export function MapView({
 	onMouseOver,
 	onMoveEnd,
 	onMoveStart,
+	primarySourceId,
 	scale = false,
 	scrollZoom = true,
 	toolbar = true,
@@ -135,7 +135,7 @@ export function MapView({
 	// C. Render components
 	return (
 		<div className={styles.container}>
-			{toolbar && <MapViewToolbar centerLayer={centerLayer} className={styles.toolbar} />}
+			{toolbar && <MapViewToolbar className={styles.toolbar} primarySourceId={primarySourceId} />}
 			<Map
 				attributionControl={false}
 				cursor={cursor}

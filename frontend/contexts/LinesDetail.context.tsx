@@ -2,7 +2,7 @@
 
 /* * */
 
-import type { Alert, SimplifiedAlert } from '@/types/alerts.types';
+import type { SimplifiedAlert } from '@/types/alerts.types';
 import type { Line, Pattern, PatternGroup, Route, Shape } from '@/types/lines.types.js';
 import type { DemandMetrics } from '@/types/metrics.types';
 import type { Stop } from '@/types/stops.types';
@@ -11,12 +11,12 @@ import { useLinesContext } from '@/contexts/Lines.context';
 import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import { ServiceMetrics } from '@/types/metrics.types';
-import convertToSimplifiedAlert from '@/utils/convertToSimplifiedAlert';
 import { Routes } from '@/utils/routes';
 import { useQueryState } from 'nuqs';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 import useSWR from 'swr';
 
+import { useAlertsContext } from './Alerts.context';
 import { useStopsContext } from './Stops.context';
 
 /* * */
@@ -78,6 +78,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 
 	const linesContext = useLinesContext();
 	const stopsContext = useStopsContext();
+	const alertsContext = useAlertsContext();
 	const profileContext = useProfileContext();
 	const operationalDayContext = useOperationalDayContext();
 
@@ -103,13 +104,11 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 	//
 	// B. Fetch data
 
-	const { data: allAlertsData, isLoading: allAlertsLoading } = useSWR<Alert[], Error>(`${Routes.API}/alerts`);
 	const { data: allDemandByLineData } = useSWR<DemandMetrics[], Error>(`${Routes.API}/metrics/demand/by_line`);
 
 	const dataLineState = useMemo<Line | undefined>(() => {
 		const lineData = linesContext.actions.getLineDataById(lineId);
 		const serviceMetrics = linesContext.actions.getServiceMetricsByLineId(lineId);
-		console.log('serviceMetrics', lineId, serviceMetrics);
 		setDataServiceMetricsState(serviceMetrics);
 		if (!lineData) return;
 		else return lineData;
@@ -217,18 +216,19 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 	}, [dataAllPatternsState, operationalDayContext.data.selected_day]);
 
 	useEffect(() => {
-		if (!allAlertsData) return;
-		const simplifiedAlerts = allAlertsData.map(alertData => convertToSimplifiedAlert(alertData));
-		const activeAlerts = simplifiedAlerts.filter((simplifiedAlertData) => {
+		if (!alertsContext.data.simplified) return;
+		const activeAlerts = alertsContext.data.simplified.filter((simplifiedAlertData) => {
 			return simplifiedAlertData.informed_entity.some((informedEntity) => {
-				if (!dataLineState || !informedEntity.routeId) return false;
-				const hasMatchingRoute = dataLineState.route_ids.includes(informedEntity.routeId);
-				const isActive = simplifiedAlertData.start_date <= new Date() && simplifiedAlertData.end_date >= new Date();
+				// Skip if no routeId and no stopId in line
+				if (!informedEntity.routeId && !informedEntity.stopId) return false;
+				// Check if the alert is active and has a matching route
+				const hasMatchingRoute = dataLineState?.route_ids.includes(informedEntity.routeId || '');
+				const isActive = simplifiedAlertData.end_date ? simplifiedAlertData.end_date >= new Date() : true;
 				return hasMatchingRoute && isActive;
 			});
 		});
 		setDataActiveAlertsState(activeAlerts);
-	}, [allAlertsData, lineId]);
+	}, [alertsContext.data.simplified, lineId]);
 
 	useEffect(() => {
 		if (!allDemandByLineData) return;
@@ -322,7 +322,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 		},
 		flags: {
 			is_favorite: flagIsFavoriteState,
-			is_loading: linesContext.flags.is_loading || stopsContext.flags.is_loading || dataRoutesState === null || dataAllPatternsState === null || allAlertsLoading,
+			is_loading: linesContext.flags.is_loading || stopsContext.flags.is_loading || dataRoutesState === null || dataAllPatternsState === null,
 		},
 	};
 

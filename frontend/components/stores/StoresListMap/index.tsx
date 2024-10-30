@@ -55,10 +55,13 @@ export default function Component() {
 	useEffect(() => {
 		if (!allStoresFeatureCollection || !storesListMap || mapisLoaded) return;
 		const boundingBox = turf.bbox(allStoresFeatureCollection);
-		storesListMap.fitBounds([
-			[boundingBox[2], boundingBox[3]],
-			[boundingBox[0], boundingBox[1]],
-		]);
+		storesListMap.fitBounds(
+			[
+				[boundingBox[0], boundingBox[1]],
+				[boundingBox[2], boundingBox[3]],
+			],
+			{ padding: 50 },
+		);
 		setMapisLoaded(true);
 	}, [allStoresFeatureCollection, storesListMap, mapisLoaded]);
 
@@ -77,10 +80,10 @@ export default function Component() {
 
 	return (
 		<MapView
-			centerLayer="stores"
 			id="storesListMap"
 			interactiveLayerIds={['stores-base']}
 			onClick={handleMapClick}
+			primarySourceId="stores"
 		>
 			{allStoresFeatureCollection && (
 				<Source data={allStoresFeatureCollection} id="stores" type="geojson">

@@ -137,7 +137,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		const fetchData = async () => {
 			try {
 				if (!dataActiveStopIdState) return;
-				const realtimeData = await fetch(`${Routes.API}/stops/${dataActiveStopIdState}/realtime`)
+				const realtimeData = await fetch(`${Routes.API}/arrivals/by_stop/${dataActiveStopIdState}`)
 					.then((response) => {
 						if (!response.ok) console.log(`Failed to fetch realtime data for stopId: ${dataActiveStopIdState}`);
 						else return response.json();

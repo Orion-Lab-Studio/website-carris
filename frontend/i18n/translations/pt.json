@@ -619,6 +619,9 @@
 		}
 	},
 	"home": {
+		"AlertsSection": {
+			"section_heading": "Alertas em Destaque"
+		},
 		"MainCarouselCard": {
 			"learn_more": "Saber mais"
 		},
@@ -667,6 +670,9 @@
 		"LinesDetail": {
 			"heading": "Pesquisar Linhas",
 			"toggle_favorite_error": "Erro ao adicionar a linha aos favoritos. {error}"
+		},
+		"LinesDetailAlerts": {
+			"heading": "Alertas ativos para esta linha"
 		},
 		"LinesDetailMetrics": {
 			"demand": {

@@ -68,9 +68,8 @@ export function SelectPattern({ date_filter, onChange, patterns, value, ...props
 		if (pattern.path.length === 0) return null;
 
 		return (
-			<Group gap={2}>
+			<Group key={option.value} gap={2}>
 				<Flex direction="column">
-					{/* Route Long Name */}
 					<Flex align="center" gap={5}>
 						<Text fw="bold">{pattern.headsign}</Text>
 						{debugContext.flags.is_debug_mode && <Text c="gray" size="xs">({pattern.id})</Text>}
@@ -84,14 +83,16 @@ export function SelectPattern({ date_filter, onChange, patterns, value, ...props
 	const renderSelectRoot = (props) => {
 		const pattern = patterns.find(pattern => pattern.pattern_version_id === value);
 
-		if (!pattern) return (
-			<div {...props}>
-				<Text c="gray">Select a pattern</Text>
-			</div>
-		);
+		if (!pattern) {
+			return (
+				<div {...props} key="usdhi">
+					<Text c="gray">Select a pattern</Text>
+				</div>
+			);
+		}
 
 		return (
-			<div {...props}>
+			<div {...props} key={pattern.pattern_version_id}>
 				<Flex align="center" gap={5}>
 					<Text fw="bold">{pattern.headsign}</Text>
 					{debugContext.flags.is_debug_mode && <Text c="gray" size="xs">{pattern.id}</Text>}

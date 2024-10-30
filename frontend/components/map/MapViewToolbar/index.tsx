@@ -10,11 +10,11 @@ import { useTranslations } from 'next-intl';
 import styles from './styles.module.css';
 
 interface Props {
-	centerLayer?: string
 	className?: string
+	primarySourceId?: string
 }
 
-export function MapViewToolbar({ centerLayer, className }: Props) {
+export function MapViewToolbar({ className, primarySourceId }: Props) {
 	//
 	// A. Setup variables
 	const mapOptionsContext = useMapOptionsContext();
@@ -38,7 +38,7 @@ export function MapViewToolbar({ centerLayer, className }: Props) {
 	};
 
 	const handleCenterMap = () => {
-		mapOptionsContext.actions.centerMap(centerLayer);
+		mapOptionsContext.actions.centerMap(primarySourceId);
 	};
 
 	//
