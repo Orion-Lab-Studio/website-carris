@@ -1,8 +1,9 @@
 /* * */
 
-import LineBadge from '@/components/lines/LineBadge';
-import LineName from '@/components/lines/LineName';
-import { Line } from '@/types/lines.types';
+import type { Line } from '@carrismetropolitana/api-types/network';
+
+import { LineBadge } from '@/components/lines/LineBadge';
+import { LineName } from '@/components/lines/LineName';
 import { Skeleton } from '@mantine/core';
 
 import styles from './styles.module.css';
@@ -11,7 +12,7 @@ import styles from './styles.module.css';
 
 interface Props {
 	color?: string
-	line?: Line
+	lineData?: Line
 	longName?: string
 	shortName?: string
 	size?: 'lg' | 'md'
@@ -21,14 +22,14 @@ interface Props {
 
 /* * */
 
-export default function Component({ color, line, longName, shortName, size = 'md', textColor, width = 200 }: Props) {
-//
+export function LineDisplay({ color, lineData, longName, shortName, size = 'md', textColor, width = 200 }: Props) {
+	//
 
-	if (line) {
+	if (lineData) {
 		return (
 			<div className={styles.container}>
-				<LineBadge color={line.color} shortName={line.short_name} size={size} textColor={line.text_color} />
-				<LineName longName={line.long_name} />
+				<LineBadge color={lineData.color} shortName={lineData.short_name} size={size} textColor={lineData.text_color} />
+				<LineName longName={lineData.long_name} />
 			</div>
 		);
 	}
@@ -48,4 +49,6 @@ export default function Component({ color, line, longName, shortName, size = 'md
 			<Skeleton height={24} width={width} />
 		</div>
 	);
+
+	//
 }

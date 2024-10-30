@@ -15,7 +15,7 @@ import { useMap } from 'react-map-gl/maplibre';
 
 /* * */
 
-export default function Component() {
+export function LinesDetailPathMap() {
 	//
 
 	//
@@ -28,7 +28,7 @@ export default function Component() {
 	const { linesSingleMap } = useMap();
 
 	//
-	// C. Transform Data
+	// B. Transform Data
 
 	// Move map to selected stop
 	useEffect(() => {
@@ -43,7 +43,7 @@ export default function Component() {
 	}, [linesDetailContext.data.active_stop, linesSingleMap]);
 
 	//
-	// D. Handle Actions
+	// C. Handle Actions
 
 	function handleLayerClick(event) {
 		if (!linesSingleMap) return;
@@ -61,7 +61,7 @@ export default function Component() {
 	}
 
 	//
-	// E. Memoized GeoJSON Data
+	// D. Memoized GeoJSON Data
 
 	const activeVehiclesGeojson = useMemo(() => {
 		if (!linesDetailContext.data.active_pattern_group?.id) return;
@@ -109,7 +109,7 @@ export default function Component() {
 		>
 
 			<MapViewStylePath
-				shapesData={linesDetailContext.data.active_shape?.geojson}
+				shapeData={linesDetailContext.data.active_shape?.geojson}
 				stopsData={activePathStopsGeoJson}
 			/>
 

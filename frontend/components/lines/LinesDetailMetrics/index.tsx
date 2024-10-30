@@ -3,21 +3,22 @@
 /* * */
 
 import { Grid } from '@/components/layout/Grid';
+import LinesDetailMetricsDemand from '@/components/lines/LinesDetailMetricsDemand';
+import LinesDetailMetricsService from '@/components/lines/LinesDetailMetricsService';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
-
-import LinesDetailMetricsDemand from '../LinesDetailMetricsDemand';
-import LinesDetailMetricsService from '../LinesDetailMetricsService';
 
 /* * */
 
-export default function Component() {
+export function LinesDetailMetrics() {
 	//
 
 	//
 	// A. Setup variables
+
 	const linesDetailContext = useLinesDetailContext();
+
 	//
-	// C. Render components
+	// B. Render components
 
 	if (!linesDetailContext.data.line || !linesDetailContext.data.demand) {
 		return null;
@@ -28,7 +29,6 @@ export default function Component() {
 			<LinesDetailMetricsService />
 			<LinesDetailMetricsDemand />
 		</Grid>
-
 	);
 
 	//

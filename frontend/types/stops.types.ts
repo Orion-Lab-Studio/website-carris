@@ -1,32 +1,5 @@
 /* * */
 
-export interface Stop {
-	current_status: string
-	district_id: string
-	district_name: string
-	facilities: Facility[]
-	id: string
-	lat: number
-	lines: string[]
-	locality: string
-	lon: number
-	municipality_id: string
-	municipality_name: string
-	operational_status: OperationalStatus
-	parish_id: null
-	parish_name: null
-	patterns: string[]
-	region_id: string
-	region_name: string
-	routes: string[]
-	short_name: string
-	stop_name: string
-	tts_name: string
-	wheelchair_boarding: string
-};
-
-/* * */
-
 export enum Facility {
 	AIRPORT = 'airport',
 	BIKE_PARKING = 'bike_parking',

@@ -2,9 +2,9 @@
 
 /* * */
 
-import type { Line } from '@/types/lines.types.js';
+import type { Line } from '@carrismetropolitana/api-types/network';
 
-import LineDisplay from '@/components/lines/LineDisplay';
+import { LineDisplay } from '@/components/lines/LineDisplay';
 import { createDocCollection } from '@/hooks/useOtherSearch';
 import { ActionIcon, Combobox, Group, TextInput, useCombobox } from '@mantine/core';
 import { useDebouncedValue } from '@mantine/hooks';
@@ -44,7 +44,7 @@ export function SelectLine({ data = [], label, nothingFound, onSelectLineId, pla
 
 	const { search } = useMemo(() => createDocCollection(data.map(d => ({ boost: false, ...d })), {
 		id: 2,
-		localities: 1,
+		locality_ids: 1,
 		long_name: 1,
 		short_name: 1,
 	}), [data]);
@@ -106,7 +106,7 @@ export function SelectLine({ data = [], label, nothingFound, onSelectLineId, pla
 								<IconArrowLoopRight size={20} />
 							</div>
 							<div className={styles.comboboxTargetInput}>
-								<LineDisplay line={selectedLineData} />
+								<LineDisplay lineData={selectedLineData} />
 							</div>
 							<div className={styles.comboboxTargetSection} data-position="right">
 								<ActionIcon color="gray" onClick={handleClearSearchField} size="md" variant="subtle">
@@ -150,7 +150,7 @@ export function SelectLine({ data = [], label, nothingFound, onSelectLineId, pla
 						: allLinesDataFilteredBySearchQuery.map(item => (
 							<Combobox.Option key={item.id} className={item.id === selectedLineData?.id ? styles.selected : ''} value={item.id}>
 								<div className={styles.comboboxOption}>
-									<LineDisplay line={item} />
+									<LineDisplay lineData={item} />
 								</div>
 							</Combobox.Option>
 						),

@@ -5,16 +5,16 @@ import styles from './styles.module.css';
 /* * */
 
 interface Props {
+	longName?: string
 	size?: 'lg' | 'md'
-	stopName?: string
 }
 
 /* * */
 
-export function StopDisplayName({ size = 'md', stopName }: Props) {
-	return stopName && (
+export function StopDisplayName({ longName, size = 'md' }: Props) {
+	return longName && (
 		<span className={`${styles.name} ${styles[size]}`}>
-			{stopName}
+			{longName}
 		</span>
 	);
 }

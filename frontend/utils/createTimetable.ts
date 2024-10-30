@@ -1,7 +1,8 @@
 /* * */
 
-import type { PatternGroup, Route } from '@/types/lines.types';
+import type { PatternGroup } from '@/types/lines.types';
 import type { Timetable } from '@/types/timetables.types';
+import type { Route } from '@carrismetropolitana/api-types/network';
 
 /* * */
 

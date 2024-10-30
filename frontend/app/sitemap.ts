@@ -1,8 +1,7 @@
 /* * */
 
-import { Line } from '@/types/lines.types';
-import { Stop } from '@/types/stops.types';
 import { Routes } from '@/utils/routes';
+import { Line, Stop } from '@carrismetropolitana/api-types/network';
 
 /* * */
 

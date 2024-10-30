@@ -1,9 +1,10 @@
 /* * */
 
-import type { Stop } from '@/types/stops.types';
+import type { Waypoint } from '@carrismetropolitana/api-types/network';
 
 import { IconDisplay } from '@/components/common/IconDisplay';
-import { formatStopLocation } from '@/utils/formatStopLocation';
+import { useLocationsContext } from '@/contexts/Locations.context';
+import { useStopsContext } from '@/contexts/Stops.context';
 import { useClipboard } from '@mantine/hooks';
 import { IconCheck, IconCopy } from '@tabler/icons-react';
 
@@ -15,40 +16,49 @@ interface Props {
 	isFirstStop?: boolean
 	isLastStop?: boolean
 	isSelected: boolean
-	stopData: Stop
+	waypointData: Waypoint
 }
 
 /* * */
 
-export default function SingleStop({ isFirstStop, isLastStop, isSelected, stopData }: Props) {
+export function PathWaypointHeader({ isFirstStop, isLastStop, isSelected, waypointData }: Props) {
 	//
 
 	//
 	// A. Setup variables
 
+	const stopsContext = useStopsContext();
+	const locationsContext = useLocationsContext();
+
 	const stopIdClipboard = useClipboard();
 
 	//
-	// B. Transform data
+	// B. Fetch data
 
-	const stopLocation = formatStopLocation(stopData.locality, stopData.municipality_name);
+	const stopData = stopsContext.actions.getStopById(waypointData.stop_id);
+	const localityData = stopData?.locality_id ? locationsContext.actions.getLocalityById(stopData.locality_id) : undefined;
+	const municipalityData = stopData?.municipality_id ? locationsContext.actions.getMunicipalityById(stopData.municipality_id) : undefined;
 
 	//
 	// C. Handle actions
 
 	const handleClickStopId = () => {
 		if (!isSelected) return;
-		stopIdClipboard.copy(stopData.id);
+		stopIdClipboard.copy(waypointData.stop_id);
 	};
 
 	//
 	// D. Render components
 
+	if (!stopData) {
+		return null;
+	}
+
 	return (
 		<div className={`${styles.container} ${isFirstStop && styles.isFirstStop} ${isLastStop && styles.isLastStop} ${isSelected && styles.isSelected}`}>
-			<p className={styles.stopName}>{stopData.stop_name}</p>
+			<p className={styles.stopName}>{stopData.long_name}</p>
 			<div className={styles.subHeaderWrapper}>
-				<p className={styles.stopLocation}>{stopLocation}</p>
+				<p className={styles.stopLocation}>{localityData?.display || municipalityData?.name}</p>
 				<p className={`${styles.stopId} ${stopIdClipboard.copied && styles.isCopied}`} onClick={handleClickStopId}>
 					#{stopData.id}
 					{stopIdClipboard.copied ? <IconCheck className={styles.stopIdCopyIcon} /> : <IconCopy className={styles.stopIdCopyIcon} />}

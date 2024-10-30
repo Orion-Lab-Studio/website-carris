@@ -3,8 +3,9 @@
 /* * */
 
 import type { SimplifiedAlert } from '@/types/alerts.types';
-import type { Line, Pattern, PatternGroup, Shape } from '@/types/lines.types';
-import type { Arrival, Stop } from '@/types/stops.types';
+import type { Pattern, PatternGroup } from '@/types/lines.types';
+import type { Arrival } from '@/types/stops.types';
+import type { Line, Shape, Stop } from '@carrismetropolitana/api-types/network';
 
 import { useAlertsContext } from '@/contexts/Alerts.context';
 import { useLinesContext } from '@/contexts/Lines.context';
@@ -122,7 +123,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 	 */
 	useEffect(() => {
 		if (!dataStopState) return;
-		const linesData = dataStopState.lines
+		const linesData = dataStopState.line_ids
 			.map(lineId => linesContext.actions.getLineDataById(lineId))
 			.filter(lineData => lineData !== undefined);
 		setDataLinesState(linesData);
@@ -164,7 +165,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		if (!dataStopState) return;
 		(async () => {
 			try {
-				const patternsData = await Promise.all(dataStopState.patterns.map((patternId) => {
+				const patternsData = await Promise.all(dataStopState.pattern_ids.map((patternId) => {
 					return fetch(`${Routes.API}/patterns/${patternId}`).then((response) => {
 						if (!response.ok) console.log(`Failed to fetch pattern data for patternId: ${patternId}`);
 						else return response.json();
@@ -305,7 +306,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 			return simplifiedAlertData.informed_entity.some((informedEntity) => {
 				if (!informedEntity.stopId || !informedEntity.routeId) return false;
 				const hasMatchingStop = informedEntity.stopId === dataActiveStopIdState;
-				const hasMatchingRoute = dataStopState?.routes.includes(informedEntity.routeId);
+				const hasMatchingRoute = dataStopState?.route_ids.includes(informedEntity.routeId);
 				const isActive = simplifiedAlertData.start_date <= new Date() && simplifiedAlertData.end_date >= new Date();
 				return (hasMatchingStop || hasMatchingRoute) && isActive;
 			});

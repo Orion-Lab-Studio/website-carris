@@ -1,35 +1,55 @@
+'use client';
+
 /* * */
 
-import { formatStopLocation } from '@/utils/formatStopLocation';
+import { useLocationsContext } from '@/contexts/Locations.context';
 
 import styles from './styles.module.css';
 
 /* * */
 
 interface Props {
-	locality?: string
-	municipalityName?: string
+	localityId?: string
+	municipalityId?: string
 	size?: 'lg' | 'md'
 }
 
 /* * */
 
-export function StopDisplayLocation({ locality, municipalityName, size = 'md' }: Props) {
+export function StopDisplayLocation({ localityId, municipalityId, size = 'md' }: Props) {
 	//
 
 	//
 	// A. Setup variables
 
-	const formattedStopLocation = formatStopLocation(locality, municipalityName);
+	const locationsContext = useLocationsContext();
 
 	//
-	// B. Render components
+	// B. Fetch data
 
-	return formattedStopLocation && (
-		<p className={`${styles.location} ${styles[size]}`}>
-			{formattedStopLocation}
-		</p>
-	);
+	const localityData = localityId && locationsContext.actions.getLocalityById(localityId);
+	const municipalityData = municipalityId && locationsContext.actions.getMunicipalityById(municipalityId);
+
+	//
+	// C. Render components
+
+	if (localityData) {
+		return (
+			<p className={`${styles.location} ${styles[size]}`}>
+				{localityData.display}
+			</p>
+		);
+	}
+
+	if (municipalityData) {
+		return (
+			<p className={`${styles.location} ${styles[size]}`}>
+				{municipalityData.name}
+			</p>
+		);
+	}
+
+	return null;
 
 	//
 }

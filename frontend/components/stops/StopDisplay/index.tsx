@@ -1,8 +1,7 @@
 /* * */
 
-import type { Stop } from '@/types/stops.types';
+import type { Stop } from '@carrismetropolitana/api-types/network';
 
-// import { formatStopLocation } from '@/utils/formatStopLocation';
 import { Skeleton } from '@mantine/core';
 
 import { StopDisplayLocation } from '../StopDisplayLocation';
@@ -13,23 +12,23 @@ import styles from './styles.module.css';
 
 interface Props {
 	size?: 'lg' | 'md'
-	stop?: Stop
-	width?: number
+	skeletonWidth?: number
+	stopData?: Stop
 }
 
 /* * */
 
-export function StopDisplay({ size = 'md', stop, width = 200 }: Props) {
-	return stop
+export function StopDisplay({ size = 'md', skeletonWidth = 200, stopData }: Props) {
+	return stopData
 		? (
 			<div className={`${styles.container} ${styles[size]}`}>
-				<StopDisplayName stopName={stop.stop_name} />
-				<StopDisplayLocation locality={stop?.locality} municipalityName={stop?.municipality_name} />
+				<StopDisplayName longName={stopData.long_name} />
+				<StopDisplayLocation localityId={stopData.locality_id} municipalityId={stopData.municipality_id} />
 			</div>
 		)
 		: (
 			<div className={styles.container}>
-				<Skeleton height={24} width={width} />
+				<Skeleton height={24} width={skeletonWidth} />
 			</div>
 		);
 }

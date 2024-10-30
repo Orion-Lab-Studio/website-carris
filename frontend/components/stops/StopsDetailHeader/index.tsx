@@ -7,7 +7,7 @@ import FavoriteToggle from '@/components/common/FavoriteToggle';
 import { IconDisplay } from '@/components/common/IconDisplay';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import LineBadge from '@/components/lines/LineBadge';
+import { LineBadge } from '@/components/lines/LineBadge';
 import { StopDisplayLocation } from '@/components/stops/StopDisplayLocation';
 import { StopDisplayName } from '@/components/stops/StopDisplayName';
 import { StopDisplayTts } from '@/components/stops/StopDisplayTts';
@@ -67,11 +67,11 @@ export function StopsDetailHeader() {
 
 				<div className={styles.headingWrapper}>
 					<div className={styles.nameWrapper}>
-						<StopDisplayName size="lg" stopName={stopsDetailContext.data.stop.stop_name} />
+						<StopDisplayName longName={stopsDetailContext.data.stop.long_name} size="lg" />
 						<StopDisplayTts stopId={stopsDetailContext.data.stop.id} />
 						<FavoriteToggle color="var(--color-brand)" isActive={stopsDetailContext.flags.is_favorite} onToggle={handleToggleFavorite} />
 					</div>
-					<StopDisplayLocation locality={stopsDetailContext.data.stop.locality} municipalityName={stopsDetailContext.data.stop.municipality_name} size="lg" />
+					<StopDisplayLocation localityId={stopsDetailContext.data.stop.locality_id} municipalityId={stopsDetailContext.data.stop.municipality_id} size="lg" />
 				</div>
 
 			</Section>
@@ -80,8 +80,8 @@ export function StopsDetailHeader() {
 				<div className={styles.iconsWrapper}>
 					{stopsDetailContext.data.stop.facilities && (
 						<>
-							{stopsDetailContext.data.stop.facilities.map(facility => (
-								<div className={styles.iconFacilityWrapper}>
+							{stopsDetailContext.data.stop.facilities.map((facility, index) => (
+								<div key={index} className={styles.iconFacilityWrapper}>
 									<IconDisplay key={facility} category="facilities" name={facility} />
 								</div>
 							))}
@@ -90,7 +90,7 @@ export function StopsDetailHeader() {
 					)}
 					{stopsDetailContext.data.lines && stopsDetailContext.data.lines.map(line => (
 						<div className={styles.iconLineBadgeWrapper}>
-							<LineBadge key={line.id} line={line} />
+							<LineBadge key={line.id} lineData={line} />
 						</div>
 					))}
 				</div>

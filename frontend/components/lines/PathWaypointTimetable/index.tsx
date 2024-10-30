@@ -3,7 +3,6 @@
 import Timetable from '@/components/common/Timetable';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
-// import { useProfileContext } from '@/contexts/Profile.context';
 import createTimetable from '@/utils/createTimetable';
 import { DateTime } from 'luxon';
 import { useTranslations } from 'next-intl';
@@ -13,7 +12,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component() {
+export function PathWaypointTimetable() {
 	//
 
 	//

@@ -2,7 +2,7 @@
 
 /* * */
 
-import type { Stop } from '@/types/stops.types';
+import type { Stop } from '@carrismetropolitana/api-types/network';
 
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import { Routes } from '@/utils/routes';
@@ -108,11 +108,11 @@ export function transformStopDataIntoGeoJsonFeature(stopData: Stop): GeoJSON.Fea
 			type: 'Point',
 		},
 		properties: {
-			current_status: stopData.current_status,
+			current_status: stopData.operational_status,
 			id: stopData.id,
 			lat: stopData.lat,
 			lon: stopData.lon,
-			name: stopData.stop_name,
+			long_name: stopData.long_name,
 		},
 		type: 'Feature',
 	};

@@ -2,7 +2,7 @@
 
 /* * */
 
-import type { Line } from '@/types/lines.types.js';
+import type { Line } from '@carrismetropolitana/api-types/network';
 
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useProfileContext } from '@/contexts/Profile.context';
@@ -114,7 +114,7 @@ export const LinesListContextProvider = ({ children }) => {
 			const boostedData = filterResult.map(line => ({ ...line, boost: profileContext.data.profile?.favorite_lines?.includes(line.id) ? true : false }));
 			const searchHook = createDocCollection(boostedData, {
 				id: 4,
-				localities: 1,
+				locality_ids: 1,
 				long_name: 2,
 				short_name: 4,
 				tts_name: 3,

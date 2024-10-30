@@ -2,7 +2,7 @@
 
 /* * */
 
-import type { Line, Route } from '@/types/lines.types.js';
+import type { Line, Route } from '@carrismetropolitana/api-types/network';
 
 import { ServiceMetrics } from '@/types/metrics.types';
 import { Routes } from '@/utils/routes';

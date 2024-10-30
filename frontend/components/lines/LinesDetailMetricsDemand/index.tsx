@@ -1,3 +1,5 @@
+/* * */
+
 import LiveIcon from '@/components/common/LiveIcon';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
@@ -5,13 +7,18 @@ import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { LineChart } from '@mantine/charts';
 import { DateTime } from 'luxon';
 import { useTranslations } from 'next-intl';
-import React, { useMemo } from 'react';
+import { useMemo } from 'react';
 
 import styles from './styles.module.css';
 
-export default function DemandMetrics() {
+/* * */
+
+export function LinesDetailMetricsDemand() {
 	//
-	// A. Define Variables
+
+	//
+	// A. Setup variables
+
 	const t = useTranslations('lines.LinesDetailMetrics');
 	const linesDetailContext = useLinesDetailContext();
 
@@ -98,4 +105,6 @@ export default function DemandMetrics() {
 			</Section>
 		</Surface>
 	);
+
+	//
 };

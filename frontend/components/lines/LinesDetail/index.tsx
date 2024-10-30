@@ -7,7 +7,7 @@ import LinesDetailPath from '@/components/lines/LinesDetailPath';
 
 /* * */
 
-export default function Component() {
+export function LinesDetail() {
 	return (
 		<>
 			<LinesDetailHeader />

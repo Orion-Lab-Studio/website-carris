@@ -2,7 +2,7 @@
 
 /* * */
 
-import PathStop from '@/components/lines/PathStop';
+import { PathWaypoint } from '@/components/lines/PathWaypoint';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { Routes } from '@/utils/routes';
 import { PatternRealtime } from '@/utils/types';
@@ -13,7 +13,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component() {
+export function LinesDetailPathList() {
 	//
 
 	//
@@ -67,15 +67,15 @@ export default function Component() {
 
 	return (
 		<div className={styles.container}>
-			{sortedStops.map((path, index) => (
-				<PathStop
-					key={`${path.stop_id}-${path.stop_sequence}`}
-					arrivals={nextArrivalsPerStop[path.stop_id] || []}
-					id={`stop-${path.stop_sequence}`}
+			{sortedStops.map((waypoint, index) => (
+				<PathWaypoint
+					key={`${waypoint.stop_id}-${waypoint.stop_sequence}`}
+					arrivals={nextArrivalsPerStop[waypoint.stop_id] || []}
+					id={`stop-${waypoint.stop_sequence}`}
 					isFirstStop={index === 0}
 					isLastStop={index === sortedStops.length - 1}
-					isSelected={linesDetailContext.data.active_stop?.sequence === path.stop_sequence}
-					path={path}
+					isSelected={linesDetailContext.data.active_stop?.sequence === waypoint.stop_sequence}
+					waypointData={waypoint}
 				/>
 			))}
 		</div>

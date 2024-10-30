@@ -20,7 +20,7 @@ interface Props {
 
 /* * */
 
-export default function Component({ backgroundColor, foregroundColor, isFirstStop, isLastStop, isSelected, stopId }: Props) {
+export function PathWaypointSpine({ backgroundColor, foregroundColor, isFirstStop, isLastStop, isSelected, stopId }: Props) {
 	//
 
 	//

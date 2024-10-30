@@ -2,10 +2,10 @@
 
 /* * */
 
-import type { Line } from '@/types/lines.types';
+import type { Line } from '@carrismetropolitana/api-types/network';
 
 import Loader from '@/components/common/Loader';
-import LineBadge from '@/components/lines/LineBadge';
+import { LineBadge } from '@/components/lines/LineBadge';
 import { useAlertsContext } from '@/contexts/Alerts.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import { Link, useRouter } from '@/i18n/routing';
@@ -92,7 +92,7 @@ export function QuickSearchFavoritesBar() {
 			{favoriteLinesData.slice(0, DISPLAY_LIMIT).map(favoriteLine => (
 				<LineBadge
 					key={favoriteLine.data.id}
-					line={favoriteLine.data}
+					lineData={favoriteLine.data}
 					onClick={() => handleClick(favoriteLine.data.id)}
 					withAlertIcon={favoriteLine.has_alert}
 				/>

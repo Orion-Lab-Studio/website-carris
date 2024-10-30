@@ -1,6 +1,10 @@
+/* * */
+
 import { Pattern, PatternGroup } from '@/types/lines.types';
 import { Routes } from '@/utils/routes';
 import { useState } from 'react';
+
+/* * */
 
 export interface UseLinePatterns {
 	error: boolean

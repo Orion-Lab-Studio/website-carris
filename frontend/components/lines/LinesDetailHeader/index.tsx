@@ -6,7 +6,7 @@ import FavoriteToggle from '@/components/common/FavoriteToggle';
 import { SelectOperationalDay } from '@/components/common/SelectOperationalDay';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import LineBadge from '@/components/lines/LineBadge';
+import { LineBadge } from '@/components/lines/LineBadge';
 import SelectActivePatternGroup from '@/components/lines/SelectActivePatternGroup';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { useProfileContext } from '@/contexts/Profile.context';
@@ -17,7 +17,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component() {
+export function LinesDetailHeader() {
 	//
 
 	//
@@ -53,7 +53,7 @@ export default function Component() {
 			<Section withBottomDivider withPadding>
 				<div className={styles.headingSection}>
 					<div className={styles.headingSectionRow}>
-						<LineBadge line={linesDetailContext.data.line} size="lg" />
+						<LineBadge lineData={linesDetailContext.data.line} size="lg" />
 						<FavoriteToggle color={linesDetailContext.data.line.color} isActive={linesDetailContext.flags.is_favorite} onToggle={handleToggleFavorite} />
 					</div>
 					<div className={styles.lineName}>

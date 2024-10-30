@@ -3,9 +3,9 @@
 /* * */
 
 import type { SimplifiedAlert } from '@/types/alerts.types';
-import type { Line, Pattern, PatternGroup, Route, Shape } from '@/types/lines.types.js';
+import type { Pattern, PatternGroup } from '@/types/lines.types.js';
 import type { DemandMetrics } from '@/types/metrics.types';
-import type { Stop } from '@/types/stops.types';
+import type { Line, Route, Shape, Stop } from '@carrismetropolitana/api-types/network';
 
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useOperationalDayContext } from '@/contexts/OperationalDay.context';

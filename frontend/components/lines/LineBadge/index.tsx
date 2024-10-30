@@ -1,6 +1,6 @@
 /* * */
 
-import type { Line } from '@/types/lines.types';
+import type { Line } from '@carrismetropolitana/api-types/network';
 
 import { IconInfoTriangleFilled } from '@tabler/icons-react';
 import classNames from 'classnames/bind';
@@ -11,7 +11,7 @@ import styles from './styles.module.css';
 
 interface Props {
 	color?: string
-	line?: Line
+	lineData?: Line
 	onClick?: () => void
 	shortName?: string
 	size?: 'lg' | 'md'
@@ -25,14 +25,14 @@ const cx = classNames.bind(styles);
 
 /* * */
 
-export default function LineBadge({ color = '#000', line, onClick, shortName = '• • •', size = 'md', textColor = '#fff', withAlertIcon = false }: Props) {
+export function LineBadge({ color = '#000', lineData, onClick, shortName = '• • •', size = 'md', textColor = '#fff', withAlertIcon = false }: Props) {
 	return (
 		<div
 			className={cx({ badge: true, clickable: !!onClick, lg: size === 'lg', md: size === 'md' })}
 			onClick={onClick}
-			style={{ backgroundColor: line?.color || color, color: line?.text_color || textColor }}
+			style={{ backgroundColor: lineData?.color || color, color: lineData?.text_color || textColor }}
 		>
-			{line?.short_name || shortName}
+			{lineData?.short_name || shortName}
 			{withAlertIcon && (
 				<div className={styles.alertIcon}>
 					<IconInfoTriangleFilled size={12} />

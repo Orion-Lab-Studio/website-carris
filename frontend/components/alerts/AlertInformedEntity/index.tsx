@@ -2,10 +2,9 @@
 
 /* * */
 
-import type { Line } from '@/types/lines.types';
-import type { Stop } from '@/types/stops.types';
+import type { Line, Stop } from '@carrismetropolitana/api-types/network';
 
-import LineBadge from '@/components/lines/LineBadge';
+import { LineBadge } from '@/components/lines/LineBadge';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useStopsContext } from '@/contexts/Stops.context';
 import { useRouter } from '@/i18n/routing';
@@ -54,13 +53,13 @@ export default function Component({ lineId, stopId }: Props) {
 
 	if (lineId && lineData) {
 		return (
-			<LineBadge line={lineData} onClick={handleLineBadgeClick} />
+			<LineBadge lineData={lineData} onClick={handleLineBadgeClick} />
 		);
 	}
 
 	if (stopId && stopData) {
 		return (
-			<p>{stopData.stop_name}</p>
+			<p>{stopData.long_name}</p>
 		);
 	}
 

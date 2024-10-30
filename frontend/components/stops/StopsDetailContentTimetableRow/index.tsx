@@ -1,7 +1,7 @@
 /* * */
 
 import { NextArrivals } from '@/components/common/NextArrivals';
-import LineDisplay from '@/components/lines/LineDisplay';
+import { LineDisplay } from '@/components/lines/LineDisplay';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 import { Arrival, ArrivalStatus } from '@/types/stops.types';
 import { useTranslations } from 'next-intl';

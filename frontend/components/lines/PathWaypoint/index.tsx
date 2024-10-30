@@ -1,11 +1,11 @@
 /* * */
 
-import type { Path } from '@/types/lines.types';
+import type { Waypoint } from '@carrismetropolitana/api-types/network';
 
-import PathStopHeader from '@/components/lines/PathStopHeader';
-import PathStopNextArrivals from '@/components/lines/PathStopNextArrivals';
-import PathStopSpine from '@/components/lines/PathStopSpine';
-import PathStopTimetable from '@/components/lines/PathStopTimetable';
+import { PathWaypointHeader } from '@/components/lines/PathWaypointHeader';
+import { PathWaypointNextArrivals } from '@/components/lines/PathWaypointNextArrivals';
+import { PathWaypointSpine } from '@/components/lines/PathWaypointSpine';
+import { PathWaypointTimetable } from '@/components/lines/PathWaypointTimetable';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
 import { useStopsContext } from '@/contexts/Stops.context';
@@ -20,12 +20,12 @@ interface Props {
 	isFirstStop?: boolean
 	isLastStop?: boolean
 	isSelected: boolean
-	path: Path
+	waypointData: Waypoint
 }
 
 /* * */
 
-export default function Component({ arrivals, id, isFirstStop, isLastStop, isSelected, path }: Props) {
+export function PathWaypoint({ arrivals, id, isFirstStop, isLastStop, isSelected, waypointData }: Props) {
 	//
 
 	//
@@ -40,8 +40,6 @@ export default function Component({ arrivals, id, isFirstStop, isLastStop, isSel
 	//
 	// B. Transform data
 
-	const stop = path.stop;
-	const stopSequence = path.stop_sequence;
 	const nextArrivals = arrivals?.filter(arrival => arrival.unixTs > now) || [];
 	const realtimeArrivals = nextArrivals.filter(arrival => arrival.type === 'realtime');
 	const scheduledArrivals = nextArrivals.filter(arrival => arrival.type === 'scheduled');
@@ -50,9 +48,9 @@ export default function Component({ arrivals, id, isFirstStop, isLastStop, isSel
 	// C. Handle actions
 
 	const handleToggleStop = (event: React.MouseEvent<HTMLDivElement>) => {
-		const stopData = stopsContext.actions.getStopById(path.stop_id);
+		const stopData = stopsContext.actions.getStopById(waypointData.stop_id);
 		if (!stopData) return;
-		linesDetailContext.actions.setActiveStop(stopSequence, stopData);
+		linesDetailContext.actions.setActiveStop(waypointData.stop_sequence, stopData);
 		event.stopPropagation();
 	};
 
@@ -65,29 +63,29 @@ export default function Component({ arrivals, id, isFirstStop, isLastStop, isSel
 
 	return (
 		<div className={`${styles.container} ${isFirstStop && styles.isFirstStop} ${isLastStop && styles.isLastStop} ${isSelected && styles.isSelected}`} id={id} onClick={handleToggleStop}>
-			<PathStopSpine
+			<PathWaypointSpine
 				backgroundColor={linesDetailContext.data.active_pattern_group?.color}
 				foregroundColor={linesDetailContext.data.active_pattern_group?.text_color}
 				isFirstStop={isFirstStop}
 				isLastStop={isLastStop}
 				isSelected={isSelected}
-				stopId={stop.id}
+				stopId={waypointData.stop_id}
 			/>
 			<div className={styles.detailsWrapper}>
-				<PathStopHeader
+				<PathWaypointHeader
 					isFirstStop={isFirstStop}
 					isLastStop={isLastStop}
 					isSelected={isSelected}
-					stopData={stop}
+					waypointData={waypointData}
 				/>
 				{isSelected && operationalDayContext.flags.is_today_selected && (
-					<PathStopNextArrivals
+					<PathWaypointNextArrivals
 						realtimeArrivals={realtimeArrivals}
 						scheduledArrivals={scheduledArrivals}
 					/>
 				)}
 				{isSelected && (
-					<PathStopTimetable />
+					<PathWaypointTimetable />
 				)}
 			</div>
 		</div>

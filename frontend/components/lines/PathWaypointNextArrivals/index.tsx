@@ -29,7 +29,7 @@ function formatDelta(ms: number) {
 
 /* * */
 
-export default function Component({ realtimeArrivals, scheduledArrivals }: { realtimeArrivals: { type: 'realtime' | 'scheduled', unixTs: number }[], scheduledArrivals: { type: 'realtime' | 'scheduled', unixTs: number }[] }) {
+export function PathWaypointNextArrivals({ realtimeArrivals, scheduledArrivals }: { realtimeArrivals: { type: 'realtime' | 'scheduled', unixTs: number }[], scheduledArrivals: { type: 'realtime' | 'scheduled', unixTs: number }[] }) {
 	//
 
 	//

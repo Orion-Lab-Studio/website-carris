@@ -3,7 +3,7 @@
 /* * */
 
 import MetricsSectionDemandSkeleton from '@/components/home/MetricsSectionDemandSkeleton';
-import LineBadge from '@/components/lines/LineBadge';
+import { LineBadge } from '@/components/lines/LineBadge';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { DemandMetrics } from '@/types/metrics.types';
 import { Routes } from '@/utils/routes';
@@ -134,7 +134,7 @@ export default function Component({
 							>
 								<LineBadge
 									key={line.item_id}
-									line={linesContext.data.lines.find(
+									lineData={linesContext.data.lines.find(
 										raw => raw.id === line.item_id,
 									)}
 								/>

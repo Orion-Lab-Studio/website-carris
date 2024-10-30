@@ -2,7 +2,7 @@
 
 /* * */
 
-import type { Stop } from '@/types/stops.types';
+import type { Stop } from '@carrismetropolitana/api-types/network';
 
 import { StopDisplay } from '@/components/stops/StopDisplay';
 import { createDocCollection } from '@/hooks/useOtherSearch';
@@ -60,9 +60,9 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 
 	const { search } = useMemo(() => createDocCollection(data.map(d => ({ boost: false, ...d })), {
 		id: 2,
-		locality: 1,
+		locality_id: 1,
+		long_name: 1,
 		short_name: 1,
-		stop_name: 1,
 		tts_name: 0.9,
 	}), [data]);
 
@@ -121,7 +121,7 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 								<IconBusStop size={20} />
 							</div>
 							<div className={styles.comboboxTargetInput}>
-								<StopDisplay stop={selectedStopData} />
+								<StopDisplay stopData={selectedStopData} />
 							</div>
 							<div className={styles.comboboxTargetSection} data-position="right">
 								<ActionIcon color="gray" onClick={handleClearSearchField} size="md" variant="subtle">
@@ -165,7 +165,7 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 						: allStopsDataFilteredBySearchQuery.map(item => (
 							<Combobox.Option key={item.id} className={item.id === selectedStopData?.id ? styles.selected : ''} value={item.id}>
 								<div className={styles.comboboxOption}>
-									<StopDisplay stop={item} />
+									<StopDisplay stopData={item} />
 								</div>
 							</Combobox.Option>
 						),
