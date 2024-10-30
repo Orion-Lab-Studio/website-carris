@@ -2,7 +2,7 @@
 
 /* * */
 
-import AlertsCarousel from '@/components/common/AlertsCarousel';
+import { AlertsCarousel } from '@/components/common/AlertsCarousel';
 import { Surface } from '@/components/layout/Surface';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 

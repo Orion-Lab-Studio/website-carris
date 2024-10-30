@@ -2,7 +2,7 @@
 
 /* * */
 
-import AlertsCarousel from '@/components/common/AlertsCarousel';
+import { AlertsCarousel } from '@/components/common/AlertsCarousel';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 
 /* * */
