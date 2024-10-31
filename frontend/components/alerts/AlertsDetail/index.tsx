@@ -5,6 +5,7 @@
 import { AlertActivePeriodEnd, AlertActivePeriodStart } from '@/components/alerts/AlertActivePeriod';
 import { AlertCauseIcon, AlertEffectIcon } from '@/components/alerts/AlertCauseEffectIcon';
 import AlertInformedEntity from '@/components/alerts/AlertInformedEntity';
+import { BackButton } from '@/components/common/BackButton';
 import Button from '@/components/common/Button';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
@@ -42,7 +43,11 @@ export default function Component({ alertId }: Props) {
 
 	return (
 		<>
+
 			<Surface>
+				<Section withBottomDivider withPadding>
+					<BackButton />
+				</Section>
 				<Section heading={simplifiedAlertData?.title} withBottomDivider withPadding>
 					<div className={styles.infoBar}>
 						{simplifiedAlertData?.cause && <AlertCauseIcon cause={simplifiedAlertData.cause} withText />}
@@ -61,6 +66,7 @@ export default function Component({ alertId }: Props) {
 					</Section>
 				)}
 			</Surface>
+
 			<Surface>
 				<Section withPadding>
 					<div className={styles.contentWrapper}>
@@ -75,6 +81,7 @@ export default function Component({ alertId }: Props) {
 					</div>
 				</Section>
 			</Surface>
+
 		</>
 	);
 

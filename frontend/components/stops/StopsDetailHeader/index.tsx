@@ -2,6 +2,7 @@
 
 /* * */
 
+import { BackButton } from '@/components/common/BackButton';
 import CopyBadge from '@/components/common/CopyBadge';
 import FavoriteToggle from '@/components/common/FavoriteToggle';
 import { IconDisplay } from '@/components/common/IconDisplay';
@@ -50,6 +51,10 @@ export function StopsDetailHeader() {
 
 	return (
 		<Surface>
+
+			<Section withBottomDivider withPadding>
+				<BackButton />
+			</Section>
 
 			<Section withGap withPadding>
 

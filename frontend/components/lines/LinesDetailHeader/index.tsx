@@ -2,6 +2,7 @@
 
 /* * */
 
+import { BackButton } from '@/components/common/BackButton';
 import FavoriteToggle from '@/components/common/FavoriteToggle';
 import { SelectOperationalDay } from '@/components/common/SelectOperationalDay';
 import { Section } from '@/components/layout/Section';
@@ -49,6 +50,10 @@ export function LinesDetailHeader() {
 
 	return (
 		<Surface>
+
+			<Section withBottomDivider withPadding>
+				<BackButton />
+			</Section>
 
 			<Section withBottomDivider withPadding>
 				<div className={styles.headingSection}>
