@@ -328,7 +328,7 @@
 			"iphone": "Apple iPhone",
 			"subheading": "Download the Carris Metropolitana app for iOS or Android."
 		},
-		"StartupMessages1": {
+		"StartupMessage1": {
 			"actions": {
 				"close": "To close",
 				"update_android": "Update on Play Store",

@@ -1,9 +1,9 @@
 /* * */
 
-import { StartupMessages1 } from '@/components/app/StartupMessage1';
+import { StartupMessage1 } from '@/components/app/StartupMessage1';
 
 /* * */
 
 export default function Page() {
-	return <StartupMessages1 />;
+	return <StartupMessage1 />;
 }

@@ -15,13 +15,13 @@ import styles from './styles.module.css';
 
 /* * */
 
-export function StartupMessages1() {
+export function StartupMessage1() {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('app.StartupMessages1');
+	const t = useTranslations('app.StartupMessage1');
 	const environmentContext = useEnvironmentContext();
 
 	//
@@ -60,7 +60,7 @@ export function StartupMessages1() {
 						{t('actions.update_android')}
 					</Button>
 				)}
-				<AppButton label={t('actions.close')} onClick={handleClose} variant="muted" />
+				{/* <AppButton label={t('actions.close')} onClick={handleClose} variant="muted" /> */}
 			</div>
 		</div>
 	);
