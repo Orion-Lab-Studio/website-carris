@@ -379,7 +379,7 @@
 					"title": "Family"
 				},
 				"normal": {
-					"description": "The discount that everyone is entitled to. With navegante®, Portuguese families started to save ??€ on average per person.",
+					"description": "O passe navegante® possibilita viagens em todos os operadores de transporte público, quer dentro de cada município, quer em toda a área metropolitana de Lisboa.",
 					"price_metropolitano": "€40/month",
 					"price_municipal": "€30/month",
 					"title": "Normal"
@@ -545,7 +545,7 @@
 		"Page": {
 			"contacts": "Contacts",
 			"heading": "Frequently Asked Questions",
-			"subheading": "On this page you will find answers to the most frequently asked questions about our service. If you would like additional clarification, do not hesitate to contact us."
+			"subheading": "On this page, you will find answers to the most frequently asked questions about our service. If you need any further clarification, please feel free to contact us."
 		}
 	},
 	"favorites": {
@@ -569,7 +569,7 @@
 			"enabled": "Turn off Debug"
 		},
 		"Footer": {
-			"copyright": "© Metropolitan Railways {year} - All rights reserved"
+			"copyright": "© Carris Metropolitana {year} - All rights reserved"
 		}
 	},
 	"header": {
@@ -587,12 +587,12 @@
 	"helpdesks": {
 		"Header": {
 			"frequent_travel": {
-				"description": "Para uma utilização recorrente, existe o navegante® personalizado, que permite o carregamento de um passe mensal, com tarifários pré-pagos e pós-pagos.",
-				"title": "Viagens Frequentes"
+				"description": "For recuring use, there is a personalized navegante® card, which allows loading a monthly pass with pre-paid and post-paid fares.",
+				"title": "Frequent trips"
 			},
 			"ocasional_travel": {
-				"description": "Para utilizações pontuais, existe o cartão navegante® ocasional, que permite fazer carregamentos pré-pagos, por viagem ou por zapping.",
-				"title": "Viagens Ocasionais"
+				"description": "For occasional use, there is the navegante® card, which allows pre-paid loading per trip or through zapping.",
+				"title": "Occasional trips"
 			}
 		},
 		"ServicePoints": {
@@ -601,23 +601,23 @@
 		},
 		"WhereToBuy": {
 			"app": {
-				"description": "Pode carregar o seu cartão navegante® personalizado diretamente através do seu telemóvel. Saiba mais em navegante.pt",
-				"title": "App navegante®"
+				"description": "You can load your personalized navegante® card directly through your mobile phone. Learn more at navegante.pt.",
+				"title": "navegante® App"
 			},
 			"heading": "Where to buy",
 			"multibanco": {
-				"description": "Pode carregar o seu cartão navegante® personalizado em qualquer equipamento multibanco.",
-				"title": "Rede multibanco™"
+				"description": "You can load your personalized navegante® card at any multibanco™ ATM.",
+				"title": "Multibanco™ ATM"
 			},
 			"payshop": {
-				"description": "Pode carregar o seu cartão navegante® personalizado ou ocasional em qualquer parceiro Payshop.",
-				"title": "Rede de agentes PayShop™"
+				"description": "You can load your personalized or occasional navegante® card at any Payshop partner.",
+				"title": "PayShop™ Point of sales"
 			},
 			"stores": {
-				"description": "Com serviços de carregamento e emissão de passes mensais, compra de bilhetes ocasionais e prestação de informações sobre a rede e bilhética da Carris Metropolitana. Conheça os espaços aqui.",
-				"title": "Espaços navegante®"
+				"description": "With services for loading and issuing monthly passes, purchasing occasional tickets, and providing information about the Carris Metropolitana network and ticketing. Discover the locations here.",
+				"title": "navegante® Store"
 			},
-			"subheading": "Find out where you can purchase your navegante® pass."
+			"subheading": "Explore all options to acquire, renew, update or load your navegante® card. The navegante® card is the electronic ticketing system that allows traveling on all public transport in the Lisbon metropolitan area."
 		}
 	},
 	"home": {
@@ -641,7 +641,7 @@
 			"section_heading": "Customer Support"
 		},
 		"TarifsSection": {
-			"section_heading": "Rates"
+			"section_heading": "Fares"
 		}
 	},
 	"layout": {
@@ -654,18 +654,18 @@
 		"next_buses": "Next circulations",
 		"num_passengers": "passengers transported on this line in the last 15 days",
 		"pick_route": "Choose a route/destination...",
-		"route_explainer": "What is the path/destination of a line?",
-		"scheduled_times": "Planned Times",
+		"route_explainer": "What is the route/destination of a line?",
+		"scheduled_times": "Scheduled Times",
 		"schedules": "Schedules",
 		"service_alerts": "Service Alerts",
-		"stop_info": "About the Parade"
+		"stop_info": "About the Stop"
 	},
 	"lines": {
 		"AlertsCarousel": {
 			"heading": "Service Alerts"
 		},
 		"LinesDetail": {
-			"heading": "Search Lines",
+			"heading": "Search by Lines",
 			"toggle_favorite_error": "Error adding line to favorites. {error}"
 		},
 		"LinesDetailAlerts": {
@@ -705,8 +705,8 @@
 		},
 		"PathStopTimetable": {
 			"next_date": "Next times available from {value, date, dayShort} {value, date, monthLong} {value, date, yearLong}",
-			"no_data": "Times unavailable for this date.",
-			"title": "Planned times at this stop:"
+			"no_data": "Timetables unavailable for this date.",
+			"title": "Scheduled times at this stop:"
 		},
 		"SelectActivePatternGroup": {
 			"placeholder": "Select route/destination..."
@@ -735,7 +735,7 @@
 				},
 				"42": {
 					"description": "Fill out the Online Form available on the operator's website with information about the line used, time and description of the object. If possible, include the vehicle number or license plate.",
-					"title": "Area 2 | Lisbon Bus Station"
+					"title": "Area 2 | Rodoviária de Lisboa"
 				},
 				"43": {
 					"description": "Fill out the Online Form available on the operator's website with information about the line used, time and description of the object. If possible, include the vehicle number or license plate.",
@@ -746,7 +746,7 @@
 					"title": "Area 4 | Alsa Todi"
 				}
 			},
-			"subheading": "Carris Metropolitana's transport service is provided by 4 service providers, each operating their own area of the Lisbon Metropolitan Area, as shown in the image below. Therefore, the best way to recover your object is to contact the operator of the area used."
+			"subheading": "Carris Metropolitana's transport service is provided by 4 transport operators, each operating in their own area of the Lisbon Metropolitan Area, as shown in the image below. Therefore, the best way to recover your object is to directly contact the operator of the area you used."
 		}
 	},
 	"map": {
@@ -799,13 +799,13 @@
 		"Page": {
 			"Navegante": {
 				"button": "View Options",
-				"heading": "Plan your trip with the Navegante®",
-				"subheading": "Use the Navegante® service to pla n your trip, from A to B, combining various transport modes, if necessary. Discover all the options included with your subscription."
+				"heading": "Plan your trip with navegante®",
+				"subheading": "Use the navegante® service to plan your trip, from A to B, combining various transport modes, if necessary. Discover all the options included with your subscription."
 			},
 			"Partners": {
 				"disclaimer": "Edit this page on Github if you want to include your app. The order is random. Only inputs that simultaneously provide planned and real-time schedules or vehicle positions are permitted.",
 				"heading": "Our partners",
-				"subheading": "Because our data is open, there are several apps that offer personalized experiences to improve your everyday transport life."
+				"subheading": "Because our data is open, there are various applications that offer personalized experiences to enhance your daily transportation."
 			}
 		}
 	},
@@ -850,7 +850,7 @@
 					"links": {
 						"about": "About Carris Metropolitana",
 						"open-data": "Open Data",
-						"status": "State"
+						"status": "Status"
 					}
 				},
 				"secondary": {
