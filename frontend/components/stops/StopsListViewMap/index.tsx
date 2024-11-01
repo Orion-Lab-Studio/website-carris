@@ -23,8 +23,6 @@ export function StopsListViewMap() {
 	const router = useRouter();
 	const stopsListContext = useStopsListContext();
 
-	const [mapisLoaded, setMapisLoaded] = useState(false);
-
 	//
 	// B. Transform data
 
