@@ -38,7 +38,7 @@
 		"react-nice-avatar": "1.5.0",
 		"react-qr-code": "2.0.15",
 		"react-viewport-list": "7.1.2",
-		"recharts": "2.13.2",
+		"recharts": "2.13.3",
 		"sharp": "0.33.5",
 		"swr": "2.2.5",
 		"ua-parser-js": "1.0.39",
@@ -46,11 +46,11 @@
 		"uuid": "11.0.2"
 	},
 	"devDependencies": {
-		"@carrismetropolitana/api-types": "20241031.134.38",
+		"@carrismetropolitana/api-types": "20241104.1039.34",
 		"@carrismetropolitana/eslint": "20241024.1600.5",
 		"@types/jsonwebtoken": "9.0.7",
 		"@types/luxon": "3.4.2",
-		"@types/node": "22.8.6",
+		"@types/node": "22.8.7",
 		"@types/react": "18.3.12",
 		"@types/react-dom": "18.3.1",
 		"postcss": "8.4.47",
