@@ -3,7 +3,9 @@
 export async function GET(_, { params }) {
 	//
 
-	const newsData = await fetch(`https://www.carrismetropolitana.pt/wp-json/wp/v2/noticia/${params.news_id}`).then(res => res.json());
+	const { news_id } = await params;
+
+	const newsData = await fetch(`https://www.carrismetropolitana.pt/wp-json/wp/v2/noticia/${news_id}`).then(res => res.json());
 
 	if (!newsData) return Response.json([], { status: 500, statusText: 'Unable to fetch news data' });
 

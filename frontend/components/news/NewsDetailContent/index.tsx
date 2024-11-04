@@ -1,0 +1,36 @@
+'use client';
+
+/* * */
+
+import { useEffect } from 'react';
+
+import styles from './styles.module.css';
+
+/* * */
+
+export function NewsDetailContent({ content }: { content: string }) {
+	//
+
+	//
+	// A. Transform data
+
+	useEffect(() => {
+		// Remove unecessary Wordpress HTML
+		document.querySelectorAll('#news-content-wrapper .wp-block-spacer').forEach(el => el.remove());
+		// Select all img elements that are descendants of the specified class
+		document.querySelectorAll(`#news-content-wrapper img`).forEach((el) => {
+			el.removeAttribute('style');
+			el.removeAttribute('width');
+			el.removeAttribute('height');
+		});
+	});
+
+	//
+	// B. Render Components
+
+	return (
+		<div className={styles.content} dangerouslySetInnerHTML={{ __html: content }} id="news-content-wrapper" />
+	);
+
+	//
+}

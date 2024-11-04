@@ -11,7 +11,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component({ newsData }: { newsData: NewsData }) {
+export function NewsDetailSidebar({ newsData }: { newsData: NewsData }) {
 	//
 	// A. Setup variables
 	const tableOfContents = useHook(newsData);

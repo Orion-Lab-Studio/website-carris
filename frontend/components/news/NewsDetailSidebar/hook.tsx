@@ -25,7 +25,7 @@ export default function useHook(news: NewsData): TocTreeItem[] {
 	const parseHeadings = (news: NewsData): Heading[] => {
 		const parser = new DOMParser();
 		const doc = parser.parseFromString(news.content, 'text/html');
-		const headings = Array.from(doc.querySelectorAll('h1, h2, h3, h4, h5, h6'));
+		const headings = Array.from(doc.querySelectorAll('h2, h3'));
 
 		const res: Heading[] = [
 		];

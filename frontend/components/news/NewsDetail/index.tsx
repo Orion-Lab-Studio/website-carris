@@ -5,9 +5,9 @@
 import { BackButton } from '@/components/common/BackButton';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import SinglePageContent from '@/components/news/SinglePageContent';
-import SinglePageHeader from '@/components/news/SinglePageHeader';
-import SinglePageSidebar from '@/components/news/SinglePageSidebar';
+import { NewsDetailContent } from '@/components/news/NewsDetailContent';
+import { NewsDetailHeader } from '@/components/news/NewsDetailHeader';
+import { NewsDetailSidebar } from '@/components/news/NewsDetailSidebar';
 import { NewsData } from '@/types/news.types';
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
@@ -16,7 +16,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component({ newsId }) {
+export function NewsDetail({ newsId }) {
 	//
 
 	//
@@ -35,7 +35,7 @@ export default function Component({ newsId }) {
 		const content = document.createElement('div');
 		content.innerHTML = newsData.content;
 
-		content.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((heading, index) => {
+		content.querySelectorAll('h2, h3').forEach((heading, index) => {
 			heading.id = `heading-${index}`;
 		});
 
@@ -55,13 +55,15 @@ export default function Component({ newsId }) {
 				<BackButton />
 			</Section>
 
-			<SinglePageHeader newsData={newsData} />
+			<NewsDetailHeader newsData={newsData} />
+
 			<Section withPadding>
 				<div className={styles.innerWrapper}>
-					{!isLoading && data && <SinglePageContent content={data.content} />}
-					{!isLoading && data && <SinglePageSidebar newsData={data} />}
+					{!isLoading && data && <NewsDetailContent content={data.content} />}
+					{!isLoading && data && <NewsDetailSidebar newsData={data} />}
 				</div>
 			</Section>
+
 		</Surface>
 	);
 
