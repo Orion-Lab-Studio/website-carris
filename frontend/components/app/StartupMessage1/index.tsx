@@ -3,7 +3,6 @@
 /* * */
 
 import startupWashingAnimation from '@/assets/animations/startup/washing.json';
-import AppButton from '@/components/common/AppButton';
 import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { Link } from '@/i18n/routing';
 import { appAndroidStoreUrl, appIosStoreUrl } from '@/settings/urls.settings';
@@ -27,16 +26,16 @@ export function StartupMessage1() {
 	//
 	// B. Handle actions
 
-	const handleClose = () => {
-		if (environmentContext === 'app-ios') {
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			(window as any).webkit.messageHandlers.closeButtonClicked.postMessage('');
-		}
-		if (environmentContext === 'app-android') {
-			// eslint-disable-next-line @typescript-eslint/no-explicit-any
-			(window as any).Android.closeButtonClicked();
-		}
-	};
+	// const handleClose = () => {
+	// 	if (environmentContext === 'app-ios') {
+	// 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	// 		(window as any).webkit.messageHandlers.closeButtonClicked.postMessage('');
+	// 	}
+	// 	if (environmentContext === 'app-android') {
+	// 		// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	// 		(window as any).Android.closeButtonClicked();
+	// 	}
+	// };
 
 	//
 	// C. Render components

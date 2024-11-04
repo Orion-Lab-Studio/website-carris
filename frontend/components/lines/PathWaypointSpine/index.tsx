@@ -31,7 +31,7 @@ export function PathWaypointSpine({ backgroundColor, foregroundColor, isFirstSto
 	//
 	// B. Transform data
 
-	const isFavoriteStop = !!profileContext.data.profile?.favorite_stops?.includes(stopId);
+	const isFavoriteStop = !!profileContext.data.favorite_stops?.includes(stopId);
 
 	//
 	// C. Render components
