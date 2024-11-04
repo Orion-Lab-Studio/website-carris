@@ -4,13 +4,13 @@ import styles from './styles.module.css';
 
 /* * */
 
-interface FoundItemsCounterProps {
+interface Props {
 	text: string
 }
 
 /* * */
 
-export default function Component({ text }: FoundItemsCounterProps) {
+export function FoundItemsCounter({ text }: Props) {
 	return (
 		<p className={styles.text}>{text}</p>
 	);

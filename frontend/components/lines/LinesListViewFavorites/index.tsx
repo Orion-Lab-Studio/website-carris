@@ -18,12 +18,12 @@ export function LinesListViewFavorites() {
 	// A. Setup variables
 
 	const t = useTranslations('lines.LinesListViewFavorites');
-	const linesContext = useLinesListContext();
+	const linesListContext = useLinesListContext();
 
 	//
 	// B. Render components
 
-	if (!linesContext.data.favorites.length) {
+	if (!linesListContext.data.favorites.length) {
 		return (
 			<Surface>
 				<Section>
@@ -36,7 +36,7 @@ export function LinesListViewFavorites() {
 	return (
 		<Surface forceOverflow>
 			<Section>
-				{linesContext.data.favorites.map(line => (
+				{linesListContext.data.favorites.map(line => (
 					<RegularListItem key={line.id} href={`${RoutesSchedule.LINES.route}/${line.id}`}>
 						<LineDisplay lineData={line} />
 					</RegularListItem>

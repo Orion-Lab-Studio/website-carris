@@ -2,7 +2,8 @@
 
 /* * */
 
-import FoundItemsCounter from '@/components/common/FoundItemsCounter';
+import { BackButton } from '@/components/common/BackButton';
+import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { useLinesListContext } from '@/contexts/LinesList.context';
@@ -11,19 +12,18 @@ import { useStopsListContext } from '@/contexts/StopsList.context';
 import { SegmentedControl } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
-// import styles from './styles.module.css';
-
 /* * */
 
-export default function Component() {
+export function FavoritesListToolbar() {
 	//
 
 	//
 	// A. Setup variables
-	const t = useTranslations('favorites.PageToolbar');
+
+	const t = useTranslations('profile.FavoritesListToolbar');
 	const profileListContext = useProfileListContext();
-	const linesContext = useLinesListContext();
-	const stopsContext = useStopsListContext();
+	const linesListContext = useLinesListContext();
+	const stopsListContext = useStopsListContext();
 
 	//
 	// B. Transform data
@@ -38,15 +38,21 @@ export default function Component() {
 
 	return (
 		<Surface>
-			<Section withPadding>
-				<SegmentedControl data={currentViewOptions} onChange={profileListContext.actions.updateFilterByCurrentView} value={profileListContext.filters.by_current_view} fullWidth />
+
+			<Section withBottomDivider withPadding>
+				<BackButton />
+			</Section>
+
+			<Section heading={t('heading')} withBottomDivider withGap withPadding>
+				<SegmentedControl data={currentViewOptions} onChange={profileListContext.actions.updateFilterByCurrentView} value={profileListContext.filters.by_current_view} w="100%" />
 				{profileListContext.filters.by_current_view === 'lines' && (
-					<FoundItemsCounter text={t('found_items_counter.lines', { count: linesContext.data.favorites.length })} />
+					<FoundItemsCounter text={t('found_items_counter.lines', { count: linesListContext.data.favorites.length })} />
 				)}
 				{profileListContext.filters.by_current_view === 'stops' && (
-					<FoundItemsCounter text={t('found_items_counter.stops', { count: stopsContext.data.favorites.length })} />
+					<FoundItemsCounter text={t('found_items_counter.stops', { count: stopsListContext.data.favorites.length })} />
 				)}
 			</Section>
+
 		</Surface>
 	);
 

@@ -3,7 +3,7 @@
 /* * */
 
 import Button from '@/components/common/Button';
-import FoundItemsCounter from '@/components/common/FoundItemsCounter';
+import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
 import SortButton from '@/components/common/SortButton';
 import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';

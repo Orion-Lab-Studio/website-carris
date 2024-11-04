@@ -551,21 +551,6 @@
 			"subheading": "Nesta página encontra respostas às perguntas mais frequentes sobre o nosso serviço. Caso pretenda esclarecimentos adicionais não hesite em falar connosco."
 		}
 	},
-	"favorites": {
-		"Page": {
-			"heading": "Favoritos"
-		},
-		"PageToolbar": {
-			"by_current_view": {
-				"lines": "Linhas",
-				"stops": "Paragens"
-			},
-			"found_items_counter": {
-				"lines": "{count, plural, =0 {Nenhuma linha encontrada.} one {Encontrada # linha:} other {Encontradas # linhas:}}",
-				"stops": "{count, plural, =0 {Nenhum paragem encontrado.} one {Encontrado # paragem:} other {Encontrados # paragens:}}"
-			}
-		}
-	},
 	"footer": {
 		"DebugToggle": {
 			"disabled": "Ligar Debug",
@@ -815,6 +800,17 @@
 		}
 	},
 	"profile": {
+		"FavoritesListToolbar": {
+			"by_current_view": {
+				"lines": "Linhas",
+				"stops": "Paragens"
+			},
+			"found_items_counter": {
+				"lines": "{count, plural, =0 {Nenhuma linha encontrada.} one {Encontrada # linha:} other {Encontradas # linhas:}}",
+				"stops": "{count, plural, =0 {Nenhum paragem encontrado.} one {Encontrado # paragem:} other {Encontrados # paragens:}}"
+			},
+			"heading": "Favoritos"
+		},
 		"Page": {
 			"field": {
 				"default_first_name": "Polvo",

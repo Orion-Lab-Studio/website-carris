@@ -2,7 +2,7 @@
 
 /* * */
 
-import FoundItemsCounter from '@/components/common/FoundItemsCounter';
+import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { useLinesListContext } from '@/contexts/LinesList.context';

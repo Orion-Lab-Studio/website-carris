@@ -3,7 +3,7 @@
 /* * */
 
 import { ExpandToggle } from '@/components/common/ExpandToggle';
-import FoundItemsCounter from '@/components/common/FoundItemsCounter';
+import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
 import Input from '@/components/common/Input';
 import { SelectLine } from '@/components/common/SelectLine';
 import { SelectStop } from '@/components/common/SelectStop';

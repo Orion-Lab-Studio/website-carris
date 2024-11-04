@@ -1,17 +1,20 @@
 /* * */
 
-import FavoritesPage from '@/components/profile/favorites/Page';
+import { FavoritesList } from '@/components/profile/FavoritesList';
 import { LinesListContextProvider } from '@/contexts/LinesList.context';
+import { ProfileListContextProvider } from '@/contexts/ProfileList.context';
 import { StopsListContextProvider } from '@/contexts/StopsList.context';
 
 /* * */
 
 export default function Page() {
 	return (
-		<LinesListContextProvider>
-			<StopsListContextProvider>
-				<FavoritesPage />
-			</StopsListContextProvider>
-		</LinesListContextProvider>
+		<ProfileListContextProvider>
+			<LinesListContextProvider>
+				<StopsListContextProvider>
+					<FavoritesList />
+				</StopsListContextProvider>
+			</LinesListContextProvider>
+		</ProfileListContextProvider>
 	);
 }

@@ -18,12 +18,12 @@ export function StopsListViewFavorites() {
 	// A. Setup variables
 
 	const t = useTranslations('stops.StopsListViewFavorites');
-	const stopsContext = useStopsListContext();
+	const stopsListContext = useStopsListContext();
 
 	//
 	// B. Render components
 
-	if (!stopsContext.data.favorites.length) {
+	if (!stopsListContext.data.favorites.length) {
 		return (
 			<Surface>
 				<Section>
@@ -36,7 +36,7 @@ export function StopsListViewFavorites() {
 	return (
 		<Surface forceOverflow>
 			<Section>
-				{stopsContext.data.favorites.map(stop => (
+				{stopsListContext.data.favorites.map(stop => (
 					<RegularListItem key={stop.id} href={`${RoutesSchedule.STOPS.route}/${stop.id}`}>
 						<StopDisplay stopData={stop} />
 					</RegularListItem>
