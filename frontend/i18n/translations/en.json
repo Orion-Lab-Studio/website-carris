@@ -379,7 +379,7 @@
 					"title": "Family"
 				},
 				"normal": {
-					"description": "O passe navegante® possibilita viagens em todos os operadores de transporte público, quer dentro de cada município, quer em toda a área metropolitana de Lisboa.",
+					"description": "The navegante® pass allows travel on all public transport operators, both within each municipality and throughout the Lisbon metropolitan area.",
 					"price_metropolitano": "€40/month",
 					"price_municipal": "€30/month",
 					"title": "Normal"
@@ -882,7 +882,7 @@
 				}
 			},
 			"tarifs": {
-				"label": "Rates",
+				"label": "Fares",
 				"links": {
 					"cards": "Monthly Pass",
 					"helpdesks": "Where to buy",
