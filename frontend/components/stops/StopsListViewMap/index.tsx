@@ -8,7 +8,7 @@ import { useStopsListContext } from '@/contexts/StopsList.context';
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import * as turf from '@turf/turf';
 import { useRouter } from 'next/navigation';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { useMap } from 'react-map-gl/maplibre';
 
 /* * */
@@ -38,7 +38,7 @@ export function StopsListViewMap() {
 	useEffect(() => {
 		if (!allStopsGeoJson || !stopsListMap) return;
 		const [minX, minY, maxX, maxY] = turf.bbox(allStopsGeoJson);
-		stopsListMap.fitBounds([maxX, maxY, minX, minY], { padding: 50 });
+		stopsListMap.fitBounds([Number(maxX), Number(maxY), Number(minX), Number(minY)], { padding: 50 });
 	}, [allStopsGeoJson, stopsListMap]);
 
 	function handleLayerClick(event) {

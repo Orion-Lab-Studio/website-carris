@@ -23,8 +23,6 @@ export default function Component() {
 	const storesListContext = useStoresListContext();
 	const t = useTranslations('stores.StoresListMap');
 
-	const [mapisLoaded, setMapisLoaded] = useState(false);
-
 	//
 	// B. Transform data
 
@@ -53,11 +51,10 @@ export default function Component() {
 	}, [storesListContext.data.raw, t]);
 
 	useEffect(() => {
-		if (!allStoresFeatureCollection || !storesListMap || mapisLoaded) return;
+		if (!allStoresFeatureCollection || !storesListMap) return;
 		const [minX, minY, maxX, maxY] = turf.bbox(allStoresFeatureCollection);
-		storesListMap.fitBounds([maxX, maxY, minX, minY], { padding: 50 });
-		setMapisLoaded(true);
-	}, [allStoresFeatureCollection, storesListMap, mapisLoaded]);
+		storesListMap.fitBounds([Number(minX), Number(minY), Number(maxX), Number(maxY)], { padding: 50 });
+	}, [allStoresFeatureCollection, storesListMap]);
 
 	//
 	// C. Handle actions
