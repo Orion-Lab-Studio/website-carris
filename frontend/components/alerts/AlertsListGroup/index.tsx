@@ -7,7 +7,7 @@ import type { AlertGroupByDate } from '@/types/alerts.types';
 import AlertsListEmpty from '@/components/alerts/AlertsListEmpty';
 import AlertListItem from '@/components/alerts/AlertsListItem';
 import AlertsListItemSkeleton from '@/components/alerts/AlertsListItemSkeleton';
-import GroupedListItem from '@/components/layout/GroupedListItem';
+import { GroupedListItem } from '@/components/layout/GroupedListItem';
 import GroupedListSkeleton from '@/components/layout/GroupedListSkeleton';
 import { Surface } from '@/components/layout/Surface';
 import { useAlertsListContext } from '@/contexts/AlertsList.context';

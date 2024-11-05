@@ -1,6 +1,6 @@
 /* * */
 
-import AboutPage from '@/components/about/Page';
+import { AboutPage } from '@/components/about/AboutPage';
 
 /* * */
 

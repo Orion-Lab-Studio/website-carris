@@ -4,7 +4,7 @@
 
 import type { FaqGroupByTopic } from '@/types/faq.types';
 
-import GroupedListItem from '@/components/layout/GroupedListItem';
+import { GroupedListItem } from '@/components/layout/GroupedListItem';
 import { Surface } from '@/components/layout/Surface';
 import { Accordion } from '@mantine/core';
 import { useTranslations } from 'next-intl';

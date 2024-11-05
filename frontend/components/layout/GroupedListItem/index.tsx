@@ -12,7 +12,7 @@ interface GroupedListItemProps {
 
 /* * */
 
-export default function Component({ children, label, title }: GroupedListItemProps) {
+export function GroupedListItem({ children, label, title }: GroupedListItemProps) {
 	return (
 		<div className={styles.container}>
 			<div className={styles.header}>
