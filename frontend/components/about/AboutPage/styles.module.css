@@ -1,0 +1,12 @@
+/* * */
+/* TEXT */
+
+.text {
+	margin-top: var(--size-spacing-20);
+	font-size: 18px;
+	color: var(--color-system-text-100);
+}
+
+.text:first-child {
+	margin-top: unset;
+}
