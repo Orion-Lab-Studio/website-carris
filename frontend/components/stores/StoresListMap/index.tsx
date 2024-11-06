@@ -6,7 +6,7 @@ import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'ge
 
 import { MapView } from '@/components/map/MapView';
 import { useStoresListContext } from '@/contexts/StoresList.context';
-import * as turf from '@turf/turf';
+import { centerMap } from '@/utils/map.utils';
 import { useTranslations } from 'next-intl';
 import { useEffect, useMemo } from 'react';
 import { Layer, Source, useMap } from 'react-map-gl/maplibre';
@@ -52,9 +52,7 @@ export default function Component() {
 
 	useEffect(() => {
 		if (!allStoresFeatureCollection || !storesListMap) return;
-		const envelope = turf.envelope(allStoresFeatureCollection);
-		if (!envelope || !envelope.bbox) return;
-		storesListMap.fitBounds([envelope.bbox[0], envelope.bbox[1], envelope.bbox[2], envelope.bbox[3]], { padding: 25 });
+		centerMap(storesListMap, allStoresFeatureCollection.features);
 	}, [allStoresFeatureCollection, storesListMap]);
 
 	//

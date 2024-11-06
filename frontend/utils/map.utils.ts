@@ -5,21 +5,65 @@ import * as turf from '@turf/turf';
 
 /* * */
 
+interface CenterMapOptions {
+	padding: number
+}
+
+/**
+ *
+ * @param mapObject The map that should be manipulated
+ * @param features The features to center the map on
+ * @param options Optional settings to customize the centering
+ */
+export const centerMap = (mapObject, features: GeoJSON.Feature<GeoJSON.Geometry, GeoJSON.GeoJsonProperties>[], options?: CenterMapOptions) => {
+	//
+
+	//
+	// Validate input parameters
+
+	if (!mapObject) return;
+	if (!features.length) return;
+
+	//
+	// Create a feature collection from the given features, and get the corresponding envelope.
+	// Return if the envelope is not valid.
+
+	const featureCollection = turf.featureCollection(features);
+	const featureCollectionEnvelope = turf.envelope(featureCollection);
+	if (!featureCollectionEnvelope || !featureCollectionEnvelope.bbox) return;
+
+	//
+	// Center the map on the envelope
+
+	mapObject.fitBounds(
+		[
+			featureCollectionEnvelope.bbox[0],
+			featureCollectionEnvelope.bbox[1],
+			featureCollectionEnvelope.bbox[2],
+			featureCollectionEnvelope.bbox[3],
+		],
+		{ padding: options?.padding || 25 },
+	);
+
+	//
+};
+
+/* * */
+
 /**
  *
  * @param mapObject THe map that should be manipulated
  * @param coordinates The destination coordinates to move the map to
  * @param options Optional settings to customize the movement
  */
-
-export const moveMap = (mapObject, coordinates, options = {}) => {
+export const moveMap = (mapObject, coordinates: GeoJSON.Position) => {
 	//
-	// Check if the map object is valid
-	if (!mapObject) return;
 
-	if (options) {
-		// console.log(options);
-	}
+	//
+	// Validate the input parameters
+
+	if (!mapObject) return;
+	if (!coordinates || !coordinates.length) return;
 
 	//
 	// Get map current zoom level

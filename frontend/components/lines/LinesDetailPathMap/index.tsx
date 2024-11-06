@@ -9,8 +9,8 @@ import { MapViewStyleVehicles } from '@/components/map/MapViewStyleVehicles';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { transformStopDataIntoGeoJsonFeature, useStopsContext } from '@/contexts/Stops.context';
 import { useVehiclesContext } from '@/contexts/Vehicles.context';
-import { getBaseGeoJsonFeatureCollection, moveMap } from '@/utils/map.utils';
-import { useEffect, useMemo } from 'react';
+import { centerMap, getBaseGeoJsonFeatureCollection, moveMap } from '@/utils/map.utils';
+import { useEffect, useMemo, useState } from 'react';
 import { useMap } from 'react-map-gl/maplibre';
 
 /* * */
@@ -25,43 +25,12 @@ export function LinesDetailPathMap() {
 	const vehiclesContext = useVehiclesContext();
 	const linesDetailContext = useLinesDetailContext();
 
-	const { linesSingleMap } = useMap();
+	const { linesDetailMap } = useMap();
+
+	const [isInitialMapLoad, setIsInitialMapLoad] = useState(true);
 
 	//
 	// B. Transform Data
-
-	// Move map to selected stop
-	useEffect(() => {
-		if (!linesDetailContext.data.active_stop?.stop) return;
-		if (!linesSingleMap) return;
-		const coordinates = [Number(linesDetailContext.data.active_stop.stop.lon), Number(linesDetailContext.data.active_stop?.stop.lat)];
-		if (coordinates.some(isNaN)) return;
-
-		console.log('Moving map to selected stop', coordinates);
-
-		moveMap(linesSingleMap, coordinates);
-	}, [linesDetailContext.data.active_stop, linesSingleMap]);
-
-	//
-	// C. Handle Actions
-
-	function handleLayerClick(event) {
-		if (!linesSingleMap) return;
-		const features = linesSingleMap.queryRenderedFeatures(event.point, { layers: [MapViewStylePathInteractiveLayerId] });
-		if (!features.length) return;
-		for (const feature of features) {
-			if (feature.properties.id === linesDetailContext.data.active_stop?.stop.id) {
-				continue;
-			}
-			else {
-				linesDetailContext.actions.setActiveStopByStopId(feature.properties.sequence, feature.properties.id);
-				return;
-			}
-		}
-	}
-
-	//
-	// D. Memoized GeoJSON Data
 
 	const activeVehiclesGeojson = useMemo(() => {
 		if (!linesDetailContext.data.active_pattern_group?.id) return;
@@ -99,11 +68,43 @@ export function LinesDetailPathMap() {
 	}, [linesDetailContext.data.active_stop, linesDetailContext.data.active_pattern_group]);
 
 	//
-	// G. Render copmonents
+	// C. Handle Actions
+
+	useEffect(() => {
+		// On init, center the map on the full shape.
+		// On subsequent iterations, move map to the selected stop.
+		if (isInitialMapLoad) {
+			if (!linesDetailContext.data.active_shape?.geojson) return;
+			centerMap(linesDetailMap, [linesDetailContext.data.active_shape.geojson], { padding: 60 });
+			setIsInitialMapLoad(false);
+		}
+		else {
+			if (!linesDetailContext.data.active_stop?.stop) return;
+			moveMap(linesDetailMap, [linesDetailContext.data.active_stop.stop.lon, linesDetailContext.data.active_stop?.stop.lat]);
+		}
+	}, [linesDetailMap, linesDetailContext.data.active_stop, linesDetailContext.data.active_shape]);
+
+	function handleLayerClick(event) {
+		if (!linesDetailMap) return;
+		const features = linesDetailMap.queryRenderedFeatures(event.point, { layers: [MapViewStylePathInteractiveLayerId] });
+		if (!features.length) return;
+		for (const feature of features) {
+			if (feature.properties.id === linesDetailContext.data.active_stop?.stop.id) {
+				continue;
+			}
+			else {
+				linesDetailContext.actions.setActiveStopByStopId(feature.properties.sequence, feature.properties.id);
+				return;
+			}
+		}
+	}
+
+	//
+	// D. Render copmonents
 
 	return (
 		<MapView
-			id="linesSingleMap"
+			id="linesDetailMap"
 			interactiveLayerIds={[MapViewStylePathInteractiveLayerId]}
 			onClick={handleLayerClick}
 		>

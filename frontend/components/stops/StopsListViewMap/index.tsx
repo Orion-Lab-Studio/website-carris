@@ -5,8 +5,7 @@ import { MapView } from '@/components/map/MapView';
 import { MapViewStyleStops, MapViewStyleStopsInteractiveLayerId } from '@/components/map/MapViewStyleStops';
 import { transformStopDataIntoGeoJsonFeature } from '@/contexts/Stops.context';
 import { useStopsListContext } from '@/contexts/StopsList.context';
-import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
-import * as turf from '@turf/turf';
+import { centerMap, getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 import { useMap } from 'react-map-gl/maplibre';
@@ -26,7 +25,7 @@ export function StopsListViewMap() {
 	//
 	// B. Transform data
 
-	const allStopsGeoJson = useMemo(() => {
+	const allStopsFeatureCollection = useMemo(() => {
 		const collection = getBaseGeoJsonFeatureCollection();
 		stopsListContext.data.filtered.forEach(stop => collection.features.push(transformStopDataIntoGeoJsonFeature(stop)));
 		return collection;
@@ -36,17 +35,9 @@ export function StopsListViewMap() {
 	// C. Handle Actions
 
 	useEffect(() => {
-		if (!allStopsGeoJson || !stopsListMap) return;
-		const [minX, minY, maxX, maxY] = turf.bbox(allStopsGeoJson);
-		stopsListMap.fitBounds([Number(maxX), Number(maxY), Number(minX), Number(minY)], { padding: 50 });
-	}, [allStopsGeoJson, stopsListMap]);
-
-	useEffect(() => {
-		if (!allStopsGeoJson || !stopsListMap) return;
-		const envelope = turf.envelope(allStopsGeoJson);
-		if (!envelope || !envelope.bbox) return;
-		stopsListMap.fitBounds([envelope.bbox[0], envelope.bbox[1], envelope.bbox[2], envelope.bbox[3]], { padding: 25 });
-	}, [allStopsGeoJson, stopsListMap]);
+		if (!allStopsFeatureCollection || !stopsListMap) return;
+		centerMap(stopsListMap, allStopsFeatureCollection.features);
+	}, [allStopsFeatureCollection, stopsListMap]);
 
 	function handleLayerClick(event) {
 		if (!stopsListMap) return;
@@ -71,7 +62,7 @@ export function StopsListViewMap() {
 					interactiveLayerIds={[MapViewStyleStopsInteractiveLayerId]}
 					onClick={handleLayerClick}
 				>
-					<MapViewStyleStops stopsData={allStopsGeoJson} />
+					<MapViewStyleStops stopsData={allStopsFeatureCollection} />
 				</MapView>
 			</div>
 		</Surface>
