@@ -70,6 +70,7 @@ export const moveMap = (mapObject, coordinates: GeoJSON.Position) => {
 
 	const currentZoom = mapObject.getZoom();
 	const currentZoomWithMargin = currentZoom + mapDefaultValues.zoom_margin;
+	const thresholdZoomWithMargin = mapDefaultValues.zoom + mapDefaultValues.zoom_margin;
 
 	//
 	// Check if the given coordinates are inside the currently rendered map bounds
@@ -80,13 +81,13 @@ export const moveMap = (mapObject, coordinates: GeoJSON.Position) => {
 	//
 	// If the given coordinates are visible and the zoom is not too far back (plus a little margin)...
 
-	if (isInside && currentZoomWithMargin > mapDefaultValues.zoom) {
+	if (isInside && currentZoomWithMargin > (thresholdZoomWithMargin * 1.15)) {
 		// ...then simply ease to it.
 		mapObject.easeTo({ center: coordinates, duration: mapDefaultValues.speed * 0.25, zoom: currentZoom });
 	}
 	else {
 		// If the zoom is too far, or the given coordinates are not visible, then fly to it
-		mapObject.flyTo({ center: coordinates, duration: mapDefaultValues.speed, zoom: mapDefaultValues.zoom });
+		mapObject.flyTo({ center: coordinates, duration: mapDefaultValues.speed, zoom: thresholdZoomWithMargin });
 	}
 
 	//
