@@ -24,12 +24,12 @@ export function LinesDetailPathList() {
 	//
 	// B. Fetch data
 
-	const { data: patternRealtime } = useSWR<PatternRealtime[]>(linesDetailContext.data.active_pattern_group?.id && `${Routes.API}/arrivals/by_pattern/${linesDetailContext.data.active_pattern_group.id}`, { refreshInterval: 10000 });
+	const { data: patternRealtime } = useSWR<PatternRealtime[]>(linesDetailContext.data.active_pattern?.id && `${Routes.API}/arrivals/by_pattern/${linesDetailContext.data.active_pattern.id}`, { refreshInterval: 10000 });
 
 	// C. Transform data
 
-	const sortedStops = linesDetailContext.data.active_pattern_group?.path.sort((a, b) => a.stop_sequence - b.stop_sequence);
-	const relevantRealtimes = useMemo(() => patternRealtime?.filter(realtime => realtime.pattern_id === linesDetailContext.data.active_pattern_group?.id), [patternRealtime, linesDetailContext.data.active_pattern_group?.id]);
+	const sortedStops = linesDetailContext.data.active_pattern?.path.sort((a, b) => a.stop_sequence - b.stop_sequence);
+	const relevantRealtimes = useMemo(() => patternRealtime?.filter(realtime => realtime.pattern_id === linesDetailContext.data.active_pattern?.id), [patternRealtime, linesDetailContext.data.active_pattern?.id]);
 	const nextArrivalsPerStop: Record<string, { type: 'realtime' | 'scheduled', unixTs: number }[]> = {};
 
 	for (const realtime of relevantRealtimes ?? []) {
@@ -51,17 +51,17 @@ export function LinesDetailPathList() {
 
 	// Scroll to selected stop on stop change
 	useEffect(() => {
-		if (!linesDetailContext.data.active_stop) return;
-		const selectedStop = document.getElementById(`stop-${linesDetailContext.data.active_stop.sequence}`);
+		if (!linesDetailContext.data.active_waypoint) return;
+		const selectedStop = document.getElementById(`stop-${linesDetailContext.data.active_waypoint.stop_sequence}`);
 		if (selectedStop) {
 			selectedStop.scrollIntoView({ behavior: 'smooth', block: 'center' });
 		}
-	}, [linesDetailContext.data.active_stop]);
+	}, [linesDetailContext.data.active_waypoint]);
 
 	//
 	// D. Render components
 
-	if (!sortedStops || !linesDetailContext.data.active_pattern_group) {
+	if (!sortedStops || !linesDetailContext.data.active_pattern) {
 		return null;
 	}
 
@@ -71,10 +71,10 @@ export function LinesDetailPathList() {
 				<PathWaypoint
 					key={`${waypoint.stop_id}-${waypoint.stop_sequence}`}
 					arrivals={nextArrivalsPerStop[waypoint.stop_id] || []}
-					id={`stop-${waypoint.stop_sequence}`}
+					id={`waypoint-${waypoint.stop_id}-${waypoint.stop_sequence}`}
 					isFirstStop={index === 0}
 					isLastStop={index === sortedStops.length - 1}
-					isSelected={linesDetailContext.data.active_stop?.sequence === waypoint.stop_sequence}
+					isSelected={linesDetailContext.data.active_waypoint?.stop_id === waypoint.stop_id && linesDetailContext.data.active_waypoint?.stop_sequence === waypoint.stop_sequence}
 					waypointData={waypoint}
 				/>
 			))}

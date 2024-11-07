@@ -24,7 +24,7 @@ export function LinesDetailPath() {
 	//
 	// B. Render components
 
-	if (!linesDetailContext.data.active_pattern_group) {
+	if (!linesDetailContext.data.active_pattern) {
 		return (
 			<Surface>
 				<NoDataLabel text="selecione um pattern" withMinHeight />

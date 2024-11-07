@@ -8,7 +8,6 @@ import { PathWaypointSpine } from '@/components/lines/PathWaypointSpine';
 import { PathWaypointTimetable } from '@/components/lines/PathWaypointTimetable';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
-import { useStopsContext } from '@/contexts/Stops.context';
 
 import styles from './styles.module.css';
 
@@ -31,7 +30,6 @@ export function PathWaypoint({ arrivals, id, isFirstStop, isLastStop, isSelected
 	//
 	// A. Setup variables
 
-	const stopsContext = useStopsContext();
 	const linesDetailContext = useLinesDetailContext();
 	const operationalDayContext = useOperationalDayContext();
 
@@ -48,24 +46,18 @@ export function PathWaypoint({ arrivals, id, isFirstStop, isLastStop, isSelected
 	// C. Handle actions
 
 	const handleToggleStop = (event: React.MouseEvent<HTMLDivElement>) => {
-		const stopData = stopsContext.actions.getStopById(waypointData.stop_id);
-		if (!stopData) return;
-		linesDetailContext.actions.setActiveStop(waypointData.stop_sequence, stopData);
+		linesDetailContext.actions.setActiveWaypoint(waypointData.stop_id, waypointData.stop_sequence);
 		event.stopPropagation();
 	};
 
 	//
 	// D. Render components
 
-	if (!stop) {
-		return null;
-	}
-
 	return (
 		<div className={`${styles.container} ${isFirstStop && styles.isFirstStop} ${isLastStop && styles.isLastStop} ${isSelected && styles.isSelected}`} id={id} onClick={handleToggleStop}>
 			<PathWaypointSpine
-				backgroundColor={linesDetailContext.data.active_pattern_group?.color}
-				foregroundColor={linesDetailContext.data.active_pattern_group?.text_color}
+				backgroundColor={linesDetailContext.data.active_pattern?.color}
+				foregroundColor={linesDetailContext.data.active_pattern?.text_color}
 				isFirstStop={isFirstStop}
 				isLastStop={isLastStop}
 				isSelected={isSelected}

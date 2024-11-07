@@ -31,39 +31,45 @@ export function LinesDetailPathMap() {
 	// B. Transform Data
 
 	const activeVehiclesFeatureCollection = useMemo(() => {
-		if (!linesDetailContext.data.active_pattern_group?.id) return;
-		return vehiclesContext.actions.getVehiclesByTripIdGeoJsonFC(linesDetailContext.data.active_pattern_group?.id);
-	}, [linesDetailContext.data.active_pattern_group, vehiclesContext.data.vehicles]);
+		if (!linesDetailContext.data.active_pattern?.id) return;
+		return vehiclesContext.actions.getVehiclesByTripIdGeoJsonFC(linesDetailContext.data.active_pattern?.id);
+	}, [linesDetailContext.data.active_pattern, vehiclesContext.data.vehicles]);
 
 	const activePathFeatureCollection = useMemo(() => {
-		if (!linesDetailContext.data.active_pattern_group?.path) return;
+		if (!linesDetailContext.data.active_pattern?.path) return;
 		const collection = getBaseGeoJsonFeatureCollection();
-		linesDetailContext.data.active_pattern_group.path.forEach((pathStop) => {
+		linesDetailContext.data.active_pattern.path.forEach((pathStop) => {
 			const stopData = stopsContext.actions.getStopById(pathStop.stop_id);
 			if (!stopData) return;
 			const result = transformStopDataIntoGeoJsonFeature(stopData);
 			result.properties = {
 				...result.properties,
-				color: linesDetailContext.data.active_pattern_group?.color,
-				text_color: linesDetailContext.data.active_pattern_group?.text_color,
+				color: linesDetailContext.data.active_pattern?.color,
+				text_color: linesDetailContext.data.active_pattern?.text_color,
 			};
 			collection.features.push(result);
 		});
 		return collection;
-	}, [linesDetailContext.data.active_pattern_group, vehiclesContext.data.vehicles]);
+	}, [linesDetailContext.data.active_pattern, vehiclesContext.data.vehicles]);
 
-	const activeStopGeoJson = useMemo(() => {
-		if (!linesDetailContext.data.active_stop || !linesDetailContext.data.active_pattern_group) return;
-		const collection = getBaseGeoJsonFeatureCollection();
-		const result = transformStopDataIntoGeoJsonFeature(linesDetailContext.data.active_stop.stop);
+	const activeStopFeatureCollection = useMemo(() => {
+		// Exit early if there is no active pattern or active waypoint
+		if (!linesDetailContext.data.active_waypoint || !linesDetailContext.data.active_pattern) return;
+		// Get the stop data for the active waypoint and transform it into a GeoJSON feature
+		const foundStop = stopsContext.actions.getStopById(linesDetailContext.data.active_waypoint.stop_id);
+		if (!foundStop) return;
+		const result = transformStopDataIntoGeoJsonFeature(foundStop);
 		result.properties = {
 			...result.properties,
-			color: linesDetailContext.data.active_pattern_group.color,
-			text_color: linesDetailContext.data.active_pattern_group.text_color,
+			color: linesDetailContext.data.active_pattern.color,
+			text_color: linesDetailContext.data.active_pattern.text_color,
 		};
+		// Create a new feature collection and add the active waypoint feature to it
+		const collection = getBaseGeoJsonFeatureCollection();
 		collection.features.push(result);
 		return collection;
-	}, [linesDetailContext.data.active_stop, linesDetailContext.data.active_pattern_group]);
+		//
+	}, [linesDetailContext.data.active_waypoint, linesDetailContext.data.active_pattern]);
 
 	//
 	// C. Handle Actions
@@ -73,25 +79,27 @@ export function LinesDetailPathMap() {
 		// Center the map on the full shape and path of the selected pattern.
 		// After the user selects a stop, move map to the selected stop.
 		if (linesDetailContext.flags.is_interactive_mode) {
-			if (!linesDetailContext.data.active_stop?.stop) return;
-			moveMap(linesDetailMap, [linesDetailContext.data.active_stop.stop.lon, linesDetailContext.data.active_stop?.stop.lat]);
+			if (!linesDetailContext.data.active_waypoint) return;
+			const stopData = stopsContext.actions.getStopById(linesDetailContext.data.active_waypoint.stop_id);
+			if (!stopData) return;
+			moveMap(linesDetailMap, [stopData.lon, stopData.lat]);
 		}
 		else {
 			if (!linesDetailContext.data.active_shape?.geojson) return;
 			centerMap(linesDetailMap, [linesDetailContext.data.active_shape.geojson], { padding: 60 });
 		}
-	}, [linesDetailMap, linesDetailContext.data.active_stop, linesDetailContext.data.active_shape]);
+	}, [linesDetailMap, linesDetailContext.data.active_waypoint, linesDetailContext.data.active_shape]);
 
 	function handleLayerClick(event) {
 		if (!linesDetailMap) return;
 		const features = linesDetailMap.queryRenderedFeatures(event.point, { layers: [MapViewStylePathInteractiveLayerId] });
 		if (!features.length) return;
 		for (const feature of features) {
-			if (feature.properties.id === linesDetailContext.data.active_stop?.stop.id) {
+			if (feature.properties.id === linesDetailContext.data.active_waypoint?.stop_id) {
 				continue;
 			}
 			else {
-				linesDetailContext.actions.setActiveStopByStopId(feature.properties.sequence, feature.properties.id);
+				linesDetailContext.actions.setActiveWaypoint(feature.properties.id, feature.properties.sequence);
 				return;
 			}
 		}
@@ -113,7 +121,7 @@ export function LinesDetailPathMap() {
 			/>
 
 			<MapViewStyleActiveStops
-				stopsData={activeStopGeoJson}
+				stopsData={activeStopFeatureCollection}
 			/>
 
 			<MapViewStyleVehicles

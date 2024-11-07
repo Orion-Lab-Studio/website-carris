@@ -31,11 +31,11 @@ export function PathWaypointTimetable() {
 
 	const timetableData = useMemo(() => {
 		// Setup variables
-		const activePatternGroup = linesDetailContext.data.active_pattern_group;
-		const secondaryPatternGroups = linesDetailContext.data.valid_pattern_groups?.filter(patternGroup => patternGroup.version_id !== activePatternGroup?.version_id) || [];
+		const activePatternGroup = linesDetailContext.data.active_pattern;
+		const secondaryPatternGroups = linesDetailContext.data.valid_patterns?.filter(patternGroup => patternGroup.version_id !== activePatternGroup?.version_id) || [];
 		const mentionedRoutes = linesDetailContext.data.all_routes;
-		const selectedStopId = linesDetailContext.data.active_stop?.stop.id;
-		const selectedStopSequence = linesDetailContext.data.active_stop?.sequence;
+		const selectedStopId = linesDetailContext.data.active_waypoint?.stop_id;
+		const selectedStopSequence = linesDetailContext.data.active_waypoint?.stop_sequence;
 		const selectedOperationalDay = operationalDayContext.data.selected_day;
 		// Check if all these variables are defined
 		if (!activePatternGroup || !secondaryPatternGroups.length || !mentionedRoutes || !selectedStopId || selectedStopSequence === undefined || !selectedOperationalDay) {
@@ -59,7 +59,7 @@ export function PathWaypointTimetable() {
 		else {
 			return createTimetable(activePatternGroup, [], [], selectedStopId, selectedStopSequence, selectedOperationalDay);
 		}
-	}, [linesDetailContext.data.active_pattern_group, linesDetailContext.data.valid_pattern_groups, linesDetailContext.data.active_stop, operationalDayContext.data.selected_day]);
+	}, [linesDetailContext.data.active_pattern, linesDetailContext.data.valid_patterns, linesDetailContext.data.active_waypoint, operationalDayContext.data.selected_day]);
 
 	//
 	// C. Handle actions

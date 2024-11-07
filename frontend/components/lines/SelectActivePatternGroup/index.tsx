@@ -23,9 +23,9 @@ export function SelectActivePatternGroup() {
 	// B. Transform data
 
 	const validPatternGroupsSelectOptions = useMemo(() => {
-		if (!linesDetailContext.data.valid_pattern_groups) return [];
-		return linesDetailContext.data.valid_pattern_groups;
-	}, [linesDetailContext.data.valid_pattern_groups]);
+		if (!linesDetailContext.data.valid_patterns) return [];
+		return linesDetailContext.data.valid_patterns;
+	}, [linesDetailContext.data.valid_patterns]);
 
 	//
 	// C. Render components
@@ -40,7 +40,7 @@ export function SelectActivePatternGroup() {
 			onChange={linesDetailContext.actions.setActivePattern}
 			patterns={validPatternGroupsSelectOptions}
 			placeholder={t('placeholder')}
-			value={linesDetailContext.data.active_pattern_group?.version_id || null}
+			value={linesDetailContext.data.active_pattern?.version_id || null}
 			clearable
 			searchable
 		/>
