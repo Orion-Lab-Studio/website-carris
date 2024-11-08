@@ -404,38 +404,44 @@
 		}
 	},
 	"app": {
-		"DownloadBeta": {
+		"AppDownloadBeta": {
 			"android": "Android",
-			"heading": "Beta: CMMetropolitano App",
+			"heading": "Beta: App CMetropolitana",
 			"iphone": "Apple iPhone",
-			"subheading": "Download the beta version of the Carris Metropolitana app for iOS or Android, and contribute to the future of this app."
+			"subheading": "Faça o download da versão beta da app Carris Metropolitana para iOS ou Android, e contribua para o futuro desta aplicação."
 		},
-		"DownloadProduction": {
+		"AppDownloadProduction": {
 			"android": "Android",
-			"heading": "CMMetropolitano app",
+			"heading": "App CMetropolitana",
 			"iphone": "Apple iPhone",
-			"subheading": "Download the Carris Metropolitana app for iOS or Android."
+			"subheading": "Faça o download da app Carris Metropolitana para iOS ou Android."
 		},
-		"StartupMessage1": {
+		"AppStartupMessageDefault": {
 			"actions": {
-				"close": "Close",
-				"update_android": "Update on Play Store",
-				"update_ios": "Update on the App Store"
+				"close": "Fechar",
+				"update_android": "Atualizar na Play Store",
+				"update_ios": "Atualizar na App Store"
 			},
-			"heading": "Update available",
-			"subheading": "There is a newly improved version of the CMetropolitana app.",
-			"text": "We recommend that you update soon for a better user experience."
+			"heading": "Atualização disponível",
+			"subheading": "Existe uma nova versão melhorada da app CMetropolitana.",
+			"text": "Recomendamos que atualize em breve para uma melhor experiência de utilização."
 		}
 	},
 	"app-navegante": {
-		"StartupMessageDefault": {
+		"AppNaveganteDownloadProduction": {
+			"android": "Android",
+			"heading": "App navegante®",
+			"iphone": "Apple iPhone",
+			"subheading": "Faça o download da app navegante® para iOS ou Android."
+		},
+		"AppNaveganteStartupMessageDefault": {
 			"actions": {
-				"update_android": "Update on Play Store",
-				"update_ios": "Update on App Store"
+				"update_android": "Atualizar na Play Store",
+				"update_ios": "Atualizar na App Store"
 			},
-			"heading": "New version available",
-			"subheading": "Please update the navegante® app to the latest version.",
-			"text": "The new version includes performance optimizations and bug fixes for a better user experience."
+			"heading": "Nova versão disponível",
+			"subheading": "Por favor atualize a app navegante® para a versão mais recente.",
+			"text": "A nova versão inclui otimizações de desempenho e correções de erros para uma melhor experiência de utilização."
 		}
 	},
 	"cards": {
