@@ -32,7 +32,7 @@ export function LinesDetailPathMap() {
 
 	const activeVehiclesFeatureCollection = useMemo(() => {
 		if (!linesDetailContext.data.active_pattern?.id) return;
-		return vehiclesContext.actions.getVehiclesByTripIdGeoJsonFC(linesDetailContext.data.active_pattern?.id);
+		return vehiclesContext.actions.getVehiclesByPatternIdGeoJsonFC(linesDetailContext.data.active_pattern?.id);
 	}, [linesDetailContext.data.active_pattern, vehiclesContext.data.vehicles]);
 
 	const activePathFeatureCollection = useMemo(() => {
@@ -105,6 +105,11 @@ export function LinesDetailPathMap() {
 		}
 	}
 
+	function handleCenterMap() {
+		if (!linesDetailContext.data.active_shape?.geojson) return;
+		centerMap(linesDetailMap, [linesDetailContext.data.active_shape.geojson], { padding: 60 });
+	}
+
 	//
 	// D. Render copmonents
 
@@ -112,6 +117,7 @@ export function LinesDetailPathMap() {
 		<MapView
 			id="linesDetailMap"
 			interactiveLayerIds={[MapViewStylePathInteractiveLayerId]}
+			onCenterMap={handleCenterMap}
 			onClick={handleLayerClick}
 		>
 

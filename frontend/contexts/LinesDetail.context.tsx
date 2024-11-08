@@ -228,19 +228,21 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 	//
 	// D. Handle actions
 
-	const setActivePattern = (patternGroupId: string) => {
+	const setActivePattern = (patternVersionId: string) => {
 		for (const patternGroup of dataValidPatternsState || []) {
-			if (patternGroup.version_id === patternGroupId) {
+			if (patternGroup.version_id === patternVersionId) {
 				setDataActivePatternState(patternGroup);
 				setFilterActivePatternIdState(patternGroup.id);
+				setFlagIsInteractiveModeState(false);
 				return;
 			}
 		}
 		setDataActivePatternState(null);
-		setFlagIsInteractiveModeState(false);
 	};
 
 	const setActiveWaypoint = (stopId: string, stopSequence: number) => {
+		// Return early if active waypoint is already selected
+		if (dataActiveWaypointState?.stop_id === stopId && dataActiveWaypointState?.stop_sequence === stopSequence) return;
 		// Find the waypoint in the active pattern that matches the stop id and stop sequence
 		const foundWaypoint = dataActivePatternState?.path.find(waypoint => waypoint.stop_id === stopId && waypoint.stop_sequence === stopSequence);
 		if (!foundWaypoint) return;
@@ -253,6 +255,12 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 
 	//
 	// E. Handle Filters State
+
+	// REFACTOR HERE
+	// O programa deve conseguir identificar o pattern ativo a partir do ID do pattern ativo da query string.
+	// Provavelmente vai ser necessário combinar os dois useEffects abaixo num só.
+	// É necessário passar as entidades ativas (pattern, stop, sequence, etc.) para a query string;
+	// e, vice-versa, é necessário passar as entidades da query string para o estado.
 
 	useEffect(() => {
 		if (filterActivePatternIdState) {

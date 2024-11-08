@@ -11,10 +11,10 @@ import styles from './styles.module.css';
 
 interface Props {
 	className?: string
-	primarySourceId?: string
+	onCenterMap?: () => void
 }
 
-export function MapViewToolbar({ className, primarySourceId }: Props) {
+export function MapViewToolbar({ className, onCenterMap }: Props) {
 	//
 	// A. Setup variables
 	const mapOptionsContext = useMapOptionsContext();
@@ -37,20 +37,18 @@ export function MapViewToolbar({ className, primarySourceId }: Props) {
 		window.open(`https://www.google.com/maps?q=${center.lat},${center.lng}&z=${map.getZoom() + 2}`, '_blank');
 	};
 
-	const handleCenterMap = () => {
-		mapOptionsContext.actions.centerMap(primarySourceId);
-	};
-
 	//
 	// D. Render component
 	return (
 		<div className={classNames(styles.container, className)}>
 			<SegmentedControl classNames={{ label: styles.segmentedControlLabel }} data={mapStyles} onChange={mapOptionsContext.actions.setStyle} value={mapOptionsContext.data.style} />
-			<button className={styles.button} onClick={handleCenterMap}>
-				<TextPopover text={t('center_map')} textSize="md">
-					<IconArrowsMinimize />
-				</TextPopover>
-			</button>
+			{onCenterMap && (
+				<button className={styles.button} onClick={onCenterMap}>
+					<TextPopover text={t('center_map')} textSize="md">
+						<IconArrowsMinimize />
+					</TextPopover>
+				</button>
+			)}
 			<button className={styles.button} onClick={handleOpenInGoogle}>
 				<TextPopover text={t('open_google_maps')} textSize="md">
 					<IconMapShare />

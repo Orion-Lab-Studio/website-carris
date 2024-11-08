@@ -5,6 +5,7 @@
 import type { Line } from '@carrismetropolitana/api-types/network';
 
 import { LineDisplay } from '@/components/lines/LineDisplay';
+import { useProfileContext } from '@/contexts/Profile.context';
 import { createDocCollection } from '@/hooks/useOtherSearch';
 import { ActionIcon, Combobox, Group, TextInput, useCombobox } from '@mantine/core';
 import { useDebouncedValue } from '@mantine/hooks';
@@ -38,16 +39,21 @@ export function SelectLine({ data = [], label, nothingFound, onSelectLineId, pla
 	const comboboxStore = useCombobox();
 	const [searchQuery, setSearchQuery] = useState('');
 	const [debouncedSearchQuery] = useDebouncedValue(searchQuery, 200);
+	const profileContext = useProfileContext();
 
 	//
 	// B. Transform data
 
-	const { search } = useMemo(() => createDocCollection(data.map(d => ({ boost: false, ...d })), {
-		id: 2,
-		locality_ids: 1,
-		long_name: 1,
-		short_name: 1,
-	}), [data]);
+	const { search } = useMemo(() => {
+		const boostedData = data.map(item => ({ ...item, boost: profileContext.data.favorite_lines?.includes(item.id) ? true : false }));
+		return createDocCollection(boostedData, {
+			id: 2,
+			locality_ids: 1,
+			long_name: 1,
+			short_name: 1,
+			tts_name: 0.9,
+		});
+	}, [data]);
 
 	const selectedLineData = useMemo(() => {
 		return data.find(item => item.id === selectedLineId);
@@ -67,7 +73,6 @@ export function SelectLine({ data = [], label, nothingFound, onSelectLineId, pla
 	const handleClickSearchField = ({ currentTarget }) => {
 		if (currentTarget.select) currentTarget.select();
 		comboboxStore.openDropdown();
-		comboboxStore.focusTarget();
 	};
 
 	const handleExitSearchField = () => {
@@ -76,7 +81,6 @@ export function SelectLine({ data = [], label, nothingFound, onSelectLineId, pla
 
 	const handleClearSearchField = () => {
 		setSearchQuery('');
-		onSelectLineId(null);
 		comboboxStore.openDropdown();
 	};
 
@@ -84,7 +88,6 @@ export function SelectLine({ data = [], label, nothingFound, onSelectLineId, pla
 		setSearchQuery(currentTarget.value);
 		comboboxStore.updateSelectedOptionIndex();
 		comboboxStore.selectFirstOption();
-		comboboxStore.openDropdown();
 	};
 
 	const handleSelectLine = (chosenSelectItemValue) => {

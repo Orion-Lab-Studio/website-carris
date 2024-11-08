@@ -2,6 +2,7 @@
 
 import { NextArrivals } from '@/components/common/NextArrivals';
 import { LineDisplay } from '@/components/lines/LineDisplay';
+import { useLocationsContext } from '@/contexts/Locations.context';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 import { Arrival, ArrivalStatus } from '@/types/stops.types';
 import { useTranslations } from 'next-intl';
@@ -26,6 +27,7 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 
 	const t = useTranslations('stops.StopsDetailContentTimetableRow');
 	const stopsDetailContext = useStopsDetailContext();
+	const locationsContext = useLocationsContext();
 
 	//
 	// B. Transform data
@@ -84,7 +86,7 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 								{thisPattern.locality_ids.map((localityId, index) => (
 									<span key={index}>
 										{index > 0 && <span className={styles.localitySeparator}> • </span>}
-										<span className={styles.localityName}>{localityId}</span>
+										<span className={styles.localityName}>{locationsContext.actions.getLocalityById(localityId)?.display}</span>
 									</span>
 								))}
 							</p>

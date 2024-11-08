@@ -8,6 +8,7 @@ import { Surface } from '@/components/layout/Surface';
 import { LinesDetailPathList } from '@/components/lines/LinesDetailPathList';
 import { LinesDetailPathMap } from '@/components/lines/LinesDetailPathMap';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
+import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
 
@@ -19,6 +20,8 @@ export function LinesDetailPath() {
 	//
 	// A. Setup variables
 
+	const t = useTranslations('lines.LinesDetailPath');
+
 	const linesDetailContext = useLinesDetailContext();
 
 	//
@@ -27,7 +30,7 @@ export function LinesDetailPath() {
 	if (!linesDetailContext.data.active_pattern) {
 		return (
 			<Surface>
-				<NoDataLabel text="selecione um pattern" withMinHeight />
+				<NoDataLabel text={t('no_data')} withMinHeight />
 			</Surface>
 		);
 	}

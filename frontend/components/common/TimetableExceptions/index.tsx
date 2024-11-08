@@ -2,7 +2,7 @@
 
 import type { Timetable } from '@/types/timetables.types';
 
-import TimetableExceptionsLink from '@/components/common/TimetableExceptionsLink';
+import { TimetableExceptionsLink } from '@/components/common/TimetableExceptionsLink';
 
 import styles from './styles.module.css';
 

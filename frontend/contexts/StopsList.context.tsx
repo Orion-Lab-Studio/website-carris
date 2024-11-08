@@ -122,10 +122,11 @@ export const StopsListContextProvider = ({ children }) => {
 			// Give extra weight to favorite lines
 			const boostedData = filterResult.map(stop => ({ ...stop, boost: profileContext.data.favorite_stops?.includes(stop.id) ? true : false }));
 			const searchHook = createDocCollection(boostedData, {
-				id: 5,
-				locality_id: 2,
-				long_name: 4,
-				short_name: 3,
+				id: 2,
+				locality_id: 1,
+				long_name: 1,
+				short_name: 1,
+				tts_name: 0.9,
 			});
 			filterResult = searchHook.search(filterBySearchState);
 		}

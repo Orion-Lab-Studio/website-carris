@@ -15,10 +15,10 @@ interface VehiclesContextState {
 	actions: {
 		getVehicleById: (vehicleId: string) => undefined | Vehicle
 		getVehicleByIdGeoJsonFC: (vehicleId: string) => GeoJSON.FeatureCollection | undefined
-		getVehiclesByLineId: (tripId: string) => Vehicle[]
-		getVehiclesByLineIdGeoJsonFC: (tripId: string) => GeoJSON.FeatureCollection | undefined
-		getVehiclesByPatternId: (tripId: string) => Vehicle[]
-		getVehiclesByPatternIdGeoJsonFC: (tripId: string) => GeoJSON.FeatureCollection | undefined
+		getVehiclesByLineId: (lineId: string) => Vehicle[]
+		getVehiclesByLineIdGeoJsonFC: (lineId: string) => GeoJSON.FeatureCollection | undefined
+		getVehiclesByPatternId: (patternId: string) => Vehicle[]
+		getVehiclesByPatternIdGeoJsonFC: (patternId: string) => GeoJSON.FeatureCollection | undefined
 		getVehiclesByTripId: (tripId: string) => Vehicle[]
 		getVehiclesByTripIdGeoJsonFC: (tripId: string) => GeoJSON.FeatureCollection | undefined
 	}
@@ -80,7 +80,7 @@ export const VehiclesContextProvider = ({ children }) => {
 	};
 
 	const getVehiclesByPatternId = (patternId: string): Vehicle[] => {
-		return allVehiclesData?.filter(vehicle => vehicle.id === patternId) || [];
+		return allVehiclesData?.filter(vehicle => vehicle.pattern_id === patternId) || [];
 	};
 
 	const getVehiclesByPatternIdGeoJsonFC = (patternId: string): GeoJSON.FeatureCollection | undefined => {

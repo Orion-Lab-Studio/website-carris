@@ -2,7 +2,7 @@
 
 import type { Exception } from '@/types/timetables.types';
 
-import { Link } from '@/i18n/routing';
+import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { IconArrowUpRight } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
@@ -18,13 +18,15 @@ interface Props {
 
 /* * */
 
-export default function Component({ exceptionData, selectedExceptionIds, setSelectedExceptionIds }: Props) {
+export function TimetableExceptionsLink({ exceptionData, selectedExceptionIds, setSelectedExceptionIds }: Props) {
 	//
 
 	//
 	// A. Setup variables
 
 	const t = useTranslations('common.TimetableExceptionsLink');
+
+	const linesDetailContext = useLinesDetailContext();
 
 	//
 	// B. Transform data
@@ -40,6 +42,10 @@ export default function Component({ exceptionData, selectedExceptionIds, setSele
 
 	const handleMouseOutException = () => {
 		setSelectedExceptionIds([]);
+	};
+
+	const handleExceptionClick = () => {
+		linesDetailContext.actions.setActivePattern(exceptionData.pattern_version_id);
 	};
 
 	//
@@ -60,10 +66,10 @@ export default function Component({ exceptionData, selectedExceptionIds, setSele
 				//
 				pattern_headsign: exceptionData.pattern_headsign,
 				patternHeadsign: chunks => (
-					<Link className={styles.patternHeadsign} href="#" target="_blank">
+					<span className={styles.patternHeadsign} onClick={handleExceptionClick}>
 						{chunks}
 						<IconArrowUpRight className={styles.icon} />
-					</Link>
+					</span>
 				),
 				//
 				route_long_name: exceptionData.route_long_name,

@@ -213,9 +213,6 @@
 		"nothing_found": "Nenhum Resultado Encontrado",
 		"placeholder": "Procurar linha por número, nome, localidade..."
 	},
-	"SelectPattern": {
-		"option_label": "Início do percurso: {locality}"
-	},
 	"SelectStop": {
 		"label": "Procurar paragem por nome, número, localidade...",
 		"nothing_found": "Nenhum Resultado Encontrado",
@@ -550,6 +547,11 @@
 			"today": "Hoje",
 			"tomorrow": "Amanhã"
 		},
+		"SelectPattern": {
+			"label": "Percurso / Destino",
+			"option_label": "Início do percurso: {locality}",
+			"placeholder": "Selecionar Percurso / Destino..."
+		},
 		"TimetableExceptionsLink": {
 			"schedule": "Min.",
 			"variant": "<exceptionId>{exception_id})</exceptionId> Percurso <routeLongName>{route_long_name}</routeLongName> com destino a <patternHeadsign>{pattern_headsign}</patternHeadsign>"
@@ -763,6 +765,9 @@
 				"label": "Taxa de sucesso",
 				"subtitle": "executabilidade do serviço de todos os percursos desta linha nos últimos 15 dias"
 			}
+		},
+		"LinesDetailPath": {
+			"no_data": "Selecione um Percurso / Destino"
 		},
 		"LinesListToolbar": {
 			"by_current_view": {

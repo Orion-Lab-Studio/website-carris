@@ -12,10 +12,10 @@ import useSWR from 'swr';
 
 interface LocationsContextState {
 	actions: {
-		getDistrictById: (locationId: string) => District | undefined
-		getLocalityById: (locationId: string) => Locality | undefined
-		getMunicipalityById: (locationId: string) => Municipality | undefined
-		getRegionById: (locationId: string) => Region | undefined
+		getDistrictById: (districtId: string) => District | undefined
+		getLocalityById: (localityId: string) => Locality | undefined
+		getMunicipalityById: (municipalityId: string) => Municipality | undefined
+		getRegionById: (regionId: string) => Region | undefined
 	}
 	data: {
 		districts: District[]

@@ -5,6 +5,7 @@
 import type { Stop } from '@carrismetropolitana/api-types/network';
 
 import { StopDisplay } from '@/components/stops/StopDisplay';
+import { useProfileContext } from '@/contexts/Profile.context';
 import { createDocCollection } from '@/hooks/useOtherSearch';
 import { ActionIcon, Combobox, Group, TextInput, useCombobox } from '@mantine/core';
 import { useDebouncedValue } from '@mantine/hooks';
@@ -35,36 +36,25 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	// A. Setup variables
 
 	const t = useTranslations('SelectStop');
-	const comboboxStore = useCombobox();
 	const [searchQuery, setSearchQuery] = useState('');
 	const [debouncedSearchQuery] = useDebouncedValue(searchQuery, 200);
+	const profileContext = useProfileContext();
+
+	const comboboxStore = useCombobox();
 
 	//
 	// B. Transform data
 
-	// const allStopsDataFormatted = useMemo(() => {
-	// 	console.log(data);
-	// 	if (data) {
-	// 		return data.map((stop) => {
-	// 			return {
-	// 				_id: stop.id,
-	// 				locality: stop.locality,
-	// 				municipality_name: stop.municipality_name,
-	// 				name: stop.name,
-	// 				short_name: stop.short_name,
-	// 				tts_name: stop.tts_name,
-	// 			};
-	// 		});
-	// 	}
-	// }, [data]);
-
-	const { search } = useMemo(() => createDocCollection(data.map(d => ({ boost: false, ...d })), {
-		id: 2,
-		locality_id: 1,
-		long_name: 1,
-		short_name: 1,
-		tts_name: 0.9,
-	}), [data]);
+	const { search } = useMemo(() => {
+		const boostedData = data.map(item => ({ ...item, boost: profileContext.data.favorite_stops?.includes(item.id) ? true : false }));
+		return createDocCollection(boostedData, {
+			id: 2,
+			locality_id: 1,
+			long_name: 1,
+			short_name: 1,
+			tts_name: 0.9,
+		});
+	}, [data]);
 
 	const selectedStopData = useMemo(() => {
 		return data.find(item => item.id === selectedStopId);
@@ -83,7 +73,6 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	const handleClickSearchField = ({ currentTarget }) => {
 		if (currentTarget.select) currentTarget.select();
 		comboboxStore.openDropdown();
-		comboboxStore.focusTarget();
 	};
 
 	const handleExitSearchField = () => {
@@ -92,7 +81,6 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 
 	const handleClearSearchField = () => {
 		setSearchQuery('');
-		onSelectStopId(null);
 		comboboxStore.openDropdown();
 	};
 
@@ -100,7 +88,6 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 		setSearchQuery(currentTarget.value);
 		comboboxStore.updateSelectedOptionIndex();
 		comboboxStore.selectFirstOption();
-		comboboxStore.openDropdown();
 	};
 
 	const handleSelectStop = (chosenSelectItemValue) => {

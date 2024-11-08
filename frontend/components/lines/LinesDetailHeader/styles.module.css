@@ -44,7 +44,7 @@
 	display: grid;
 	grid-template-columns: auto 1fr;
 	gap: var(--size-spacing-10) var(--size-spacing-20);
-	align-items: center;
+	align-items: flex-end;
 	justify-content: center;
 	width: 100%;
 }

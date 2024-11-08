@@ -39,6 +39,7 @@ interface Props {
 	mapObject?: MapRef
 	mapStyle?: MapStyle
 	navigation?: boolean
+	onCenterMap?: () => void
 	onClick?: (arg0) => void
 	onMouseEnter?: (arg0) => void // When the mouse enters the interactive layer
 	onMouseLeave?: (arg0) => void // When the mouse leaves the interactive layer
@@ -63,6 +64,7 @@ export function MapView({
 	interactiveLayerIds = [],
 	mapStyle,
 	navigation = true,
+	onCenterMap,
 	onClick,
 	onMouseEnter,
 	onMouseLeave,
@@ -133,9 +135,10 @@ export function MapView({
 
 	//
 	// C. Render components
+
 	return (
 		<div className={styles.container}>
-			{toolbar && <MapViewToolbar className={styles.toolbar} primarySourceId={primarySourceId} />}
+			{toolbar && <MapViewToolbar className={styles.toolbar} onCenterMap={onCenterMap} />}
 			<Map
 				attributionControl={false}
 				cursor={cursor}
