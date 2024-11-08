@@ -7,10 +7,10 @@ import { AlertEffectIcon } from '@/components/alerts/AlertCauseEffectIcon';
 import AlertsListItemImageThumbnail from '@/components/alerts/AlertsListItemImageThumbnail';
 import Button from '@/components/common/Button';
 import { useAlertsContext } from '@/contexts/Alerts.context';
-import { RoutesSchedule } from '@/utils/routes';
 import { Accordion } from '@mantine/core';
 import { IconArrowUpRight } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
+import { useMemo } from 'react';
 
 import styles from './styles.module.css';
 
@@ -34,7 +34,10 @@ export default function Component({ alertId }: Props) {
 	//
 	// B. Transform data
 
-	const alertHref = `${RoutesSchedule.ALERTS.route}/${alertId}`;
+	const alertHref = useMemo(() => {
+		const currentUrl = window.location.pathname;
+		return `${currentUrl}/${alertId}`;
+	}, [alertId]);
 
 	const simplifiedAlertData = alertsContext.actions.getSimplifiedAlertById(alertId);
 

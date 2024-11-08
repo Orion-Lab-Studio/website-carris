@@ -18,12 +18,13 @@ import '@/themes/_default/styles/wordpress.css';
 /* * */
 
 import AccordionOverride from '@/themes/_default/overrides/Accordion.module.css';
+import ButtonOverride from '@/themes/_default/overrides/Button.module.css';
 import SegmentedControlOverride from '@/themes/_default/overrides/SegmentedControl.module.css';
 import SelectOverride from '@/themes/_default/overrides/Select.module.css';
 import SkeletonOverride from '@/themes/_default/overrides/Skeleton.module.css';
 import TextInputOverride from '@/themes/_default/overrides/TextInput.module.css';
 import combineClasses from '@/utils/combineClasses';
-import { Accordion, createTheme, SegmentedControl, Select, Skeleton, TextInput } from '@mantine/core';
+import { Accordion, Button, createTheme, SegmentedControl, Select, Skeleton, TextInput } from '@mantine/core';
 import { IconCaretLeftFilled } from '@tabler/icons-react';
 
 /* * */
@@ -48,6 +49,30 @@ export default createTheme({
 			},
 			defaultProps: {
 				chevron: <IconCaretLeftFilled />,
+			},
+		}),
+
+		Button: Button.extend({
+			classNames: (_, props) => {
+				let defaultClasses = {
+					inner: ButtonOverride.inner,
+					label: ButtonOverride.label,
+					root: ButtonOverride.root,
+					section: ButtonOverride.section,
+				};
+				if (props.variant === 'pill') {
+					defaultClasses = combineClasses(defaultClasses, [ButtonOverride.variantPill]);
+				}
+				if (props.variant === 'primary') {
+					defaultClasses = combineClasses(defaultClasses, [ButtonOverride.variantPrimary]);
+				}
+				if (props.variant === 'secondary') {
+					defaultClasses = combineClasses(defaultClasses, [ButtonOverride.variantSecondary]);
+				}
+				if (props.variant === 'muted') {
+					defaultClasses = combineClasses(defaultClasses, [ButtonOverride.variantMuted]);
+				}
+				return defaultClasses;
 			},
 		}),
 
