@@ -1,6 +1,6 @@
 /* * */
 
-import OpenDataPage from '@/components/open-data/Page';
+import { OpenDataPage } from '@/components/open-data/OpenDataPage';
 
 /* * */
 

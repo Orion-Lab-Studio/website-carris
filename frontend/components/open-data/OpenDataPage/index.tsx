@@ -4,7 +4,7 @@ import AppUnavailable from '@/components/common/AppUnavailable';
 
 /* * */
 
-export default function Component() {
+export function OpenDataPage() {
 	return (
 		<AppUnavailable />
 	);
