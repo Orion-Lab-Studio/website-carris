@@ -213,9 +213,6 @@
 		"nothing_found": "No Results Found",
 		"placeholder": "Search line by number, name, location..."
 	},
-	"SelectPattern": {
-		"option_label": "Start of route: {locality}"
-	},
 	"SelectStop": {
 		"label": "Search stop by id, name, location...",
 		"nothing_found": "No Results Found",
@@ -549,6 +546,11 @@
 			"today": "Today",
 			"tomorrow": "Tomorrow"
 		},
+		"SelectPattern": {
+			"label": "Percurso / Destino",
+			"option_label": "Início do percurso: {locality}",
+			"placeholder": "Selecionar Percurso / Destino..."
+		},
 		"TimetableExceptionsLink": {
 			"schedule": "Min.",
 			"variant": "<exceptionId>{exception_id})</exceptionId> Route <routeLongName>{route_long_name}</routeLongName> to <patternHeadsign>{pattern_headsign}</patternHeadsign>"
@@ -760,6 +762,9 @@
 				"label": "Success rate",
 				"subtitle": "feasibility of the service of all routes on this line in the last 15 days"
 			}
+		},
+		"LinesDetailPath": {
+			"no_data": "Selecione um Percurso / Destino"
 		},
 		"LinesListToolbar": {
 			"by_current_view": {
