@@ -1,9 +1,9 @@
 /* * */
 
-import { StartupMessageDefault } from '@/components/app-navegante/StartupMessageDefault';
+import { AppNaveganteStartupMessageDefault } from '@/components/app-navegante/AppNaveganteStartupMessageDefault';
 
 /* * */
 
 export default function Page() {
-	return <StartupMessageDefault />;
+	return <AppNaveganteStartupMessageDefault />;
 }

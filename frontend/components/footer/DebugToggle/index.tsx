@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component({ className }) {
+export function DebugToggle({ className }) {
 	//
 
 	//

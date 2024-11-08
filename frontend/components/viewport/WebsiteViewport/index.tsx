@@ -3,8 +3,8 @@
 /* * */
 
 import { ConsentPopup } from '@/components/analytics/ConsentPopup';
-import Footer from '@/components/footer/Footer';
-import Header from '@/components/header/Header';
+import { Footer } from '@/components/footer/Footer';
+import { Header } from '@/components/header/Header';
 import { useSearchParams } from 'next/navigation';
 
 import styles from './styles.module.css';

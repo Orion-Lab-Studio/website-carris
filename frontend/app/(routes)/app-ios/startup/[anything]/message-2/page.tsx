@@ -1,9 +1,9 @@
 /* * */
 
-import { StartupMessage1 } from '@/components/app/StartupMessage1';
+import { AppStartupMessageDefault } from '@/components/app/AppStartupMessageDefault';
 
 /* * */
 
 export default async function Page() {
-	return <StartupMessage1 />;
+	return <AppStartupMessageDefault />;
 }

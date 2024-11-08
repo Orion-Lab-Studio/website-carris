@@ -1,6 +1,6 @@
 /* * */
 
-import AppDownloadProduction from '@/components/app/DownloadProduction';
+import { AppDownloadProduction } from '@/components/app/AppDownloadProduction';
 
 /* * */
 

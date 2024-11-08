@@ -5,7 +5,7 @@
 import startupWashingAnimation from '@/assets/animations/startup/washing.json';
 import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { Link } from '@/i18n/routing';
-import { appAndroidStoreUrl, appIosStoreUrl } from '@/settings/urls.settings';
+import { URLS } from '@/settings/urls.settings';
 import { Button } from '@mantine/core';
 import Lottie from 'lottie-react';
 import { useTranslations } from 'next-intl';
@@ -14,13 +14,13 @@ import styles from './styles.module.css';
 
 /* * */
 
-export function StartupMessage1() {
+export function AppStartupMessageDefault() {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('app.StartupMessage1');
+	const t = useTranslations('app.AppStartupMessageDefault');
 	const environmentContext = useEnvironmentContext();
 
 	//
@@ -50,12 +50,12 @@ export function StartupMessage1() {
 			</div>
 			<div className={styles.actionsWrapper}>
 				{environmentContext === 'app-ios' && (
-					<Button component={Link} href={appIosStoreUrl}>
+					<Button component={Link} href={URLS.app.apple_app_store.prod}>
 						{t('actions.update_ios')}
 					</Button>
 				)}
 				{environmentContext === 'app-android' && (
-					<Button component={Link} href={appAndroidStoreUrl}>
+					<Button component={Link} href={URLS.app.google_play_store.prod}>
 						{t('actions.update_android')}
 					</Button>
 				)}

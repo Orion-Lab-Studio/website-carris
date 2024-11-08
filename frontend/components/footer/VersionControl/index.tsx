@@ -3,14 +3,14 @@
 /* * */
 
 import { Link } from '@/i18n/routing';
-import { RoutesSocial } from '@/utils/routes';
+import { URLS } from '@/settings/urls.settings';
 import pjson from 'package.json';
 
 /* * */
 
-export default function Component({ className }) {
+export function VersionControl({ className }) {
 	return (
-		<Link className={className} href={`${RoutesSocial.GITHUB}/website`} target="_blank">
+		<Link className={className} href={`${URLS.socials.github}/website`} target="_blank">
 			{pjson.version}
 		</Link>
 	);

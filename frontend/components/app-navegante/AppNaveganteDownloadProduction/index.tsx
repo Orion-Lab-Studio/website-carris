@@ -3,6 +3,7 @@
 import GridNav from '@/components/layout/GridNav';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
+import { URLS } from '@/settings/urls.settings';
 import { IconBrandAppleFilled, IconBrandGoogleFilled } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
@@ -10,20 +11,20 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component() {
+export function AppNaveganteDownloadProduction() {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('app.DownloadProduction');
+	const t = useTranslations('app-navegante.AppNaveganteDownloadProduction');
 
 	//
 	// B. Transform data
 
 	const STORE_LINKS = [
-		{ _id: 'iphone', href: 'https://apps.apple.com/app/carris-metropolitana/id6553675889', icon: <IconBrandAppleFilled />, label: t('iphone') },
-		{ _id: 'android', href: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile', icon: <IconBrandGoogleFilled />, label: t('android') },
+		{ _id: 'iphone', href: URLS.app_navegante.apple_app_store.prod, icon: <IconBrandAppleFilled />, label: t('iphone') },
+		{ _id: 'android', href: URLS.app_navegante.google_play_store.prod, icon: <IconBrandGoogleFilled />, label: t('android') },
 	];
 
 	//

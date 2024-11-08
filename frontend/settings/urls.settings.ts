@@ -1,10 +1,51 @@
 /* * */
 
-export const appAndroidStoreUrl = 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile';
+export const URLS = Object.freeze({
 
-/* * */
+	/**
+	 * URLs for CMET's native app in different stores and environments.
+	 */
+	app: {
+		android_standalone: {
+			prod: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
+		},
+		apple_app_store: {
+			beta: 'https://testflight.apple.com/join/KXz5ZVH8',
+			prod: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
+		},
+		google_play_store: {
+			beta: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
+			prod: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
+		},
+	},
 
-export const appIosStoreUrl = 'https://apps.apple.com/app/carris-metropolitana/id6553675889';
+	/**
+	 * URLs for navegante's native app in different stores and environments.
+	 */
+	app_navegante: {
+		android_standalone: {
+			prod: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
+		},
+		apple_app_store: {
+			prod: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
+		},
+		google_play_store: {
+			prod: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
+		},
+	},
+
+	/**
+	 * URLs for CMET's social connections.
+	 */
+	socials: {
+		facebook: 'https://www.facebook.com/carrismetropolitana',
+		github: 'https://www.github.com/carrismetropolitana',
+		instagram: 'https://www.instagram.com/carrismetropolitana',
+		twitter: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
+		whatsapp: 'https://whatsapp.com/channel/0029Va9z9d2JP2184daqbX0K',
+	},
+
+});
 
 /* * */
 

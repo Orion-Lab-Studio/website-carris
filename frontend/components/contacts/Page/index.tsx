@@ -8,7 +8,7 @@ import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { IconsCommon } from '@/settings/assets.settings';
 import { Routes } from '@/utils/routes';
-import { IconBrandInstagram, IconBrandWhatsapp, IconMessage, IconPhone, IconUmbrella } from '@tabler/icons-react';
+import { IconMessage, IconPhone, IconUmbrella } from '@tabler/icons-react';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 
@@ -35,8 +35,6 @@ export default function Component() {
 					<div className={styles.sectionContent}>{t('phone_line_description')}</div>
 					<Button href="tel:+351210418800" icon={<IconPhone size={18} />} label="210 418 800" />
 					<Button href={Routes.COMPLAINTS.route} icon={<IconMessage size={18} />} label={t('by_form')} />
-					<Button href={Routes.WHATSAPP} icon={<IconBrandWhatsapp size={18} />} label={t('by_whatsapp')} />
-					<Button href={Routes.INSTAGRAM} icon={<IconBrandInstagram size={18} />} label={t('by_instagram')} />
 				</Section>
 				<Section withPadding>
 					<div className={styles.sectionHeader}>{t('operators')}</div>

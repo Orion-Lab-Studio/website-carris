@@ -1,6 +1,6 @@
 /* * */
 
-import AppDownloadBeta from '@/components/app/DownloadBeta';
+import { AppDownloadBeta } from '@/components/app/AppDownloadBeta';
 
 /* * */
 

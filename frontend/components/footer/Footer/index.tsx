@@ -1,19 +1,19 @@
 /* * */
 
-import FooterDebugToggle from '@/components/footer/DebugToggle';
-import FooterVersionControl from '@/components/footer/VersionControl';
+import { DebugToggle } from '@/components/footer/DebugToggle';
+import { SocialIcons } from '@/components/footer/SocialIcons';
+import { VersionControl } from '@/components/footer/VersionControl';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { Link } from '@/i18n/routing';
 import { footerNavigationGroup } from '@/settings/navigation.settings';
 import { useTranslations } from 'next-intl';
 
-import SocialIcons from '../SocialIcons';
 import styles from './styles.module.css';
 
 /* * */
 
-export default function Component() {
+export function Footer() {
 	//
 
 	//
@@ -54,8 +54,8 @@ export default function Component() {
 					))}
 				</div>
 				<div className={styles.linksWrapper}>
-					<FooterVersionControl className={styles.tertiaryLink} />
-					<FooterDebugToggle className={styles.tertiaryLink} />
+					<VersionControl className={styles.tertiaryLink} />
+					<DebugToggle className={styles.tertiaryLink} />
 				</div>
 				<div className={styles.linksWrapper}>
 					<p className={styles.copyright}>{t('copyright', { year: currentYear })}</p>

@@ -4,6 +4,7 @@
 
 import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { Link } from '@/i18n/routing';
+import { URLS } from '@/settings/urls.settings';
 import { Button } from '@mantine/core';
 import { IconArrowBigUpLinesFilled } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
@@ -12,18 +13,13 @@ import styles from './styles.module.css';
 
 /* * */
 
-const APP_NAVEGANTE_ANDROID_STORE_URL = 'https://play.google.com/store/apps/details?id=pt.card4b.navegante';
-const APP_NAVEGANTE_IOS_STORE_URL = 'https://apps.apple.com/pt/app/navegante/id6484591306';
-
-/* * */
-
-export function StartupMessageDefault() {
+export function AppNaveganteStartupMessageDefault() {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('app-navegante.StartupMessageDefault');
+	const t = useTranslations('app-navegante.AppNaveganteStartupMessageDefault');
 	const environmentContext = useEnvironmentContext();
 
 	//
@@ -39,12 +35,12 @@ export function StartupMessageDefault() {
 			</div>
 			<div className={styles.actionsWrapper}>
 				{environmentContext === 'app-navegante-android' && (
-					<Button component={Link} href={APP_NAVEGANTE_ANDROID_STORE_URL}>
+					<Button component={Link} href={URLS.app_navegante.google_play_store.prod}>
 						{t('actions.update_android')}
 					</Button>
 				)}
 				{environmentContext === 'app-navegante-ios' && (
-					<Button component={Link} href={APP_NAVEGANTE_IOS_STORE_URL}>
+					<Button component={Link} href={URLS.app_navegante.apple_app_store.prod}>
 						{t('actions.update_ios')}
 					</Button>
 				)}

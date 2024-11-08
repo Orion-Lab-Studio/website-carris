@@ -1,10 +1,3 @@
-export const AppRoutes = Object.freeze({
-	ANDROID_BETA: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
-	ANDROID_PROD: 'https://play.google.com/store/apps/details?id=pt.carrismetropolitana.mobile',
-	APPLE_BETA: 'https://testflight.apple.com/join/KXz5ZVH8',
-	APPLE_PROD: 'https://apps.apple.com/app/carris-metropolitana/id6553675889',
-});
-
 export const RoutesSupport = Object.freeze({
 	COMPLAINTS: {
 		intl: {
@@ -99,14 +92,6 @@ export const RoutesPricing = Object.freeze({
 	},
 });
 
-export const RoutesSocial = Object.freeze({
-	FACEBOOK: 'https://www.facebook.com/carrismetropolitana',
-	GITHUB: 'https://www.github.com/carrismetropolitana',
-	INSTAGRAM: 'https://www.instagram.com/carrismetropolitana',
-	WHATSAPP: 'https://whatsapp.com/channel/0029Va9z9d2JP2184daqbX0K',
-	X: 'https://x.com/CMetropolitana_',
-});
-
 export const RoutesLostAndFound = Object.freeze({
 	ALSA: 'mailto:passageiros@alsa.pt',
 	RODOVIARIA_LISBOA: 'https://www.rodoviariadelisboa.pt/perdidoAchado',
@@ -180,11 +165,9 @@ export const RoutesAccount = Object.freeze({
 });
 
 export const Routes = Object.freeze({
-	...AppRoutes,
 	...RoutesSupport,
 	...RoutesSchedule,
 	...RoutesPricing,
-	...RoutesSocial,
 	...RoutesLostAndFound,
 	...RoutesFooter,
 
