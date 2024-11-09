@@ -1,3 +1,5 @@
+'use client';
+
 /* * */
 
 import { DebugToggle } from '@/components/footer/DebugToggle';
@@ -5,6 +7,7 @@ import { SocialIcons } from '@/components/footer/SocialIcons';
 import { VersionControl } from '@/components/footer/VersionControl';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
+import { useDebugContext } from '@/contexts/Debug.context';
 import { Link } from '@/i18n/routing';
 import { footerNavigationGroup } from '@/settings/navigation.settings';
 import { useTranslations } from 'next-intl';
@@ -24,6 +27,8 @@ export function Footer() {
 	const primaryNavigationGroup = footerNavigationGroup.find(navGroup => navGroup._id === 'primary');
 	const secondaryNavigationGroup = footerNavigationGroup.find(navGroup => navGroup._id === 'secondary');
 
+	const debugContext = useDebugContext();
+
 	const currentYear = new Date().getFullYear();
 
 	//
@@ -36,7 +41,7 @@ export function Footer() {
 	// C. Render Components
 
 	return (
-		<Surface>
+		<Surface variant={debugContext.flags.is_debug_mode ? 'debug' : 'default'}>
 			<Section withBottomDivider withPadding>
 				<div className={styles.linksWrapper}>
 					<div className={styles.linksWrapper}>

@@ -84,6 +84,14 @@
 }
 
 /* * */
+/* CONTAINER / VARIANTS / DEBUG */
+
+.container.debug {
+	background-color: var(--color-system-background-100);
+	border: 1px dashed var(--color-debug);
+}
+
+/* * */
 /* CONTAINER / VARIANTS / MUTED */
 
 .container.muted {
