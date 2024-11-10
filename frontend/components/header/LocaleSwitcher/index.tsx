@@ -2,9 +2,9 @@
 
 /* * */
 
-import { defaultLocaleCode, enabledLocaleCodes } from '@/i18n/config';
+import { enabledLocaleCodes } from '@/i18n/config';
 import { getUserLocale, setUserLocale } from '@/i18n/locale';
-import { SegmentedControl } from '@mantine/core';
+import { SegmentedControl, Skeleton } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState, useTransition } from 'react';
 
@@ -20,7 +20,7 @@ export function LocaleSwitcher() {
 
 	const t = useTranslations('header.LocaleSwitcher');
 	const [, startTransition] = useTransition();
-	const [currentLocale, setCurrentLocale] = useState(defaultLocaleCode);
+	const [currentLocale, setCurrentLocale] = useState<string | undefined>();
 
 	//
 	// B. Fetch data
@@ -57,6 +57,10 @@ export function LocaleSwitcher() {
 
 	//
 	// E. Render Components
+
+	if (!currentLocale) {
+		return <Skeleton height={57} width="100%" />;
+	}
 
 	return (
 		<SegmentedControl

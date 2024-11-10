@@ -1,3 +1,5 @@
+'use server';
+
 /* * */
 
 import { availableFormats } from '@/i18n/config';

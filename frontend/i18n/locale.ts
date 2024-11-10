@@ -31,14 +31,10 @@ export async function getUserLocale() {
 	// If the request URL has a locale in the query string, use that locale.
 	// This indicates that probably the user is coming from the app or another non-browser source.
 
-	const referer = headersList.get('referer');
-	const localeQueryValue = referer && new URL(referer).searchParams.get('locale');
+	const xHrefHeader = headersList.get('x-href');
+	const localeQueryValue = xHrefHeader && new URL(xHrefHeader).searchParams.get('locale');
 
 	const queryStringLocaleMatched = localeQueryValue && availableLocales.find(item => item.value === localeQueryValue || item.alias.includes(localeQueryValue));
-	console.log('headersList', headersList.entries());
-	console.log('referer', referer);
-	console.log('localeQueryValue', localeQueryValue);
-	console.log('queryStringLocaleMatched', queryStringLocaleMatched);
 	if (queryStringLocaleMatched) {
 		console.log(`(1) Locale set from Query String: ${queryStringLocaleMatched.value}`);
 		return queryStringLocaleMatched.value;
