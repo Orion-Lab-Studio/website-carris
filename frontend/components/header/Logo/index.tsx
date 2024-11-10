@@ -3,7 +3,7 @@
 /* * */
 
 import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
-import { Link } from '@/i18n/routing';
+import Link from 'next/link';
 import { BrandsCmet } from '@/settings/assets.settings';
 import { useTranslations } from 'next-intl';
 

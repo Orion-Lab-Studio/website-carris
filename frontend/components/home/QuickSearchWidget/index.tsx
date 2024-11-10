@@ -4,9 +4,9 @@
 
 import { SelectLine } from '@/components/common/SelectLine';
 import { SelectStop } from '@/components/common/SelectStop';
-import { useRouter } from '@/i18n/routing';
 import { Routes } from '@/utils/routes';
 import { SegmentedControl } from '@mantine/core';
+import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 import useSWR from 'swr';

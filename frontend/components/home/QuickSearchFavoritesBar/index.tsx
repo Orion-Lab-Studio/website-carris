@@ -4,12 +4,13 @@
 
 import type { Line } from '@carrismetropolitana/api-types/network';
 
-import Loader from '@/components/common/Loader';
+import { Loader } from '@/components/common/Loader';
 import { LineBadge } from '@/components/lines/LineBadge';
 import { useAlertsContext } from '@/contexts/Alerts.context';
 import { useProfileContext } from '@/contexts/Profile.context';
-import { Link, useRouter } from '@/i18n/routing';
 import { Routes, RoutesSchedule } from '@/utils/routes';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
 import useSWR from 'swr';

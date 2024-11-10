@@ -4,7 +4,7 @@
 
 import startupWashingAnimation from '@/assets/animations/startup/washing.json';
 import { useEnvironmentContext } from '@/contexts/Environment.context';
-import { Link } from '@/i18n/routing';
+import Link from 'next/link';
 import { URLS } from '@/settings/urls.settings';
 import { Button } from '@mantine/core';
 import Lottie from 'lottie-react';

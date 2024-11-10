@@ -3,7 +3,7 @@
 import { NewsData } from '@/types/news.types';
 /* * */
 
-import { Link } from '@/i18n/routing';
+import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
 import useHook, { TocTreeItem } from './hook';

@@ -1,7 +1,7 @@
 /* * */
 
-import { Link } from '@/i18n/routing';
 import { IconArrowNarrowRight } from '@tabler/icons-react';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 

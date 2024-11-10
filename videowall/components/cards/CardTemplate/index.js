@@ -1,6 +1,6 @@
 /* * */
 
-import Loader from '@/components/common/Loader';
+import { Loader } from '@/components/common/Loader';
 import LabelDateFromTo from '@/components/text/LabelDateFromTo';
 import LabelDateRelative from '@/components/text/LabelDateRelative';
 

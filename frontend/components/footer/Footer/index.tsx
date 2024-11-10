@@ -8,7 +8,7 @@ import { VersionControl } from '@/components/footer/VersionControl';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { useDebugContext } from '@/contexts/Debug.context';
-import { Link } from '@/i18n/routing';
+import Link from 'next/link';
 import { footerNavigationGroup } from '@/settings/navigation.settings';
 import { useTranslations } from 'next-intl';
 

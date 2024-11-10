@@ -7,9 +7,9 @@ import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import PlannerCard from '@/components/planner/Card';
 import PlannerCardSkeleton from '@/components/planner/CardSkeleton';
-import { Link } from '@/i18n/routing';
 import { ImagesPlanner } from '@/settings/assets.settings';
 import { shuffleArray } from '@/utils/shuffle';
+import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
 import React from 'react';
 

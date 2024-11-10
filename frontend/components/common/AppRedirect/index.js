@@ -2,7 +2,7 @@
 
 /* * */
 
-import Loader from '@/components/common/Loader';
+import { Loader } from '@/components/common/Loader';
 import { Button } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import { useEffect } from 'react';

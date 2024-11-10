@@ -43,5 +43,3 @@ export function Loader({ fixed = false, full = false, maxed = false, size = 30, 
 
 	//
 }
-
-export default Loader;

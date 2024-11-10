@@ -1,8 +1,8 @@
 /* * */
 
-import { Link } from '@/i18n/routing';
 import { ImagesCommon } from '@/settings/assets.settings';
 import { Image } from '@mantine/core';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 

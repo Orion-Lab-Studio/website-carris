@@ -9,8 +9,8 @@ import MetricsCardByLine from '@/components/metrics/MetricsCardByLine';
 import MetricsCardToday from '@/components/metrics/MetricsCardToday';
 import MetricsCardYearToDate from '@/components/metrics/MetricsCardYearToDate';
 import { BreakpointSwitch } from '@/components/responsive/BreakpointSwitch';
-import { Link } from '@/i18n/routing';
 import { Routes } from '@/utils/routes';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';

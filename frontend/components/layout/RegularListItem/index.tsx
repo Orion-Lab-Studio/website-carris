@@ -2,7 +2,7 @@
 
 import type { LegacyRef } from 'react';
 
-import { Link } from '@/i18n/routing';
+import Link from 'next/link';
 import { IconArrowNarrowRight } from '@tabler/icons-react';
 
 import styles from './styles.module.css';

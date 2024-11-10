@@ -1,6 +1,6 @@
 /* * */
 
-import Loader from '@/components/common/Loader';
+import { Loader } from '@/components/common/Loader';
 import { useProfileContext } from '@/contexts/Profile.context';
 import { Tooltip } from '@mantine/core';
 import { IconHeart, IconHeartFilled, IconHeartX } from '@tabler/icons-react';

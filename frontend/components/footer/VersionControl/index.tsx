@@ -2,7 +2,7 @@
 
 /* * */
 
-import { Link } from '@/i18n/routing';
+import Link from 'next/link';
 import { URLS } from '@/settings/urls.settings';
 import pjson from 'package.json';
 
