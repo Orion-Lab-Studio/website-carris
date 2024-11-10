@@ -3,8 +3,8 @@
 /* * */
 
 import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
-import Link from 'next/link';
 import { BrandsCmet } from '@/settings/assets.settings';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';

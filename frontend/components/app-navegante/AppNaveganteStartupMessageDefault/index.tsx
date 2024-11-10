@@ -3,10 +3,10 @@
 /* * */
 
 import { useEnvironmentContext } from '@/contexts/Environment.context';
-import Link from 'next/link';
 import { URLS } from '@/settings/urls.settings';
 import { Button } from '@mantine/core';
 import { IconArrowBigUpLinesFilled } from '@tabler/icons-react';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';

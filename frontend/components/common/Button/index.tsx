@@ -1,8 +1,8 @@
 /* * */
 
-import Link from 'next/link';
 import { Button } from '@mantine/core';
 import classNames from 'classnames';
+import Link from 'next/link';
 import React from 'react';
 
 import styles from './styles.module.css';

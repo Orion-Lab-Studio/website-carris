@@ -4,10 +4,10 @@
 
 import startupWashingAnimation from '@/assets/animations/startup/washing.json';
 import { useEnvironmentContext } from '@/contexts/Environment.context';
-import Link from 'next/link';
 import { URLS } from '@/settings/urls.settings';
 import { Button } from '@mantine/core';
 import Lottie from 'lottie-react';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';

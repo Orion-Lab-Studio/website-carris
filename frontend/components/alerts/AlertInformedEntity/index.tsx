@@ -7,8 +7,8 @@ import type { Line, Stop } from '@carrismetropolitana/api-types/network';
 import { LineBadge } from '@/components/lines/LineBadge';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useStopsContext } from '@/contexts/Stops.context';
-import { useRouter } from 'next/navigation';
 import { Routes } from '@/utils/routes';
+import { useRouter } from 'next/navigation';
 import { useMemo } from 'react';
 
 /* * */

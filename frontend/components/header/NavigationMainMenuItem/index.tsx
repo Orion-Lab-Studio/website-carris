@@ -2,8 +2,8 @@
 
 import type { NavigationLink } from '@/types/navigation.types';
 
-import Link from 'next/link';
 import { IconArrowNarrowRight, IconExternalLink } from '@tabler/icons-react';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 

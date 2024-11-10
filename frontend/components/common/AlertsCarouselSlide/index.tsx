@@ -3,9 +3,9 @@
 import type { SimplifiedAlert } from '@/types/alerts.types';
 
 import { AlertActivePeriodStart } from '@/components/alerts/AlertActivePeriod';
-import Link from 'next/link';
 import { RoutesSchedule } from '@/utils/routes';
 import { IconCircleArrowRightFilled } from '@tabler/icons-react';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 
