@@ -13,7 +13,7 @@
 @media screen and (width <= 1000px) {
 	.container {
 		grid-template:
-			"b" minmax(200px, auto) [b_]
+			"b" 50vh [b_]
 			"a" auto [a_] / 1fr;
 	}
 }
