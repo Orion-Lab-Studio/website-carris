@@ -1,7 +1,7 @@
 /* * */
 
-import NoDataLabel from '@/components/layout/NoDataLabel';
-import RegularListItem from '@/components/layout/RegularListItem';
+import { NoDataLabel } from '@/components/layout/NoDataLabel';
+import { RegularListItem } from '@/components/layout/RegularListItem';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { StopDisplay } from '@/components/stops/StopDisplay';
@@ -25,7 +25,7 @@ export function StopsListViewFavorites() {
 
 	if (!stopsListContext.data.favorites.length) {
 		return (
-			<Surface>
+			<Surface variant="persistent">
 				<Section>
 					<NoDataLabel text={t('no_favorites')} withMinHeight />
 				</Section>
@@ -34,7 +34,7 @@ export function StopsListViewFavorites() {
 	}
 
 	return (
-		<Surface forceOverflow>
+		<Surface variant="persistent" forceOverflow>
 			<Section>
 				{stopsListContext.data.favorites.map(stop => (
 					<RegularListItem key={stop.id} href={`${RoutesSchedule.STOPS.route}/${stop.id}`}>

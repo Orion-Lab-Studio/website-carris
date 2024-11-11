@@ -11,8 +11,6 @@ import { Routes } from '@/utils/routes';
 import { createContext, useContext, useEffect, useState } from 'react';
 import useSWR from 'swr';
 
-import { transformStopDataIntoGeoJsonFeature } from './Stops.context';
-
 /* * */
 
 interface StopsListContextState {
@@ -33,7 +31,7 @@ interface StopsListContextState {
 	}
 	filters: {
 		by_attribute: null | string
-		by_current_view: 'all' | 'favorites' | 'map'
+		by_current_view: 'favorites' | 'list' | 'map'
 		by_facility: null | string
 		by_municipality_or_locality: null | string
 		by_search: string
@@ -70,7 +68,7 @@ export const StopsListContextProvider = ({ children }) => {
 	const [dataFavoritesState, setDataFavoritesState] = useState<Stop[]>([]);
 
 	const [filterByAttributeState, setFilterByAttributeState] = useState <StopsListContextState['filters']['by_attribute']>(null);
-	const [filterByCurrentViewState, setFilterByCurrentViewState] = useState <StopsListContextState['filters']['by_current_view']>('all');
+	const [filterByCurrentViewState, setFilterByCurrentViewState] = useState <StopsListContextState['filters']['by_current_view']>('list');
 	const [filterByFacilityState, setFilterByFacilityState] = useState <StopsListContextState['filters']['by_facility']>(null);
 	const [filterByMunicipalityOrLocalityState, setFilterByMunicipalityOrLocalityState] = useState <StopsListContextState['filters']['by_municipality_or_locality']>(null);
 	const [filterBySearchState, setFilterBySearchState] = useState <StopsListContextState['filters']['by_search']>('');

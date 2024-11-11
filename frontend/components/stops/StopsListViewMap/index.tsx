@@ -55,7 +55,7 @@ export function StopsListViewMap() {
 	// D. Render components
 
 	return (
-		<Surface forceOverflow>
+		<Surface variant="persistent" forceOverflow>
 			<div style={{ height: 600 }}>
 				<MapView
 					id="stopsListMap"

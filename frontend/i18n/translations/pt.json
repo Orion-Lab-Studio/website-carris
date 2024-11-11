@@ -1061,9 +1061,9 @@
 		"StopsListToolbar": {
 			"filters": {
 				"by_current_view": {
-					"all": "Todas as Paragens",
 					"favorites": "Favoritas",
-					"map": "Ver em Mapa"
+					"list": "Lista",
+					"map": "Mapa"
 				},
 				"by_search": {
 					"placeholder": "Pesquisar por nome, localidade..."

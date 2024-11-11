@@ -14,7 +14,7 @@ interface NoDataLabelProps {
 
 /* * */
 
-export default function Component({ fill, text, withMinHeight }: NoDataLabelProps) {
+export function NoDataLabel({ fill, text, withMinHeight }: NoDataLabelProps) {
 	//
 
 	//

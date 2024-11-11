@@ -20,7 +20,7 @@ interface Props {
 
 /* * */
 
-export default function Component({ children, href, icon, refFn, style }: Props) {
+export function RegularListItem({ children, href, icon, refFn, style }: Props) {
 	return (
 		<Link ref={refFn || undefined} className={`${styles.container} ${href === '#' && styles.disableLink}`} href={href} style={style}>
 			{icon && (

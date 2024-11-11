@@ -1,6 +1,6 @@
 /* * */
 
-import RegularListItem from '@/components/layout/RegularListItem';
+import { RegularListItem } from '@/components/layout/RegularListItem';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { StopDisplay } from '@/components/stops/StopDisplay';
@@ -22,7 +22,7 @@ export function StopsListViewAll() {
 	// B. Render components
 
 	return (
-		<Surface forceOverflow>
+		<Surface variant="persistent" forceOverflow>
 			<Section>
 				<ViewportList itemMargin={0} items={stopsListContext.data.filtered}>
 					{item => (

@@ -26,7 +26,7 @@ export function StopsList() {
 		<>
 			<StopsListToolbar />
 			{stopsListContext.flags.is_loading && <StopsListViewSkeleton />}
-			{(!stopsListContext.flags.is_loading && stopsListContext.filters.by_current_view === 'all') && <StopsListViewAll />}
+			{(!stopsListContext.flags.is_loading && stopsListContext.filters.by_current_view === 'list') && <StopsListViewAll />}
 			{(!stopsListContext.flags.is_loading && stopsListContext.filters.by_current_view === 'map') && <StopsListViewMap />}
 			{(!stopsListContext.flags.is_loading && stopsListContext.filters.by_current_view === 'favorites') && <StopsListViewFavorites />}
 		</>

@@ -1,6 +1,6 @@
 /* * */
 
-import RegularListItem from '@/components/layout/RegularListItem';
+import { RegularListItem } from '@/components/layout/RegularListItem';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { LineDisplay } from '@/components/lines/LineDisplay';
@@ -9,7 +9,7 @@ import { LineDisplay } from '@/components/lines/LineDisplay';
 
 export function LinesListViewSkeleton() {
 	return (
-		<Surface>
+		<Surface variant="persistent">
 			<Section>
 				{[200, 120, 180, 200, 100, 120, 250, 120, 130, 220, 90].map((width, index) => (
 					<RegularListItem key={index} href="#">

@@ -1,7 +1,7 @@
 /* * */
 
-import NoDataLabel from '@/components/layout/NoDataLabel';
-import RegularListItem from '@/components/layout/RegularListItem';
+import { NoDataLabel } from '@/components/layout/NoDataLabel';
+import { RegularListItem } from '@/components/layout/RegularListItem';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { LineDisplay } from '@/components/lines/LineDisplay';
@@ -25,7 +25,7 @@ export function LinesListViewFavorites() {
 
 	if (!linesListContext.data.favorites.length) {
 		return (
-			<Surface>
+			<Surface variant="persistent">
 				<Section>
 					<NoDataLabel text={t('no_favorites')} withMinHeight />
 				</Section>
@@ -34,7 +34,7 @@ export function LinesListViewFavorites() {
 	}
 
 	return (
-		<Surface forceOverflow>
+		<Surface variant="persistent" forceOverflow>
 			<Section>
 				{linesListContext.data.favorites.map(line => (
 					<RegularListItem key={line.id} href={`${RoutesSchedule.LINES.route}/${line.id}`}>
