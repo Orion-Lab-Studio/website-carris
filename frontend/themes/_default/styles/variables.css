@@ -165,9 +165,9 @@
 		/* * */
 		/* COLOR / SYSTEM */
 
-		--color-system-background-100: rgb(40 40 45);
-		--color-system-background-200: rgb(30 30 35);
-		--color-system-background-300: rgb(10 10 15);
+		--color-system-background-100: rgb(40 40 50);
+		--color-system-background-200: rgb(30 30 40);
+		--color-system-background-300: rgb(10 10 20);
 		--color-system-border-100: rgb(60 60 65);
 		--color-system-border-200: rgb(80 80 85);
 		--color-system-text-100: #fff;
