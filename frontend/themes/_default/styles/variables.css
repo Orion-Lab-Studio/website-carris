@@ -165,11 +165,11 @@
 		/* * */
 		/* COLOR / SYSTEM */
 
-		--color-system-background-100: #3C3C46;
-		--color-system-background-200: #32323C;
-		--color-system-background-300: #282832;
-		--color-system-border-100: #50505A;
-		--color-system-border-200: #82828C;
+		--color-system-background-100: #1E1E23;
+		--color-system-background-200: #141419;
+		--color-system-background-300: #0A0A0F;
+		--color-system-border-100: #323237;
+		--color-system-border-200: #46464B;
 		--color-system-text-100: #fff;
 		--color-system-text-200: #c8c8d2;
 		--color-system-text-300: #8c8c96;
