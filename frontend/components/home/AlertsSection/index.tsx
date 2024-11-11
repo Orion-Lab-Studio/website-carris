@@ -41,7 +41,7 @@ export function AlertsSection() {
 	// C. Render components
 
 	return (
-		<Surface variant="alerts">
+		<Surface>
 			<Section heading={t('section_heading')} withGap>
 				<AlertsCarousel alerts={alertsActiveTodayAndTomorrow} />
 			</Section>
