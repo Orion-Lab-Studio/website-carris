@@ -8,15 +8,13 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	width: 100%;
-	min-height: 100vh;
 }
 
 @media screen and (width <= 1000px) {
 	.container {
 		grid-template:
-			"b" minmax(200px, auto) [b_]
-			"a" auto [a_] / 1fr;
-		min-height: unset;
+			"a" 50vh [a_]
+			"b" auto [b_] / 1fr;
 	}
 }
 

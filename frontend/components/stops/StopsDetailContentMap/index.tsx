@@ -37,9 +37,9 @@ export function StopsDetailContentMap() {
 
 	const activeStopGeoJson = useMemo(() => {
 		return stopsContext.actions.getStopByIdGeoJsonFC(stopsDetailContext.data.active_stop_id);
-	}, [stopsDetailContext.data.active_stop_id]);
+	}, [stopsDetailContext.data.active_stop_id, stopsDetailContext.data.stop]);
 
-	const activePathStopsGeoJson = useMemo(() => {
+	const activePathWaypointsGeoJson = useMemo(() => {
 		if (!stopsDetailContext.data.active_pattern_group?.path) return;
 		const collection = getBaseGeoJsonFeatureCollection();
 		stopsDetailContext.data.active_pattern_group.path.forEach((pathStop) => {
@@ -55,6 +55,11 @@ export function StopsDetailContentMap() {
 		});
 		return collection;
 	}, [stopsDetailContext.data.active_trip_id, vehiclesContext.data.vehicles]);
+
+	const activePathShapeGeoJson = useMemo(() => {
+		if (!stopsDetailContext.data.active_shape) return;
+		return stopsDetailContext.data.active_shape?.geojson;
+	}, [stopsDetailContext.data.active_shape]);
 
 	const activeVehicleGeoJson = useMemo(() => {
 		if (!stopsDetailContext.data.active_trip_id) return;
@@ -114,8 +119,8 @@ export function StopsDetailContentMap() {
 
 			<MapViewStylePath
 				presentBeforeId={MapViewStyleActiveStopsPrimaryLayerId}
-				shapeData={stopsDetailContext.data.active_shape?.geojson}
-				waypointsData={activePathStopsGeoJson}
+				shapeData={activePathShapeGeoJson}
+				waypointsData={activePathWaypointsGeoJson}
 			/>
 
 			<MapViewStyleStops

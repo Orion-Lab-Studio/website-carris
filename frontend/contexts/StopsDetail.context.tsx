@@ -273,7 +273,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 						scheduled_arrival: stopTime.arrival_time_24h,
 						scheduled_arrival_unix: arrivalUnixTimestamp,
 						stop_sequence: stopTime.stop_sequence,
-						trip_id: trip.trip_ids.join(),
+						trip_id: trip.trip_ids.length ? trip.trip_ids[0] : '',
 						vehicle_id: null,
 					});
 				}
@@ -322,6 +322,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 	};
 
 	const setActiveTripId = (tripId: string, stopSequence: number) => {
+		console.log('setActiveTripId', tripId, stopSequence);
 		const activePattern = dataValidPatternsState?.find(patternGroup => patternGroup.trips.find(trip => trip.trip_ids.includes(tripId)));
 		if (activePattern) {
 			setDataActivePatternState(activePattern);

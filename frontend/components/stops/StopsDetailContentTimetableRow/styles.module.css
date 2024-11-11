@@ -13,27 +13,40 @@
 }
 
 .container:last-child {
-  border-bottom: none;
+	border-bottom: none;
 }
 
 .container:has(+ .isSelected) {
   border-bottom-color: transparent;
 }
 
-.container:hover {
-	border-bottom-color: transparent;
-	border-radius: 15px;
-	box-shadow: 0 0 20px 0 rgb(0 0 0 / 5%);
+@media (pointer: fine) {
+	.container:hover {
+		border-bottom-color: transparent;
+		border-radius: 15px;
+		box-shadow: 0 0 20px 0 rgb(0 0 0 / 5%);
+	}
+	.container:has(+ .container:hover) {
+		border-bottom-color: transparent;
+	}
 }
 
-.container:has(+ .container:hover) {
-	border-bottom-color: transparent;
+@media (pointer: fine) and (prefers-color-scheme: dark) {
+	.container:hover {
+		background-color: var(--color-system-background-200);
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-	.container:hover,
+@media (width >= 650px) and (prefers-color-scheme: dark) {
 	.container.isSelected {
 		background-color: var(--color-system-background-200);
+	}
+}
+
+@media screen and (width < 650px) {
+	.container {
+		border-bottom: unset;
+		border-radius: 15px;
 	}
 }
 

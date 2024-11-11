@@ -35,6 +35,7 @@ export function StopsDetailContentTimetableSchedule() {
 					status="scheduled"
 				/>
 			))}
+			<NoDataLabel text={t('end_of_day')} withMinHeight />
 		</>
 	);
 

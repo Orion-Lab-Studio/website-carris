@@ -17,12 +17,12 @@ export function StopsDetailContent() {
 		<Surface>
 			<Section>
 				<div className={styles.container}>
+					<div className={styles.mapWrapper}>
+						<StopsDetailContentMap />
+					</div>
 					<div className={styles.listWrapper}>
 						<StopsDetailContentTimetableHeader />
 						<StopsDetailContentTimetable />
-					</div>
-					<div className={styles.mapWrapper}>
-						<StopsDetailContentMap />
 					</div>
 				</div>
 			</Section>

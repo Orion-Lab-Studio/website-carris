@@ -4,8 +4,12 @@
 .container{
 	display: flex;
 	flex-direction: column;
-	gap: var(--size-spacing-5);
 	width: 100%;
 	padding: var(--size-spacing-15);
-	padding-bottom: 25vh;
+}
+
+@media screen and (width < 650px){
+	.container{
+		gap: var(--size-spacing-15);
+	}
 }
