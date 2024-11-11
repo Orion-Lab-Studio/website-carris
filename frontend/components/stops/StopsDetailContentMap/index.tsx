@@ -103,16 +103,8 @@ export function StopsDetailContentMap() {
 			onClick={handleLayerClick}
 		>
 
-			<MapViewStyleStops
-				presentBeforeId={MapViewStylePathPrimaryLayerId}
-				stopsData={allStopsGeoJson}
-				style={stopsDetailContext.data.active_shape ? 'muted' : 'primary'}
-			/>
-
-			<MapViewStylePath
-				presentBeforeId={MapViewStyleActiveStopsPrimaryLayerId}
-				shapeData={stopsDetailContext.data.active_shape?.geojson}
-				stopsData={activePathStopsGeoJson}
+			<MapViewStyleVehicles
+				vehiclesData={activeVehicleGeoJson}
 			/>
 
 			<MapViewStyleActiveStops
@@ -120,8 +112,16 @@ export function StopsDetailContentMap() {
 				stopsData={activeStopGeoJson}
 			/>
 
-			<MapViewStyleVehicles
-				vehiclesData={activeVehicleGeoJson}
+			<MapViewStylePath
+				presentBeforeId={MapViewStyleActiveStopsPrimaryLayerId}
+				shapeData={stopsDetailContext.data.active_shape?.geojson}
+				waypointsData={activePathStopsGeoJson}
+			/>
+
+			<MapViewStyleStops
+				presentBeforeId={MapViewStylePathPrimaryLayerId}
+				stopsData={allStopsGeoJson}
+				style={stopsDetailContext.data.active_shape ? 'muted' : 'primary'}
 			/>
 
 		</MapView>

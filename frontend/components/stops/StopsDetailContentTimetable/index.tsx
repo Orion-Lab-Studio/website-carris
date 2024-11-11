@@ -21,7 +21,6 @@ export function StopsDetailContentTimetable() {
 
 	//
 	// B. Render components
-	console.log('stopsDetailContext.flags.is_loading_timetable', stopsDetailContext.flags.is_loading_timetable);
 
 	if (stopsDetailContext.flags.is_loading_timetable) {
 		return (

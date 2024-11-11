@@ -21,6 +21,8 @@ interface Props {
 
 const baseGeoJsonFeatureCollection = getBaseGeoJsonFeatureCollection();
 
+/* * */
+
 export function MapViewStyleActiveStops({ presentBeforeId, stopsData = baseGeoJsonFeatureCollection }: Props) {
 	return (
 		<Source data={stopsData} generateId={true} id="default-source-active-stops" type="geojson">

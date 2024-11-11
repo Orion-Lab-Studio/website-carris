@@ -8,29 +8,31 @@ import { Layer, Source } from 'react-map-gl/maplibre';
 /* * */
 
 export const MapViewStylePathPrimaryLayerId = 'default-layer-path-shape-line';
-export const MapViewStylePathInteractiveLayerId = 'default-layer-path-stops';
+export const MapViewStylePathInteractiveLayerId = 'default-layer-path-waypoints';
 
 /* * */
 
 interface Props {
 	presentBeforeId?: string
-	shapeData?: GeoJSON.Feature
-	stopsData?: GeoJSON.FeatureCollection
+	shapeData?: GeoJSON.Feature | GeoJSON.FeatureCollection
+	waypointsData?: GeoJSON.FeatureCollection
 }
 
 /* * */
 
 const baseGeoJsonFeatureCollection = getBaseGeoJsonFeatureCollection();
 
-export function MapViewStylePath({ presentBeforeId, shapeData, stopsData }: Props) {
+/* * */
+
+export function MapViewStylePath({ presentBeforeId, shapeData = baseGeoJsonFeatureCollection, waypointsData = baseGeoJsonFeatureCollection }: Props) {
 	return (
 		<>
 
-			<Source data={stopsData || baseGeoJsonFeatureCollection} generateId={true} id="default-source-path-stops" type="geojson">
+			<Source data={waypointsData} generateId={true} id="default-source-path-waypoints" type="geojson">
 				<Layer
 					beforeId={presentBeforeId}
-					id="default-layer-path-stops"
-					source="default-source-path-stops"
+					id="default-layer-path-waypoints"
+					source="default-source-path-waypoints"
 					type="circle"
 					paint={{
 						'circle-color': ['get', 'text_color'],
@@ -57,9 +59,9 @@ export function MapViewStylePath({ presentBeforeId, shapeData, stopsData }: Prop
 				/>
 			</Source>
 
-			<Source data={shapeData || baseGeoJsonFeatureCollection} generateId={true} id="default-source-path-shape" type="geojson">
+			<Source data={shapeData} generateId={true} id="default-source-path-shape" type="geojson">
 				<Layer
-					beforeId="default-layer-path-stops"
+					beforeId="default-layer-path-waypoints"
 					id="default-layer-path-shape-direction"
 					source="default-source-path-shape"
 					type="symbol"

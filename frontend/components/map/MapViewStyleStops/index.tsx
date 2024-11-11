@@ -22,9 +22,11 @@ interface Props {
 
 const baseGeoJsonFeatureCollection = getBaseGeoJsonFeatureCollection();
 
-export function MapViewStyleStops({ presentBeforeId, stopsData, style = 'primary' }: Props) {
+/* * */
+
+export function MapViewStyleStops({ presentBeforeId, stopsData = baseGeoJsonFeatureCollection, style = 'primary' }: Props) {
 	return (
-		<Source data={stopsData || baseGeoJsonFeatureCollection} generateId={true} id="default-source-stops-all" type="geojson">
+		<Source data={stopsData} generateId={true} id="default-source-stops-all" type="geojson">
 
 			{style === 'primary' && (
 				<Layer

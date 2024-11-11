@@ -86,7 +86,7 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 								{thisPattern.locality_ids.map((localityId, index) => (
 									<span key={index}>
 										{index > 0 && <span className={styles.localitySeparator}> • </span>}
-										<span className={styles.localityName}>{locationsContext.actions.getLocalityById(localityId)?.display}</span>
+										<span className={styles.localityName}>{locationsContext.actions.getLocalityById(localityId)?.name}</span>
 									</span>
 								))}
 							</p>
