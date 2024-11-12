@@ -318,7 +318,7 @@
 			"cause": {
 				"ACCIDENT": "Acidente",
 				"CONSTRUCTION": "Obras",
-				"DEMONSTRATION": "Evento / Manifestação",
+				"DEMONSTRATION": "Evento",
 				"HOLIDAY": "Férias",
 				"MAINTENANCE": "Manutenção",
 				"MEDICAL_EMERGENCY": "Emergência Médica",

@@ -530,7 +530,7 @@
 	},
 	"common": {
 		"BackButton": {
-			"label": "Voltar"
+			"label": "Go Back"
 		},
 		"ExpandToggle": {
 			"is_hidden": {
