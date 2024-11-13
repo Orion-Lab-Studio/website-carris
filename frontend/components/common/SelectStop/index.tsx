@@ -5,6 +5,7 @@
 import type { Stop } from '@carrismetropolitana/api-types/network';
 
 import { StopDisplay } from '@/components/stops/StopDisplay';
+import { useLocationsContext } from '@/contexts/Locations.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import { createDocCollection } from '@/hooks/useOtherSearch';
 import { ActionIcon, Combobox, Group, TextInput, useCombobox } from '@mantine/core';
@@ -39,6 +40,7 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	const [searchQuery, setSearchQuery] = useState('');
 	const [debouncedSearchQuery] = useDebouncedValue(searchQuery, 200);
 	const profileContext = useProfileContext();
+	const locationsContext = useLocationsContext();
 
 	const comboboxStore = useCombobox();
 
@@ -46,11 +48,19 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	// B. Transform data
 
 	const { search } = useMemo(() => {
-		const boostedData = data.map(item => ({ ...item, boost: profileContext.data.favorite_stops?.includes(item.id) ? true : false }));
-		return createDocCollection(boostedData, {
+		// Prepare data for search function
+		const preparedSearchCollection = data.map((item) => {
+			const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ? true : false;
+			const localityData = locationsContext.actions.getLocalityById(item.locality_id);
+			return {
+				...item,
+				boost: isFavorite,
+				locality_display: localityData?.display ?? '',
+			};
+		});
+		return createDocCollection(preparedSearchCollection, {
 			id: 2,
-			// TODO: Add locality.name to the search
-			// locality_id: 1,
+			locality_display: 1,
 			long_name: 1,
 			short_name: 1,
 			tts_name: 1.5,

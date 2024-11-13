@@ -4,12 +4,12 @@
 
 import type { Stop } from '@carrismetropolitana/api-types/network';
 
+import { useLocationsContext } from '@/contexts/Locations.context';
 import { useProfileContext } from '@/contexts/Profile.context';
+import { useStopsContext } from '@/contexts/Stops.context';
 import { createDocCollection } from '@/hooks/useOtherSearch';
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
-import { Routes } from '@/utils/routes';
-import { createContext, useContext, useEffect, useState } from 'react';
-import useSWR from 'swr';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 /* * */
 
@@ -62,6 +62,8 @@ export const StopsListContextProvider = ({ children }) => {
 	// A. Setup variables
 
 	const profileContext = useProfileContext();
+	const stopsContext = useStopsContext();
+	const locationsContext = useLocationsContext();
 
 	const [dataFilteredState, setDataFilteredState] = useState<Stop[]>([]);
 	const [dataFilteredGeojsonFCState, setDataFilteredGeojsonFCState] = useState<GeoJSON.FeatureCollection>();
@@ -74,17 +76,40 @@ export const StopsListContextProvider = ({ children }) => {
 	const [filterBySearchState, setFilterBySearchState] = useState <StopsListContextState['filters']['by_search']>('');
 
 	//
-	// B. Fetch data
+	// B. Transform data
 
-	const { data: allStopsData, isLoading: allStopsLoading } = useSWR<Stop[], Error>(`${Routes.API}/stops`);
-
-	//
-	// C. Transform data
+	const searchHook = useMemo(() => {
+		// Prepare data for search function
+		const preparedSearchCollection = stopsContext.data.stops.map((item) => {
+			const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ? true : false;
+			const localityData = locationsContext.actions.getLocalityById(item.locality_id);
+			return {
+				...item,
+				boost: isFavorite,
+				locality_display: localityData?.display ?? '',
+			};
+		});
+		return createDocCollection(preparedSearchCollection, {
+			id: 2,
+			locality_display: 1,
+			long_name: 1,
+			short_name: 1,
+			tts_name: 1.5,
+		});
+	}, [stopsContext.data.stops, profileContext.data.favorite_stops]);
 
 	const applyFiltersToData = (allData: Stop[] = []) => {
 		//
 
 		let filterResult = allData;
+
+		//
+		// Filter by by_search
+
+		if (filterBySearchState) {
+			// Give extra weight to favorite lines
+			filterResult = searchHook.search(filterBySearchState);
+		}
 
 		//
 		// Filter by_attribute
@@ -114,23 +139,6 @@ export const StopsListContextProvider = ({ children }) => {
 		}
 
 		//
-		// Filter by by_search
-
-		if (filterBySearchState) {
-			// Give extra weight to favorite lines
-			const boostedData = filterResult.map(stop => ({ ...stop, boost: profileContext.data.favorite_stops?.includes(stop.id) ? true : false }));
-			const searchHook = createDocCollection(boostedData, {
-				id: 2,
-				// TODO: Add locality.name to the search
-				// locality_id: 1,
-				long_name: 1,
-				short_name: 1,
-				tts_name: 1.5,
-			});
-			filterResult = searchHook.search(filterBySearchState);
-		}
-
-		//
 		// Return resulting items
 
 		return filterResult;
@@ -139,14 +147,14 @@ export const StopsListContextProvider = ({ children }) => {
 	};
 
 	useEffect(() => {
-		const filteredData = applyFiltersToData(allStopsData);
+		const filteredData = applyFiltersToData(stopsContext.data.stops);
 		setDataFilteredState(filteredData);
-	}, [allStopsData, filterByAttributeState, filterByFacilityState, filterByMunicipalityOrLocalityState, filterBySearchState]);
+	}, [stopsContext.data.stops, filterByAttributeState, filterByFacilityState, filterByMunicipalityOrLocalityState, filterBySearchState]);
 
 	useEffect(() => {
-		const favoritesStopsData = allStopsData?.filter(stop => profileContext.data.favorite_stops?.includes(stop.id)) || [];
+		const favoritesStopsData = stopsContext.data.stops?.filter(stop => profileContext.data.favorite_stops?.includes(stop.id)) || [];
 		setDataFavoritesState(favoritesStopsData);
-	}, [allStopsData, profileContext.data.favorite_stops]);
+	}, [stopsContext.data.stops, profileContext.data.favorite_stops]);
 
 	//
 	// D. Handle actions
@@ -198,7 +206,7 @@ export const StopsListContextProvider = ({ children }) => {
 			by_search: filterBySearchState,
 		},
 		flags: {
-			is_loading: allStopsLoading,
+			is_loading: stopsContext.flags.is_loading,
 		},
 	};
 
