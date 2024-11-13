@@ -1052,13 +1052,14 @@
 			}
 		},
 		"StopsDetailContentTimetableSchedule": {
+			"end_of_day": "Fim do Dia",
 			"no_service": "No Service for the selected day"
 		},
 		"StopsListToolbar": {
 			"filters": {
 				"by_current_view": {
-					"all": "All Stops",
 					"favorites": "Favorites",
+					"list": "Lista",
 					"map": "Ver em Mapa"
 				},
 				"by_search": {
