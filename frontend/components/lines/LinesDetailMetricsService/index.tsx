@@ -47,7 +47,7 @@ export function LinesDetailMetricsService() {
 			passTripCount: acc.passTripCount + Number(curr.pass_trip_count),
 			totalTripCount: acc.totalTripCount + Number(curr.total_trip_count),
 		}), { passTripCount: 0, totalTripCount: 0 });
-		return (passTripCount / totalTripCount) * 100;
+		return ((passTripCount / totalTripCount) * 100).toFixed(2);
 	}, [last15DaysService]);
 
 	const service15DayDistribution = useMemo(() => {
@@ -59,7 +59,7 @@ export function LinesDetailMetricsService() {
 			.map(service => ({
 				...service,
 				fail_trip_count: service.total_trip_count - service.pass_trip_count,
-				operational_day: DateTime.fromFormat(service.operational_day, 'yyyyMMdd').toFormat('dd LLL yyyy'),
+				operational_day: DateTime.fromFormat(service.operational_day, 'yyyyMMdd').toFormat('ccc, dd LLL yyyy', { locale: 'pt-PT' }),
 				pass_trip_percentage: (service.pass_trip_percentage * 100).toFixed(2),
 			}));
 	}, [last15DaysService]);
@@ -103,7 +103,7 @@ export function LinesDetailMetricsService() {
 						referenceLines={[
 							{ color: 'var(--color-system-text-300)', label: '75%', labelPosition: 'insideBottomRight', y: 75 },
 							{ color: 'var(--color-system-text-300)', label: '100%', labelPosition: 'insideBottomRight', y: 100 },
-							{ color: 'var(--color-system-text-300)', label: '25%', labelPosition: 'insideBottomRight', y: 25 },
+							{ color: 'var(--color-system-text-300)', label: '0%', labelPosition: 'insideBottomRight', y: 0 },
 						]}
 						series={[
 							{

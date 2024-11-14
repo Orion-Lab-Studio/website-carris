@@ -30,7 +30,7 @@ export function LinesDetailMetricsDemand() {
 		return linesDetailContext.data.demand_metrics.by_day
 			.sort((a, b) => Number(a.day) - Number(b.day))
 			.map(item => ({
-				operationalDay: DateTime.fromFormat(item.day.toString(), 'yyyy-MM-dd').toFormat('dd LLL yyyy'),
+				operationalDay: DateTime.fromFormat(item.day.toString(), 'yyyy-MM-dd').toFormat('ccc, dd LLL yyyy', { locale: 'pt-PT' }),
 				qty: item.qty,
 			}));
 	}, [linesDetailContext.data.demand_metrics]);
@@ -70,7 +70,7 @@ export function LinesDetailMetricsDemand() {
 						data={selectedDistribution}
 						dataKey="operationalDay"
 						gridAxis="none"
-						h={120}
+						h={150}
 						strokeWidth={5}
 						styles={{ referenceLine: { strokeDasharray: '5 5' } }}
 						withDots={false}
@@ -100,6 +100,10 @@ export function LinesDetailMetricsDemand() {
 							},
 						]}
 					/>
+				</div>
+
+				<div className={styles.infoWrapper}>
+					<p className={styles.footnote}>{t('footnote')}</p>
 				</div>
 
 			</Section>

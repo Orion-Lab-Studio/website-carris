@@ -3,8 +3,7 @@
 /* * */
 
 import type { SimplifiedAlert } from '@/types/alerts.types';
-import type { DemandMetrics } from '@/types/metrics.types';
-import type { ServiceMetrics } from '@carrismetropolitana/api-types/metrics';
+import type { DemandMetricsByLine, ServiceMetrics } from '@carrismetropolitana/api-types/metrics';
 import type { Line, Pattern, Route, Shape, Waypoint } from '@carrismetropolitana/api-types/network';
 
 import { useAlertsContext } from '@/contexts/Alerts.context';
@@ -29,7 +28,7 @@ interface LinesDetailContextState {
 		active_shape: null | Shape
 		active_waypoint: null | Waypoint
 		all_patterns: null | Pattern[][]
-		demand_metrics: DemandMetrics | undefined
+		demand_metrics: DemandMetricsByLine | undefined
 		line: Line | undefined
 		routes: Route[]
 		service_metrics: ServiceMetrics[]
