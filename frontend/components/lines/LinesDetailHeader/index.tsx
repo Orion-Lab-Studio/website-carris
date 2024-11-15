@@ -53,7 +53,7 @@ export function LinesDetailHeader() {
 		<Surface>
 
 			<Section withBottomDivider withPadding>
-				<BackButton />
+				<BackButton href="/lines" />
 			</Section>
 
 			<Section withBottomDivider withPadding>
