@@ -20,7 +20,7 @@ const inter = Inter({
 export const metadata = {
 	description: 'Horários e Paragens',
 	metadataBase: process.env.VERCEL_URL ? new URL(`https://${process.env.VERCEL_URL}`) : new URL(`http://0.0.0.0:${process.env.PORT || 3000}`),
-	title: 'CMET',
+	title: 'CMetropolitana',
 };
 
 /* * */
