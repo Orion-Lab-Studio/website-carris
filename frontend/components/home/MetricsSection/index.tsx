@@ -6,7 +6,7 @@ import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import MetricsCardByLine from '@/components/metrics/MetricsCardByLine';
-import MetricsCardToday from '@/components/metrics/MetricsCardToday';
+import { MetricsCardToday } from '@/components/metrics/MetricsCardToday';
 import MetricsCardYearToDate from '@/components/metrics/MetricsCardYearToDate';
 import { BreakpointSwitch } from '@/components/responsive/BreakpointSwitch';
 import { Routes } from '@/utils/routes';
