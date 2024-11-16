@@ -10,7 +10,7 @@ import { MapViewStyleVehicles, MapViewStyleVehiclesPrimaryLayerId } from '@/comp
 import { transformStopDataIntoGeoJsonFeature, useStopsContext } from '@/contexts/Stops.context';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 import { useVehiclesContext } from '@/contexts/Vehicles.context';
-import { getBaseGeoJsonFeatureCollection, moveMap } from '@/utils/map.utils';
+import { centerMap, getBaseGeoJsonFeatureCollection, moveMap } from '@/utils/map.utils';
 import { useEffect, useMemo } from 'react';
 import { useMap } from 'react-map-gl/maplibre';
 
@@ -74,7 +74,14 @@ export function StopsDetailContentMap() {
 		const coordinates = [stopsDetailContext.data.stop.lon, stopsDetailContext.data.stop.lat];
 		if (coordinates.some(isNaN)) return;
 		moveMap(stopsMap, coordinates);
-	}, [stopsDetailContext.data.stop, stopsMap]);
+		if (stopsDetailContext.data.active_trip_id) {
+			// Create a feature collection with the vehicle and the stop
+			const vehicleFC = vehiclesContext.actions.getVehiclesByTripIdGeoJsonFC(stopsDetailContext.data.active_trip_id);
+			const stopFC = stopsContext.actions.getStopByIdGeoJsonFC(stopsDetailContext.data.active_stop_id);
+			if (!vehicleFC || !stopFC) return;
+			centerMap(stopsMap, [vehicleFC.features[0], stopFC.features[0]]);
+		}
+	}, [stopsDetailContext.data.stop, stopsDetailContext.data.active_trip_id, stopsMap]);
 
 	//
 	// C. Handle Actions

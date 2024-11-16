@@ -221,20 +221,32 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		const prepareTimetableRealtimeData = () => {
 			if (!dataTimetableRealtimeState) return;
 			const nowInUnixSeconds = DateTime.now().toSeconds();
-			const timetableRealtimePastResult = dataTimetableRealtimeState.filter((arrival) => {
-				// If the arrival has an observed arrival time,
-				// then it means the vehicle has already passed the stop.
-				if (arrival.observed_arrival_unix) return true;
-				// Include it in the past if the estimated arrival time is in the past.
-				return (arrival.estimated_arrival_unix || arrival.scheduled_arrival_unix) < nowInUnixSeconds;
-			});
-			const timetableRealtimeFutureResult = dataTimetableRealtimeState.filter((arrival) => {
-				// If the arrival has an observed arrival time,
-				// then it means the vehicle has already passed the stop.
-				if (arrival.observed_arrival_unix) return false;
-				// Include it in the future if the estimated arrival time is in the future.
-				return (arrival.estimated_arrival_unix || arrival.scheduled_arrival_unix) >= nowInUnixSeconds;
-			});
+			const timetableRealtimePastResult = dataTimetableRealtimeState
+				.filter((arrival) => {
+					// If the arrival has an observed arrival time,
+					// then it means the vehicle has already passed the stop.
+					if (arrival.observed_arrival_unix) return true;
+					// Include it in the past if the estimated arrival time is in the past.
+					return (arrival.estimated_arrival_unix || arrival.scheduled_arrival_unix) < nowInUnixSeconds;
+				})
+				.sort((a, b) => {
+					const minimumArrivalA = a.observed_arrival_unix || a.scheduled_arrival_unix;
+					const minimumArrivalB = b.observed_arrival_unix || b.scheduled_arrival_unix;
+					return minimumArrivalA - minimumArrivalB;
+				});
+			const timetableRealtimeFutureResult = dataTimetableRealtimeState
+				.filter((arrival) => {
+					// If the arrival has an observed arrival time,
+					// then it means the vehicle has already passed the stop.
+					if (arrival.observed_arrival_unix) return false;
+					// Include it in the future if the estimated arrival time is in the future.
+					return (arrival.estimated_arrival_unix || arrival.scheduled_arrival_unix) >= nowInUnixSeconds;
+				})
+				.sort((a, b) => {
+					const minimumArrivalA = a.estimated_arrival_unix || a.scheduled_arrival_unix;
+					const minimumArrivalB = b.estimated_arrival_unix || b.scheduled_arrival_unix;
+					return minimumArrivalA - minimumArrivalB;
+				});
 			setDataTimetableRealtimePastState(timetableRealtimePastResult || []);
 			setDataTimetableRealtimeFutureState(timetableRealtimeFutureResult || []);
 		};
@@ -287,11 +299,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 				}
 			}
 		}
-		validScheduledTrips.sort((a, b) => {
-			const minimumArrivalA = Math.min(a.scheduled_arrival_unix, a.estimated_arrival_unix || Infinity);
-			const minimumArrivalB = Math.min(b.scheduled_arrival_unix, b.estimated_arrival_unix || Infinity);
-			return minimumArrivalA - minimumArrivalB;
-		});
+		validScheduledTrips.sort((a, b) => (a.scheduled_arrival_unix - b.scheduled_arrival_unix));
 		setDataTimetableScheduleState(validScheduledTrips);
 	}, [operationalDayContext.data.selected_day, dataValidPatternsState, dataActiveStopIdState]);
 
@@ -334,7 +342,6 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 	};
 
 	const setActiveTripId = (tripId: string, stopSequence: number) => {
-		console.log('setActiveTripId', tripId, stopSequence);
 		const activePattern = dataValidPatternsState?.find(patternGroup => patternGroup.trips.find(trip => trip.trip_ids.includes(tripId)));
 		if (activePattern) {
 			setDataActivePatternState(activePattern);
