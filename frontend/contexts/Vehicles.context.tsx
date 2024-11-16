@@ -139,7 +139,7 @@ export const VehiclesContextProvider = ({ children }) => {
 
 /* * */
 
-function transformVehicleDataIntoGeoJsonFeature(vehicleData: Vehicle): GeoJSON.Feature {
+function transformVehicleDataIntoGeoJsonFeature(vehicleData: Vehicle): GeoJSON.Feature<GeoJSON.Point> {
 	return {
 		geometry: {
 			coordinates: [vehicleData.lon, vehicleData.lat],

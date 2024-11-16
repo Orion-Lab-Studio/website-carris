@@ -104,8 +104,7 @@ export const StopsContextProvider = ({ children }) => {
 
 /* * */
 
-export function transformStopDataIntoGeoJsonFeature(stopData: Stop): GeoJSON.Feature<GeoJSON.Point> | undefined {
-	if (!stopData) return;
+export function transformStopDataIntoGeoJsonFeature(stopData: Stop): GeoJSON.Feature<GeoJSON.Point> {
 	return {
 		geometry: {
 			coordinates: [stopData.lon, stopData.lat],
