@@ -221,11 +221,19 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		const prepareTimetableRealtimeData = () => {
 			if (!dataTimetableRealtimeState) return;
 			const nowInUnixSeconds = DateTime.now().toSeconds();
-			const timetableRealtimePastResult = dataTimetableRealtimeState.filter((realtime) => {
-				return (realtime.estimated_arrival_unix || realtime.scheduled_arrival_unix) < nowInUnixSeconds;
+			const timetableRealtimePastResult = dataTimetableRealtimeState.filter((arrival) => {
+				// If the arrival has an observed arrival time,
+				// then it means the vehicle has already passed the stop.
+				if (arrival.observed_arrival_unix) return true;
+				// Include it in the past if the estimated arrival time is in the past.
+				return (arrival.estimated_arrival_unix || arrival.scheduled_arrival_unix) < nowInUnixSeconds;
 			});
-			const timetableRealtimeFutureResult = dataTimetableRealtimeState.filter((realtime) => {
-				return (realtime.estimated_arrival_unix || realtime.scheduled_arrival_unix) >= nowInUnixSeconds;
+			const timetableRealtimeFutureResult = dataTimetableRealtimeState.filter((arrival) => {
+				// If the arrival has an observed arrival time,
+				// then it means the vehicle has already passed the stop.
+				if (arrival.observed_arrival_unix) return false;
+				// Include it in the future if the estimated arrival time is in the future.
+				return (arrival.estimated_arrival_unix || arrival.scheduled_arrival_unix) >= nowInUnixSeconds;
 			});
 			setDataTimetableRealtimePastState(timetableRealtimePastResult || []);
 			setDataTimetableRealtimeFutureState(timetableRealtimeFutureResult || []);
@@ -279,7 +287,11 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 				}
 			}
 		}
-		validScheduledTrips.sort((a, b) => a.scheduled_arrival_unix - b.scheduled_arrival_unix);
+		validScheduledTrips.sort((a, b) => {
+			const minimumArrivalA = Math.min(a.scheduled_arrival_unix, a.estimated_arrival_unix || Infinity);
+			const minimumArrivalB = Math.min(b.scheduled_arrival_unix, b.estimated_arrival_unix || Infinity);
+			return minimumArrivalA - minimumArrivalB;
+		});
 		setDataTimetableScheduleState(validScheduledTrips);
 	}, [operationalDayContext.data.selected_day, dataValidPatternsState, dataActiveStopIdState]);
 
