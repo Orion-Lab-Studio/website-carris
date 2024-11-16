@@ -1,6 +1,5 @@
 'use client';
 
-import { use } from 'react';
 /* * */
 
 import ukkonen from 'ukkonen'; // Faster levenshtein distance
