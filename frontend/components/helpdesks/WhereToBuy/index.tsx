@@ -5,6 +5,7 @@ import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
 import { Image } from '@mantine/core';
+import Link from 'next/link';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
@@ -29,21 +30,21 @@ export function WhereToBuy() {
 				<Section heading={t('heading')} subheading={t('subheading')} withPadding>
 					<Grid columns="ab" withGap>
 
-						<div className={styles.cardWrapper}>
+						<Link className={styles.cardWrapper} href="/stores">
 							<Image alt={t('stores.title')} className={styles.cardImage} src="/assets/helpdesks/stores.png" />
 							<div className={styles.cardContents}>
 								<p className={styles.cardTitle}>{t('stores.title')}</p>
 								<p className={styles.cardDescription}>{t('stores.description')}</p>
 							</div>
-						</div>
+						</Link>
 
-						<div className={styles.cardWrapper}>
+						<Link className={styles.cardWrapper} href="/app-navegante">
 							<Image alt={t('app.title')} className={styles.cardImage} src="/assets/helpdesks/app.png" />
 							<div className={styles.cardContents}>
 								<p className={styles.cardTitle}>{t('app.title')}</p>
 								<p className={styles.cardDescription}>{t('app.description')}</p>
 							</div>
-						</div>
+						</Link>
 
 						<div className={styles.cardWrapper}>
 							<ThemeSwitch
