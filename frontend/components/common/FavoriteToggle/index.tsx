@@ -19,7 +19,7 @@ interface Props {
 
 /* * */
 
-export default function FavoriteToggle({ color, isActive, onToggle }: Props) {
+export function FavoriteToggle({ color, isActive, onToggle }: Props) {
 	//
 
 	//

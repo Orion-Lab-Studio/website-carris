@@ -91,7 +91,7 @@ export const StopsListContextProvider = ({ children }) => {
 		});
 		return createDocCollection(preparedSearchCollection, {
 			id: 2,
-			locality_display: 1,
+			locality_display: 1.5,
 			long_name: 1,
 			short_name: 1,
 			tts_name: 1.5,

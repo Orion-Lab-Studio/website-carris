@@ -6,6 +6,7 @@ import { MapViewStyleStops, MapViewStyleStopsInteractiveLayerId } from '@/compon
 import { transformStopDataIntoGeoJsonFeature } from '@/contexts/Stops.context';
 import { useStopsListContext } from '@/contexts/StopsList.context';
 import { centerMap, getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
+import * as turf from '@turf/turf';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
 import { useMap } from 'react-map-gl/maplibre';
@@ -27,7 +28,10 @@ export function StopsListViewMap() {
 
 	const allStopsFeatureCollection = useMemo(() => {
 		const collection = getBaseGeoJsonFeatureCollection();
-		stopsListContext.data.filtered.forEach(stop => collection.features.push(transformStopDataIntoGeoJsonFeature(stop)));
+		stopsListContext.data.filtered.forEach((stop) => {
+			const stopFC = transformStopDataIntoGeoJsonFeature(stop);
+			if (stopFC) collection.features.push(stopFC);
+		});
 		return collection;
 	}, [stopsListContext.data.filtered]);
 
@@ -35,8 +39,27 @@ export function StopsListViewMap() {
 	// C. Handle Actions
 
 	useEffect(() => {
-		if (!allStopsFeatureCollection || !stopsListMap) return;
-		centerMap(stopsListMap, allStopsFeatureCollection.features);
+		// Exit early if there are no stops or map
+		if (!allStopsFeatureCollection || !allStopsFeatureCollection.features.length || !stopsListMap) return;
+		// When there are no search filters, center the map on all stops
+		if (!stopsListContext.filters.by_search.length) {
+			centerMap(stopsListMap, allStopsFeatureCollection.features);
+			return;
+		}
+		// When there are search filters, center the map on the cluster with the most points
+		const clusterPoints = turf.clustersKmeans(allStopsFeatureCollection, { mutate: true, numberOfClusters: 2 });
+		const clusterPointsCount = clusterPoints.features.reduce((acc, feature) => {
+			if (typeof feature.properties.cluster !== 'number') return acc;
+			const clusterId = feature.properties.cluster;
+			if (!acc[clusterId]) acc[clusterId] = 0;
+			acc[clusterId]++;
+			return acc;
+		}, {});
+		const clusterId = Object.keys(clusterPointsCount).reduce((a, b) => (clusterPointsCount[a] > clusterPointsCount[b] ? a : b));
+		const filteredClusterPoints = clusterPoints.features.filter(feature => feature.properties.cluster === Number(clusterId));
+		console.log('filteredClusterPoints', filteredClusterPoints);
+		centerMap(stopsListMap, filteredClusterPoints);
+		//
 	}, [allStopsFeatureCollection, stopsListMap]);
 
 	function handleLayerClick(event) {

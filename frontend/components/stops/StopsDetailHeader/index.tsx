@@ -3,8 +3,8 @@
 /* * */
 
 import { BackButton } from '@/components/common/BackButton';
-import CopyBadge from '@/components/common/CopyBadge';
-import FavoriteToggle from '@/components/common/FavoriteToggle';
+import { CopyBadge } from '@/components/common/CopyBadge';
+import { FavoriteToggle } from '@/components/common/FavoriteToggle';
 import { IconDisplay } from '@/components/common/IconDisplay';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
@@ -53,7 +53,7 @@ export function StopsDetailHeader() {
 		<Surface>
 
 			<Section withBottomDivider withPadding>
-				<BackButton />
+				<BackButton href="/stops" />
 			</Section>
 
 			<Section withGap withPadding>
@@ -83,7 +83,7 @@ export function StopsDetailHeader() {
 
 			<Section>
 				<div className={styles.iconsWrapper}>
-					{stopsDetailContext.data.stop.facilities && (
+					{stopsDetailContext.data.stop.facilities.length > 0 && (
 						<>
 							{stopsDetailContext.data.stop.facilities.map((facility, index) => (
 								<div key={index} className={styles.iconFacilityWrapper}>

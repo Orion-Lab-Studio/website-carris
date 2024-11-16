@@ -109,6 +109,6 @@ export const getBaseGeoJsonFeatureLineString = (): GeoJSON.Feature => {
  * @returns A GeoJSON FeatureCollection object with an empty features array
  */
 
-export const getBaseGeoJsonFeatureCollection = (): GeoJSON.FeatureCollection => {
+export const getBaseGeoJsonFeatureCollection = (): GeoJSON.FeatureCollection<GeoJSON.Point, GeoJSON.GeoJsonProperties> => {
 	return { features: [], type: 'FeatureCollection' };
 };

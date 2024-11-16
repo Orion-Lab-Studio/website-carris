@@ -79,9 +79,9 @@ export function StopsDetailContentMap() {
 			const vehicleFC = vehiclesContext.actions.getVehiclesByTripIdGeoJsonFC(stopsDetailContext.data.active_trip_id);
 			const stopFC = stopsContext.actions.getStopByIdGeoJsonFC(stopsDetailContext.data.active_stop_id);
 			if (!vehicleFC || !stopFC) return;
-			centerMap(stopsMap, [vehicleFC.features[0], stopFC.features[0]]);
+			centerMap(stopsMap, [vehicleFC.features[0], stopFC.features[0]], { padding: 70 });
 		}
-	}, [stopsDetailContext.data.stop, stopsDetailContext.data.active_trip_id, stopsMap]);
+	}, [stopsDetailContext.data.stop, stopsDetailContext.data.active_trip_id, vehiclesContext.data.vehicles, stopsMap]);
 
 	//
 	// C. Handle Actions

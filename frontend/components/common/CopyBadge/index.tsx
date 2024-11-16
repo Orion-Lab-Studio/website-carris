@@ -15,7 +15,7 @@ interface Props {
 
 /* * */
 
-export default function CopyBadge({ hasBorder = true, label, size = 'md', value }: Props) {
+export function CopyBadge({ hasBorder = true, label, size = 'md', value }: Props) {
 	//
 
 	//

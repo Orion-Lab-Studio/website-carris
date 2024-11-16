@@ -3,7 +3,7 @@
 /* * */
 
 import { BackButton } from '@/components/common/BackButton';
-import FavoriteToggle from '@/components/common/FavoriteToggle';
+import { FavoriteToggle } from '@/components/common/FavoriteToggle';
 import { SelectOperationalDay } from '@/components/common/SelectOperationalDay';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';

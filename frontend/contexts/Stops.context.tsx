@@ -57,7 +57,10 @@ export const StopsContextProvider = ({ children }) => {
 	const getAllStopsGeoJsonFC = (): GeoJSON.FeatureCollection | undefined => {
 		if (!allStopsData) return;
 		const collection = getBaseGeoJsonFeatureCollection();
-		allStopsData.forEach(stop => collection.features.push(transformStopDataIntoGeoJsonFeature(stop)));
+		allStopsData.forEach((stop) => {
+			const stopFC = transformStopDataIntoGeoJsonFeature(stop);
+			if (stopFC) collection.features.push(stopFC);
+		});
 		return collection;
 	};
 
@@ -65,7 +68,8 @@ export const StopsContextProvider = ({ children }) => {
 		const stop = getStopById(stopId);
 		if (!stop) return;
 		const collection = getBaseGeoJsonFeatureCollection();
-		collection.features.push(transformStopDataIntoGeoJsonFeature(stop));
+		const stopFC = transformStopDataIntoGeoJsonFeature(stop);
+		if (stopFC) collection.features.push(stopFC);
 		return collection;
 	};
 
@@ -100,8 +104,8 @@ export const StopsContextProvider = ({ children }) => {
 
 /* * */
 
-export function transformStopDataIntoGeoJsonFeature(stopData: Stop): GeoJSON.Feature {
-	if (!stopData) return {} as GeoJSON.Feature;
+export function transformStopDataIntoGeoJsonFeature(stopData: Stop): GeoJSON.Feature<GeoJSON.Point> | undefined {
+	if (!stopData) return;
 	return {
 		geometry: {
 			coordinates: [stopData.lon, stopData.lat],
