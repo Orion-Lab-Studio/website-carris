@@ -38,6 +38,16 @@
 	font-weight: var(--font-weight-medium);
 }
 
+.href {
+	font-size: 14px;
+	font-weight: var(--font-weight-medium);
+	color: var(--color-system-text-200);
+}
+
+.href:hover {
+	text-decoration: underline;
+}
+
 /* * */
 /* PRICING */
 
@@ -82,7 +92,7 @@
 	color: var(--color-system-text-200);
 }
 
-.na {
+.none {
 	font-weight: 700;
 	color: var(--color-system-text-400);
 }

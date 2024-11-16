@@ -2,8 +2,6 @@
 
 /* * */
 
-import metropolitanoAnimation from '@/assets/animations/cards/metropolitano.json';
-import municipalAnimation from '@/assets/animations/cards/municipal.json';
 import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
@@ -13,6 +11,12 @@ import { useTranslations } from 'next-intl';
 import styles from './styles.module.css';
 
 /* * */
+
+import metropolitanoAnimation from '@/assets/animations/cards/metropolitano.json';
+import municipalAnimation from '@/assets/animations/cards/municipal.json';
+
+/* * */
+
 export function Pass() {
 	//
 

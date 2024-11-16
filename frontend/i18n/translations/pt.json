@@ -453,57 +453,70 @@
 				"metropolitano": "Metropolitano",
 				"municipal": "Municipal"
 			},
+			"price_labels": {
+				"free": "GRÁTIS",
+				"none": "N/A",
+				"price": "{value} € / mês"
+			},
 			"products": {
 				"combatente-minus-65": {
-					"description": "Desconto de 30€ para antigos combatentes com menos de 65 anos. É necessário apresentar declaração. Saiba mais no site navegante.pt",
+					"description": "Desconto de 30€ para antigos combatentes com menos de 65 anos. É necessário apresentar declaração.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "10 € / mês",
 					"price_municipal": "GRÁTIS",
 					"title": "Antigo Combatente <65"
 				},
 				"combatente-plus-65": {
-					"description": "Desconto de 100% para antigos combatentes com 65 ou mais anos. É necessário apresentar declaração. Saiba mais no site navegante.pt",
+					"description": "Desconto de 100% para antigos combatentes com 65 ou mais anos. É necessário apresentar declaração.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "GRÁTIS",
 					"price_municipal": "N/A",
 					"title": "Antigo Combatente >65"
 				},
 				"family": {
-					"description": "Desconto válido para agregados familiares com pelo menos 3 indivíduos. É necessário que todos os elementos do agregado tenham o mesmo domicílio fiscal, residam num dos 18 municípios da aml, e que tenham relação familiar direta de ascendência ou descendência com o titular. Saiba mais no site navegante.pt",
-					"price_metropolitano": "80 € / mês",
-					"price_municipal": "60 € / mês",
+					"description": "Desconto válido para agregados familiares com pelo menos 3 indivíduos. É necessário que todos os elementos do agregado tenham o mesmo domicílio fiscal, residam num dos 18 municípios da aml, e que tenham relação familiar direta de ascendência ou descendência com o titular.",
+					"href_label": "Saiba mais no site navegante.pt",
+					"price_metropolitano": "{value} € / mês",
+					"price_municipal": "{value} € / mês",
 					"title": "Família"
 				},
 				"normal": {
 					"description": "O passe navegante® possibilita viagens em todos os operadores de transporte público, quer dentro de cada município, quer em toda a área metropolitana de Lisboa.",
-					"price_metropolitano": "40 € / mês",
-					"price_municipal": "30 € / mês",
+					"price_metropolitano": "{value} € / mês",
+					"price_municipal": "{value} € / mês",
 					"title": "Normal"
 				},
 				"plus-65": {
-					"description": "Desconto de 50% para utilizadores com 65 ou mais anos. Não é necessário apresentar declaração mas pode ser necessário confirmar a sua data de nascimento. Válido apenas para a modalidade metropolitana. Saiba mais no site navegante.pt",
+					"description": "Desconto de 50% para utilizadores com 65 ou mais anos. Não é necessário apresentar declaração mas pode ser necessário confirmar a sua data de nascimento. Válido apenas para a modalidade metropolitana.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "20 € / mês",
 					"price_municipal": "N/A",
 					"title": "+65"
 				},
 				"social-a": {
-					"description": "Desconto de 50% mediante apresentação de declaração de rendimentos. Saiba mais no site navegante.pt",
+					"description": "Desconto de 50% mediante apresentação de declaração de rendimentos.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "20 € / mês",
 					"price_municipal": "15 € / mês",
 					"title": "Social+ A"
 				},
 				"social-b": {
-					"description": "Desconto de 25% mediante apresentação de declaração de rendimentos. Saiba mais no site navegante.pt",
+					"description": "Desconto de 25% mediante apresentação de declaração de rendimentos.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "30 € / mês",
 					"price_municipal": "22,5 € / mês",
 					"title": "Social+ B"
 				},
 				"sub18": {
-					"description": "Desconto de 100% para todos os jovens estudantes menores de 18 anos. Não é necessário apresentar nenhuma declaração, mas pode ser preciso confirmar a data de nascimento. Saiba mais no site navegante.pt",
+					"description": "Desconto de 100% para todos os jovens estudantes menores de 18 anos. Não é necessário apresentar nenhuma declaração, mas pode ser preciso confirmar a data de nascimento.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "GRÁTIS",
 					"price_municipal": "N/A",
 					"title": "Sub18"
 				},
 				"sub23": {
-					"description": "Desconto de 100% para todos os jovens estudantes entre os 19 e os 23 anos. Não é necessário apresentar declaração de inscrição em instituição de ensino. Saiba mais no site navegante.pt",
+					"description": "Desconto de 100% para todos os jovens estudantes entre os 19 e os 23 anos. Não é necessário apresentar declaração de inscrição em instituição de ensino.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "GRÁTIS",
 					"price_municipal": "N/A",
 					"title": "Sub23"
