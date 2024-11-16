@@ -70,7 +70,7 @@ export const StopsListContextProvider = ({ children }) => {
 	const [dataFavoritesState, setDataFavoritesState] = useState<Stop[]>([]);
 
 	const [filterByAttributeState, setFilterByAttributeState] = useState <StopsListContextState['filters']['by_attribute']>(null);
-	const [filterByCurrentViewState, setFilterByCurrentViewState] = useState <StopsListContextState['filters']['by_current_view']>('list');
+	const [filterByCurrentViewState, setFilterByCurrentViewState] = useState <StopsListContextState['filters']['by_current_view']>('map');
 	const [filterByFacilityState, setFilterByFacilityState] = useState <StopsListContextState['filters']['by_facility']>(null);
 	const [filterByMunicipalityOrLocalityState, setFilterByMunicipalityOrLocalityState] = useState <StopsListContextState['filters']['by_municipality_or_locality']>(null);
 	const [filterBySearchState, setFilterBySearchState] = useState <StopsListContextState['filters']['by_search']>('');
@@ -95,6 +95,8 @@ export const StopsListContextProvider = ({ children }) => {
 			long_name: 1,
 			short_name: 1,
 			tts_name: 1.5,
+		}, {
+			threshold: 1.7,
 		});
 	}, [stopsContext.data.stops, profileContext.data.favorite_stops]);
 

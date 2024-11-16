@@ -1,5 +1,6 @@
 'use client';
 
+import { use } from 'react';
 /* * */
 
 import ukkonen from 'ukkonen'; // Faster levenshtein distance
@@ -26,11 +27,27 @@ interface Options {
 	 * The minimum length of a query word to be considered in the search. Ignored when query is a number.
 	 */
 	minimumQueryLength?: number
+	/**
+	 * The portion of top results to show.
+	 * Lower values will show less results, higher values will show more results.
+	 * Threshold should be greater than 1.
+	 * @default 2
+	 * */
+	threshold?: number
+	/**
+	 * Whether to use Levenshtein distance to match words that are close but not exact.
+	 * Useful for typos and other small errors.
+	 * Can be disabled for map searches where the user might want to search for exact matches only.
+	 * @default true
+	 * */
+	useLevenshtein?: boolean
 };
 
 interface FinalOptions {
 	boostMultiplier: number
 	minimumQueryLength: number
+	threshold: number
+	useLevenshtein: boolean
 };
 /* * */
 
@@ -59,6 +76,8 @@ export function createDocCollection<T extends SearchableDocument<T>>(docs: T[], 
 	const defaultOptions = {
 		boostMultiplier: 1.5,
 		minimumQueryLength: 1,
+		threshold: 2,
+		useLevenshtein: true,
 	};
 
 	const finalOptions: FinalOptions = {
@@ -175,7 +194,7 @@ function searchDocuments<T extends SearchableDocument<T>>(
 					return 1;
 				}
 				// Check if the query is of enough size to be searched
-				else if (queryWord.length > options.minimumQueryLength && word.length > options.minimumQueryLength) {
+				else if (options.useLevenshtein === true && queryWord.length > options.minimumQueryLength && word.length > options.minimumQueryLength) {
 					// If the query is a number, we don't want to do a fuzzy search
 					if (Number.isNaN(Number(queryWord)) && levenshteinDistance(word, queryWord, maxLevDistance, levenshteinCache) < maxLevDistance) {
 						return 0.5;
@@ -196,6 +215,9 @@ function searchDocuments<T extends SearchableDocument<T>>(
 
 			// If the value is an array, we treat it as a list of words
 			if (Array.isArray(documentValue)) {
+				if (documentValue.length === 0) {
+					continue;
+				}
 				const documentStrings = documentValue;
 				if (queryWords.length > 0) {
 					// Match each query word against a locality.
@@ -215,7 +237,7 @@ function searchDocuments<T extends SearchableDocument<T>>(
 				const documentWords = documentValue.split(' ');
 				queryWords.forEach((queryWord: string) => {
 					// See above
-					const lengthPenalty = Math.min(queryWord.length / 3, 1);
+					const lengthPenalty = Math.min(queryWord.length / 4, 1);
 					totalScore += matchWord(documentWords, queryWord) * multiplier * lengthPenalty;
 				});
 
@@ -251,9 +273,15 @@ function searchDocuments<T extends SearchableDocument<T>>(
 
 	// Filter out documents with a score less than half of the top score
 	const bestScore = sortedScoreDocs[0].score;
-	const filteredScoreDocs = sortedScoreDocs.filter(scoredDoc => scoredDoc.score > Math.floor(bestScore / 2) || bestScore === 0);
+	const filteredScoreDocs = sortedScoreDocs.filter(scoredDoc => scoredDoc.score > Math.floor(bestScore / options.threshold) || bestScore === 0);
+
+	// If top score is 0, we filter out all documents
+	if (bestScore === 0) {
+		return [];
+	}
 
 	// Sort the documents by score and
-	return filteredScoreDocs
-		.map(scoredDoc => scoredDoc.doc);
+	return filteredScoreDocs.map(scoredDoc => scoredDoc.doc);
+
+	//
 }
