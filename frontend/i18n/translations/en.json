@@ -452,57 +452,70 @@
 				"metropolitano": "Metropolitano",
 				"municipal": "Municipal"
 			},
+			"price_labels": {
+				"free": "GRÁTIS",
+				"none": "N/A",
+				"price": "{value} € / mês"
+			},
 			"products": {
 				"combatente-minus-65": {
-					"description": "$30 discount for former combatants under 65. It is necessary to present a declaration. Find out more on the website navegante.pt",
+					"description": "Desconto de 30€ para antigos combatentes com menos de 65 anos. É necessário apresentar declaração.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "€10/month",
 					"price_municipal": "FREE",
 					"title": "Former combatants <65"
 				},
 				"combatente-plus-65": {
-					"description": "100% discount for former combatants aged 65 or over. It is necessary to present a declaration. Find out more on the website navegante.pt",
+					"description": "Desconto de 100% para antigos combatentes com 65 ou mais anos. É necessário apresentar declaração.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "FREE",
 					"price_municipal": "N/A",
 					"title": "Former combatants >65"
 				},
 				"family": {
-					"description": "Discount valid for households with at least 3 individuals. It is necessary that all family members have the same tax residence, reside in one of the 18 municipalities of aml, and have a direct family relationship of ancestry or descendants with the holder. Find out more on the website navegante.pt",
-					"price_metropolitano": "€80/month",
-					"price_municipal": "€60/month",
+					"description": "Desconto válido para agregados familiares com pelo menos 3 indivíduos. É necessário que todos os elementos do agregado tenham o mesmo domicílio fiscal, residam num dos 18 municípios da aml, e que tenham relação familiar direta de ascendência ou descendência com o titular.",
+					"href_label": "Saiba mais no site navegante.pt",
+					"price_metropolitano": "{value} € / mês",
+					"price_municipal": "{value} € / mês",
 					"title": "Family"
 				},
 				"normal": {
 					"description": "The navegante® pass allows travel on all public transport operators, both within each municipality and throughout the Lisbon metropolitan area.",
-					"price_metropolitano": "€40/month",
-					"price_municipal": "€30/month",
+					"price_metropolitano": "{value} € / mês",
+					"price_municipal": "{value} € / mês",
 					"title": "Normal"
 				},
 				"plus-65": {
-					"description": "A 50% discount is available for users aged 65 and over. No declaration is required, but you may need to confirm your date of birth. Valid only for metropolitan services. For more information, visit the navegante.pt website",
+					"description": "Desconto de 50% para utilizadores com 65 ou mais anos. Não é necessário apresentar declaração mas pode ser necessário confirmar a sua data de nascimento. Válido apenas para a modalidade metropolitana.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "€20/month",
 					"price_municipal": "N/A",
 					"title": "+65"
 				},
 				"social-a": {
-					"description": "A 50% discount is available upon presentation of an income tax return. For more details, visit the navegante.pt website",
+					"description": "Desconto de 50% mediante apresentação de declaração de rendimentos.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "€20/month",
 					"price_municipal": "€15/month",
 					"title": "Social+ A"
 				},
 				"social-b": {
-					"description": "A 25% discount is available upon presentation of an income tax return. For more details, visit the navegante.pt website",
+					"description": "Desconto de 25% mediante apresentação de declaração de rendimentos.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "€30/month",
 					"price_municipal": "€22,5/month",
 					"title": "Social+ B"
 				},
 				"sub18": {
-					"description": "A 100% discount is available for all students under 18 years old. No declaration is required, but you may need to confirm your date of birth. For more information, visit navegante.pt website",
+					"description": "Desconto de 100% para todos os jovens estudantes menores de 18 anos. Não é necessário apresentar nenhuma declaração, mas pode ser preciso confirmar a data de nascimento.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "FREE",
 					"price_municipal": "N/A",
 					"title": "U-18"
 				},
 				"sub23": {
-					"description": "A 100% discount is available for all students between 19 and 23 years old. No declaration is required, but you may need to present a registration at an educational institution. For more information, visit navegante.pt website",
+					"description": "Desconto de 100% para todos os jovens estudantes entre os 19 e os 23 anos. Não é necessário apresentar declaração de inscrição em instituição de ensino.",
+					"href_label": "Saiba mais no site navegante.pt",
 					"price_metropolitano": "FREE",
 					"price_municipal": "N/A",
 					"title": "U-23"
