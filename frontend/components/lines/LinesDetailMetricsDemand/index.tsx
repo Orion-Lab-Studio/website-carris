@@ -37,7 +37,7 @@ export function LinesDetailMetricsDemand() {
 
 	const averageDemand = useMemo(() => {
 		if (!linesDetailContext.data.demand_metrics) return 0;
-		return (linesDetailContext.data.demand_metrics.total_qty / linesDetailContext.data.demand_metrics.by_day.length).toFixed(0);
+		return (linesDetailContext.data.demand_metrics.qty / linesDetailContext.data.demand_metrics.by_day.length).toFixed(0);
 	}, [linesDetailContext.data.demand_metrics]);
 
 	//
@@ -54,7 +54,7 @@ export function LinesDetailMetricsDemand() {
 				<div className={styles.infoWrapper}>
 					<div className={styles.bigNumberWrapper}>
 						<h1 className={styles.bigNumber} style={{ color: linesDetailContext.data.line?.color }}>
-							{t('big_number', { value: linesDetailContext.data.demand_metrics?.total_qty })}
+							{t('big_number', { value: linesDetailContext.data.demand_metrics?.qty })}
 						</h1>
 						<LiveIcon className={styles.liveIcon} color={linesDetailContext.data.line?.color} />
 					</div>
