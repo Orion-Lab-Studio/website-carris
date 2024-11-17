@@ -22,7 +22,8 @@
 	background-color: var(--color-system-background-200);
 }
 
-.container:last-child {
+.container:last-child,
+.container:last-of-type {
 	border-bottom: none;
 }
 
