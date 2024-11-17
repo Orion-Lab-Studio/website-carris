@@ -912,6 +912,102 @@
 			},
 			"text_1": "Cada passageiro transportado corresponde a uma validação de um passe, bilhete pré-pago ou bilhete adquirido a bordo de um autocarro da Carris Metropolitana. Através da análise destas validações, a Carris Metropolitana obtém informação essencial sobre a utilização de cada linha. Estes dados ajudam a identificar a importância de cada rota, avaliar a necessidade de ajustes na frequência de horários e, redefinição de percursos para responder melhor às necessidades dos passageiros."
 		},
+		"MetricsPagePassengersDay": {
+			"sections": {
+				"aml": {
+					"heading": "Na área metropolitana de Lisboa:",
+					"main_label": "passageiros transportados hoje",
+					"main_value": "{value, number}"
+				},
+				"by_agency": {
+					"41": {
+						"main_description": "(Amadora, Oeiras, Sintra, Cascais e Lisboa)",
+						"main_label": "passageiros transportados hoje na área 1",
+						"main_value": "{value, number}"
+					},
+					"42": {
+						"main_description": "(Mafra, Vila Franca de Xira, Odivelas e Loures)",
+						"main_label": "passageiros transportados hoje na área 2",
+						"main_value": "{value, number}"
+					},
+					"43": {
+						"main_description": "(Almada, Seixal e Sesimbra)",
+						"main_label": "passageiros transportados hoje na área 3",
+						"main_value": "{value, number}"
+					},
+					"44": {
+						"main_description": "(Alcochete, Moita, Montijo, Palmela, Setúbal e Barreiro)",
+						"main_label": "passageiros transportados hoje na área 4",
+						"main_value": "{value, number}"
+					},
+					"heading": "Por área:"
+				}
+			}
+		},
+		"MetricsPagePassengersMonth": {
+			"sections": {
+				"aml": {
+					"heading": "Na área metropolitana de Lisboa:",
+					"main_label": "passageiros transportados este mês",
+					"main_value": "{value, number}"
+				},
+				"by_agency": {
+					"41": {
+						"main_description": "(Amadora, Oeiras, Sintra, Cascais e Lisboa)",
+						"main_label": "passageiros transportados este mês na área 1",
+						"main_value": "{value, number}"
+					},
+					"42": {
+						"main_description": "(Mafra, Vila Franca de Xira, Odivelas e Loures)",
+						"main_label": "passageiros transportados este mês na área 2",
+						"main_value": "{value, number}"
+					},
+					"43": {
+						"main_description": "(Almada, Seixal e Sesimbra)",
+						"main_label": "passageiros transportados este mês na área 3",
+						"main_value": "{value, number}"
+					},
+					"44": {
+						"main_description": "(Alcochete, Moita, Montijo, Palmela, Setúbal e Barreiro)",
+						"main_label": "passageiros transportados este mês na área 4",
+						"main_value": "{value, number}"
+					},
+					"heading": "Por área:"
+				}
+			}
+		},
+		"MetricsPagePassengersYear": {
+			"sections": {
+				"aml": {
+					"heading": "Na área metropolitana de Lisboa:",
+					"main_label": "passageiros transportados este ano",
+					"main_value": "{value, number}"
+				},
+				"by_agency": {
+					"41": {
+						"main_description": "(Amadora, Oeiras, Sintra, Cascais e Lisboa)",
+						"main_label": "passageiros transportados este ano na área 1",
+						"main_value": "{value, number}"
+					},
+					"42": {
+						"main_description": "(Mafra, Vila Franca de Xira, Odivelas e Loures)",
+						"main_label": "passageiros transportados este ano na área 2",
+						"main_value": "{value, number}"
+					},
+					"43": {
+						"main_description": "(Almada, Seixal e Sesimbra)",
+						"main_label": "passageiros transportados este ano na área 3",
+						"main_value": "{value, number}"
+					},
+					"44": {
+						"main_description": "(Alcochete, Moita, Montijo, Palmela, Setúbal e Barreiro)",
+						"main_label": "passageiros transportados este ano na área 4",
+						"main_value": "{value, number}"
+					},
+					"heading": "Por área:"
+				}
+			}
+		},
 		"MetricsPageRecords": {
 			"heading": "Recordes",
 			"text_1": "Aqui, poderá encontrar alguns dos recordes da Carris Metropolitana."
