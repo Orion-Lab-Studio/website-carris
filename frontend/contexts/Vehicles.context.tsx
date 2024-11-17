@@ -55,7 +55,7 @@ export const VehiclesContextProvider = ({ children }) => {
 
 	const allVehiclesData = useMemo(() => {
 		const now = DateTime.now().toSeconds();
-		return fetchedVehiclesData?.filter((vehicle: Vehicle) => vehicle.timestamp > now - 60 * 60 * 24) || [];
+		return fetchedVehiclesData?.filter((vehicle: Vehicle) => vehicle.timestamp > now - 180) || [];
 	}, [fetchedVehiclesData]);
 
 	//
