@@ -6,7 +6,8 @@ import type { Vehicle } from '@/types/vehicles.types';
 
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import { Routes } from '@/utils/routes';
-import { createContext, useContext } from 'react';
+import { DateTime } from 'luxon';
+import { createContext, useContext, useMemo } from 'react';
 import useSWR from 'swr';
 
 /* * */
@@ -50,7 +51,12 @@ export const VehiclesContextProvider = ({ children }) => {
 	//
 	// A. Fetch data
 
-	const { data: allVehiclesData, isLoading: allVehiclesLoading } = useSWR<Vehicle[], Error>(`${Routes.API}/vehicles`, { refreshInterval: 3000 });
+	const { data: fetchedVehiclesData, isLoading: allVehiclesLoading } = useSWR<Vehicle[], Error>(`${Routes.API}/vehicles`, { refreshInterval: 3000 });
+
+	const allVehiclesData = useMemo(() => {
+		const now = DateTime.now().toSeconds();
+		return fetchedVehiclesData?.filter((vehicle: Vehicle) => vehicle.timestamp > now - 60 * 60 * 24) || [];
+	}, [fetchedVehiclesData]);
 
 	//
 	// B. Handle actions
