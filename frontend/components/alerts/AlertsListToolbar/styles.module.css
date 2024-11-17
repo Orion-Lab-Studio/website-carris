@@ -10,6 +10,7 @@
 .selectsWrapper {
 	display: grid;
 	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
 	gap: var(--size-spacing-15);
 	justify-content: stretch;
 	width: 100%;
