@@ -22,6 +22,7 @@ export function NewsDetailContent({ content }: { content: string }) {
 			el.removeAttribute('style');
 			el.removeAttribute('width');
 			el.removeAttribute('height');
+			el.removeAttribute('sizes');
 		});
 	});
 
