@@ -23,13 +23,19 @@ const nextConfig = {
   reactStrictMode: true,
   async redirects() {
     return [
-      // //
+      //
+      { destination: '/lines', permanent: true, source: '/linhas' },
       { destination: '/lines', permanent: true, source: '/horarios' },
-      // //
+      //
+      { destination: '/stops', permanent: true, source: '/paragens' },
+      //
       { destination: '/vehicles', permanent: true, source: '/veiculos' },
-      // //
+      //
       { destination: '/stores', permanent: true, source: '/encm' },
+      { destination: '/stores', permanent: true, source: '/lojas' },
       { destination: '/stores', permanent: true, source: '/espacos-navegante' },
+      //
+      { destination: 'https://backoffice.carrismetropolitana.pt/viagemvirtual', permanent: false, source: '/viagemvirtual' },
       //
     ]
   },
