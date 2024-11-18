@@ -3,7 +3,7 @@
 		"id": "0001",
 		"src": "/assets/featured/download_app.png",
 		"target": "_blank",
-		"url": "https://www.carrismetropolitana.pt/viagemvirtual"
+		"url": "https://backoffice.carrismetropolitana.pt/viagemvirtual"
 	},
 	{
 		"id": "0002",
@@ -14,6 +14,6 @@
 		"id": "0003",
 		"src": "/assets/featured/participe.png",
 		"target": "_self",
-		"url": "https://www.carrismetropolitana.pt/participe"
+		"url": "https://backoffice.carrismetropolitana.pt/participe"
 	}
 ]

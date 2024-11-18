@@ -13,7 +13,7 @@ interface NewsData {
 export async function GET() {
 	//
 
-	const allNewsData = await fetch('https://www.carrismetropolitana.pt/wp-json/wp/v2/noticia?per_page=100').then(res => res.json());
+	const allNewsData = await fetch('https://backoffice.carrismetropolitana.pt/wp-json/wp/v2/noticia?per_page=100').then(res => res.json());
 
 	if (!allNewsData) return Response.json([], { status: 500, statusText: 'Unable to fetch news data' });
 
@@ -22,7 +22,7 @@ export async function GET() {
 	for (const newsData of allNewsData) {
 		//
 
-		const featuredImageMediaData = await fetch(`https://www.carrismetropolitana.pt/wp-json/wp/v2/media/${newsData.featured_media}`).then(res => res.json());
+		const featuredImageMediaData = await fetch(`https://backoffice.carrismetropolitana.pt/wp-json/wp/v2/media/${newsData.featured_media}`).then(res => res.json());
 
 		allNewsDataFormatted.push({
 			_id: newsData.id,

@@ -13,7 +13,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'www.carrismetropolitana.pt',
+        hostname: 'cmet.pt',
         port: '',
         protocol: 'https',
       },
