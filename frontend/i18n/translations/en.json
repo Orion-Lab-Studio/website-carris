@@ -130,39 +130,6 @@
 		"favorites": "Favorites",
 		"profile": "Profile"
 	},
-	"HomeMetricsSection": {
-		"heading": "Our live operation"
-	},
-	"HomeMetricsSectionDemand": {
-		"area": {
-			"label": "Number of validations in the Area {area} today",
-			"value": "{value, number}"
-		},
-		"by_line": {
-			"selected": "passengers transported on this line",
-			"top": "lines with the most passengers transported today"
-		},
-		"lastMonth": {
-			"label": "passengers carried in {month}",
-			"value": "{value, number}"
-		},
-		"popover": {
-			"link": "Exploring Open Data",
-			"text": "Passenger transport values updated every 60 minutes."
-		},
-		"today": {
-			"label": "passengers transported today",
-			"value": "{value, number}"
-		},
-		"yearToDate": {
-			"label": "passengers transported this year",
-			"value": "{value, number}"
-		},
-		"yesterday": {
-			"label": "passengers transported yesterday",
-			"value": "{value, number}"
-		}
-	},
 	"HomeQuickSearchWidget": {
 		"options": {
 			"lines": "Lines",
@@ -725,6 +692,18 @@
 		},
 		"MainCarouselCard": {
 			"learn_more": "Find out more"
+		},
+		"MetricsSection": {
+			"demand": {
+				"label": "Total de passageiros transportados hoje",
+				"value": "{value, number}"
+			},
+			"heading": "A nossa operação ao vivo",
+			"link_label": "Explorar mais métricas em tempo real",
+			"service": {
+				"label": "Total de passageiros transportados hoje",
+				"value": "{value, number}"
+			}
 		},
 		"NewsSection": {
 			"section_heading": "News"
