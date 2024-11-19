@@ -3,6 +3,7 @@
 /* * */
 
 import { Surface } from '@/components/layout/Surface';
+import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
 import { Accordion, Image, List, Table } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
@@ -64,7 +65,10 @@ export function AboutPage() {
 							<p className={styles.text}>{t('sections.section-4.text-2')}</p>
 							<p className={styles.text}>{t('sections.section-4.text-3')}</p>
 							<p className={styles.text}>{t('sections.section-4.text-4')}</p>
-							<Image alt="Carris Metropolitana" src="/images/about/about-estrutura.svg" />
+							<ThemeSwitch
+								dark={<Image alt="Estrutura da Carris Metropolitana" src="/images/about/about-estrutura-dark.svg" />}
+								light={<Image alt="Estrutura da Carris Metropolitana" src="/images/about/about-estrutura-light.svg" />}
+							/>
 						</Accordion.Panel>
 					</Accordion.Item>
 
