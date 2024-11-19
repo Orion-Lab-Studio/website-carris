@@ -35,6 +35,15 @@ export const URLS = Object.freeze({
 	},
 
 	/**
+	 * URLs for CMET's Open Data partner platforms.
+	 */
+	open_data_partners: {
+		dados_gov: 'https://dados.gov.pt/pt/datasets/gtfs-carris-metropolitana/',
+		github: 'https://github.com/carrismetropolitana',
+		nap_pt: 'https://nap-portugal.imt-ip.pt/nap/multimodalsupplydetail/159',
+	},
+
+	/**
 	 * URLs for CMET's Github Repos.
 	 */
 	repos: {
