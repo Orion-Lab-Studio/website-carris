@@ -1174,6 +1174,16 @@
 					}
 				}
 			},
+			"more": {
+				"label": "Mais",
+				"links": {
+					"about": "Sobre a CMetropolitana",
+					"drivers": "Recrutamento de Motoristas",
+					"metrics": "A nosssa operação ao vivo",
+					"news": "Notícias",
+					"open-data": "Dados Abertos"
+				}
+			},
 			"schedules": {
 				"label": "Schedules",
 				"links": {
