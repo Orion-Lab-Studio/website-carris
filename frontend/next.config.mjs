@@ -36,6 +36,7 @@ const nextConfig = {
       { destination: '/stores', permanent: true, source: '/espacos-navegante' },
       //
       { destination: 'https://backoffice.carrismetropolitana.pt/viagemvirtual', permanent: false, source: '/viagemvirtual' },
+      { destination: 'https://backoffice.carrismetropolitana.pt/participe', permanent: false, source: '/participe' },
       //
     ]
   },
