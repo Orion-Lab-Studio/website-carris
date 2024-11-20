@@ -5,7 +5,6 @@ import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 import { useStickyObserver } from '@/hooks/useStickyObserver';
 import { getCssVariableValue } from '@/utils/getCssVariableValue';
-import { DateTime } from 'luxon';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
