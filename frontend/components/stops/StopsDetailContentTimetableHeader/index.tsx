@@ -1,9 +1,11 @@
 /* * */
 
 import { SelectOperationalDay } from '@/components/common/SelectOperationalDay';
+import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 import { useStickyObserver } from '@/hooks/useStickyObserver';
 import { getCssVariableValue } from '@/utils/getCssVariableValue';
+import { DateTime } from 'luxon';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
@@ -18,6 +20,7 @@ export function StopsDetailContentTimetableHeader() {
 
 	const t = useTranslations('stops.StopsDetailContentTimetableHeader');
 	const stopsDetailContext = useStopsDetailContext();
+	const operationalDayContext = useOperationalDayContext();
 
 	const headerHeight = getCssVariableValue('--size-height-header');
 	const { isSticky, ref: stickyElementRef } = useStickyObserver({ top: headerHeight }, [1], { top: -1 });
@@ -37,7 +40,7 @@ export function StopsDetailContentTimetableHeader() {
 					<p className={styles.stopSummaryWrapper}>
 						{t.rich('summary', {
 							changeDay: chunks => <a className={styles.changeDay} href="#">{chunks}</a>,
-							day_name: new Date(),
+							day_name: operationalDayContext.data.selected_day_jsdate,
 							dayName: chunks => <span className={styles.dayName}>{chunks}</span>,
 							stop_name: stopsDetailContext.data.stop?.long_name,
 							stopName: chunks => <span className={styles.stopName}>{chunks}</span>,
