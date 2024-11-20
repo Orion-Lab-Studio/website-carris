@@ -2,6 +2,6 @@
 /* CONTAINER */
 
 .container {
-	margin: auto;
-	max-width: var(--size-width-global);
+	width: 100%;
+	max-width: none;
 }
