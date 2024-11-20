@@ -2,6 +2,7 @@
 
 /* * */
 
+import { NoDataLabel } from '@/components/layout/NoDataLabel';
 import { PathWaypoint } from '@/components/lines/PathWaypoint';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { Routes } from '@/utils/routes';
@@ -61,8 +62,10 @@ export function LinesDetailPathList() {
 	//
 	// D. Render components
 
-	if (!sortedStops || !linesDetailContext.data.active_pattern) {
-		return null;
+	if (!sortedStops?.length || !linesDetailContext.data.active_pattern) {
+		return (
+			<NoDataLabel />
+		);
 	}
 
 	return (

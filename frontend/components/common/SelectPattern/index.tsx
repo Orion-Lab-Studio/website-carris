@@ -8,6 +8,7 @@ import { useLocationsContext } from '@/contexts/Locations.context';
 import { useStopsContext } from '@/contexts/Stops.context';
 import { Pattern } from '@carrismetropolitana/api-types/network';
 import { ComboboxItem, ComboboxItemGroup, Flex, Group, Select, SelectProps, Text } from '@mantine/core';
+import { IconAlertCircle, IconAlertTriangle } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
 
@@ -20,6 +21,7 @@ export interface Props extends SelectProps {
 
 interface CustomComboboxItem extends ComboboxItem {
 	direction_id: number
+	pattern_id: string
 }
 
 /* * */
@@ -53,6 +55,7 @@ export function SelectPattern({ date_filter, onChange, patterns, value, ...props
 				direction_id: patternGroupData.direction_id,
 				disabled: date_filter ? !patternGroupData.valid_on.includes(date_filter) : false,
 				label: patternGroupData.headsign,
+				pattern_id: patternGroupData.id,
 				value: patternGroupData.version_id,
 			};
 
@@ -83,11 +86,18 @@ export function SelectPattern({ date_filter, onChange, patterns, value, ...props
 	//
 	// C. Render components
 
-	const renderSelectOption: SelectProps['renderOption'] = ({ option }) => {
+	const renderSelectOption: SelectProps['renderOption'] = ({ option }: { option: CustomComboboxItem }) => {
 		//
 
 		const patternData = patterns.find(pattern => pattern.version_id === option.value);
-		if (!patternData || !patternData.path.length) return null;
+		if (!patternData || !patternData.path.length) {
+			return (
+				<Flex align="center" gap={5} justify="center">
+					<IconAlertTriangle size={14} />
+					<Text size="xs">{t('invalid_option', { pattern_id: option.pattern_id })}</Text>
+				</Flex>
+			);
+		};
 
 		const firstStopData = stopsContext.actions.getStopById(patternData.path[0].stop_id);
 		const firstStopLocality = locationsContext.data.localitites.find(locality => locality.id === firstStopData?.locality_id);

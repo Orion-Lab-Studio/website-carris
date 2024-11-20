@@ -261,6 +261,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 		if (!dataActivePatternState) return;
 		// Preselect the first waypoint of the active pattern if there is no filter value
 		if (!filterActiveWaypointStopIdState) {
+			if (!dataActivePatternState.path.length) return;
 			const firstStopId = dataActivePatternState.path[0].stop_id;
 			const firstStopSequence = dataActivePatternState.path[0].stop_sequence;
 			setActiveWaypoint(firstStopId, firstStopSequence, false);
