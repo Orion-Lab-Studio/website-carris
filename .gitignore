@@ -30,15 +30,18 @@ yarn-error.log*
 .env.local
 .env.development
 .env.production
+*.key
 
 # vercel
 .vercel
 
 # Tmp directory
 tmp
-package-lock.json
-nginx/uptime.conf
 
-#
+# Lockfiles
+package-lock.json
+pnpm-lock.yaml
+
+# nginx secrets
+nginx/uptime.conf
 .htpasswd
-*.key
