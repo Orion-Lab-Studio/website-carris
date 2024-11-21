@@ -64,6 +64,8 @@ export const EnvironmentContextProvider = ({ children, value }) => {
 	const getNormalizedHref = (href: string) => {
 		// Do nothing if undefined
 		if (!href) return '#';
+		// If environmet is 'website' (the default) only return href
+		if (dataValueState === 'website') return href;
 		// Check if href already includes a slash or not
 		if (href.startsWith('/')) return `/${dataValueState}${href}`;
 		else return `/${dataValueState}/${href}`;
