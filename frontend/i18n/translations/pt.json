@@ -311,7 +311,9 @@
 			}
 		},
 		"AlertsDetail": {
-			"more_info": "Mais informações",
+			"more_info": "Mais informações"
+		},
+		"AlertsDetailImageThumbnail": {
 			"open_full_image": "Abrir imagem numa nova janela"
 		},
 		"AlertsListEmpty": {

@@ -32,12 +32,3 @@
 	line-height: 1.6;
 	color: var(--color-system-text-100);
 }
-
-/* * */
-/* IMAGE */
-
-.image {
-	overflow: hidden;
-	border: 1px solid var(--color-system-border-200);
-	border-radius: 5px;
-}

@@ -5,13 +5,13 @@
 import { AlertActivePeriodStart } from '@/components/alerts/AlertActivePeriod';
 import { AlertCauseIcon, AlertEffectIcon } from '@/components/alerts/AlertCauseEffectIcon';
 import AlertInformedEntity from '@/components/alerts/AlertInformedEntity';
+import { AlertsDetailImageThumbnail } from '@/components/alerts/AlertsDetailImageThumbnail';
 import { BackButton } from '@/components/common/BackButton';
 import Button from '@/components/common/Button';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { useAlertsContext } from '@/contexts/Alerts.context';
-import { Image } from '@mantine/core';
-import { IconArrowUpRight, IconExternalLink } from '@tabler/icons-react';
+import { IconExternalLink } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
@@ -71,12 +71,7 @@ export default function Component({ alertId }: Props) {
 				<Section withPadding>
 					<div className={styles.contentWrapper}>
 						{simplifiedAlertData?.description && <p className={styles.description}>{simplifiedAlertData.description}</p>}
-						{simplifiedAlertData?.image_url && (
-							<>
-								<Image alt={simplifiedAlertData?.title} className={styles.image} src={simplifiedAlertData.image_url} />
-								<Button href={simplifiedAlertData.image_url} icon={<IconArrowUpRight size={16} />} label={t('open_full_image')} target="_blank" variant="pill" />
-							</>
-						)}
+						{simplifiedAlertData?.image_url && <AlertsDetailImageThumbnail imageUrl={simplifiedAlertData?.image_url} title={simplifiedAlertData?.title} />}
 						{simplifiedAlertData?.url && <Button href={simplifiedAlertData.url || '#'} icon={<IconExternalLink size={18} />} label={t('more_info')} />}
 					</div>
 				</Section>
