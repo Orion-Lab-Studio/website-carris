@@ -29,7 +29,7 @@ export function NewsSection() {
 	//
 	// C. Transform data
 
-	const allNewsDataLatest = allNewsData?.sort((a, b) => collator.compare(b.publish_date, a.publish_date)).slice(0, 5);
+	const allNewsDataLatest = allNewsData?.sort((a, b) => collator.compare(b.publish_date, a.publish_date)).slice(0, 50);
 
 	const carouselSlides = allNewsDataLatest?.map(slideItem => ({
 		_id: slideItem._id,
