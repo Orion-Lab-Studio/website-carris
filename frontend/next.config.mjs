@@ -37,6 +37,12 @@ const nextConfig = {
       //
       { destination: '/tickets', permanent: true, source: '/tarifarios' },
       //
+      { destination: '/contacts', permanent: true, source: '/contactos' },
+      { destination: '/contacts', permanent: true, source: '/apoio' },
+      //
+      { destination: '/press', permanent: true, source: '/imprensa' },
+      { destination: 'https://backoffice.carrismetropolitana.pt/viagemvirtual', permanent: false, source: '/press' },
+      //
       { destination: 'https://backoffice.carrismetropolitana.pt/viagemvirtual', permanent: false, source: '/viagemvirtual' },
       { destination: 'https://backoffice.carrismetropolitana.pt/participe', permanent: false, source: '/participe' },
       //
