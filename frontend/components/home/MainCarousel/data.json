@@ -6,6 +6,12 @@
 		"url": "https://backoffice.carrismetropolitana.pt/viagemvirtual"
 	},
 	{
+		"id": "0001",
+		"src": "/assets/featured/new_website.png",
+		"target": "_self",
+		"url": "https://www.carrismetropolitana.pt/news/25450"
+	},
+	{
 		"id": "0002",
 		"src": "/assets/featured/join_whatsapp.png",
 		"url": "/news/7243"
