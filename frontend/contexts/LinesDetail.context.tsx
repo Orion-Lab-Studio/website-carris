@@ -220,7 +220,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 			});
 		});
 		setDataActiveAlertsState(activeAlerts);
-	}, [alertsContext.data.simplified, lineId]);
+	}, [alertsContext.data.simplified, dataLineState, lineId]);
 
 	//
 	// D. Handle actions
