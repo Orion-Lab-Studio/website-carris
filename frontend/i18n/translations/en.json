@@ -3,8 +3,8 @@
 		"heading": "Service Alerts"
 	},
 	"AppError": {
-		"goto_home": "Return to main page",
-		"redirect": "Going back to the main page and in {value} second{s}.",
+		"goto_home": "Return to home page",
+		"redirect": "Returning to home page in {value} second{s}.",
 		"retry": "Retry in {value} seconds",
 		"subtitle": "We have been notified and will correct it soon. Thank you for your understanding.",
 		"sync": "Failed to sync devices.",
@@ -14,7 +14,7 @@
 	},
 	"AppRedirect": {
 		"action": "Go to Page",
-		"subtitle": "If it is not automatically redirected, use the next button.",
+		"subtitle": "If you are not automatically redirected, use the following button.",
 		"title": "Redirecting..."
 	},
 	"AppUnavailable": {
@@ -74,13 +74,13 @@
 					"rows": {
 						"1": {
 							"col_1": "NEXT_LOCALE",
-							"col_2": "carrismetropolitana.us",
+							"col_2": "carrismetropolitana.pt",
 							"col_3": "Identify the user's preferred language",
 							"col_4": "1 year"
 						},
 						"2": {
 							"col_1": "anonymous_analytics_enabled",
-							"col_2": "carrismetropolitana.us",
+							"col_2": "carrismetropolitana.pt",
 							"col_3": "Obtain statistical information about website usage",
 							"col_4": "1 year"
 						}
