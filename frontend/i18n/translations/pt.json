@@ -1103,6 +1103,12 @@
 			}
 		}
 	},
+	"periods": {
+		"PeriodsWidgetItem": {
+			"from": "inicia a {value, date, dayShort} {value, date, monthShort} {value, date, yearLong}",
+			"until": "termina a {value, date, dayShort} {value, date, monthShort} {value, date, yearLong}"
+		}
+	},
 	"planner": {
 		"Page": {
 			"Navegante": {

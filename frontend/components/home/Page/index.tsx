@@ -10,6 +10,7 @@ import { SchedulesSection } from '@/components/home/SchedulesSection';
 import { SupportSection } from '@/components/home/SupportSection';
 import { TarifsSection } from '@/components/home/TarifsSection';
 import { Grid } from '@/components/layout/Grid';
+import { PeriodsWidget } from '@/components/periods/PeriodsWidget';
 import { BreakpointDesktop } from '@/components/responsive/BreakpointSwitch';
 
 import styles from './styles.module.css';
@@ -28,6 +29,7 @@ export function HomePage() {
 				</div>
 			</Grid>
 			<SchedulesSection />
+			<PeriodsWidget />
 			<AlertsSection />
 			<NewsSection />
 			<TarifsSection />
