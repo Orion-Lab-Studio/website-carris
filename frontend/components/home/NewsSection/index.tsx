@@ -5,8 +5,8 @@
 import Carousel from '@/components/common/Carousel';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import NewsCard from '@/components/news/Card';
-import NewsCardSkeleton from '@/components/news/CardSkeleton';
+import { NewsCard } from '@/components/news/NewsCard';
+import { NewsCardSkeleton } from '@/components/news/NewsCardSkeleton';
 import collator from '@/utils/collator';
 import { useTranslations } from 'next-intl';
 import useSWR from 'swr';

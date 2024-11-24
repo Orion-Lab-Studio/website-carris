@@ -1,5 +1,9 @@
 /* * */
 
+import { NewsList } from '@/components/news/NewsList';
+
+/* * */
+
 export default function Page() {
-	return <div>All News Page</div>;
+	return <NewsList />;
 }

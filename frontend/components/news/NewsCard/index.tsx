@@ -20,7 +20,7 @@ interface NewsCardProps {
 
 /* * */
 
-export default function Component({ _id, coverImageSrc, publishDate, title }: NewsCardProps) {
+export function NewsCard({ _id, coverImageSrc, publishDate, title }: NewsCardProps) {
 	//
 
 	//
