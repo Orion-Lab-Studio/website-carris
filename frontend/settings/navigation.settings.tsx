@@ -42,7 +42,7 @@ export const mainNavigationGroup: NavigationGroup[] = [
 	{
 		_id: 'more',
 		links: [
-			// { _id: 'news', href: '/news', icon: <IconNews /> },
+			{ _id: 'news', href: '/news', icon: <IconNews /> },
 			{ _id: 'metrics', href: '/metrics', icon: <IconChartBar /> },
 			{ _id: 'open-data', href: '/open-data', icon: <IconPrompt /> },
 			{ _id: 'drivers', href: '/drivers', icon: <IconUserHeart />, target: '_blank' },
