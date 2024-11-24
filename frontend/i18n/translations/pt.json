@@ -1234,6 +1234,10 @@
 			"heading": "Pesquisar Paragens",
 			"lines_that_pass_here": "Linhas que passam nesta paragem"
 		},
+		"StopsDetailAlerts": {
+			"heading": "Alertas ativos",
+			"subheading": "Alertas ativos para esta paragem ou para linhas que passam nesta paragem."
+		},
 		"StopsDetailContentTimetableHeader": {
 			"summary": "Horários estimados de passagem na paragem <stopName>{stop_name}</stopName> para o dia <dayName>{day_name, date, long}</dayName>. <changeDay>Alterar dia ›</changeDay>",
 			"trips_legend": {

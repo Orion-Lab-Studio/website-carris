@@ -323,15 +323,17 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		if (!alertsContext.data.simplified) return;
 		const activeAlerts = alertsContext.data.simplified.filter((simplifiedAlertData) => {
 			return simplifiedAlertData.informed_entity.some((informedEntity) => {
-				if (!informedEntity.stopId || !informedEntity.routeId) return false;
+				if (!informedEntity.stopId && !informedEntity.routeId) return false;
 				const hasMatchingStop = informedEntity.stopId === dataActiveStopIdState;
-				const hasMatchingRoute = dataStopState?.route_ids.includes(informedEntity.routeId);
-				const isActive = simplifiedAlertData.start_date <= new Date() && simplifiedAlertData.end_date >= new Date();
+				const hasMatchingRoute = dataStopState?.route_ids.includes(informedEntity.routeId || '');
+				const isActive = simplifiedAlertData.end_date ? simplifiedAlertData.end_date >= new Date() : true;
+				console.log(informedEntity, hasMatchingStop, hasMatchingRoute, isActive);
 				return (hasMatchingStop || hasMatchingRoute) && isActive;
 			});
 		});
+		console.log('activeAlerts', activeAlerts);
 		setDataActiveAlertsState(activeAlerts);
-	}, [alertsContext.data.simplified, dataActiveStopIdState]);
+	}, [alertsContext.data.simplified, dataStopState, dataActiveStopIdState]);
 
 	//
 	// D. Handle actions
