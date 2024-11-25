@@ -1019,6 +1019,9 @@
 		}
 	},
 	"news": {
+		"NewsList": {
+			"heading": "Todas as Notícias"
+		},
 		"SinglePageHeader": {
 			"publish_date": "Publicada a {value, date, long}"
 		}
