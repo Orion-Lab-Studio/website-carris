@@ -4,7 +4,7 @@
 
 	"files.eol": "\n",
 
-	"eslint.workingDirectories": ["./frontend"],
+	"eslint.workingDirectories": ["auto"],
 
 	// Disable the default formatter, use eslint instead
 	"prettier.enable": false,
