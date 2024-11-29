@@ -8,6 +8,10 @@ import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 /* * */
 
+import '@/themes/_reset/reset.css';
+
+/* * */
+
 const inter = Inter({
 	display: 'swap',
 	subsets: ['latin'],

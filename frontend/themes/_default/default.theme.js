@@ -11,7 +11,6 @@ import 'maplibre-gl/dist/maplibre-gl.css';
 
 /* * */
 
-import '@/themes/_default/styles/reset.css';
 import '@/themes/_default/styles/variables.css';
 import '@/themes/_default/styles/wordpress.css';
 
