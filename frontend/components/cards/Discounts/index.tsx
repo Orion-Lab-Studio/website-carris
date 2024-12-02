@@ -19,7 +19,6 @@ interface Discount {
 
 export const availableDiscounts: Discount[] = [
 	{ _id: 'normal', price_metropolitano: 40, price_municipal: 30 },
-	{ _id: 'sub18', href: 'https://www.navegante.pt/viajar/descontos#:~:text=consumo%20de%20energia.-,Gratuitidade%20para%20jovens%20estudantes,-Os%20jovens%20estudantes', price_metropolitano: 0 },
 	{ _id: 'sub23', href: 'https://www.navegante.pt/viajar/descontos#:~:text=consumo%20de%20energia.-,Gratuitidade%20para%20jovens%20estudantes,-Os%20jovens%20estudantes', price_metropolitano: 0 },
 	{ _id: 'social-a', href: 'https://www.navegante.pt/viajar/descontos#:~:text=ser%20efetuados%20mensalmente.-,Social%20%2B,-O%20Passe%20Social', price_metropolitano: 20, price_municipal: 15 },
 	{ _id: 'social-b', href: 'https://www.navegante.pt/viajar/descontos#:~:text=ser%20efetuados%20mensalmente.-,Social%20%2B,-O%20Passe%20Social', price_metropolitano: 30, price_municipal: 22.5 },
