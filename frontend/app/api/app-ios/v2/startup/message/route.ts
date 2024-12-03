@@ -17,5 +17,5 @@ const appStartupMessages: StartupMessage[] = [
 /* * */
 
 export async function GET() {
-	return Response.json(appStartupMessages);
+	return Response.json(appStartupMessages, { headers: { 'Cache-Control': 'public, max-age=30' } });
 }

@@ -35,7 +35,7 @@ export async function GET() {
 		//
 	}
 
-	return Response.json(allNewsDataFormatted);
+	return Response.json(allNewsDataFormatted, { headers: { 'Cache-Control': 'public, max-age=180' } });
 
 	//
 }

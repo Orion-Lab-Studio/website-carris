@@ -19,7 +19,7 @@ export async function GET(_, { params }) {
 		title: newsData.title.rendered,
 	};
 
-	return Response.json(newsDataFormatted);
+	return Response.json(newsDataFormatted, { headers: { 'Cache-Control': 'public, max-age=180' } });
 
 	//
 }
