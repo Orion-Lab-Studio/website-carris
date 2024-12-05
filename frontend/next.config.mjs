@@ -51,6 +51,7 @@ const nextConfig = {
       { destination: 'https://backoffice.carrismetropolitana.pt/participe', permanent: false, source: '/participe' },
       { destination: 'https://backoffice.carrismetropolitana.pt/motoristas', permanent: false, source: '/drivers' },
       { destination: 'https://backoffice.carrismetropolitana.pt/motoristas', permanent: false, source: '/motoristas' },
+      { destination: 'https://backoffice.carrismetropolitana.pt/motoristas', permanent: false, source: '/recrutamento' },
       { destination: 'https://backoffice.carrismetropolitana.pt/novobanco', permanent: false, source: '/novobanco' },
       { destination: 'https://backoffice.carrismetropolitana.pt/mini-passageiros', permanent: false, source: '/mini-passageiros' },
       { destination: 'https://backoffice.carrismetropolitana.pt/praias-area1', permanent: false, source: '/praias-area1' },
