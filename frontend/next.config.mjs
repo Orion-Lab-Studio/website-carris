@@ -31,6 +31,8 @@ const nextConfig = {
       //
       { destination: '/vehicles', permanent: true, source: '/veiculos' },
       //
+      { destination: '/news', permanent: true, source: '/noticias' },
+      //
       { destination: '/planner', permanent: true, source: '/planeador' },
       //
       { destination: '/stores', permanent: true, source: '/encm' },
