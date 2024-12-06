@@ -1,5 +1,9 @@
 /* * */
 
+import { JSX } from 'react';
+
+/* * */
+
 export interface NavigationGroup {
 	_id: string
 	links: NavigationLink[]

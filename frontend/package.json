@@ -21,6 +21,7 @@
 		"@rajesh896/broprint.js": "2.1.1",
 		"@tabler/icons-react": "3.24.0",
 		"@turf/turf": "7.1.0",
+		"@types/geojson": "^7946.0.14",
 		"classnames": "2.5.1",
 		"dayjs": "1.11.13",
 		"embla-carousel-autoplay": "8.5.1",
