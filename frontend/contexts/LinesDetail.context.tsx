@@ -231,7 +231,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 	 */
 	useEffect(() => {
 		// Return early if no patterns are available
-		if (!dataValidPatternsState) return;
+		if (!dataValidPatternsState || !dataValidPatternsState.length) return;
 		// Preselect the first pattern of the valid patterns if there is no filter value
 		if (!filterActivePatternIdState) {
 			setActivePattern(dataValidPatternsState[0].version_id);
