@@ -37,7 +37,7 @@ export function LinesDetailMetricsService() {
 
 	const last15DaysService = useMemo(() => {
 		if (!linesDetailContext.data.service_metrics) return [];
-		linesDetailContext.data.service_metrics.sort((a, b) => Number(b.operational_day) - Number(a.operational_day));
+		linesDetailContext.data.service_metrics.sort((a, b) => Number(b.operational_date) - Number(a.operational_date));
 		return linesDetailContext.data.service_metrics.slice(0, 15);
 	}, [linesDetailContext.data.service_metrics]);
 
@@ -54,12 +54,12 @@ export function LinesDetailMetricsService() {
 		if (!last15DaysService) return null;
 		return last15DaysService
 			.sort((a, b) => {
-				return a.operational_day.localeCompare(b.operational_day);
+				return a.operational_date?.localeCompare(b.operational_date);
 			})
 			.map(service => ({
 				...service,
 				fail_trip_count: service.total_trip_count - service.pass_trip_count,
-				operational_day: DateTime.fromFormat(service.operational_day, 'yyyyMMdd').toFormat('ccc, dd LLL yyyy', { locale: 'pt-PT' }),
+				operational_date: DateTime.fromFormat(service.operational_date, 'yyyyMMdd').toFormat('ccc, dd LLL yyyy', { locale: 'pt-PT' }),
 				pass_trip_percentage: (service.pass_trip_percentage * 100).toFixed(2),
 			}));
 	}, [last15DaysService]);
@@ -90,7 +90,7 @@ export function LinesDetailMetricsService() {
 						connectNulls={false}
 						curveType="monotone"
 						data={service15DayDistribution}
-						dataKey="operational_day"
+						dataKey="operational_date"
 						gridAxis="none"
 						h={120}
 						strokeWidth={5}
