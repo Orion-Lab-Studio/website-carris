@@ -10,6 +10,7 @@
 		"start": "next start"
 	},
 	"dependencies": {
+		"@lottiefiles/react-lottie-player": "3.5.4",
 		"@mantine/carousel": "7.15.1",
 		"@mantine/charts": "7.15.1",
 		"@mantine/core": "7.15.1",
@@ -29,7 +30,6 @@
 		"embla-carousel-wheel-gestures": "8.0.1",
 		"inflected": "2.1.0",
 		"jsonwebtoken": "9.0.2",
-		"lottie-react": "2.4.0",
 		"luxon": "3.5.0",
 		"maplibre-gl": "4.7.1",
 		"next": "15.1.0",
@@ -49,7 +49,7 @@
 		"uuid": "11.0.3"
 	},
 	"devDependencies": {
-		"@carrismetropolitana/api-types": "20241215.2333.33",
+		"@carrismetropolitana/api-types": "20241216.14.9",
 		"@carrismetropolitana/eslint": "20241024.1600.5",
 		"@types/jsonwebtoken": "9.0.7",
 		"@types/luxon": "3.4.2",

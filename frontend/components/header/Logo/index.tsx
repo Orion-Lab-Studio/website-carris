@@ -5,7 +5,7 @@
 import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
 // import { BrandsCmet } from '@/settings/assets.settings';
 // import { Image } from '@mantine/core';
-import Lottie from 'lottie-react';
+import { Player } from '@lottiefiles/react-lottie-player';
 import Link from 'next/link';
 
 import styles from './styles.module.css';
@@ -21,8 +21,8 @@ export function Logo() {
 	return (
 		<Link className={styles.container} href="/">
 			<ThemeSwitch
-				dark={<Lottie animationData={xmasDarkAnimation} style={{ height: 70, width: 150 }} />}
-				light={<Lottie animationData={xmasLightAnimation} style={{ height: 70, width: 150 }} />}
+				dark={<Player src={xmasDarkAnimation} style={{ height: 70, width: 150 }} autoplay />}
+				light={<Player src={xmasLightAnimation} style={{ height: 70, width: 150 }} autoplay />}
 			/>
 		</Link>
 	);
