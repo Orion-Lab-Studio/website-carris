@@ -6,6 +6,7 @@ import type { Minute } from '@/types/timetables.types';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
+import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 
 /* * */
 
@@ -24,6 +25,7 @@ export default function TimetableSchedules({ selectedExceptionIds, setSelectedEx
 	// A. Setup variables
 
 	const t = useTranslations('common.TimetableSchedules');
+	const linesDetailContext = useLinesDetailContext();
 
 	//
 	// B. Render components
@@ -43,6 +45,8 @@ export default function TimetableSchedules({ selectedExceptionIds, setSelectedEx
 							minuteData={minuteData}
 							selectedExceptionIds={selectedExceptionIds}
 							setSelectedExceptionIds={setSelectedExceptionIds}
+							isHighlighted={Boolean(linesDetailContext.data.highlighted_trip_ids && minuteData.trip_ids.some(tripId => linesDetailContext.data.highlighted_trip_ids?.includes(tripId)))}
+							onClick={() => linesDetailContext.actions.setHighlightedTripIds(minuteData.trip_ids)}
 						/>
 					))}
 				</div>
@@ -59,11 +63,13 @@ interface TimetableSchedulesMinuteProps {
 	minuteData: Minute
 	selectedExceptionIds: string[]
 	setSelectedExceptionIds: (values: string[]) => void
+	isHighlighted: boolean
+	onClick?: () => void
 }
 
 /* * */
 
-function TimetableSchedulesMinute({ minuteData, selectedExceptionIds, setSelectedExceptionIds }: TimetableSchedulesMinuteProps) {
+function TimetableSchedulesMinute({ minuteData, selectedExceptionIds, setSelectedExceptionIds, isHighlighted, onClick }: TimetableSchedulesMinuteProps) {
 	//
 
 	//
@@ -88,9 +94,10 @@ function TimetableSchedulesMinute({ minuteData, selectedExceptionIds, setSelecte
 	return (
 		<p
 			key={minuteData.minute_value}
-			className={`${styles.minute} ${minuteData.exception_ids.length > 0 && styles.withException} ${isSelected && styles.isSelected} ${!isSelected && selectedExceptionIds.length > 0 && styles.isOthersSelected}`}
+			className={`${styles.minute} ${minuteData.exception_ids.length > 0 && styles.withException} ${isSelected && styles.isSelected} ${!isSelected && selectedExceptionIds.length > 0 && styles.isOthersSelected} ${isHighlighted && styles.isHighlighted}`}
 			onMouseOut={handleMouseOutException}
 			onMouseOver={handleMouseOverException}
+			onClick={onClick}
 		>
 			{minuteData.minute_label}
 			{minuteData.exception_ids.length > 0 && minuteData.exception_ids.map(exceptionId => (
