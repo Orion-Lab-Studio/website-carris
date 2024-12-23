@@ -1254,8 +1254,8 @@
 			"filters": {
 				"by_current_view": {
 					"favorites": "Favorites",
-					"list": "Lista",
-					"map": "Ver em Mapa"
+					"list": "List",
+					"map": "Map"
 				},
 				"by_search": {
 					"placeholder": "Search by name, location..."
@@ -1268,7 +1268,7 @@
 			"heading": "Search Stops"
 		},
 		"StopsListViewAll": {
-			"no_data": "Nenhuma paragem encontrada para esta pesquisa"
+			"no_data": "No stops found for this search"
 		},
 		"StopsListViewFavorites": {
 			"no_favorites": "No favorite stops yet"
@@ -1279,15 +1279,15 @@
 	"stores": {
 		"StoresListEmpty": {
 			"by_municipality": {
-				"action_1": "Consult Store Opening Hours",
-				"action_2": "Explorer Other Municipalities",
-				"action_3": "Explorer Agent Network",
+				"action_1": "View Store Opening Hours",
+				"action_2": "Check Other Municipalities",
+				"action_3": "Explore Agents Network",
 				"subtitle": "We suggest that you visit us in another location to receive better service.",
 				"title": "No stores available in this municipality"
 			},
 			"default": {
-				"action_1": "Consult Store Opening Hours",
-				"action_2": "Explorer Agent Network",
+				"action_1": "View Store Opening Hours",
+				"action_2": "Explore Agents Network",
 				"subtitle": "At this time, all stores appear to be closed.",
 				"title": "No stores available at this time"
 			}
