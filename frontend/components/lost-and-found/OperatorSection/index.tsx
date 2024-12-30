@@ -12,15 +12,15 @@ import styles from './styles.module.css';
 
 /* * */
 
+interface LostAndFoundOperatorSectionActionProps {
+	href: string
+	type: 'email' | 'form'
+}
+
 interface LostAndFoundOperatorSectionProps {
 	actions: LostAndFoundOperatorSectionActionProps[]
 	description: string
 	title: string
-}
-
-interface LostAndFoundOperatorSectionActionProps {
-	href: string
-	type: 'email' | 'form'
 }
 
 /* * */

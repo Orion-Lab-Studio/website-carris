@@ -2,14 +2,14 @@
 
 /* * */
 
-import MetricsSectionDemandSkeleton from '@/components/home/MetricsSectionDemandSkeleton';
+import { MetricsSectionDemandSkeleton } from '@/components/home/MetricsSectionDemandSkeleton';
 import { OperatorMetrics } from '@/types/metrics.types';
 import { Operators } from '@/utils/operation';
 import { ActionIcon, Image, Popover } from '@mantine/core';
 import { IconInfoCircleFilled } from '@tabler/icons-react';
 import classNames from 'classnames';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 

@@ -9,8 +9,8 @@ import { Surface } from '@/components/layout/Surface';
 import { IconsCommon } from '@/settings/assets.settings';
 import { Routes } from '@/utils/routes';
 import { IconPhone, IconUmbrella } from '@tabler/icons-react';
-import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import Image from 'next/image';
 
 import styles from './styles.module.css';
 

@@ -9,8 +9,8 @@ import PlannerCard from '@/components/planner/Card';
 import PlannerCardSkeleton from '@/components/planner/CardSkeleton';
 import { ImagesPlanner } from '@/settings/assets.settings';
 import { shuffleArray } from '@/utils/shuffle';
-import Link from 'next/link';
 import { useLocale, useTranslations } from 'next-intl';
+import Link from 'next/link';
 import React from 'react';
 
 import styles from './styles.module.css';

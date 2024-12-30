@@ -10,8 +10,8 @@ import { Surface } from '@/components/layout/Surface';
 import { MetricsDemandChart } from '@/components/metrics/MetricsDemandChart';
 import { Routes } from '@/utils/routes';
 import { DateTime } from 'luxon';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { useMemo } from 'react';
 import useSWR from 'swr';
 

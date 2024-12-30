@@ -9,8 +9,8 @@ import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { useDebugContext } from '@/contexts/Debug.context';
 import { footerNavigationGroup } from '@/settings/navigation.settings';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 

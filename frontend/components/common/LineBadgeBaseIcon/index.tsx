@@ -1,12 +1,16 @@
-interface Variant {
-	variant: 'inter-regional' | 'longa' | 'mar' | 'proxima' | 'rapida'
-}
+/* * */
 
 interface Fill {
 	fill: string
 }
 
 type Props = Fill | Variant;
+
+interface Variant {
+	variant: 'inter-regional' | 'longa' | 'mar' | 'proxima' | 'rapida'
+}
+
+/* * */
 
 export default function Component(props: Props) {
 	let fillColor = '';

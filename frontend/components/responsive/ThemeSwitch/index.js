@@ -1,30 +1,28 @@
 /* * */
 
 /**
- * Use to show children only when light theme is active. Hidden otherwise.
- * @param {ReactNode} children The content to display in light theme.
- * @returns {JSX.Element} The rendered ThemeLight component.
- */
-
-export function ThemeLight({ children }) {
-	return (
-		<theme-light>
-			{children}
-		</theme-light>
-	);
-}
-
-/**
  * Use to show children only when dark theme is active. Hidden otherwise.
  * @param {ReactNode} children The content to display in dark theme.
  * @returns {JSX.Element} The rendered ThemeDark component.
  */
-
 export function ThemeDark({ children }) {
 	return (
 		<theme-dark>
 			{children}
 		</theme-dark>
+	);
+}
+
+/**
+ * Use to show children only when light theme is active. Hidden otherwise.
+ * @param {ReactNode} children The content to display in light theme.
+ * @returns {JSX.Element} The rendered ThemeLight component.
+ */
+export function ThemeLight({ children }) {
+	return (
+		<theme-light>
+			{children}
+		</theme-light>
 	);
 }
 

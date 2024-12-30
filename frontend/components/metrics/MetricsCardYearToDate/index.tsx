@@ -2,7 +2,7 @@
 
 /* * */
 
-import MetricsSectionDemandSkeleton from '@/components/home/MetricsSectionDemandSkeleton';
+import { MetricsSectionDemandSkeleton } from '@/components/home/MetricsSectionDemandSkeleton';
 import { MonthlyMetrics } from '@/types/metrics.types';
 import { Routes } from '@/utils/routes';
 import { BarChart } from '@mantine/charts';
@@ -10,9 +10,8 @@ import { ActionIcon, Popover } from '@mantine/core';
 import { IconInfoCircleFilled } from '@tabler/icons-react';
 import classNames from 'classnames';
 import { Info } from 'luxon';
-// import { DateTime } from 'luxon';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { useMemo } from 'react';
 import useSWR from 'swr';
 

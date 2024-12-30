@@ -10,6 +10,14 @@ import styles from './styles.module.css';
 
 /* * */
 
+interface TimetableSchedulesMinuteProps {
+	isHighlighted: boolean
+	minuteData: Minute
+	onClick?: () => void
+	selectedExceptionIds: string[]
+	setSelectedExceptionIds: (values: string[]) => void
+}
+
 interface TimetableSchedulesProps {
 	selectedExceptionIds: string[]
 	setSelectedExceptionIds: (values: string[]) => void
@@ -55,16 +63,6 @@ export default function TimetableSchedules({ selectedExceptionIds, setSelectedEx
 	);
 
 	//
-}
-
-/* * */
-
-interface TimetableSchedulesMinuteProps {
-	isHighlighted: boolean
-	minuteData: Minute
-	onClick?: () => void
-	selectedExceptionIds: string[]
-	setSelectedExceptionIds: (values: string[]) => void
 }
 
 /* * */

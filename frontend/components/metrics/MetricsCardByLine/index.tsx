@@ -4,7 +4,7 @@
 
 import type { DemandMetricsByLine } from '@carrismetropolitana/api-types/metrics';
 
-import MetricsSectionDemandSkeleton from '@/components/home/MetricsSectionDemandSkeleton';
+import { MetricsSectionDemandSkeleton } from '@/components/home/MetricsSectionDemandSkeleton';
 import { LineBadge } from '@/components/lines/LineBadge';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { LineChart } from '@mantine/charts';

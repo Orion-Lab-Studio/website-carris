@@ -5,8 +5,8 @@ import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
 import { Image } from '@mantine/core';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 

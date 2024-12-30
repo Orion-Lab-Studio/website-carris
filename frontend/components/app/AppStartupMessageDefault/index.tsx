@@ -7,8 +7,8 @@ import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { URLS } from '@/settings/urls.settings';
 import { Player } from '@lottiefiles/react-lottie-player';
 import { Button } from '@mantine/core';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 

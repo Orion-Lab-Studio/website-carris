@@ -3,8 +3,8 @@
 /* * */
 
 import { Section } from '@/components/layout/Section';
-import { useRouter } from 'next/navigation';
 import { useTranslations } from 'next-intl';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import styles from './styles.module.css';

@@ -21,14 +21,12 @@
 		"@mantine/notifications": "7.15.2",
 		"@rajesh896/broprint.js": "2.1.1",
 		"@tabler/icons-react": "3.26.0",
-		"@turf/turf": "7.1.0",
-		"@types/geojson": "7946.0.15",
+		"@turf/turf": "7.2.0",
 		"classnames": "2.5.1",
 		"dayjs": "1.11.13",
 		"embla-carousel-autoplay": "8.5.1",
 		"embla-carousel-react": "8.5.1",
 		"embla-carousel-wheel-gestures": "8.0.1",
-		"inflected": "2.1.0",
 		"jsonwebtoken": "9.0.2",
 		"luxon": "3.5.0",
 		"maplibre-gl": "4.7.1",
@@ -50,7 +48,8 @@
 	},
 	"devDependencies": {
 		"@carrismetropolitana/api-types": "20241227.1751.55",
-		"@carrismetropolitana/eslint": "20241024.1600.5",
+		"@carrismetropolitana/eslint": "20241229.44.47",
+		"@types/geojson": "7946.0.15",
 		"@types/jsonwebtoken": "9.0.7",
 		"@types/luxon": "3.4.2",
 		"@types/node": "22.10.2",
@@ -61,5 +60,9 @@
 		"postcss-simple-vars": "7.0.1",
 		"typescript": "5.7.2",
 		"typescript-plugin-css-modules": "5.1.0"
+	},
+	"overrides": {
+		"react": "$react",
+		"react-dom": "$react-dom"
 	}
 }

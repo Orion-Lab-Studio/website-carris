@@ -15,6 +15,12 @@ interface AlertCauseIconProps {
 	withText?: boolean
 }
 
+interface AlertEffectIconProps {
+	className?: string
+	effect?: AlertEffect
+	withText?: boolean
+}
+
 /* * */
 
 export function AlertCauseIcon({ cause, className, withText = false }: AlertCauseIconProps) {
@@ -92,14 +98,6 @@ export function AlertCauseIcon({ cause, className, withText = false }: AlertCaus
 	return icon;
 
 	//
-}
-
-/* * */
-
-interface AlertEffectIconProps {
-	className?: string
-	effect?: AlertEffect
-	withText?: boolean
 }
 
 /* * */

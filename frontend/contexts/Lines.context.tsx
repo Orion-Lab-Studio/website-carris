@@ -7,7 +7,7 @@ import type { DemandMetricsByLine, ServiceMetrics } from '@carrismetropolitana/a
 import type { Line, Route } from '@carrismetropolitana/api-types/network';
 
 import { Routes } from '@/utils/routes';
-import { createContext, useContext } from 'react';
+import { createContext, useContext, useMemo } from 'react';
 import useSWR from 'swr';
 
 /* * */
@@ -77,7 +77,7 @@ export const LinesContextProvider = ({ children }) => {
 	//
 	// C. Define context value
 
-	const contextValue: LinesContextState = {
+	const contextValue: LinesContextState = useMemo(() => ({
 		actions: {
 			getDemandMetricsByLineId,
 			getLineDataById,
@@ -93,7 +93,16 @@ export const LinesContextProvider = ({ children }) => {
 		flags: {
 			is_loading: allLinesLoading || allRoutesLoading || demandByLineDataLoading || serviceMetricsLoading,
 		},
-	};
+	}), [
+		allLinesData,
+		allLinesLoading,
+		allRoutesData,
+		allRoutesLoading,
+		demandByLineData,
+		demandByLineDataLoading,
+		serviceMetricsData,
+		serviceMetricsLoading,
+	]);
 
 	//
 	// D. Render components

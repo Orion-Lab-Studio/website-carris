@@ -4,8 +4,8 @@ import { ImagesCommon } from '@/settings/assets.settings';
 import { Routes } from '@/utils/routes';
 import { Image } from '@mantine/core';
 import { DateTime } from 'luxon';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 

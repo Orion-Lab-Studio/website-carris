@@ -2,7 +2,7 @@
 
 /* * */
 
-import MetricsSectionDemandSkeleton from '@/components/home/MetricsSectionDemandSkeleton';
+import { MetricsSectionDemandSkeleton } from '@/components/home/MetricsSectionDemandSkeleton';
 import { BarChart, LineChart, LineChartProps } from '@mantine/charts';
 
 import styles from './styles.module.css';

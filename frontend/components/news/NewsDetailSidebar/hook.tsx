@@ -6,15 +6,15 @@ import { NewsData } from '@/types/news.types';
 import { useEffect, useState } from 'react';
 
 // Define the types for Heading and TOC item
+export interface TocTreeItem extends Heading {
+	children: TocTreeItem[]
+	parent?: TocTreeItem
+}
+
 interface Heading {
 	id: string
 	level: number
 	text: string
-}
-
-export interface TocTreeItem extends Heading {
-	children: TocTreeItem[]
-	parent?: TocTreeItem
 }
 
 // Custom hook to parse HTML and generate TOC tree

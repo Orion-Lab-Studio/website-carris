@@ -9,26 +9,6 @@ import styles from './styles.module.css';
 
 /* * */
 
-function formatDelta(ms: number) {
-	let toReturn = '';
-	const seconds = Math.floor(ms / 1000);
-	const minutes = Math.floor(seconds / 60);
-	const hours = Math.floor(minutes / 60);
-	if (minutes <= 0) {
-		return 'A chegar';
-	}
-
-	if (hours > 0) {
-		toReturn += `${hours} hora${hours > 1 ? 's' : ''} `;
-	}
-	if (minutes > 0) {
-		toReturn += `${minutes % 60} min`;
-	}
-	return toReturn;
-}
-
-/* * */
-
 export function PathWaypointNextArrivals({ realtimeArrivals, scheduledArrivals }: { realtimeArrivals: { type: 'realtime' | 'scheduled', unixTs: number }[], scheduledArrivals: { type: 'realtime' | 'scheduled', unixTs: number }[] }) {
 	//
 
@@ -80,4 +60,24 @@ export function PathWaypointNextArrivals({ realtimeArrivals, scheduledArrivals }
 	);
 
 	//
+}
+
+/* * */
+
+function formatDelta(ms: number) {
+	let toReturn = '';
+	const seconds = Math.floor(ms / 1000);
+	const minutes = Math.floor(seconds / 60);
+	const hours = Math.floor(minutes / 60);
+	if (minutes <= 0) {
+		return 'A chegar';
+	}
+
+	if (hours > 0) {
+		toReturn += `${hours} hora${hours > 1 ? 's' : ''} `;
+	}
+	if (minutes > 0) {
+		toReturn += `${minutes % 60} min`;
+	}
+	return toReturn;
 }

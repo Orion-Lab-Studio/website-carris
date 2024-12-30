@@ -4,9 +4,9 @@
 
 import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { IconArrowLeft } from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
 
 import styles from './styles.module.css';

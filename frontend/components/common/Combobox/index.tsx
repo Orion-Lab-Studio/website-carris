@@ -1,11 +1,7 @@
+/* * */
+
 import { Combobox, InputBase, useCombobox } from '@mantine/core';
 import { useState } from 'react';
-
-// Define interfaces for the data structure
-interface ComboboxGroupData {
-	group: string
-	items: string[]
-}
 
 export interface ComboboxProps {
 	data: ComboboxGroupData[] | string[]
@@ -14,6 +10,13 @@ export interface ComboboxProps {
 	placeholder?: string // Placeholder text for the input
 	searchable?: boolean // Enables search functionality
 }
+
+interface ComboboxGroupData {
+	group: string
+	items: string[]
+}
+
+/* * */
 
 const isGroupedData = (data: ComboboxGroupData[] | string[]): data is ComboboxGroupData[] => {
 	return Array.isArray(data) && data.length > 0 && typeof data[0] === 'object' && 'group' in data[0];

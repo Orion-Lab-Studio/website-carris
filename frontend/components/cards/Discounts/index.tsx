@@ -1,8 +1,8 @@
 /* * */
 
 import { Surface } from '@/components/layout/Surface';
-import Link from 'next/link';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 

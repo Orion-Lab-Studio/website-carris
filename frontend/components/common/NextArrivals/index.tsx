@@ -12,19 +12,19 @@ import styles from './styles.module.css';
 
 /* * */
 
-interface Props {
-	allowPastArrivals?: boolean
-	arrivals: number[]
-	status: ArrivalStatus
-	withIcon?: boolean
-}
-
 interface NextArrival {
 	estimated_arrival_hours: number
 	estimated_arrival_minutes: number
 	estimated_arrival_seconds: number
 	estimated_arrival_unix: number
 	label: string
+}
+
+interface Props {
+	allowPastArrivals?: boolean
+	arrivals: number[]
+	status: ArrivalStatus
+	withIcon?: boolean
 }
 
 /* * */

@@ -4,12 +4,10 @@
 
 import { Logo } from '@/components/header/Logo';
 import { useAnalyticsContext } from '@/contexts/Analytics.context';
-// import { BrandsCmet } from '@/settings/assets.settings';
 import { Button, Modal } from '@mantine/core';
-// import Image from 'next/image';
+import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 
 import styles from './styles.module.css';
