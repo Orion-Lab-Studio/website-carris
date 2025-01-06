@@ -29,15 +29,15 @@ export default function Component() {
 	const allStoresFeatureCollection: FeatureCollection<Geometry, GeoJsonProperties> | null = useMemo(() => {
 		if (!storesListContext.data.raw.length) return null;
 		const formattedFeatures: Feature<Geometry, GeoJsonProperties>[] = storesListContext.data.raw.map((storeItem) => {
-			const expectedWaitTimeInMinutes = Math.round(storeItem.expected_wait_time / 60);
-			const textValue = storeItem.current_status !== 'closed' ? t('expected_wait_time', { count: expectedWaitTimeInMinutes }) : '';
+			const expectedWaitTimeInMinutes = Math.round((storeItem.realtime?.expected_wait_time ?? 0) / 60);
+			const textValue = storeItem.realtime?.current_status !== 'closed' ? t('expected_wait_time', { count: expectedWaitTimeInMinutes }) : '';
 			return {
 				geometry: {
 					coordinates: [storeItem.lon, storeItem.lat],
 					type: 'Point',
 				},
 				properties: {
-					current_status: storeItem.current_status,
+					current_status: storeItem.realtime?.current_status,
 					store_id: storeItem.id,
 					text_value: textValue,
 				},
