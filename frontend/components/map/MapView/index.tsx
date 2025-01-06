@@ -6,7 +6,6 @@ import { MapViewToolbar } from '@/components/map/MapViewToolbar';
 import { useMapOptionsContext } from '@/contexts/MapOptions.context';
 import { IconsMap } from '@/settings/assets.settings';
 import { mapDefaultConfig } from '@/settings/map.settings';
-import maplibregl from 'maplibre-gl';
 import { useCallback, useEffect, useState } from 'react';
 import Map, { FullscreenControl, GeolocateControl, MapRef, NavigationControl, ScaleControl, useMap } from 'react-map-gl/maplibre';
 
@@ -145,7 +144,6 @@ export function MapView({
 				initialViewState={mapDefaultConfig.initialViewState}
 				interactive={interactiveLayerIds ? true : false}
 				interactiveLayerIds={interactiveLayerIds}
-				mapLib={maplibregl}
 				mapStyle={mapDefaultConfig.styles[mapStyleValue as string]}
 				maxZoom={mapDefaultConfig.maxZoom}
 				minZoom={mapDefaultConfig.minZoom}
