@@ -7,9 +7,9 @@ import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'ge
 import { MapView } from '@/components/map/MapView';
 import { useStoresListContext } from '@/contexts/StoresList.context';
 import { centerMap } from '@/utils/map.utils';
+import { Layer, Source, useMap } from '@vis.gl/react-maplibre';
 import { useTranslations } from 'next-intl';
 import { useEffect, useMemo } from 'react';
-import { Layer, Source, useMap } from 'react-map-gl/maplibre';
 
 /* * */
 
@@ -31,7 +31,7 @@ export default function Component() {
 		const formattedFeatures: Feature<Geometry, GeoJsonProperties>[] = storesListContext.data.raw.map((storeItem) => {
 			const expectedWaitTimeInMinutes = Math.round((storeItem.realtime?.expected_wait_time ?? 0) / 60);
 			const textValue = storeItem.realtime?.current_status !== 'closed' ? t('expected_wait_time', { count: expectedWaitTimeInMinutes }) : '';
-			return {
+			const result: Feature<Geometry, GeoJsonProperties> = {
 				geometry: {
 					coordinates: [storeItem.lon, storeItem.lat],
 					type: 'Point',
@@ -43,6 +43,8 @@ export default function Component() {
 				},
 				type: 'Feature',
 			};
+			console.log(result);
+			return result;
 		});
 		return {
 			features: formattedFeatures || [],

@@ -4,8 +4,8 @@
 
 import { LiveIcon } from '@/components/common/LiveIcon';
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
+import { Layer, Source } from '@vis.gl/react-maplibre';
 import { useTranslations } from 'next-intl';
-import { Layer, Source } from 'react-map-gl/maplibre';
 
 import styles from './styles.module.css';
 

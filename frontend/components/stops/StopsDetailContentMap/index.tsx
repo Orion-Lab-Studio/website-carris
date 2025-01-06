@@ -11,8 +11,8 @@ import { transformStopDataIntoGeoJsonFeature, useStopsContext } from '@/contexts
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 import { useVehiclesContext } from '@/contexts/Vehicles.context';
 import { centerMap, getBaseGeoJsonFeatureCollection, moveMap } from '@/utils/map.utils';
+import { useMap } from '@vis.gl/react-maplibre';
 import { useEffect, useMemo } from 'react';
-import { useMap } from 'react-map-gl/maplibre';
 
 /* * */
 

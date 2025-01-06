@@ -29,8 +29,13 @@ export function LinesDetailPathList() {
 
 	// C. Transform data
 
+	const relevantRealtimes = useMemo(() => {
+		return patternRealtime?.filter((realtime) => {
+			return realtime.pattern_id === linesDetailContext.data.active_pattern?.id;
+		});
+	}, [patternRealtime, linesDetailContext.data.active_pattern?.id]);
+
 	const sortedStops = linesDetailContext.data.active_pattern?.path.sort((a, b) => a.stop_sequence - b.stop_sequence);
-	const relevantRealtimes = useMemo(() => patternRealtime?.filter(realtime => realtime.pattern_id === linesDetailContext.data.active_pattern?.id), [patternRealtime, linesDetailContext.data.active_pattern?.id]);
 	const nextArrivalsPerStop: Record<string, { type: 'realtime' | 'scheduled', unixTs: number }[]> = {};
 
 	for (const realtime of relevantRealtimes ?? []) {

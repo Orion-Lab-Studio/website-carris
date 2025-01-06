@@ -7,9 +7,9 @@ import { transformStopDataIntoGeoJsonFeature } from '@/contexts/Stops.context';
 import { useStopsListContext } from '@/contexts/StopsList.context';
 import { centerMap, getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import * as turf from '@turf/turf';
+import { useMap } from '@vis.gl/react-maplibre';
 import { useRouter } from 'next/navigation';
 import { useEffect, useMemo } from 'react';
-import { useMap } from 'react-map-gl/maplibre';
 
 /* * */
 

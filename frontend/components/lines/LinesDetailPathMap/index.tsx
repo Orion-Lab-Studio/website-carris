@@ -10,8 +10,8 @@ import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { transformStopDataIntoGeoJsonFeature, useStopsContext } from '@/contexts/Stops.context';
 import { useVehiclesContext } from '@/contexts/Vehicles.context';
 import { centerMap, getBaseGeoJsonFeatureCollection, moveMap } from '@/utils/map.utils';
+import { useMap } from '@vis.gl/react-maplibre';
 import { useEffect, useMemo } from 'react';
-import { useMap } from 'react-map-gl/maplibre';
 
 /* * */
 

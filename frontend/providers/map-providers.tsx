@@ -3,7 +3,7 @@
 /* * */
 
 import { MapOptionsContextProvider } from '@/contexts/MapOptions.context';
-import { MapProvider } from 'react-map-gl/maplibre';
+import { MapProvider } from '@vis.gl/react-maplibre';
 
 /* * */
 

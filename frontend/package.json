@@ -22,6 +22,7 @@
 		"@rajesh896/broprint.js": "2.1.1",
 		"@tabler/icons-react": "3.26.0",
 		"@turf/turf": "7.2.0",
+		"@vis.gl/react-maplibre": "1.0.0-alpha.4",
 		"classnames": "2.5.1",
 		"dayjs": "1.11.13",
 		"embla-carousel-autoplay": "8.5.1",
@@ -35,7 +36,6 @@
 		"nuqs": "2.3.0",
 		"react": "19.0.0",
 		"react-dom": "19.0.0",
-		"react-map-gl": "7.1.8",
 		"react-nice-avatar": "1.5.0",
 		"react-qr-code": "2.0.15",
 		"react-viewport-list": "7.1.2",
@@ -47,7 +47,7 @@
 		"uuid": "11.0.4"
 	},
 	"devDependencies": {
-		"@carrismetropolitana/api-types": "20250106.1254.4",
+		"@carrismetropolitana/api-types": "20250106.1451.36",
 		"@carrismetropolitana/eslint": "20250103.1610.23",
 		"@types/geojson": "7946.0.15",
 		"@types/jsonwebtoken": "9.0.7",

@@ -6,9 +6,9 @@ import type { Store } from '@carrismetropolitana/api-types/facilities';
 
 import { moveMap } from '@/utils/map.utils';
 import { Routes } from '@/utils/routes';
+import { useMap } from '@vis.gl/react-maplibre';
 import { parseAsStringLiteral, useQueryState } from 'nuqs';
 import { createContext, useContext, useEffect, useState } from 'react';
-import { useMap } from 'react-map-gl/dist/esm/exports-maplibre';
 import useSWR from 'swr';
 
 /* * */
