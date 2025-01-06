@@ -31,7 +31,7 @@ export default function Component() {
 		const formattedFeatures: Feature<Geometry, GeoJsonProperties>[] = storesListContext.data.raw.map((storeItem) => {
 			const expectedWaitTimeInMinutes = Math.round((storeItem.realtime?.expected_wait_time ?? 0) / 60);
 			const textValue = storeItem.realtime?.current_status !== 'closed' ? t('expected_wait_time', { count: expectedWaitTimeInMinutes }) : '';
-			const result: Feature<Geometry, GeoJsonProperties> = {
+			return {
 				geometry: {
 					coordinates: [storeItem.lon, storeItem.lat],
 					type: 'Point',
@@ -43,8 +43,6 @@ export default function Component() {
 				},
 				type: 'Feature',
 			};
-			console.log(result);
-			return result;
 		});
 		return {
 			features: formattedFeatures || [],
@@ -62,7 +60,6 @@ export default function Component() {
 
 	const handleMapClick = (event) => {
 		if (event?.features[0]) {
-			console.log(event.features[0].properties);
 			storesListContext.actions.updateSelectedStore(event.features[0].properties.store_id);
 		}
 	};
