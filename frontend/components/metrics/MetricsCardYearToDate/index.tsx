@@ -56,10 +56,10 @@ export default function Component({ chartHeight = 100, className }: Props) {
 		if (!metricsData) return [];
 		return metricsData.map(month => ({
 			month: Info.months('long')[month.month - 1].toLowerCase(),
+			p100: month.count,
 			p40: month.count * 0.4,
 			p60: month.count * 0.6,
 			p80: month.count * 0.8,
-			p100: month.count,
 		}));
 	}, [metricsData]);
 
