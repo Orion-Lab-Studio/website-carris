@@ -2,10 +2,9 @@
 
 /* * */
 
-import startupWashingAnimation from '@/assets/animations/startup/washing.json';
+import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { URLS } from '@/settings/urls.settings';
-import { Player } from '@lottiefiles/react-lottie-player';
 import { Button } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -43,7 +42,7 @@ export function AppStartupMessageDefault() {
 	return (
 		<div className={styles.container}>
 			<div className={styles.introWrapper}>
-				<Player src={startupWashingAnimation} autoplay />
+				<LottiePlayer path="/assets/startup/washing.json" loop play />
 				<h1 className={styles.heading}>{t('heading')}</h1>
 				<h2 className={styles.subheading}>{t('subheading')}</h2>
 				<p className={styles.text}>{t('text')}</p>

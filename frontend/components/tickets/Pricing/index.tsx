@@ -2,19 +2,11 @@
 
 /* * */
 
+import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { Surface } from '@/components/layout/Surface';
-import { Player } from '@lottiefiles/react-lottie-player';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
-
-/* * */
-
-import interRegionalAnimation from '@/assets/animations/tickets/inter-regional.json';
-import longaAnimation from '@/assets/animations/tickets/longa.json';
-import marAnimation from '@/assets/animations/tickets/mar.json';
-import proximaAnimation from '@/assets/animations/tickets/proxima.json';
-import rapidaAnimation from '@/assets/animations/tickets/rapida.json';
 
 /* * */
 
@@ -35,7 +27,7 @@ export function Pricing() {
 			<Surface variant="persistent">
 				<div className={styles.container}>
 					<div className={styles.info}>
-						<Player src={proximaAnimation} style={{ maxWidth: 65 }} autoplay />
+						<LottiePlayer path="/assets/tickets/animations/proxima.json" style={{ maxWidth: 65 }} play />
 						<h3 className={styles.title}>{t('proxima.title')}</h3>
 					</div>
 					<div className={styles.pricing}>
@@ -54,7 +46,7 @@ export function Pricing() {
 			<Surface variant="persistent">
 				<div className={styles.container}>
 					<div className={styles.info}>
-						<Player src={longaAnimation} style={{ maxWidth: 65 }} autoplay />
+						<LottiePlayer path="/assets/tickets/animations/longa.json" style={{ maxWidth: 65 }} play />
 						<h3 className={styles.title}>{t('longa.title')}</h3>
 					</div>
 					<div className={styles.pricing}>
@@ -73,7 +65,7 @@ export function Pricing() {
 			<Surface variant="persistent">
 				<div className={styles.container}>
 					<div className={styles.info}>
-						<Player src={rapidaAnimation} style={{ maxWidth: 65 }} autoplay />
+						<LottiePlayer path="/assets/tickets/animations/rapida.json" style={{ maxWidth: 65 }} play />
 						<h3 className={styles.title}>{t('rapida.title')}</h3>
 					</div>
 					<div className={styles.pricing}>
@@ -92,7 +84,7 @@ export function Pricing() {
 			<Surface variant="persistent">
 				<div className={styles.container}>
 					<div className={styles.info}>
-						<Player src={interRegionalAnimation} style={{ maxWidth: 65 }} autoplay />
+						<LottiePlayer path="/assets/tickets/animations/inter-regional.json" style={{ maxWidth: 65 }} play />
 						<h3 className={styles.title}>{t('inter-regional.title')}</h3>
 					</div>
 					<div className={styles.pricing}>
@@ -117,7 +109,7 @@ export function Pricing() {
 			<Surface variant="persistent">
 				<div className={styles.container}>
 					<div className={styles.info}>
-						<Player src={marAnimation} style={{ maxWidth: 65 }} autoplay />
+						<LottiePlayer path="/assets/tickets/animations/mar.json" style={{ maxWidth: 65 }} play />
 						<h3 className={styles.title}>{t('mar.title')}</h3>
 					</div>
 					<div className={styles.pricing}>

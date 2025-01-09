@@ -2,8 +2,8 @@
 
 /* * */
 
+import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { Review2024CardSchema } from '@/components/review-2024/_data/cards';
-import { Player } from '@lottiefiles/react-lottie-player';
 import { useClipboard } from '@mantine/hooks';
 import { IconCheck, IconShare2 } from '@tabler/icons-react';
 import { useState } from 'react';
@@ -72,7 +72,11 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 					</div>
 					{cardData.content.lottie_src && (
 						<div className={styles.contentLottie}>
-							<Player src={cardData.content.lottie_src} autoplay loop />
+							<LottiePlayer
+								path={cardData.content.lottie_src}
+								loop
+								play
+							/>
 						</div>
 					)}
 					<p className={styles.contentTitle}>{cardData.content.title}</p>

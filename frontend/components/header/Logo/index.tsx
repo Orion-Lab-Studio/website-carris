@@ -2,18 +2,13 @@
 
 /* * */
 
+// import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
 import { BrandsCmet } from '@/settings/assets.settings';
 import { Image } from '@mantine/core';
-// import { Player } from '@lottiefiles/react-lottie-player';
 import Link from 'next/link';
 
 import styles from './styles.module.css';
-
-/* * */
-
-// import xmasDarkAnimation from '@/assets/animations/header/xmas/xmas-dark.json';
-// import xmasLightAnimation from '@/assets/animations/header/xmas/xmas-light.json';
 
 /* * */
 
@@ -21,8 +16,8 @@ import styles from './styles.module.css';
 // 	return (
 // 		<Link className={styles.container} href="/">
 // 			<ThemeSwitch
-// 				dark={<Player src={xmasDarkAnimation} style={{ height: 70, width: 150 }} autoplay />}
-// 				light={<Player src={xmasLightAnimation} style={{ height: 70, width: 150 }} autoplay />}
+// 				dark={<LottiePlayer path="/assets/header/xmas/xmas-dark.json" style={{ height: 70, width: 150 }} loop play />}
+// 				light={<LottiePlayer path="/assets/header/xmas/xmas-light.json" style={{ height: 70, width: 150 }} loop play />}
 // 			/>
 // 		</Link>
 // 	);

@@ -27,7 +27,7 @@ export function TicketsHeader() {
 				<Grid columns="ab" withGap>
 
 					<div className={styles.cardWrapper}>
-						<Image alt={t('onboard.title')} className={styles.cardImage} src="/assets/tickets/onboard.svg" />
+						<Image alt={t('onboard.title')} className={styles.cardImage} src="/assets/tickets/images/onboard.svg" />
 						<div className={styles.cardContents}>
 							<p className={styles.cardTitle}>{t('onboard.title')}</p>
 							<p className={styles.cardDescription}>{t('onboard.description')}</p>
@@ -35,7 +35,7 @@ export function TicketsHeader() {
 					</div>
 
 					<div className={styles.cardWrapper}>
-						<Image alt={t('prepaid.title')} className={styles.cardImage} src="/assets/tickets/prepaid.svg" />
+						<Image alt={t('prepaid.title')} className={styles.cardImage} src="/assets/tickets/images/prepaid.svg" />
 						<div className={styles.cardContents}>
 							<p className={styles.cardTitle}>{t('prepaid.title')}</p>
 							<p className={styles.cardDescription}>{t('prepaid.description')}</p>
