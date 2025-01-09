@@ -1155,6 +1155,29 @@
 			"success": "Profile synchronized successfully!"
 		}
 	},
+	"review-2024": {
+		"Review2024LevelOne": {
+			"a": {
+				"heading": "Quem fomos?",
+				"subheading": "Tudo sobre os passageiros da CMetropolitana ao longo de 2024."
+			},
+			"b": {
+				"heading": "Tops",
+				"subheading": "Os tops e destaques da nossa rede, durante o ano de 2024."
+			},
+			"c": {
+				"heading": "Recordes",
+				"subheading": "2024 foi cheio de pontos altos, aqui estão os recordes mais importantes que quebrámos."
+			}
+		},
+		"Review2024TabSelector": {
+			"heading": "2024 em revista",
+			"tabs": {
+				"overview": "Viagem 2024",
+				"quiz": "Quiz"
+			}
+		}
+	},
 	"schedule": {
 		"hours": "Time",
 		"minutes": "Min.",
