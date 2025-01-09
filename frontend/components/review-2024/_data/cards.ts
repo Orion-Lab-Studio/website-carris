@@ -200,7 +200,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Se os passageiros destas linhas (5 519 192) dessem as mãos, conseguiam ir de Lisboa a Sintra mais de 250 vezes.',
-			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			lottie_src: '/assets/review-2024/animations/tops/tops_lines_area_1.json',
 			number_legend: 'linhas com mais passageiros transportados na área 1 (Amadora, Cascais, Lisboa, Oeiras, Sintra)',
 			number_value: '1715|1709|1703',
 			title: 'Todas as nossas linhas importam, mas 3 destacaram-se!',
@@ -220,7 +220,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Os passageiros destas linhas (6 258 565) caberiam de mãos dadas na largura da foz do Tejo em Lisboa mais de 700 vezes.',
-			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			lottie_src: '/assets/review-2024/animations/tops/tops_lines_area_2.json',
 			number_legend: 'linhas com mais passageiros transportados na área 1 (Loures, Mafra, Odivelas, Vila Franca de Xira)',
 			number_value: '2769|2711|2730',
 			title: 'Todas as nossas linhas importam, mas 3 destacaram-se!',
@@ -240,7 +240,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Os passageiros destas linhas (4 590 671) conseguiriam dar as mãos pela largura das praias da Costa da Caparica mais de 250 vezes.',
-			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			lottie_src: '/assets/review-2024/animations/tops/tops_lines_area_3.json',
 			number_legend: 'linhas com mais passageiros transportados na área 3 (Almada, Seixal e Sesimbra)',
 			number_value: '3508|3022|3013',
 			title: 'Todas as nossas linhas importam, mas 3 destacaram-se!',
@@ -260,7 +260,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Os passageiros destas linhas (4 597 469), conseguiriam dar as mãos pelo comprimento do rio Sado mais de 360 vezes.',
-			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			lottie_src: '/assets/review-2024/animations/tops/tops_lines_area_4.json',
 			number_legend: 'linhas com mais passageiros transportados na área 4 (Alcochete, Barreiro, Moita, Montijo, Palmela, Setúbal)',
 			number_value: '4600|4701|4512',
 			title: 'Todas as nossas linhas importam, mas 3 destacaram-se!',
@@ -276,18 +276,98 @@ export const allCardsData: Review2024CardSchema[] = [
 		_id: 'lines_growth',
 		colors: {
 			primary: '#F0F0F0',
-			text: '#FFFFFF',
+			text: '#5A5A64',
 		},
 		content: {
 			description: 'Os passageiros destas linhas (4 597 469), conseguiriam dar as mãos pelo comprimento do rio Sado mais de 360 vezes.',
-			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			lottie_src: '/assets/review-2024/animations/tops/lines_growth.json',
 			number_legend: 'linhas com maior taxa de crescimento entre janeiro e dezembro de 2024',
-			number_value: '"2711|4600|4701',
+			number_value: '2711|4600|4701',
 			title: 'Crescem depressa!',
 		},
 		header: {
 			number: '2711',
 			title: 'Crescimento Linhas',
+		},
+	},
+
+	{
+		_group: 'recordes',
+		_id: 'records_month',
+		colors: {
+			primary: '#C61D23',
+			text: '#FFFFFF',
+		},
+		content: {
+			description: 'Em outubro, foi como se toda a população de Portugal entrasse num autocarro mais de 1,5 vezes no mesmo mês!',
+			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			number_legend: 'total de passageiros transportados num mês (outubro de 2024)',
+			number_value: '17 060 039',
+			title: 'Um mês que valeu por mil!',
+		},
+		header: {
+			number: '17M',
+			title: 'Mês',
+		},
+	},
+
+	{
+		_group: 'recordes',
+		_id: 'records_day_du',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			description: 'Num dia de 2024, conseguíamos encher o Estádio da Luz mais de 10 vezes!',
+			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			number_legend: 'total de passageiros transportados num dia útil (10 de outubro de 2024)',
+			number_value: '688 019',
+			title: 'O melhor dia de todos!',
+		},
+		header: {
+			number: '688K',
+			title: 'Dia Útil',
+		},
+	},
+
+	{
+		_group: 'recordes',
+		_id: 'records_day_sab',
+		colors: {
+			primary: '#FBBA1A',
+			text: '#000000',
+		},
+		content: {
+			description: 'Se 305 mil pessoas dessem as mãos, conseguiriam chegar de Mafra a Setúbal e voltar.',
+			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			number_legend: 'total de passageiros transportados num sábado (14 de setembro de 2024)',
+			number_value: '305 063',
+			title: 'Aos fins de semana também conta!',
+		},
+		header: {
+			number: '305K',
+			title: 'Sábado',
+		},
+	},
+
+	{
+		_group: 'recordes',
+		_id: 'records_day_dom',
+		colors: {
+			primary: '#3D85C6',
+			text: '#FFFFFF',
+		},
+		content: {
+			description: 'Num domingo, transportámos mais de  quatro plateias do passeio marítimo de Algés!',
+			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			number_legend: 'total de passageiros transportados num domingo (15 de agosto de 2024)',
+			number_value: '274 416',
+			title: 'A Cmetropolitana não tira férias!',
+		},
+		header: {
+			number: '274K',
+			title: 'Domingo/Feriado',
 		},
 	},
 

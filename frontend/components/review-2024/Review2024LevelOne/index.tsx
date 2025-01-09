@@ -47,7 +47,7 @@ export function Review2024LevelOne() {
 						<h2 className={styles.heading}>{t('c.heading')}</h2>
 						<h5 className={styles.subheading}>{t('c.subheading')}</h5>
 					</div>
-					<Review2024CardGroup groupId="passageiros" />
+					<Review2024CardGroup groupId="recordes" />
 				</Section>
 			</Grid>
 		</Surface>
