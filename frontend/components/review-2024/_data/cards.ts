@@ -734,4 +734,1024 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 	},
 
+	//
+	// Group: "municipio_pax_area_1"
+
+	{
+		_group: 'municipio_pax_area_1',
+		_id: 'municipio_pax_a1_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Amadora não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Amadora',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_1',
+		_id: 'municipio_pax_a1_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Cascais não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Cascais',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_1',
+		_id: 'municipio_pax_a1_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Lisboa não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Lisboa',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_1',
+		_id: 'municipio_pax_a1_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Oeiras não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Oeiras',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_1',
+		_id: 'municipio_pax_a1_05',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Sintra não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Sintra',
+		},
+	},
+
+	//
+	// Group: "municipio_pax_area_2"
+
+	{
+		_group: 'municipio_pax_area_2',
+		_id: 'municipio_pax_a2_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Loures não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Loures',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_2',
+		_id: 'municipio_pax_a2_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Mafra não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Mafra',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_2',
+		_id: 'municipio_pax_a2_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Odivelas não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Odivelas',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_2',
+		_id: 'municipio_pax_a2_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Vila Franca de Xira não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Vila Franca de Xira',
+		},
+	},
+
+	//
+	// Group: "municipio_pax_area_3"
+
+	{
+		_group: 'municipio_pax_area_3',
+		_id: 'municipio_pax_a3_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Almada não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Almada',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_3',
+		_id: 'municipio_pax_a3_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Seixal não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Seixal',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_3',
+		_id: 'municipio_pax_a3_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Sesimbra não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Sesimbra',
+		},
+	},
+
+	//
+	// Group: "municipio_pax_area_4"
+
+	{
+		_group: 'municipio_pax_area_4',
+		_id: 'municipio_pax_a4_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Alcochete não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Alcochete',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_4',
+		_id: 'municipio_pax_a4_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Barreiro não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Barreiro',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_4',
+		_id: 'municipio_pax_a4_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Moita não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Moita',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_4',
+		_id: 'municipio_pax_a4_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Montijo não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Montijo',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_4',
+		_id: 'municipio_pax_a4_05',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Palmela não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Palmela',
+		},
+	},
+
+	{
+		_group: 'municipio_pax_area_4',
+		_id: 'municipio_pax_a4_06',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em Setúbal não parámos de crescer!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Setúbal',
+		},
+	},
+
+	//
+	// Group: "municipio_terminals_area_1"
+
+	{
+		_group: 'municipio_terminals_area_1',
+		_id: 'municipio_terminals_a1_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Amadora',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_1',
+		_id: 'municipio_terminals_a1_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Cascais',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_1',
+		_id: 'municipio_terminals_a1_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Lisboa',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_1',
+		_id: 'municipio_terminals_a1_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Oeiras',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_1',
+		_id: 'municipio_terminals_a1_05',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Sintra',
+		},
+	},
+
+	//
+	// Group: "municipio_terminals_area_2"
+
+	{
+		_group: 'municipio_terminals_area_2',
+		_id: 'municipio_terminals_a2_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Loures',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_2',
+		_id: 'municipio_terminals_a2_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Mafra',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_2',
+		_id: 'municipio_terminals_a2_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Odivelas',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_2',
+		_id: 'municipio_terminals_a2_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Vila Franca de Xira',
+		},
+	},
+
+	//
+	// Group: "municipio_terminals_area_3"
+
+	{
+		_group: 'municipio_terminals_area_3',
+		_id: 'municipio_terminals_a3_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Almada',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_3',
+		_id: 'municipio_terminals_a3_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Seixal',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_3',
+		_id: 'municipio_terminals_a3_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Sesimbra',
+		},
+	},
+
+	//
+	// Group: "municipio_terminals_area_4"
+
+	{
+		_group: 'municipio_terminals_area_4',
+		_id: 'municipio_terminals_a4_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Alcochete',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_4',
+		_id: 'municipio_terminals_a4_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Barreiro',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_4',
+		_id: 'municipio_terminals_a4_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Moita',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_4',
+		_id: 'municipio_terminals_a4_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Montijo',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_4',
+		_id: 'municipio_terminals_a4_05',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Palmela',
+		},
+	},
+
+	{
+		_group: 'municipio_terminals_area_4',
+		_id: 'municipio_terminals_a4_06',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Setúbal',
+		},
+	},
+
+	//
+	// Group: "municipio_lines_area_1"
+
+	{
+		_group: 'municipio_lines_area_1',
+		_id: 'municipio_lines_a1_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Amadora',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_1',
+		_id: 'municipio_lines_a1_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Oeiras',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_1',
+		_id: 'municipio_lines_a1_05',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Sintra',
+		},
+	},
+
+	//
+	// Group: "municipio_lines_area_2"
+
+	{
+		_group: 'municipio_lines_area_2',
+		_id: 'municipio_lines_a2_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Loures',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_2',
+		_id: 'municipio_lines_a2_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Mafra',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_2',
+		_id: 'municipio_lines_a2_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Odivelas',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_2',
+		_id: 'municipio_lines_a2_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Vila Franca de Xira',
+		},
+	},
+
+	//
+	// Group: "municipio_lines_area_3"
+
+	{
+		_group: 'municipio_lines_area_3',
+		_id: 'municipio_lines_a3_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Almada',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_3',
+		_id: 'municipio_lines_a3_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Seixal',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_3',
+		_id: 'municipio_lines_a3_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Sesimbra',
+		},
+	},
+
+	//
+	// Group: "municipio_lines_area_4"
+
+	{
+		_group: 'municipio_lines_area_4',
+		_id: 'municipio_lines_a4_01',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Alcochete',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_4',
+		_id: 'municipio_lines_a4_03',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Moita',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_4',
+		_id: 'municipio_lines_a4_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Montijo',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_4',
+		_id: 'municipio_lines_a4_05',
+		colors: {
+			primary: '#F0F0F0',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Palmela',
+		},
+	},
+
+	{
+		_group: 'municipio_lines_area_4',
+		_id: 'municipio_lines_a4_06',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			description: 'Só nesta linha levámos X pessoas a ver as vistas de Alcochete.',
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_value: 'YY%',
+			title: 'Em 2024, passeámos  juntos por Alcochete!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Setúbal',
+		},
+	},
+
 ];
