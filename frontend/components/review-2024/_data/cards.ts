@@ -1766,7 +1766,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Seria preciso um prédio de 966 andares, com 3 frações por piso, para que toda a nossa comunidade vivesse junta.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			lottie_src: '/assets/review-2024/animations/digital/followers_total.json',
 			number_legend: 'total de seguidores novos na nossa comunidade digital',
 			number_value: '6 762',
 			title: 'Este ano, andámos ligados!',
@@ -1786,7 +1786,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Este ano, publicámos uma notícia a cada 6 dias.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			lottie_src: '/assets/review-2024/animations/digital/news_total.json',
 			number_legend: 'total de notícias publicadas pela Carris Metropolitana em 2024',
 			number_value: '64',
 			title: 'Em 2024, contámos tudo!',
@@ -1807,7 +1807,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Este ano, guardámos 3 milhões de eventos por dia enviados pelos nossos autocarro, a notificar a sua localização.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			lottie_src: '/assets/review-2024/animations/digital/realtime_daily.json',
 			number_legend: 'eventos recibidos em real time, por dia',
 			number_value: '3 000 000',
 			title: 'Este ano, sabemos por onde andámos!',
@@ -1827,7 +1827,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Seriam precisos 345 autocarros standard para caberem 90 mil telemóveis.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			lottie_src: '/assets/review-2024/animations/digital/app_total.json',
 			number_legend: 'utilizadores totais da aplicação Carris Metropolitana',
 			number_value: '90 000',
 			title: '2024 foi o ano de viajar no bolso dos passageiros!',
@@ -1847,7 +1847,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Uma pessoa teria que verificar o telemóvel 137 vezes por dia durante um ano inteiro para atingir as 50 mil visitas que recebemos diariamente no site!',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
+			lottie_src: '/assets/review-2024/animations/digital/website_daily.json',
 			number_legend: 'visitantes diários ao nosso website',
 			number_value: '50 000',
 			title: 'Este ano estivemos sempre à distância de um clique!',
