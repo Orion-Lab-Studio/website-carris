@@ -131,13 +131,6 @@ export const ImagesCommon = Object.freeze({
 	PLACEHOLDER: '/images/common/placeholder.png',
 });
 
-export const ImagesPlanner = Object.freeze({
-	PLANNER_CITY_MAPPER: '/images/planner/citymapper.png',
-	PLANNER_GOOGLE_MAPS: '/images/planner/google-maps.png',
-	PLANNER_MOOVIT: '/images/planner/moovit.png',
-	PLANNER_TRANSIT: '/images/planner/transit.png',
-});
-
 export const ImagesHome = Object.freeze({
 	CASO_DE_ESTUDO_LOURES: '/images/home/caso-de-estudo-loures.png',
 	DRIVERS: '/images/home/drivers.png',
@@ -145,6 +138,5 @@ export const ImagesHome = Object.freeze({
 
 export const Images = Object.freeze({
 	...ImagesCommon,
-	...ImagesPlanner,
 	...ImagesHome,
 });

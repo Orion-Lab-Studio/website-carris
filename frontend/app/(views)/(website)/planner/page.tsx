@@ -1,6 +1,6 @@
 /* * */
 
-import PlannerPage from '@/components/planner/Page';
+import { PlannerPage } from '@/components/planner/PlannerPage';
 
 /* * */
 

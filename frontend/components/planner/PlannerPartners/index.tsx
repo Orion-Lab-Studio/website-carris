@@ -5,9 +5,8 @@
 import Carousel from '@/components/common/Carousel';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import PlannerCard from '@/components/planner/Card';
-import PlannerCardSkeleton from '@/components/planner/CardSkeleton';
-import { ImagesPlanner } from '@/settings/assets.settings';
+import { PlannerCard } from '@/components/planner/PlannerCard';
+import { PlannerCardSkeleton } from '@/components/planner/PlannerCardSkeleton';
 import { shuffleArray } from '@/utils/shuffle';
 import { useLocale, useTranslations } from 'next-intl';
 import Link from 'next/link';
@@ -20,37 +19,37 @@ import styles from './styles.module.css';
 const partnerApps = shuffleArray([
 	{
 		description: {
-			'en-US': 'Citymapper is a multimodal transport app that offers detailed and updated public transport routes in real time',
-			'pt-PT': 'Citymapper é uma aplicação de transporte multimodal que oferece rotas de transporte público detalhadas e atualizadas em tempo real',
+			// en: 'Citymapper is a multimodal transport app that offers detailed and updated public transport routes in real time',
+			// pt: 'Citymapper é uma aplicação de transporte multimodal que oferece rotas de transporte público detalhadas e atualizadas em tempo real',
 		},
-		imageUrl: ImagesPlanner.PLANNER_CITY_MAPPER,
+		image_url: '/assets/planner/citymapper.png',
 		title: 'Citymapper',
 		url: 'https://citymapper.com',
 	},
 	{
 		description: {
-			'en-US': 'Google Maps offers detailed and updated public transport routes in real time for a stress-free travel experience',
-			'pt-PT': 'O Google Maps oferece rotas de transporte público detalhadas e atualizadas em tempo real para uma experiência de viagem sem preocupações',
+			// en: 'Google Maps offers detailed and updated public transport routes in real time for a stress-free travel experience',
+			// pt: 'O Google Maps oferece rotas de transporte público detalhadas e atualizadas em tempo real para uma experiência de viagem sem preocupações',
 		},
-		imageUrl: ImagesPlanner.PLANNER_GOOGLE_MAPS,
+		image_url: '/assets/planner/google-maps.png',
 		title: 'Google Maps',
 		url: 'https://www.google.com/maps',
 	},
 	{
 		description: {
-			'en-US': 'Moovit provides comprehensive and updated information on schedules, routes, and service alerts, ensuring a smooth and efficient trip.',
-			'pt-PT': 'A Moovit oferece informações abrangentes e atualizadas sobre horários, rotas e alertas de serviço, garantindo uma viagem tranquila e eficiente.',
+			// en: 'Moovit provides comprehensive and updated information on schedules, routes, and service alerts, ensuring a smooth and efficient trip.',
+			// pt: 'A Moovit oferece informações abrangentes e atualizadas sobre horários, rotas e alertas de serviço, garantindo uma viagem tranquila e eficiente.',
 		},
-		imageUrl: ImagesPlanner.PLANNER_MOOVIT,
+		image_url: '/assets/planner/moovit.png',
 		title: 'Moovit',
 		url: 'https://moovitapp.com',
 	},
 	{
 		description: {
-			'en-US': 'Transit is the latest app in AML.',
-			'pt-PT': 'Transit é a mais recente aplicação na AML.',
+			// en: 'Transit is the latest app in AML.',
+			// pt: 'Transit é a mais recente aplicação na AML.',
 		},
-		imageUrl: ImagesPlanner.PLANNER_TRANSIT,
+		image_url: '/assets/planner/transit.png',
 		title: 'Transit',
 		url: 'https://transit.app',
 	},
@@ -58,13 +57,15 @@ const partnerApps = shuffleArray([
 
 /* * */
 
-export default function Component() {
+export function PlannerPartners() {
 	//
 
 	//
 	// A. Setup variables
-	const t = useTranslations('planner.Page.Partners');
+
+	const t = useTranslations('planner.PlannerPartners');
 	const locale = useLocale();
+
 	//
 	// B. Transform data
 
@@ -73,7 +74,7 @@ export default function Component() {
 		component: (
 			<PlannerCard
 				description={slideItem.description[locale]}
-				imageUrl={slideItem.imageUrl}
+				imageUrl={slideItem.image_url}
 				title={slideItem.title}
 				url={slideItem.url}
 			/>

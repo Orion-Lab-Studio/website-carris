@@ -13,13 +13,13 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component() {
+export function PlannerNavegante() {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('planner.Page.Navegante');
+	const t = useTranslations('planner.PlannerNavegante');
 
 	//
 	// B. Handle Actions

@@ -8,7 +8,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export interface PlannerCardProps {
+export interface Props {
 	description: string
 	imageUrl: string
 	title: string
@@ -17,7 +17,7 @@ export interface PlannerCardProps {
 
 /* * */
 
-export default function Component({ description, imageUrl, title, url }: PlannerCardProps) {
+export function PlannerCard({ description, imageUrl, title, url }: Props) {
 	return (
 		<Link className={styles.container} href={url} target="_blank">
 			<Image alt={title} className={styles.coverImage} fallbackSrc={ImagesCommon.PLACEHOLDER} src={imageUrl} />
