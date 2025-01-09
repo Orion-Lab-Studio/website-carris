@@ -29,26 +29,28 @@ export function Review2024LevelTwo() {
 
 				<Section withPadding="desktop" withGap>
 					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('a.heading')}</h2>
-						<h5 className={styles.subheading}>{t('a.subheading')}</h5>
+						<h2 className={styles.heading}>{t('municipio_growth.heading')}</h2>
+						<h5 className={styles.subheading}>{t('municipio_growth.subheading')}</h5>
 					</div>
-					<Review2024CardGroup groupId="passageiros" />
+					<Review2024CardGroup groupId="municipio_growth" />
 				</Section>
 
 				<Section withPadding="desktop" withGap>
 					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('b.heading')}</h2>
-						<h5 className={styles.subheading}>{t('b.subheading')}</h5>
+						<h2 className={styles.heading}>{t('municipio_pax.heading')}</h2>
+						<h5 className={styles.subheading}>{t('municipio_pax.subheading')}</h5>
 					</div>
-					<Review2024CardGroup groupId="tops" />
+					<Review2024CardGroup groupId="municipio_pax" />
 				</Section>
+
 				<Section withPadding="desktop" withGap>
 					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('c.heading')}</h2>
-						<h5 className={styles.subheading}>{t('c.subheading')}</h5>
+						<h2 className={styles.heading}>{t('municipio_terminals.heading')}</h2>
+						<h5 className={styles.subheading}>{t('municipio_terminals.subheading')}</h5>
 					</div>
-					<Review2024CardGroup groupId="recordes" />
+					<Review2024CardGroup groupId="municipio_terminals" />
 				</Section>
+
 			</Grid>
 		</Surface>
 	);

@@ -29,26 +29,12 @@ export function Review2024LevelThree() {
 
 				<Section withPadding="desktop" withGap>
 					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('a.heading')}</h2>
-						<h5 className={styles.subheading}>{t('a.subheading')}</h5>
+						<h2 className={styles.heading}>{t('municipio_lines.heading')}</h2>
+						<h5 className={styles.subheading}>{t('municipio_lines.subheading')}</h5>
 					</div>
-					<Review2024CardGroup groupId="passageiros" />
+					<Review2024CardGroup groupId="municipio_lines" />
 				</Section>
 
-				<Section withPadding="desktop" withGap>
-					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('b.heading')}</h2>
-						<h5 className={styles.subheading}>{t('b.subheading')}</h5>
-					</div>
-					<Review2024CardGroup groupId="tops" />
-				</Section>
-				<Section withPadding="desktop" withGap>
-					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('c.heading')}</h2>
-						<h5 className={styles.subheading}>{t('c.subheading')}</h5>
-					</div>
-					<Review2024CardGroup groupId="recordes" />
-				</Section>
 			</Grid>
 		</Surface>
 	);

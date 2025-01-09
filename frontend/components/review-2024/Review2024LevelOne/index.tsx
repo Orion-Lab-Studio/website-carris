@@ -29,26 +29,28 @@ export function Review2024LevelOne() {
 
 				<Section withPadding="desktop" withGap>
 					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('a.heading')}</h2>
-						<h5 className={styles.subheading}>{t('a.subheading')}</h5>
+						<h2 className={styles.heading}>{t('passageiros.heading')}</h2>
+						<h5 className={styles.subheading}>{t('passageiros.subheading')}</h5>
 					</div>
 					<Review2024CardGroup groupId="passageiros" />
 				</Section>
 
 				<Section withPadding="desktop" withGap>
 					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('b.heading')}</h2>
-						<h5 className={styles.subheading}>{t('b.subheading')}</h5>
+						<h2 className={styles.heading}>{t('tops.heading')}</h2>
+						<h5 className={styles.subheading}>{t('tops.subheading')}</h5>
 					</div>
 					<Review2024CardGroup groupId="tops" />
 				</Section>
+
 				<Section withPadding="desktop" withGap>
 					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('c.heading')}</h2>
-						<h5 className={styles.subheading}>{t('c.subheading')}</h5>
+						<h2 className={styles.heading}>{t('recordes.heading')}</h2>
+						<h5 className={styles.subheading}>{t('recordes.subheading')}</h5>
 					</div>
 					<Review2024CardGroup groupId="recordes" />
 				</Section>
+
 			</Grid>
 		</Surface>
 	);
