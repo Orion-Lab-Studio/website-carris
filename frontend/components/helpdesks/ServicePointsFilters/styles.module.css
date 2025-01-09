@@ -1,24 +1,24 @@
 .content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 1rem;
+    grid-gap: var(--size-spacing-5);
 }
 
 .validity{
-    color: var(--color-system-text-300);
     font-size: 10px;
+    font-style: semibold;
     font-weight: 600;
-    font-style: SemiBold;
+    color: var(--color-system-text-300);
     text-align: left;
 }
 
 .images {
     display: flex;
+    gap: var(--size-spacing-5);
     align-items: center;
     justify-content: center;
-    gap: 1rem;
-    height: 100px;
     width: 100px;
+    height: 100px;
 
     & img {
         height: 100%;
@@ -27,25 +27,25 @@
 
 .cardAlt {
     display: flex;
-    align-items: center;
     flex-direction: row;
-    gap: 1rem;
+    gap: var(--size-spacing-5);
+    align-items: center;
 
     & img {
         height: 80px;
     }
 }
 
-@media screen and (max-width: 768px) {
+@media (width <= 768px) {
     .content {
         grid-template-columns: 1fr;
     }
 
     .card {
         display: flex;
-        align-items: center;
         flex-direction: row;
-        gap: 1rem;
+        gap: var(--size-spacing-5);)
+        align-items: center;
 
         & img {
             height: 80px;

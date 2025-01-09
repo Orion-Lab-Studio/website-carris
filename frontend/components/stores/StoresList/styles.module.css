@@ -10,7 +10,7 @@
 	width: 100%;
 }
 
-@media screen and (width < 1000px) {
+@media (width < 1000px) {
 	.contentWrapper {
 		grid-template:
 			"b" 300px [b_]
@@ -40,7 +40,7 @@
 	max-height: calc(100vh - var(--size-height-header));
 }
 
-@media screen and (width < 1000px) {
+@media (width < 1000px) {
 	.mapWrapper {
 		position: static;
 		height: 300px;

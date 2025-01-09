@@ -67,7 +67,7 @@
 	overflow: auto;
 }
 
-@media screen and (width <= 768px) {
+@media (width <= 768px) {
 	.iconsWrapper {
 		overflow: auto;
 	}

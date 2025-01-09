@@ -39,7 +39,7 @@
 	align-items: center;
 	justify-content: space-between;
 	width: 100%;
-	padding: 20px 15px;
+	padding: 20px;
 	padding-bottom: 40px;
 	cursor: pointer;
 	background-color: var(--color-primary);
@@ -75,7 +75,7 @@
 
 .container[data-is-last='true'][data-open='false'] .header {
 	border-radius: 18px;
-	transition: all 50ms ease-out calc(var(--animation-duration-close) - 100ms);
+	transition: all 100ms ease-out calc(var(--animation-duration-close) - 50ms);
 }
 
 /* * */

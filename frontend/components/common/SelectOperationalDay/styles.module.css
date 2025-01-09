@@ -16,7 +16,7 @@
 	padding: 0;
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.segmentedControlDateInputOverrideControl label {
 		padding-right: var(--size-spacing-15);
 		padding-left: var(--size-spacing-15);
@@ -24,7 +24,7 @@
 	}
 }
 
-@media screen and (width <= 350px) {
+@media (width <= 350px) {
 	.segmentedControlDateInputOverrideControl label,
 	.segmentedControlDateInputOverrideControl:last-child label {
 		padding-top: var(--size-spacing-15);
@@ -58,7 +58,7 @@
 	color: var(--color-system-text-100);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.datePickerInput {
 		padding-left: calc(var(--size-spacing-15) + 26px);
 		font-size: 14px;
@@ -87,7 +87,7 @@
 	color: var(--color-system-text-200);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.datePickerSection svg {
 		width: 20px;
 	}

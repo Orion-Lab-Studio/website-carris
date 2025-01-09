@@ -43,7 +43,7 @@
 	}
 }
 
-@media screen and (width < 650px) {
+@media (width < 650px) {
 	.container {
 		border-bottom: unset;
 		border-radius: 15px;

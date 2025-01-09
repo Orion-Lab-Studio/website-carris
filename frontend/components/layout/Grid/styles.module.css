@@ -71,7 +71,7 @@
 	grid-template-columns: 1fr 1fr 1fr 1fr;
 }
 
-@media screen and (width < 1000px) {
+@media (width < 1000px) {
 	.container.aab {
 		grid-template-columns: 1fr 1fr;
 	}
@@ -89,7 +89,7 @@
 	}
 }
 
-@media screen and (width <= 900px) {
+@media (width <= 900px) {
 	.container.aab {
 		grid-template-columns: 1fr;
 	}
@@ -107,7 +107,7 @@
 	}
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.container.abc {
 		grid-template-columns: 1fr;
 	}

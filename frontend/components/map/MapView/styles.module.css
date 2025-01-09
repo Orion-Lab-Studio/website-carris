@@ -16,7 +16,7 @@
 	padding: var(--size-spacing-10);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.toolbar {
 		padding: var(--size-spacing-20);
 		background-color: var(--color-system-background-100);

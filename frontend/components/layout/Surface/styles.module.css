@@ -8,7 +8,7 @@
 	border-radius: var(--border-radius-lg);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.container {
 		border-radius: unset;
 	}
@@ -34,7 +34,7 @@
 	border-radius: calc(var(--border-radius-lg) + 1px);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.container.default {
 		background-color: var(--color-system-background-200);
 		border: none;
@@ -51,7 +51,7 @@
 	border-radius: calc(var(--border-radius-lg) + 1px);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.container.persistent {
 		border-right: none;
 		border-left: none;
@@ -68,7 +68,7 @@
 	border-radius: calc(var(--border-radius-lg) + 1px);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.container.alerts {
 		border-right: none;
 		border-left: none;
@@ -93,7 +93,7 @@
 	border-radius: calc(var(--border-radius-lg) + 5px);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 
 	/* stylelint-disable-next-line selector-class-pattern */
 	.container.brand2 {
@@ -110,7 +110,7 @@
 	border-radius: calc(var(--border-radius-lg) + 1px);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.container.debug {
 		border-radius: unset;
 	}
@@ -131,7 +131,7 @@
 	animation: pulse-animation-warning 3000ms ease-out infinite;
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.container.warning {
 		border:none;
 		border-top: 5px solid #FF6900;
@@ -168,7 +168,7 @@
 	border: 3px solid #2d7523; */
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.container.success {
 		border:none;
 		border-top: 5px solid #5dba50;
@@ -240,7 +240,7 @@
 	border-radius: calc(var(--border-radius-lg) - var(--border-size));
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.container.standout,
 	.container.standout .inner {
 		margin-right: 0;

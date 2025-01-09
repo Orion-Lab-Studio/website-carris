@@ -9,15 +9,15 @@
 
 .selectsWrapper {
 	display: grid;
-	grid-template-columns: 1fr 1fr;
 	grid-template-rows: 1fr;
+	grid-template-columns: 1fr 1fr;
 	gap: var(--size-spacing-15);
 	justify-content: stretch;
 	width: 100%;
 }
 
 
-@media screen and (width <= 768px) {
+@media (width <= 768px) {
 	.selectsWrapper {
 		grid-template-columns: 1fr;
 	}

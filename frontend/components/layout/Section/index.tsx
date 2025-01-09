@@ -16,14 +16,26 @@ interface Props {
 	variant?: 'default' | 'muted' | 'standout' | 'success' | 'warning'
 	withBottomDivider?: boolean
 	withGap?: boolean
-	withPadding?: boolean
+	withPadding?: 'desktop' | 'mobile' | boolean
 }
 
 /* * */
 
 export function Section({ children, heading, href, subheading, target, variant = 'default', withBottomDivider, withGap, withPadding }: Props) {
+	//
+
+	//
+	// A. Transform data
+
+	//
+	// B. Render components
+
 	return (
-		<section className={`${styles.container} ${withBottomDivider && styles.withBottomDivider} ${withGap && styles.withGap} ${withPadding && styles.withPadding} ${styles[variant]}`}>
+		<section
+			className={`${styles.container} ${withBottomDivider && styles.withBottomDivider} ${withGap && styles.withGap} ${styles[variant]}`}
+			data-with-padding-desktop={withPadding === 'desktop' || withPadding === true}
+			data-with-padding-mobile={withPadding === 'mobile' || withPadding === true}
+		>
 
 			{(heading || subheading) && (
 				<div className={styles.headingWrapper}>
@@ -46,4 +58,6 @@ export function Section({ children, heading, href, subheading, target, variant =
 
 		</section>
 	);
+
+	//
 }

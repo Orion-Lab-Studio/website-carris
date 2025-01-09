@@ -13,7 +13,7 @@
 	border-radius: var(--border-radius-lg);
 }
 
-@media screen and (width <= 500px) {
+@media (width <= 500px) {
     .cardWrapper {
         flex-direction: column;
     }
@@ -33,8 +33,8 @@
 }
 
 .validity{
+	padding-top: var(--size-spacing-5);
     font-size: 12px;
     font-weight: var(--font-weight-medium);
     color: var(--color-system-text-300);
-	padding-top: var(--size-spacing-5);
 }

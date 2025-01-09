@@ -8,8 +8,8 @@
 	color: var(--color-system-text-300);
 
 	& ul {
-		list-style: none;
 		padding-inline-start: 20px;
+		list-style: none;
 	}
 
 	& li {
@@ -18,10 +18,10 @@
 
 	/* stylelint-disable-next-line selector-pseudo-class-no-unknown */
 	& :global(ul) {
-		margin: 5px 0;
 		display: flex;
 		flex-direction: column;
 		gap: 10px;
+		margin: 5px 0;
 	}
 }
 
@@ -30,7 +30,7 @@
 }
 
 
-@media screen and (max-width: 900px) {
+@media (width <= 900px) {
 	.nav {
 		display: none;
 	}

@@ -13,12 +13,12 @@
 	border-radius: var(--border-radius-lg);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.cardWrapper {
 		grid-template-columns: 1fr;
+		gap: 0;
 		border: none;
 		border-radius: 0;
-		gap: 0;
 	}
 }
 
@@ -28,7 +28,7 @@
 	padding: var(--size-spacing-15);
 }
 
-@media screen and (width <= 650px) {
+@media (width <= 650px) {
 	.cardImage {
 		height: 100px;
 	}

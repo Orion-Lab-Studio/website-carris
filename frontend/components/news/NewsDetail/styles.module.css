@@ -8,7 +8,7 @@
 	width: 100%;
 }
 
-@media screen and (width <= 900px) {
+@media (width <= 900px) {
 	.innerWrapper {
 		grid-template:
 			"b" auto [b_]

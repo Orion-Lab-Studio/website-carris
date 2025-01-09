@@ -15,11 +15,11 @@
 }
 
 a.cardWrapper:hover {
-	border-color: var(--color-system-border-200);
 	background-color: var(--color-system-background-200);
+	border-color: var(--color-system-border-200);
 }
 
-@media screen and (width <= 500px) {
+@media (width <= 500px) {
 	.cardWrapper {
 		grid-template-columns: 1fr;
 	}

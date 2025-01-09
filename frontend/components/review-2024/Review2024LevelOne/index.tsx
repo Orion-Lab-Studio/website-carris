@@ -26,19 +26,27 @@ export function Review2024LevelOne() {
 	return (
 		<Surface forceOverflow>
 			<Grid columns="abc">
-				<Section withGap withPadding>
-					<h2 className={styles.heading}>{t('a.heading')}</h2>
-					<h5 className={styles.subheading}>{t('a.subheading')}</h5>
+
+				<Section withPadding="desktop" withGap>
+					<div className={styles.headingWrapper}>
+						<h2 className={styles.heading}>{t('a.heading')}</h2>
+						<h5 className={styles.subheading}>{t('a.subheading')}</h5>
+					</div>
 					<Review2024CardGroup groupId="passageiros" />
 				</Section>
-				<Section withGap withPadding>
-					<h2 className={styles.heading}>{t('b.heading')}</h2>
-					<h5 className={styles.subheading}>{t('b.subheading')}</h5>
+
+				<Section withPadding="desktop" withGap>
+					<div className={styles.headingWrapper}>
+						<h2 className={styles.heading}>{t('b.heading')}</h2>
+						<h5 className={styles.subheading}>{t('b.subheading')}</h5>
+					</div>
 					<Review2024CardGroup groupId="passageiros" />
 				</Section>
-				<Section withGap withPadding>
-					<h2 className={styles.heading}>{t('c.heading')}</h2>
-					<h5 className={styles.subheading}>{t('c.subheading')}</h5>
+				<Section withPadding="desktop" withGap>
+					<div className={styles.headingWrapper}>
+						<h2 className={styles.heading}>{t('c.heading')}</h2>
+						<h5 className={styles.subheading}>{t('c.subheading')}</h5>
+					</div>
 					<Review2024CardGroup groupId="passageiros" />
 				</Section>
 			</Grid>

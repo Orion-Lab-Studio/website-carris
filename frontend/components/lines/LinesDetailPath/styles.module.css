@@ -10,7 +10,7 @@
 	width: 100%;
 }
 
-@media screen and (width < 1000px) {
+@media (width < 1000px) {
 	.container {
 		grid-template:
 			"b" 50vh [b_]
@@ -30,7 +30,7 @@
 	border-left: 1px solid var(--color-system-border-100);
 }
 
-@media screen and (width < 1000px) {
+@media (width < 1000px) {
 	.mapWrapper {
 		position: static;
 		border: none;

@@ -28,10 +28,6 @@
 	padding-left: var(--size-spacing-25);
 }
 
-.withPadding .headingWrapper {
-	padding-bottom: unset;
-}
-
 /* * */
 /* HEADING */
 
@@ -92,10 +88,27 @@
 /* * */
 /* CHILDREN WRAPPER / MODIFIERS */
 
-.withPadding .childrenWrapper  {
-	padding: var(--size-spacing-20);
-}
-
 .withGap .childrenWrapper  {
 	gap: var(--size-spacing-15);
+}
+
+/* * */
+/* MODIFIERS / WITH PADDING */
+
+@media (width <= 650px) {
+	.container[data-with-padding-mobile='true'] .headingWrapper {
+		padding-bottom: unset;
+	}
+	.container[data-with-padding-mobile='true'] .childrenWrapper  {
+		padding: var(--size-spacing-20);
+	}
+}
+
+@media (width > 650px) {
+	.container[data-with-padding-desktop='true'] .headingWrapper {
+		padding-bottom: unset;
+	}
+	.container[data-with-padding-desktop='true']  .childrenWrapper  {
+		padding: var(--size-spacing-20);
+	}
 }
