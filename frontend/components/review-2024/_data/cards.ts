@@ -187,7 +187,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		header: {
 			number: '300K',
-			title: 'Passageiros',
+			title: 'Quilómetros',
 		},
 	},
 
