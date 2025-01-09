@@ -293,14 +293,14 @@ export const allCardsData: Review2024CardSchema[] = [
 
 	{
 		_group: 'recordes',
-		_id: 'records_month',
+		_id: 'recordes_month',
 		colors: {
 			primary: '#C61D23',
 			text: '#FFFFFF',
 		},
 		content: {
 			description: 'Em outubro, foi como se toda a população de Portugal entrasse num autocarro mais de 1,5 vezes no mesmo mês!',
-			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			lottie_src: '/assets/review-2024/animations/recordes/recordes_month.json',
 			number_legend: 'total de passageiros transportados num mês (outubro de 2024)',
 			number_value: '17 060 039',
 			title: 'Um mês que valeu por mil!',
@@ -313,14 +313,14 @@ export const allCardsData: Review2024CardSchema[] = [
 
 	{
 		_group: 'recordes',
-		_id: 'records_day_du',
+		_id: 'recordes_day_du',
 		colors: {
 			primary: '#FFDD00',
 			text: '#000000',
 		},
 		content: {
 			description: 'Num dia de 2024, conseguíamos encher o Estádio da Luz mais de 10 vezes!',
-			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			lottie_src: '/assets/review-2024/animations/recordes/recordes_day_du.json',
 			number_legend: 'total de passageiros transportados num dia útil (10 de outubro de 2024)',
 			number_value: '688 019',
 			title: 'O melhor dia de todos!',
@@ -333,14 +333,14 @@ export const allCardsData: Review2024CardSchema[] = [
 
 	{
 		_group: 'recordes',
-		_id: 'records_day_sab',
+		_id: 'recordes_day_sab',
 		colors: {
 			primary: '#FBBA1A',
 			text: '#000000',
 		},
 		content: {
 			description: 'Se 305 mil pessoas dessem as mãos, conseguiriam chegar de Mafra a Setúbal e voltar.',
-			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			lottie_src: '/assets/review-2024/animations/recordes/recordes_day_sab.json',
 			number_legend: 'total de passageiros transportados num sábado (14 de setembro de 2024)',
 			number_value: '305 063',
 			title: 'Aos fins de semana também conta!',
@@ -353,14 +353,14 @@ export const allCardsData: Review2024CardSchema[] = [
 
 	{
 		_group: 'recordes',
-		_id: 'records_day_dom',
+		_id: 'recordes_day_dom',
 		colors: {
 			primary: '#3D85C6',
 			text: '#FFFFFF',
 		},
 		content: {
 			description: 'Num domingo, transportámos mais de  quatro plateias do passeio marítimo de Algés!',
-			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
+			lottie_src: '/assets/review-2024/animations/recordes/recordes_day_dom.json',
 			number_legend: 'total de passageiros transportados num domingo (15 de agosto de 2024)',
 			number_value: '274 416',
 			title: 'A Cmetropolitana não tira férias!',
