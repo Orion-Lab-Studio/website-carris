@@ -43,6 +43,8 @@ const nextConfig = {
       { destination: '/contacts', permanent: true, source: '/contactos' },
       { destination: '/contacts', permanent: true, source: '/apoio' },
       //
+      { destination: '/viagem-2024', permanent: true, source: '/viagem2024' },
+      //
       { destination: 'https://backoffice.carrismetropolitana.pt/imprensa', permanent: false, source: '/imprensa' },
       { destination: 'https://backoffice.carrismetropolitana.pt/embreveform', permanent: false, source: '/embreveform' },
       { destination: 'https://backoffice.carrismetropolitana.pt/knowledgebase', permanent: false, source: '/knowledgebase' },
