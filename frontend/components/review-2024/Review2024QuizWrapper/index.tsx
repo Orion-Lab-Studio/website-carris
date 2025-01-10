@@ -23,15 +23,15 @@ interface Props {
 
 /* * */
 
-// export function Review2024QuizWrapper({ points, progress, setPoints, setProgress }: Props) {
-export function Review2024QuizWrapper() {
+export function Review2024QuizWrapper({ points, progress, setPoints, setProgress }: Props) {
+// export function Review2024QuizWrapper() {
 	//
 
 	//
 	// A. Setup variables
 
-	const [points, setPoints] = useState(1);
-	const [progress, setProgress] = useState(0);
+	// const [points, setPoints] = useState(1);
+	// const [progress, setProgress] = useState(0);
 
 	const [answerStatus, setAnswerStatus] = useState<'correct' | 'wrong' | null>(null);
 
@@ -74,7 +74,7 @@ export function Review2024QuizWrapper() {
 		// <Surface forceOverflow>
 		// 	<Section withPadding="desktop" withGap>
 		<div className={styles.container}>
-			<Review2024QuizPoints points={points} />
+			{/* <Review2024QuizPoints points={points} /> */}
 			<Review2024QuizQuestion
 				answerStatus={answerStatus}
 				onAnswer={handleClickAnswerOption}

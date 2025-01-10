@@ -40,6 +40,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#FFFFFF',
 		},
 		question: {
+			description: 'teste',
 			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
 			title: 'Quantos passageiros transportámos em 2024?',
 		},

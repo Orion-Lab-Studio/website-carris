@@ -4,6 +4,7 @@
 
 import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { allQuizData, type Review2024QuizAnswerSchema, type Review2024QuizSchema } from '@/components/review-2024/_data/quiz';
+import { IconCircleCheckFilled } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
@@ -64,7 +65,9 @@ export function Review2024QuizQuestion({ answerStatus, onAnswer, onClickNext, qu
 
 				<p className={styles.questionTitle}>{quizData.question.title}</p>
 
-				{quizData.question.description && <p className={styles.questionDescription}>{quizData.question.description}</p>}
+				{answerStatus !== null && quizData.question.description && (
+					<p className={styles.questionDescription}>{quizData.question.description}</p>
+				)}
 
 				<div className={styles.answersWrapper}>
 					{quizData.answers.map(answerData => (
@@ -75,6 +78,9 @@ export function Review2024QuizQuestion({ answerStatus, onAnswer, onClickNext, qu
 							onClick={() => onAnswer(answerData)}
 						>
 							{answerData.label}
+							{answerStatus !== null && answerData.is_correct && (
+								<IconCircleCheckFilled />
+							)}
 						</div>
 					))}
 				</div>
