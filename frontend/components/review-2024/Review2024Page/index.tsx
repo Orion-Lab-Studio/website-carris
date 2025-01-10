@@ -3,13 +3,12 @@
 /* * */
 
 import { Review2024Intro } from '@/components/review-2024/Review2024Intro';
-import { Review2024LevelFive } from '@/components/review-2024/Review2024LevelFive';
 import { Review2024LevelFour } from '@/components/review-2024/Review2024LevelFour';
 import { Review2024LevelOne } from '@/components/review-2024/Review2024LevelOne';
 import { Review2024LevelSix } from '@/components/review-2024/Review2024LevelSix';
 import { Review2024LevelThree } from '@/components/review-2024/Review2024LevelThree';
 import { Review2024LevelTwo } from '@/components/review-2024/Review2024LevelTwo';
-import { Review2024QuizQuestions } from '@/components/review-2024/Review2024QuizQuestions';
+import { Review2024QuizWrapper } from '@/components/review-2024/Review2024QuizWrapper';
 import { Review2024TabSelector } from '@/components/review-2024/Review2024TabSelector';
 import { useState } from 'react';
 
@@ -50,8 +49,7 @@ export function Review2024Page() {
 			)}
 
 			{selectedTab === 'quiz' && (
-				<Review2024LevelFive
-				// <Review2024QuizQuestions
+				<Review2024QuizWrapper
 					points={quizPoints}
 					progress={quizProgress}
 					setPoints={setQuizPoints}
