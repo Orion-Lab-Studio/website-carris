@@ -38,7 +38,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#FFFFFF',
 		},
 		question: {
-			description: 'teste',
+			description: 'Este ano fomos gigantes! Transportámos o total de 174 015 385 passageiros.',
 			lottie_src: '/assets/review-2024/animations/passageiros/kms_total.json',
 			title: 'Quantos passageiros transportámos em 2024?',
 		},
@@ -56,7 +56,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#FFFFFF',
 		},
 		question: {
-			description: 'teste',
+			description: 'Em 2024 fizemos Portugal de Norte a Sul 400 vezes por dia!',
 			lottie_src: 'kms_total',
 			title: 'Quantos quilómetros percorremos em 2024?',
 		},
@@ -74,7 +74,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#FFFFFF',
 		},
 		question: {
-			description: 'teste',
+			description: 'Seriam precisos 345 autocarros standard para caberem 90 mil telemóveis',
 			lottie_src: 'App_total',
 			title: 'Quantos passageiros já utilizam a nossa app?',
 		},
@@ -92,7 +92,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#FFFFFF',
 		},
 		question: {
-			description: 'teste',
+			description: 'Em 2024, seriam precisos 34 milhões de carros de 5 lugares para transportar os nossos 174 milhões de  passageiros!',
 			lottie_src: 'pax_total',
 			title: 'Quantos carros de 5 lugares seriam precisos para transportar todos os nossos passageiros este ano?',
 		},
@@ -110,7 +110,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#FFFFFF',
 		},
 		question: {
-			description: 'teste',
+			description: 'Em 2024, a área 1 encheu mais de 1900 vezes o Estádio Nacional do Jamor!',
 			lottie_src: 'pax_total_area1',
 			title: 'Em que área transportámos mais passageiros em 2024 (58,7 milhões)?',
 		},
@@ -128,7 +128,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#000000',
 		},
 		question: {
-			description: 'teste',
+			description: 'A 10 de outubro de 2024, conseguíamos encher o Estádio da Luz mais de 10 vezes!',
 			lottie_src: 'records_day_busi',
 			title: 'Houve algum dia em que ultrapassámos os 680 mil passageiros em 24h?',
 		},
@@ -146,7 +146,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#FFFFFF',
 		},
 		question: {
-			description: 'teste',
+			description: 'Se um grupo do número de passageiros de Cascais desse as mãos, conseguiria ir de Lisboa à Baía de Cascais mais de 120 vezes! No total foram 2 364 120.',
 			lottie_src: 'Pax_growth_mun',
 			title: 'Qual foi o município da amL em que mais aumentou o número de passageiros em 2024?',
 		},
@@ -164,7 +164,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#000000',
 		},
 		question: {
-			description: 'teste',
+			description: 'Uma pessoa teria que verificar o telemóvel 137 vezes por dia durante um ano inteiro para atingir as 50 mil visitas que recebemos diariamente no site!',
 			lottie_src: 'website_daily',
 			title: 'Quantos visitantes diários temos no nosso website?',
 		},
@@ -182,7 +182,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#000000',
 		},
 		question: {
-			description: 'teste',
+			description: 'Em 2024, tivemos alguns pontos de encontro favoritos, e muitos deles ganharam muita popularidade este ano!',
 			lottie_src: 'Pax_total_mun',
 			title: 'Este ano, todas as 4 áreas tiveram terminais a crescer, pelo menos, 21%?',
 		},
@@ -200,7 +200,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 			text: '#FFFFFF',
 		},
 		question: {
-			description: 'teste',
+			description: 'Em outubro, foi como se toda a população de Portugal entrasse num autocarro mais de 1,5 vezes no mesmo mês!',
 			lottie_src: 'records_month',
 			title: 'Qual foi o número máximo de passageiros que transportámos num mês?',
 		},
