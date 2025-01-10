@@ -51,14 +51,14 @@ export function Review2024Page() {
 				</>
 			)}
 
-			{selectedTab === 'quiz' && (
+			{/* {selectedTab === 'quiz' && (
 				<Review2024QuizWrapper
 					// points={quizPoints}
 					// progress={quizProgress}
 					// setPoints={setQuizPoints}
 					// setProgress={setQuizProgress}
 				/>
-			)}
+			)} */}
 
 		</>
 	);
