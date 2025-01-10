@@ -11,7 +11,9 @@ import styles from './styles.module.css';
 /* * */
 
 interface Props {
+	answerStatus: 'correct' | 'wrong' | null
 	onAnswer: (answerData: Review2024QuizAnswerSchema) => void
+	onClickNext: () => void
 	quizData: Review2024QuizSchema
 }
 
@@ -23,7 +25,7 @@ interface CustomCSSProperties extends React.CSSProperties {
 
 /* * */
 
-export function Review2024QuizQuestion({ onAnswer, quizData }: Props) {
+export function Review2024QuizQuestion({ answerStatus, onAnswer, onClickNext, quizData }: Props) {
 	//
 
 	//
@@ -38,10 +40,14 @@ export function Review2024QuizQuestion({ onAnswer, quizData }: Props) {
 	};
 
 	//
-	// C. Render components
+	// B. Render components
 
 	return (
-		<div className={styles.container} style={stylesData}>
+		<div
+			className={styles.container}
+			data-is-answered={answerStatus !== null}
+			style={stylesData}
+		>
 
 			<div className={styles.header}>
 				<p className={styles.headerTitle}>{t('progress', { current: quizData._order, total: allQuizData.length })}</p>
@@ -65,12 +71,19 @@ export function Review2024QuizQuestion({ onAnswer, quizData }: Props) {
 						<div
 							key={answerData._id}
 							className={styles.answerOption}
+							data-is-correct={answerData.is_correct}
 							onClick={() => onAnswer(answerData)}
 						>
 							{answerData.label}
 						</div>
 					))}
 				</div>
+
+				{answerStatus !== null && (
+					<div className={styles.nextQuestion} onClick={onClickNext}>
+						{t('next_question')}
+					</div>
+				)}
 
 			</div>
 

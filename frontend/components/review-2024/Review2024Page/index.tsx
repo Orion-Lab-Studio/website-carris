@@ -30,8 +30,14 @@ export function Review2024Page() {
 
 	return (
 		<>
+
 			<Review2024Intro />
-			<Review2024TabSelector onSelectTab={setSelectedTab} selectedTab={selectedTab} />
+
+			<Review2024TabSelector
+				onSelectTab={setSelectedTab}
+				selectedTab={selectedTab}
+			/>
+
 			{selectedTab === 'overview' && (
 				<>
 					<Review2024LevelOne />
@@ -41,11 +47,16 @@ export function Review2024Page() {
 					<Review2024LevelFive />
 				</>
 			)}
+
 			{selectedTab === 'quiz' && (
-				<>
-					<Review2024QuizWrapper points={quizPoints} progress={quizProgress} setPoints={setQuizPoints} setProgress={setQuizProgress} />
-				</>
+				<Review2024QuizWrapper
+					points={quizPoints}
+					progress={quizProgress}
+					setPoints={setQuizPoints}
+					setProgress={setQuizProgress}
+				/>
 			)}
+
 		</>
 	);
 

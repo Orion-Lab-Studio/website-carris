@@ -5,10 +5,11 @@
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { allQuizData, type Review2024QuizAnswerSchema } from '@/components/review-2024/_data/quiz';
+import { Review2024QuizFinalResult } from '@/components/review-2024/Review2024QuizFinalResult';
+import { Review2024QuizPoints } from '@/components/review-2024/Review2024QuizPoints';
 import { Review2024QuizQuestion } from '@/components/review-2024/Review2024QuizQuestion';
 import { useState } from 'react';
 
-import { Review2024QuizPoints } from '../Review2024QuizPoints';
 import styles from './styles.module.css';
 
 /* * */
@@ -34,12 +35,14 @@ export function Review2024QuizWrapper({ points, progress, setPoints, setProgress
 	// C. Handle actions
 
 	const handleClickAnswerOption = (answerData: Review2024QuizAnswerSchema) => {
-		if (answerData.is_correct) {
-			setAnswerStatus('correct');
-			setPoints(points + 542);
-		}
-		else {
-			setAnswerStatus('wrong');
+		if (answerStatus === null) {
+			if (answerData.is_correct) {
+				setAnswerStatus('correct');
+				setPoints(points + 542);
+			}
+			else {
+				setAnswerStatus('wrong');
+			}
 		}
 	};
 
@@ -51,28 +54,29 @@ export function Review2024QuizWrapper({ points, progress, setPoints, setProgress
 	//
 	// B. Render components
 
+	if (progress >= allQuizData.length) {
+		return (
+			<Surface forceOverflow>
+				<Section withPadding="desktop" withGap>
+					<div className={styles.container}>
+						<Review2024QuizFinalResult points={points} />
+					</div>
+				</Section>
+			</Surface>
+		);
+	}
+
 	return (
 		<Surface forceOverflow>
 			<Section withPadding="desktop" withGap>
 				<div className={styles.container}>
-
 					<Review2024QuizPoints points={points} />
-
-					{answerStatus === null && (
-						<Review2024QuizQuestion
-							onAnswer={handleClickAnswerOption}
-							quizData={allQuizData[progress]}
-						/>
-					)}
-
-					{answerStatus === 'correct' && (
-						<div onClick={handleAdvanceQuestion}>correct</div>
-					)}
-
-					{answerStatus === 'wrong' && (
-						<div onClick={handleAdvanceQuestion}>wrong</div>
-					)}
-
+					<Review2024QuizQuestion
+						answerStatus={answerStatus}
+						onAnswer={handleClickAnswerOption}
+						onClickNext={handleAdvanceQuestion}
+						quizData={allQuizData[progress]}
+					/>
 				</div>
 			</Section>
 		</Surface>

@@ -1208,10 +1208,14 @@
 				"title": "Vai perder os seu pontos!"
 			}
 		},
-		"Review2024QuizPoints": {
+		"Review2024QuizFinalResult": {
 			"points": "Já tens {points, plural, =1 {# ponto} other {# pontos}}"
 		},
+		"Review2024QuizPoints": {
+			"points": "Ganhaste {points, plural, =1 {# ponto} other {# pontos}}!"
+		},
 		"Review2024QuizQuestion": {
+			"next_question": "Próxima Pergunta ›",
 			"points": "Vale {points, plural, =1 {# ponto} other {# pontos}}",
 			"progress": "Pergunta {current} de {total}"
 		},

@@ -8,12 +8,6 @@
 	align-items: flex-start;
 	justify-content: flex-start;
 	width: 100%;
-	overflow: hidden;
-	border: 2px solid var(--color-border);
-	border-radius: 18px;
-
-	--animation-duration-open: 600ms;
-	--animation-duration-close: 600ms;
 }
 
 @media (width <= 400px) {
@@ -67,7 +61,7 @@
 }
 
 /* * */
-/* QUESTION LOTTIE */
+/* CONTENT LOTTIE */
 
 .questionLottie {
 	display: flex;
@@ -81,7 +75,7 @@
 }
 
 /* * */
-/* QUESTION TITLE */
+/* CONTENT TITLE */
 
 .questionTitle {
 	font-size: 22px;
@@ -126,39 +120,4 @@
 .answerOption:active {
 	box-shadow: 0 0 5px 0 rgb(0 0 0 / 10%);
 	opacity: 0.8;
-}
-
-.container[data-is-answered='true'] .answerOption[data-is-correct='true'],
-.container[data-is-answered='true'] .answerOption[data-is-correct='true']:hover,
-.container[data-is-answered='true'] .answerOption[data-is-correct='true']:active {
-	color: #fff;
-	background-color: green;
-}
-
-.container[data-is-answered='true'] .answerOption[data-is-correct='false'],
-.container[data-is-answered='true'] .answerOption[data-is-correct='false']:hover,
-.container[data-is-answered='true'] .answerOption[data-is-correct='false']:active {
-	font-weight: var(--font-weight-medium);
-	color: #fff;
-	background-color: rgb(62 15 15);
-	opacity: 0.5;
-}
-
-
-/* * */
-/* NEXT QUESTION */
-
-.nextQuestion {
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-	width: 100%;
-	padding: 20px;
-	font-size: 20px;
-	font-weight: var(--font-weight-bold);
-	color: var(--color-text);
-	text-align: center;
-	background-color: var(--color-primary);
-	border-radius: 18px;
 }
