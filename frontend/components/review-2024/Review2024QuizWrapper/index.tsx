@@ -84,6 +84,7 @@ export function Review2024QuizWrapper({ points, progress, setPoints, setProgress
 							answerStatus={answerStatus}
 							onAnswer={handleClickAnswerOption}
 							onClickNext={handleAdvanceQuestion}
+							progress={progress}
 							quizData={allQuizData[progress]}
 						/>
 					</div>

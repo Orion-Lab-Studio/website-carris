@@ -15,6 +15,7 @@ interface Props {
 	answerStatus: 'correct' | 'wrong' | null
 	onAnswer: (answerData: Review2024QuizAnswerSchema) => void
 	onClickNext: () => void
+	progress: number
 	quizData: Review2024QuizSchema
 }
 
@@ -26,7 +27,7 @@ interface CustomCSSProperties extends React.CSSProperties {
 
 /* * */
 
-export function Review2024QuizQuestion({ answerStatus, onAnswer, onClickNext, quizData }: Props) {
+export function Review2024QuizQuestion({ answerStatus, onAnswer, onClickNext, progress, quizData }: Props) {
 	//
 
 	//
@@ -51,8 +52,8 @@ export function Review2024QuizQuestion({ answerStatus, onAnswer, onClickNext, qu
 		>
 
 			<div className={styles.header}>
-				<p className={styles.headerTitle}>{t('progress', { current: quizData._order, total: allQuizData.length })}</p>
-				<p className={styles.headerPoints}>{t('points', { points: quizData._points, total: allQuizData.length })}</p>
+				<p className={styles.headerTitle}>{t('progress', { current: progress, total: allQuizData.length })}</p>
+				<p className={styles.headerPoints}>{t('points', { points: quizData._points })}</p>
 			</div>
 
 			<div className={styles.question}>

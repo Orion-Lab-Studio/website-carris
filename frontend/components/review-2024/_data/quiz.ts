@@ -46,7 +46,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 
 	{
 		_id: '02',
-		_points: 10,
+		_points: 15,
 		answers: [
 			{ _id: 'a', is_correct: false, label: '500 000' },
 			{ _id: 'b', is_correct: true, label: '300 000' },
@@ -136,7 +136,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 
 	{
 		_id: '07',
-		_points: 10,
+		_points: 20,
 		answers: [
 			{ _id: 'a', is_correct: false, label: 'Vila Franca de Xira' },
 			{ _id: 'b', is_correct: true, label: 'Cascais' },

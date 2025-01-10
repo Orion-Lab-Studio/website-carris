@@ -1154,12 +1154,6 @@
 		}
 	},
 	"review-2024": {
-		"Review2024QuizWrapper": {
-			"digital": {
-				"heading": "Paragens Importantes",
-				"subheading": "Tudo sobre os passageiros da CMetropolitana ao longo de 2024."
-			}
-		},
 		"Review2024LevelFour": {
 			"digital": {
 				"heading": "Digital",
@@ -1218,6 +1212,12 @@
 			"next_question": "Próxima Pergunta ›",
 			"points": "Vale {points, plural, =1 {# ponto} other {# pontos}}",
 			"progress": "#{current} / {total}"
+		},
+		"Review2024QuizWrapper": {
+			"digital": {
+				"heading": "Paragens Importantes",
+				"subheading": "Tudo sobre os passageiros da CMetropolitana ao longo de 2024."
+			}
 		},
 		"Review2024TabSelector": {
 			"heading": "2024 em revista",
