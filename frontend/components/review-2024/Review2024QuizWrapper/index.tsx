@@ -23,11 +23,15 @@ interface Props {
 
 /* * */
 
-export function Review2024QuizWrapper({ points, progress, setPoints, setProgress }: Props) {
+// export function Review2024QuizWrapper({ points, progress, setPoints, setProgress }: Props) {
+export function Review2024QuizWrapper() {
 	//
 
 	//
 	// A. Setup variables
+
+	const [points, setPoints] = useState(1);
+	const [progress, setProgress] = useState(0);
 
 	const [answerStatus, setAnswerStatus] = useState<'correct' | 'wrong' | null>(null);
 
@@ -56,30 +60,30 @@ export function Review2024QuizWrapper({ points, progress, setPoints, setProgress
 
 	if (progress >= allQuizData.length) {
 		return (
-			<Surface forceOverflow>
-				<Section withPadding="desktop" withGap>
-					<div className={styles.container}>
-						<Review2024QuizFinalResult points={points} />
-					</div>
-				</Section>
-			</Surface>
+			// <Surface forceOverflow>
+			// 	<Section withPadding="desktop" withGap>
+			<div className={styles.container}>
+				<Review2024QuizFinalResult points={points} />
+			</div>
+			// 	</Section>
+			// </Surface>
 		);
 	}
 
 	return (
-		<Surface forceOverflow>
-			<Section withPadding="desktop" withGap>
-				<div className={styles.container}>
-					<Review2024QuizPoints points={points} />
-					<Review2024QuizQuestion
-						answerStatus={answerStatus}
-						onAnswer={handleClickAnswerOption}
-						onClickNext={handleAdvanceQuestion}
-						quizData={allQuizData[progress]}
-					/>
-				</div>
-			</Section>
-		</Surface>
+		// <Surface forceOverflow>
+		// 	<Section withPadding="desktop" withGap>
+		<div className={styles.container}>
+			<Review2024QuizPoints points={points} />
+			<Review2024QuizQuestion
+				answerStatus={answerStatus}
+				onAnswer={handleClickAnswerOption}
+				onClickNext={handleAdvanceQuestion}
+				quizData={allQuizData[progress]}
+			/>
+		</div>
+		// 	</Section>
+		// </Surface>
 	);
 
 	//

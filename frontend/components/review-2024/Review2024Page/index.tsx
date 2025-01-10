@@ -12,6 +12,8 @@ import { Review2024QuizWrapper } from '@/components/review-2024/Review2024QuizWr
 import { Review2024TabSelector } from '@/components/review-2024/Review2024TabSelector';
 import { useState } from 'react';
 
+import { Review2024LevelSix } from '../Review2024LevelSix';
+
 /* * */
 
 export function Review2024Page() {
@@ -20,7 +22,7 @@ export function Review2024Page() {
 	//
 	// A. Setup variables
 
-	const [selectedTab, setSelectedTab] = useState('quiz');
+	const [selectedTab, setSelectedTab] = useState('overview');
 
 	const [quizPoints, setQuizPoints] = useState(1);
 	const [quizProgress, setQuizProgress] = useState(0);
@@ -33,10 +35,10 @@ export function Review2024Page() {
 
 			<Review2024Intro />
 
-			<Review2024TabSelector
+			{/* <Review2024TabSelector
 				onSelectTab={setSelectedTab}
 				selectedTab={selectedTab}
-			/>
+			/> */}
 
 			{selectedTab === 'overview' && (
 				<>
@@ -44,16 +46,17 @@ export function Review2024Page() {
 					<Review2024LevelTwo />
 					<Review2024LevelThree />
 					<Review2024LevelFour />
+					<Review2024LevelSix />
 					<Review2024LevelFive />
 				</>
 			)}
 
 			{selectedTab === 'quiz' && (
 				<Review2024QuizWrapper
-					points={quizPoints}
-					progress={quizProgress}
-					setPoints={setQuizPoints}
-					setProgress={setQuizProgress}
+					// points={quizPoints}
+					// progress={quizProgress}
+					// setPoints={setQuizPoints}
+					// setProgress={setQuizProgress}
 				/>
 			)}
 
