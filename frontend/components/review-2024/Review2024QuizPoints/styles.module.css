@@ -8,7 +8,7 @@
 	align-items: center;
 	justify-content: center;
 	width: 100%;
-	padding: 10px 20px;
+	padding: 30px;
 	font-size: 20px;
 	font-weight: var(--font-weight-bold);
 	line-height: 1;
@@ -18,7 +18,7 @@
 	border-radius: 18px;
 }
 
-@media (width <= 400px) {
+@media (width <= 650px) {
 	.container {
 		border-radius: 0;
 	}

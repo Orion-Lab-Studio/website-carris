@@ -52,7 +52,7 @@ export function Review2024QuizQuestion({ answerStatus, onAnswer, onClickNext, pr
 		>
 
 			<div className={styles.header}>
-				<p className={styles.headerTitle}>{t('progress', { current: progress, total: allQuizData.length })}</p>
+				<p className={styles.headerTitle}>{t('progress', { current: progress + 1, total: allQuizData.length })}</p>
 				<p className={styles.headerPoints}>{t('points', { points: quizData._points })}</p>
 			</div>
 

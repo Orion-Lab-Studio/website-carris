@@ -9,16 +9,19 @@
 	justify-content: flex-start;
 	width: 100%;
 	overflow: hidden;
+	background-color: var(--color-system-background-100);
 	border: 2px solid var(--color-border);
 	border-radius: 18px;
+	box-shadow: 0 0 15px 0 rgb(0 0 0 / 15%);
 
 	--animation-duration-open: 600ms;
 	--animation-duration-close: 600ms;
 }
 
-@media (width <= 400px) {
+@media (width <= 650px) {
 	.container {
 		border-radius: 0;
+		box-shadow: unset;
 	}
 }
 

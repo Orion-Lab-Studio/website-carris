@@ -22,8 +22,9 @@ export function Review2024Page() {
 
 	const [selectedTab, setSelectedTab] = useState('overview');
 
-	const [quizPoints, setQuizPoints] = useState(1);
+	const [quizPoints, setQuizPoints] = useState(0);
 	const [quizProgress, setQuizProgress] = useState(0);
+	const [answerStatus, setAnswerStatus] = useState<'correct' | 'wrong' | null>(null);
 
 	//
 	// B. Render components
@@ -50,8 +51,10 @@ export function Review2024Page() {
 
 			{selectedTab === 'quiz' && (
 				<Review2024QuizWrapper
+					answerStatus={answerStatus}
 					points={quizPoints}
 					progress={quizProgress}
+					setAnswerStatus={setAnswerStatus}
 					setPoints={setQuizPoints}
 					setProgress={setQuizProgress}
 				/>

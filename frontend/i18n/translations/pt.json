@@ -1206,7 +1206,7 @@
 			"points": "Já tens {points, plural, =1 {# ponto} other {# pontos}}!"
 		},
 		"Review2024QuizPoints": {
-			"points": "Já tens {points, plural, =1 {# ponto} other {# pontos}}"
+			"points": "{points, plural, =0 {Joga para ganhar pontos!} =1 {Já tens # ponto} other {Já tens # pontos}}"
 		},
 		"Review2024QuizQuestion": {
 			"next_question": "Próxima Pergunta ›",

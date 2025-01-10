@@ -10,30 +10,29 @@ import { Review2024QuizFinalResult } from '@/components/review-2024/Review2024Qu
 import { Review2024QuizPoints } from '@/components/review-2024/Review2024QuizPoints';
 import { Review2024QuizQuestion } from '@/components/review-2024/Review2024QuizQuestion';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
 
 import styles from './styles.module.css';
 
 /* * */
 
 interface Props {
+	answerStatus: 'correct' | 'wrong' | null
 	points: number
 	progress: number
+	setAnswerStatus: (value: 'correct' | 'wrong' | null) => void
 	setPoints: (value: number) => void
 	setProgress: (value: number) => void
 }
 
 /* * */
 
-export function Review2024QuizWrapper({ points, progress, setPoints, setProgress }: Props) {
+export function Review2024QuizWrapper({ answerStatus, points, progress, setAnswerStatus, setPoints, setProgress }: Props) {
 	//
 
 	//
 	// A. Setup variables
 
 	const t = useTranslations('review-2024.Review2024QuizWrapper');
-
-	const [answerStatus, setAnswerStatus] = useState<'correct' | 'wrong' | null>(null);
 
 	//
 	// B. Handle actions
@@ -42,7 +41,7 @@ export function Review2024QuizWrapper({ points, progress, setPoints, setProgress
 		if (answerStatus === null) {
 			if (answerData.is_correct) {
 				setAnswerStatus('correct');
-				setPoints(points);
+				setPoints(points + (allQuizData[progress]?._points || 0));
 			}
 			else {
 				setAnswerStatus('wrong');
@@ -60,9 +59,11 @@ export function Review2024QuizWrapper({ points, progress, setPoints, setProgress
 
 	if (progress >= allQuizData.length) {
 		return (
-			<div className={styles.container}>
-				<Review2024QuizFinalResult points={points} />
-			</div>
+			<Surface variant="persistent" forceOverflow>
+				<Section withPadding="desktop" withGap>
+					<Review2024QuizFinalResult points={points} />
+				</Section>
+			</Surface>
 		);
 	}
 
