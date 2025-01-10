@@ -2,12 +2,14 @@
 
 /* * */
 
-import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { allQuizData, type Review2024QuizAnswerSchema } from '@/components/review-2024/_data/quiz';
 import { Review2024QuizQuestion } from '@/components/review-2024/Review2024QuizQuestion';
 import { useState } from 'react';
+
+import { Review2024QuizPoints } from '../Review2024QuizPoints';
+import styles from './styles.module.css';
 
 /* * */
 
@@ -52,22 +54,26 @@ export function Review2024QuizWrapper({ points, progress, setPoints, setProgress
 	return (
 		<Surface forceOverflow>
 			<Section withPadding="desktop" withGap>
-				<Grid columns="abc">
-					<div />
+				<div className={styles.container}>
+
+					<Review2024QuizPoints points={points} />
+
 					{answerStatus === null && (
 						<Review2024QuizQuestion
 							onAnswer={handleClickAnswerOption}
 							quizData={allQuizData[progress]}
 						/>
 					)}
+
 					{answerStatus === 'correct' && (
 						<div onClick={handleAdvanceQuestion}>correct</div>
 					)}
+
 					{answerStatus === 'wrong' && (
 						<div onClick={handleAdvanceQuestion}>wrong</div>
 					)}
-					<div />
-				</Grid>
+
+				</div>
 			</Section>
 		</Surface>
 	);

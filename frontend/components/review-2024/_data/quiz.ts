@@ -9,6 +9,7 @@ export interface Review2024QuizAnswerSchema {
 export interface Review2024QuizSchema {
 	_id: string
 	_order: number
+	_points?: number
 	answers: Review2024QuizAnswerSchema[]
 	colors: {
 		border?: string
@@ -29,6 +30,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 1,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: true, label: '172,5 milhões' },
 			{ _id: 'b', is_correct: false, label: '17,5 milhões' },
@@ -46,6 +48,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 2,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: false, label: '500 000' },
 			{ _id: 'b', is_correct: true, label: '300 000' },
@@ -63,6 +66,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 3,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: false, label: '80 000' },
 			{ _id: 'b', is_correct: true, label: '90 000' },
@@ -80,6 +84,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 4,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: true, label: '34 milhões' },
 			{ _id: 'b', is_correct: false, label: '34 mil' },
@@ -97,6 +102,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 5,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: true, label: 'Área1' },
 			{ _id: 'b', is_correct: false, label: 'Área2' },
@@ -114,6 +120,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 6,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: true, label: 'Sim!' },
 			{ _id: 'b', is_correct: false, label: 'Impossível' },
@@ -131,6 +138,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 7,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: false, label: 'Vila Franca de Xira' },
 			{ _id: 'b', is_correct: true, label: 'Cascais' },
@@ -148,6 +156,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 8,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: false, label: '25 000' },
 			{ _id: 'b', is_correct: true, label: '50 000' },
@@ -165,6 +174,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 9,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: true, label: 'Claro!' },
 			{ _id: 'b', is_correct: false, label: 'Não acredito' },
@@ -182,6 +192,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 	{
 		_id: 'test-02',
 		_order: 10,
+		_points: 542,
 		answers: [
 			{ _id: 'a', is_correct: false, label: '10 milhões' },
 			{ _id: 'b', is_correct: true, label: '17 milhões' },

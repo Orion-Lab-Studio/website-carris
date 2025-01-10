@@ -2,9 +2,9 @@
 
 /* * */
 
-import type { Review2024QuizAnswerSchema, Review2024QuizSchema } from '@/components/review-2024/_data/quiz';
-
 import { LottiePlayer } from '@/components/common/LottiePlayer';
+import { allQuizData, type Review2024QuizAnswerSchema, type Review2024QuizSchema } from '@/components/review-2024/_data/quiz';
+import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
 
@@ -29,6 +29,8 @@ export function Review2024QuizQuestion({ onAnswer, quizData }: Props) {
 	//
 	// A. Transform data
 
+	const t = useTranslations('review-2024.Review2024QuizQuestion');
+
 	const stylesData: CustomCSSProperties = {
 		'--color-border': quizData.colors.border || quizData.colors.primary,
 		'--color-primary': quizData.colors.primary,
@@ -42,18 +44,15 @@ export function Review2024QuizQuestion({ onAnswer, quizData }: Props) {
 		<div className={styles.container} style={stylesData}>
 
 			<div className={styles.header}>
-				<p className={styles.headerTitle}>Pergunta {quizData._order}</p>
+				<p className={styles.headerTitle}>{t('progress', { current: quizData._order, total: allQuizData.length })}</p>
+				<p className={styles.headerPoints}>{t('points', { points: quizData._points, total: allQuizData.length })}</p>
 			</div>
 
 			<div className={styles.question}>
 
 				{quizData.question.lottie_src && (
 					<div className={styles.questionLottie}>
-						<LottiePlayer
-							path={quizData.question.lottie_src}
-							loop
-							play
-						/>
+						<LottiePlayer path={quizData.question.lottie_src} loop play />
 					</div>
 				)}
 

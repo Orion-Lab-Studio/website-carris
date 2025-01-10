@@ -1,37 +1,25 @@
 /* * */
-/* HEADINGS */
+/* CONTAINER */
 
-.points,
-.progress {
+.container {
 	display: flex;
 	flex-direction: row;
 	gap: 5px;
 	align-items: center;
 	justify-content: center;
-	padding: 30px;
+	width: 100%;
+	padding: 10px 20px;
+	font-size: 20px;
+	font-weight: var(--font-weight-bold);
+	line-height: 1;
+	color: #000;
 	text-align: center;
+	background-color: #FD0;
 	border-radius: 18px;
 }
 
-.points {
-	color: #fff;
-	background-color: #C61D23;
-}
-
-.progress {
-	color: #fff;
-	background-color: #0C807E;
-}
-
-.value {
-	font-size: 30px;
-	font-weight: var(--font-weight-bold);
-	line-height: 1;
-}
-
-.label {
-	font-size: 12px;
-	font-weight: var(--font-weight-semibold);
-	line-height: 1;
-	opacity: 0.8;
+@media (width <= 400px) {
+	.container {
+		border-radius: 0;
+	}
 }
