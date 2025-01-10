@@ -30,13 +30,13 @@ export function Review2024QuizFinalResult({ points }: Props) {
 	return (
 		<div className={styles.container}>
 
-			<p className={styles.headerPoints}>{t('points', { points: points, total: allQuizData.length })}</p>
-
-			<div className={styles.questionLottie}>
-				<LottiePlayer path="/..." loop play />
+			<div className={styles.animation}>
+				<LottiePlayer path="/assets/review-2024/animations/digital/website_daily.json" loop play />
 			</div>
 
-			<p className={styles.questionTitle}>Parabéns!</p>
+			<p className={styles.title}>Parabéns!</p>
+
+			<p className={styles.subtitle}>{t('points', { points: points, total: allQuizData.length })}</p>
 
 		</div>
 	);

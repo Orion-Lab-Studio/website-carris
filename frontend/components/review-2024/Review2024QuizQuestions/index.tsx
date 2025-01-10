@@ -2,11 +2,8 @@
 
 /* * */
 
-import { Section } from '@/components/layout/Section';
-import { Surface } from '@/components/layout/Surface';
 import { allQuizData, type Review2024QuizAnswerSchema } from '@/components/review-2024/_data/quiz';
 import { Review2024QuizFinalResult } from '@/components/review-2024/Review2024QuizFinalResult';
-import { Review2024QuizPoints } from '@/components/review-2024/Review2024QuizPoints';
 import { Review2024QuizQuestion } from '@/components/review-2024/Review2024QuizQuestion';
 import { useState } from 'react';
 
@@ -23,20 +20,16 @@ interface Props {
 
 /* * */
 
-export function Review2024QuizWrapper({ points, progress, setPoints, setProgress }: Props) {
-// export function Review2024QuizWrapper() {
+export function Review2024QuizQuestions({ points, progress, setPoints, setProgress }: Props) {
 	//
 
 	//
 	// A. Setup variables
 
-	// const [points, setPoints] = useState(1);
-	// const [progress, setProgress] = useState(0);
-
 	const [answerStatus, setAnswerStatus] = useState<'correct' | 'wrong' | null>(null);
 
 	//
-	// C. Handle actions
+	// B. Handle actions
 
 	const handleClickAnswerOption = (answerData: Review2024QuizAnswerSchema) => {
 		if (answerStatus === null) {
@@ -56,25 +49,18 @@ export function Review2024QuizWrapper({ points, progress, setPoints, setProgress
 	};
 
 	//
-	// B. Render components
+	// C. Render components
 
 	if (progress >= allQuizData.length) {
 		return (
-			// <Surface forceOverflow>
-			// 	<Section withPadding="desktop" withGap>
 			<div className={styles.container}>
 				<Review2024QuizFinalResult points={points} />
 			</div>
-			// 	</Section>
-			// </Surface>
 		);
 	}
 
 	return (
-		// <Surface forceOverflow>
-		// 	<Section withPadding="desktop" withGap>
 		<div className={styles.container}>
-			{/* <Review2024QuizPoints points={points} /> */}
 			<Review2024QuizQuestion
 				answerStatus={answerStatus}
 				onAnswer={handleClickAnswerOption}
@@ -82,8 +68,6 @@ export function Review2024QuizWrapper({ points, progress, setPoints, setProgress
 				quizData={allQuizData[progress]}
 			/>
 		</div>
-		// 	</Section>
-		// </Surface>
 	);
 
 	//

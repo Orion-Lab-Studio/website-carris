@@ -5,26 +5,30 @@
 import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { Review2024CardGroup } from '@/components/review-2024/Review2024CardGroup';
+import { Review2024QuizPoints } from '@/components/review-2024/Review2024QuizPoints';
+import { Review2024QuizQuestions } from '@/components/review-2024/Review2024QuizQuestions';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
 
-import { Review2024QuizPoints } from '../Review2024QuizPoints';
-import { Review2024QuizWrapper } from '../Review2024QuizWrapper';
 import styles from './styles.module.css';
 
 /* * */
 
-export function Review2024LevelFive() {
+interface Props {
+	points: number
+	progress: number
+	setPoints: (value: number) => void
+	setProgress: (value: number) => void
+}
+
+/* * */
+
+export function Review2024LevelFive({ points, progress, setPoints, setProgress }: Props) {
 	//
 
 	//
 	// A. Setup variables
 
 	const t = useTranslations('review-2024.Review2024LevelFive');
-
-	const [points, setPoints] = useState(1);
-	const [progress, setProgress] = useState(0);
 
 	//
 	// B. Render components
@@ -42,7 +46,7 @@ export function Review2024LevelFive() {
 				</Section>
 
 				<Section withPadding="desktop" withGap>
-					<Review2024QuizWrapper
+					<Review2024QuizQuestions
 						points={points}
 						progress={progress}
 						setPoints={setPoints}
