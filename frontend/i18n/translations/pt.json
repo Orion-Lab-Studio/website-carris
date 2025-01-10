@@ -1207,6 +1207,9 @@
 				"subtitle": "{points, plural, =1 {Ganhaste só # ponto...} other {Ganhaste só # pontos...}}!",
 				"title": "Aceitável"
 			},
+			"actions": {
+				"restart": "Recomeçar"
+			},
 			"bad": {
 				"subtitle": "{points, plural, =1 {Ganhaste só # ponto...} other {Ganhaste só # pontos...}}!",
 				"title": "Não muito bom..."

@@ -10,6 +10,7 @@ import { Review2024LevelThree } from '@/components/review-2024/Review2024LevelTh
 import { Review2024LevelTwo } from '@/components/review-2024/Review2024LevelTwo';
 import { Review2024QuizWrapper } from '@/components/review-2024/Review2024QuizWrapper';
 import { Review2024TabSelector } from '@/components/review-2024/Review2024TabSelector';
+import { useQueryState } from 'nuqs';
 import { useState } from 'react';
 
 /* * */
@@ -20,7 +21,7 @@ export function Review2024Page() {
 	//
 	// A. Setup variables
 
-	const [selectedTab, setSelectedTab] = useState('overview');
+	const [selectedTab, setSelectedTab] = useQueryState('tab', { defaultValue: 'overview' });
 
 	const [quizPoints, setQuizPoints] = useState(0);
 	const [quizProgress, setQuizProgress] = useState(0);

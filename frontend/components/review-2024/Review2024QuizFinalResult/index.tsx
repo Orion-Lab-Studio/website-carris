@@ -3,6 +3,7 @@
 /* * */
 
 import { LottiePlayer } from '@/components/common/LottiePlayer';
+import { Button } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
 import { allQuizData } from '../_data/quiz';
@@ -53,6 +54,8 @@ export function Review2024QuizFinalResult({ points }: Props) {
 			<p className={styles.title}>{t(`${pointTier._id}.title`)}</p>
 
 			<p className={styles.subtitle}>{t(`${pointTier._id}.subtitle`, { points: points })}</p>
+
+			<Button onClick={() => window.location.reload()}>{t('actions.restart')}</Button>
 
 		</div>
 	);
