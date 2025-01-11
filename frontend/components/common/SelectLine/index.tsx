@@ -81,6 +81,7 @@ export function SelectLine({ data = [], label, nothingFound, onSelectLineId, pla
 
 	const handleClearSearchField = () => {
 		setSearchQuery('');
+		onSelectLineId(null);
 		comboboxStore.openDropdown();
 	};
 

@@ -92,6 +92,7 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 
 	const handleClearSearchField = () => {
 		setSearchQuery('');
+		onSelectStopId(null);
 		comboboxStore.openDropdown();
 	};
 
