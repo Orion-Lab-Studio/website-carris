@@ -39,7 +39,7 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 	const t = useTranslations('review-2024.Review2024Card');
 
 	const [isOpen, setIsOpen] = useState(false);
-	const [shareCardId] = useQueryState('card');
+	const [shareCardId, setShareCardId] = useQueryState('card');
 
 	//
 	// B. Transform data
@@ -64,6 +64,9 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 				window.scroll({ behavior: 'smooth', top: cardElem.offsetTop - 120 });
 				setTimeout(() => {
 					setIsOpen(true);
+					setTimeout(() => {
+						setShareCardId(null);
+					}, 1000);
 				}, 1000);
 			}, 1000);
 		}
