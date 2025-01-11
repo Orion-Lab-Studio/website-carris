@@ -115,11 +115,13 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 
 					{cardData.content.lottie_src && (
 						<div className={styles.contentLottie}>
-							<LottiePlayer
-								path={cardData.content.lottie_src}
-								loop
-								play
-							/>
+							{isOpen && (
+								<LottiePlayer
+									path={cardData.content.lottie_src}
+									loop
+									play
+								/>
+							)}
 						</div>
 					)}
 
