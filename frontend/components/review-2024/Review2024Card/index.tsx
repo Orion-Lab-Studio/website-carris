@@ -59,9 +59,13 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 		if (!shareCardId) return;
 		if (shareCardId === cardData._id) {
 			setTimeout(() => {
-				setIsOpen(true);
-				document.getElementById(cardData._id)?.scrollIntoView({ behavior: 'smooth' });
-			}, 5000);
+				const cardElem = document.getElementById(cardData._id);
+				if (!cardElem) return;
+				window.scroll({ behavior: 'smooth', top: cardElem.offsetTop - 120 });
+				setTimeout(() => {
+					setIsOpen(true);
+				}, 1000);
+			}, 1000);
 		}
 	}, [shareCardId]);
 
