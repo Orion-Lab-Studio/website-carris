@@ -3,10 +3,14 @@
 /* * */
 
 import { LottiePlayer } from '@/components/common/LottiePlayer';
+import { Section } from '@/components/layout/Section';
 import { Review2024CardSchema } from '@/components/review-2024/_data/cards';
-import { useClipboard } from '@mantine/hooks';
-import { IconCheck, IconShare2 } from '@tabler/icons-react';
-import { useState } from 'react';
+import { Button, CopyButton, Tooltip } from '@mantine/core';
+import { modals } from '@mantine/modals';
+import { IconShare2 } from '@tabler/icons-react';
+import { useTranslations } from 'next-intl';
+import { useQueryState } from 'nuqs';
+import { useEffect, useState } from 'react';
 
 import styles from './styles.module.css';
 
@@ -32,11 +36,13 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 	//
 	// A. Setup variables
 
+	const t = useTranslations('review-2024.Review2024Card');
+
 	const [isOpen, setIsOpen] = useState(false);
-	const clipboard = useClipboard({ timeout: 500 });
+	const [shareCardId] = useQueryState('card');
 
 	//
-	// C. Transform data
+	// B. Transform data
 
 	const stylesData: CustomCSSProperties = {
 		'--color-border': cardData.colors.border || cardData.colors.primary,
@@ -44,32 +50,65 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 		'--color-text': cardData.colors.text,
 	};
 
+	const shareUrl = `${window.location.origin}${window.location.pathname}?card=${cardData._id}`;
+
 	//
 	// C. Handle actions
+
+	useEffect(() => {
+		if (!shareCardId) return;
+		if (shareCardId === cardData._id) {
+			setTimeout(() => {
+				setIsOpen(true);
+				document.getElementById(cardData._id)?.scrollIntoView({ behavior: 'smooth' });
+			}, 5000);
+		}
+	}, [shareCardId]);
 
 	const handleToggleIsOpen = () => {
 		setIsOpen(prev => !prev);
 	};
 
 	const handleShareUrl = () => {
-		clipboard.copy('Hello, world!');
+		modals.open({
+			children: (
+				<Section withGap>
+					<p>{t('share.message')}</p>
+					<p className={styles.urlCopy}>{shareUrl}</p>
+					<CopyButton timeout={1500} value={shareUrl}>
+						{({ copied, copy }) => (
+							<Button onClick={copy} w="100%">
+								{copied ? t('share.copied') : t('share.copy')}
+							</Button>
+						)}
+					</CopyButton>
+				</Section>
+			),
+			title: (
+				<p className={styles.urlTitle}>{t('share.title')}</p>
+			),
+		});
 	};
 
 	//
-	// C. Render components
+	// D. Render components
 
 	return (
-		<div className={styles.container} data-is-first={isFirstChild} data-is-last={isLastChild} data-open={isOpen} style={stylesData}>
+		<div className={styles.container} data-is-first={isFirstChild} data-is-last={isLastChild} data-open={isOpen} id={cardData._id} style={stylesData}>
+
 			<div className={styles.header} onClick={handleToggleIsOpen}>
 				<p className={styles.headerTitle}>{cardData.header.title}</p>
 				<p className={styles.headerNumber}>{cardData.header.number}</p>
 			</div>
+
 			<div className={styles.content}>
 				<div className={styles.innerWrapper}>
+
 					<div className={styles.contentNumber}>
 						<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
 						<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
 					</div>
+
 					{cardData.content.lottie_src && (
 						<div className={styles.contentLottie}>
 							<LottiePlayer
@@ -79,15 +118,19 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 							/>
 						</div>
 					)}
+
 					<p className={styles.contentTitle}>{cardData.content.title}</p>
 					<p className={styles.contentDescription}>{cardData.content.description}</p>
-					<div className={styles.shareButton} onClick={handleShareUrl}>
-						{clipboard.copied
-							? <IconCheck />
-							: <IconShare2 />}
-					</div>
+
+					<Tooltip label={t('share.tooltip')} withArrow>
+						<div className={styles.shareButton} onClick={handleShareUrl}>
+							<IconShare2 />
+						</div>
+					</Tooltip>
+
 				</div>
 			</div>
+
 		</div>
 	);
 

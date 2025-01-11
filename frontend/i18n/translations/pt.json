@@ -1154,6 +1154,15 @@
 		}
 	},
 	"review-2024": {
+		"Review2024Card": {
+			"share": {
+				"copied": "Link copiado!",
+				"copy": "Copiar Link",
+				"message": "Basta copiar o link e partilhar com os seus amigos e familiares!",
+				"title": "Partilhar este cartão",
+				"tooltip": "Partilhar este cartão"
+			}
+		},
 		"Review2024LevelFour": {
 			"digital": {
 				"heading": "Digital",
