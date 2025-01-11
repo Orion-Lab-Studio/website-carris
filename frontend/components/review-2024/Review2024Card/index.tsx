@@ -10,7 +10,7 @@ import { modals } from '@mantine/modals';
 import { IconShare2 } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useQueryState } from 'nuqs';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import styles from './styles.module.css';
 
@@ -50,7 +50,10 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 		'--color-text': cardData.colors.text,
 	};
 
-	const shareUrl = `${window.location.origin}${window.location.pathname}?card=${cardData._id}`;
+	const shareUrl = useMemo(() => {
+		if (typeof window === 'undefined') return;
+		return `${window.location.origin}${window.location.pathname}?card=${cardData._id}`;
+	}, []);
 
 	//
 	// C. Handle actions
@@ -82,7 +85,7 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 				<Section withGap>
 					<p>{t('share.message')}</p>
 					<p className={styles.urlCopy}>{shareUrl}</p>
-					<CopyButton timeout={1500} value={shareUrl}>
+					<CopyButton timeout={1500} value={shareUrl || ''}>
 						{({ copied, copy }) => (
 							<Button onClick={copy} w="100%">
 								{copied ? t('share.copied') : t('share.copy')}
