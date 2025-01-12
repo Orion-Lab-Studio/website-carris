@@ -1,7 +1,10 @@
+'use client';
+
 /* * */
 
 import type { Line } from '@carrismetropolitana/api-types/network';
 
+import { useLinesContext } from '@/contexts/Lines.context';
 import { IconInfoTriangleFilled } from '@tabler/icons-react';
 import classNames from 'classnames/bind';
 
@@ -12,6 +15,7 @@ import styles from './styles.module.css';
 interface Props {
 	color?: string
 	lineData?: Line
+	lineId?: string
 	onClick?: () => void
 	shortName?: string
 	size?: 'lg' | 'md'
@@ -25,14 +29,29 @@ const cx = classNames.bind(styles);
 
 /* * */
 
-export function LineBadge({ color = '#000', lineData, onClick, shortName = '• • •', size = 'md', textColor = '#fff', withAlertIcon = false }: Props) {
+export function LineBadge({ color, lineData, lineId, onClick, shortName, size = 'md', textColor, withAlertIcon = false }: Props) {
+	//
+
+	//
+	// A. Setup variables
+
+	const linesContext = useLinesContext();
+
+	//
+	// B. Transform data
+
+	const fetchedLineData = lineId ? linesContext.actions.getLineDataById(lineId) : undefined;
+
+	//
+	// C. Render components
+
 	return (
 		<div
 			className={cx({ badge: true, clickable: !!onClick, lg: size === 'lg', md: size === 'md' })}
 			onClick={onClick}
-			style={{ backgroundColor: lineData?.color || color, color: lineData?.text_color || textColor }}
+			style={{ backgroundColor: color || lineData?.color || fetchedLineData?.color, color: textColor || lineData?.text_color || fetchedLineData?.text_color }}
 		>
-			{lineData?.short_name || shortName}
+			{shortName || lineData?.short_name || fetchedLineData?.short_name || '• • •'}
 			{withAlertIcon && (
 				<div className={styles.alertIcon}>
 					<IconInfoTriangleFilled size={12} />
@@ -40,4 +59,6 @@ export function LineBadge({ color = '#000', lineData, onClick, shortName = '• 
 			)}
 		</div>
 	);
+
+	//
 }

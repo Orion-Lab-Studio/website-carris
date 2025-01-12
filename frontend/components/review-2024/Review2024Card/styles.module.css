@@ -142,7 +142,6 @@
 .contentNumberLegend {
 	font-size: 12px;
 	font-weight: var(--font-weight-semibold);
-	line-height: 1;
 	color: var(--color-text);
 	opacity: 0.8;
 }
@@ -221,4 +220,23 @@
 .urlCopy:hover {
 	border-color: var(--color-system-border-200);
 	box-shadow: 0 0 5px 0 rgb(0 0 0 / 15%);
+}
+
+/* * */
+/* TYPE = LINES */
+
+.container[data-type='lines'] .contentNumber {
+	gap: 15px;
+	padding: 20px;
+	background-color: var(--color-primary-black);
+}
+
+.container[data-type='lines'] .contentNumberLegend {
+	color: var(--color-primary-white);
+}
+
+.contentNumberLinesWrapper {
+	display: flex;
+	flex-direction: row;
+	gap: 15px;
 }

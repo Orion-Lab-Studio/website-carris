@@ -4,6 +4,7 @@
 
 import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { Section } from '@/components/layout/Section';
+import { LineBadge } from '@/components/lines/LineBadge';
 import { Review2024CardSchema } from '@/components/review-2024/_data/cards';
 import { Button, CopyButton, Tooltip } from '@mantine/core';
 import { modals } from '@mantine/modals';
@@ -104,7 +105,7 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 	// D. Render components
 
 	return (
-		<div className={styles.container} data-is-first={isFirstChild} data-is-last={isLastChild} data-open={isOpen} id={cardData._id} style={stylesData}>
+		<div className={styles.container} data-is-first={isFirstChild} data-is-last={isLastChild} data-open={isOpen} data-type={cardData._type} id={cardData._id} style={stylesData}>
 
 			<div className={styles.header} onClick={handleToggleIsOpen}>
 				<p className={styles.headerTitle}>{cardData.header.title}</p>
@@ -114,10 +115,23 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 			<div className={styles.content}>
 				<div className={styles.innerWrapper}>
 
-					<div className={styles.contentNumber}>
-						<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
-						<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
-					</div>
+					{cardData._type === 'lines' && (
+						<div className={styles.contentNumber}>
+							<div className={styles.contentNumberLinesWrapper}>
+								{cardData.content.line_ids?.[0] && <LineBadge lineId={cardData.content.line_ids[0]} />}
+								{cardData.content.line_ids?.[1] && <LineBadge lineId={cardData.content.line_ids[1]} />}
+								{cardData.content.line_ids?.[2] && <LineBadge lineId={cardData.content.line_ids[2]} />}
+							</div>
+							<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
+						</div>
+					)}
+
+					{(!cardData._type || cardData._type === 'default') && (
+						<div className={styles.contentNumber}>
+							<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
+							<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
+						</div>
+					)}
 
 					{cardData.content.lottie_src && (
 						<div className={styles.contentLottie}>
