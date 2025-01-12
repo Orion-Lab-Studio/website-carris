@@ -16,12 +16,19 @@ export interface Review2024CardSchema {
 		number_legend: string
 		number_source?: string
 		number_value: string
+		terminals?: Review2024CardSchemaTerminalsContent[]
 		title?: string
 	}
 	header: {
 		number: string
 		title: string
 	}
+}
+
+interface Review2024CardSchemaTerminalsContent {
+	legend: string
+	title: string
+	value: string
 }
 
 /* * */
@@ -1107,6 +1114,7 @@ export const allCardsData: Review2024CardSchema[] = [
 	{
 		_group: 'municipio_terminals_area_1',
 		_id: 'municipio_terminals_a1_01',
+		_type: 'terminals',
 		colors: {
 			primary: '#F0F0F0',
 			text: '#000000',
@@ -1115,6 +1123,11 @@ export const allCardsData: Review2024CardSchema[] = [
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
 			number_legend: 'total de passageiros transportados em Alcochete em 2024',
 			number_value: 'YY%',
+			terminals: [
+				{ legend: 'passageiros transportados num mês face a janeiro 2024', title: 'Gare do Oriente', value: '+37%' },
+				{ legend: 'passageiros transportados num mês face a janeiro 2024', title: 'Campo Grande (metro)', value: '+59%' },
+				{ legend: 'passageiros transportados num mês face a janeiro 2024', title: 'Cais do Seixalinho (Cais Fluvial)', value: '+32%' },
+			],
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {

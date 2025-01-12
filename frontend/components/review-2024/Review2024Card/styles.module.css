@@ -240,3 +240,35 @@
 	flex-direction: row;
 	gap: 15px;
 }
+
+/* * */
+/* TYPE = TERMINALS */
+
+.container[data-type='terminals'] .contentNumber {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	align-items: center;
+}
+
+.container[data-type='terminals'] .contentNumberTitle,
+.container[data-type='terminals'] .contentNumberValue {
+	font-size: 20px;
+	font-weight: var(--font-weight-bold);
+	line-height: 1;
+	color: var(--color-text);
+	opacity: 0.8;
+}
+
+.container[data-type='terminals'] .contentNumberTerminalsWrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	justify-content: flex-end;
+	width: 100%;
+	text-align: right;
+}
+
+.container[data-type='terminals'] .contentNumberLegend {
+	font-size: 10px;
+	line-height: 1.2;
+}

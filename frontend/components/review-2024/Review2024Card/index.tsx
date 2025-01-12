@@ -115,6 +115,13 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 			<div className={styles.content}>
 				<div className={styles.innerWrapper}>
 
+					{(!cardData._type || cardData._type === 'default') && (
+						<div className={styles.contentNumber}>
+							<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
+							<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
+						</div>
+					)}
+
 					{cardData._type === 'lines' && (
 						<div className={styles.contentNumber}>
 							<div className={styles.contentNumberLinesWrapper}>
@@ -126,14 +133,33 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 						</div>
 					)}
 
-					{(!cardData._type || cardData._type === 'default') && (
-						<div className={styles.contentNumber}>
-							<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
-							<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
-						</div>
+					{cardData._type === 'terminals' && (
+						<>
+							<div className={styles.contentNumber}>
+								<p className={styles.contentNumberTitle}>{cardData.content.terminals?.[0].title}</p>
+								<div className={styles.contentNumberTerminalsWrapper}>
+									<p className={styles.contentNumberValue}>{cardData.content.terminals?.[0].value}</p>
+									<p className={styles.contentNumberLegend}>{cardData.content.terminals?.[0].legend}</p>
+								</div>
+							</div>
+							<div className={styles.contentNumber}>
+								<p className={styles.contentNumberTitle}>{cardData.content.terminals?.[1].title}</p>
+								<div className={styles.contentNumberTerminalsWrapper}>
+									<p className={styles.contentNumberValue}>{cardData.content.terminals?.[1].value}</p>
+									<p className={styles.contentNumberLegend}>{cardData.content.terminals?.[1].legend}</p>
+								</div>
+							</div>
+							<div className={styles.contentNumber}>
+								<p className={styles.contentNumberTitle}>{cardData.content.terminals?.[2].title}</p>
+								<div className={styles.contentNumberTerminalsWrapper}>
+									<p className={styles.contentNumberValue}>{cardData.content.terminals?.[2].value}</p>
+									<p className={styles.contentNumberLegend}>{cardData.content.terminals?.[2].legend}</p>
+								</div>
+							</div>
+						</>
 					)}
 
-					{cardData.content.lottie_src && (
+					{cardData._type !== 'terminals' && cardData.content.lottie_src && (
 						<div className={styles.contentLottie}>
 							{isOpen && (
 								<LottiePlayer
