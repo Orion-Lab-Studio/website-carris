@@ -299,7 +299,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_id: 'lines_growth',
 		_type: 'lines',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#5A5A64',
 		},
 		content: {
@@ -406,7 +406,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_1',
 		_id: 'municipio_growth_a1_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -444,7 +444,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_1',
 		_id: 'municipio_growth_a1_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -482,7 +482,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_1',
 		_id: 'municipio_growth_a1_05',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -504,7 +504,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_2',
 		_id: 'municipio_growth_a2_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -542,7 +542,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_2',
 		_id: 'municipio_growth_a2_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -583,7 +583,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_3',
 		_id: 'municipio_growth_a3_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -621,7 +621,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_3',
 		_id: 'municipio_growth_a3_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -643,7 +643,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_4',
 		_id: 'municipio_growth_a4_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -681,7 +681,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_4',
 		_id: 'municipio_growth_a4_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -719,7 +719,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_growth_area_4',
 		_id: 'municipio_growth_a4_05',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -760,7 +760,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_1',
 		_id: 'municipio_pax_a1_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -800,7 +800,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_1',
 		_id: 'municipio_pax_a1_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -840,7 +840,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_1',
 		_id: 'municipio_pax_a1_05',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -863,7 +863,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_2',
 		_id: 'municipio_pax_a2_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -903,7 +903,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_2',
 		_id: 'municipio_pax_a2_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -946,7 +946,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_3',
 		_id: 'municipio_pax_a3_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -986,7 +986,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_3',
 		_id: 'municipio_pax_a3_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1009,7 +1009,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_4',
 		_id: 'municipio_pax_a4_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1049,7 +1049,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_4',
 		_id: 'municipio_pax_a4_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1089,7 +1089,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_pax_area_4',
 		_id: 'municipio_pax_a4_05',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1133,7 +1133,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_id: 'municipio_terminals_a1_01',
 		_type: 'terminals',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1176,7 +1176,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_terminals_area_1',
 		_id: 'municipio_terminals_a1_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1214,7 +1214,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_terminals_area_1',
 		_id: 'municipio_terminals_a1_05',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1236,7 +1236,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_terminals_area_2',
 		_id: 'municipio_terminals_a2_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1274,7 +1274,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_terminals_area_2',
 		_id: 'municipio_terminals_a2_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1315,7 +1315,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_terminals_area_3',
 		_id: 'municipio_terminals_a3_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1353,7 +1353,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_terminals_area_3',
 		_id: 'municipio_terminals_a3_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1375,7 +1375,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_terminals_area_4',
 		_id: 'municipio_terminals_a4_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1413,7 +1413,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_terminals_area_4',
 		_id: 'municipio_terminals_a4_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1451,7 +1451,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_terminals_area_4',
 		_id: 'municipio_terminals_a4_05',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1492,7 +1492,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_lines_area_1',
 		_id: 'municipio_lines_a1_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1532,7 +1532,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_lines_area_1',
 		_id: 'municipio_lines_a1_05',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1555,7 +1555,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_lines_area_2',
 		_id: 'municipio_lines_a2_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1595,7 +1595,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_lines_area_2',
 		_id: 'municipio_lines_a2_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1638,7 +1638,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_lines_area_3',
 		_id: 'municipio_lines_a3_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1678,7 +1678,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_lines_area_3',
 		_id: 'municipio_lines_a3_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1701,7 +1701,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_lines_area_4',
 		_id: 'municipio_lines_a4_01',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1721,7 +1721,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_lines_area_4',
 		_id: 'municipio_lines_a4_03',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
@@ -1761,7 +1761,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'municipio_lines_area_4',
 		_id: 'municipio_lines_a4_05',
 		colors: {
-			primary: '#F0F0F0',
+			primary: '#D2D2DC',
 			text: '#000000',
 		},
 		content: {
