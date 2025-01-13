@@ -33,8 +33,7 @@ export function Review2024QuizFinalResult({ points }: Props) {
 	const pointTiers = [
 		{ _id: 'terrible', value: totalPoints * 0.2 },
 		{ _id: 'bad', value: totalPoints * 0.4 },
-		{ _id: 'acceptable', value: totalPoints * 0.6 },
-		{ _id: 'very_good', value: totalPoints * 0.8 },
+		{ _id: 'good', value: totalPoints * 0.6 },
 		{ _id: 'incredible', value: totalPoints - 1 },
 		{ _id: 'perfect', value: totalPoints },
 	];
