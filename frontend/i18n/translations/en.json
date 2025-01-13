@@ -1212,32 +1212,28 @@
 			}
 		},
 		"Review2024QuizFinalResult": {
-			"acceptable": {
-				"subtitle": "{points, plural, =1 {Ganhaste só # ponto...} other {Ganhaste só # pontos...}}!",
-				"title": "Aceitável"
-			},
 			"actions": {
 				"restart": "Recomeçar"
 			},
 			"bad": {
-				"subtitle": "{points, plural, =1 {Ganhaste só # ponto...} other {Ganhaste só # pontos...}}!",
-				"title": "Não muito bom..."
+				"subtitle": "{points, plural, =1 {Ganhaste # ponto...} other {Ganhaste # pontos...}}!",
+				"title": "A CMetropolitana é bem diferente do que imaginavas!"
+			},
+			"good": {
+				"subtitle": "{points, plural, =1 {Ganhaste # ponto...} other {Ganhaste # pontos...}}!",
+				"title": "Boa! Conheces bem a CMetropolitana!"
 			},
 			"incredible": {
-				"subtitle": "{points, plural, =1 {Ganhaste só # ponto...} other {Ganhaste só # pontos...}}!",
-				"title": "Incrível!"
+				"subtitle": "{points, plural, =1 {Ganhaste # ponto...} other {Ganhaste # pontos...}}!",
+				"title": "Incrível! Dominas a CMetropolitana!"
 			},
 			"perfect": {
-				"subtitle": "{points, plural, =1 {Ganhaste só # ponto...} other {Ganhaste só # pontos...}}!",
-				"title": "Uau. Perfeito. Sem falhas."
+				"subtitle": "{points, plural, =1 {Ganhaste # ponto...} other {Ganhaste # pontos...}}! Envia o teu currículo e vem melhorar os transportes públicos connosco!",
+				"title": "Uau. Perfeito. Sem falhas. Isto é a tua praia."
 			},
 			"terrible": {
-				"subtitle": "{points, plural, =1 {Ganhaste só # ponto...} other {Ganhaste só # pontos...}}!",
-				"title": "Terrível..."
-			},
-			"very_good": {
-				"subtitle": "{points, plural, =1 {Ganhaste só # ponto...} other {Ganhaste só # pontos...}}!",
-				"title": "Boa!"
+				"subtitle": "{points, plural, =1 {Ganhaste # ponto...} other {Ganhaste # pontos...}}!",
+				"title": "Não foi o teu melhor dia, mas não desistas!"
 			}
 		},
 		"Review2024QuizPoints": {
