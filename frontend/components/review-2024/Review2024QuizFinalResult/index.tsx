@@ -31,11 +31,11 @@ export function Review2024QuizFinalResult({ points }: Props) {
 	const totalPoints = allQuizData.reduce((acc, quiz) => acc + quiz._points, 0);
 
 	const pointTiers = [
-		{ _id: 'terrible', value: totalPoints * 0.2 },
-		{ _id: 'bad', value: totalPoints * 0.4 },
-		{ _id: 'good', value: totalPoints * 0.6 },
-		{ _id: 'incredible', value: totalPoints - 1 },
-		{ _id: 'perfect', value: totalPoints },
+		{ _id: 'terrible', value: totalPoints * 0.2, animation: '/assets/review-2024/animations/digital/website_daily.json' },
+		{ _id: 'bad', value: totalPoints * 0.4, animation: '/assets/review-2024/animations/digital/website_daily.json' },
+		{ _id: 'good', value: totalPoints * 0.6, animation: '/assets/review-2024/animations/digital/website_daily.json' },
+		{ _id: 'incredible', value: totalPoints - 1, animation: '/assets/review-2024/animations/digital/website_daily.json' },
+		{ _id: 'perfect', value: totalPoints, animation: '/assets/review-2024/animations/digital/website_daily.json' },
 	];
 
 	const pointTier = pointTiers.find(tier => tier.value >= points) || pointTiers[0];
@@ -47,7 +47,7 @@ export function Review2024QuizFinalResult({ points }: Props) {
 		<div className={styles.container}>
 
 			<div className={styles.animation}>
-				<LottiePlayer path="/assets/review-2024/animations/digital/website_daily.json" loop play />
+				<LottiePlayer path={pointTier.animation} loop play />
 			</div>
 
 			<p className={styles.title}>{t(`${pointTier._id}.title`)}</p>
