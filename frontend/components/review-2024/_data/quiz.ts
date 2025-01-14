@@ -30,8 +30,8 @@ export const allQuizData: Review2024QuizSchema[] = [
 		_id: '01',
 		_points: 10,
 		answers: [
-			{ _id: 'a', is_correct: true, label: '172,5 milhões' },
-			{ _id: 'b', is_correct: false, label: '17,5 milhões' },
+			{ _id: 'a', is_correct: true, label: '174 milhões' },
+			{ _id: 'b', is_correct: false, label: '17,4 milhões' },
 		],
 		colors: {
 			primary: '#C61D23',
@@ -48,8 +48,8 @@ export const allQuizData: Review2024QuizSchema[] = [
 		_id: '02',
 		_points: 15,
 		answers: [
-			{ _id: 'a', is_correct: false, label: '500 000' },
-			{ _id: 'b', is_correct: true, label: '300 000' },
+			{ _id: 'a', is_correct: false, label: '40 Milhões' },
+			{ _id: 'b', is_correct: true, label: '93 Milhões' },
 		],
 		colors: {
 			primary: '#0C807E',
@@ -174,8 +174,8 @@ export const allQuizData: Review2024QuizSchema[] = [
 		_id: '09',
 		_points: 10,
 		answers: [
-			{ _id: 'a', is_correct: true, label: 'Claro!' },
-			{ _id: 'b', is_correct: false, label: 'Não acredito' },
+			{ _id: 'a', is_correct: true, label: 'Claro que é verdade!' },
+			{ _id: 'b', is_correct: false, label: 'Não acredito.' },
 		],
 		colors: {
 			primary: '#FFDD00',
@@ -184,7 +184,7 @@ export const allQuizData: Review2024QuizSchema[] = [
 		question: {
 			description: 'Em 2024, tivemos alguns pontos de encontro favoritos, e muitos deles ganharam muita popularidade este ano!',
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_pax.json',
-			title: 'Este ano, todas as 4 áreas tiveram terminais a crescer, pelo menos, 21%?',
+			title: 'Em 2024, mais que um terminal cresceu mais que 40%. Verdade ou mentira?',
 		},
 	},
 
