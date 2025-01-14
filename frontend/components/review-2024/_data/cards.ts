@@ -1508,7 +1508,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Agualva-Cacém (Estação) ganhou mais de 65 mil passageiros, tendo transportado no total mais de 1 milhão durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '45,38%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1528,7 +1528,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Algés (Estação) ganhou mais de 19 mil passageiros, tendo transportado no total mais de 1.9 milhões durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '22,81%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1548,7 +1548,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal da Amadora (Estação) ganhou mais de 36 mil passageiros, tendo transportado no total mais de 1.7 milhões durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '27,55%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1568,7 +1568,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal do Barreiro (Cais Fluvial) ganhou mais de mil passageiros, tendo transportado no total mais 480 mil durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '2,68%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1591,7 +1591,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Bucelas ganhou mais de 2 mil passageiros, tendo transportado no total mais 260 mil durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '10,57%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1611,7 +1611,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Carcavelos (Estação) ganhou mais de 2 mil passageiros, tendo transportado no total mais 160 mil durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '17,44%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1631,7 +1631,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal do Fogueteiro (Estação) ganhou mais de 25 mil passageiros, tendo transportado no total mais de 1.3 milhões durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '22,63%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1651,7 +1651,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal da Gare do Oriente (Estação) ganhou mais de 84 mil passageiros, tendo transportado no total mais 4 milhões durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '25,16%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1671,7 +1671,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o Terminal Intermodal de Mafra ganhou mais de 8 mil passageiros, tendo transportado no total mais 320 mil durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '27,18%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1692,7 +1692,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal da Moita (Estação) ganhou mais de mil passageiros, tendo transportado no total mais 53 mil durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '18,18%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1715,7 +1715,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Odivelas (Metro) ganhou mais de 11 mil passageiros, tendo transportado no total mais 2 Milhões durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '5,68%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1735,7 +1735,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Palmela (Terminal) ganhou mais de 4 mil passageiros, tendo transportado no total mais 240 mil durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '18,95%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1755,7 +1755,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal do Pragal (Estação) ganhou mais de 15 mil passageiros, tendo transportado no total mais de 1.5 milhões durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '12,79%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1775,7 +1775,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Póvoa Sta Iria (Estação) ganhou mais de 7 mil passageiros, tendo transportado no total mais de 290 mil durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '29,86%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
@@ -1795,7 +1795,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Setúbal - ITS (Terminal) ganhou mais de 34 mil passageiros, tendo transportado no total mais de 1 milhão durante o ano.',
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
 			number_value: '45,20%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
