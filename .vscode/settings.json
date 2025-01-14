@@ -54,6 +54,9 @@
 	},
 
 	"typescript.tsdk": "./frontend/node_modules/typescript/lib",
-	"svg.preview.background": "custom"
+	"svg.preview.background": "custom",
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	}
 
 }
