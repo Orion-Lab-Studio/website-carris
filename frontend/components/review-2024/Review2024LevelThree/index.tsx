@@ -29,16 +29,18 @@ export function Review2024LevelThree() {
 
 				<Section withPadding="desktop" withGap>
 					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('municipio_lines.heading')}</h2>
-						<h5 className={styles.subheading}>{t('municipio_lines.subheading')}</h5>
+						<h2 className={styles.heading}>{t('terminals.heading')}</h2>
+						<h5 className={styles.subheading}>{t('terminals.subheading')}</h5>
 					</div>
-					<Review2024CardGroup groupId="municipio_lines_area_1" />
-					<Review2024CardGroup groupId="municipio_lines_area_2" />
+					<Review2024CardGroup groupId="terminals_1" />
 				</Section>
 
 				<Section withPadding="desktop" withGap>
-					<Review2024CardGroup groupId="municipio_lines_area_3" />
-					<Review2024CardGroup groupId="municipio_lines_area_4" />
+					<Review2024CardGroup groupId="terminals_2" />
+				</Section>
+
+				<Section withPadding="desktop" withGap>
+					<Review2024CardGroup groupId="terminals_3" />
 				</Section>
 
 			</Grid>

@@ -1147,376 +1147,6 @@ export const allCardsData: Review2024CardSchema[] = [
 	},
 
 	//
-	// Group: "municipio_terminals_area_1"
-
-	{
-		_group: 'municipio_terminals_area_1',
-		_id: 'municipio_terminals_a1_01',
-		_type: 'terminals',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			terminals: [
-				{ legend: 'passageiros transportados num mês face a janeiro 2024', title: 'Gare do Oriente', value: '+37%' },
-				{ legend: 'passageiros transportados num mês face a janeiro 2024', title: 'Campo Grande (metro)', value: '+59%' },
-				{ legend: 'passageiros transportados num mês face a janeiro 2024', title: 'Cais do Seixalinho (Cais Fluvial)', value: '+32%' },
-			],
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Amadora',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_1',
-		_id: 'municipio_terminals_a1_02',
-		colors: {
-			primary: '#FFDD00',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Cascais',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_1',
-		_id: 'municipio_terminals_a1_03',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Lisboa',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_1',
-		_id: 'municipio_terminals_a1_04',
-		colors: {
-			primary: '#FFDD00',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Oeiras',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_1',
-		_id: 'municipio_terminals_a1_05',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Sintra',
-		},
-	},
-
-	//
-	// Group: "municipio_terminals_area_2"
-
-	{
-		_group: 'municipio_terminals_area_2',
-		_id: 'municipio_terminals_a2_01',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Loures',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_2',
-		_id: 'municipio_terminals_a2_02',
-		colors: {
-			primary: '#FFDD00',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Mafra',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_2',
-		_id: 'municipio_terminals_a2_03',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Odivelas',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_2',
-		_id: 'municipio_terminals_a2_04',
-		colors: {
-			primary: '#FFDD00',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Vila Franca de Xira',
-		},
-	},
-
-	//
-	// Group: "municipio_terminals_area_3"
-
-	{
-		_group: 'municipio_terminals_area_3',
-		_id: 'municipio_terminals_a3_01',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Almada',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_3',
-		_id: 'municipio_terminals_a3_02',
-		colors: {
-			primary: '#FFDD00',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Seixal',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_3',
-		_id: 'municipio_terminals_a3_03',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Sesimbra',
-		},
-	},
-
-	//
-	// Group: "municipio_terminals_area_4"
-
-	{
-		_group: 'municipio_terminals_area_4',
-		_id: 'municipio_terminals_a4_01',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Alcochete',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_4',
-		_id: 'municipio_terminals_a4_02',
-		colors: {
-			primary: '#FFDD00',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Barreiro',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_4',
-		_id: 'municipio_terminals_a4_03',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Moita',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_4',
-		_id: 'municipio_terminals_a4_04',
-		colors: {
-			primary: '#FFDD00',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Montijo',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_4',
-		_id: 'municipio_terminals_a4_05',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Palmela',
-		},
-	},
-
-	{
-		_group: 'municipio_terminals_area_4',
-		_id: 'municipio_terminals_a4_06',
-		colors: {
-			primary: '#FFDD00',
-			text: '#000000',
-		},
-		content: {
-			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
-			number_legend: 'total de passageiros transportados em Alcochete em 2024',
-			number_value: 'YY%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: 'YY%',
-			title: 'Setúbal',
-		},
-	},
-
-	//
 	// Group: "municipio_lines_area_1"
 
 	{
@@ -1863,6 +1493,300 @@ export const allCardsData: Review2024CardSchema[] = [
 		header: {
 			number: '4426',
 			title: 'Setúbal',
+		},
+	},
+
+	//
+	// Group: "terminals_1"
+
+	{
+		_group: 'terminals_1',
+		_id: 'terminals_1_01',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Agualva-Cacém (Estação)',
+		},
+	},
+
+	{
+		_group: 'terminals_1',
+		_id: 'terminals_1_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Algés (Estação)',
+		},
+	},
+
+	{
+		_group: 'terminals_1',
+		_id: 'terminals_1_03',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Amadora (Estação)',
+		},
+	},
+
+	{
+		_group: 'terminals_1',
+		_id: 'terminals_1_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Barreiro (Cais Fluvial)',
+		},
+	},
+
+	//
+	// Group: "terminals_2"
+
+	{
+		_group: 'terminals_2',
+		_id: 'terminals_2_01',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Agualva-Cacém (Estação)',
+		},
+	},
+
+	{
+		_group: 'terminals_2',
+		_id: 'terminals_2_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Algés (Estação)',
+		},
+	},
+
+	{
+		_group: 'terminals_2',
+		_id: 'terminals_2_03',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Amadora (Estação)',
+		},
+	},
+
+	{
+		_group: 'terminals_2',
+		_id: 'terminals_2_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Barreiro (Cais Fluvial)',
+		},
+	},
+
+	{
+		_group: 'terminals_2',
+		_id: 'terminals_2_05',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Bucelas (Terminal)',
+		},
+	},
+
+	{
+		_group: 'terminals_2',
+		_id: 'terminals_2_06',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Carcavelos (Estação)',
+		},
+	},
+
+	//
+	// Group: "terminals_3"
+
+	{
+		_group: 'terminals_3',
+		_id: 'terminals_3_01',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Agualva-Cacém (Estação)',
+		},
+	},
+
+	{
+		_group: 'terminals_3',
+		_id: 'terminals_3_02',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Algés (Estação)',
+		},
+	},
+
+	{
+		_group: 'terminals_3',
+		_id: 'terminals_3_03',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Amadora (Estação)',
+		},
+	},
+
+	{
+		_group: 'terminals_3',
+		_id: 'terminals_3_04',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Barreiro (Cais Fluvial)',
+		},
+	},
+
+	{
+		_group: 'terminals_3',
+		_id: 'terminals_3_05',
+		colors: {
+			primary: '#FFDD00',
+			text: '#000000',
+		},
+		content: {
+			lottie_src: '/assets/review-2024/animations/municipios/municipio_terminals.json',
+			number_legend: 'total de passageiros transportados em Alcochete em 2024',
+			number_value: 'YY%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: 'YY%',
+			title: 'Bucelas (Terminal)',
 		},
 	},
 
