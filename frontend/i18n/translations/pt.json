@@ -1194,6 +1194,10 @@
 				"heading": "Crescimento por Município",
 				"subheading": "Explore a evolução do seu município em 2024."
 			},
+			"municipio_lines": {
+				"heading": "Linhas Municipais",
+				"subheading": "Aqui, revelamos as linhas mais usadas de cada município."
+			},
 			"municipio_pax": {
 				"heading": "Passageiros por Município",
 				"subheading": "Descubra quantos viajámos em cada município."
