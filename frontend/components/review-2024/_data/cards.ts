@@ -1514,7 +1514,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '45,38%',
+			number: '45%',
 			title: 'Agualva-Cacém (Estação)',
 		},
 	},
@@ -1534,7 +1534,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '22,81%',
+			number: '22%',
 			title: 'Algés (Estação)',
 		},
 	},
@@ -1554,7 +1554,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '27,55%',
+			number: '28%',
 			title: 'Amadora (Estação)',
 		},
 	},
@@ -1574,7 +1574,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '2,68%',
+			number: '3%',
 			title: 'Barreiro (Cais Fluvial)',
 		},
 	},
@@ -1597,7 +1597,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '10,57%',
+			number: '11%',
 			title: 'Bucelas (Terminal)',
 		},
 	},
@@ -1617,7 +1617,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '17,44%',
+			number: '17%',
 			title: 'Carcavelos (Estação)',
 		},
 	},
@@ -1637,7 +1637,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '22,63%',
+			number: '22%',
 			title: 'Fogueteiro (Estação)',
 		},
 	},
@@ -1657,7 +1657,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '25,16%',
+			number: '25%',
 			title: 'Gare do Oriente (Estação)',
 		},
 	},
@@ -1677,7 +1677,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '27,18%',
+			number: '27%',
 			title: 'Mafra Parque Intermodal (Terminal)',
 		},
 	},
@@ -1698,7 +1698,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '18,18%',
+			number: '18%',
 			title: 'Moita (Estação)',
 		},
 	},
@@ -1721,7 +1721,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '5,68%',
+			number: '6%',
 			title: 'Odivelas (Metro)',
 		},
 	},
@@ -1741,7 +1741,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '18,95%',
+			number: '19%',
 			title: 'Palmela (Terminal)',
 		},
 	},
@@ -1761,7 +1761,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '12,79%',
+			number: '13%',
 			title: 'Pragal (Estação)',
 		},
 	},
@@ -1781,7 +1781,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '29,86%',
+			number: '30%',
 			title: 'Povoa Sta Iria (Estação)',
 		},
 	},
@@ -1801,7 +1801,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '45,20%',
+			number: '45%',
 			title: 'Setubal - ITS (Terminal)',
 		},
 	},
