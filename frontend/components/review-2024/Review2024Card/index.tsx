@@ -171,8 +171,8 @@ export function Review2024Card({ cardData, isFirstChild, isLastChild }: Props) {
 						</div>
 					)}
 
-					<p className={styles.contentTitle}>{cardData.content.title}</p>
-					<p className={styles.contentDescription}>{cardData.content.description}</p>
+					<p className={styles.contentTitle}>{cardData.content?.title}</p>
+					<p className={styles.contentDescription} dangerouslySetInnerHTML={{ __html: cardData.content?.description?.replace(/\n/g, '<br />') || '' }} />
 
 					<Tooltip label={t('share.tooltip')} withArrow>
 						<div className={styles.shareButton} onClick={handleShareUrl}>
