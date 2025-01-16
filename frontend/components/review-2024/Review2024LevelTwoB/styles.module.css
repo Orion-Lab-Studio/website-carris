@@ -29,3 +29,9 @@
 	font-weight: var(--font-weight-medium);
 	color: var(--color-system-text-300);
 }
+
+.cardGroup {
+	display: flex;
+	flex-direction: column;
+	gap: var(--size-spacing-10);
+}

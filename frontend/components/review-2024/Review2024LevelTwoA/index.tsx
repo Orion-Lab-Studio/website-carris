@@ -12,13 +12,13 @@ import styles from './styles.module.css';
 
 /* * */
 
-export function Review2024LevelThree() {
+export function Review2024LevelTwoA() {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('review-2024.Review2024LevelThree');
+	const t = useTranslations('review-2024.Review2024LevelTwo');
 
 	//
 	// B. Render components
@@ -26,16 +26,17 @@ export function Review2024LevelThree() {
 	return (
 		<Surface forceOverflow>
 			<Section withPadding="desktop" withGap>
-
 				<div className={styles.headingWrapper}>
-					<h2 className={styles.heading}>{t('terminals.heading')}</h2>
-					<h5 className={styles.subheading}>{t('terminals.subheading')}</h5>
+					<h2 className={styles.heading}>{t('municipio_growth.heading')}</h2>
+					<h5 className={styles.subheading}>{t('municipio_growth.subheading')}</h5>
 				</div>
-
 				<Grid columns="abc" withGap>
-					<Review2024CardGroup groupId="terminals_1" />
-					<Review2024CardGroup groupId="terminals_2" />
-					<Review2024CardGroup groupId="terminals_3" />
+					<Review2024CardGroup groupId="municipio_growth_area_1" />
+					<div className={styles.cardGroup}>
+						<Review2024CardGroup groupId="municipio_growth_area_2" />
+						<Review2024CardGroup groupId="municipio_growth_area_3" />
+					</div>
+					<Review2024CardGroup groupId="municipio_growth_area_4" />
 				</Grid>
 			</Section>
 		</Surface>

@@ -9,3 +9,10 @@
 	justify-content: flex-start;
 	width: 100%;
 }
+
+.groupTitle {
+	color: var(--color-system-text-200);
+	font-size: var(--font-size-subtitle);
+	font-weight: var(--font-weight-subtitle);
+	margin-bottom: var(--size-spacing-5);
+}
