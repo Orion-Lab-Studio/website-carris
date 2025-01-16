@@ -223,7 +223,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Todas as nossas linhas importam, mas 3 destacaram-se!',
 		},
 		header: {
-			number: '1715',
+			number: '',
 			title: 'Top Linhas área 1',
 		},
 	},
@@ -245,7 +245,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Todas as nossas linhas importam, mas 3 destacaram-se!',
 		},
 		header: {
-			number: '2769',
+			number: '',
 			title: 'Top Linhas área 2',
 		},
 	},
@@ -267,7 +267,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Todas as nossas linhas importam, mas 3 destacaram-se!',
 		},
 		header: {
-			number: '3508',
+			number: '',
 			title: 'Top Linhas área 3',
 		},
 	},
@@ -289,7 +289,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Todas as nossas linhas importam, mas 3 destacaram-se!',
 		},
 		header: {
-			number: '4600',
+			number: '',
 			title: 'Top Linhas área 4',
 		},
 	},
@@ -304,15 +304,15 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#5A5A64',
 		},
 		content: {
-			description: 'Os passageiros destas linhas (4 597 469), conseguiriam dar as mãos pelo comprimento do rio Sado mais de 360 vezes.',
-			line_ids: ['2711', '4600', '4701'],
+			description: 'Ranking. Top 1 - A linha 4702  teve um crescimetno de 571%. Top 2- A linha 4705 teve um crescimento de 142%. Top 3 -  A linha 2134 teve um crescimento de 111%',
+			line_ids: ['4702', '4705', '2134'],
 			lottie_src: '/assets/review-2024/animations/tops/lines_growth.json',
 			number_legend: 'linhas com maior taxa de crescimento entre janeiro e dezembro de 2024',
-			number_value: '2711|4600|4701',
+			number_value: '4702|4705|2134',
 			title: 'Crescem depressa!',
 		},
 		header: {
-			number: '2711',
+			number: '',
 			title: 'Crescimento Linhas',
 		},
 	},
@@ -1637,7 +1637,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '22%',
+			number: '23%',
 			title: 'Fogueteiro (Estação)',
 		},
 	},
