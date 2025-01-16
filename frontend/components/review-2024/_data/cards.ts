@@ -215,7 +215,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#FFFFFF',
 		},
 		content: {
-			description: 'Se os passageiros destas linhas (5 519 192) dessem as mãos, conseguiam ir de Lisboa a Sintra mais de 250 vezes.',
+			description: 'Se os passageiros destas linhas (5 519 192) dessem as mãos, conseguiam ir de Lisboa a Sintra mais de 250 vezes. \n\n Ranking: \n Top 1- Linha 1715 transportou 2,271,212 passageiros \n Top 2 - Linha 1709 transportou 1,666,446 passageiros \n Top 3 - Linha 1703 transportou 1,581,534 passageiros',
 			line_ids: ['1715', '1709', '1703'],
 			lottie_src: '/assets/review-2024/animations/tops/tops_lines_area_1.json',
 			number_legend: 'linhas com mais passageiros transportados na área 1 (Amadora, Cascais, Lisboa, Oeiras, Sintra)',
@@ -237,7 +237,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#FFFFFF',
 		},
 		content: {
-			description: 'Os passageiros destas linhas (6 258 565) caberiam de mãos dadas na largura da foz do Tejo em Lisboa mais de 700 vezes.',
+			description: 'Os passageiros destas linhas (6 258 565) caberiam de mãos dadas na largura da foz do Tejo em Lisboa mais de 700 vezes. \n\n Ranking \n Top 1- Linha 2769 transportou 2,292,407 passageiros \n Top 2 - Linha 2711 transportou 1,999,079 passageiros \n Top 3 - Linha 2730 transportou 1,967,079 passageiros',
 			line_ids: ['2769', '2711', '2730'],
 			lottie_src: '/assets/review-2024/animations/tops/tops_lines_area_2.json',
 			number_legend: 'linhas com mais passageiros transportados na área 2 (Loures, Mafra, Odivelas, Vila Franca de Xira)',
@@ -259,7 +259,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#FFFFFF',
 		},
 		content: {
-			description: 'Os passageiros destas linhas (4 590 671) conseguiriam dar as mãos pela largura das praias da Costa da Caparica mais de 250 vezes.',
+			description: 'Os passageiros destas linhas (4 590 671) conseguiriam dar as mãos pela largura das praias da Costa da Caparica mais de 250 vezes. \n\n Ranking \n Top 1- Linha 3508 transportou 1,740,231 passageiros \n Top 2 - Linha 3022 transportou 1,650,700 passageiros \n Top 3 - Linha 3013 transportou 1,199,740 passageiros',
 			line_ids: ['3508', '3022', '3013'],
 			lottie_src: '/assets/review-2024/animations/tops/tops_lines_area_3.json',
 			number_legend: 'linhas com mais passageiros transportados na área 3 (Almada, Seixal e Sesimbra)',
@@ -281,7 +281,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#FFFFFF',
 		},
 		content: {
-			description: 'Os passageiros destas linhas (4 597 469), conseguiriam dar as mãos pelo comprimento do rio Sado mais de 360 vezes.',
+			description: 'Os passageiros destas linhas (4 597 469), conseguiriam dar as mãos pelo comprimento do rio Sado mais de 360 vezes. \n\n Ranking \n Top 1- Linha 4600	 transportou 2,035,134 passageiros \n Top 2 - Linha 4701 transportou 1,628,676 passageiros \n Top 3 - Linha 4512 transportou 933,659 passageiros',
 			line_ids: ['4600', '4701', '4512'],
 			lottie_src: '/assets/review-2024/animations/tops/tops_lines_area_4.json',
 			number_legend: 'linhas com mais passageiros transportados na área 4 (Alcochete, Barreiro, Moita, Montijo, Palmela, Setúbal)',
@@ -304,7 +304,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#5A5A64',
 		},
 		content: {
-			description: 'Ranking. \n Top 1 - A linha 4702  teve um crescimetno de 571%. \n Top 2- A linha 4705 teve um crescimento de 142%. \n Top 3 -  A linha 2134 teve um crescimento de 111%',
+			description: 'Ranking. \n Top 1 - A linha 4702  teve um crescimento de 571%. \n Top 2- A linha 4705 teve um crescimento de 142%. \n Top 3 -  A linha 2134 teve um crescimento de 111%',
 			line_ids: ['4702', '4705', '2134'],
 			lottie_src: '/assets/review-2024/animations/tops/lines_growth.json',
 			number_legend: 'linhas com maior taxa de crescimento entre janeiro e dezembro de 2024',
@@ -1527,15 +1527,15 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Ao longo de 2024, o terminal de Algés (Estação) ganhou mais de 19 mil passageiros, tendo transportado no total mais de 1.9 milhões durante o ano.',
+			description: 'Ao longo de 2024, o terminal de Setúbal - ITS (Terminal) ganhou mais de 34 mil passageiros, tendo transportado no total mais de 1 milhão durante o ano.',
 			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+22,81%',
+			number_value: '+45,20%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '23%',
-			title: 'Algés (Estação)',
+			number: '45%',
+			title: 'Setubal - ITS (Terminal)',
 		},
 	},
 
@@ -1547,15 +1547,15 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#FFFFFF',
 		},
 		content: {
-			description: 'Ao longo de 2024, o terminal da Amadora (Estação) ganhou mais de 36 mil passageiros, tendo transportado no total mais de 1.7 milhões durante o ano.',
+			description: 'Ao longo de 2024, o terminal de Póvoa Sta Iria (Estação) ganhou mais de 7 mil passageiros, tendo transportado no total mais de 290 mil durante o ano.',
 			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+27,55%',
+			number_value: '+29,86%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '28%',
-			title: 'Amadora (Estação)',
+			number: '30%',
+			title: 'Povoa Sta Iria (Estação)',
 		},
 	},
 
@@ -1567,15 +1567,36 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Ao longo de 2024, o terminal do Barreiro (Cais Fluvial) ganhou mais de mil passageiros, tendo transportado no total mais 480 mil durante o ano.',
+			description: 'Ao longo de 2024, o terminal da Amadora (Estação) ganhou mais de 36 mil passageiros, tendo transportado no total mais de 1.7 milhões durante o ano.',
 			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+2,68%',
+			number_value: '+27,55%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '3%',
-			title: 'Barreiro (Cais Fluvial)',
+			number: '28%',
+			title: 'Amadora (Estacao)',
+		},
+	},
+
+	{
+		_group: 'terminals_1',
+		_id: 'terminals_1_05',
+		colors: {
+			border: '#FFDD00'
+			primary: '#FFFFFF',
+			text: '#5A5A64',
+		},
+		content: {
+			description: 'Ao longo de 2024, o Terminal Intermodal de Mafra ganhou mais de 8 mil passageiros, tendo transportado no total mais 320 mil durante o ano.',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
+			number_legend: 'taxa de crescimento ao longo de 2024',
+			number_value: '+27,18%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: '27%',
+			title: 'Mafra Parque Intermodal (Terminal)',
 		},
 	},
 
@@ -1590,15 +1611,15 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#FFFFFF',
 		},
 		content: {
-			description: 'Ao longo de 2024, o terminal de Bucelas ganhou mais de 2 mil passageiros, tendo transportado no total mais 260 mil durante o ano.',
+			description: 'Ao longo de 2024, o terminal da Gare do Oriente (Estação) ganhou mais de 84 mil passageiros, tendo transportado no total mais 4 milhões durante o ano.',
 			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+10,57%',
+			number_value: '+25,16%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '11%',
-			title: 'Bucelas (Terminal)',
+			number: '25%',
+			title: 'Gare do Oriente (Estação)',
 		},
 	},
 
@@ -1610,15 +1631,15 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Ao longo de 2024, o terminal de Carcavelos (Estação) ganhou mais de 2 mil passageiros, tendo transportado no total mais 160 mil durante o ano.',
+			description: 'Ao longo de 2024, o terminal de Algés (Estação) ganhou mais de 19 mil passageiros, tendo transportado no total mais de 1.9 milhões durante o ano.',
 			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+17,44%',
+			number_value: '+22,81%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '17%',
-			title: 'Carcavelos (Estação)',
+			number: '23%',
+			title: 'Algés (Estação)',
 		},
 	},
 
@@ -1650,15 +1671,15 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Ao longo de 2024, o terminal da Gare do Oriente (Estação) ganhou mais de 84 mil passageiros, tendo transportado no total mais 4 milhões durante o ano.',
+			description: 'Ao longo de 2024, o terminal de Palmela (Terminal) ganhou mais de 4 mil passageiros, tendo transportado no total mais 240 mil durante o ano.',
 			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+25,16%',
+			number_value: '+18,95%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '25%',
-			title: 'Gare do Oriente (Estação)',
+			number: '19%',
+			title: 'Palmela (Terminal)',
 		},
 	},
 
@@ -1668,27 +1689,6 @@ export const allCardsData: Review2024CardSchema[] = [
 		colors: {
 			primary: '#BB3E96',
 			text: '#FFFFFF',
-		},
-		content: {
-			description: 'Ao longo de 2024, o Terminal Intermodal de Mafra ganhou mais de 8 mil passageiros, tendo transportado no total mais 320 mil durante o ano.',
-			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
-			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+27,18%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: '27%',
-			title: 'Mafra Parque Intermodal (Terminal)',
-		},
-	},
-
-	{
-		_group: 'terminals_2',
-		_id: 'terminals_2_06',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#000000',
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal da Moita (Estação) ganhou mais de mil passageiros, tendo transportado no total mais 53 mil durante o ano.',
@@ -1714,15 +1714,15 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#FFFFFF',
 		},
 		content: {
-			description: 'Ao longo de 2024, o terminal de Odivelas (Metro) ganhou mais de 11 mil passageiros, tendo transportado no total mais 2 Milhões durante o ano.',
+			description: 'Ao longo de 2024, o terminal de Carcavelos (Estação) ganhou mais de 2 mil passageiros, tendo transportado no total mais 160 mil durante o ano.',
 			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+5,68%',
+			number_value: '+17,44%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '6%',
-			title: 'Odivelas (Metro)',
+			number: '17%',
+			title: 'Carcavelos (Estação)',
 		},
 	},
 
@@ -1732,26 +1732,6 @@ export const allCardsData: Review2024CardSchema[] = [
 		colors: {
 			primary: '#FFDD00',
 			text: '#000000',
-		},
-		content: {
-			description: 'Ao longo de 2024, o terminal de Palmela (Terminal) ganhou mais de 4 mil passageiros, tendo transportado no total mais 240 mil durante o ano.',
-			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
-			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+18,95%',
-			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
-		},
-		header: {
-			number: '19%',
-			title: 'Palmela (Terminal)',
-		},
-	},
-
-	{
-		_group: 'terminals_3',
-		_id: 'terminals_3_03',
-		colors: {
-			primary: '#3D85C6',
-			text: '#FFFFFF',
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal do Pragal (Estação) ganhou mais de 15 mil passageiros, tendo transportado no total mais de 1.5 milhões durante o ano.',
@@ -1768,21 +1748,41 @@ export const allCardsData: Review2024CardSchema[] = [
 
 	{
 		_group: 'terminals_3',
-		_id: 'terminals_3_04',
+		_id: 'terminals_3_03',
 		colors: {
 			primary: '#FBBA1A',
 			text: '#000000',
 		},
 		content: {
-			description: 'Ao longo de 2024, o terminal de Póvoa Sta Iria (Estação) ganhou mais de 7 mil passageiros, tendo transportado no total mais de 290 mil durante o ano.',
+			description: 'Ao longo de 2024, o terminal de Bucelas ganhou mais de 2 mil passageiros, tendo transportado no total mais 260 mil durante o ano.',
 			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+29,86%',
+			number_value: '+10,57%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '30%',
-			title: 'Povoa Sta Iria (Estação)',
+			number: '11%',
+			title: 'Bucelas (Terminal)',
+		},
+	},
+
+	{
+		_group: 'terminals_3',
+		_id: 'terminals_3_04',
+		colors: {
+			primary: '#BB3E96',
+			text: '#FFFFFF',
+		},
+		content: {
+			description: 'Ao longo de 2024, o terminal de Odivelas (Metro) ganhou mais de 11 mil passageiros, tendo transportado no total mais 2 Milhões durante o ano.',
+			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
+			number_legend: 'taxa de crescimento ao longo de 2024',
+			number_value: '+5,68%',
+			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
+		},
+		header: {
+			number: '6%',
+			title: 'Odivelas (Metro)',
 		},
 	},
 
@@ -1794,15 +1794,15 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#FFFFFF',
 		},
 		content: {
-			description: 'Ao longo de 2024, o terminal de Setúbal - ITS (Terminal) ganhou mais de 34 mil passageiros, tendo transportado no total mais de 1 milhão durante o ano.',
+			description: 'Ao longo de 2024, o terminal do Barreiro (Cais Fluvial) ganhou mais de mil passageiros, tendo transportado no total mais 480 mil durante o ano.',
 			lottie_src: '/assets/review-2024/animations/terminais/terminals.json',
 			number_legend: 'taxa de crescimento ao longo de 2024',
-			number_value: '+45,20%',
+			number_value: '+2,68%',
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '45%',
-			title: 'Setubal - ITS (Terminal)',
+			number: '2%',
+			title: 'Barreiro (Cais Fluvial)',
 		},
 	},
 
