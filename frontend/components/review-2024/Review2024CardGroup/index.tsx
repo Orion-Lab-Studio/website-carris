@@ -21,11 +21,17 @@ export function Review2024CardGroup({ groupId }: Props) {
 
 	const groupCards = allCardsData.filter(card => card._group === groupId);
 
+	// If groupId starts with 'terminals', then we need to sort the cards by the number in the header
+	if (groupId.startsWith('terminals')) {
+		groupCards.sort((a, b) => Number(b.header.number.replace('%', '')) - Number(a.header.number.replace('%', '')));
+	}
+
 	//
 	// B. Render components
 
 	return (
 		<div className={styles.container}>
+			{groupCards[0]._group_title && <h3 className={styles.groupTitle}>{groupCards[0]._group_title}</h3>}
 			{groupCards.map((cardData, index) => (
 				<Review2024Card
 					key={cardData._id}
