@@ -25,25 +25,19 @@ export function Review2024LevelThree() {
 
 	return (
 		<Surface forceOverflow>
-			<Grid columns="abc">
+			<Section withPadding="desktop" withGap>
 
-				<Section withPadding="desktop" withGap>
-					<div className={styles.headingWrapper}>
-						<h2 className={styles.heading}>{t('terminals.heading')}</h2>
-						<h5 className={styles.subheading}>{t('terminals.subheading')}</h5>
-					</div>
+				<div className={styles.headingWrapper}>
+					<h2 className={styles.heading}>{t('terminals.heading')}</h2>
+					<h5 className={styles.subheading}>{t('terminals.subheading')}</h5>
+				</div>
+
+				<Grid columns="abc" withGap>
 					<Review2024CardGroup groupId="terminals_1" />
-				</Section>
-
-				<Section withPadding="desktop" withGap>
 					<Review2024CardGroup groupId="terminals_2" />
-				</Section>
-
-				<Section withPadding="desktop" withGap>
 					<Review2024CardGroup groupId="terminals_3" />
-				</Section>
-
-			</Grid>
+				</Grid>
+			</Section>
 		</Surface>
 	);
 
