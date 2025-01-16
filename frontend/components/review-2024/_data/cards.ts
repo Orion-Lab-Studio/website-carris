@@ -304,7 +304,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#5A5A64',
 		},
 		content: {
-			description: 'Ranking. Top 1 - A linha 4702  teve um crescimetno de 571%. Top 2- A linha 4705 teve um crescimento de 142%. Top 3 -  A linha 2134 teve um crescimento de 111%',
+			description: 'Ranking. \n Top 1 - A linha 4702  teve um crescimetno de 571%. \n Top 2- A linha 4705 teve um crescimento de 142%. \n Top 3 -  A linha 2134 teve um crescimento de 111%',
 			line_ids: ['4702', '4705', '2134'],
 			lottie_src: '/assets/review-2024/animations/tops/lines_growth.json',
 			number_legend: 'linhas com maior taxa de crescimento entre janeiro e dezembro de 2024',
@@ -1817,7 +1817,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#FFFFFF',
 		},
 		content: {
-			description: 'Acabámos 2024 com 25 553 seguidores somados por todos os nosso canais digitais. Seria preciso um prédio de mais de 2 100 andares, com 3 frações por piso, para que toda a nossa comunidade vivesse junta.',
+			description: 'Acabámos 2024 com 25 553 seguidores somados por todos os nossos canais digitais. \n Seria preciso um prédio de mais de 3 500 andares, com 3 frações por piso, para que toda a nossa comunidade vivesse junta.',
 			lottie_src: '/assets/review-2024/animations/digital/followers_total.json',
 			number_legend: 'total de seguidores novos na nossa comunidade digital',
 			number_value: '25 553',
