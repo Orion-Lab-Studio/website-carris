@@ -1197,7 +1197,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 1 070 393 pessoas a ver as vistas da Amadora.',
+			description: 'Só nesta linha levámos 1 070 393 pessoas a ver as vistas da Amadora. \n\n Linha 1005 \n Amadora (Estação Norte) - UBBO',
 			line_ids: ['1005'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados na Amadora',
@@ -1220,7 +1220,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 836 769 pessoas a ver as vistas de Oeiras.',
+			description: 'Só nesta linha levámos 836 769 pessoas a ver as vistas de Oeiras. \n\n Linha 1103 \n Algés (Estação) - Queijas (PSP)',
 			line_ids: ['1103'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Oeiras',
@@ -1244,10 +1244,10 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 1 093 375 pessoas a ver as vistas de Sintra.',
+			description: 'Só nesta linha levámos 1 093 375 pessoas a ver as vistas de Sintra. \n\n Linha 1251 Portela Sintra (Estação Sul) - Rio De Mouro (Estação Sul)',
 			line_ids: ['1251'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
-			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
+			number_legend: 'linha municipal com mais passageiros transportados em Sintra',
 			number_value: '1251',
 			title: 'Em 2024, passeámos  juntos por Sintra!',
 		},
@@ -1271,7 +1271,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 297 244 pessoas a ver as vistas de Loures.',
+			description: 'Só nesta linha levámos 297 244 pessoas a ver as vistas de Loures. \n\n Linha 2031 \n Sacavém (C.Saúde) - Sacavém (Centro Saúde)',
 			line_ids: ['2031'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Loures',
@@ -1294,7 +1294,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 77 672 pessoas a ver as vistas de Mafra.',
+			description: 'Só nesta linha levámos 77 672 pessoas a ver as vistas de Mafra. \n\n Linha 2126 \n Ericeira | Circular',
 			line_ids: ['2126'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Mafra',
@@ -1318,7 +1318,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 467 232 pessoas a ver as vistas de Odivelas.',
+			description: 'Só nesta linha levámos 467 232 pessoas a ver as vistas de Odivelas. \n\n Linha 2212 \n Odivelas (C. Comercial) | Circular',
 			line_ids: ['2212'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Odivelas',
@@ -1341,7 +1341,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 	1 182 030 pessoas a ver as vistas de Vila Franca de Xira.',
+			description: 'Só nesta linha levámos 	1 182 030 pessoas a ver as vistas de Vila Franca de Xira. \n\n Linha 2303 \n Alverca (Est) - Arcena',
 			line_ids: ['2303'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Vila Franca de Xira',
@@ -1368,7 +1368,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 1 650 700 pessoas a ver as vistas de Almada.',
+			description: 'Só nesta linha levámos 1 650 700 pessoas a ver as vistas de Almada. \n\n Linha 3022 \n Costa da Caparica (Terminal) - Cacilhas (Terminal)',
 			line_ids: ['3022'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Almada',
@@ -1391,7 +1391,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 1 004 187 pessoas a ver as vistas do Seixal.',
+			description: 'Só nesta linha levámos 1 004 187 pessoas a ver as vistas do Seixal. \n\n Linha 3113 \n Fogueteiro (Estação) - Seixal (Terminal Fluvial), via Quinta do Cabral',
 			line_ids: ['3113'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados no Seixal',
@@ -1415,7 +1415,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 150 299 pessoas a ver as vistas de Sesimbra.',
+			description: 'Só nesta linha levámos 150 299 pessoas a ver as vistas de Sesimbra. \n\n Linha 3220 \n Sesimbra (Centro) | Circular',
 			line_ids: ['3220'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Sesimbra',
@@ -1441,7 +1441,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 8 883 pessoas a ver as vistas de Alcochete.',
+			description: 'Só nesta linha levámos 8 883 pessoas a ver as vistas de Alcochete. \n\n Linha 4001 \n Alcochete | Circular',
 			line_ids: ['4001'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Alcochete',
@@ -1465,7 +1465,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 68 099 pessoas a ver as vistas da Moita.',
+			description: 'Só nesta linha levámos 68 099 pessoas a ver as vistas da Moita. \n\n Linha 4102 \n Moita (Estação) - Sarilhos Pequenos via Gaio-Rosário',
 			line_ids: ['4102'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados na Moita',
@@ -1488,7 +1488,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 391 600 pessoas a ver as vistas do Montijo.',
+			description: 'Só nesta linha levámos 391 600 pessoas a ver as vistas do Montijo. \n\n Linha 4203 \n Afonsoeiro - Montijo (Terminal Fluvial) via Bairro da Liberdade',
 			line_ids: ['4203'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados no Montijo',
@@ -1512,7 +1512,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 44 778 pessoas a ver as vistas de Palmela.',
+			description: 'Só nesta linha levámos 44 778 pessoas a ver as vistas de Palmela. \n\n Linha 4307 \n Loja Nova - Palmela (Terminal)',
 			line_ids: ['4307'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Palmela',
@@ -1535,7 +1535,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Só nesta linha levámos 662 573 pessoas a ver as vistas de Setúbal.',
+			description: 'Só nesta linha levámos 662 573 pessoas a ver as vistas de Setúbal. \n\n Linha 4426 \n Setúbal (Bairro do Viso) - Setúbal (Bairro Quinta Santo António)',
 			line_ids: ['4426'],
 			lottie_src: '/assets/review-2024/animations/municipios/municipio_lines.json',
 			number_legend: 'linha municipal com mais passageiros transportados em Setúbal',
@@ -1627,7 +1627,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 		header: {
 			number: '28%',
-			title: 'Amadora (Estacao)',
+			title: 'Amadora (Estação)',
 		},
 	},
 
@@ -1635,7 +1635,7 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'terminals_1',
 		_id: 'terminals_1_05',
 		colors: {
-			border: '#FFDD00'
+			border: '#FFDD00',
 			primary: '#FFFFFF',
 			text: '#5A5A64',
 		},
@@ -1739,8 +1739,9 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'terminals_2',
 		_id: 'terminals_2_05',
 		colors: {
-			primary: '#BB3E96',
-			text: '#FFFFFF',
+			border: '#FFDD00',
+			primary: '#FFFFFF',
+			text: '#5A5A64',
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal da Moita (Estação) ganhou mais de mil passageiros, tendo transportado no total mais 53 mil durante o ano.',
