@@ -420,7 +420,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Na Amadora não parámos de crescer!',
 		},
 		header: {
-			number: '8%',
+			number: '+8%',
 			title: 'Amadora',
 		},
 	},
@@ -440,7 +440,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Cascais não parámos de crescer!',
 		},
 		header: {
-			number: '16%',
+			number: '+16%',
 			title: 'Cascais',
 		},
 	},
@@ -461,7 +461,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Lisboa não parámos de crescer!',
 		},
 		header: {
-			number: '13%',
+			number: '+13%',
 			title: 'Lisboa',
 		},
 	},
@@ -481,7 +481,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Oeiras não parámos de crescer!',
 		},
 		header: {
-			number: '10%',
+			number: '+10%',
 			title: 'Oeiras',
 		},
 	},
@@ -502,7 +502,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Sintra não parámos de crescer!',
 		},
 		header: {
-			number: '8%',
+			number: '+8%',
 			title: 'Sintra',
 		},
 	},
@@ -526,7 +526,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Loures não parámos de crescer!',
 		},
 		header: {
-			number: '6%',
+			number: '+6%',
 			title: 'Loures',
 		},
 	},
@@ -546,7 +546,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Mafra não parámos de crescer!',
 		},
 		header: {
-			number: '16%',
+			number: '+16%',
 			title: 'Mafra',
 		},
 	},
@@ -567,7 +567,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Odivelas não parámos de crescer!',
 		},
 		header: {
-			number: '8%',
+			number: '+8%',
 			title: 'Odivelas',
 		},
 	},
@@ -587,7 +587,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Vila Franca de Xira não parámos de crescer!',
 		},
 		header: {
-			number: '14%',
+			number: '+14%',
 			title: 'Vila Franca de Xira',
 		},
 	},
@@ -611,7 +611,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Almada não parámos de crescer!',
 		},
 		header: {
-			number: '14%',
+			number: '+14%',
 			title: 'Almada',
 		},
 	},
@@ -631,7 +631,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'No Seixal não parámos de crescer!',
 		},
 		header: {
-			number: '20%',
+			number: '+20%',
 			title: 'Seixal',
 		},
 	},
@@ -652,7 +652,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Sesimbra não parámos de crescer!',
 		},
 		header: {
-			number: '12%',
+			number: '+12%',
 			title: 'Sesimbra',
 		},
 	},
@@ -676,7 +676,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Alcochete não parámos de crescer!',
 		},
 		header: {
-			number: '6%',
+			number: '+6%',
 			title: 'Alcochete',
 		},
 	},
@@ -696,7 +696,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'No Barreiro não parámos de crescer!',
 		},
 		header: {
-			number: '17%',
+			number: '+17%',
 			title: 'Barreiro',
 		},
 	},
@@ -717,7 +717,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Na Moita não parámos de crescer!',
 		},
 		header: {
-			number: '16%',
+			number: '+16%',
 			title: 'Moita',
 		},
 	},
@@ -737,7 +737,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'No Montijo não parámos de crescer!',
 		},
 		header: {
-			number: '13%',
+			number: '+13%',
 			title: 'Montijo',
 		},
 	},
@@ -758,7 +758,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Palmela não parámos de crescer!',
 		},
 		header: {
-			number: '17%',
+			number: '+17%',
 			title: 'Palmela',
 		},
 	},
@@ -778,7 +778,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em Setúbal não parámos de crescer!',
 		},
 		header: {
-			number: '14%',
+			number: '+14%',
 			title: 'Setúbal',
 		},
 	},
@@ -1566,7 +1566,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '45%',
+			number: '+45%',
 			title: 'Agualva-Cacém (Estação)',
 		},
 	},
@@ -1586,7 +1586,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '45%',
+			number: '+45%',
 			title: 'Setubal - ITS (Terminal)',
 		},
 	},
@@ -1606,7 +1606,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '30%',
+			number: '+30%',
 			title: 'Povoa Sta Iria (Estação)',
 		},
 	},
@@ -1626,7 +1626,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '28%',
+			number: '+28%',
 			title: 'Amadora (Estação)',
 		},
 	},
@@ -1647,7 +1647,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '27%',
+			number: '+27%',
 			title: 'Mafra Parque Intermodal (Terminal)',
 		},
 	},
@@ -1670,7 +1670,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '25%',
+			number: '+25%',
 			title: 'Gare do Oriente (Estação)',
 		},
 	},
@@ -1690,7 +1690,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '23%',
+			number: '+23%',
 			title: 'Algés (Estação)',
 		},
 	},
@@ -1710,7 +1710,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '23%',
+			number: '+23%',
 			title: 'Fogueteiro (Estação)',
 		},
 	},
@@ -1730,7 +1730,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '19%',
+			number: '+19%',
 			title: 'Palmela (Terminal)',
 		},
 	},
@@ -1751,7 +1751,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '18%',
+			number: '+18%',
 			title: 'Moita (Estação)',
 		},
 	},
@@ -1774,7 +1774,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '17%',
+			number: '+17%',
 			title: 'Carcavelos (Estação)',
 		},
 	},
@@ -1794,7 +1794,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '13%',
+			number: '+13%',
 			title: 'Pragal (Estação)',
 		},
 	},
@@ -1803,8 +1803,8 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'terminals_3',
 		_id: 'terminals_3_03',
 		colors: {
-			primary: '#FBBA1A',
-			text: '#000000',
+			primary: '#3D85C6',
+			text: '#FFFFFF',
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Bucelas ganhou mais de 2 mil passageiros, tendo transportado no total mais 260 mil durante o ano.',
@@ -1814,7 +1814,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '11%',
+			number: '+11%',
 			title: 'Bucelas (Terminal)',
 		},
 	},
@@ -1823,8 +1823,8 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'terminals_3',
 		_id: 'terminals_3_04',
 		colors: {
-			primary: '#BB3E96',
-			text: '#FFFFFF',
+			primary: '#FBBA1A',
+			text: '#000000',
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal de Odivelas (Metro) ganhou mais de 11 mil passageiros, tendo transportado no total mais 2 Milhões durante o ano.',
@@ -1834,7 +1834,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '6%',
+			number: '+6%',
 			title: 'Odivelas (Metro)',
 		},
 	},
@@ -1843,8 +1843,9 @@ export const allCardsData: Review2024CardSchema[] = [
 		_group: 'terminals_3',
 		_id: 'terminals_3_05',
 		colors: {
-			primary: '#BB3E96',
-			text: '#FFFFFF',
+			border: '#FFDD00',
+			primary: '#FFFFFF',
+			text: '#5A5A64',
 		},
 		content: {
 			description: 'Ao longo de 2024, o terminal do Barreiro (Cais Fluvial) ganhou mais de mil passageiros, tendo transportado no total mais 480 mil durante o ano.',
@@ -1854,7 +1855,7 @@ export const allCardsData: Review2024CardSchema[] = [
 			title: 'Em 2024, tivemos alguns pontos de encontro favoritos!',
 		},
 		header: {
-			number: '2%',
+			number: '+2%',
 			title: 'Barreiro (Cais Fluvial)',
 		},
 	},
