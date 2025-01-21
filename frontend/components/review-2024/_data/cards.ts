@@ -327,11 +327,11 @@ export const allCardsData: Review2024CardSchema[] = [
 			text: '#000000',
 		},
 		content: {
-			description: 'Ao longo de 2024, transportámos 68 982 369 (68.9 Milhões) de passageiros até Lisboa. Isto representou um crescimento de 21.28%, face a 2024. \n\n Estas foram as 3 linhas que se destacaram na ligação à cidade: \n Top 1 - A linha 4702  teve um crescimento de 571%. \n Top 2- A linha 4705 teve um crescimento de 142%. \n Top 3 -  A linha 2134 teve um crescimento de 111%',
-			line_ids: ['4702', '4705', '2134'],
+			description: 'Ao longo de 2024, transportámos 68 982 369 (68.9 Milhões) de passageiros até Lisboa. Isto representou um crescimento de 21.28%, face a 2024. \n\n Estas foram as 3 linhas que se destacaram na ligação à cidade: \n Top 1 - A linha 2711  teve um crescimento de 56% (mais 1,9 Milhões de passageiros). \n Top 2- A linha 1715 teve um crescimento de 33% (mais 2,2 Milhões de passageiros). \n Top 3 -  A linha 4701 teve um crescimento de 50% (mais 540 mil passageiros)',
+			line_ids: ['2711', '1715', '4701'],
 			lottie_src: '/assets/review-2024/animations/tops/lines_growth.json',
-			number_legend: 'linhas com maior taxa de crescimento ao longo de 2024',
-			number_value: '4702|4705|2134',
+			number_legend: 'linhas de ligações a Lisboa com maior taxa de crescimento, ao longo de 2024',
+			number_value: '2711|1715|4701',
 			title: 'Crescem depressa!',
 		},
 		header: {
