@@ -30,10 +30,16 @@ export function NewsDetailHeader({ newsData }) {
 		);
 	}
 
+	//
+	// C. Transform Data
+	const formattedDate = newsData?.publish_date?.endsWith('Z')
+		? newsData.publish_date
+		: `${newsData.publish_date}Z`;
+
 	return (
 		<Section withBottomDivider withGap withPadding>
 			<h1 className={styles.title}>{newsData?.title || 'title'}</h1>
-			<p className={styles.publishDate}>{t('publish_date', { value: newsData?.date })}</p>
+			<p className={styles.publishDate}>{t('publish_date', { value: new Date(formattedDate) })}</p>
 		</Section>
 	);
 
