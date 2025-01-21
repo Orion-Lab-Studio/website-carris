@@ -3,9 +3,11 @@
 import { NextArrivals } from '@/components/common/NextArrivals';
 import { LineDisplay } from '@/components/lines/LineDisplay';
 import { useLocationsContext } from '@/contexts/Locations.context';
+import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 import { Arrival, ArrivalStatus } from '@/types/stops.types';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
 import { useCallback, useMemo } from 'react';
 
 import styles from './styles.module.css';
@@ -28,7 +30,8 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 	const t = useTranslations('stops.StopsDetailContentTimetableRow');
 	const stopsDetailContext = useStopsDetailContext();
 	const locationsContext = useLocationsContext();
-
+	const operationalDayContext = useOperationalDayContext();
+	const selectedDay = operationalDayContext.data.selected_day;
 	//
 	// B. Transform data
 
@@ -78,7 +81,9 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 
 			{isSelected && (
 				<div className={styles.details}>
-
+					<div className={styles.linkContainer}>
+						<Link href={`/lines/${thisPattern.short_name}?&day=${selectedDay}&active_pattern_id=${thisPattern?.id}`} target="_blank"><p className={styles.link}>Percurso Completo</p></Link>
+					</div>
 					{thisPattern.locality_ids.length > 0 && (
 						<div className={styles.localitiesListWrapper}>
 							<p className={styles.localitiesLabel}>{t('localities.label')}</p>

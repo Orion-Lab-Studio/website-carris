@@ -122,3 +122,21 @@
 .localityName {
   color: var(--color-system-text-200);
 }
+
+
+/***/
+/* Redirect Link */
+.linkContainer{
+	width: fit-content;
+}
+
+.link{
+	font-size: 12px;
+	color: var(--color-system-text-200);
+	font-weight: 400
+}
+
+.link:hover{
+	color: var(--color-system-text-300);
+	text-decoration: underline;
+}
