@@ -295,28 +295,28 @@ export const allCardsData: Review2024CardSchema[] = [
 		},
 	},
 
-	{
-		_group: 'tops',
-		_id: 'lines_growth',
-		_type: 'lines',
-		colors: {
-			border: '#FFDD00',
-			primary: '#FFFFFF',
-			text: '#5A5A64',
-		},
-		content: {
-			description: 'Ranking. \n Top 1 - A linha 4702  teve um crescimento de 571%. \n Top 2- A linha 4705 teve um crescimento de 142%. \n Top 3 -  A linha 2134 teve um crescimento de 111%',
-			line_ids: ['4702', '4705', '2134'],
-			lottie_src: '/assets/review-2024/animations/tops/lines_growth.json',
-			number_legend: 'linhas com maior taxa de crescimento ao longo de 2024',
-			number_value: '4702|4705|2134',
-			title: 'Crescem depressa!',
-		},
-		header: {
-			number: '',
-			title: 'Crescimento Linhas',
-		},
-	},
+	// {
+	// 	_group: 'tops',
+	// 	_id: 'lines_growth',
+	// 	_type: 'lines',
+	// 	colors: {
+	// 		border: '#FFDD00',
+	// 		primary: '#FFFFFF',
+	// 		text: '#5A5A64',
+	// 	},
+	// 	content: {
+	// 		description: 'Ranking. \n Top 1 - A linha 4702  teve um crescimento de 571%. \n Top 2- A linha 4705 teve um crescimento de 142%. \n Top 3 -  A linha 2134 teve um crescimento de 111%',
+	// 		line_ids: ['4702', '4705', '2134'],
+	// 		lottie_src: '/assets/review-2024/animations/tops/lines_growth.json',
+	// 		number_legend: 'linhas com maior taxa de crescimento ao longo de 2024',
+	// 		number_value: '4702|4705|2134',
+	// 		title: 'Crescem depressa!',
+	// 	},
+	// 	header: {
+	// 		number: '',
+	// 		title: 'Crescimento Linhas',
+	// 	},
+	// },
 
 	{
 		_group: 'tops',
