@@ -2,6 +2,7 @@
 
 import { NextArrivals } from '@/components/common/NextArrivals';
 import { LineDisplay } from '@/components/lines/LineDisplay';
+import { StopsDebugDetail } from '@/components/stops/StopDebugDetail';
 import { useDebugContext } from '@/contexts/Debug.context';
 import { useLocationsContext } from '@/contexts/Locations.context';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
@@ -9,7 +10,6 @@ import { Arrival, ArrivalStatus } from '@/types/stops.types';
 import { useTranslations } from 'next-intl';
 import { useCallback, useMemo } from 'react';
 
-import { StopsDebugDetail } from '../StopDebugDetail';
 import styles from './styles.module.css';
 
 /* * */
@@ -79,29 +79,27 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 				/>
 			</div>
 
+			{isSelected && debugContext.flags.is_debug_mode && (
+				<div className={styles.details}>
+					<StopsDebugDetail arrivalData={arrivalData} />
+				</div>
+			)}
+
 			{isSelected && (
 				<div className={styles.details}>
-
 					{thisPattern.locality_ids.length > 0 && (
-						<>
-							{debugContext.flags.is_debug_mode && (
-								<StopsDebugDetail data={arrivalData} stop={stopsDetailContext.data.active_stop_id} />
-							)}
-							<div className={styles.localitiesListWrapper}>
-
-								<p className={styles.localitiesLabel}>{t('localities.label')}</p>
-								<p>
-									{thisPattern.locality_ids.map((localityId, index) => (
-										<span key={index}>
-											{index > 0 && <span className={styles.localitySeparator}> • </span>}
-											<span className={styles.localityName}>{locationsContext.actions.getLocalityById(localityId)?.name}</span>
-										</span>
-									))}
-								</p>
-							</div>
-						</>
+						<div className={styles.localitiesListWrapper}>
+							<p className={styles.localitiesLabel}>{t('localities.label')}</p>
+							<p>
+								{thisPattern.locality_ids.map((localityId, index) => (
+									<span key={index}>
+										{index > 0 && <span className={styles.localitySeparator}> • </span>}
+										<span className={styles.localityName}>{locationsContext.actions.getLocalityById(localityId)?.name}</span>
+									</span>
+								))}
+							</p>
+						</div>
 					)}
-
 				</div>
 			)}
 

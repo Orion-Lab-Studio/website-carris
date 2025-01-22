@@ -1,27 +1,27 @@
-import { Arrival } from '@/types/stops.types';
+/* * */
+
+import { CopyBadge } from '@/components/common/CopyBadge';
+import { type Arrival } from '@/types/stops.types';
 
 import styles from './styles.module.css';
-/* * */
-interface Props {
-	data: Arrival
-	stop: string
-}
+
 /* * */
 
-export function StopsDebugDetail({ data, stop }: Props) {
+interface Props {
+	arrivalData: Arrival
+}
+
+/* * */
+
+export function StopsDebugDetail({ arrivalData }: Props) {
 	return (
-		<>
-			<div className={styles.container}>
-				<ul className={styles.unstyled}>
-					<li><p>STOP_ID: {stop || 'NULL'}</p></li>
-					<li><p>TRIP_ID: {data.trip_id || 'NULL'}</p></li>
-					<li><p>STOP_SEQ: {data.stop_sequence || 'NULL'}</p></li>
-					<li><p>VEHICLE_ID: {data.vehicle_id || 'NULL'}</p></li>
-					<li><p>OBSERVADO: {data.observed_arrival || 'NULL'}</p></li>
-					<li><p>ESTIMADO: {data.estimated_arrival || 'NULL'}</p></li>
-					<li><p>PLANEADO: {data.scheduled_arrival || 'NULL'}</p></li>
-				</ul>
-			</div>
-		</>
+		<div className={styles.container}>
+			<CopyBadge label={`Trip ID: ${arrivalData.trip_id || 'NULL'}`} value={arrivalData.trip_id || 'NULL'} />
+			<CopyBadge label={`Stop Sequence: ${arrivalData.stop_sequence || 'NULL'}`} value={arrivalData.stop_sequence || 'NULL'} />
+			<CopyBadge label={`Vehicle ID: ${arrivalData.vehicle_id || 'NULL'}`} value={arrivalData.vehicle_id || 'NULL'} />
+			<CopyBadge label={`Planeado: ${arrivalData.scheduled_arrival || 'NULL'} (${arrivalData.scheduled_arrival_unix || 'NULL'})`} value={arrivalData.scheduled_arrival_unix || 'NULL'} />
+			<CopyBadge label={`Estimado: ${arrivalData.estimated_arrival || 'NULL'} (${arrivalData.estimated_arrival_unix || 'NULL'})`} value={arrivalData.estimated_arrival_unix || 'NULL'} />
+			<CopyBadge label={`Observado: ${arrivalData.observed_arrival || 'NULL'} (${arrivalData.observed_arrival_unix || 'NULL'})`} value={arrivalData.observed_arrival_unix || 'NULL'} />
+		</div>
 	);
 }

@@ -1,7 +1,7 @@
 /* * */
 
 import { CopyBadge } from '@/components/common/CopyBadge';
-import { Pattern } from '@carrismetropolitana/api-types/network';
+import { type Pattern } from '@carrismetropolitana/api-types/network';
 
 import styles from './styles.module.css';
 
