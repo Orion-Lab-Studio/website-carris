@@ -10,13 +10,13 @@ import { Surface } from '@/components/layout/Surface';
 import { LineBadge } from '@/components/lines/LineBadge';
 import { SelectActivePatternGroup } from '@/components/lines/SelectActivePatternGroup';
 // import { SelectActivePatternGroupExplainer } from '@/components/lines/SelectActivePatternGroupExplainer';
+import { LineDebugDetail } from '@/components/lines/LineDebugDetail';
 import { useDebugContext } from '@/contexts/Debug.context';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import toast from '@/utils/toast';
 import { useTranslations } from 'next-intl';
 
-import { LineDebugDetail } from '../LineDebugDetail';
 import styles from './styles.module.css';
 
 /* * */
@@ -76,8 +76,8 @@ export function LinesDetailHeader() {
 
 				<Section withPadding>
 					{/* <div className={styles.patternSelectorExplainerWrapper}>
-					<SelectActivePatternGroupExplainer />
-				</div> */}
+						<SelectActivePatternGroupExplainer />
+					</div> */}
 					<div className={styles.container}>
 						<div className={styles.operationalDaySelectorWrapper}>
 							<SelectOperationalDay />
@@ -90,13 +90,18 @@ export function LinesDetailHeader() {
 
 			</Surface>
 
-			<Surface variant={debugContext.flags.is_debug_mode ? 'debug' : 'default'}>
-				{debugContext.flags.is_debug_mode && (
+			{debugContext.flags.is_debug_mode && (
+				<Surface variant="debug">
 					<Section withPadding>
-						<LineDebugDetail line_color={linesDetailContext.data.line.color} pattern_id={linesDetailContext.data.active_pattern} total_stops={totalStops} />
+						<LineDebugDetail
+							activePattern={linesDetailContext.data.active_pattern}
+							lineColor={linesDetailContext.data.line.color}
+							totalStops={totalStops}
+						/>
 					</Section>
-				)}
-			</Surface>
+				</Surface>
+			)}
+
 		</>
 	);
 

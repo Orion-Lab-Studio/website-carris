@@ -1,22 +1,5 @@
 .container {
-    font-family: var(--font-family-monospace);
-    font-weight: var(--font-weight-bold);
-    font-size: 12px;
-    line-height: 1;
-    color: var(--color-system-text-300);
-    text-align: left;
-}
-
-.unstyled {
-    list-style-type: none;
-    display: contents;
-}
-
-.unstyled>li {
-    border-radius: 20px;
-    background-color: var(--color-system-background-200);
-    width: fit-content;
-    margin: 0 0 0 5px;
-    padding: 5px;
-    display: inline-block;
+	display: flex;
+	flex-flow: row wrap;
+	gap: var(--size-spacing-10);
 }

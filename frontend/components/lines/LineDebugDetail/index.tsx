@@ -1,26 +1,29 @@
+/* * */
+
+import { CopyBadge } from '@/components/common/CopyBadge';
 import { Pattern } from '@carrismetropolitana/api-types/network';
 
 import styles from './styles.module.css';
-/* * */
-interface Props {
-	line_color: string
-	pattern_id: null | Pattern
-	total_stops: number | undefined
-}
+
 /* * */
 
-export function LineDebugDetail({ line_color, pattern_id, total_stops }: Props) {
+interface Props {
+	activePattern: null | Pattern
+	lineColor: string
+	totalStops: number | undefined
+}
+
+/* * */
+
+export function LineDebugDetail({ activePattern, lineColor, totalStops }: Props) {
 	return (
-		<>
-			<div className={styles.container}>
-				<ul className={styles.unstyled}>
-					<li><p>PATTERN_ID: {pattern_id?.id || 'NULL'}</p></li>
-					<li><p>DIRECTION:  {pattern_id?.direction_id || 'NULL'}</p></li>
-					<li><p>HEADSIGN: {pattern_id?.headsign || 'NULL'}</p></li>
-					<li><p>LINE_COLOR: {line_color || 'NULL'}</p></li>
-					<li><p>TOTAL STOPS: {total_stops || 'NULL'}</p></li>
-				</ul>
-			</div>
-		</>
+		<div className={styles.container}>
+			<CopyBadge label={`Pattern ID: ${activePattern?.id || 'NULL'}`} value={activePattern?.id || 'NULL'} />
+			<CopyBadge label={`Direction ID: ${activePattern?.direction_id || 'NULL'}`} value={activePattern?.direction_id || 'NULL'} />
+			<CopyBadge label={`Headsign: ${activePattern?.headsign || 'NULL'}`} value={activePattern?.headsign || 'NULL'} />
+			<CopyBadge label={`Line Color: ${lineColor}`} value={lineColor} />
+			<CopyBadge label={`Total Stops: ${totalStops}`} value={totalStops || -1} />
+			<CopyBadge label={`Pattern Version ID: ${activePattern?.version_id || 'NULL'}`} value={activePattern?.version_id || 'NULL'} />
+		</div>
 	);
 }
