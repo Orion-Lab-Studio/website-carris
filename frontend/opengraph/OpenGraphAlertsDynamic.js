@@ -3,13 +3,15 @@ export default function OpenGraphAlertsDynamic({ alertData }) {
 	// A. Render components
 	return (
 		<div style={{ backgroundColor: '#fff', display: 'flex', height: '100%', width: '100%' }}>
-			<OpenGraphAlertTitle />
+			<OpenGraphAlertTitle alert={alertData} />
 		</div>
 	);
 }
 
-function OpenGraphAlertTitle() {
+function OpenGraphAlertTitle({ alert }) {
+	console.log('This is the alert: ', alert);
+
 	return (
-		<p>Eu sou um alerta </p>
+		<p>{alert}</p>
 	);
 }

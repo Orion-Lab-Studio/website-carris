@@ -1,7 +1,7 @@
 /* * */
 
-import CarrisMetropolitanaLogo from '@/components/CarrisMetropolitanaLogo/CarrisMetropolitanaLogo';
-import FacilityIcon from '@/components/Facilities/FacilityIcon';
+import CMetropolitanaLogoLight from '@/components/common/CMetropolitanaLogoLight';
+import FacilityIcon from '@/components/facilities/FacilityIcon';
 import cutStringAtLength from '@/services/cutStringAtLength';
 import parseStopLocationName from '@/services/parseStopLocationName';
 
@@ -46,7 +46,6 @@ export default function OpenGraphStopsDynamic({ allLinesData, stopData }) {
 			facilitiesIconSize = 100;
 			break;
 	}
-
 	if (allLinesData.length - availableSlotsForLines === 1) availableSlotsForLines++;
 
 	const extraHiddenLinesAmount = allLinesData.length - availableSlotsForLines;
@@ -57,7 +56,7 @@ export default function OpenGraphStopsDynamic({ allLinesData, stopData }) {
 	return (
 		<div style={{ alignItems: 'flex-start', backgroundColor: '#fff', display: 'flex', flexDirection: 'column', height: '100%', justifyContent: 'flex-start', padding: 50, width: '100%' }}>
 			<div style={{ alignItems: 'center', display: 'flex', justifyContent: 'space-between', width: '100%' }}>
-				<CarrisMetropolitanaLogo height={130} />
+				<CMetropolitanaLogoLight height={130} />
 				<OpenGraphStopId id={stopData.id} />
 			</div>
 

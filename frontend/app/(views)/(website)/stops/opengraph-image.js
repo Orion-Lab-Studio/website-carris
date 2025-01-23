@@ -1,9 +1,9 @@
 /* * */
 
-import OpenGraphAlertsDefault from '@/opengraph/OpenGraphAlertsDefault';
-import OpenGraphAlertsDynamic from '@/opengraph/OpenGraphAlertsDynamic';
+import OpenGraphStopsDefault from '@/opengraph/OpenGraphStopsDefault';
 import fs from 'fs';
 import { ImageResponse } from 'next/og';
+
 /* * */
 
 export const alt = 'Mais sobre esta Notícia';
@@ -12,10 +12,10 @@ export const contentType = 'image/png';
 
 /* * */
 
-export default async function Image({ params }) {
-	//
+export default async function Image() {
 	//
 	// A. Setup fonts
+
 	const customFonts = [
 		{ data: fs.readFileSync(`${process.cwd()}/public/fonts/Inter-Medium.ttf`).buffer, name: 'Inter', style: 'normal', weight: 500 },
 		{ data: fs.readFileSync(`${process.cwd()}/public/fonts/Inter-SemiBold.ttf`).buffer, name: 'Inter', style: 'normal', weight: 600 },
@@ -23,18 +23,9 @@ export default async function Image({ params }) {
 	];
 
 	//
-	// B. Fetch data
-	const alertData = await fetch(`${process.env.NEXT_PUBLIC_URL}/alerts/${params.alert_id}`).then(res => res.text());
-	//
-	// C. Render default component
-	if (params.length === 0 && !params.news_id) {
-		return new ImageResponse(<OpenGraphAlertsDefault />, { ...size, fonts: customFonts });
-	}
+	// B. Render default component
 
-	//
-	// D. Render dynamic component
-
-	return new ImageResponse(<OpenGraphAlertsDynamic alertData={alertData} />, { ...size, fonts: customFonts });
+	return new ImageResponse(<OpenGraphStopsDefault />, { ...size, fonts: customFonts });
 
 	//
 }

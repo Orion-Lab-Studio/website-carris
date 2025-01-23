@@ -9,7 +9,7 @@ export default function OpenGraphNewsDefault() {
 			<div style={{ alignItems: 'flex-start', backgroundColor: '#fff', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', padding: 60 }}>
 				<CMetropolitanaLogoLight height={180} />
 				<div style={{ alignItems: 'flex-start', display: 'flex', flexDirection: 'column', gap: 20, justifyContent: 'flex-start', marginLeft: 10, marginTop: 80 }}>
-					<div style={{ borderRadius: 999, color: '#000', display: 'flex', fontSize: 60, fontWeight: 700, lineHeight: 1.1 }}>xNotícias</div>
+					<div style={{ borderRadius: 999, color: '#000', display: 'flex', fontSize: 60, fontWeight: 700, lineHeight: 1.1 }}>Notícias</div>
 					<div style={{ borderRadius: 999, color: '#919191', display: 'flex', fontSize: 50, fontWeight: 600, lineHeight: 1.1 }}>News</div>
 				</div>
 			</div>
