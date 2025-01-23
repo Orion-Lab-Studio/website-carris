@@ -1,6 +1,6 @@
 /* * */
 
-import OpenGraphNewsDefault from '@/opengraph/OpenGraphNewsDefault';
+import OpenGraphLinesDefault from '@/opengraph/OpenGraphNewsDefault';
 import fs from 'fs';
 import { ImageResponse } from 'next/og';
 
@@ -25,7 +25,7 @@ export default async function Image() {
 	//
 	// B. Render default component
 
-	return new ImageResponse(<OpenGraphNewsDefault />, { ...size, fonts: customFonts });
+	return new ImageResponse(<OpenGraphLinesDefault />, { ...size, fonts: customFonts });
 
 	//
 }

@@ -1,7 +1,9 @@
 /* * */
 
 import CMetropolitanaLogoLight from '@/components/common/CMetropolitanaLogoLight';
+import FacilityIcon from '@/components/Facilities/FacilityIcon';
 import cutStringAtLength from '@/services/cutStringAtLength';
+import parseStopLocationName from '@/services/parseStopLocationName';
 
 /* * */
 
@@ -68,7 +70,7 @@ export default function OpenGraphLinesDynamic({ lineData }) {
 				{/* {lineData.facilities.length > 0 && (
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', justifyContent: 'flex-start', gap: 25 }}>
             {lineData.facilities.map((item) => (
-              <FacilitsyIcon key={item} name={item} size={facilitiesIconSize} />
+              <FacilityIcon key={item} name={item} size={facilitiesIconSize} />
             ))}
           </div>
         )} */}
