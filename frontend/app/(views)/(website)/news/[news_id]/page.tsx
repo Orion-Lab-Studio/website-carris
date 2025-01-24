@@ -24,12 +24,12 @@ export async function generateMetadata({ params }) {
 	catch (error) {
 		console.error('There was an error loading the page metadata: ', error);
 		return {
-			description: 'TESTE',
+			description: 'Notícias',
 			openGraph: {
-				description: 'TESTE',
-				title: 'CMetropolitana - TESTE',
+				description: 'Notícias',
+				title: 'CMetropolitana - Notícias',
 			},
-			title: 'TESTE',
+			title: 'Notícias',
 		};
 	}
 }
