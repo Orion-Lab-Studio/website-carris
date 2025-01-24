@@ -8,8 +8,6 @@ export async function generateMetadata({ params }) {
 	const data = await params;
 	try {
 		const id = await data.news_id;
-		console.log('meh', id);
-
 		const newsData = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/news/${id}`).then(res => res.json());
 
 		return {

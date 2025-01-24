@@ -5,35 +5,33 @@ import { StopsDetailContextProvider } from '@/contexts/StopsDetail.context';
 
 /* * */
 
-// export async function generateMetadata({ params }) {
-// 	const data = await params;
-// 	try {
-// 		const id = await data.news_id;
-// 		console.log('meh', id);
-
-// 		const newsData = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/news/${id}`).then(res => res.json());
-
-// 		return {
-// 			description: newsData.title,
-// 			openGraph: {
-// 				description: newsData.title,
-// 				title: newsData.title,
-// 			},
-// 			title: newsData.title,
-// 		};
-// 	}
-// 	catch (error) {
-// 		console.error('There was an error loading the page metadata: ', error);
-// 		return {
-// 			description: 'TESTE',
-// 			openGraph: {
-// 				description: 'TESTE',
-// 				title: 'CMetropolitana - TESTE',
-// 			},
-// 			title: 'TESTE',
-// 		};
-// 	}
-// }
+export async function generateMetadata({ params }) {
+	const data = await params;
+	try {
+		const id = await data.stop_id;
+		const stopData = await fetch(`https://api.carrismetropolitana.pt/stops/${id}`).then(res => res.json());
+		const stopAddress = stopData.name + ', ' + stopData.municipality_name;
+		return {
+			description: stopAddress,
+			openGraph: {
+				description: stopAddress,
+				title: stopData.short_name,
+			},
+			title: stopData.short_name,
+		};
+	}
+	catch (error) {
+		console.error('There was an error loading the page metadata: ', error);
+		return {
+			description: 'Paragens',
+			openGraph: {
+				description: 'Paragens',
+				title: 'CMetropolitana - Paragens',
+			},
+			title: 'Paragens',
+		};
+	}
+}
 
 export default async function Page({ params }) {
 	//
