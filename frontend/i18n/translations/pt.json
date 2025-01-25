@@ -398,7 +398,7 @@
 			"iphone": "Apple iPhone",
 			"subheading": "Faça o download da app navegante® para iOS ou Android."
 		},
-		"AppNaveganteStartupMessageDefault": {
+		"AppNaveganteStartup20250115": {
 			"actions": {
 				"update_android": "Atualizar na Play Store",
 				"update_ios": "Atualizar na App Store"
@@ -406,6 +406,12 @@
 			"heading": "Nova versão disponível",
 			"subheading": "Por favor atualize a app navegante® para a versão mais recente.",
 			"text": "A nova versão inclui otimizações de desempenho e correções de erros para uma melhor experiência de utilização."
+		},
+		"AppNaveganteStartupWelcome": {
+			"actions": {
+				"close": "Fechar",
+				"learn_more": "Saber mais"
+			}
 		}
 	},
 	"cards": {
