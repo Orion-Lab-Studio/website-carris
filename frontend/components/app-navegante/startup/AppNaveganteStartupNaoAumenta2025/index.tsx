@@ -11,13 +11,13 @@ import styles from './styles.module.css';
 
 /* * */
 
-export function AppNaveganteStartupWelcome() {
+export function AppNaveganteStartupNaoAumenta2025() {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('app-navegante.AppNaveganteStartupWelcome');
+	const t = useTranslations('app-navegante.AppNaveganteStartupNaoAumenta2025');
 	const environmentContext = useEnvironmentContext();
 
 	//
