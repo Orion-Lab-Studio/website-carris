@@ -40,6 +40,6 @@
 
 .label {
 	font-size: 22px;
-    font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-semibold);
 	line-height: 1;
 }
