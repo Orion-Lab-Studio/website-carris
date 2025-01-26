@@ -2,10 +2,10 @@
 
 /* * */
 
+import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
 import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { URLS } from '@/settings/urls.settings';
-import { Button } from '@mantine/core';
-import { IconArrowBigUpLinesFilled } from '@tabler/icons-react';
+import { Button, Image } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 
@@ -23,15 +23,37 @@ export function AppNaveganteStartup20250115() {
 	const environmentContext = useEnvironmentContext();
 
 	//
-	// B. Render components
+	// B. Handle actions
+
+	const handleClose = () => {
+		if (environmentContext.data.value === 'app-ios') {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(window as any).webkit.messageHandlers.closeButtonClicked.postMessage('');
+		}
+		if (environmentContext.data.value === 'app-android') {
+			// eslint-disable-next-line @typescript-eslint/no-explicit-any
+			(window as any).Android.closeButtonClicked();
+		}
+	};
+
+	//
+	// C. Render components
 
 	return (
 		<div className={styles.container}>
 			<div className={styles.introWrapper}>
-				<IconArrowBigUpLinesFilled className={styles.icon} />
+				<ThemeSwitch
+					dark={<Image className={styles.icon} src="/assets/app-navegante/startup/_default/update-icon-dark.svg" />}
+					light={<Image className={styles.icon} src="/assets/app-navegante/startup/_default/update-icon-light.svg" />}
+				/>
 				<h1 className={styles.heading}>{t('heading')}</h1>
-				<h2 className={styles.subheading}>{t('subheading')}</h2>
-				<p className={styles.text}>{t('text')}</p>
+				<p className={styles.text}>{t('paragraph_1')}</p>
+				<div className={styles.textWrapper}>
+					<p className={styles.text}>{t('paragraph_2')}</p>
+					<p className={styles.text}>{t('paragraph_3')}</p>
+					<p className={styles.text}>{t('paragraph_4')}</p>
+				</div>
+				<p className={styles.text}>{t('paragraph_5')}</p>
 			</div>
 			<div className={styles.actionsWrapper}>
 				{environmentContext.data.value === 'app-navegante-android' && (
@@ -44,6 +66,9 @@ export function AppNaveganteStartup20250115() {
 						{t('actions.update_ios')}
 					</Button>
 				)}
+				<Button onClick={handleClose} variant="secondary">
+					{t('actions.close')}
+				</Button>
 			</div>
 		</div>
 	);
