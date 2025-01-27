@@ -1,13 +1,13 @@
 /* * */
 
 import { NewsList } from '@/components/news/NewsList';
-import { Metadata } from 'next';
+import { type Metadata } from 'next';
 
 /* * */
 
 export const metadata: Metadata = {
-	description: 'Todas as noticias da carris metropolitana',
-	title: 'CMetropolitana - Notícias',
+	description: 'Todas as noticias da CMetropolitana.',
+	title: 'CMetropolitana | Notícias',
 };
 
 /* * */
