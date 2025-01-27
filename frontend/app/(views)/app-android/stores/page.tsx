@@ -1,6 +1,6 @@
 /* * */
 
-import StoresList from '@/components/stores/StoresList';
+import { StoresList } from '@/components/stores/StoresList';
 
 /* * */
 

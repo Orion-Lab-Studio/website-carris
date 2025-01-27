@@ -6,21 +6,10 @@ import { LinesDetailContextProvider } from '@/contexts/LinesDetail.context';
 /* * */
 
 export default async function Page({ params }) {
-	//
-
-	//
-	// A. Setup variables
-
 	const { line_id } = await params;
-
-	//
-	// B. Render components
-
 	return (
 		<LinesDetailContextProvider lineId={line_id}>
 			<LinesDetail />
 		</LinesDetailContextProvider>
 	);
-
-	//
 }

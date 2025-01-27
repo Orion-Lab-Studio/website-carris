@@ -41,21 +41,10 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 /* * */
 
 export default async function Page({ params }) {
-	//
-
-	//
-	// A. Setup variables
-
 	const { stop_id } = await params;
-
-	//
-	// B. Render components
-
 	return (
 		<StopsDetailContextProvider stopId={stop_id}>
 			<StopsDetail />
 		</StopsDetailContextProvider>
 	);
-
-	//
 }

@@ -33,17 +33,6 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 /* * */
 
 export default async function Page({ params }) {
-	//
-
-	//
-	// A. Setup variables
-
 	const { news_id } = await params;
-
-	//
-	// B. Render components
-
 	return <NewsDetail newsId={news_id} />;
-
-	//
 }

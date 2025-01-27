@@ -1,11 +1,9 @@
 /* * */
 
-import StoresList from '@/components/stores/StoresList';
+import { StoresList } from '@/components/stores/StoresList';
 
 /* * */
 
 export default function Page() {
-	return (
-		<StoresList />
-	);
+	return <StoresList />;
 }

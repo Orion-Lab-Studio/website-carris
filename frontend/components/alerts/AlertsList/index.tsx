@@ -1,7 +1,7 @@
 /* * */
 
-import AlertsListGroup from '@/components/alerts/AlertsListGroup';
-import AlertsListToolbar from '@/components/alerts/AlertsListToolbar';
+import { AlertsListGroup } from '@/components/alerts/AlertsListGroup';
+import { AlertsListToolbar } from '@/components/alerts/AlertsListToolbar';
 
 /* * */
 
