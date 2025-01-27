@@ -22,7 +22,7 @@ const inter = Inter({
 /* * */
 
 export const metadata = {
-	description: 'Horários e Paragens',
+	description: 'Horários e Paragens em Tempo Real',
 	metadataBase: process.env.NEXT_PUBLIC_URL ? new URL(process.env.NEXT_PUBLIC_URL) : '',
 	title: 'CMetropolitana',
 };
