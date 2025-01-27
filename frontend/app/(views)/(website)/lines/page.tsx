@@ -5,14 +5,13 @@ import { Metadata } from 'next';
 
 /* * */
 
-export default function Page() {
-	return (
-		<LinesList />
-	);
-}
 export const metadata: Metadata = {
-	openGraph: {
-		description: 'Linhas',
-		title: 'CMetropolitana - Linhas',
-	},
+	description: 'Descubra as linhas de autocarro da CMetropolitana',
+	title: 'CMetropolitana | Linhas',
 };
+
+/* * */
+
+export default function Page() {
+	return <LinesList />;
+}
