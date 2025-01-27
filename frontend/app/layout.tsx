@@ -24,7 +24,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
 	description: 'Horários e Paragens em Tempo Real',
-	metadataBase: process.env.NEXT_PUBLIC_URL ? new URL(process.env.NEXT_PUBLIC_URL) : null,
+	metadataBase: process.env.NEXT_PUBLIC_URL ? new URL(process.env.NEXT_PUBLIC_URL) : new URL(`http://localhost:${process.env.PORT || 3000}`),
 	title: 'CMetropolitana',
 };
 
