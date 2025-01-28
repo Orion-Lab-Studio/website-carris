@@ -4,7 +4,7 @@
 		"editor.codeActionsOnSave": {
 			"source.fixAll.stylelint": "explicit"
 		},
-		"editor.defaultFormatter": "stylelint.vscode-stylelint"
+		"editor.defaultFormatter": "vscode.css-language-features"
 	},
 
 	"[typescriptreact]": {
@@ -53,6 +53,32 @@
 		"**/components/**/*.css": "${dirname} (${extname})",
 		"**/components/**/*.js": "${dirname} (${extname})",
 		"**/components/**/*.tsx": "${dirname} (${extname})"
+	},
+	"workbench.colorCustomizations": {
+		"activityBar.activeBackground": "#99184c",
+		"activityBar.background": "#99184c",
+		"activityBar.foreground": "#e7e7e7",
+		"activityBar.inactiveForeground": "#e7e7e799",
+		"activityBarBadge.background": "#0e1c04",
+		"activityBarBadge.foreground": "#e7e7e7",
+		"commandCenter.border": "#e7e7e799",
+		"sash.hoverBorder": "#99184c",
+		"statusBar.background": "#6d1136",
+		"statusBar.foreground": "#e7e7e7",
+		"statusBarItem.hoverBackground": "#99184c",
+		"statusBarItem.remoteBackground": "#6d1136",
+		"statusBarItem.remoteForeground": "#e7e7e7",
+		"titleBar.activeBackground": "#6d1136",
+		"titleBar.activeForeground": "#e7e7e7",
+		"titleBar.inactiveBackground": "#6d113699",
+		"titleBar.inactiveForeground": "#e7e7e799"
+	},
+	"peacock.color": "#6d1136",
+	"[javascript]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
+	},
+	"[json]": {
+		"editor.defaultFormatter": "dbaeumer.vscode-eslint"
 	}
 
 }

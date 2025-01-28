@@ -1,0 +1,43 @@
+/* DATE PICKER / SECTION */
+.datePickerSection {
+    padding-left: var(--size-spacing-100);
+    pointer-events: none;
+}
+
+.datePickerSection svg {
+    width: 22px;
+}
+
+@media (width <=650px) {
+    .datePickerSection svg {
+        width: 20px;
+    }
+}
+
+/*DATE PICKER /PLACEHOLDER*/
+
+.datePickerPlaceholder {
+    color: var(--color-system-text-100);
+}
+
+/* DATE PICKER / INPUT */
+
+.datePickerInput {
+    padding: calc(var(--size-spacing-15) - 15px) var(--size-spacing-15);
+    padding-left: calc(var(--size-spacing-15) + 30px);
+    font-size: 17px;
+    font-weight: var(--font-weight-semibold);
+    line-height: 1;
+    text-align: center;
+    background: var(--color-brand);
+    border: none;
+}
+
+@media (width <=650px) {
+    .datePickerInput {
+        padding-left: calc(var(--size-spacing-15) + 26px);
+        font-size: 14px;
+    }
+}
+
+/* * */
