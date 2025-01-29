@@ -6,7 +6,7 @@ import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
 import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { useStoresListContext } from '@/contexts/StoresList.context';
+import { useVehiclesContext } from '@/contexts/Vehicles.context';
 import { TextInput } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
@@ -19,7 +19,7 @@ export default function Component() {
 	// A. Setup variables
 
 	const t = useTranslations('vehicles.VehiclesListToolbar');
-	const storesContext = useStoresListContext();
+	const vehiclesContext = useVehiclesContext();
 
 	//
 	// B. Transform data
@@ -37,7 +37,7 @@ export default function Component() {
 				<Grid columns="a" withGap>
 					<TextInput placeholder={t('filter_by.search')} />
 				</Grid>
-				<FoundItemsCounter text={t('found_items_counter', { count: storesContext.data.filtered.length })} />
+				<FoundItemsCounter text={t('found_items_counter', { count: vehiclesContext.data.vehicles.length })} />
 			</Section>
 		</Surface>
 	);

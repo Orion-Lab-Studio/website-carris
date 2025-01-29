@@ -5,7 +5,7 @@
 import type { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson';
 
 import { MapView } from '@/components/map/MapView';
-import { useStoresListContext } from '@/contexts/StoresList.context';
+import { useVehiclesContext } from '@/contexts/Vehicles.context';
 import { centerMap } from '@/utils/map.utils';
 import { Layer, Source, useMap } from '@vis.gl/react-maplibre';
 import { useTranslations } from 'next-intl';
@@ -20,26 +20,24 @@ export default function Component() {
 	// A. Setup variables
 
 	const { storesListMap } = useMap();
-	const storesListContext = useStoresListContext();
+	const vehiclesListContext = useVehiclesContext();
 	const t = useTranslations('stores.StoresListMap');
 
 	//
 	// B. Transform data
 
-	const allStoresFeatureCollection: FeatureCollection<Geometry, GeoJsonProperties> | null = useMemo(() => {
-		if (!storesListContext.data.raw.length) return null;
-		const formattedFeatures: Feature<Geometry, GeoJsonProperties>[] = storesListContext.data.raw.map((storeItem) => {
-			const expectedWaitTimeInMinutes = Math.round((storeItem.realtime?.expected_wait_time ?? 0) / 60);
-			const textValue = storeItem.realtime?.current_status !== 'closed' ? t('expected_wait_time', { count: expectedWaitTimeInMinutes }) : '';
+	const allVehiclesCollection: FeatureCollection<Geometry, GeoJsonProperties> | null = useMemo(() => {
+		if (!vehiclesListContext.data.vehicles) return null;
+		const formattedFeatures: Feature<Geometry, GeoJsonProperties>[] = vehiclesListContext.data.vehicles.map((vehicleItem) => {
 			return {
 				geometry: {
-					coordinates: [storeItem.lon, storeItem.lat],
+					coordinates: [vehicleItem.lon, vehicleItem.lat],
 					type: 'Point',
 				},
 				properties: {
-					current_status: storeItem.realtime?.current_status,
+					current_status: vehicleItem.realtime?.current_status,
 					store_id: storeItem.id,
-					text_value: textValue,
+					license_plate: vehicleItem.license_plate,
 				},
 				type: 'Feature',
 			};
@@ -50,19 +48,19 @@ export default function Component() {
 		};
 	}, [storesListContext.data.raw, t]);
 
-	useEffect(() => {
-		if (!allStoresFeatureCollection || !storesListMap) return;
-		centerMap(storesListMap, allStoresFeatureCollection.features);
-	}, [allStoresFeatureCollection, storesListMap]);
+	// useEffect(() => {
+	// 	if (!allStoresFeatureCollection || !storesListMap) return;
+	// 	centerMap(storesListMap, allStoresFeatureCollection.features);
+	// }, [allStoresFeatureCollection, storesListMap]);
 
 	//
 	// C. Handle actions
 
-	const handleMapClick = (event) => {
-		if (event?.features[0]) {
-			storesListContext.actions.updateSelectedStore(event.features[0].properties.store_id);
-		}
-	};
+	// const handleMapClick = (event) => {
+	// 	if (event?.features[0]) {
+	// 		storesListContext.actions.updateSelectedStore(event.features[0].properties.store_id);
+	// 	}
+	// };
 
 	//
 	// D. Render component
@@ -71,14 +69,14 @@ export default function Component() {
 		<MapView
 			id="storesListMap"
 			interactiveLayerIds={['stores-base']}
-			onClick={handleMapClick}
+			// onClick={handleMapClick}
 			primarySourceId="stores"
 		>
 			{allStoresFeatureCollection && (
 				<Source data={allStoresFeatureCollection} id="stores" type="geojson">
 					<Layer
-						id="stores-base"
-						source="stores"
+						id="vehicles-base"
+						source="vechicles"
 						type="symbol"
 						layout={{
 							'icon-allow-overlap': true,
@@ -131,7 +129,6 @@ export default function Component() {
 				</Source>
 			)}
 		</MapView>
+		//
 	);
-
-	//
 }

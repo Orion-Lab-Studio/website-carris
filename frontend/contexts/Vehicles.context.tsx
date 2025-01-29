@@ -2,7 +2,7 @@
 
 /* * */
 
-import type { Vehicle } from '@/types/vehicles.types';
+import type { Vehicle } from '@carrismetropolitana/api-types/vehicles';
 
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import { Routes } from '@/utils/routes';
@@ -16,6 +16,7 @@ interface VehiclesContextState {
 	actions: {
 		getVehicleById: (vehicleId: string) => undefined | Vehicle
 		getVehicleByIdGeoJsonFC: (vehicleId: string) => GeoJSON.FeatureCollection | undefined
+		getVehicleBySearch: (searchData: string) => null | string
 		getVehiclesByLineId: (lineId: string) => Vehicle[]
 		getVehiclesByLineIdGeoJsonFC: (lineId: string) => GeoJSON.FeatureCollection | undefined
 		getVehiclesByPatternId: (patternId: string) => Vehicle[]
@@ -24,6 +25,7 @@ interface VehiclesContextState {
 		getVehiclesByTripIdGeoJsonFC: (tripId: string) => GeoJSON.FeatureCollection | undefined
 	}
 	data: {
+		filtered: Vehicle[]
 		vehicles: Vehicle[]
 	}
 	flags: {
@@ -55,7 +57,7 @@ export const VehiclesContextProvider = ({ children }) => {
 
 	const allVehiclesData = useMemo(() => {
 		const now = DateTime.now().toSeconds();
-		return fetchedVehiclesData?.filter((vehicle: Vehicle) => vehicle.timestamp > now - 180) || [];
+		return fetchedVehiclesData?.filter((vehicle: Vehicle) => vehicle.timestamp ?? 0 > now - 180) || [];
 	}, [fetchedVehiclesData]);
 
 	//
@@ -109,6 +111,17 @@ export const VehiclesContextProvider = ({ children }) => {
 		return collection;
 	};
 
+	const getVehicleBySearch = (searchData: string): Vehicle[] => {
+		return allVehiclesData?.filter();
+	};
+	const getVehicleBySearchFC = (seachData: string): void => {
+		const vehicle = getVehicleBySearch(seachData);
+		if (!vehicle) return;
+		const collection = getBaseGeoJsonFeatureCollection();
+		collection.features.push(transformVehicleDataIntoGeoJsonFeature(vehicle));
+		return collection;
+	};
+
 	//
 	// C. Define context value
 
@@ -116,6 +129,7 @@ export const VehiclesContextProvider = ({ children }) => {
 		actions: {
 			getVehicleById,
 			getVehicleByIdGeoJsonFC,
+			getVehicleBySearch,
 			getVehiclesByLineId,
 			getVehiclesByLineIdGeoJsonFC,
 			getVehiclesByPatternId,
@@ -124,6 +138,7 @@ export const VehiclesContextProvider = ({ children }) => {
 			getVehiclesByTripIdGeoJsonFC,
 		},
 		data: {
+			filtered: allVehiclesData || [],
 			vehicles: allVehiclesData || [],
 		},
 		flags: {
