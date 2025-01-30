@@ -81,12 +81,8 @@ export const NewsListContextProvider = ({ children }) => {
 			});
 		}
 
-		if (filterByDate && filterByTitle) {
-			const date = filterByDate.split('T')[0];
-			const newsByDate = filterResult.filter(newsItem => newsItem.publish_date.includes(date));
-			filterResult = newsByDate.filter((newsItem) => {
-				const titleLowerCase = newsItem.title.toLowerCase();
-				return titleLowerCase.includes(filterByTitle.toLowerCase());
+				const newsItemDate = DateTime.fromISO(newsItem.publish_date);
+				return newsItemDate.hasSame(DateTime.fromJSDate(filterByDate), 'day');
 			});
 		}
 
