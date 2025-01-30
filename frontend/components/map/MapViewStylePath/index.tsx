@@ -95,6 +95,36 @@ export function MapViewStylePath({ presentBeforeId, shapeData = baseGeoJsonFeatu
 						'line-width': ['interpolate', ['linear'], ['zoom'], 10, 4, 20, 12],
 					}}
 				/>
+				<Layer
+					beforeId="default-layer-path-shape-line"
+					id="default-layer-path-shape-padding"
+					source="default-source-path-shape"
+					type="line"
+					layout={{
+						'line-cap': 'round',
+						'line-join': 'round',
+					}}
+					paint={{
+						'line-color': '#ffffff',
+						'line-width': ['interpolate', ['linear'], ['zoom'], 10, 4, 20, 30],
+					}}
+				/>
+				<Layer
+					beforeId="default-layer-path-shape-padding"
+					id="default-layer-path-shape-padding-shadow"
+					source="default-source-path-shape"
+					type="line"
+					layout={{
+						'line-cap': 'round',
+						'line-join': 'round',
+					}}
+					paint={{
+						'line-blur': 15,
+						'line-color': '#000000',
+						'line-opacity': 0.5,
+						'line-width': ['interpolate', ['linear'], ['zoom'], 10, 4, 20, 40],
+					}}
+				/>
 			</Source>
 
 		</>
