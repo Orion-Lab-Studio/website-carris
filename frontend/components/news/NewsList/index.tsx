@@ -34,7 +34,7 @@ export function NewsList() {
 				<BackButton href="/" />
 			</Section>
 
-			<Section heading={t('heading')} withBottomDivider withPadding>
+			<Section heading={t('heading')} withBottomDivider withGap withPadding>
 				<NewsListToolbar />
 			</Section>
 

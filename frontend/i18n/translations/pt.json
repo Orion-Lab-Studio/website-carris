@@ -1035,14 +1035,14 @@
 			"heading": "Todas as Notícias"
 		},
 		"NewsListToolbar": {
-			"DateInput": {
+			"date_input": {
 				"placeholder": "Pesquisar por data"
 			},
-			"SearchInput": {
-				"placeholder": "Pesquisar por titulo"
-			},
 			"found_items_counter": "{count, plural, =0 {Nenhuma notícia encontrada.} one {Encontrada # noticia} other {Encontradas # notícias}}",
-			"heading": "Pesquisar"
+			"heading": "Pesquisar",
+			"search_input": {
+				"placeholder": "Pesquisar por titulo"
+			}
 
 		},
 		"SinglePageHeader": {

@@ -3,11 +3,10 @@
 /* * */
 
 import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
-import { Section } from '@/components/layout/Section';
 import { useNewsListContext } from '@/contexts/NewsList.context';
 import { TextInput } from '@mantine/core';
 import { DatePickerInput } from '@mantine/dates';
-import { IconArrowLoopRight, IconCalendarEvent } from '@tabler/icons-react';
+import { IconCalendarEvent, IconSearch } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
 
@@ -69,24 +68,29 @@ export function NewsListToolbar() {
 
 	return (
 		<>
-			<Section heading={t('heading')} withBottomDivider withPadding>
-				<div className="row-container" style={{ display: 'flex', gap: '1rem', width: '100%' }}>
-					<TextInput leftSection={<IconArrowLoopRight size={20} />} onChange={handleTextInputChange} placeholder={t('SearchInput.placeholder')} type="search" value={textInput || ''} w="100%" />
-					<DatePickerInput
-						classNames={{ input: styles.datePickerInput, placeholder: styles.datePickerPlaceholder, section: styles.datePickerPlaceholder }}
-						dropdownType="modal"
-						leftSection={<IconCalendarEvent />}
-						onChange={handleDateInputChange}
-						placeholder={t('DateInput.placeholder')}
-						size="lg"
-						value={dateInput}
-						valueFormat="DD MMM YYYY"
-						variant="unstyled"
-					/>
-				</div>
-				<FoundItemsCounter text={t('found_items_counter', { count: newsListContext.data.filtered.length })} />
-			</Section>
+			<div className="row-container" style={{ display: 'flex', gap: '1rem', width: '100%' }}>
+				<TextInput
+					leftSection={<IconSearch size={20} />}
+					onChange={handleTextInputChange}
+					placeholder={t('search_input.placeholder')}
+					type="search"
+					value={textInput || ''}
+					w="100%"
+				/>
+				<DatePickerInput
+					classNames={{ input: styles.datePickerInput, placeholder: styles.datePickerPlaceholder, section: styles.datePickerPlaceholder }}
+					dropdownType="modal"
+					leftSection={<IconCalendarEvent />}
+					onChange={handleDateInputChange}
+					placeholder={t('date_input.placeholder')}
+					size="lg"
+					value={dateInput}
+					valueFormat="DD MMM YYYY"
+					variant="unstyled"
+				/>
+			</div>
 
+			<FoundItemsCounter text={t('found_items_counter', { count: newsListContext.data.filtered.length })} />
 		</>
 	);
 
