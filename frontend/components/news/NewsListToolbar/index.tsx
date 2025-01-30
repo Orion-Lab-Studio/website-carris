@@ -72,7 +72,7 @@ export function NewsListToolbar() {
 				<TextInput
 					leftSection={<IconSearch size={20} />}
 					onChange={handleTextInputChange}
-					placeholder={t('search_input.placeholder')}
+					placeholder={t('filters.by_search.placeholder')}
 					type="search"
 					value={textInput || ''}
 					w="100%"
@@ -82,7 +82,7 @@ export function NewsListToolbar() {
 					dropdownType="modal"
 					leftSection={<IconCalendarEvent />}
 					onChange={handleDateInputChange}
-					placeholder={t('date_input.placeholder')}
+					placeholder={t('filters.by_date.placeholder')}
 					size="lg"
 					value={dateInput}
 					valueFormat="DD MMM YYYY"

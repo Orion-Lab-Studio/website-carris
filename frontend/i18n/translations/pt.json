@@ -1035,15 +1035,15 @@
 			"heading": "Todas as Notícias"
 		},
 		"NewsListToolbar": {
-			"date_input": {
-				"placeholder": "Pesquisar por data"
+			"filters": {
+				"by_date": {
+					"placeholder": "Pesquisar por data"
+				},
+				"by_search": {
+					"placeholder": "Pesquisar por titulo"
+				}
 			},
-			"found_items_counter": "{count, plural, =0 {Nenhuma notícia encontrada.} one {Encontrada # noticia} other {Encontradas # notícias}}",
-			"heading": "Pesquisar",
-			"search_input": {
-				"placeholder": "Pesquisar por titulo"
-			}
-
+			"found_items_counter": "{count, plural, =0 {Nenhuma notícia encontrada.} one {Encontrada # noticia.} other {Encontradas # notícias:}}"
 		},
 		"SinglePageHeader": {
 			"publish_date": "Publicada a {value, date, long}"
