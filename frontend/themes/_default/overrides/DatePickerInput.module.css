@@ -13,7 +13,6 @@
 
 .input span {
 	color: var(--color-system-text-300);
-	background-color: blue;
 }
 
 .wrapper[data-with-left-section="true"] .input {

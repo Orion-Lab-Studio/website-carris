@@ -81,7 +81,6 @@ export default createTheme({
 			classNames: () => {
 				let defaultClasses = {
 					input: DatePickerInputOverride.input,
-					placeholder: DatePickerInputOverride.placeholder,
 					section: DatePickerInputOverride.section,
 					wrapper: DatePickerInputOverride.wrapper,
 				};
