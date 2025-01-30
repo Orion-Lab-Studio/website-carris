@@ -1037,10 +1037,10 @@
 		"NewsListToolbar": {
 			"filters": {
 				"by_date": {
-					"placeholder": "Pesquisar por data"
+					"placeholder": "Filtrar por data..."
 				},
 				"by_search": {
-					"placeholder": "Pesquisar por titulo"
+					"placeholder": "Pesquisar por titulo..."
 				}
 			},
 			"found_items_counter": "{count, plural, =0 {Nenhuma notícia encontrada.} one {Encontrada # noticia:} other {Encontradas # notícias:}}"
