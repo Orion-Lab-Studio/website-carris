@@ -78,7 +78,6 @@ export function NewsListToolbar() {
 					w="100%"
 				/>
 				<DatePickerInput
-					classNames={{ input: styles.datePickerInput, placeholder: styles.datePickerPlaceholder, section: styles.datePickerPlaceholder }}
 					dropdownType="modal"
 					leftSection={<IconCalendarEvent />}
 					onChange={handleDateInputChange}
@@ -86,7 +85,6 @@ export function NewsListToolbar() {
 					size="lg"
 					value={dateInput}
 					valueFormat="DD MMM YYYY"
-					variant="unstyled"
 				/>
 			</div>
 
