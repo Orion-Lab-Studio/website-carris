@@ -15,14 +15,16 @@ import { useTranslations } from 'next-intl';
 /* * */
 
 export function NewsList() {
+	//
+
+	//
 	// A. Setup variables
 
 	const t = useTranslations('news.NewsList');
 	const newsListContext = useNewsListContext();
-	const newsData = newsListContext.data.filtered;
 
 	//
-	// D. Render Components
+	// B. Render Components
 
 	return (
 		<Surface>
@@ -30,11 +32,11 @@ export function NewsList() {
 				<BackButton href="/" />
 			</Section>
 			<NewsListToolbar />
-			{(!newsListContext.flags.is_loading && newsData) && (
+			{(!newsListContext.flags.is_loading && newsListContext.data.filtered) && (
 				<Section heading={t('heading')} withPadding>
 					<Grid columns="abcd" withGap>
-						{newsData
-							? newsData?.map(newsItem => (
+						{newsListContext.data.filtered
+							? newsListContext.data.filtered?.map(newsItem => (
 								<NewsCard
 									key={newsItem._id}
 									_id={newsItem._id}
@@ -51,5 +53,6 @@ export function NewsList() {
 			)}
 		</Surface>
 	);
+
 	//
 }

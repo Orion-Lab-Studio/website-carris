@@ -1,9 +1,11 @@
 'use client';
+
 /* * */
 
 import { NewsData } from '@/types/news.types';
 import { createContext, useContext, useEffect, useState } from 'react';
 import useSWR from 'swr';
+
 /* * */
 
 interface NewsListContextState {
@@ -47,10 +49,12 @@ export const NewsListContextProvider = ({ children }) => {
 	const [dataFilteredState, setDataFilteredState] = useState<NewsData[]>([]);
 	const [filterByTitle, setFilterByTitle] = useState<NewsListContextState['filters']['by_title']>(null);
 	const [filterByDate, setFilterByDate] = useState<NewsListContextState['filters']['by_date']>(null);
+
 	//
 	// B. Fetch data
 
 	const { data: allNewsData, isLoading: allNewsLoading } = useSWR<NewsData[], Error>(`api/news`, { refreshInterval: 30000 });
+
 	//
 	// C. Transform data
 
@@ -117,11 +121,6 @@ export const NewsListContextProvider = ({ children }) => {
 			updateFilterByDate,
 			updateFilterByTitle,
 		},
-		// counters: {
-		//     by_search: {
-		//         open: f?.filter(item => item.realtime?.current_status === 'open').length || 0,
-		//     },
-		// },
 		data: {
 			filtered: dataFilteredState,
 			raw: allNewsData || [],
