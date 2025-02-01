@@ -94,9 +94,9 @@ export default function Component() {
 					<Select
 						leftSection={<IconBike size={20} />}
 						onChange={handleBikesAllowedInputChange}
-						placeholder="Bicicletas"
+						placeholder={t('filter_by.bicycle')}
 						radius="sm"
-						value={bikesAllowed}
+						value={vehiclesListContext.filters.by_isBicicleAllowed}
 						data={[{ label: 'Não', value: 'false' },
 							{ label: 'Sim', value: 'true' }]}
 						clearable
@@ -105,9 +105,9 @@ export default function Component() {
 					<Select
 						leftSection={<IconWheelchair size={20} />}
 						onChange={handleReducedMobilityChange}
-						placeholder="Mobilidade Reduzida"
+						placeholder={t('filter_by.wheel_chair')}
 						radius="sm"
-						value={reducedMobility}
+						value={vehiclesListContext.filters.by_isWheelchairAcessible}
 						data={[{ label: 'Não', value: 'false' },
 							{ label: 'Sim', value: 'true' }]}
 						clearable
@@ -117,7 +117,7 @@ export default function Component() {
 						data={vehiclesListContext.data?.agencys?.map(a => ({ label: a.name, value: a.agency_id.toString() })) || []}
 						leftSection={<IconUser size={20} />}
 						onChange={handleAgencyIdChange}
-						placeholder="Operador"
+						placeholder={t('filter_by.operator')}
 						radius="sm"
 						value={agencyId}
 						searchable
@@ -125,7 +125,7 @@ export default function Component() {
 					<MultiSelect
 						leftSection={<IconTriangle size={20} />}
 						onChange={handleMakeAndModelChange}
-						placeholder="Veículo"
+						placeholder={t('filter_by.make_model')}
 						radius="sm"
 						value={make_model || ''}
 						data={
@@ -146,7 +146,7 @@ export default function Component() {
 						data={vehiclesListContext.data?.propulsions?.map(p => ({ label: p.name, value: p.name })) || []}
 						leftSection={<IconGasStation size={20} />}
 						onChange={handlePropulsionChange}
-						placeholder="Combustível"
+						placeholder={t('filter_by.propulsion')}
 						radius="sm"
 						value={propulsion}
 						clearable

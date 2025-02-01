@@ -1516,7 +1516,12 @@
 	"vehicles": {
 		"VehiclesListToolbar": {
 			"filter_by": {
-				"search": "Search by plates, number os passengers, vehicle number."
+				"bicycle": "Permite Bicicletas",
+				"make_model": "Make and Model",
+				"operator": "Agency",
+				"propulsion": "Fuel Type",
+				"search": "Search by license plate",
+				"wheel_chair": "Reduced Mobility"
 			},
 			"found_items_counter": "{count, plural, =0 {No vehicle found.} one {Found # vehicle} other {Found # vehicles}}",
 			"heading": "Veículos",
