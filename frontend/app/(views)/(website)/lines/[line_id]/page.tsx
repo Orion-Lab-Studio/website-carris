@@ -23,21 +23,19 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 	const allLinesResponse = await fetch(`${Routes.API}/lines`);
 	const allMunicipalitiesResponse = await fetch(`${Routes.API}/locations/localities`);
 	const allLinesData: Line[] = await allLinesResponse.json();
-	const allMunicipalitiesData: Municipality[] = await allMunicipalitiesResponse.json();
+	const allMunicipalitiesData = await allMunicipalitiesResponse.json();
 
 	//
 	// C. Transform data
 
 	const lineData = allLinesData.find(item => item.id === line_id);
-	allMunicipalitiesData.find(item => item.id === lineData?.municipality_ids);
-	// const goesTrough = allMunicipalitiesData.find(item => lineData?.municipality_ids?.includes(item.id));
-	// console.log(goesTrough);
-
+	const localityIds = lineData?.locality_ids;
+	const goesTrough = allMunicipalitiesData.data.find(item => localityIds && localityIds.includes(item.id));
 	//
 	// D. Render components
 
 	return {
-		description: `Horários em tempo real da linha ${lineData?.short_name}. Esta linha passa por: `,
+		description: `Horários em tempo real da linha ${lineData?.short_name}. Esta linha passa por: ${goesTrough}`,
 		title: `${lineData?.short_name} | ${lineData?.long_name}`,
 	};
 
