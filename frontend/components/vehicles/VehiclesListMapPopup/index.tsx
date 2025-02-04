@@ -1,3 +1,4 @@
+import { Section } from '@/components/layout/Section';
 import { VehicleListMapPopupBadge } from '@/components/vehicles/VehicleListMapPopupBadge';
 import { Table } from '@mantine/core';
 import {
@@ -28,16 +29,8 @@ export function VehicleListMapPopup({ lineData, selectedVehicle }) {
 
 	// B. Render Components
 	return (
-		<>
-			<Popup
-				key={id}
-				anchor="center"
-				className={styles.popupWrapper}
-				closeButton={true}
-				closeOnClick={true}
-				latitude={selectedVehicle.lat}
-				longitude={selectedVehicle.lon}
-			>
+		<Section>
+			<div key={id}>
 				<VehicleListMapPopupBadge lineData={lineData} />
 
 				<div className={styles.iconList}>
@@ -74,7 +67,7 @@ export function VehicleListMapPopup({ lineData, selectedVehicle }) {
 						</Table.Tbody>
 					</Table>
 				</div>
-			</Popup>
-		</>
+			</div>
+		</Section>
 	);
 }

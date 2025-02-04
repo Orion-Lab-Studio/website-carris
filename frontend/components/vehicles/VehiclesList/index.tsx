@@ -5,26 +5,33 @@
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import VehiclesListGroup from '@/components/vehicles/VehiclesListGroup';
-import VehiclesListMap from '@/components/vehicles/VehiclesListMap';
 import VehiclesListToolbar from '@/components/vehicles/VehiclesListToolbar';
+import { useTranslations } from 'next-intl';
 
+import VehiclesListMap from '../VehiclesListMap';
 import styles from './styles.module.css';
 
 /* * */
 
 export default function Component() {
+	const t = useTranslations('vehicles.VehiclesListToolbar');
+
 	return (
 		<>
-			<VehiclesListToolbar />
+			<Surface>
+				<Section heading={t('heading')} subheading={t('subheading')} withGap withPadding />
+			</Surface>
 			<Surface>
 				<VehiclesListGroup />
 			</Surface>
 			<Surface>
-				<Section>
-					<div className={styles.contentWrapper}>
-						<VehiclesListMap />
+				<div className={styles.container}>
+					<VehiclesListMap />
+					<div className={styles.sidebarWrapper}>
+						<VehiclesListToolbar />
 					</div>
-				</Section>
+				</div>
+
 			</Surface>
 		</>
 	);

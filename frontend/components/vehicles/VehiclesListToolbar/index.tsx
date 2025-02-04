@@ -4,14 +4,17 @@
 
 import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
 import { Grid } from '@/components/layout/Grid';
+import { NoDataLabel } from '@/components/layout/NoDataLabel';
 import { Section } from '@/components/layout/Section';
-import { Surface } from '@/components/layout/Surface';
+import { useLinesContext } from '@/contexts/Lines.context';
 import { useVehiclesContext } from '@/contexts/Vehicles.context';
 import { useVehiclesListContext } from '@/contexts/VehiclesList.context';
 import { MultiSelect, Select, TextInput } from '@mantine/core';
 import { IconArrowLoopRight, IconBike, IconGasStation, IconTriangle, IconUser, IconWheelchair } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useEffect, useRef, useState } from 'react';
+
+import { VehicleListMapPopup } from '../VehiclesListMapPopup';
 
 /* * */
 
@@ -23,6 +26,7 @@ export default function Component() {
 
 	const t = useTranslations('vehicles.VehiclesListToolbar');
 	const vehiclesContext = useVehiclesContext();
+	const LinesContext = useLinesContext();
 	const vehiclesListContext = useVehiclesListContext();
 	const typingTimeoutRef = useRef<null | ReturnType<typeof setTimeout>>(null);
 	const [textInput, setTextInput] = useState<null | string>(null);
@@ -31,6 +35,9 @@ export default function Component() {
 	const [agencyId, setAgencyId] = useState<string[]>([]);
 	const [make_model, setMakeModel] = useState<string[]>([]);
 	const [propulsion, setPropulsion] = useState<string[]>([]);
+	const selectedVehicleFromList = vehiclesListContext.data.selected;
+	const selectedVehicle = selectedVehicleFromList && vehiclesContext.data.vehicles.find(vehicle => vehicle.id === selectedVehicleFromList.id);
+	const lineData = LinesContext.actions.getLineDataById(selectedVehicle?.line_id || '');
 
 	//
 	// B. Transform data
@@ -85,10 +92,9 @@ export default function Component() {
 
 	//
 	// D. Render components
-
 	return (
-		<Surface>
-			<Section heading={t('heading')} subheading={t('subheading')} withGap withPadding>
+		<>
+			<Section withGap withPadding>
 				<Grid columns="abc" withGap>
 					<TextInput leftSection={<IconArrowLoopRight size={20} />} onChange={handleTextInputChange} placeholder={t('filter_by.search')} type="search" value={textInput || ''} />
 					<Select
@@ -155,7 +161,13 @@ export default function Component() {
 				</Grid>
 				<FoundItemsCounter text={t('found_items_counter', { count: vehiclesContext.data.vehicles.length })} />
 			</Section>
-		</Surface>
+			<Section>
+				{!selectedVehicle && (<NoDataLabel text="Selecione um veículo." />)}
+				{selectedVehicle && (
+					<VehicleListMapPopup lineData={lineData} selectedVehicle={selectedVehicle} />
+				)}
+			</Section>
+		</>
 	);
 
 	//

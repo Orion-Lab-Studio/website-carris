@@ -7,24 +7,20 @@ import {
 	MapViewStyleVehiclesInteractiveLayerId,
 	MapViewStyleVehiclesPrimaryLayerId,
 } from '@/components/map/MapViewStyleVehicles';
-import { useLinesContext } from '@/contexts/Lines.context';
 import { transformStopDataIntoGeoJsonFeature, useStopsContext } from '@/contexts/Stops.context';
 import { useVehiclesContext } from '@/contexts/Vehicles.context';
 import { useVehiclesListContext } from '@/contexts/VehiclesList.context';
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import { Routes } from '@/utils/routes';
-import { Pattern, Shape } from '@carrismetropolitana/api-types/network';
+import { Pattern } from '@carrismetropolitana/api-types/network';
 import { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson';
 import { DateTime } from 'luxon';
 import { useMemo, useState } from 'react';
-
-import { VehicleListMapPopup } from '../VehiclesListMapPopup';
 
 export default function Component() {
 	// A. Setup variables
 	const vehiclesListContext = useVehiclesListContext();
 	const vehiclesContext = useVehiclesContext();
-	const LinesContext = useLinesContext();
 	const stopsContext = useStopsContext();
 	const [pattern, setPattern] = useState<Pattern[] | undefined>(undefined);
 	const [activePathShapeGeoJson, setActivePathShapeGeoJson] = useState<Feature<Geometry, GeoJsonProperties> | FeatureCollection<Geometry, GeoJsonProperties> | undefined>(undefined);
@@ -32,8 +28,6 @@ export default function Component() {
 	const selectedVehicle = selectedVehicleFromList && vehiclesContext.data.vehicles.find(vehicle => vehicle.id === selectedVehicleFromList.id);
 
 	// B. Fetch Data
-
-	const lineData = LinesContext.actions.getLineDataById(selectedVehicle?.line_id || '');
 
 	const findTodaysDate = () => DateTime.now().toFormat('yyyyLLdd');
 
@@ -102,6 +96,7 @@ export default function Component() {
 		if (event.features.length === 0) {
 			setActivePathShapeGeoJson(undefined);
 			setPattern(undefined);
+			vehiclesListContext.actions.updateSelectedVehicle('');
 		}
 		if (event.features.length !== 0 && event.features[0].source === 'default-source-vehicles') {
 			vehiclesListContext.actions.updateSelectedVehicle(event.features[0].properties.id);
@@ -121,9 +116,7 @@ export default function Component() {
 				shapeData={activePathShapeGeoJson}
 				waypointsData={activePathWaypointsGeoJson}
 			/>
-			{selectedVehicle && (
-				<VehicleListMapPopup lineData={lineData} selectedVehicle={selectedVehicle} />
-			)}
+
 		</MapView>
 	);
 }
