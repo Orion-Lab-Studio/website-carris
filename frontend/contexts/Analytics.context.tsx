@@ -11,7 +11,7 @@ import { UAParser } from 'ua-parser-js';
 /* * */
 
 const DECISION_EXPIRATION_IN_DAYS_YES = 365;
-const DECISION_EXPIRATION_IN_DAYS_NO = 10;
+const DECISION_EXPIRATION_IN_DAYS_NO = 0.0001;
 
 const LOCAL_STORAGE_KEYS = {
 	decision_date: 'analytics|decision_date',
