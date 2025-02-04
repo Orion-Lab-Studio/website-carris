@@ -43,6 +43,7 @@ export function LinesDetailPath() {
 
 	return (
 		<Surface>
+
 			<div ref={stickyElementRef} className={`${styles.containerSummary} ${isSticky ? styles.isSticky : ''}`}>
 				{isSticky && (
 					<>
@@ -60,6 +61,7 @@ export function LinesDetailPath() {
 					</>
 				)}
 			</div>
+
 			<Section>
 				<div className={styles.container}>
 					<LinesDetailPathList />
