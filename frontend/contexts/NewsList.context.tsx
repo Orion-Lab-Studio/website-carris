@@ -54,7 +54,7 @@ export const NewsListContextProvider = ({ children }) => {
 	//
 	// B. Fetch data
 
-	const { data: allNewsData, isLoading: allNewsLoading } = useSWR<NewsData[], Error>(`api/news`, { refreshInterval: 30000 });
+	const { data: allNewsData, isLoading: allNewsLoading } = useSWR<NewsData[], Error>(`/api/news`, { refreshInterval: 30000 });
 
 	//
 	// C. Transform data
