@@ -93,9 +93,7 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 
 			{isSelected && (
 				<div className={styles.details}>
-          <div className={styles.linkContainer}>
-						<Link href={`/lines/${thisPattern.short_name}?&day=${selectedDay}&active_pattern_id=${thisPattern?.id}`} target="_blank"><p className={styles.link}>Percurso Completo</p></Link>
-					</div>
+					<Link className={styles.openLinePage} href={`/lines/${arrivalData.line_id}?&day=${selectedDay}&active_pattern_id=${thisPattern?.id}`} onClick={e => e.stopPropagation()} target="_blank">{t('open_line_page')}</Link>
 					{thisPattern.locality_ids.length > 0 && (
 						<div className={styles.localitiesListWrapper}>
 							<p className={styles.localitiesLabel}>{t('localities.label')}</p>

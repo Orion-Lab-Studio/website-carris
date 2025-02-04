@@ -96,6 +96,8 @@
 	display: flex;
 	flex-direction: column;
 	gap: var(--size-spacing-5);
+	align-items: flex-start;
+	justify-content: flex-start;
 	padding: var(--size-spacing-15);
 	border-top: 1px solid var(--color-system-border-100);
 }
@@ -124,19 +126,17 @@
 }
 
 
-/***/
-/* Redirect Link */
-.linkContainer{
-	width: fit-content;
-}
+/* * */
+/* OPEN LINE PAGE */
 
-.link{
+.openLinePage {
+	width: auto;
 	font-size: 12px;
+	font-weight: 600;
 	color: var(--color-system-text-200);
-	font-weight: 400
 }
 
-.link:hover{
+.openLinePage:hover {
 	color: var(--color-system-text-300);
 	text-decoration: underline;
 }
