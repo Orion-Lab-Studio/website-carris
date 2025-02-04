@@ -23,19 +23,15 @@ export function MetricsPageIntro() {
 	// B. Render components
 
 	return (
-		<>
-
-			<Surface>
-				<Section withBottomDivider withPadding>
-					<BackButton href="/" />
-				</Section>
-				<Section heading={t('heading')} withGap withPadding>
-					<p className={styles.text}>{t('text_1')}</p>
-					<p className={styles.text}>{t('text_2')}</p>
-				</Section>
-			</Surface>
-
-		</>
+		<Surface>
+			<Section withBottomDivider withPadding>
+				<BackButton href="/" />
+			</Section>
+			<Section heading={t('heading')} withGap withPadding>
+				<p className={styles.text}>{t('text_1')}</p>
+				<p className={styles.text}>{t('text_2')}</p>
+			</Section>
+		</Surface>
 	);
 
 	//

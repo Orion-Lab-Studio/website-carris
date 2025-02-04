@@ -1,6 +1,7 @@
 /* * */
 
 import { availableFormats } from '@/i18n/config';
+import { type Metadata } from 'next';
 import { NextIntlClientProvider } from 'next-intl';
 import { getLocale, getMessages } from 'next-intl/server';
 import { Inter } from 'next/font/google';
@@ -16,14 +17,14 @@ const inter = Inter({
 	display: 'swap',
 	subsets: ['latin'],
 	variable: '--font-inter',
-	weight: ['500', '600', '700', '800'],
+	weight: ['400', '500', '600', '700', '800'],
 });
 
 /* * */
 
-export const metadata = {
-	description: 'Horários e Paragens',
-	metadataBase: process.env.VERCEL_URL ? new URL(`https://${process.env.VERCEL_URL}`) : new URL(`http://0.0.0.0:${process.env.PORT || 3000}`),
+export const metadata: Metadata = {
+	description: 'Horários e Paragens em Tempo Real',
+	metadataBase: process.env.NEXT_PUBLIC_URL ? new URL(process.env.NEXT_PUBLIC_URL) : new URL(`http://localhost:${process.env.PORT || 3000}`),
 	title: 'CMetropolitana',
 };
 

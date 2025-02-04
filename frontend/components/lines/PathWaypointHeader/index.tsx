@@ -4,9 +4,12 @@ import type { Waypoint } from '@carrismetropolitana/api-types/network';
 
 import { IconDisplay } from '@/components/common/IconDisplay';
 import { useLocationsContext } from '@/contexts/Locations.context';
+import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
 import { useStopsContext } from '@/contexts/Stops.context';
 import { useClipboard } from '@mantine/hooks';
 import { IconCheck, IconCopy } from '@tabler/icons-react';
+import { IconArrowUpRight } from '@tabler/icons-react';
+import Link from 'next/link';
 
 import styles from './styles.module.css';
 
@@ -29,6 +32,7 @@ export function PathWaypointHeader({ isFirstStop, isLastStop, isSelected, waypoi
 
 	const stopsContext = useStopsContext();
 	const locationsContext = useLocationsContext();
+	const operationalDayContext = useOperationalDayContext();
 
 	const stopIdClipboard = useClipboard();
 
@@ -38,7 +42,6 @@ export function PathWaypointHeader({ isFirstStop, isLastStop, isSelected, waypoi
 	const stopData = stopsContext.actions.getStopById(waypointData.stop_id);
 	const localityData = stopData?.locality_id ? locationsContext.actions.getLocalityById(stopData.locality_id) : undefined;
 	const municipalityData = stopData?.municipality_id ? locationsContext.actions.getMunicipalityById(stopData.municipality_id) : undefined;
-
 	//
 	// C. Handle actions
 
@@ -56,7 +59,12 @@ export function PathWaypointHeader({ isFirstStop, isLastStop, isSelected, waypoi
 
 	return (
 		<div className={`${styles.container} ${isFirstStop && styles.isFirstStop} ${isLastStop && styles.isLastStop} ${isSelected && styles.isSelected}`}>
-			<p className={styles.stopName}>{stopData.long_name}</p>
+
+			<p className={styles.stopName}>
+				{stopData.long_name}
+				{isSelected && <Link className={styles.stopNameUrl} href={`/stops/${waypointData.stop_id}?day=${operationalDayContext.data.selected_day}`} target="_blank"><IconArrowUpRight size={16} /></Link>}
+			</p>
+
 			<div className={styles.subHeaderWrapper}>
 				<p className={styles.stopLocation}>{localityData?.display || municipalityData?.name}</p>
 				<p className={`${styles.stopId} ${stopIdClipboard.copied && styles.isCopied}`} onClick={handleClickStopId}>

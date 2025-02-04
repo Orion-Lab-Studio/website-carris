@@ -2,10 +2,11 @@
 
 /* * */
 
-import type { District, Locality, Municipality, Region } from '@carrismetropolitana/api-types/locations';
+import type { District, Locality, Municipality, Parish } from '@carrismetropolitana/api-types/locations';
 
 import { Routes } from '@/utils/routes';
-import { createContext, useContext } from 'react';
+import { ApiResponse } from '@carrismetropolitana/api-types/common';
+import { createContext, useContext, useMemo } from 'react';
 import useSWR from 'swr';
 
 /* * */
@@ -15,13 +16,13 @@ interface LocationsContextState {
 		getDistrictById: (districtId: string) => District | undefined
 		getLocalityById: (localityId: string) => Locality | undefined
 		getMunicipalityById: (municipalityId: string) => Municipality | undefined
-		getRegionById: (regionId: string) => Region | undefined
+		getParishById: (parishId: string) => Parish | undefined
 	}
 	data: {
 		districts: District[]
 		localitites: Locality[]
 		municipalities: Municipality[]
-		regions: Region[]
+		parishes: Parish[]
 	}
 	flags: {
 		is_loading: boolean
@@ -48,24 +49,47 @@ export const LocationsContextProvider = ({ children }) => {
 	//
 	// A. Fetch data
 
-	const { data: allRegionsData, isLoading: allRegionsLoading } = useSWR<Region[], Error>(`${Routes.API}/locations/regions`);
-	const { data: allDistrictsData, isLoading: allDistrictsLoading } = useSWR<District[], Error>(`${Routes.API}/locations/districts`);
-	const { data: allMunicipalitiesData, isLoading: allMunicipalitiesLoading } = useSWR<Municipality[], Error>(`${Routes.API}/locations/municipalities`);
-	const { data: allLocalitiesData, isLoading: allLocalitiesLoading } = useSWR<Locality[], Error>(`${Routes.API}/locations/localities`);
+	const { data: fetchedDistrictsData, isLoading: fetchedDistrictsLoading } = useSWR<ApiResponse<District[]>, Error>(`${Routes.API}/locations/districts`);
+	const { data: fetchedMunicipalitiesData, isLoading: fetchedMunicipalitiesLoading } = useSWR<ApiResponse<Municipality[]>, Error>(`${Routes.API}/locations/municipalities`);
+	const { data: fetchedParishesData, isLoading: fetchedParishesLoading } = useSWR<ApiResponse<Parish[]>, Error>(`${Routes.API}/locations/parishes`);
+	const { data: fetchedLocalitiesData, isLoading: fetchedLocalitiesLoading } = useSWR<ApiResponse<Locality[]>, Error>(`${Routes.API}/locations/localities`);
 
 	//
-	// B. Handle actions
+	// B. Transform data
 
-	const getRegionById = (regionId: string): Region | undefined => {
-		return allRegionsData?.find(item => item.id === regionId);
-	};
+	const allDistrictsData = useMemo(() => {
+		if (fetchedDistrictsData?.status !== 'success') return [];
+		return fetchedDistrictsData.data;
+	}, [fetchedDistrictsData]);
+
+	const allMunicipalitiesData = useMemo(() => {
+		if (fetchedMunicipalitiesData?.status !== 'success') return [];
+		return fetchedMunicipalitiesData.data;
+	}, [fetchedMunicipalitiesData]);
+
+	const allParishesData = useMemo(() => {
+		if (fetchedParishesData?.status !== 'success') return [];
+		return fetchedParishesData.data;
+	}, [fetchedParishesData]);
+
+	const allLocalitiesData = useMemo(() => {
+		if (fetchedLocalitiesData?.status !== 'success') return [];
+		return fetchedLocalitiesData.data;
+	}, [fetchedLocalitiesData]);
+
+	//
+	// C. Handle actions
 
 	const getDistrictById = (districtId: string): District | undefined => {
-		return allDistrictsData?.find(item => item.id === districtId);
+		return allDistrictsData.find(item => item.id === districtId);
 	};
 
 	const getMunicipalityById = (municipalityId: string): Municipality | undefined => {
-		return allMunicipalitiesData?.find(item => item.id === municipalityId);
+		return allMunicipalitiesData.find(item => item.id === municipalityId);
+	};
+
+	const getParishById = (parishId: string): Parish | undefined => {
+		return allParishesData.find(item => item.id === parishId);
 	};
 
 	const getLocalityById = (localityId: string): Locality | undefined => {
@@ -73,28 +97,28 @@ export const LocationsContextProvider = ({ children }) => {
 	};
 
 	//
-	// C. Define context value
+	// D. Define context value
 
 	const contextValue: LocationsContextState = {
 		actions: {
 			getDistrictById,
 			getLocalityById,
 			getMunicipalityById,
-			getRegionById,
+			getParishById,
 		},
 		data: {
 			districts: allDistrictsData || [],
 			localitites: allLocalitiesData || [],
 			municipalities: allMunicipalitiesData || [],
-			regions: allMunicipalitiesData || [],
+			parishes: allParishesData || [],
 		},
 		flags: {
-			is_loading: allRegionsLoading || allDistrictsLoading || allMunicipalitiesLoading || allLocalitiesLoading,
+			is_loading: fetchedDistrictsLoading || fetchedMunicipalitiesLoading || fetchedParishesLoading || fetchedLocalitiesLoading,
 		},
 	};
 
 	//
-	// D. Render components
+	// E. Render components
 
 	return (
 		<LocationsContext.Provider value={contextValue}>

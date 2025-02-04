@@ -2,6 +2,8 @@
 
 import { NextArrivals } from '@/components/common/NextArrivals';
 import { LineDisplay } from '@/components/lines/LineDisplay';
+import { StopsDetailContentTimetableRowDebug } from '@/components/stops/StopsDetailContentTimetableRowDebug';
+import { useDebugContext } from '@/contexts/Debug.context';
 import { useLocationsContext } from '@/contexts/Locations.context';
 import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
@@ -30,8 +32,12 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 	const t = useTranslations('stops.StopsDetailContentTimetableRow');
 	const stopsDetailContext = useStopsDetailContext();
 	const locationsContext = useLocationsContext();
+
 	const operationalDayContext = useOperationalDayContext();
 	const selectedDay = operationalDayContext.data.selected_day;
+
+	const debugContext = useDebugContext();
+
 	//
 	// B. Transform data
 
@@ -79,9 +85,15 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 				/>
 			</div>
 
+			{isSelected && debugContext.flags.is_debug_mode && (
+				<div className={styles.details}>
+					<StopsDetailContentTimetableRowDebug arrivalData={arrivalData} />
+				</div>
+			)}
+
 			{isSelected && (
 				<div className={styles.details}>
-					<div className={styles.linkContainer}>
+          <div className={styles.linkContainer}>
 						<Link href={`/lines/${thisPattern.short_name}?&day=${selectedDay}&active_pattern_id=${thisPattern?.id}`} target="_blank"><p className={styles.link}>Percurso Completo</p></Link>
 					</div>
 					{thisPattern.locality_ids.length > 0 && (
@@ -97,7 +109,6 @@ export function StopsDetailContentTimetableRow({ arrivalData, status }: Props) {
 							</p>
 						</div>
 					)}
-
 				</div>
 			)}
 
