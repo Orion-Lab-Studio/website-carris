@@ -11,13 +11,11 @@ import { LineBadge } from '@/components/lines/LineBadge';
 import { SelectActivePatternGroup } from '@/components/lines/SelectActivePatternGroup';
 // import { SelectActivePatternGroupExplainer } from '@/components/lines/SelectActivePatternGroupExplainer';
 import { LineDebugDetail } from '@/components/lines/LineDebugDetail';
-import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { useDebugContext } from '@/contexts/Debug.context';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import toast from '@/utils/toast';
 import { useTranslations } from 'next-intl';
-import { useEffect } from 'react';
 
 import styles from './styles.module.css';
 
@@ -33,10 +31,8 @@ export function LinesDetailHeader() {
 	const profileContext = useProfileContext();
 	const linesDetailContext = useLinesDetailContext();
 	const debugContext = useDebugContext();
-	const analyticsContext = useAnalyticsContext();
 
 	const totalStops = linesDetailContext.data.active_waypoint?.stop_sequence;
-	const consent = analyticsContext.data.is_enabled;
 
 	//
 	// B. Handle actions
@@ -52,16 +48,7 @@ export function LinesDetailHeader() {
 	};
 	//
 
-	// C. Transform Data
-
-	useEffect(() => {
-		if (consent !== 'yes' && consent !== null && consent !== undefined) {
-			analyticsContext.flags.should_ask = true;
-		}
-	}, [consent]);
-	//
-
-	// D. Render components
+	// C. Render components
 
 	if (!linesDetailContext.data.line) {
 		return null;

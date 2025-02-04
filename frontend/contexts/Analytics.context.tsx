@@ -11,7 +11,7 @@ import { UAParser } from 'ua-parser-js';
 /* * */
 
 const DECISION_EXPIRATION_IN_DAYS_YES = 365;
-const DECISION_EXPIRATION_IN_DAYS_NO = 0.0001;
+const DECISION_EXPIRATION_IN_DAYS_NO = 10;
 
 const LOCAL_STORAGE_KEYS = {
 	decision_date: 'analytics|decision_date',
@@ -82,8 +82,8 @@ export const AnalyticsContextProvider = ({ children }) => {
 		};
 		// Check if stored decision date has not expired
 		const daysSinceLastDecision = DateTime.now().diff(decisionDateData, 'days');
-		const yesDecisionIsExpired = isEnabledLocal === 'yes' && daysSinceLastDecision.days > DECISION_EXPIRATION_IN_DAYS_YES;
-		const noDecisionIsExpired = isEnabledLocal === 'no' && daysSinceLastDecision.days > DECISION_EXPIRATION_IN_DAYS_NO;
+		const yesDecisionIsExpired = dataIsEnabledState === 'yes' && daysSinceLastDecision.days > DECISION_EXPIRATION_IN_DAYS_YES;
+		const noDecisionIsExpired = dataIsEnabledState === 'no' && daysSinceLastDecision.days > DECISION_EXPIRATION_IN_DAYS_NO;
 
 		if (yesDecisionIsExpired || noDecisionIsExpired) {
 			reset();
@@ -91,7 +91,7 @@ export const AnalyticsContextProvider = ({ children }) => {
 		}
 		// Set local state
 		setDataIsEnabledState(isEnabledLocal);
-		setFlagShouldAskState(noDecisionIsExpired);
+		setFlagShouldAskState(false);
 	});
 
 	//

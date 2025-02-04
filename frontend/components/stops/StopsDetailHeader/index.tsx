@@ -12,11 +12,9 @@ import { LineBadge } from '@/components/lines/LineBadge';
 import { StopDisplayLocation } from '@/components/stops/StopDisplayLocation';
 import { StopDisplayName } from '@/components/stops/StopDisplayName';
 import { StopDisplayTts } from '@/components/stops/StopDisplayTts';
-import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import { useStopsDetailContext } from '@/contexts/StopsDetail.context';
 import toast from '@/utils/toast';
-import { useEffect } from 'react';
 
 import styles from './styles.module.css';
 
@@ -30,14 +28,13 @@ export function StopsDetailHeader() {
 
 	const profileContext = useProfileContext();
 	const stopsDetailContext = useStopsDetailContext();
-	const analyticsContext = useAnalyticsContext();
-	const consent = analyticsContext.data.is_enabled;
 
 	//
 	// B. Handle actions
 
 	const handleToggleFavorite = () => {
 		if (!stopsDetailContext.data.stop) return;
+
 		try {
 			profileContext.actions.toggleFavoriteStop(stopsDetailContext.data.stop.id);
 		}
@@ -46,14 +43,6 @@ export function StopsDetailHeader() {
 		}
 	};
 
-	//
-
-	// C. Transform Data
-	useEffect(() => {
-		if (consent !== 'yes' && consent !== null && consent !== undefined) {
-			analyticsContext.flags.should_ask = true;
-		}
-	}, [consent]);
 	//
 
 	// D. Render components

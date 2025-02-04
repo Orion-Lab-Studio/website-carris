@@ -1,6 +1,7 @@
 /* * */
 
 import { Loader } from '@/components/common/Loader';
+import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import { Tooltip } from '@mantine/core';
 import { IconHeart, IconHeartFilled, IconHeartX } from '@tabler/icons-react';
@@ -27,9 +28,18 @@ export function FavoriteToggle({ color, isActive, onToggle }: Props) {
 
 	const t = useTranslations('common.FavoriteToggle');
 	const profileContext = useProfileContext();
+	const analyticsContext = useAnalyticsContext();
+	const consent = analyticsContext.data.is_enabled;
 
+	// B. Handle Actions
+	const handleSetConsent = () => {
+		console.log(consent);
+		if (consent !== 'yes' && consent !== null) {
+			analyticsContext.actions.reset();
+		}
+	};
 	//
-	// B. Render components
+	// C. Render components
 
 	if (profileContext.flags.is_loading) {
 		return (
@@ -47,7 +57,7 @@ export function FavoriteToggle({ color, isActive, onToggle }: Props) {
 					label={t('disabled')}
 					withArrow
 				>
-					<IconHeartX />
+					<IconHeartX onClickCapture={handleSetConsent} />
 				</Tooltip>
 			</div>
 		);
