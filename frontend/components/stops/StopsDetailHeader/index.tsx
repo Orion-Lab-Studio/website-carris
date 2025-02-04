@@ -46,15 +46,17 @@ export function StopsDetailHeader() {
 		}
 	};
 
+	//
+
+	// C. Transform Data
 	useEffect(() => {
-		console.log(consent);
 		if (consent !== 'yes' && consent !== null && consent !== undefined) {
 			analyticsContext.flags.should_ask = true;
 		}
 	}, [consent]);
-
 	//
-	// C. Render components
+
+	// D. Render components
 
 	if (!stopsDetailContext.data.stop) {
 		return null;
