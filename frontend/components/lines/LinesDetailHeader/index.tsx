@@ -13,10 +13,7 @@ import { SelectActivePatternGroup } from '@/components/lines/SelectActivePattern
 import { LineDebugDetail } from '@/components/lines/LineDebugDetail';
 import { useDebugContext } from '@/contexts/Debug.context';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
-import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
 import { useProfileContext } from '@/contexts/Profile.context';
-import { useStickyObserver } from '@/hooks/useStickyObserver';
-import { getCssVariableValue } from '@/utils/getCssVariableValue';
 import toast from '@/utils/toast';
 import { useTranslations } from 'next-intl';
 
@@ -34,10 +31,7 @@ export function LinesDetailHeader() {
 	const profileContext = useProfileContext();
 	const linesDetailContext = useLinesDetailContext();
 	const debugContext = useDebugContext();
-	const operationalDayContext = useOperationalDayContext();
 
-	const headerHeight = getCssVariableValue('--size-height-header');
-	const { isSticky, ref: stickyElementRef } = useStickyObserver({ top: headerHeight }, [1], { top: -1 });
 	const totalStops = linesDetailContext.data.active_waypoint?.stop_sequence;
 
 	//
@@ -81,42 +75,21 @@ export function LinesDetailHeader() {
 				</Section>
 
 				<Section withPadding>
-					{/* <div className={styles.patternSelectorExplainerWrapper}>
+					<div className={styles.container}>
+						{/* <div className={styles.patternSelectorExplainerWrapper}>
 						<SelectActivePatternGroupExplainer />
 					</div> */}
 
-					{!isSticky && (
-						<div className={styles.headerWrapoer}>
-							<div className={styles.operationalDaySelectorWrapper}>
-								<SelectOperationalDay />
-							</div>
-							<div className={styles.patternSelectorWrapper}>
-								<SelectActivePatternGroup />
-							</div>
+						<div className={styles.operationalDaySelectorWrapper}>
+							<SelectOperationalDay />
 						</div>
-					)}
+						<div className={styles.patternSelectorWrapper}>
+							<SelectActivePatternGroup />
+						</div>
 
+					</div>
 				</Section>
-
 			</Surface>
-
-			<div ref={stickyElementRef} className={`${styles.containerSummary} ${isSticky ? styles.isSticky : ''}`}>
-
-				{isSticky && (
-					<>
-						<p className={styles.linesSummaryWrapper}>
-							{t.rich('summary', {
-								changeDay: chunks => <a className={styles.changeDay} href="#">{chunks}</a>,
-								day_name: operationalDayContext.data.selected_day_jsdate,
-								dayName: chunks => <span className={styles.dayName}>{chunks}</span>,
-								destination_name: linesDetailContext.data.active_pattern?.headsign,
-								destinationName: chunks => <span className={styles.destinationName}>{chunks}</span>,
-							})}
-						</p>
-					</>
-				)}
-
-			</div>
 
 			{debugContext.flags.is_debug_mode && (
 				<Surface variant="debug">

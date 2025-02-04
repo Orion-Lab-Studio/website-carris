@@ -759,7 +759,6 @@
 		},
 		"LinesDetail": {
 			"heading": "Pesquisar Linhas",
-			"summary": "Percurso estimado para o dia <dayName>{day_name, date, long}</dayName> para o destino <destinationName>{destination_name}</destinationName>. <changeDay>Alterar dia ›</changeDay>",
 			"toggle_favorite_error": "Erro ao adicionar a linha aos favoritos. {error}"
 		},
 		"LinesDetailAlerts": {
@@ -804,7 +803,9 @@
 			"title": "das {total_trip_count, number} viagens planeadas para os últimos 15 dias, {pass_trip_count, number} foram realizadas"
 		},
 		"LinesDetailPath": {
-			"no_data": "Selecione um Percurso / Destino"
+			"no_data": "Selecione um Percurso / Destino",
+			"summary": "Percurso da linha <lineNumber>{line_number}</lineNumber> com destino a <destinationName>{destination_name}</destinationName> no dia <dayName>{day_name, date, long}</dayName>. <changeDay>Alterar dia ›</changeDay>"
+
 		},
 		"LinesListToolbar": {
 			"by_current_view": {
