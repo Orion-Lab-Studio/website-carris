@@ -3,7 +3,7 @@
 import { StopsDetail } from '@/components/stops/StopsDetail';
 import { StopsDetailContextProvider } from '@/contexts/StopsDetail.context';
 import { Routes } from '@/utils/routes';
-import { type Stop } from '@carrismetropolitana/api-types/network';
+import { type Line, type Stop } from '@carrismetropolitana/api-types/network';
 import { type Metadata } from 'next';
 
 /* * */
@@ -22,17 +22,24 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 	const allStopsResponse = await fetch(`${Routes.API}/stops`);
 	const allStopsData: Stop[] = await allStopsResponse.json();
 
+	const allLinesResponse = await fetch(`${Routes.API}/lines`);
+	const allLinesData: Line[] = await allLinesResponse.json();
+
 	//
 	// C. Transform data
 
 	const stopData = allStopsData.find(item => item.id === stop_id);
-	const stopIds = allStopsData.flatMap(item => item.line_ids);
-	const goesTrough = allStopsData.find(item => item.line_ids && item.line_ids.some(id => stopIds.includes(id)));
+	const linesAtThisStopString = allLinesData
+		.filter(item => stopData?.line_ids.includes(item.id))
+		.sort((a, b) => a.id.localeCompare(b.id))
+		.map(item => item.short_name)
+		.join(', ');
+
 	//
 	// D. Render components
 
 	return {
-		description: `Horários em tempo real na paragem #${stopData?.id}. Esta paragem cruza as linhas ${goesTrough?.line_ids}`,
+		description: `Horários planeados e em tempo real na paragem #${stopData?.id}. Nesta paragem passam as linhas ${linesAtThisStopString}.`,
 		title: stopData?.long_name,
 	};
 
