@@ -24,6 +24,7 @@ interface Props {
 
 export function LineDisplay({ color, lineData, longName, shortName, size = 'md', textColor, width = 200 }: Props) {
 	//
+
 	if (lineData) {
 		return (
 			<div className={styles.container}>
@@ -38,7 +39,6 @@ export function LineDisplay({ color, lineData, longName, shortName, size = 'md',
 			<div className={styles.container}>
 				<LineBadge color={color} shortName={shortName} size={size} textColor={textColor} />
 				<LineName longName={longName} />
-
 			</div>
 		);
 	}
