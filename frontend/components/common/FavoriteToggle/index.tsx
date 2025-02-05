@@ -27,10 +27,12 @@ export function FavoriteToggle({ color, isActive, onToggle }: Props) {
 	// A. Setup variables
 
 	const t = useTranslations('common.FavoriteToggle');
+
 	const profileContext = useProfileContext();
 	const analyticsContext = useAnalyticsContext();
 	const consent = analyticsContext.data.is_enabled;
 
+	//
 	// B. Handle Actions
 	const handleSetConsent = () => {
 		console.log(consent);
@@ -38,6 +40,7 @@ export function FavoriteToggle({ color, isActive, onToggle }: Props) {
 			analyticsContext.actions.reset();
 		}
 	};
+
 	//
 	// C. Render components
 
