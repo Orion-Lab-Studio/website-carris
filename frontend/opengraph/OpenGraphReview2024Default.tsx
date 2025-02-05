@@ -8,8 +8,8 @@ export function OpenGraphReview2024Default() {
 			{process.env.NEXT_PUBLIC_URL && (
 				<img
 					alt="Viagem 2024"
-					src={`${process.env.NEXT_PUBLIC_URL}/assets/review-2024/images/viagem2024logo.png`}
-					style={{ height: '100%', objectFit: 'contain', width: '100%' }}
+					src={`${process.env.NEXT_PUBLIC_URL}/assets/review-2024/images/viagem-2024-logo.png`}
+					// style={{ height: '100%', objectFit: 'contain', width: '100%' }}
 				/>
 			)}
 		</div>
