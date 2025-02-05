@@ -84,7 +84,6 @@ export const AnalyticsContextProvider = ({ children }) => {
 		const daysSinceLastDecision = DateTime.now().diff(decisionDateData, 'days');
 		const yesDecisionIsExpired = dataIsEnabledState === 'yes' && daysSinceLastDecision.days > DECISION_EXPIRATION_IN_DAYS_YES;
 		const noDecisionIsExpired = dataIsEnabledState === 'no' && daysSinceLastDecision.days > DECISION_EXPIRATION_IN_DAYS_NO;
-
 		if (yesDecisionIsExpired || noDecisionIsExpired) {
 			reset();
 			return;
