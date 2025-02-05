@@ -30,15 +30,12 @@ export function FavoriteToggle({ color, isActive, onToggle }: Props) {
 
 	const profileContext = useProfileContext();
 	const analyticsContext = useAnalyticsContext();
-	const consent = analyticsContext.data.is_enabled;
 
 	//
 	// B. Handle Actions
-	const handleSetConsent = () => {
-		console.log(consent);
-		if (consent !== 'yes' && consent !== null) {
-			analyticsContext.actions.reset();
-		}
+
+	const handleRequestConsent = () => {
+		analyticsContext.actions.reset();
 	};
 
 	//
@@ -54,13 +51,13 @@ export function FavoriteToggle({ color, isActive, onToggle }: Props) {
 
 	if (!profileContext.flags.is_enabled) {
 		return (
-			<div className={`${styles.container} ${styles.disabled}`}>
+			<div className={`${styles.container} ${styles.disabled}`} onClick={handleRequestConsent}>
 				<Tooltip
 					events={{ focus: true, hover: true, touch: true }}
 					label={t('disabled')}
 					withArrow
 				>
-					<IconHeartX onClickCapture={handleSetConsent} />
+					<IconHeartX />
 				</Tooltip>
 			</div>
 		);
