@@ -64,6 +64,10 @@ export interface RemoveFavoriteLineProperties {
   line_id: string;
 }
 
+export interface RemoveFavoriteStopProperties {
+  stop_id: string;
+}
+
 export class AddFavoriteLine implements BaseEvent {
   event_type = 'Add Favorite Line';
 
@@ -93,6 +97,16 @@ export class RemoveFavoriteLine implements BaseEvent {
 
   constructor(
     public event_properties: RemoveFavoriteLineProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class RemoveFavoriteStop implements BaseEvent {
+  event_type = 'Remove Favorite Stop';
+
+  constructor(
+    public event_properties: RemoveFavoriteStopProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -271,6 +285,23 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new RemoveFavoriteLine(properties), options);
+  }
+
+  /**
+   * Remove Favorite Stop
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Remove%20Favorite%20Stop)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. stop_id)
+   * @param options Amplitude event options.
+   */
+  removeFavoriteStop(
+    properties: RemoveFavoriteStopProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new RemoveFavoriteStop(properties), options);
   }
 }
 
