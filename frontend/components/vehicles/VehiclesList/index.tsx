@@ -18,7 +18,7 @@ export function VehiclesList() {
 	//
 	// A. Setup variables
 
-	const t = useTranslations('vehicles.VehiclesListToolbar');
+	const t = useTranslations('vehicles.VehiclesList');
 
 	//
 	// B. Render components
@@ -40,7 +40,6 @@ export function VehiclesList() {
 						<VehiclesListToolbar />
 					</div>
 				</div>
-
 			</Surface>
 		</>
 	);
