@@ -1,11 +1,10 @@
 /* * */
 
-import AlertsDetail from '@/components/alerts/AlertsDetail';
+import { AlertsDetail } from '@/components/alerts/AlertsDetail';
 
 /* * */
 
-export default function Page({ params: { alert_id } }) {
-	return (
-		<AlertsDetail alertId={alert_id} />
-	);
+export default async function Page({ params }) {
+	const { alert_id } = await params;
+	return <AlertsDetail alertId={alert_id} />;
 }

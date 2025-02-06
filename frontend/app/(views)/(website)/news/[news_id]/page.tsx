@@ -1,6 +1,34 @@
 /* * */
 
 import { NewsDetail } from '@/components/news/NewsDetail';
+import { type Metadata } from 'next';
+
+/* * */
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+	//
+
+	//
+	// A. Setup variables
+
+	const { news_id } = await params;
+
+	//
+	// B. Fetch data
+
+	const newsResponse = await fetch(`${process.env.NEXT_PUBLIC_URL}/api/news/${news_id}`);
+	const newsData = await newsResponse.json();
+
+	//
+	// C. Render components
+
+	return {
+		description: 'Leia a notícia completa em www.cmetropolitana.pt',
+		title: newsData.title,
+	};
+
+	//
+}
 
 /* * */
 

@@ -9,7 +9,7 @@ import { useProfileContext } from '@/contexts/Profile.context';
 import { useStopsContext } from '@/contexts/Stops.context';
 import { createDocCollection } from '@/hooks/useOtherSearch';
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 
 /* * */
 
@@ -65,6 +65,8 @@ export const StopsListContextProvider = ({ children }) => {
 	const stopsContext = useStopsContext();
 	const locationsContext = useLocationsContext();
 
+	const searchHook = useRef<{ search: (query: string) => Stop[] }>(undefined);
+
 	const [dataFilteredState, setDataFilteredState] = useState<Stop[]>([]);
 	const [dataFilteredGeojsonFCState, setDataFilteredGeojsonFCState] = useState<GeoJSON.FeatureCollection>();
 	const [dataFavoritesState, setDataFavoritesState] = useState<Stop[]>([]);
@@ -78,27 +80,74 @@ export const StopsListContextProvider = ({ children }) => {
 	//
 	// B. Transform data
 
-	const searchHook = useMemo(() => {
-		// Prepare data for search function
-		const preparedSearchCollection = stopsContext.data.stops.map((item) => {
-			const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ? true : false;
-			const localityData = locationsContext.actions.getLocalityById(item.locality_id);
-			return {
-				...item,
-				boost: isFavorite,
-				locality_display: localityData?.display ?? '',
-			};
+	useEffect(() => {
+		if (!stopsContext.data.stops.length) return;
+
+		const scheduleTask = (callback) => {
+			if ('requestIdleCallback' in window) {
+				return requestIdleCallback(callback);
+			}
+			else {
+				return setTimeout(callback, 0); // Fallback for Safari
+			}
+		};
+
+		const cancelTask = (id) => {
+			if ('cancelIdleCallback' in window) {
+				cancelIdleCallback(id);
+			}
+			else {
+				clearTimeout(id);
+			}
+		};
+
+		const taskId = scheduleTask(() => {
+			console.log('Running expensive computation asynchronously');
+			// Prepare data for search function
+			const preparedSearchCollection = stopsContext.data.stops.map((item) => {
+				const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ?? false;
+				const localityData = locationsContext.actions.getLocalityById(item.locality_id);
+				return {
+					...item,
+					boost: isFavorite,
+					locality_display: localityData?.display ?? '',
+				};
+			});
+			searchHook.current = createDocCollection(preparedSearchCollection, {
+				id: 2,
+				locality_display: 1.5,
+				long_name: 1,
+				short_name: 1,
+				tts_name: 1.5,
+			}, {
+				threshold: 1.7,
+			});
 		});
-		return createDocCollection(preparedSearchCollection, {
-			id: 2,
-			locality_display: 1.5,
-			long_name: 1,
-			short_name: 1,
-			tts_name: 1.5,
-		}, {
-			threshold: 1.7,
-		});
+
+		return () => cancelTask(taskId); // Cleanup on unmount
 	}, [stopsContext.data.stops, profileContext.data.favorite_stops]);
+
+	// const searchHook = useMemo(() => {
+	// 	// Prepare data for search function
+	// 	const preparedSearchCollection = stopsContext.data.stops.map((item) => {
+	// 		const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ? true : false;
+	// 		const localityData = locationsContext.actions.getLocalityById(item.locality_id);
+	// 		return {
+	// 			...item,
+	// 			boost: isFavorite,
+	// 			locality_display: localityData?.display ?? '',
+	// 		};
+	// 	});
+	// 	return createDocCollection(preparedSearchCollection, {
+	// 		id: 2,
+	// 		locality_display: 1.5,
+	// 		long_name: 1,
+	// 		short_name: 1,
+	// 		tts_name: 1.5,
+	// 	}, {
+	// 		threshold: 1.7,
+	// 	});
+	// }, [stopsContext.data.stops, profileContext.data.favorite_stops]);
 
 	const applyFiltersToData = (allData: Stop[] = []) => {
 		//
@@ -110,7 +159,7 @@ export const StopsListContextProvider = ({ children }) => {
 
 		if (filterBySearchState) {
 			// Give extra weight to favorite lines
-			filterResult = searchHook.search(filterBySearchState);
+			filterResult = searchHook.current?.search(filterBySearchState) || filterResult;
 		}
 
 		//

@@ -6,7 +6,7 @@ import ukkonen from 'ukkonen'; // Faster levenshtein distance
 
 /* * */
 
-type SearchableDocument<T> = {
+export type SearchableDocument<T> = {
 	[key: string]: unknown
 	boost?: boolean
 } & {
@@ -71,7 +71,7 @@ function normalizeString(str: string): string {
  * @param options Options for the search.
  * @returns
  */
-export function createDocCollection<T extends SearchableDocument<T>>(docs: T[], scoring: { [K in KeyWithStringOrStringArrayValue<T>]?: number }, options: Options = {}) {
+export function createDocCollection<T extends SearchableDocument<T>>(docs: T[], scoring: Partial<Record<KeyWithStringOrStringArrayValue<T>, number>>, options: Options = {}) {
 	const defaultOptions = {
 		boostMultiplier: 1.5,
 		minimumQueryLength: 1,
@@ -85,7 +85,7 @@ export function createDocCollection<T extends SearchableDocument<T>>(docs: T[], 
 	};
 
 	const normalizedDocs = docs.map((doc: T) => {
-		const normalizedDoc = {} as { [K in KeyWithStringOrStringArrayValue<T>]: string | string[] };
+		const normalizedDoc = {} as Record<KeyWithStringOrStringArrayValue<T>, string | string[]>;
 		for (const key in scoring) {
 			const v = doc[key];
 			if (typeof v === 'string') {
@@ -163,11 +163,9 @@ const isPrefixMatch = (word: string, prefix: string): boolean => {
 function searchDocuments<T extends SearchableDocument<T>>(
 	query: string, docs: {
 		doc: T
-		normalized: {
-			[K in KeyWithStringOrStringArrayValue<T>]: string | string[]
-		}
+		normalized: Record<KeyWithStringOrStringArrayValue<T>, string | string[]>
 	}[],
-	scoreWeights: { [K in KeyWithStringOrStringArrayValue<T>]?: number },
+	scoreWeights: Partial<Record<KeyWithStringOrStringArrayValue<T>, number>>,
 	levenshteinCache: Map<string, number>,
 	options: FinalOptions,
 ): T[] {
@@ -177,7 +175,7 @@ function searchDocuments<T extends SearchableDocument<T>>(
      * @param queryWords - The query words to match.
      * @returns - The relevance score.
      */
-	const calculateScore = <T>(doc: T, boost: boolean | undefined, queryWords: string[], scoring: { [k in KeyWithStringOrStringArrayValue<T>]?: number }): number => {
+	const calculateScore = <T>(doc: T, boost: boolean | undefined, queryWords: string[], scoring: Partial<Record<KeyWithStringOrStringArrayValue<T>, number>>): number => {
 		let totalScore = 0;
 
 		// The algorithm implements a prefix search per word,
@@ -264,7 +262,7 @@ function searchDocuments<T extends SearchableDocument<T>>(
 	// Calculate the score for each document, using the normalized string
 	const scoredDocs = docs.map(doc => ({
 		doc: doc.doc,
-		score: calculateScore(doc.normalized, doc.doc.boost, queryWords, scoreWeights),
+		score: calculateScore<typeof doc.normalized>(doc.normalized, doc.doc.boost, queryWords, scoreWeights),
 	}));
 
 	// Sort the documents by score

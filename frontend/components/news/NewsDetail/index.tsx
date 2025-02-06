@@ -27,8 +27,10 @@ export function NewsDetail({ newsId }) {
 
 	//
 	// B. Transform Data
+
 	// Give a unique ID to each heading in the content to be able
 	// to link to them from the sidebar
+
 	useEffect(() => {
 		if (!newsData) return;
 
@@ -46,7 +48,7 @@ export function NewsDetail({ newsId }) {
 	}, [newsData]);
 
 	//
-	// B. Render Components
+	// C. Render Components
 
 	return (
 		<Surface>

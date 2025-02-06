@@ -18,7 +18,7 @@ import '@/themes/_default/styles/wordpress.css';
 
 import AccordionOverride from '@/themes/_default/overrides/Accordion.module.css';
 import ButtonOverride from '@/themes/_default/overrides/Button.module.css';
-import MultiSelectOverride from '@/themes/_default/overrides/MultiSelect.module.css';
+import DatePickerInputOverride from '@/themes/_default/overrides/DatePickerInput.module.css';
 import SegmentedControlOverride from '@/themes/_default/overrides/SegmentedControl.module.css';
 import SelectOverride from '@/themes/_default/overrides/Select.module.css';
 import SkeletonOverride from '@/themes/_default/overrides/Skeleton.module.css';
@@ -76,14 +76,12 @@ export default createTheme({
 			},
 		}),
 
-		MultiSelect: MultiSelect.extend({
+		DatePickerInput: DatePickerInput.extend({
 			classNames: () => {
 				let defaultClasses = {
-					dropdown: MultiSelectOverride.dropdown,
-					input: MultiSelectOverride.input,
-					option: MultiSelectOverride.option,
-					section: MultiSelectOverride.section,
-					wrapper: MultiSelectOverride.wrapper,
+					input: DatePickerInputOverride.input,
+					section: DatePickerInputOverride.section,
+					wrapper: DatePickerInputOverride.wrapper,
 				};
 				return defaultClasses;
 			},

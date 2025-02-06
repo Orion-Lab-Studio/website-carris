@@ -4,12 +4,11 @@
 .input {
 	height: auto;
 	max-height: none;
-	font-size: 18px;
-	line-height: 1;
 	padding: var(--size-spacing-15);
+	font-size: 18px;
+	background-color: var(--color-system-background-100);
 	border: 1px solid var(--color-system-border-200);
 	border-radius: 5px;
-	background-color: var(--color-system-background-100);
 }
 
 .input::placeholder {
@@ -26,8 +25,8 @@
 
 .input.variantWhite {
 	color: var(--color-primary-black);
-	border-color: #bebec8;
 	background-color: var(--color-primary-white);
+	border-color: #bebec8;
 }
 
 /* * */
@@ -48,10 +47,8 @@
 	color: var(--color-system-text-300);
 }
 
-.sizeSm{
+.sizeSm {
 	height: auto;
 	max-height: none;
-	font-size: 18px;
-	line-height: 1;
 	font-size: var(--input-fz,var(--input-fz, var(--mantine-font-size-sm)));
 }

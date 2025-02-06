@@ -1,23 +1,26 @@
 'use client';
+
 /* * */
 
 import { NewsData } from '@/types/news.types';
+import { DateTime } from 'luxon';
 import { createContext, useContext, useEffect, useState } from 'react';
 import useSWR from 'swr';
+
 /* * */
 
 interface NewsListContextState {
 	actions: {
-		updateFilterByDate: (value: Date) => void
-		updateFilterByTitle: (value: string) => void
+		updateFilterByDate: (value: Date | null) => void
+		updateFilterBySearch: (value: string) => void
 	}
 	data: {
 		filtered: NewsData[]
 		raw: NewsData[]
 	}
 	filters: {
-		by_date: null | string
-		by_title: null | string
+		by_date: Date | null
+		by_search: string
 	}
 	flags: {
 		is_loading: boolean
@@ -26,7 +29,7 @@ interface NewsListContextState {
 
 /* * */
 
-const NewsListContext = createContext<NewsListContextState | undefined>(undefined);
+const NewsListContext = createContext<NewsListContextState | null>(null);
 
 export function useNewsListContext() {
 	const context = useContext(NewsListContext);
@@ -45,12 +48,14 @@ export const NewsListContextProvider = ({ children }) => {
 	// A. Setup variables
 
 	const [dataFilteredState, setDataFilteredState] = useState<NewsData[]>([]);
-	const [filterByTitle, setFilterByTitle] = useState<NewsListContextState['filters']['by_title']>(null);
+	const [filterBySearch, setFilterBySearch] = useState<NewsListContextState['filters']['by_search']>('');
 	const [filterByDate, setFilterByDate] = useState<NewsListContextState['filters']['by_date']>(null);
+
 	//
 	// B. Fetch data
 
-	const { data: allNewsData, isLoading: allNewsLoading } = useSWR<NewsData[], Error>(`api/news`, { refreshInterval: 30000 });
+	const { data: allNewsData, isLoading: allNewsLoading } = useSWR<NewsData[], Error>(`/api/news`, { refreshInterval: 30000 });
+
 	//
 	// C. Transform data
 
@@ -61,30 +66,27 @@ export const NewsListContextProvider = ({ children }) => {
 
 		//
 		// Filter by news date
-		if (filterByTitle) {
+    
+		if (filterBySearch) {
 			filterResult = filterResult.filter((newsItem) => {
-				return newsItem.title.toLocaleLowerCase().includes(filterByTitle);
+				const titleLowerCase = newsItem.title.toLowerCase();
+				return titleLowerCase.includes(filterBySearch.toLowerCase());
 			});
 		}
 
 		//
 		// Filter by news title
+
 		if (filterByDate) {
-			const date = filterByDate.split('T')[0];
 			filterResult = filterResult.filter((newsItem) => {
-				return newsItem.publish_date.includes(date);
+				const newsItemDate = DateTime.fromISO(newsItem.publish_date);
+				return newsItemDate.hasSame(DateTime.fromJSDate(filterByDate), 'day');
 			});
 		}
 
-		if (filterByDate && filterByTitle) {
-			const date = filterByDate.split('T')[0];
-			const newsByDate = filterResult.filter(newsItem => newsItem.publish_date.includes(date));
-			filterResult = newsByDate.filter((newsItem) => {
-				return newsItem.title.toLocaleLowerCase().includes(filterByTitle);
-			});
-		}
-
+		//
 		// Save filter result to state
+
 		return filterResult;
 
 		//
@@ -93,18 +95,17 @@ export const NewsListContextProvider = ({ children }) => {
 	useEffect(() => {
 		const filteredNews = applyFiltersToData();
 		setDataFilteredState(filteredNews);
-		console.log(filteredNews);
-	}, [allNewsData, filterByTitle, filterByDate]);
+	}, [allNewsData, filterBySearch, filterByDate]);
 
 	//
 	// D. Handle actions
 
-	const updateFilterByTitle = (value: NewsListContextState['filters']['by_title']) => {
-		setFilterByTitle(value || null);
+	const updateFilterBySearch = (value: NewsListContextState['filters']['by_search']) => {
+		setFilterBySearch(value);
 	};
 
-	const updateFilterByDate = (value: Date) => {
-		setFilterByDate(value.toISOString());
+	const updateFilterByDate = (value: NewsListContextState['filters']['by_date']) => {
+		setFilterByDate(value);
 	};
 
 	//
@@ -113,7 +114,7 @@ export const NewsListContextProvider = ({ children }) => {
 	const contextValue: NewsListContextState = {
 		actions: {
 			updateFilterByDate,
-			updateFilterByTitle,
+			updateFilterBySearch,
 		},
 		data: {
 			filtered: dataFilteredState,
@@ -121,7 +122,7 @@ export const NewsListContextProvider = ({ children }) => {
 		},
 		filters: {
 			by_date: filterByDate,
-			by_title: filterByTitle,
+			by_search: filterBySearch,
 		},
 		flags: {
 			is_loading: allNewsLoading,
