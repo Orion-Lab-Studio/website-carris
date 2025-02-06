@@ -66,7 +66,7 @@ export const NewsListContextProvider = ({ children }) => {
 
 		//
 		// Filter by news date
-    
+
 		if (filterBySearch) {
 			filterResult = filterResult.filter((newsItem) => {
 				const titleLowerCase = newsItem.title.toLowerCase();
