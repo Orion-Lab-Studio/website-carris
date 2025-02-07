@@ -2,14 +2,12 @@
 	{
 		"id": "0001",
 		"src": "/assets/featured/review-2024.png",
-		"target": "_blank",
-		"url": "https://www.carrismetropolitana.pt/viagem-2024"
+		"url": "/viagem-2024"
 	},
 	{
 		"id": "0002",
 		"src": "/assets/featured/tempo-real.png",
-		"target": "_blank",
-		"url": "https://www.carrismetropolitana.pt/news/27134"
+		"url": "/news/27134"
 	},
 	{
 		"id": "0003",

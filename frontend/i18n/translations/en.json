@@ -1383,7 +1383,8 @@
 		"StopsDetailContentTimetableRow": {
 			"localities": {
 				"label": "Pass through"
-			}
+			},
+			"open_line_page": "Ver percurso completo"
 		},
 		"StopsDetailContentTimetableSchedule": {
 			"end_of_day": "Fim do Dia",
