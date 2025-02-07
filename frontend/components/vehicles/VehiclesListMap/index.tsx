@@ -22,8 +22,10 @@ export default function Component() {
 	const vehiclesListContext = useVehiclesListContext();
 	const vehiclesContext = useVehiclesContext();
 	const stopsContext = useStopsContext();
+
 	const [pattern, setPattern] = useState<Pattern[] | undefined>(undefined);
 	const [activePathShapeGeoJson, setActivePathShapeGeoJson] = useState<Feature<Geometry, GeoJsonProperties> | FeatureCollection<Geometry, GeoJsonProperties> | undefined>(undefined);
+
 	const selectedVehicleFromList = vehiclesListContext.data.selected;
 	const selectedVehicle = selectedVehicleFromList && vehiclesContext.data.vehicles.find(vehicle => vehicle.id === selectedVehicleFromList.id);
 
@@ -104,18 +106,10 @@ export default function Component() {
 	}
 	// D. Render component
 	return (
-		<MapView
-			id="vehiclesListMap"
-			interactiveLayerIds={[MapViewStyleVehiclesInteractiveLayerId]}
-			onClick={handleLayerClick}
-		>
+		<MapView id="vehiclesListMap" interactiveLayerIds={[MapViewStyleVehiclesInteractiveLayerId]} onClick={handleLayerClick}>
 			<MapViewStyleVehicles vehiclesData={activeVehiclesGeoJson} />
-
-			<MapViewStylePath
-				presentBeforeId={MapViewStyleVehiclesPrimaryLayerId}
-				shapeData={activePathShapeGeoJson}
-				waypointsData={activePathWaypointsGeoJson}
-			/>
+			<MapViewStylePath presentBeforeId={MapViewStyleVehiclesPrimaryLayerId} shapeData={activePathShapeGeoJson} waypointsData={activePathWaypointsGeoJson} />
 		</MapView>
 	);
+	//
 }

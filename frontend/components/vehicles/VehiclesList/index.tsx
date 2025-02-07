@@ -29,19 +29,23 @@ export function VehiclesList() {
 			<Surface>
 				<Section heading={t('heading')} subheading={t('subheading')} />
 			</Surface>
-			<Surface>
+			{/* <Surface>
 				<Section withGap withPadding>
 					<VehiclesListInfoBlock />
 				</Section>
-			</Surface>
+			</Surface> */}
+
 			<Surface>
-				<div className={styles.container}>
-					<VehiclesListMap />
-					<div className={styles.sidebarWrapper}>
+				<Section>
+					<div className={styles.container}>
+						<div className={styles.mapWrapper}>
+							<VehiclesListMap />
+						</div>
 						<VehiclesListToolbar />
 					</div>
-				</div>
+				</Section>
 			</Surface>
+
 		</>
 	);
 

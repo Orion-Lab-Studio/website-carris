@@ -63,85 +63,80 @@ export default function Component() {
 	//
 	// C. Render components
 	return (
-		<>
-			<Section withGap withPadding>
+		<Section withGap withPadding>
+			<Grid columns="a" withGap>
+				<TextInput leftSection={<IconArrowLoopRight size={20} />} onChange={handleTextInputChange} placeholder={t('filter_by.search')} type="search" value={vehiclesListContext.filters.by_search} />
+				<MultiSelect
+					data={vehiclesListContext.data?.propulsions?.map(p => ({ label: p.name, value: p.name })) || []}
+					leftSection={<IconGasStation size={20} />}
+					onChange={handlePropulsionChange}
+					placeholder={t('filter_by.propulsion')}
+					radius="sm"
+					value={vehiclesListContext.filters.by_propulsion?.split(' ') || []}
+					clearable
+					searchable
+				/>
+			</Grid>
+
+			<ExpandToggle defaultState={!!vehiclesListContext.filters.by_agency || !!vehiclesListContext.filters.by_isBicicleAllowed || !!vehiclesListContext.filters.by_isWheelchairAcessible || !!vehiclesListContext.filters.by_makeAndModel}>
 				<Grid columns="a" withGap>
-					<TextInput leftSection={<IconArrowLoopRight size={20} />} onChange={handleTextInputChange} placeholder={t('filter_by.search')} type="search" value={vehiclesListContext.filters.by_search} />
-					<MultiSelect
-						data={vehiclesListContext.data?.propulsions?.map(p => ({ label: p.name, value: p.name })) || []}
-						leftSection={<IconGasStation size={20} />}
-						onChange={handlePropulsionChange}
-						placeholder={t('filter_by.propulsion')}
+					<Select
+						leftSection={<IconWheelchair size={20} />}
+						onChange={handleReducedMobilityChange}
+						placeholder={t('filter_by.wheel_chair')}
 						radius="sm"
-						value={vehiclesListContext.filters.by_propulsion?.split(' ') || []}
+						value={vehiclesListContext.filters.by_isWheelchairAcessible}
+						data={[{ label: 'Não', value: 'false' },
+							{ label: 'Sim', value: 'true' }]}
 						clearable
 						searchable
 					/>
+					<Select
+						leftSection={<IconBike size={20} />}
+						onChange={handleBikesAllowedInputChange}
+						placeholder={t('filter_by.bicycle')}
+						radius="sm"
+						value={vehiclesListContext.filters.by_isBicicleAllowed}
+						data={[{ label: 'Não', value: 'false' },
+							{ label: 'Sim', value: 'true' }]}
+						clearable
+						searchable
+					/>
+					<MultiSelect
+						data={vehiclesListContext.data?.agencys?.map(a => ({ label: a.name, value: a.agency_id.toString() })) || []}
+						leftSection={<IconUser size={20} />}
+						onChange={handleAgencyIdChange}
+						placeholder={t('filter_by.operator')}
+						radius="sm"
+						value={vehiclesListContext.filters.by_agency?.split(' ') || []}
+						clearable
+						searchable
+					/>
+					<MultiSelect
+						leftSection={<IconTriangle size={20} />}
+						onChange={handleMakeAndModelChange}
+						placeholder={t('filter_by.make_model')}
+						radius="sm"
+						value={vehiclesListContext.filters.by_makeAndModel?.split(',') || []}
+						data={
+							vehiclesListContext.data?.makes_and_models?.map(make => ({
+								group: make.name,
+								items: make.models.map(model => ({
+									label: model.name,
+									value: `${make.name}-${model.name}`,
+								})),
+							})) || []
+						}
+						clearable
+						searchable
+					/>
+
 				</Grid>
-
-				<ExpandToggle defaultState={!!vehiclesListContext.filters.by_agency || !!vehiclesListContext.filters.by_isBicicleAllowed || !!vehiclesListContext.filters.by_isWheelchairAcessible || !!vehiclesListContext.filters.by_makeAndModel}>
-					<Grid columns="a" withGap>
-						<Select
-							leftSection={<IconWheelchair size={20} />}
-							onChange={handleReducedMobilityChange}
-							placeholder={t('filter_by.wheel_chair')}
-							radius="sm"
-							value={vehiclesListContext.filters.by_isWheelchairAcessible}
-							data={[{ label: 'Não', value: 'false' },
-								{ label: 'Sim', value: 'true' }]}
-							clearable
-							searchable
-						/>
-						<Select
-							leftSection={<IconBike size={20} />}
-							onChange={handleBikesAllowedInputChange}
-							placeholder={t('filter_by.bicycle')}
-							radius="sm"
-							value={vehiclesListContext.filters.by_isBicicleAllowed}
-							data={[{ label: 'Não', value: 'false' },
-								{ label: 'Sim', value: 'true' }]}
-							clearable
-							searchable
-						/>
-						<MultiSelect
-							data={vehiclesListContext.data?.agencys?.map(a => ({ label: a.name, value: a.agency_id.toString() })) || []}
-							leftSection={<IconUser size={20} />}
-							onChange={handleAgencyIdChange}
-							placeholder={t('filter_by.operator')}
-							radius="sm"
-							value={vehiclesListContext.filters.by_agency?.split(' ') || []}
-							clearable
-							searchable
-						/>
-						<MultiSelect
-							leftSection={<IconTriangle size={20} />}
-							onChange={handleMakeAndModelChange}
-							placeholder={t('filter_by.make_model')}
-							radius="sm"
-							value={vehiclesListContext.filters.by_makeAndModel?.split(',') || []}
-							data={
-								vehiclesListContext.data?.makes_and_models?.map(make => ({
-									group: make.name,
-									items: make.models.map(model => ({
-										label: model.name,
-										value: `${make.name}-${model.name}`,
-									})),
-								})) || []
-							}
-							clearable
-							searchable
-						/>
-
-					</Grid>
-				</ExpandToggle>
-
-				<FoundItemsCounter text={t('found_items_counter', { count: vehiclesContext.data.vehicles.length })} />
-			</Section>
-			<Section withPadding>
-				{!selectedVehicle && (<NoDataLabel text={t('select_vehicle')} />)}
-				{selectedVehicle && (<VehicleListMapDetails lineData={lineData} selectedVehicle={selectedVehicle} />)}
-			</Section>
-		</>
+			</ExpandToggle>
+			<FoundItemsCounter text={t('found_items_counter', { count: vehiclesContext.data.vehicles.length })} />
+			{!selectedVehicle && (<div className={styles.noDataContainer}><NoDataLabel text={t('select_vehicle')} /> </div>)}
+			{selectedVehicle && (<VehicleListMapDetails lineData={lineData} selectedVehicle={selectedVehicle} />)}
+		</Section>
 	);
 
 	//

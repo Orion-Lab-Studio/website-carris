@@ -27,7 +27,7 @@ export function VehicleListMapBadge({ lineData }: Props) {
 	// A. Render components
 	return (
 		<>
-			<div className={cx({ badge: true, md: 'md' })} style={{ backgroundColor: lineData?.color, color: lineData?.text_color }}>
+			<div className={cx({ badge: true, md: 'md' })} style={{ backgroundColor: lineData?.color, color: lineData?.text_color, marginBottom: '10px' }}>
 				{lineData?.short_name || '• • •'}
 			</div>
 			<div>

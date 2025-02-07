@@ -1,10 +1,11 @@
 'use client';
-
+/* * */
 import { Routes } from '@/utils/routes';
 import { Vehicle } from '@carrismetropolitana/api-types/vehicles';
 import { useQueryState } from 'nuqs';
 import { createContext, useContext, useEffect, useState } from 'react';
 import useSWR from 'swr';
+/* * */
 
 interface VehiclesListContextState {
 	actions: {
@@ -50,13 +51,14 @@ export function useVehiclesListContext() {
 
 export const VehiclesListContextProvider = ({ children }) => {
 	//
+
+	//
 	// A. Setup variables
 	const [dataFilteredState, setDataFilteredState] = useState<Vehicle[]>([]);
 	const [dataSelectedState, setDataSelectedState] = useState<null | Vehicle>(null);
+
 	const [allAgencys, setAllAgencys] = useState<{ agency_id: number, name: string }[]>([]);
-	const [allMakesAndModels, setAllMakesAndModels] = useState<
-		{ id: number, models: { id: number, name: string }[], name: string }[]
-	>([]);
+	const [allMakesAndModels, setAllMakesAndModels] = useState<{ id: number, models: { id: number, name: string }[], name: string }[]>([]);
 	const [allPropulsions, setAllPropulsions] = useState<null | { id: number, name: string }[]>([]);
 
 	const [filterByWheelchairAccesibleState, setWheelchairAccesibleState] = useQueryState('isWheelchair', { clearOnDefault: true });
@@ -76,35 +78,25 @@ export const VehiclesListContextProvider = ({ children }) => {
 		let filterResult = allVehicleData || [];
 
 		if (filterByBicycleAllowedState) {
-			filterResult = filterResult.filter(
-				item => item.bikes_allowed?.toString() === filterByBicycleAllowedState,
-			);
+			filterResult = filterResult.filter(item => item.bikes_allowed?.toString() === filterByBicycleAllowedState);
 		}
 
 		if (filterByWheelchairAccesibleState) {
-			filterResult = filterResult.filter(
-				item => item.wheelchair_accessible?.toString() === filterByWheelchairAccesibleState,
-			);
+			filterResult = filterResult.filter(item => item.wheelchair_accessible?.toString() === filterByWheelchairAccesibleState);
 		}
 
 		if (filterByPropulsionState) {
 			const propulsionValues = filterByPropulsionState.split(' ').filter(Boolean);
-			filterResult = filterResult.filter(item =>
-				item.propulsion && propulsionValues.includes(item.propulsion),
-			);
+			filterResult = filterResult.filter(item => item.propulsion && propulsionValues.includes(item.propulsion));
 		}
 
 		if (filterByAgencyState) {
 			const agencyValues = filterByAgencyState.split(' ').filter(Boolean);
-			filterResult = filterResult.filter(item =>
-				agencyValues.includes(item.agency_id.toString()),
-			);
+			filterResult = filterResult.filter(item => agencyValues.includes(item.agency_id.toString()));
 		}
 
 		if (filterBySearchState) {
-			filterResult = filterResult.filter(item =>
-				item.license_plate?.toLowerCase().includes(filterBySearchState.toLowerCase()),
-			);
+			filterResult = filterResult.filter(item => item.license_plate?.toLowerCase().includes(filterBySearchState.toLowerCase()));
 		}
 
 		if (filterByMakeAndModelState && filterByMakeAndModelState.trim() !== '') {
@@ -123,16 +115,13 @@ export const VehiclesListContextProvider = ({ children }) => {
 
 	const getAllMakesAndModels = () => {
 		if (!allVehicleData) return [];
-
 		const makesMap = new Map();
 		let makeIdCounter = 1;
 		let modelIdCounter = 1;
-
 		allVehicleData.forEach((vehicle) => {
 			if (vehicle.make !== undefined && vehicle.model !== undefined) {
 				const makeName = vehicle.make;
 				const modelName = vehicle.model;
-
 				if (!makesMap.has(makeName)) {
 					makesMap.set(makeName, {
 						id: makeIdCounter,
@@ -141,16 +130,13 @@ export const VehiclesListContextProvider = ({ children }) => {
 					});
 					makeIdCounter++;
 				}
-
 				const makeObj = makesMap.get(makeName);
-
 				if (!makeObj.models.some(model => model.name === modelName)) {
 					makeObj.models.push({ id: modelIdCounter, name: modelName });
 					modelIdCounter++;
 				}
 			}
 		});
-
 		const makes_and_models = Array.from(makesMap.values());
 		setAllMakesAndModels(makes_and_models);
 		return makes_and_models;
@@ -158,7 +144,6 @@ export const VehiclesListContextProvider = ({ children }) => {
 
 	const getAllAgencys = () => {
 		const agencysMap = new Map();
-
 		allVehicleData?.forEach((vehicle) => {
 			if (vehicle.agency_id !== undefined) {
 				const agency_Id = vehicle.agency_id;
@@ -181,21 +166,17 @@ export const VehiclesListContextProvider = ({ children }) => {
 
 	const getAllPropulsion = () => {
 		if (!allVehicleData) return [];
-
 		const propulsionsMap = new Map();
 		let idCounter = 1;
-
 		allVehicleData.forEach((vehicle) => {
 			if (vehicle.propulsion !== undefined) {
 				const propulsionType = vehicle.propulsion;
-
 				if (!propulsionsMap.has(propulsionType)) {
 					propulsionsMap.set(propulsionType, { id: idCounter, name: propulsionType });
 					idCounter++;
 				}
 			}
 		});
-
 		const propulsions = Array.from(propulsionsMap.values());
 		setAllPropulsions(propulsions);
 		return propulsions;
@@ -238,21 +219,11 @@ export const VehiclesListContextProvider = ({ children }) => {
 	};
 
 	const updateFilterByIsBikeAllowed = (isBikeAllowed: string) => {
-		if (Array.isArray(isBikeAllowed)) {
-			setByBicycleAllowedState(isBikeAllowed.join(' '));
-		}
-		else {
-			setByBicycleAllowedState(isBikeAllowed);
-		}
+		setByBicycleAllowedState(isBikeAllowed);
 	};
 
 	const updateFilterByWheelchair = (isWheelchair: string) => {
-		if (Array.isArray(isWheelchair)) {
-			setWheelchairAccesibleState(isWheelchair.join(' '));
-		}
-		else {
-			setWheelchairAccesibleState(isWheelchair);
-		}
+		setWheelchairAccesibleState(isWheelchair);
 	};
 
 	const updateFilterByMakeAndModel = (makeAndModel: string[]) => {

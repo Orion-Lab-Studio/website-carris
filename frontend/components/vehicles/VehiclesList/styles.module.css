@@ -1,9 +1,10 @@
+/* * */
 /* CONTAINER */
 
 .container {
 	display: grid;
 	grid-template:
-		"a b" minmax(65vh, auto) / 1fr 1fr;
+		"a b" minmax(100vh, auto) / 1fr 1fr;
 	align-items: flex-start;
 	justify-content: flex-start;
 	width: 100%;
@@ -12,24 +13,26 @@
 @media (width < 1000px) {
 	.container {
 		grid-template:
-			"a" 50vh [a_]
-			"b" auto [b_] / 1fr;
+			"b" 50vh [b_]
+			"a" auto [a_] / 1fr;
 	}
 }
 
 /* * */
 /* MAP WRAPPER */
 
-.sidebarWrapper {
-	grid-area: b;
+.mapWrapper {
+	position: sticky;
+	top: var(--size-height-header);
+	grid-area: a;
 	height: 100%;
-	border-left: 1px solid var(--color-system-border-100);
+	max-height: calc(100vh - var(--size-height-header));
+	border-right: 1px solid var(--color-system-border-100);
 }
 
 @media (width < 1000px) {
-	.sidebarWrapper {
+	.mapWrapper {
 		position: static;
 		border: none;
 	}
-
 }

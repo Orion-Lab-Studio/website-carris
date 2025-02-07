@@ -11,56 +11,57 @@ import {
 import styles from './styles.module.css';
 
 export function VehicleListMapDetails({ lineData, selectedVehicle }) {
-	// A. Setup Variables
+	const {
+		bikes_allowed,
+		capacity_seated = 'Não Definido',
+		capacity_standing = 'Não Definido',
+		capacity_total = 'Não Definido',
+		current_status = 'Não Definido',
+		emission_class = 'Não Definido',
+		id = 'Não Definido',
+		license_plate = 'Não Definido',
+		make = 'Não Definido',
+		model = 'Não Definido',
+		propulsion = 'Não Definido',
+		wheelchair_accessible,
+	} = selectedVehicle;
 
-	const id = selectedVehicle.id;
-	const license_plate = selectedVehicle.license_plate;
-	const capacity_seated = selectedVehicle.capacity_seated;
-	const capacity_standing = selectedVehicle.capacity_standing;
-	const capacity_total = selectedVehicle.capacity_total;
-	const make = selectedVehicle.make;
-	const model = selectedVehicle.model;
-	const propulsion = selectedVehicle.propulsion;
-	const emission_class = selectedVehicle.emission_class;
-	const current_status = selectedVehicle.current_status;
+	const rows = [
+		{ label: 'ID', value: id },
+		{ label: 'Lugares Sentados', value: capacity_seated },
+		{ label: 'Lugares em pé', value: capacity_standing },
+		{ label: 'Capacidade Total', value: capacity_total },
+		{ label: 'Marca', value: make },
+		{ label: 'Modelo', value: model },
+		{ label: 'Propulsão', value: propulsion },
+		{ label: 'Emission Class', value: emission_class },
+		{ label: 'Estado Atual', value: current_status },
+	];
 
-	//
-
-	// B. Render Components
 	return (
 		<Section>
 			<div key={id} className={styles.dataWrapper}>
 				<VehicleListMapBadge lineData={lineData} />
 
 				<div className={styles.iconList}>
-					{selectedVehicle.bikes_allowed ? <IconBike /> : <IconBikeOff />}
-					{selectedVehicle.wheelchair_accessible ? <IconWheelchair /> : <IconWheelchairOff />}
-					<p className={styles.license_plate}>{license_plate ? license_plate : 'Não Definido'}</p>
+					{bikes_allowed ? <IconBike /> : <IconBikeOff />}
+					{wheelchair_accessible ? <IconWheelchair /> : <IconWheelchairOff />}
+					<p className={styles.license_plate}>{license_plate}</p>
 				</div>
 
 				<div className={styles.tableWrapper}>
-					<Table striped withColumnBorders withRowBorders withTableBorder>
+					<Table withRowBorders>
 						<Table.Thead>
 							<Table.Tr>
-								<Table.Th>Campo</Table.Th>
-								<Table.Th>Valor </Table.Th>
+								<Table.Th className={styles.tableHeaders}>Campo</Table.Th>
+								<Table.Th className={styles.tableHeaders}>Valor</Table.Th>
 							</Table.Tr>
 						</Table.Thead>
 						<Table.Tbody>
-							{[
-								{ label: 'ID', value: id ? id : 'Não Definido.' },
-								{ label: 'Lugares Sentados', value: capacity_seated ? capacity_seated : 'Não Definido' },
-								{ label: 'Lugares em pé', value: capacity_standing ? capacity_standing : 'Não Definido' },
-								{ label: 'Capacidade Total', value: capacity_total ? capacity_total : 'Não Definido' },
-								{ label: 'Marca', value: make ? make : 'Não Definido' },
-								{ label: 'Modelo', value: model ? model : 'Não Definido.' },
-								{ label: 'Propulsão', value: propulsion ? propulsion : 'Não Definido' },
-								{ label: 'Emission Class', value: emission_class ? emission_class : 'Não Definido' },
-								{ label: 'Estado Atual', value: current_status ? current_status : 'Não Definido' },
-							].map(row => (
+							{rows.map(row => (
 								<Table.Tr key={row.label}>
-									<Table.Td>{row.label}</Table.Td>
-									<Table.Td>{row.value}</Table.Td>
+									<Table.Td className={styles.rowLabel}>{row.label}</Table.Td>
+									<Table.Td className={styles.rowValue}>{row.value}</Table.Td>
 								</Table.Tr>
 							))}
 						</Table.Tbody>
