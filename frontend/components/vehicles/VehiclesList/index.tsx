@@ -8,6 +8,7 @@ import VehiclesListMap from '@/components/vehicles/VehiclesListMap';
 import VehiclesListToolbar from '@/components/vehicles/VehiclesListToolbar';
 import { useTranslations } from 'next-intl';
 
+import { VehiclesListInfoBlock } from '../VehicleListInfoBlock';
 import styles from './styles.module.css';
 
 /* * */
@@ -30,7 +31,7 @@ export function VehiclesList() {
 			</Surface>
 			<Surface>
 				<Section withGap withPadding>
-					<p>Informação</p>
+					<VehiclesListInfoBlock />
 				</Section>
 			</Surface>
 			<Surface>

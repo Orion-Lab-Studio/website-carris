@@ -1540,6 +1540,9 @@
 			"heading": "Veículos",
 			"subheading": "O passe navegante municipal Família permite que cada agregado familiar pague no máximo o valor de 2 passes navegante municipal, independentemente do número de elementos do agregado familiar. É válido em todas as empresas de serviço público de transporte regular de passageiros, em todos os 18 municípios da Área Metropolitana de Lisboa."
 		},
+		"VehiclesListInfoBlock": {
+			"heading": "Informação do Veículo"
+		},
 		"VehiclesListToolbar": {
 			"filter_by": {
 				"bicycle": "Permite Bicicletas",
