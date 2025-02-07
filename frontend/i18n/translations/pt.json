@@ -804,7 +804,7 @@
 		},
 		"LinesDetailPath": {
 			"no_data": "Selecione um Percurso / Destino",
-			"summary": "Percurso da linha <lineNumber>{line_number}</lineNumber> com destino a <destinationName>{destination_name}</destinationName> no dia <dayName>{day_name, date, long}</dayName>. <changeDay>Alterar dia ›</changeDay>"
+			"summary": "Linha <lineNumber>{line_number}</lineNumber> com destino a <destinationName>{destination_name}</destinationName> no dia <dayName>{day_name, date, long}</dayName>. <changeDay>Alterar dia ›</changeDay>"
 
 		},
 		"LinesListToolbar": {
