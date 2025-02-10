@@ -47,7 +47,7 @@ export function VehiclesListMap() {
 
 	useEffect(() => {
 		(async () => {
-			if (!activePatternData || activePatternData.shape_id) {
+			if (!activePatternData?.shape_id) {
 				setActiveShapeData(undefined);
 				return;
 			}
@@ -55,7 +55,7 @@ export function VehiclesListMap() {
 			const fetchedShapeData = await fetchedShapeResponse.json();
 			setActiveShapeData(fetchedShapeData);
 		})();
-	}, [activePatternData?.shape_id]);
+	}, [activePatternData]);
 
 	//
 	// C. Transform data

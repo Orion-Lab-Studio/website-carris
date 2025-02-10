@@ -2,6 +2,7 @@
 
 /* * */
 
+import { LicensePlate } from '@/components/common/LicensePlate';
 import { NoDataLabel } from '@/components/layout/NoDataLabel';
 import { Section } from '@/components/layout/Section';
 import { LineBadge } from '@/components/lines/LineBadge';
@@ -63,6 +64,7 @@ export function VehiclesListDetails() {
 					<div className={styles.iconList}>
 						{vehiclesListContext.data.selected?.bikes_allowed ? <IconBike /> : <IconBikeOff />}
 						{vehiclesListContext.data.selected?.wheelchair_accessible ? <IconDisabled2 /> : <IconDisabledOff />}
+						<LicensePlate value="00-00-AA" />
 						{vehiclesListContext.data.selected.license_plate && <p className={styles.licensePlate}>{vehiclesListContext.data.selected.license_plate}</p>}
 					</div>
 
