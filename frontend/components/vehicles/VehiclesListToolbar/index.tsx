@@ -7,6 +7,7 @@ import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
 import { Grid } from '@/components/layout/Grid';
 import { NoDataLabel } from '@/components/layout/NoDataLabel';
 import { Section } from '@/components/layout/Section';
+import { VehicleListMapDetails } from '@/components/vehicles/VehiclesListMapDetails';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useVehiclesContext } from '@/contexts/Vehicles.context';
 import { useVehiclesListContext } from '@/contexts/VehiclesList.context';
@@ -14,7 +15,6 @@ import { MultiSelect, Select, TextInput } from '@mantine/core';
 import { IconArrowLoopRight, IconBike, IconGasStation, IconTriangle, IconUser, IconWheelchair } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
-import { VehicleListMapDetails } from '../VehiclesListMapDetails';
 import styles from './styles.module.css';
 
 /* * */
