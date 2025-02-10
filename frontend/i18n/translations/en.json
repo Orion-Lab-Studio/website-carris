@@ -1133,6 +1133,14 @@
 			"43": "TST",
 			"44": "Alsa Todi"
 		},
+		"VehicleEmissionClass": {
+			"euro_1": "EURO 1",
+			"euro_2": "EURO 2",
+			"euro_3": "EURO 3",
+			"euro_4": "EURO 4",
+			"euro_5": "EURO 5",
+			"euro_6": "EURO 6"
+		},
 		"VehiclePropulsion": {
 			"diesel": "Diesel",
 			"electricity": "Eletricidade",
@@ -1556,7 +1564,8 @@
 			"subheading": "The pass navegante municipal Familia allows that each family pays at most the value of 2 municipal navegante pass indenpendently of the number of elemnts of the family. It is valid in all the companies of the public means of transport, in all of the 18 municipalities of the Lisbon metropolitan area."
 		},
 		"VehiclesListDetails": {
-			"no_data": "Selecione um veículo"
+			"no_data": "Selecione um veículo",
+			"unknown": "Desconhecido"
 		},
 		"VehiclesListInfoBlock": {
 			"heading": "Informação do Veículo"
