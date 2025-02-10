@@ -24,6 +24,7 @@ export function VehiclesListDetails() {
 	// A. Setup variables
 
 	const t = useTranslations('vehicles.VehiclesListDetails');
+	const optionLabels = useTranslations('options');
 
 	const linesContext = useLinesContext();
 	const vehiclesListContext = useVehiclesListContext();
@@ -42,8 +43,8 @@ export function VehiclesListDetails() {
 		{ label: 'Capacidade Total', value: vehiclesListContext.data.selected?.capacity_total },
 		{ label: 'Marca', value: vehiclesListContext.data.selected?.make },
 		{ label: 'Modelo', value: vehiclesListContext.data.selected?.model },
-		{ label: 'Propulsão', value: vehiclesListContext.data.selected?.propulsion },
-		{ label: 'Emission Class', value: vehiclesListContext.data.selected?.emission_class },
+		{ label: 'Propulsão', value: vehiclesListContext.data.selected?.propulsion ? optionLabels(`VehiclePropulsion.${vehiclesListContext.data.selected.propulsion}`) : t('unknown') },
+		{ label: 'Emission Class', value: vehiclesListContext.data.selected?.emission_class ? optionLabels(`VehicleEmissionClass.${vehiclesListContext.data.selected.emission_class}`) : t('unknown') },
 		{ label: 'Estado Atual', value: vehiclesListContext.data.selected?.current_status },
 	];
 

@@ -1134,6 +1134,14 @@
 			"43": "TST",
 			"44": "Alsa Todi"
 		},
+		"VehicleEmissionClass": {
+			"euro_1": "EURO 1",
+			"euro_2": "EURO 2",
+			"euro_3": "EURO 3",
+			"euro_4": "EURO 4",
+			"euro_5": "EURO 5",
+			"euro_6": "EURO 6"
+		},
 		"VehiclePropulsion": {
 			"diesel": "Diesel",
 			"electricity": "Eletricidade",
@@ -1557,7 +1565,8 @@
 			"subheading": "Descubra todos os nossos veículos e acompanhe em tempo real a operação completa da CMetropolitana."
 		},
 		"VehiclesListDetails": {
-			"no_data": "Selecione um veículo"
+			"no_data": "Selecione um veículo",
+			"unknown": "Desconhecido"
 		},
 		"VehiclesListInfoBlock": {
 			"heading": "Informação do Veículo"
