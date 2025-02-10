@@ -803,7 +803,8 @@
 			"title": "das {total_trip_count, number} viagens planeadas para os últimos 15 dias, {pass_trip_count, number} foram corretamente realizadas"
 		},
 		"LinesDetailPath": {
-			"no_data": "Selecione um Percurso / Destino"
+			"no_data": "Select a Path / Destination",
+			"summary": "Line <lineNumber>{line_number}</lineNumber> with destiny to <destinationName>{destination_name}</destinationName> on <dayName>{day_name, date, long}</dayName>. <changeDay>Change day ›</changeDay>"
 		},
 		"LinesListToolbar": {
 			"by_current_view": {
