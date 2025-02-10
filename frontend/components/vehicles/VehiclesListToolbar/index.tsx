@@ -5,17 +5,11 @@
 import { ExpandToggle } from '@/components/common/ExpandToggle';
 import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
 import { Grid } from '@/components/layout/Grid';
-import { NoDataLabel } from '@/components/layout/NoDataLabel';
 import { Section } from '@/components/layout/Section';
-import { VehicleListMapDetails } from '@/components/vehicles/VehiclesListMapDetails';
-import { useLinesContext } from '@/contexts/Lines.context';
-import { useVehiclesContext } from '@/contexts/Vehicles.context';
 import { useVehiclesListContext } from '@/contexts/VehiclesList.context';
 import { MultiSelect, Select, TextInput } from '@mantine/core';
 import { IconArrowLoopRight, IconBike, IconGasStation, IconTriangle, IconUser, IconWheelchair } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-
-import styles from './styles.module.css';
 
 /* * */
 
@@ -26,15 +20,7 @@ export function VehiclesListToolbar() {
 	// A. Setup variables
 
 	const t = useTranslations('vehicles.VehiclesListToolbar');
-
-	const vehiclesContext = useVehiclesContext();
-	const LinesContext = useLinesContext();
 	const vehiclesListContext = useVehiclesListContext();
-
-	const selectedVehicleFromList = vehiclesListContext.data.selected;
-	const selectedVehicle = selectedVehicleFromList && vehiclesContext.data.vehicles.find(vehicle => vehicle.id === selectedVehicleFromList.id);
-
-	const lineData = LinesContext.actions.getLineDataById(selectedVehicle?.line_id || '');
 
 	//
 	// B. Handle Actions
@@ -67,7 +53,7 @@ export function VehiclesListToolbar() {
 	// C. Render components
 
 	return (
-		<Section withGap withPadding>
+		<Section withBottomDivider withGap withPadding>
 			<Grid columns="a" withGap>
 				<TextInput leftSection={<IconArrowLoopRight size={20} />} onChange={handleTextInputChange} placeholder={t('filter_by.search')} type="search" value={vehiclesListContext.filters.by_search} />
 				<MultiSelect
@@ -90,8 +76,10 @@ export function VehiclesListToolbar() {
 						placeholder={t('filter_by.wheel_chair')}
 						radius="sm"
 						value={vehiclesListContext.filters.by_isWheelchairAcessible}
-						data={[{ label: 'Não', value: 'false' },
-							{ label: 'Sim', value: 'true' }]}
+						data={[
+							{ label: 'Não', value: 'false' },
+							{ label: 'Sim', value: 'true' },
+						]}
 						clearable
 						searchable
 					/>
@@ -101,13 +89,15 @@ export function VehiclesListToolbar() {
 						placeholder={t('filter_by.bicycle')}
 						radius="sm"
 						value={vehiclesListContext.filters.by_isBicicleAllowed}
-						data={[{ label: 'Não', value: 'false' },
-							{ label: 'Sim', value: 'true' }]}
+						data={[
+							{ label: 'Não', value: 'false' },
+							{ label: 'Sim', value: 'true' },
+						]}
 						clearable
 						searchable
 					/>
 					<MultiSelect
-						data={vehiclesListContext.data?.agencys?.map(a => ({ label: a.name, value: a.agency_id.toString() })) || []}
+						data={vehiclesListContext.data?.agencies?.map(a => ({ label: a.name, value: a.agency_id.toString() })) || []}
 						leftSection={<IconUser size={20} />}
 						onChange={handleAgencyIdChange}
 						placeholder={t('filter_by.operator')}
@@ -134,12 +124,9 @@ export function VehiclesListToolbar() {
 						clearable
 						searchable
 					/>
-
 				</Grid>
 			</ExpandToggle>
-			<FoundItemsCounter text={t('found_items_counter', { count: vehiclesContext.data.vehicles.length })} />
-			{!selectedVehicle && (<div className={styles.noDataContainer}><NoDataLabel text={t('select_vehicle')} /> </div>)}
-			{selectedVehicle && (<VehicleListMapDetails lineData={lineData} selectedVehicle={selectedVehicle} />)}
+			<FoundItemsCounter text={t('found_items_counter', { count: vehiclesListContext.data.filtered.length })} />
 		</Section>
 	);
 

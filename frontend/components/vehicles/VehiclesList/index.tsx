@@ -4,6 +4,7 @@
 
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
+import { VehiclesListDetails } from '@/components/vehicles/VehiclesListDetails';
 import { VehiclesListMap } from '@/components/vehicles/VehiclesListMap';
 import { VehiclesListToolbar } from '@/components/vehicles/VehiclesListToolbar';
 import { useTranslations } from 'next-intl';
@@ -36,7 +37,10 @@ export function VehiclesList() {
 						<div className={styles.mapWrapper}>
 							<VehiclesListMap />
 						</div>
-						<VehiclesListToolbar />
+						<div>
+							<VehiclesListToolbar />
+							<VehiclesListDetails />
+						</div>
 					</div>
 				</Section>
 			</Surface>

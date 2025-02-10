@@ -1,10 +1,13 @@
 'use client';
+
 /* * */
+
 import { Routes } from '@/utils/routes';
 import { Vehicle } from '@carrismetropolitana/api-types/vehicles';
 import { useQueryState } from 'nuqs';
 import { createContext, useContext, useEffect, useState } from 'react';
 import useSWR from 'swr';
+
 /* * */
 
 interface VehiclesListContextState {
@@ -18,7 +21,7 @@ interface VehiclesListContextState {
 		updateSelectedVehicle: (vehicleId: string) => void
 	}
 	data: {
-		agencys: null | { agency_id: number, name: string }[]
+		agencies: null | { agency_id: number, name: string }[]
 		filtered: Vehicle[]
 		makes_and_models: null | { id: number, models: { id: number, name: string }[], name: string }[]
 		propulsions: null | { id: number, name: string }[]
@@ -54,10 +57,11 @@ export const VehiclesListContextProvider = ({ children }) => {
 
 	//
 	// A. Setup variables
+
 	const [dataFilteredState, setDataFilteredState] = useState<Vehicle[]>([]);
 	const [dataSelectedState, setDataSelectedState] = useState<null | Vehicle>(null);
 
-	const [allAgencys, setAllAgencys] = useState<{ agency_id: number, name: string }[]>([]);
+	const [allAgencies, setAllAgencies] = useState<{ agency_id: number, name: string }[]>([]);
 	const [allMakesAndModels, setAllMakesAndModels] = useState<{ id: number, models: { id: number, name: string }[], name: string }[]>([]);
 	const [allPropulsions, setAllPropulsions] = useState<null | { id: number, name: string }[]>([]);
 
@@ -70,10 +74,12 @@ export const VehiclesListContextProvider = ({ children }) => {
 
 	//
 	// B. Fetch data
+
 	const { data: allVehicleData, isLoading: allVehiclesLoading } = useSWR<Vehicle[], Error>(`${Routes.API}/vehicles`, { refreshInterval: 30000 });
 
 	//
 	// C. Transform data
+
 	const applyFiltersToData = () => {
 		let filterResult = allVehicleData || [];
 
@@ -142,8 +148,8 @@ export const VehiclesListContextProvider = ({ children }) => {
 		return makes_and_models;
 	};
 
-	const getAllAgencys = () => {
-		const agencysMap = new Map();
+	const getAllAgencies = () => {
+		const agenciesMap = new Map();
 		allVehicleData?.forEach((vehicle) => {
 			if (vehicle.agency_id !== undefined) {
 				const agency_Id = vehicle.agency_id;
@@ -154,14 +160,14 @@ export const VehiclesListContextProvider = ({ children }) => {
 					44: 'Alsa Todi',
 				};
 
-				if (!agencysMap.has(agency_Id)) {
-					agencysMap.set(agency_Id, { agency_id: agency_Id, name: agencyOverrides[agency_Id] });
+				if (!agenciesMap.has(agency_Id)) {
+					agenciesMap.set(agency_Id, { agency_id: agency_Id, name: agencyOverrides[agency_Id] });
 				}
 			}
 		});
-		const agencys = Array.from(agencysMap.values());
-		setAllAgencys(agencys);
-		return agencys;
+		const agencies = Array.from(agenciesMap.values());
+		setAllAgencies(agencies);
+		return agencies;
 	};
 
 	const getAllPropulsion = () => {
@@ -197,7 +203,7 @@ export const VehiclesListContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		if (!allVehicleData && !allVehiclesLoading) return;
-		getAllAgencys();
+		getAllAgencies();
 		getAllMakesAndModels();
 		getAllPropulsion();
 	}, [allVehicleData]);
@@ -267,7 +273,7 @@ export const VehiclesListContextProvider = ({ children }) => {
 			updateSelectedVehicle,
 		},
 		data: {
-			agencys: allAgencys || [],
+			agencies: allAgencies || [],
 			filtered: dataFilteredState,
 			makes_and_models: allMakesAndModels || [],
 			propulsions: allPropulsions || [],
