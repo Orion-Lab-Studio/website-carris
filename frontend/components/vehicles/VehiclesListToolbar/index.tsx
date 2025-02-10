@@ -19,7 +19,10 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component() {
+export function VehiclesListToolbar() {
+	//
+
+	//
 	// A. Setup variables
 
 	const t = useTranslations('vehicles.VehiclesListToolbar');
@@ -34,8 +37,8 @@ export default function Component() {
 	const lineData = LinesContext.actions.getLineDataById(selectedVehicle?.line_id || '');
 
 	//
-
 	// B. Handle Actions
+
 	const handleTextInputChange = ({ currentTarget }) => {
 		vehiclesListContext.actions.updateFilterBySearch(currentTarget.value);
 	};
@@ -62,6 +65,7 @@ export default function Component() {
 
 	//
 	// C. Render components
+
 	return (
 		<Section withGap withPadding>
 			<Grid columns="a" withGap>

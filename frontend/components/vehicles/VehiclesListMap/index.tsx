@@ -1,12 +1,10 @@
 'use client';
 
+/* * */
+
 import { MapView } from '@/components/map/MapView';
 import { MapViewStylePath } from '@/components/map/MapViewStylePath';
-import {
-	MapViewStyleVehicles,
-	MapViewStyleVehiclesInteractiveLayerId,
-	MapViewStyleVehiclesPrimaryLayerId,
-} from '@/components/map/MapViewStyleVehicles';
+import { MapViewStyleVehicles, MapViewStyleVehiclesInteractiveLayerId, MapViewStyleVehiclesPrimaryLayerId } from '@/components/map/MapViewStyleVehicles';
 import { transformStopDataIntoGeoJsonFeature, useStopsContext } from '@/contexts/Stops.context';
 import { useVehiclesContext } from '@/contexts/Vehicles.context';
 import { useVehiclesListContext } from '@/contexts/VehiclesList.context';
@@ -17,8 +15,14 @@ import { Feature, FeatureCollection, GeoJsonProperties, Geometry } from 'geojson
 import { DateTime } from 'luxon';
 import { useMemo, useState } from 'react';
 
-export default function Component() {
+/* * */
+
+export function VehiclesListMap() {
+	//
+
+	//
 	// A. Setup variables
+
 	const vehiclesListContext = useVehiclesListContext();
 	const vehiclesContext = useVehiclesContext();
 	const stopsContext = useStopsContext();
@@ -29,6 +33,7 @@ export default function Component() {
 	const selectedVehicleFromList = vehiclesListContext.data.selected;
 	const selectedVehicle = selectedVehicleFromList && vehiclesContext.data.vehicles.find(vehicle => vehicle.id === selectedVehicleFromList.id);
 
+	//
 	// B. Fetch Data
 
 	const findTodaysDate = () => DateTime.now().toFormat('yyyyLLdd');
@@ -93,7 +98,9 @@ export default function Component() {
 		return collection;
 	}, [pattern, vehiclesContext.data.vehicles]);
 
+	//
 	// C. Handle actions
+
 	function handleLayerClick(event) {
 		if (event.features.length === 0) {
 			setActivePathShapeGeoJson(undefined);
@@ -104,12 +111,16 @@ export default function Component() {
 			vehiclesListContext.actions.updateSelectedVehicle(event.features[0].properties.id);
 		}
 	}
-	// D. Render component
+
+	//
+	// D. Render components
+
 	return (
 		<MapView id="vehiclesListMap" interactiveLayerIds={[MapViewStyleVehiclesInteractiveLayerId]} onClick={handleLayerClick}>
 			<MapViewStyleVehicles vehiclesData={activeVehiclesGeoJson} />
 			<MapViewStylePath presentBeforeId={MapViewStyleVehiclesPrimaryLayerId} shapeData={activePathShapeGeoJson} waypointsData={activePathWaypointsGeoJson} />
 		</MapView>
 	);
+
 	//
 }
