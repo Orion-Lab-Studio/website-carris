@@ -8,7 +8,7 @@ import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { useVehiclesListContext } from '@/contexts/VehiclesList.context';
 import { MultiSelect, Select, TextInput } from '@mantine/core';
-import { IconArrowLoopRight, IconBike, IconBolt, IconDisabled2, IconHomeHeart, IconTriangle } from '@tabler/icons-react';
+import { IconBike, IconBolt, IconDisabled2, IconHomeHeart, IconSearch, IconTriangle } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
 
@@ -74,7 +74,7 @@ export function VehiclesListToolbar() {
 		<Section withBottomDivider withGap withPadding>
 			<Grid columns="a" withGap>
 				<TextInput
-					leftSection={<IconArrowLoopRight size={20} />}
+					leftSection={<IconSearch />}
 					onChange={handleTextInputChange}
 					placeholder={t('filters.by_search.placeholder')}
 					type="search"
@@ -82,7 +82,7 @@ export function VehiclesListToolbar() {
 				/>
 				<MultiSelect
 					data={propulsionOptions}
-					leftSection={<IconBolt size={20} />}
+					leftSection={<IconBolt />}
 					onChange={vehiclesListContext.actions.updateFilterByPropulsion}
 					placeholder={t('filters.by_propulsion.placeholder')}
 					value={vehiclesListContext.filters.by_propulsion ? vehiclesListContext.filters.by_propulsion?.split(';') : []}
@@ -94,7 +94,7 @@ export function VehiclesListToolbar() {
 			<ExpandToggle defaultState={!!vehiclesListContext.filters.by_agency || !!vehiclesListContext.filters.by_bikes || !!vehiclesListContext.filters.by_wheelchair || !!vehiclesListContext.filters.by_make_and_model}>
 				<Grid columns="a" withGap>
 					<Select
-						leftSection={<IconDisabled2 size={20} />}
+						leftSection={<IconDisabled2 />}
 						onChange={vehiclesListContext.actions.updateFilterByWheelchair}
 						placeholder={t('filters.by_wheelchair.placeholder')}
 						value={vehiclesListContext.filters.by_wheelchair}
@@ -106,7 +106,7 @@ export function VehiclesListToolbar() {
 						searchable
 					/>
 					<Select
-						leftSection={<IconBike size={20} />}
+						leftSection={<IconBike />}
 						onChange={vehiclesListContext.actions.updateFilterByBikes}
 						placeholder={t('filters.by_bikes.placeholder')}
 						value={vehiclesListContext.filters.by_bikes}
@@ -119,7 +119,7 @@ export function VehiclesListToolbar() {
 					/>
 					<MultiSelect
 						data={agencyOptions}
-						leftSection={<IconHomeHeart size={20} />}
+						leftSection={<IconHomeHeart />}
 						onChange={vehiclesListContext.actions.updateFilterByAgency}
 						placeholder={t('filters.by_agency.placeholder')}
 						value={vehiclesListContext.filters.by_agency ? vehiclesListContext.filters.by_agency?.split(';') : []}
@@ -128,7 +128,7 @@ export function VehiclesListToolbar() {
 					/>
 					<MultiSelect
 						data={makeAndModelOptions}
-						leftSection={<IconTriangle size={20} />}
+						leftSection={<IconTriangle />}
 						onChange={vehiclesListContext.actions.updateFilterByMakeAndModel}
 						placeholder={t('filters.by_make_model.placeholder')}
 						value={vehiclesListContext.filters.by_make_and_model ? vehiclesListContext.filters.by_make_and_model?.split(';') : []}
