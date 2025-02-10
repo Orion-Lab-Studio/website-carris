@@ -52,6 +52,7 @@ export function VehiclesListMap() {
 				return;
 			}
 			const fetchedShapeResponse = await fetch(`${Routes.API}/shapes/${activePatternData.shape_id}`);
+			if (!fetchedShapeResponse.ok) return;
 			const fetchedShapeData = await fetchedShapeResponse.json();
 			setActiveShapeData(fetchedShapeData);
 		})();
