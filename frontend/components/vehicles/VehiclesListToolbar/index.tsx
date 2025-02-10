@@ -85,7 +85,6 @@ export function VehiclesListToolbar() {
 					leftSection={<IconGasStation size={20} />}
 					onChange={vehiclesListContext.actions.updateFilterByPropulsion}
 					placeholder={t('filters.by_propulsion.placeholder')}
-					radius="sm"
 					value={vehiclesListContext.filters.by_propulsion?.split(' ') || []}
 					clearable
 					searchable
@@ -98,7 +97,6 @@ export function VehiclesListToolbar() {
 						leftSection={<IconDisabled2 size={20} />}
 						onChange={vehiclesListContext.actions.updateFilterByWheelchair}
 						placeholder={t('filters.by_wheelchair.placeholder')}
-						radius="sm"
 						value={vehiclesListContext.filters.by_wheelchair}
 						data={[
 							{ label: t('filters.by_wheelchair.options.false'), value: 'false' },
@@ -111,7 +109,6 @@ export function VehiclesListToolbar() {
 						leftSection={<IconBike size={20} />}
 						onChange={vehiclesListContext.actions.updateFilterByBikes}
 						placeholder={t('filters.by_bikes.placeholder')}
-						radius="sm"
 						value={vehiclesListContext.filters.by_bikes}
 						data={[
 							{ label: t('filters.by_bikes.options.false'), value: 'false' },
@@ -125,7 +122,6 @@ export function VehiclesListToolbar() {
 						leftSection={<IconUser size={20} />}
 						onChange={vehiclesListContext.actions.updateFilterByAgency}
 						placeholder={t('filters.by_agency.placeholder')}
-						radius="sm"
 						value={vehiclesListContext.filters.by_agency?.split(' ') || []}
 						clearable
 						searchable
@@ -135,7 +131,6 @@ export function VehiclesListToolbar() {
 						leftSection={<IconTriangle size={20} />}
 						onChange={vehiclesListContext.actions.updateFilterByMakeAndModel}
 						placeholder={t('filters.by_make_model.placeholder')}
-						radius="sm"
 						value={vehiclesListContext.filters.by_make_and_model?.split(',') || []}
 						clearable
 						searchable
