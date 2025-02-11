@@ -60,6 +60,20 @@ export interface AddFavoriteStopProperties {
   stop_id: string;
 }
 
+export interface ClickDebugToggleProperties {
+  is_enabled: string;
+}
+
+export interface ClickExternalLinkProperties {
+  destination_target: string;
+  destination_url: string;
+  pathname: string;
+}
+
+export interface ClickSocialIconProperties {
+  social_app: string;
+}
+
 export interface RemoveFavoriteLineProperties {
   line_id: string;
 }
@@ -83,6 +97,36 @@ export class AddFavoriteStop implements BaseEvent {
 
   constructor(
     public event_properties: AddFavoriteStopProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class ClickDebugToggle implements BaseEvent {
+  event_type = 'Click Debug Toggle';
+
+  constructor(
+    public event_properties: ClickDebugToggleProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class ClickExternalLink implements BaseEvent {
+  event_type = 'Click External Link';
+
+  constructor(
+    public event_properties: ClickExternalLinkProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class ClickSocialIcon implements BaseEvent {
+  event_type = 'Click Social Icon';
+
+  constructor(
+    public event_properties: ClickSocialIconProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -253,6 +297,57 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new AddFavoriteStop(properties), options);
+  }
+
+  /**
+   * Click Debug Toggle
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Click%20Debug%20Toggle)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. is_enabled)
+   * @param options Amplitude event options.
+   */
+  clickDebugToggle(
+    properties: ClickDebugToggleProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new ClickDebugToggle(properties), options);
+  }
+
+  /**
+   * Click External Link
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Click%20External%20Link)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. destination_target)
+   * @param options Amplitude event options.
+   */
+  clickExternalLink(
+    properties: ClickExternalLinkProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new ClickExternalLink(properties), options);
+  }
+
+  /**
+   * Click Social Icon
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Click%20Social%20Icon)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. social_app)
+   * @param options Amplitude event options.
+   */
+  clickSocialIcon(
+    properties: ClickSocialIconProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new ClickSocialIcon(properties), options);
   }
 
   /**
