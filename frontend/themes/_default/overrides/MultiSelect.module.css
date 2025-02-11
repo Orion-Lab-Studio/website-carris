@@ -5,16 +5,19 @@
 	height: auto;
 	max-height: none;
 	padding: var(--size-spacing-15);
-	font-size: 18px;
-	font-weight: var(--font-weight-medium);
-	line-height: 1;
 	cursor: pointer;
 	background-color: var(--color-system-background-100);
 	border: 1px solid var(--color-system-border-200);
 	border-radius: 5px;
 }
 
-.input::placeholder {
+.inputField {
+	font-size: 18px;
+	font-weight: var(--font-weight-medium);
+	line-height: 1;
+}
+
+.inputField::placeholder {
 	color: var(--color-system-text-300);
 }
 

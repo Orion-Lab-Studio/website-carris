@@ -94,6 +94,7 @@ export default createTheme({
 				let defaultClasses = {
 					dropdown: MultiSelectOverride.dropdown,
 					input: MultiSelectOverride.input,
+					inputField: MultiSelectOverride.inputField,
 					option: MultiSelectOverride.option,
 					section: MultiSelectOverride.section,
 					wrapper: MultiSelectOverride.wrapper,
