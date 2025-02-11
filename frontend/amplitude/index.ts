@@ -86,6 +86,17 @@ export interface ClickLinkProperties {
   destination_href: string;
 }
 
+export interface PingProperties {
+  /**
+   * The version of the application that generated the event.
+   */
+  app_version: string;
+  /**
+   * This property indicates the location in the app (the pathname, the screen id) where the current event was generated at.
+   */
+  current_page: string;
+}
+
 export interface RemoveFavoriteLineProperties {
   /**
    * Holds a the ID of the entity "Line", which is usually a 4-digit numeric string.
@@ -147,6 +158,12 @@ export class ClickLink implements BaseEvent {
 
 export class Ping implements BaseEvent {
   event_type = 'Ping';
+
+  constructor(
+    public event_properties: PingProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
 }
 
 export class RemoveFavoriteLine implements BaseEvent {
@@ -353,12 +370,14 @@ export class Ampli {
    *
    * Event to track when a user visits CMetropolitana website.
    *
+   * @param properties The event's properties (e.g. app_version)
    * @param options Amplitude event options.
    */
   ping(
+    properties: PingProperties,
     options?: EventOptions,
   ) {
-    return this.track(new Ping(), options);
+    return this.track(new Ping(properties), options);
   }
 
   /**

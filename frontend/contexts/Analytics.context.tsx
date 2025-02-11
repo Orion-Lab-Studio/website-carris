@@ -107,9 +107,21 @@ export const AnalyticsContextProvider = ({ children }) => {
 	useEffect(() => {
 		if (flagIsEnabledState) {
 			ampli.load({ client: { configuration: { appVersion: pjson.version, autocapture: false } }, environment: 'default' });
-			ampli.ping();
 		}
 	}, [flagIsEnabledState]);
+
+	useEffect(() => {
+		// Capture a ping event every minute
+		const pingInterval = setInterval(() => {
+			if (typeof window !== 'undefined') {
+				capture(() => ampli.ping({
+					app_version: pjson.version,
+					current_page: window.location.pathname,
+				}));
+			}
+		}, 60000);
+		return () => clearInterval(pingInterval);
+	}, []);
 
 	const enable = () => {
 		// Set local state and save decision to local storage
