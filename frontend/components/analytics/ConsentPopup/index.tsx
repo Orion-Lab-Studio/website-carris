@@ -43,7 +43,6 @@ export function ConsentPopup() {
 	const handleEnable = () => {
 		analyticsContext.actions.enable();
 		setIsOpen(false);
-		analyticsContext.actions.capture('test');
 	};
 
 	const handleDisable = () => {
