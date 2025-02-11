@@ -74,6 +74,15 @@ export const VehiclesListContextProvider = ({ children }) => {
 
 		let filterResult = vehiclesContext.data.vehicles || [];
 
+		// Only include vehicles with active trips
+		filterResult = filterResult.filter(item => item.trip_id);
+
+		// Only include vehicles where timestamp is within the last 2 minutes
+		const nowInUnixSeconds = new Date().getTime() / 1000;
+		filterResult = filterResult.filter(item => item.timestamp && nowInUnixSeconds - item.timestamp < 120);
+
+		// Apply the user filters
+
 		if (filterBySearchState) {
 			filterResult = filterResult.filter((item) => {
 				const matchedVehicleId = item.id?.toLowerCase().includes(filterBySearchState.toLowerCase());
