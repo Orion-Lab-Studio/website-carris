@@ -64,8 +64,7 @@ export function VehiclesListDetails() {
 					<div className={styles.iconList}>
 						{vehiclesListContext.data.selected?.bikes_allowed ? <IconBike /> : <IconBikeOff />}
 						{vehiclesListContext.data.selected?.wheelchair_accessible ? <IconDisabled2 /> : <IconDisabledOff />}
-						<LicensePlate value="00-00-AA" />
-						{vehiclesListContext.data.selected.license_plate && <p className={styles.licensePlate}>{vehiclesListContext.data.selected.license_plate}</p>}
+						{vehiclesListContext.data.selected.license_plate && <LicensePlate value={vehiclesListContext.data.selected.license_plate} />}
 					</div>
 
 					<Table withRowBorders>

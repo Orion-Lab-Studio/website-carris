@@ -12,14 +12,26 @@ interface Props {
 /* * */
 
 export function LicensePlate({ country = 'pt', value }: Props) {
+	//
+
+	//
+	// A. Transform data
+
+	const formattedPlate = value.split('-').join('').match(/.{1,2}/g)?.join(' ');
+
+	//
+	// B. Render components
+
 	return (
 		<div className={styles.container}>
 			<span className={styles.country}>
 				{country}
 			</span>
 			<span className={styles.plate}>
-				{value}
+				{formattedPlate}
 			</span>
 		</div>
 	);
+
+	//
 }
