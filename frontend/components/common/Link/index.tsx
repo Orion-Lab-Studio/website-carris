@@ -31,22 +31,10 @@ export function Link({ track = true, ...props }: Props) {
 	const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
 		if (track && typeof window !== 'undefined') {
 			const currentWindowUrl = window.location.pathname;
-			try {
-				const destURl = new URL(props.href.toString());
-				const target = destURl.hostname || 'not provided';
-				analyticsContext.actions.capture(ampli => ampli.clickLink({
-					destination_target: target,
-					destination_url: destURl.href,
-					pathname: currentWindowUrl,
-				}));
-			}
-			catch (e) {
-				analyticsContext.actions.capture(ampli => ampli.clickLink({
-					destination_target: 'Internal',
-					destination_url: 'www.carrismetropolitana.pt',
-					pathname: currentWindowUrl,
-				}));
-			}
+			analyticsContext.actions.capture(ampli => ampli.clickLink({
+				current_page: currentWindowUrl,
+				destination_href: props.href.toString(),
+			}));
 		}
 		if (props.onClick) {
 			props.onClick(e);

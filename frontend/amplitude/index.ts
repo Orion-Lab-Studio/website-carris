@@ -53,10 +53,21 @@ export type LoadOptionsWithClientInstance = LoadOptionsBase & { client: { instan
 export type LoadOptions = LoadOptionsWithEnvironment | LoadOptionsWithApiKey | LoadOptionsWithClientInstance;
 
 export interface AddFavoriteLineProperties {
+  /**
+   * Holds a the ID of the entity "Line", which is usually a 4-digit numeric string.
+   */
   line_id: string;
 }
 
 export interface AddFavoriteStopProperties {
+  /**
+   * Holds a the ID of the entity "Stop", which is always a 6-digit numeric string.
+   *
+   * | Rule | Value |
+   * |---|---|
+   * | Min Length | 6 |
+   * | Max Length | 6 |
+   */
   stop_id: string;
 }
 
@@ -65,16 +76,32 @@ export interface ClickDebugToggleProperties {
 }
 
 export interface ClickLinkProperties {
-  destination_target: string;
-  destination_url: string;
-  pathname: string;
+  /**
+   * This property indicates the location in the app (the pathname, the screen id) where the current event was generated at.
+   */
+  current_page: string;
+  /**
+   * This property indicates the href of the destination URL. This is used when the user is navigating out of the current screen by means of a link (either in-app or in a website).
+   */
+  destination_href: string;
 }
 
 export interface RemoveFavoriteLineProperties {
+  /**
+   * Holds a the ID of the entity "Line", which is usually a 4-digit numeric string.
+   */
   line_id: string;
 }
 
 export interface RemoveFavoriteStopProperties {
+  /**
+   * Holds a the ID of the entity "Stop", which is always a 6-digit numeric string.
+   *
+   * | Rule | Value |
+   * |---|---|
+   * | Min Length | 6 |
+   * | Max Length | 6 |
+   */
   stop_id: string;
 }
 
@@ -309,7 +336,7 @@ export class Ampli {
    *
    * Event has no description in tracking plan.
    *
-   * @param properties The event's properties (e.g. destination_target)
+   * @param properties The event's properties (e.g. current_page)
    * @param options Amplitude event options.
    */
   clickLink(
