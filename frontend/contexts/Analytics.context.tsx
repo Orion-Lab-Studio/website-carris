@@ -43,7 +43,7 @@ export const AnalyticsContextProvider = ({ children }) => {
 
 	useEffect(() => {
 		if (consentContext.data.enabled_analytics && !ampli?.isLoaded) {
-			ampli.load({ client: { configuration: { appVersion: pjson.version, autocapture: false } }, environment: 'default' });
+			ampli.load({ client: { configuration: { appVersion: pjson.version, autocapture: true } }, environment: 'default' });
 			ampli.client.setOptOut(false);
 		}
 		else if (ampli?.isLoaded) {
@@ -61,7 +61,7 @@ export const AnalyticsContextProvider = ({ children }) => {
 					current_page: window.location.pathname,
 				}));
 			}
-		}, 30000);
+		}, 60000);
 		return () => clearInterval(interval);
 	});
 
