@@ -13,8 +13,8 @@
 @media (width < 1000px) {
 	.container {
 		grid-template:
-			"b" 50vh [b_]
-			"a" auto [a_] / 1fr;
+			"a" 50vh [b_]
+			"b" auto [a_] / 1fr;
 	}
 }
 

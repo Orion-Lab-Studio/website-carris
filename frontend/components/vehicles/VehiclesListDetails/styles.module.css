@@ -39,6 +39,8 @@
 }
 
 .rowValue {
+	text-overflow: ellipsis;
 	font-size: 16px;
 	font-weight: var(--font-weight-semibold);
+	word-break: break-all;
 }
