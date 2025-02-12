@@ -53,7 +53,7 @@ export const AnalyticsContextProvider = ({ children }) => {
 	}, [consentContext.data.enabled_analytics, ampli?.isLoaded]);
 
 	useEffect(() => {
-		// Capture a ping event every minute
+		// Capture a ping event every 30 seconds
 		const interval = setInterval(() => {
 			if (typeof window !== 'undefined' && ampli?.isLoaded) {
 				capture(() => ampli.ping({
@@ -61,7 +61,7 @@ export const AnalyticsContextProvider = ({ children }) => {
 					current_page: window.location.pathname,
 				}));
 			}
-		}, 60000);
+		}, 30000);
 		return () => clearInterval(interval);
 	});
 
