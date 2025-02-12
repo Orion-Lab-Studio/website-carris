@@ -10,10 +10,9 @@ import { useAlertsContext } from '@/contexts/Alerts.context';
 import { Accordion } from '@mantine/core';
 import { IconArrowUpRight } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-import { useMemo } from 'react';
+import { Routes } from '@/utils/routes';
 
 import styles from './styles.module.css';
-import { Routes } from '@/utils/routes';
 
 /* * */
 
