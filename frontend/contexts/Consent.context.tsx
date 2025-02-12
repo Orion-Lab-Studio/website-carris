@@ -174,7 +174,6 @@ export const ConsentContextProvider = ({ children }) => {
 	};
 
 	const reset = () => {
-		console.log('reset()');
 		// Clear local storage
 		localStorage.removeItem(LOCAL_STORAGE_KEYS.decision_date);
 		localStorage.removeItem(LOCAL_STORAGE_KEYS.enabled_analytics);
