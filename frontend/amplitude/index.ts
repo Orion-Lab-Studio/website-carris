@@ -116,6 +116,10 @@ export interface RemoveFavoriteStopProperties {
   stop_id: string;
 }
 
+export class AcceptAnalyticsConsent implements BaseEvent {
+  event_type = 'Accept Analytics Consent';
+}
+
 export class AddFavoriteLine implements BaseEvent {
   event_type = 'Add Favorite Line';
 
@@ -293,6 +297,21 @@ export class Ampli {
     }
 
     return this.amplitude!.track(event, undefined, options);
+  }
+
+  /**
+   * Accept Analytics Consent
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Accept%20Analytics%20Consent)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param options Amplitude event options.
+   */
+  acceptAnalyticsConsent(
+    options?: EventOptions,
+  ) {
+    return this.track(new AcceptAnalyticsConsent(), options);
   }
 
   /**

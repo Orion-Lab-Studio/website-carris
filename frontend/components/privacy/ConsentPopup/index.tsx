@@ -4,6 +4,7 @@
 
 import { Link } from '@/components/common/Link';
 import { Logo } from '@/components/header/Logo';
+import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { useConsentContext } from '@/contexts/Consent.context';
 import { Button, Checkbox, Modal } from '@mantine/core';
 import { useTranslations } from 'next-intl';
@@ -23,6 +24,7 @@ export function ConsentPopup() {
 	const t = useTranslations('analytics.ConsentPopup');
 	const pathname = usePathname();
 	const consentContext = useConsentContext();
+	const analyticsContext = useAnalyticsContext();
 
 	const [showOptions, setShowOptions] = useState(false);
 	const [optionAnalyticsDecision, setOptionAnalyticsDecision] = useState(true);
@@ -47,12 +49,21 @@ export function ConsentPopup() {
 
 	const handleAccept = () => {
 		// Set the Analytics decision based on the set option
-		if (optionAnalyticsDecision) consentContext.actions.enable(['analytics']);
-		else consentContext.actions.disable(['analytics']);
+		if (optionAnalyticsDecision) {
+			consentContext.actions.enable(['analytics']);
+			analyticsContext.actions.capture(ampli => ampli.acceptAnalyticsConsent());
+		}
+		else {
+			consentContext.actions.disable(['analytics']);
+		}
 		// Set the Functional decision based on the set option
-		if (optionFunctionalDecision) consentContext.actions.enable(['functional']);
-		else consentContext.actions.disable(['functional']);
-		// Dismiss the popup
+		if (optionFunctionalDecision) {
+			consentContext.actions.enable(['functional']);
+		}
+		else {
+			consentContext.actions.disable(['functional']);
+		}
+		// Dismiss and reset the popup
 		setIsPopupOpen(false);
 		setShowOptions(false);
 		setOptionAnalyticsDecision(true);
