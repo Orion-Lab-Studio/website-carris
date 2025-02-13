@@ -5,7 +5,6 @@
 import { FoundItemsCounter } from '@/components/common/FoundItemsCounter';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { useLinesListContext } from '@/contexts/LinesList.context';
 import { SegmentedControl, TextInput } from '@mantine/core';
 import { IconArrowLoopRight } from '@tabler/icons-react';
@@ -21,7 +20,6 @@ export function LinesListToolbar() {
 
 	const t = useTranslations('lines.LinesListToolbar');
 	const linesContext = useLinesListContext();
-	const analyticsContext = useAnalyticsContext();
 
 	//
 	// B. Transform data
