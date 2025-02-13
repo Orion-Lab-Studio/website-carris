@@ -7,10 +7,10 @@ import { AlertEffectIcon } from '@/components/alerts/AlertCauseEffectIcon';
 import AlertsListItemImageThumbnail from '@/components/alerts/AlertsListItemImageThumbnail';
 import Button from '@/components/common/Button';
 import { useAlertsContext } from '@/contexts/Alerts.context';
+import { Routes } from '@/utils/routes';
 import { Accordion } from '@mantine/core';
 import { IconArrowUpRight } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-import { Routes } from '@/utils/routes';
 
 import styles from './styles.module.css';
 

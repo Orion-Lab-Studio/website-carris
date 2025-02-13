@@ -79,13 +79,13 @@ export const AlertsContextProvider = ({ children }) => {
 			// Include this element if any informed_entity...
 			return simplifiedAlert.informed_entity.some((informedEntity) => {
 				// ...has a routeId that starts with the lineId
-				return informedEntity.routeId?.startsWith(lineId);
+				return informedEntity.route_id?.startsWith(lineId);
 			});
 		});
 	};
 
 	const getSimplifiedAlertsByStopId = (stopId: string): SimplifiedAlert[] => {
-		return dataSimplifiedState.filter(simplifiedAlert => simplifiedAlert.informed_entity.some(informedEntity => informedEntity.stopId === stopId));
+		return dataSimplifiedState.filter(simplifiedAlert => simplifiedAlert.informed_entity.some(informedEntity => informedEntity.stop_id === stopId));
 	};
 
 	//
