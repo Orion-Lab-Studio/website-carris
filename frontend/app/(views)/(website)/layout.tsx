@@ -1,7 +1,6 @@
 /* * */
 
 import { WebsiteViewport } from '@/components/viewport/WebsiteViewport';
-import { AnalyticsContextProvider } from '@/contexts/Analytics.context';
 import { ConfigProviders } from '@/providers/config-providers';
 import { DataProviders } from '@/providers/data-providers';
 import { MapProviders } from '@/providers/map-providers';
@@ -14,21 +13,19 @@ import { Notifications } from '@mantine/notifications';
 
 export default function Layout({ children }) {
 	return (
-		<AnalyticsContextProvider>
-			<ConfigProviders>
+		<ConfigProviders>
+			<ProfileProviders>
 				<ThemeProviders themeData={websiteTheme} themeId="website">
 					<DataProviders>
-						<ProfileProviders>
-							<MapProviders>
-								<Notifications styles={{ root: { marginTop: '60px' } }} />
-								<WebsiteViewport>
-									{children}
-								</WebsiteViewport>
-							</MapProviders>
-						</ProfileProviders>
+						<MapProviders>
+							<Notifications styles={{ root: { marginTop: '60px' } }} />
+							<WebsiteViewport>
+								{children}
+							</WebsiteViewport>
+						</MapProviders>
 					</DataProviders>
 				</ThemeProviders>
-			</ConfigProviders>
-		</AnalyticsContextProvider>
+			</ProfileProviders>
+		</ConfigProviders>
 	);
 }

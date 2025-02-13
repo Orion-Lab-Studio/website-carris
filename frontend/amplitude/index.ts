@@ -53,10 +53,21 @@ export type LoadOptionsWithClientInstance = LoadOptionsBase & { client: { instan
 export type LoadOptions = LoadOptionsWithEnvironment | LoadOptionsWithApiKey | LoadOptionsWithClientInstance;
 
 export interface AddFavoriteLineProperties {
+  /**
+   * Holds a the ID of the entity "Line", which is usually a 4-digit numeric string.
+   */
   line_id: string;
 }
 
 export interface AddFavoriteStopProperties {
+  /**
+   * Holds a the ID of the entity "Stop", which is always a 6-digit numeric string.
+   *
+   * | Rule | Value |
+   * |---|---|
+   * | Min Length | 6 |
+   * | Max Length | 6 |
+   */
   stop_id: string;
 }
 
@@ -65,17 +76,48 @@ export interface ClickDebugToggleProperties {
 }
 
 export interface ClickLinkProperties {
-  destination_target: string;
-  destination_url: string;
-  pathname: string;
+  /**
+   * This property indicates the location in the app (the pathname, the screen id) where the current event was generated at.
+   */
+  current_page: string;
+  /**
+   * This property indicates the href of the destination URL. This is used when the user is navigating out of the current screen by means of a link (either in-app or in a website).
+   */
+  destination_href: string;
+}
+
+export interface PingProperties {
+  /**
+   * The version of the application that generated the event.
+   */
+  app_version: string;
+  /**
+   * This property indicates the location in the app (the pathname, the screen id) where the current event was generated at.
+   */
+  current_page: string;
 }
 
 export interface RemoveFavoriteLineProperties {
+  /**
+   * Holds a the ID of the entity "Line", which is usually a 4-digit numeric string.
+   */
   line_id: string;
 }
 
 export interface RemoveFavoriteStopProperties {
+  /**
+   * Holds a the ID of the entity "Stop", which is always a 6-digit numeric string.
+   *
+   * | Rule | Value |
+   * |---|---|
+   * | Min Length | 6 |
+   * | Max Length | 6 |
+   */
   stop_id: string;
+}
+
+export class AcceptAnalyticsConsent implements BaseEvent {
+  event_type = 'Accept Analytics Consent';
 }
 
 export class AddFavoriteLine implements BaseEvent {
@@ -120,6 +162,12 @@ export class ClickLink implements BaseEvent {
 
 export class Ping implements BaseEvent {
   event_type = 'Ping';
+
+  constructor(
+    public event_properties: PingProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
 }
 
 export class RemoveFavoriteLine implements BaseEvent {
@@ -252,6 +300,21 @@ export class Ampli {
   }
 
   /**
+   * Accept Analytics Consent
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Accept%20Analytics%20Consent)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param options Amplitude event options.
+   */
+  acceptAnalyticsConsent(
+    options?: EventOptions,
+  ) {
+    return this.track(new AcceptAnalyticsConsent(), options);
+  }
+
+  /**
    * Add Favorite Line
    *
    * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Add%20Favorite%20Line)
@@ -309,7 +372,7 @@ export class Ampli {
    *
    * Event has no description in tracking plan.
    *
-   * @param properties The event's properties (e.g. destination_target)
+   * @param properties The event's properties (e.g. current_page)
    * @param options Amplitude event options.
    */
   clickLink(
@@ -326,12 +389,14 @@ export class Ampli {
    *
    * Event to track when a user visits CMetropolitana website.
    *
+   * @param properties The event's properties (e.g. app_version)
    * @param options Amplitude event options.
    */
   ping(
+    properties: PingProperties,
     options?: EventOptions,
   ) {
-    return this.track(new Ping(), options);
+    return this.track(new Ping(properties), options);
   }
 
   /**

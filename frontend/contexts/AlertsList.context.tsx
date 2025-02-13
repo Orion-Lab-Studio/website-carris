@@ -140,11 +140,11 @@ export const AlertsListContextProvider = ({ children }) => {
 		});
 
 		if (filterByLineIdState) {
-			filterResult = filterResult.filter(alert => alert.informed_entity.some(entity => entity.lineId === filterByLineIdState));
+			filterResult = filterResult.filter(alert => alert.informed_entity.some(entity => entity.line_id === filterByLineIdState));
 		}
 
 		if (filterByStopIdState) {
-			filterResult = filterResult.filter(alert => alert.informed_entity.some(entity => entity.stopId === filterByStopIdState));
+			filterResult = filterResult.filter(alert => alert.informed_entity.some(entity => entity.stop_id === filterByStopIdState));
 		}
 
 		// TODO: municipalityId does not exist in the informed_entity, needs to be added in API
