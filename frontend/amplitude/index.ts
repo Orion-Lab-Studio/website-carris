@@ -82,6 +82,11 @@ export interface AlertClickedProperties {
   alert_title: string;
 }
 
+export interface AlertsFilterChangedProperties {
+  filter_type: string;
+  filter_value: string;
+}
+
 export interface CaptureAlertsRefererProperties {
   page_referer: string;
 }
@@ -117,21 +122,34 @@ export interface ClickLinkProperties {
 }
 
 export interface DatePeriodSelectedProperties {
-  "[Amplitude] Page Path"?: any;
-  /**
-   * Captures the page title of the page where the element was clicked.
-   *
-   * For example, if the page where the element was clicked has: <title>Amplitude</title>
-   *
-   * The value would be: Amplitude
-   */
-  "[Amplitude] Page Title"?: any;
   date_value: string;
+}
+
+export interface GithubClickedProperties {
+  click: string;
+}
+
+export interface LostAndFoundAreaClickedProperties {
+  action_type: string;
+  area_clicked: string;
 }
 
 export interface OpenCardViagem2024Properties {
   card_id: string;
   card_title: string;
+}
+
+export interface OpenGoogleMapsClickedProperties {
+  "[Amplitude] Page Location"?: any;
+  "[Amplitude] Page Path"?: any;
+  /**
+   * Captures the URL of the page where the element was clicked.
+   *
+   * For example, a value of https://www.amplitude.com means that the element clicked was on this page.
+   */
+  "[Amplitude] Page URL"?: any;
+  click: string;
+  click_from: string;
 }
 
 export interface PingProperties {
@@ -143,6 +161,10 @@ export interface PingProperties {
    * This property indicates the location in the app (the pathname, the screen id) where the current event was generated at.
    */
   current_page: string;
+}
+
+export interface PlannerUsedProperties {
+  planner_clicked: string;
 }
 
 export interface RemoveFavoriteLineProperties {
@@ -164,6 +186,10 @@ export interface RemoveFavoriteStopProperties {
   stop_id: string;
 }
 
+export interface SearchAlertProperties {
+  search_value: string;
+}
+
 export interface SearchLineProperties {
   search_value: string;
 }
@@ -175,6 +201,19 @@ export interface SearchStopProperties {
 export interface ShareCardViagem2024Properties {
   card_id: string;
   card_title: string;
+}
+
+export interface StopAudioPlayedProperties {
+  audio_played: string;
+  /**
+   * Holds a the ID of the entity "Stop", which is always a 6-digit numeric string.
+   *
+   * | Rule | Value |
+   * |---|---|
+   * | Min Length | 6 |
+   * | Max Length | 6 |
+   */
+  stop_id: string;
 }
 
 export interface StopDetailRedirectedProperties {
@@ -230,6 +269,22 @@ export interface StopSelectedProperties {
   stop_id: string;
 }
 
+export interface StopTripClickedProperties {
+  trip_id: string;
+}
+
+export interface StoreSelectedProperties {
+  store_district: string;
+  store_id: string;
+  store_location: string;
+  store_name: string;
+}
+
+export interface StoresFilterChangedProperties {
+  filter_type: string;
+  filter_value: string;
+}
+
 export interface Viagem2024QuizAnsweredProperties {
   question_1?: string;
   question_10?: string;
@@ -282,6 +337,16 @@ export class AlertClicked implements BaseEvent {
 
   constructor(
     public event_properties: AlertClickedProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class AlertsFilterChanged implements BaseEvent {
+  event_type = 'Alerts Filter Changed';
+
+  constructor(
+    public event_properties: AlertsFilterChangedProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -357,6 +422,26 @@ export class DatePeriodSelected implements BaseEvent {
   }
 }
 
+export class GithubClicked implements BaseEvent {
+  event_type = 'Github Clicked';
+
+  constructor(
+    public event_properties: GithubClickedProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class LostAndFoundAreaClicked implements BaseEvent {
+  event_type = 'Lost and Found Area Clicked';
+
+  constructor(
+    public event_properties: LostAndFoundAreaClickedProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
 export class OpenCardViagem2024 implements BaseEvent {
   event_type = 'Open Card Viagem 2024';
 
@@ -367,11 +452,31 @@ export class OpenCardViagem2024 implements BaseEvent {
   }
 }
 
+export class OpenGoogleMapsClicked implements BaseEvent {
+  event_type = 'Open GoogleMaps Clicked';
+
+  constructor(
+    public event_properties: OpenGoogleMapsClickedProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
 export class Ping implements BaseEvent {
   event_type = 'Ping';
 
   constructor(
     public event_properties: PingProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class PlannerUsed implements BaseEvent {
+  event_type = 'Planner used';
+
+  constructor(
+    public event_properties: PlannerUsedProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -392,6 +497,16 @@ export class RemoveFavoriteStop implements BaseEvent {
 
   constructor(
     public event_properties: RemoveFavoriteStopProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class SearchAlert implements BaseEvent {
+  event_type = 'Search Alert';
+
+  constructor(
+    public event_properties: SearchAlertProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -422,6 +537,16 @@ export class ShareCardViagem2024 implements BaseEvent {
 
   constructor(
     public event_properties: ShareCardViagem2024Properties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class StopAudioPlayed implements BaseEvent {
+  event_type = 'Stop Audio Played';
+
+  constructor(
+    public event_properties: StopAudioPlayedProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -482,6 +607,36 @@ export class StopSelected implements BaseEvent {
 
   constructor(
     public event_properties: StopSelectedProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class StopTripClicked implements BaseEvent {
+  event_type = 'Stop Trip Clicked';
+
+  constructor(
+    public event_properties: StopTripClickedProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class StoreSelected implements BaseEvent {
+  event_type = 'Store Selected';
+
+  constructor(
+    public event_properties: StoreSelectedProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class StoresFilterChanged implements BaseEvent {
+  event_type = 'Stores Filter Changed';
+
+  constructor(
+    public event_properties: StoresFilterChangedProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -681,6 +836,23 @@ export class Ampli {
   }
 
   /**
+   * Alerts Filter Changed
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Alerts%20Filter%20Changed)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. filter_type)
+   * @param options Amplitude event options.
+   */
+  alertsFilterChanged(
+    properties: AlertsFilterChangedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new AlertsFilterChanged(properties), options);
+  }
+
+  /**
    * Capture Alerts Referer
    *
    * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Capture%20Alerts%20Referer)
@@ -789,7 +961,7 @@ export class Ampli {
    *
    * Event has no description in tracking plan.
    *
-   * @param properties The event's properties (e.g. [Amplitude] Page Path)
+   * @param properties The event's properties (e.g. date_value)
    * @param options Amplitude event options.
    */
   datePeriodSelected(
@@ -797,6 +969,40 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new DatePeriodSelected(properties), options);
+  }
+
+  /**
+   * Github Clicked
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Github%20Clicked)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. click)
+   * @param options Amplitude event options.
+   */
+  githubClicked(
+    properties: GithubClickedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new GithubClicked(properties), options);
+  }
+
+  /**
+   * Lost and Found Area Clicked
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Lost%20and%20Found%20Area%20Clicked)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. action_type)
+   * @param options Amplitude event options.
+   */
+  lostAndFoundAreaClicked(
+    properties: LostAndFoundAreaClickedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new LostAndFoundAreaClicked(properties), options);
   }
 
   /**
@@ -817,6 +1023,23 @@ export class Ampli {
   }
 
   /**
+   * Open GoogleMaps Clicked
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Open%20GoogleMaps%20Clicked)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. [Amplitude] Page Location)
+   * @param options Amplitude event options.
+   */
+  openGoogleMapsClicked(
+    properties: OpenGoogleMapsClickedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new OpenGoogleMapsClicked(properties), options);
+  }
+
+  /**
    * Ping
    *
    * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Ping)
@@ -831,6 +1054,23 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new Ping(properties), options);
+  }
+
+  /**
+   * Planner used
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Planner%20used)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. planner_clicked)
+   * @param options Amplitude event options.
+   */
+  plannerUsed(
+    properties: PlannerUsedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new PlannerUsed(properties), options);
   }
 
   /**
@@ -865,6 +1105,23 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new RemoveFavoriteStop(properties), options);
+  }
+
+  /**
+   * Search Alert
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Search%20Alert)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. search_value)
+   * @param options Amplitude event options.
+   */
+  searchAlert(
+    properties: SearchAlertProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new SearchAlert(properties), options);
   }
 
   /**
@@ -916,6 +1173,23 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new ShareCardViagem2024(properties), options);
+  }
+
+  /**
+   * Stop Audio Played
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Stop%20Audio%20Played)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. audio_played)
+   * @param options Amplitude event options.
+   */
+  stopAudioPlayed(
+    properties: StopAudioPlayedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new StopAudioPlayed(properties), options);
   }
 
   /**
@@ -1018,6 +1292,57 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new StopSelected(properties), options);
+  }
+
+  /**
+   * Stop Trip Clicked
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Stop%20Trip%20Clicked)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. trip_id)
+   * @param options Amplitude event options.
+   */
+  stopTripClicked(
+    properties: StopTripClickedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new StopTripClicked(properties), options);
+  }
+
+  /**
+   * Store Selected
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Store%20Selected)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. store_district)
+   * @param options Amplitude event options.
+   */
+  storeSelected(
+    properties: StoreSelectedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new StoreSelected(properties), options);
+  }
+
+  /**
+   * Stores Filter Changed
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Stores%20Filter%20Changed)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. filter_type)
+   * @param options Amplitude event options.
+   */
+  storesFilterChanged(
+    properties: StoresFilterChangedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new StoresFilterChanged(properties), options);
   }
 
   /**

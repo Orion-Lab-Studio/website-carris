@@ -9,6 +9,7 @@ import { useQueryState } from 'nuqs';
 import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 import { useAlertsContext } from './Alerts.context';
+import { useAnalyticsContext } from './Analytics.context';
 
 /* * */
 
@@ -88,6 +89,7 @@ export const AlertsListContextProvider = ({ children }) => {
 	// B. Fetch data
 
 	const alertsContext = useAlertsContext();
+	const analyticsContext = useAnalyticsContext();
 
 	const allAlertsData = useMemo(() => alertsContext.data.simplified, [alertsContext.data.simplified]);
 
@@ -199,6 +201,7 @@ export const AlertsListContextProvider = ({ children }) => {
 
 	const updateFilterBySearchQuery = (value: AlertsListContextState['filters']['search_query']) => {
 		setFilterBySearchQueryState(value);
+		analyticsContext.actions.captureWithDelay(ampli => ampli.searchAlert({ search_value: value || '' }));
 	};
 
 	const updateFilterByCause = (value: AlertsListContextState['filters']['cause']) => {
