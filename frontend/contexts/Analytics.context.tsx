@@ -6,6 +6,7 @@ import { type Ampli, ampli } from '@/amplitude';
 import { useConsentContext } from '@/contexts/Consent.context';
 import pjson from '@/package.json';
 import { expireAllCookies } from '@/utils/expire-all-cookies.util';
+import { DateTime } from 'luxon';
 import { createContext, useContext, useEffect } from 'react';
 
 /* * */
@@ -13,6 +14,7 @@ import { createContext, useContext, useEffect } from 'react';
 interface AnalyticsContextState {
 	actions: {
 		capture: (callback: (instance: Ampli) => void) => void
+		captureWithDelay: (callback: (instance: Ampli) => void) => void
 	}
 }
 
@@ -71,12 +73,30 @@ export const AnalyticsContextProvider = ({ children }) => {
 		}
 	};
 
+	const captureWithDelay = (() => {
+		let timeout: NodeJS.Timeout | null = null;
+
+		return (callback: (instance: Ampli) => void) => {
+			if (!consentContext.data.enabled_analytics || !ampli?.isLoaded) return;
+
+			if (timeout) {
+				clearTimeout(timeout);
+			}
+
+			timeout = setTimeout(() => {
+				callback(ampli);
+				timeout = null;
+			}, 1000);
+		};
+	})();
+
 	//
 	// C. Define context value
 
 	const contextValue: AnalyticsContextState = {
 		actions: {
 			capture,
+			captureWithDelay,
 		},
 	};
 
