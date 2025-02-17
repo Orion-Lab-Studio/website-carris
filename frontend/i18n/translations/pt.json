@@ -1530,11 +1530,35 @@
 	},
 	"survey-2024": {
 		"Survey2024Header": {
-			"AnchorAboutInquiry": "Sobre o Inquérito",
+			"AnchorAboutSurvey": "Sobre o Inquérito",
+			"AnchorAboutSurveyTitle": "Sobre o Inquérito",
 			"AnchorIndex": "Índice de Recomendação",
 			"AnchorPassengerCaracter": "Caracterização do Passageiro",
 			"AnchorResults": "Resultados",
+			"DownloadButton": "Descarregar Relatório",
 			"title": "Inquérito de Satisfação do Passageiro"
+		},
+		"Survey2024PsgrCharacterCard": {
+			"age_heading": "Idade",
+			"deslocation_type_heading": "Regime de Deslocação",
+			"gender_heading": "Género",
+			"heading": "Caracterização do  Passageiro",
+			"instruction_level__heading": "Nível de Instrução",
+			"occupation_heading": "Ocupação",
+			"subheading": "Os utilizadores da Carris Metropolitana são, na sua maioria, mulheres, jovens (idades entre 14 e 34 anos), trabalhadores a tempo inteiro e com grau de instrução secundário."
+		},
+		"Survey2024RecomendationIndex": {
+			"recomendationIdexDescription": "\"Até que ponto recomendaria o serviço da Carris Metropolitana a um amigo ou familiar?\"",
+			"title": "Índice de Recomendação"
+		},
+		"Survey2024ResultsCard": {
+			"heading": "Resultados"
+		},
+		"Survey2024ResultsToolbar": {
+			"by_avaliation": "Filtrar por Avaliação",
+			"by_category": "Filtrar por Categoria",
+			"searchInput": "Pesquisar Resultados...",
+			"subheading": "Public Information"
 		}
 	},
 	"tickets": {

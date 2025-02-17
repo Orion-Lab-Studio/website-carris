@@ -1529,11 +1529,36 @@
 	},
 	"survey-2024": {
 		"Survey2024Header": {
-			"AnchorAboutInquiry": "About the Survey",
+			"AnchorAboutSurvey": "About the Survey",
+			"AnchorAboutSurveyTitle": "About the Survey",
 			"AnchorIndex": "Recomendation Index",
 			"AnchorPassengerCaracter": "Passanger Caracter",
 			"AnchorResults": "Results",
+			"DownloadButton": "Download Relatório",
 			"title": "Passenger Satisfaction Survey 2024"
+
+		},
+		"Survey2024PsgrCharacterCard": {
+			"age_heading": "Age",
+			"deslocation_type_heading": "Desclocation Type",
+			"gender_heading": "Gender",
+			"heading": "Passenger Characterization",
+			"instruction_level__heading": "Instruction Level",
+			"occupation_heading": "Occupation",
+			"subheading": "The users of Carris Metropolitana are, at most, women, teenagers (ages between 14 and 34 years old), working full time with some degree of high school education."
+		},
+		"Survey2024RecomendationIndex": {
+			"recomendationIdexDescription": "\"How likely would you be to recommend the services of Carris Metropolitana to a friend or a member of your family?\""
+		},
+		"Survey2024ResultsCard": {
+			"heading": "Results"
+
+		},
+		"Survey2024ResultsToolbar": {
+			"by_avaliation": "Filter by Avaliation",
+			"by_category": "Filter by Category",
+			"searchInput": "Search result...",
+			"subheading": "Public Information"
 		}
 	},
 	"tickets": {
