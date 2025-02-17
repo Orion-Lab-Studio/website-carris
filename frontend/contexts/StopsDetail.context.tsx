@@ -16,6 +16,8 @@ import { DateTime } from 'luxon';
 import { notFound } from 'next/navigation';
 import { createContext, useContext, useEffect, useState } from 'react';
 
+import { useAnalyticsContext } from './Analytics.context';
+
 /* * */
 
 interface StopsDetailContextState {
@@ -75,6 +77,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 	const alertsContext = useAlertsContext();
 	const profileContext = useProfileContext();
 	const operationalDayContext = useOperationalDayContext();
+	const analyticsContext = useAnalyticsContext();
 
 	const [dataStopState, setDataStopState] = useState<Stop | undefined>(undefined);
 	const [dataActiveStopIdState, setDataActiveStopIdState] = useState<string>(stopId);
@@ -348,6 +351,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		}
 		setDataActiveTripIdState(tripId);
 		setDataActiveStopSequenceState(stopSequence);
+		analyticsContext.actions.capture(ampli => ampli.stopTripClicked({ trip_id: tripId }));
 	};
 
 	const resetActiveTripId = () => {
