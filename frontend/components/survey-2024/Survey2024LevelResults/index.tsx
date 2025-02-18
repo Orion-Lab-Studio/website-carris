@@ -2,6 +2,7 @@
 
 /* * */
 
+import { NoDataLabel } from '@/components/layout/NoDataLabel';
 import { Surface } from '@/components/layout/Surface';
 import { allResultsCardData, Survery2024ResultsCardSchema } from '@/components/survey-2024/_data/Results/cards';
 import { Survey2024ResultCard } from '@/components/survey-2024/Survey2024ResultCard';
@@ -23,7 +24,7 @@ export function Survey2024LevelResults() {
 	const t = useTranslations('survey-2024.Survey2024ResultsCard');
 
 	const [search, setSearch] = useState<Survery2024ResultsCardSchema[]>([]);
-	const [filtered, setFiltered] = useState<Survery2024ResultsCardSchema[]>([]);
+	const [hasSearched, setHasSearched] = useState(false);
 
 	// B . Fetch Data
 	const allData = allResultsCardData;
@@ -59,8 +60,8 @@ export function Survey2024LevelResults() {
 			filteredResults = filteredResults.filter(item => item.header.value.includes(avaliationValue?.toString() || ''));
 		}
 
-		setFiltered(filteredResults);
 		setSearch(filteredResults);
+		setHasSearched(true);
 	};
 
 	//
@@ -153,14 +154,14 @@ export function Survey2024LevelResults() {
 											</Accordion>
 										</>
 									)}
-								{search.length !== 0 && filtered.length === 0 && (
-									<h2>Nenhum registo encontrado !</h2>
-								)}
+
 							</div>
 						</Accordion.Panel>
 					</Accordion.Item>
 				</Accordion>
-
+				{hasSearched && search.length === 0 && (
+					<NoDataLabel text={t('no_data')} withMinHeight />
+				)}
 			</Surface>
 		</div>
 	);

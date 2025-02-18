@@ -1551,7 +1551,8 @@
 			"recomendationIdexDescription": "\"How likely would you be to recommend the services of Carris Metropolitana to a friend or a member of your family?\""
 		},
 		"Survey2024ResultsCard": {
-			"heading": "Results"
+			"heading": "Results",
+			"no_data": "No data available"
 
 		},
 		"Survey2024ResultsToolbar": {

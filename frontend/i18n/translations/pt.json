@@ -1552,7 +1552,8 @@
 			"title": "Índice de Recomendação"
 		},
 		"Survey2024ResultsCard": {
-			"heading": "Resultados"
+			"heading": "Resultados",
+			"no_data": "Nenhum cartão encontrado"
 		},
 		"Survey2024ResultsToolbar": {
 			"by_avaliation": "Filtrar por Avaliação",
