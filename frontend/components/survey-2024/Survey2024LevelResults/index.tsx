@@ -23,6 +23,7 @@ export function Survey2024LevelResults() {
 	const t = useTranslations('survey-2024.Survey2024ResultsCard');
 
 	const [search, setSearch] = useState<Survery2024ResultsCardSchema[]>([]);
+	const [filtered, setFiltered] = useState<Survery2024ResultsCardSchema[]>([]);
 
 	// B . Fetch Data
 	const allData = allResultsCardData;
@@ -58,6 +59,7 @@ export function Survey2024LevelResults() {
 			filteredResults = filteredResults.filter(item => item.header.value.includes(avaliationValue?.toString() || ''));
 		}
 
+		setFiltered(filteredResults);
 		setSearch(filteredResults);
 	};
 
@@ -75,7 +77,7 @@ export function Survey2024LevelResults() {
 						<Accordion.Panel>
 							<Survey2024ResultsToolbar handleSearch={handleFilterData} />
 							<div className={styles.cardWrapper}>
-								{search.length === allData.length || search.length !== 0
+								{search.length !== allData.length
 									? search.map((item, index) => (
 										<Survey2024ResultCard
 											key={index}
@@ -151,6 +153,9 @@ export function Survey2024LevelResults() {
 											</Accordion>
 										</>
 									)}
+								{search.length !== 0 && filtered.length === 0 && (
+									<h2>Nenhum registo encontrado !</h2>
+								)}
 							</div>
 						</Accordion.Panel>
 					</Accordion.Item>
