@@ -2,6 +2,7 @@
 
 /* * */
 
+import { Grid } from '@/components/layout/Grid';
 import { Select, TextInput } from '@mantine/core';
 import {
 	IconAdjustments,
@@ -12,8 +13,6 @@ import {
 import { useTranslations } from 'next-intl';
 import { useQueryState } from 'nuqs';
 import { useEffect } from 'react';
-
-import styles from './styles.module.css';
 
 /* * */
 
@@ -47,7 +46,7 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 	// C. Render components
 
 	return (
-		<div className={styles.resultsToolbar}>
+		<Grid columns="abc" withGap>
 			<TextInput
 				leftSection={<IconSearch size={20} />}
 				onChange={e => setSearch(e.target.value)}
@@ -85,7 +84,7 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 				w="100%"
 				clearable
 			/>
-		</div>
+		</Grid>
 	);
 
 	//
