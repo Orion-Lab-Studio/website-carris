@@ -22,14 +22,23 @@
 .anchorButtonsContainer{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 10px; 
-    width: max-content;
+    gap: 10px;
     margin: 0 auto;
    
 }
+@media(width <= 650px) {
+	.anchorButtonsContainer{
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+        margin: 0 auto;
+       
+    }
+}
+
 
 .anchorButtonsContainer a{
     color: var(--color-system-text-300);
     font-weight: var(--font-weight-bold);
-    font-size:var(--font-size-text) ;
+    font-size:var(--font-size-text);
 }
