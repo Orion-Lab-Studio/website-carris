@@ -29,7 +29,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Facilidade em obter informações no site da Carris Metropolitana sobre: preços, horários e serviços',
@@ -45,7 +45,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Facilidade em obter informações nas paragens sobre preços, horários e serviços',
@@ -60,7 +60,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Facilidade em obter informações nos autocarros sobre preços, horários e serviços',
@@ -76,7 +76,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Facilidade em saber qual é a próxima paragem quando está dentro do autocarro',
@@ -91,7 +91,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Facilidade em aceder a informações atualizadas',
@@ -106,7 +106,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Facilidade em obter informação de quando chegará o próximo autocarro à paragem onde está',
@@ -121,7 +121,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Facilidade em obter informação sobre como fazer as ligações entre paragens da Carris Metropolitana e outros modos de transporte',
@@ -136,7 +136,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Facilidade na aquisição do bilhete simples a bordo',
@@ -155,7 +155,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Facilidade em chegar às suas áreas de interesse através da Carris Metropolitana*',
@@ -170,7 +170,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Duração da viagem (tempo no autocarro)',
@@ -185,7 +185,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Total da duração da viagem (tempo de espera + tempo da viagem) em relação à distância percorrida',
@@ -200,7 +200,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Pontualidade dos autocarros no local de partida',
@@ -215,7 +215,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Pontualidade dos autocarros no local de chegada',
@@ -230,7 +230,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Frequência de Interrupções ou cancelamentos das viagens previstas',
@@ -245,7 +245,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Adequação dos horários diurnos semanais face às suas necessidades*',
@@ -260,7 +260,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Adequação dos horários noturnos face às suas necessidades*',
@@ -275,7 +275,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Adequação dos horários de fins de semana face às suas necessidades*',
@@ -294,7 +294,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Conforto das paragens que utiliza*',
@@ -309,7 +309,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Sensação de segurança nas paragens*',
@@ -324,7 +324,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Tempo de espera nas paragens',
@@ -343,7 +343,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Sensação de segurança dentro dos autocarros Carris Metropolitana*',
@@ -358,7 +358,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Conforto no interior dos autocarros (Bancos, Espaço disponível, AC, etc)',
@@ -373,7 +373,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Número de lugares sentados',
@@ -388,7 +388,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Limpeza dos autocarros',
@@ -403,7 +403,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Estado de Conservação dos autocarros',
@@ -422,7 +422,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Facilidade em apresentar reclamações',
@@ -437,7 +437,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Facilidade na resolução de problemas',
@@ -452,7 +452,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '70%',
 			primary: '#ACCC27',
-			text: '#FFFFFF',
+			text: '#FFFFFFE6',
 		},
 		content: {
 			description: 'Apresentação e cortesia dos motoristas e outros colaboradores dos prestadores de serviço a operar sob a marca Carris Metropolitana',
@@ -467,7 +467,7 @@ export const allResultsCardData: Survery2024ResultsCardSchema[] = [
 		color: {
 			opacity: '50%',
 			primary: '#ffcc00',
-			text: '#9696a5',
+			text: '#00000080',
 		},
 		content: {
 			description: 'Apoio ao Cliente',
