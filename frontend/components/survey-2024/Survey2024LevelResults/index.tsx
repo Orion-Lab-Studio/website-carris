@@ -2,11 +2,12 @@
 
 /* * */
 
+import { Grid } from '@/components/layout/Grid';
 import { NoDataLabel } from '@/components/layout/NoDataLabel';
 import { Surface } from '@/components/layout/Surface';
 import { allResultsCardData, Survery2024ResultsCardSchema } from '@/components/survey-2024/_data/Results/cards';
 import { Survey2024ResultCard } from '@/components/survey-2024/Survey2024ResultCard';
-import { Accordion, AccordionControl } from '@mantine/core';
+import { Accordion, AccordionControl, Space } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
@@ -23,8 +24,7 @@ export function Survey2024LevelResults() {
 
 	const t = useTranslations('survey-2024.Survey2024ResultsCard');
 
-	const [search, setSearch] = useState<Survery2024ResultsCardSchema[]>([]);
-	const [hasSearched, setHasSearched] = useState(false);
+	const [filteredData, setFilteredData] = useState<Survery2024ResultsCardSchema[]>(allResultsCardData);
 
 	// B . Fetch Data
 	const allData = allResultsCardData;
@@ -69,13 +69,6 @@ export function Survey2024LevelResults() {
 	const handleFilterData = (search: string, category: string, avaliationValue: number) => {
 		let filteredResults = allData;
 
-		if (!allData) return;
-
-		if (!search && !category && avaliationValue === 0) {
-			setSearch(allData);
-			return;
-		}
-
 		if (search) {
 			filteredResults = filteredResults.filter(item => item.content.description.toLowerCase().includes(search.toLowerCase()));
 		}
@@ -88,31 +81,47 @@ export function Survey2024LevelResults() {
 			filteredResults = filteredResults.filter(item => item.header.value.includes(avaliationValue?.toString() || ''));
 		}
 
-		setSearch(filteredResults);
-		setHasSearched(true);
+		setFilteredData(filteredResults);
 	};
 
 	//
 	// D. Render components
 
-	const renderAccordion = (data: typeof allAccordions[number]) => {
+	const renderFilteredData = () => {
 		return (
-			<Accordion>
-				<Accordion.Item value={data.value}>
-					<AccordionControl>{data.label}</AccordionControl>
-					<Accordion.Panel>
-						{data.data.map((item, index) => (
-							<Survey2024ResultCard key={index} cardData={item} />
-						))}
-					</Accordion.Panel>
-				</Accordion.Item>
-			</Accordion>
+			<Grid columns="abc" withGap>
+				{filteredData.map((item, index) => (
+					<Survey2024ResultCard key={index} cardData={item} />
+				))}
+			</Grid>
+		);
+	};
+
+	const renderAllData = () => {
+		return (
+			<>
+				{allAccordions.map(accordion => (
+					<Accordion key={accordion.value}>
+						<Accordion.Item value={accordion.value}>
+							<AccordionControl>{accordion.label}</AccordionControl>
+							<Accordion.Panel>
+								<Grid columns="abc" withGap>
+									{accordion.data.map((item, index) => (
+										<Survey2024ResultCard key={index} cardData={item} />
+									))}
+								</Grid>
+							</Accordion.Panel>
+						</Accordion.Item>
+					</Accordion>
+				))}
+			</>
 		);
 	};
 
 	return (
 		<div id="results">
 			<Surface forceOverflow>
+
 				<Accordion defaultValue="results">
 					<Accordion.Item value="results">
 						<Accordion.Control>
@@ -120,26 +129,15 @@ export function Survey2024LevelResults() {
 						</Accordion.Control>
 						<Accordion.Panel>
 							<Survey2024ResultsToolbar handleSearch={handleFilterData} />
-							<div className={styles.cardWrapper}>
-								{search.length !== allData.length
-									? search.map((item, index) => (
-										<Survey2024ResultCard
-											key={index}
-											cardData={item}
-										/>
-									))
-									: (
-										allAccordions.map(accordion => (
-											renderAccordion(accordion)
-										))
-									)}
-							</div>
+							<Space h="md" />
+							{filteredData.length === 0 ? (
+								<NoDataLabel text={t('no_data')} withMinHeight />
+							) : (
+								filteredData.length !== allData.length ? renderFilteredData() : renderAllData()
+							)}
 						</Accordion.Panel>
 					</Accordion.Item>
 				</Accordion>
-				{hasSearched && search.length === 0 && (
-					<NoDataLabel text={t('no_data')} withMinHeight />
-				)}
 			</Surface>
 		</div>
 	);

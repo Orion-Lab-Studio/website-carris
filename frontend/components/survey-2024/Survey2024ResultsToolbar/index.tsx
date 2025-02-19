@@ -59,7 +59,7 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 					search && (
 						<IconX
 							cursor="pointer"
-							onClick={() => setSearch('')}
+							onClick={() => setSearch(null)}
 							size={20}
 						/>
 					)
@@ -69,6 +69,7 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 				data={filterCategories}
 				leftSection={<IconFilter size={20} />}
 				onChange={_value => setCategory(_value)}
+				onClear={() => setCategory(null)}
 				placeholder={t('by_category')}
 				value={category}
 				w="100%"
@@ -78,6 +79,7 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 				data={filterValues}
 				leftSection={<IconAdjustments size={20} />}
 				onChange={_value => setAvalitaionValue(_value)}
+				onClear={() => setAvalitaionValue(null)}
 				placeholder={t('by_avaliation')}
 				value={avaliationValue}
 				w="100%"
