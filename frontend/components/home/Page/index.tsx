@@ -1,5 +1,6 @@
 /* * */
 
+import { GotoTopButton } from '@/components/common/GotoTopButton';
 import { AlertsSection } from '@/components/home/AlertsSection';
 import { FeaturedSection } from '@/components/home/FeaturedSection';
 import { MainCarousel } from '@/components/home/MainCarousel';
