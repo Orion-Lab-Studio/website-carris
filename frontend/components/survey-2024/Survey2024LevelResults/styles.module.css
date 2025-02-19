@@ -1,16 +1,12 @@
 /* CARD SECTION */
-.cardWrapper{
-	display: grid;
-	grid-template-columns: repeat(3, 1fr);
-	gap: 10px;
-	margin-top: 40px;
+.cardWrapper > div{
+	align-items: stretch;	
 }
 /* * */
 
 
 @media (width <= 650px) {
 	.cardWrapper{
-		margin: 0 auto;
-		grid-template-columns:  1fr;
+		align-items: stretch;	
 	}
 }

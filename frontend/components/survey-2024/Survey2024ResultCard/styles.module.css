@@ -42,20 +42,21 @@
 	filter: blur(5px);
   }
   
-
 /* * */
 
-.container{
+.container {
+	display: flex;
 	border-radius: 28px;
 	padding: 20px;
-	margin-bottom: 20px;
+	align-items: center;
+	min-height: 100%;
 }
 
 .leftColumn {
 	flex-shrink: 0;
-  }
-  
-  .rightColumn {
+}
+
+.rightColumn {
 	flex-grow: 1;
-	text-align: left; 
-  }
+	text-align: left;
+}

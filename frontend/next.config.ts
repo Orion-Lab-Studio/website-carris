@@ -50,6 +50,8 @@ const nextConfig: NextConfig = {
 			//
 			{ destination: '/viagem-2024', permanent: true, source: '/viagem2024' },
 			//
+			{ destination: '/metrics', permanent: true, source: '/metricas' },
+			//
 			{ destination: 'https://backoffice.carrismetropolitana.pt/imprensa', permanent: false, source: '/imprensa' },
 			{ destination: 'https://backoffice.carrismetropolitana.pt/embreveform', permanent: false, source: '/embreveform' },
 			{ destination: 'https://backoffice.carrismetropolitana.pt/knowledgebase', permanent: false, source: '/knowledgebase' },

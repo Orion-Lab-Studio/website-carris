@@ -89,11 +89,13 @@ export function Survey2024LevelResults() {
 
 	const renderFilteredData = () => {
 		return (
-			<Grid columns="abc" withGap>
-				{filteredData.map((item, index) => (
-					<Survey2024ResultCard key={index} cardData={item} />
-				))}
-			</Grid>
+			<div className={styles.cardWrapper}>
+				<Grid columns="abc" withGap>
+					{filteredData.map((item, index) => (
+						<Survey2024ResultCard key={index} cardData={item} />
+					))}
+				</Grid>
+			</div>
 		);
 	};
 
@@ -105,11 +107,13 @@ export function Survey2024LevelResults() {
 						<Accordion.Item value={accordion.value}>
 							<AccordionControl>{accordion.label}</AccordionControl>
 							<Accordion.Panel>
-								<Grid columns="abc" withGap>
-									{accordion.data.map((item, index) => (
-										<Survey2024ResultCard key={index} cardData={item} />
-									))}
-								</Grid>
+								<div className={styles.cardWrapper}>
+									<Grid columns="abc" withGap>
+										{accordion.data.map((item, index) => (
+											<Survey2024ResultCard key={index} cardData={item} />
+										))}
+									</Grid>
+								</div>
 							</Accordion.Panel>
 						</Accordion.Item>
 					</Accordion>
