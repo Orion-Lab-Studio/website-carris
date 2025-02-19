@@ -1560,7 +1560,8 @@
 			"subheading": "The users of Carris Metropolitana are, at most, women, teenagers (ages between 14 and 34 years old), working full time with some degree of high school education."
 		},
 		"Survey2024RecomendationIndex": {
-			"recomendationIdexDescription": "\"How likely would you be to recommend the services of Carris Metropolitana to a friend or a member of your family?\""
+			"recomendationIdexDescription": "\"How likely would you be to recommend the services of Carris Metropolitana to a friend or a member of your family?\"",
+			"title": "Recomemndation Index"
 		},
 		"Survey2024ResultsCard": {
 			"heading": "Results",

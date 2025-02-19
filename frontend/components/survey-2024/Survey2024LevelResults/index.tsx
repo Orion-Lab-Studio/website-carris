@@ -66,7 +66,7 @@ export function Survey2024LevelResults() {
 
 	// C. Handle Actions
 
-	const handleFilterData = (search: string, category: string, avaliationValue: number) => {
+	const handleFilterData = (search: string, category: string, avaliationValue: string) => {
 		let filteredResults = allData;
 
 		if (search) {
@@ -77,8 +77,15 @@ export function Survey2024LevelResults() {
 			filteredResults = filteredResults.filter(item => item._group.toLowerCase().includes(category.toLowerCase()));
 		}
 
-		if (avaliationValue !== 0) {
-			filteredResults = filteredResults.filter(item => item.header.value.includes(avaliationValue?.toString() || ''));
+		if (avaliationValue) {
+			const [min, max] = JSON.parse(avaliationValue);
+
+			filteredResults = filteredResults.filter((item) => {
+				const value = parseInt(item.header.value);
+				return value >= min / 10 && value <= max / 10;
+			});
+
+			console.log(filteredResults);
 		}
 
 		setFilteredData(filteredResults);
