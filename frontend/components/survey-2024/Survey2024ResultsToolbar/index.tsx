@@ -3,7 +3,12 @@
 /* * */
 
 import { Select, TextInput } from '@mantine/core';
-import { IconAdjustments, IconFilter, IconSearch } from '@tabler/icons-react';
+import {
+	IconAdjustments,
+	IconFilter,
+	IconSearch,
+	IconX,
+} from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useQueryState } from 'nuqs';
 import { useEffect } from 'react';
@@ -42,13 +47,43 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 	// C. Render components
 
 	return (
-
 		<div className={styles.resultsToolbar}>
-			<TextInput leftSection={<IconSearch size={20} />} onChange={e => setSearch(e.target.value)} placeholder={t('searchInput')} type="search" value={search || ''} w="100%" />
-			<Select data={filterCategories} leftSection={<IconFilter size={20} />} onChange={_value => setCategory(_value)} placeholder={t('by_category')} value={category} w="100%" clearable />
-			<Select data={filterValues} leftSection={<IconAdjustments size={20} />} onChange={_value => setAvalitaionValue(_value)} placeholder={t('by_avaliation')} value={avaliationValue} w="100%" clearable />
+			<TextInput
+				leftSection={<IconSearch size={20} />}
+				onChange={e => setSearch(e.target.value)}
+				placeholder={t('searchInput')}
+				type="search"
+				value={search || ''}
+				w="100%"
+				rightSection={
+					search && (
+						<IconX
+							cursor="pointer"
+							onClick={() => setSearch('')}
+							size={20}
+						/>
+					)
+				}
+			/>
+			<Select
+				data={filterCategories}
+				leftSection={<IconFilter size={20} />}
+				onChange={_value => setCategory(_value)}
+				placeholder={t('by_category')}
+				value={category}
+				w="100%"
+				clearable
+			/>
+			<Select
+				data={filterValues}
+				leftSection={<IconAdjustments size={20} />}
+				onChange={_value => setAvalitaionValue(_value)}
+				placeholder={t('by_avaliation')}
+				value={avaliationValue}
+				w="100%"
+				clearable
+			/>
 		</div>
-
 	);
 
 	//
