@@ -1,0 +1,25 @@
+/* BUTTON WRAPPER */
+
+.buttonWrapper{
+    position: fixed;
+    z-index: 100;
+    bottom: 0;
+    width: 100px;
+    height: 100px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+/* * */
+
+/* BUTTON  */
+
+.button{    
+    border-radius: 50%;
+    border-color: var(--color-system-border-200);
+}
+
+/* * */
