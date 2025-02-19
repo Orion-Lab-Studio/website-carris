@@ -30,6 +30,8 @@ const nextConfig: NextConfig = {
 			//
 			{ destination: '/news', permanent: true, source: '/noticias' },
 			//
+			{ destination: '/survey-2024', permanent: true, source: '/inquerito-2024' },
+			//
 			{ destination: '/planner', permanent: true, source: '/planeador' },
 			//
 			{ destination: '/open-data', permanent: true, source: '/opendata' },
