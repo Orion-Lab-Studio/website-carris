@@ -20,7 +20,12 @@
 /* CARD WRAPPER SHADOW */
 
 .cardMainWrapperShadow{
-    box-shadow: 0px 4px 8px rgba(129, 1, 1, 0.1);
+    width: 100%;
+    height: 100px;
+    margin-bottom: -10px;
+    background-color: #d9d9d9;  
+    border-top-left-radius: 18px;  
+    border-top-right-radius: 18px;  
 }
 
 
@@ -28,8 +33,12 @@
 /* CARD WRAPPER */
 
 .cardMainWrapper{
+    -webkit-box-shadow: 0px -4px 3px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0px -4px 3px rgba(0, 0, 0, 0.05);
+    box-shadow: 0px -4px 3px rgba(0, 0, 0, 0.05);
     border-radius: 10px;
     background-color: var(--color-system-background-100);
     padding: 24px;
     margin-bottom: 24px;
+    border: 1px solid var(--color-system-border-100);
 }

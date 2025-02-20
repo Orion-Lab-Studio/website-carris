@@ -20,9 +20,9 @@ export function MetricsPageAboutOpenData() {
 
 	return (
 		<Surface>
-			<div className={styles.cardMainWrapperShadow} id="aboutOpenData">
+			<div id="aboutOpenData">
 				<Section heading={t('heading')} withPadding>
-					<div><span /></div>
+					<div className={styles.cardMainWrapperShadow}><span /></div>
 					<div className={styles.cardMainWrapper}>
 						<p className={styles.cardTitle}>{t('title1')}</p>
 						<p className={styles.cardContent} dangerouslySetInnerHTML={{ __html: t.raw('text1') }} />
