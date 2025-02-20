@@ -2,15 +2,10 @@
 
 /* * */
 
-import { Section } from '@/components/layout/Section';
 import { ContactMetrics2024CardSchema } from '@/components/metrics/MetricsPageContacts/_data/cards';
-import { useAnalyticsContext } from '@/contexts/Analytics.context';
-import { Button, CopyButton, Tooltip } from '@mantine/core';
-import { modals } from '@mantine/modals';
-import { IconShare2 } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useQueryState } from 'nuqs';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from './styles.module.css';
 
@@ -49,11 +44,6 @@ export function MetricsPageContactsCard({ cardData, isFirstChild, isLastChild }:
 		'--color-primary': cardData.colors.primary,
 		'--color-text': cardData.colors.text,
 	};
-
-	const shareUrl = useMemo(() => {
-		if (typeof window === 'undefined') return;
-		return `${window.location.origin}${window.location.pathname}?card=${cardData._id}`;
-	}, []);
 	//
 	// C. Handle actions
 
@@ -78,27 +68,6 @@ export function MetricsPageContactsCard({ cardData, isFirstChild, isLastChild }:
 		setIsOpen(prev => !prev);
 	};
 
-	const handleShareUrl = () => {
-		modals.open({
-			children: (
-				<Section withGap>
-					<p>{t('share.message')}</p>
-					<p className={styles.urlCopy}>{shareUrl}</p>
-					<CopyButton timeout={1500} value={shareUrl || ''}>
-						{({ copied, copy }) => (
-							<Button onClick={copy} variant="secondary" w="100%">
-								{copied ? t('share.copied') : t('share.copy')}
-							</Button>
-						)}
-					</CopyButton>
-				</Section>
-			),
-			title: (
-				<p className={styles.urlTitle}>{t('share.title')}</p>
-			),
-		});
-	};
-
 	//
 	// D. Render components
 
@@ -113,22 +82,18 @@ export function MetricsPageContactsCard({ cardData, isFirstChild, isLastChild }:
 			<div className={styles.content}>
 				<div className={styles.innerWrapper}>
 
-					{(!cardData._type || cardData._type === 'default') && (
-						<div className={styles.contentNumber}>
-							<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
-							<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
-						</div>
-					)}
+					<div className={styles.contentNumber}>
+						<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
+						<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
+					</div>
 
 					<p className={styles.contentTitle}>{cardData.content?.title}</p>
 					<p className={styles.contentDescription} dangerouslySetInnerHTML={{ __html: cardData.content?.description?.replace(/\n/g, '<br />') || '' }} />
 
-					<Tooltip label={t('share.tooltip')} withArrow>
-						<div className={styles.shareButton} onClick={handleShareUrl}>
-							<IconShare2 />
-						</div>
-					</Tooltip>
-
+					<div className={styles.contentNumber}>
+						<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
+						<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
+					</div>
 				</div>
 			</div>
 

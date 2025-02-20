@@ -95,11 +95,11 @@
 	border-color: var(--color-border);
 	clip-path: inset(0 0 100% 0);
 	transition: all 200ms ease-out calc(var(--animation-duration-close) - 200ms),
-				clip-path var(--animation-duration-close) ease;
+		clip-path var(--animation-duration-close) ease;
 }
 
 .container[data-open='true'] .content {
-	background-color: var(--color-system-background-200);
+	background-color: #FAFAFA;
 	border-color: var(--color-border);
 	clip-path:  inset(0 0 0% 0);
 	transition: all var(--animation-duration-close) ease-out;
@@ -128,7 +128,7 @@
 	flex-direction: column;
 	gap: 5px;
 	padding: 15px 20px;
-	background-color: var(--color-primary);
+	background-color: var(--color-system-background-300);
 	border-radius: 18px;
 }
 
@@ -144,19 +144,6 @@
 	font-weight: var(--font-weight-semibold);
 	color: var(--color-text);
 	opacity: 0.8;
-}
-
-/* * */
-/* CONTENT LOTTIE */
-
-.contentLottie {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 200px;
-	background: #fff;
-	border: 1px solid var(--color-system-border-100);
-	border-radius: 18px;
 }
 
 /* * */
@@ -223,51 +210,3 @@
 }
 
 /* * */
-/* TYPE = LINES */
-
-.container[data-type='lines'] .contentNumber {
-	gap: 15px;
-	padding: 20px;
-	background-color: var(--color-primary-black);
-}
-
-.container[data-type='lines'] .contentNumberLegend {
-	color: var(--color-primary-white);
-}
-
-.contentNumberLinesWrapper {
-	display: flex;
-	flex-direction: row;
-	gap: 15px;
-}
-
-/* * */
-/* TYPE = TERMINALS */
-
-.container[data-type='terminals'] .contentNumber {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	align-items: center;
-}
-
-.container[data-type='terminals'] .contentNumberTitle,
-.container[data-type='terminals'] .contentNumberValue {
-	font-size: 20px;
-	font-weight: var(--font-weight-bold);
-	line-height: 1;
-	color: var(--color-text);
-	opacity: 0.8;
-}
-
-.container[data-type='terminals'] .contentNumberTerminalsWrapper {
-	display: flex;
-	flex-direction: column;
-	align-items: flex-end;
-	justify-content: flex-end;
-	width: 100%;
-	text-align: right;
-}
-
-.container[data-type='terminals'] .contentNumberLegend {
-	font-size: 10px;
-}
