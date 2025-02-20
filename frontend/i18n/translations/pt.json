@@ -920,6 +920,11 @@
 			"text1": "A Carris Metropolitana possui uma <b>política de dados abertos</b>, com o objetivo de promover a transparência e a proximidade com os seus passageiros, divulgando publicamente informação relativa à sua operação.",
 			"title1": "Dados Abertos"
 		},
+		"MetricsPageContacts": {
+			"heading": "Contatos",
+			"text1": "Aqui, consegue consultar a totalidade de contactos recebidos pela Carris Metropolitana, discriminados por Pedidos de Informação, Reclamações e Outro tipo de contacto.",
+			"title1": "Open Data"
+		},
 		"MetricsPageIntro": {
 			"heading": "A nossa operação ao vivo",
 			"text_1": "A Carris Metropolitana possui uma política de dados abertos, com o objetivo de promover a transparência e a proximidade com os seus passageiros, divulgando publicamente informação relativa à sua operação.",
