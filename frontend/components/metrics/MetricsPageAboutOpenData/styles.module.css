@@ -1,0 +1,35 @@
+/* CARD TITLE */
+
+.cardTitle{
+    font-weight: var(--font-weight-title);
+    font-size: var(--font-size-title);
+    color: var(--color-system-text-200);
+}
+
+/* * */
+/* CARD CONTENT */
+
+.cardContent{
+    font-weight: var(--font-weight-medium);
+    font-size: 14px;
+    color: var(--color-system-text-200);
+    line-height: 16.94px;
+}
+
+/* * */
+/* CARD WRAPPER SHADOW */
+
+.cardMainWrapperShadow{
+    box-shadow: 0px 4px 8px rgba(129, 1, 1, 0.1);
+}
+
+
+/* * */
+/* CARD WRAPPER */
+
+.cardMainWrapper{
+    border-radius: 10px;
+    background-color: var(--color-system-background-100);
+    padding: 24px;
+    margin-bottom: 24px;
+}

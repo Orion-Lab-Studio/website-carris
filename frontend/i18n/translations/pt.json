@@ -915,6 +915,11 @@
 			"summary_description": "passageiros transportados nesta linha nos últimos 15 dias",
 			"summary_value": "{value, number}"
 		},
+		"MetricsPageAboutOpenData": {
+			"heading": "Sobre os dados abertos",
+			"text1": "A Carris Metropolitana possui uma <b>política de dados abertos</b>, com o objetivo de promover a transparência e a proximidade com os seus passageiros, divulgando publicamente informação relativa à sua operação.",
+			"title1": "Dados Abertos"
+		},
 		"MetricsPageIntro": {
 			"heading": "A nossa operação ao vivo",
 			"text_1": "A Carris Metropolitana possui uma política de dados abertos, com o objetivo de promover a transparência e a proximidade com os seus passageiros, divulgando publicamente informação relativa à sua operação.",
