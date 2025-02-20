@@ -25,3 +25,8 @@
 		padding: 20px;
 	}
 }
+.lastCard{
+	/* background: var(--color-brand); */
+	height: 100%;
+	border-radius: 18px;
+}
