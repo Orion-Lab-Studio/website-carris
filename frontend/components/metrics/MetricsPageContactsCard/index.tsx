@@ -2,9 +2,10 @@
 
 /* * */
 
-import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { ContactMetrics2024CardSchema } from '@/components/metrics/MetricsPageContacts/_data/cards';
-import { IconGripVertical, IconInfoCircleFilled, IconMoodAngry } from '@tabler/icons-react';
+import { ContactsCardBottomRow } from '@/components/metrics/MetricsPageContactsCardBottomRow';
+import { ContactsCardCenterRow } from '@/components/metrics/MetricsPageContactsCardCenterRow';
+import { ContactsCardTopRow } from '@/components/metrics/MetricsPageContactsCardTopRow';
 import { useQueryState } from 'nuqs';
 import { useEffect, useState } from 'react';
 
@@ -80,43 +81,9 @@ export function MetricsPageContactsCard({ cardData, isFirstChild, isLastChild }:
 
 			<div className={styles.content}>
 				<div className={styles.innerWrapper}>
-
-					<div className={styles.contentNumber}>
-						<div className={styles.leftSectionTop}>
-							<LottiePlayer className={styles.lottie} path="/assets/tickets/animations/proxima.json" loop play />
-						</div>
-						<div className={styles.rightSectionTop}>
-							<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
-							<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
-						</div>
-					</div>
-
-					<div className={styles.miniCardContainer}>
-						<div className={styles.contentNumber}>
-							<span><IconInfoCircleFilled size={30} /></span>
-							<p className={styles.contentNumberValue}>teste1</p>
-						</div>
-
-						<div className={styles.contentNumber}>
-							<span><IconMoodAngry size={40} /></span>
-							<p className={styles.contentNumberValue}>teste2</p>
-						</div>
-
-						<div className={styles.contentNumber}>
-							<span><IconGripVertical size={50} /></span>
-							<p className={styles.contentNumberValue}>teste3</p>
-						</div>
-					</div>
-
-					<div className={styles.contentNumber}>
-						<div className={styles.leftSectionBottom}>
-							<p className={styles.contentNumberValue}>{cardData.content.number_value}</p>
-							<p className={styles.contentNumberLegend}>{cardData.content.number_legend}</p>
-						</div>
-						<div className={styles.rightSectionBottom}>
-							<LottiePlayer className={styles.lottie} path="/assets/tickets/animations/proxima.json" loop play />
-						</div>
-					</div>
+					<ContactsCardTopRow cardData={cardData} />
+					<ContactsCardCenterRow cardData={cardData} />
+					<ContactsCardBottomRow cardData={cardData} />
 				</div>
 			</div>
 
