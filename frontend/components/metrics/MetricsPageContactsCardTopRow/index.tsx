@@ -1,8 +1,10 @@
 /* * */
+
 import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { ContactMetrics2024CardSchema } from '@/components/metrics/MetricsPageContacts/_data/cards';
 
 import styles from './styles.module.css';
+
 /* * */
 
 interface Props {
@@ -10,7 +12,11 @@ interface Props {
 }
 
 export function ContactsCardTopRow({ cardData }: Props) {
+	//
+
+	//
 	// A. Render Components
+
 	return (
 		<div className={styles.contentNumber}>
 			<div className={styles.leftSectionTop}>
@@ -22,5 +28,6 @@ export function ContactsCardTopRow({ cardData }: Props) {
 			</div>
 		</div>
 	);
+
 	//
 }

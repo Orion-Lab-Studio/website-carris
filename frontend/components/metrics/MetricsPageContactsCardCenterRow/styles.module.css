@@ -26,8 +26,8 @@
 	opacity: 0.8;
 }
 
-
-
+/* * */
+/* MINI CARD CONTAINER	 */
 .miniCardContainer {
 	display: grid;
 	grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -58,6 +58,7 @@
 
 /* * */
 /* Mini Card Section */
+
 .leftSection {
 	flex: 1;
 	display: flex;

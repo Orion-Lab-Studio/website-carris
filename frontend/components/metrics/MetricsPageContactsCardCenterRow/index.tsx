@@ -1,8 +1,10 @@
 /* * */
+
 import { ContactMetrics2024CardSchema } from '@/components/metrics/MetricsPageContacts/_data/cards';
 import { IconGripVertical, IconInfoCircleFilled, IconMoodAngry } from '@tabler/icons-react';
 
 import styles from './styles.module.css';
+
 /* * */
 
 interface Props {
@@ -10,6 +12,9 @@ interface Props {
 }
 
 export function ContactsCardCenterRow({ cardData }: Props) {
+	//
+
+	//
 	// A. Render Components
 	return (
 		<div className={styles.miniCardContainer}>
@@ -44,5 +49,6 @@ export function ContactsCardCenterRow({ cardData }: Props) {
 			</div>
 		</div>
 	);
+
 	//
 }

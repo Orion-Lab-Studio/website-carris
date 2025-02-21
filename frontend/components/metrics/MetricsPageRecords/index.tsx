@@ -32,7 +32,7 @@ export function MetricsPageRecords() {
 
 				<Section withPadding>
 					<Grid columns="ab" withGap>
-						<Image src="/images/metrics/record-1.svg" />
+						<Image src="/images/metrics/record-1-new.svg" />
 						<Image src="/images/metrics/record-2.svg" />
 					</Grid>
 				</Section>
