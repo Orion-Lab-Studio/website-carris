@@ -60,6 +60,12 @@ export function VehiclesListMap() {
 		})();
 	}, [activePatternData]);
 
+	useEffect(() => {
+		if (vehiclesListContext.data.selected) return;
+		setActivePatternData(undefined);
+		setActiveShapeData(undefined);
+	}, [vehiclesListContext.data.selected]);
+
 	//
 	// C. Transform data
 
@@ -117,19 +123,8 @@ export function VehiclesListMap() {
 	//
 	// E. Render components
 
-	const handleClearSelection = () => {
-		setActivePatternData(undefined);
-		setActiveShapeData(undefined);
-		vehiclesListContext.actions.updateSelectedVehicle(null);
-	};
-
 	return (
 		<MapView id="vehiclesListMap" interactiveLayerIds={[MapViewStyleVehiclesInteractiveLayerId]} onClick={handleLayerClick}>
-			{vehiclesListContext.data.selected && (
-				<div style={{ marginLeft: '20px', marginTop: '20px' }}>
-					<Button icon={<IconX size={18} />} label="Limpar seleção" onClick={handleClearSelection} />
-				</div>
-			)}
 			<MapViewStyleVehicles showCounter="always" vehiclesData={activeVehiclesGeoJsonFC} />
 			<MapViewStylePath presentBeforeId={MapViewStyleVehiclesPrimaryLayerId} shapeData={activePathShapeGeoJson} waypointsData={activePathWaypointsGeoJson} />
 		</MapView>
