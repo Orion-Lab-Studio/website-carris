@@ -40,6 +40,7 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	const workerRef = useRef<null | Worker>(null);
 	const [searchQuery, setSearchQuery] = useState('');
 	const [debouncedSearchQuery] = useDebouncedValue(searchQuery, 200);
+
 	const profileContext = useProfileContext();
 	const locationsContext = useLocationsContext();
 
@@ -59,6 +60,7 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 				locality_display: localityData?.display ?? '',
 			};
 		});
+		console.log(preparedSearchCollection);
 		return createDocCollection(preparedSearchCollection, {
 			id: 2,
 			locality_display: 1,
@@ -125,68 +127,67 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	// E. Render components
 
 	return (
-		<p onClick={handleWork}>Heelooo</p>
-		// <Combobox onOptionSubmit={handleSelectStop} store={comboboxStore}>
-		// 	<Combobox.Target>
-		// 		{selectedStopData && !comboboxStore.dropdownOpened
-		// 			? (
-		// 				<Group className={`${styles.comboboxTargetWrapper} ${variant === 'white' && styles.variantWhite}`} onClick={handleClickSearchField}>
-		// 					<div className={styles.comboboxTargetSection} data-position="left">
-		// 						<IconBusStop size={20} />
-		// 					</div>
-		// 					<div className={styles.comboboxTargetInput}>
-		// 						<StopDisplay stopData={selectedStopData} />
-		// 					</div>
-		// 					<div className={styles.comboboxTargetSection} data-position="right">
-		// 						<ActionIcon color="gray" onClick={handleClearSearchField} size="md" variant="subtle">
-		// 							<IconX size={20} />
-		// 						</ActionIcon>
-		// 					</div>
-		// 				</Group>
-		// 			)
-		// 			: (
-		// 				<TextInput
-		// 					aria-label={label || t('label')}
-		// 					autoComplete="off"
-		// 					leftSection={<IconBusStop size={20} />}
-		// 					onBlur={handleExitSearchField}
-		// 					onChange={handleSearchQueryChange}
-		// 					onClick={handleClickSearchField}
-		// 					onFocus={handleClickSearchField}
-		// 					placeholder={placeholder || t('placeholder')}
-		// 					type="search"
-		// 					value={searchQuery}
-		// 					variant={variant}
-		// 					rightSection={
-		// 						searchQuery
-		// 							? (
-		// 								<ActionIcon color="gray" onClick={handleClearSearchField} size="md" variant="subtle">
-		// 									<IconX size={20} />
-		// 								</ActionIcon>
-		// 							)
-		// 							: (
-		// 								<IconSelector size={18} />
-		// 							)
-		// 					}
-		// 				/>
-		// 			)}
-		// 	</Combobox.Target>
+		<Combobox onOptionSubmit={handleSelectStop} store={comboboxStore}>
+			<Combobox.Target>
+				{selectedStopData && !comboboxStore.dropdownOpened
+					? (
+						<Group className={`${styles.comboboxTargetWrapper} ${variant === 'white' && styles.variantWhite}`} onClick={handleClickSearchField}>
+							<div className={styles.comboboxTargetSection} data-position="left">
+								<IconBusStop size={20} />
+							</div>
+							<div className={styles.comboboxTargetInput}>
+								<StopDisplay stopData={selectedStopData} />
+							</div>
+							<div className={styles.comboboxTargetSection} data-position="right">
+								<ActionIcon color="gray" onClick={handleClearSearchField} size="md" variant="subtle">
+									<IconX size={20} />
+								</ActionIcon>
+							</div>
+						</Group>
+					)
+					: (
+						<TextInput
+							aria-label={label || t('label')}
+							autoComplete="off"
+							leftSection={<IconBusStop size={20} />}
+							onBlur={handleExitSearchField}
+							onChange={handleSearchQueryChange}
+							onClick={handleClickSearchField}
+							onFocus={handleClickSearchField}
+							placeholder={placeholder || t('placeholder')}
+							type="search"
+							value={searchQuery}
+							variant={variant}
+							rightSection={
+								searchQuery
+									? (
+										<ActionIcon color="gray" onClick={handleClearSearchField} size="md" variant="subtle">
+											<IconX size={20} />
+										</ActionIcon>
+									)
+									: (
+										<IconSelector size={18} />
+									)
+							}
+						/>
+					)}
+			</Combobox.Target>
 
-	// 	<Combobox.Dropdown>
-	// 		<Combobox.Options mah={200} style={{ overflowY: 'auto' }}>
-	// 			{allStopsDataFilteredBySearchQuery.length === 0
-	// 				? <Combobox.Empty>{nothingFound || t('nothing_found')}</Combobox.Empty>
-	// 				: allStopsDataFilteredBySearchQuery.map(item => (
-	// 					<Combobox.Option key={item.id} className={item.id === selectedStopData?.id ? styles.selected : ''} value={item.id}>
-	// 						<div className={styles.comboboxOption}>
-	// 							<StopDisplay stopData={item} />
-	// 						</div>
-	// 					</Combobox.Option>
-	// 				),
-	// 				)}
-	// 		</Combobox.Options>
-	// 	</Combobox.Dropdown>
-	// </Combobox>
+			<Combobox.Dropdown>
+				<Combobox.Options mah={200} style={{ overflowY: 'auto' }}>
+					{allStopsDataFilteredBySearchQuery.length === 0
+						? <Combobox.Empty>{nothingFound || t('nothing_found')}</Combobox.Empty>
+						: allStopsDataFilteredBySearchQuery.map(item => (
+							<Combobox.Option key={item.id} className={item.id === selectedStopData?.id ? styles.selected : ''} value={item.id}>
+								<div className={styles.comboboxOption}>
+									<StopDisplay stopData={item} />
+								</div>
+							</Combobox.Option>
+						),
+						)}
+				</Combobox.Options>
+			</Combobox.Dropdown>
+		</Combobox>
 	);
 
 	//
