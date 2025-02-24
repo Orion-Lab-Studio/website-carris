@@ -9,7 +9,9 @@ import { useProfileContext } from '@/contexts/Profile.context';
 import { useStopsContext } from '@/contexts/Stops.context';
 import { createDocCollection } from '@/hooks/useOtherSearch';
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
+import { Routes } from '@/utils/routes';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
+import useSWR from 'swr';
 
 import { useAnalyticsContext } from './Analytics.context';
 
@@ -79,7 +81,6 @@ export const StopsListContextProvider = ({ children }) => {
 	const [filterByFacilityState, setFilterByFacilityState] = useState <StopsListContextState['filters']['by_facility']>(null);
 	const [filterByMunicipalityOrLocalityState, setFilterByMunicipalityOrLocalityState] = useState <StopsListContextState['filters']['by_municipality_or_locality']>(null);
 	const [filterBySearchState, setFilterBySearchState] = useState <StopsListContextState['filters']['by_search']>('');
-
 	//
 	// B. Transform data
 
