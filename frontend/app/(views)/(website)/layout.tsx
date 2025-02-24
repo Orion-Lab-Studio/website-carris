@@ -1,5 +1,6 @@
 /* * */
 
+import { GotoTopButton } from '@/components/common/GotoTopButton';
 import { WebsiteViewport } from '@/components/viewport/WebsiteViewport';
 import { ConfigProviders } from '@/providers/config-providers';
 import { DataProviders } from '@/providers/data-providers';
@@ -22,6 +23,7 @@ export default function Layout({ children }) {
 							<WebsiteViewport>
 								{children}
 							</WebsiteViewport>
+							<GotoTopButton scrollValue={350} />
 						</MapProviders>
 					</DataProviders>
 				</ThemeProviders>

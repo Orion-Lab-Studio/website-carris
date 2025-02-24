@@ -1,11 +1,11 @@
 'use client';
 /* * */
 
-import { Button } from '@mantine/core';
+import Button from '@/components/common/Button';
+import { Affix, Transition } from '@mantine/core';
+import { useWindowScroll } from '@mantine/hooks';
 import { IconArrowUp } from '@tabler/icons-react';
-import React, { useEffect, useState } from 'react';
-
-import styles from './styles.module.css';
+import { useTranslations } from 'next-intl';
 
 interface Props {
 	scrollValue: number
@@ -18,39 +18,24 @@ export function GotoTopButton({ scrollValue }: Props) {
 	//
 	// A. Setup Variables
 
-	const [isVisible, setIsVisible] = useState(false);
+	const [scroll, scrollTo] = useWindowScroll();
+	const t = useTranslations();
 
 	//
-	// B. Handle Actions
-
-	const gotoTop = (e) => {
-		e.preventDefault();
-		window.scrollTo({ behavior: 'smooth', top: 0 });
-	};
-
-	const handleScroll = () => {
-		if (window.scrollY > scrollValue) {
-			setIsVisible(true);
-		}
-		else {
-			setIsVisible(false);
-		}
-	};
-
-	useEffect(() => {
-		window.addEventListener('scroll', handleScroll);
-		return () => window.removeEventListener('scroll', handleScroll);
-	}, []);
-
-	//
-	// C. Render Components
+	// B. Render Components
 
 	return (
-		isVisible && (
-			<Button className={styles.buttonWrapper} onClick={e => gotoTop(e)}>
-				<IconArrowUp size={20} />
-			</Button>
-		)
+		<Affix position={{ bottom: 20, right: 20 }}>
+			<Transition mounted={scroll.y > scrollValue} transition="slide-up">
+				{transitionStyles => (
+					<Button
+						icon={<IconArrowUp size={16} />}
+						label={t('gotoTop')}
+						onClick={() => scrollTo({ y: 0 })}
+					/>
+				)}
+			</Transition>
+		</Affix>
 	);
 
 	//
