@@ -98,7 +98,7 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 					marks={marks}
 					onChange={_value => handleAvaliationValue(_value)}
 					styles={{ thumb: { borderWidth: 4, padding: 3 } }}
-					value={avaliationValue ? JSON.parse(avaliationValue) : [0, 10]}
+					value={avaliationValue ? JSON.parse(avaliationValue) : [0, 100]}
 					w="100%"
 					restrictToMarks
 				/>
