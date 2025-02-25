@@ -76,10 +76,6 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	//
 	// C. Search
 
-	useEffect(() => {
-		console.log(locationsContext.data.parsedLocalities);
-	}, [locationsContext.data.parsedLocalities]);
-
 	const allStopsDataFilteredBySearchQuery = useMemo(
 		() => (debouncedSearchQuery ? search(debouncedSearchQuery) : data).slice(0, 100),
 		[debouncedSearchQuery, search, data]);
