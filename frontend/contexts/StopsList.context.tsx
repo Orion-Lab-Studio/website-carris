@@ -110,7 +110,7 @@ export const StopsListContextProvider = ({ children }) => {
 			// Prepare data for search function
 			const preparedSearchCollection = stopsContext.data.stops.map((item) => {
 				const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ?? false;
-				const localityData = locationsContext.actions.getLocalityById(item.locality_id);
+				const localityData = locationsContext.data.parsedLocalities.find(locality => locality.id === item.locality_id);
 				return {
 					...item,
 					boost: isFavorite,
@@ -130,6 +130,10 @@ export const StopsListContextProvider = ({ children }) => {
 
 		return () => cancelTask(taskId); // Cleanup on unmount
 	}, [stopsContext.data.stops, profileContext.data.favorite_stops]);
+
+	useEffect(() => {
+		console.log(locationsContext.data.parsedLocalities);
+	}, [locationsContext.data.parsedLocalities]);
 
 	// const searchHook = useMemo(() => {
 	// 	// Prepare data for search function

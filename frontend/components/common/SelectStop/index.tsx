@@ -12,7 +12,7 @@ import { ActionIcon, Combobox, Group, TextInput, useCombobox } from '@mantine/co
 import { useDebouncedValue } from '@mantine/hooks';
 import { IconBusStop, IconSelector, IconX } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import styles from './styles.module.css';
 
@@ -37,7 +37,6 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	// A. Setup variables
 
 	const t = useTranslations('SelectStop');
-	const workerRef = useRef<null | Worker>(null);
 	const [searchQuery, setSearchQuery] = useState('');
 	const [debouncedSearchQuery] = useDebouncedValue(searchQuery, 200);
 
@@ -51,16 +50,16 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 
 	const { search } = useMemo(() => {
 		// Prepare data for search function
-		const preparedSearchCollection = data.map((item) => {
+		const preparedSearchCollection = locationsContext.data.parsedLocalities.map((item) => {
 			const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ? true : false;
-			const localityData = locationsContext.actions.getLocalityById(item.locality_id);
+
 			return {
 				...item,
 				boost: isFavorite,
-				locality_display: localityData?.display ?? '',
+				locality_display: item.display || '',
+
 			};
 		});
-		console.log(preparedSearchCollection);
 		return createDocCollection(preparedSearchCollection, {
 			id: 2,
 			locality_display: 1,
@@ -77,25 +76,16 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	//
 	// C. Search
 
+	useEffect(() => {
+		console.log(locationsContext.data.parsedLocalities);
+	}, [locationsContext.data.parsedLocalities]);
+
 	const allStopsDataFilteredBySearchQuery = useMemo(
 		() => (debouncedSearchQuery ? search(debouncedSearchQuery) : data).slice(0, 100),
 		[debouncedSearchQuery, search, data]);
 
 	//
 	// D. Handle actions
-
-	useEffect(() => {
-		workerRef.current = new Worker(new URL('../../../workers/stops.ts', import.meta.url));
-		workerRef.current.onmessage = (event: MessageEvent<number>) =>
-			alert(`WebWorker Response => ${event.data}`);
-		return () => {
-			workerRef.current?.terminate();
-		};
-	}, []);
-
-	const handleWork = useCallback(async () => {
-		workerRef.current?.postMessage(100000);
-	}, []);
 
 	const handleClickSearchField = ({ currentTarget }) => {
 		if (currentTarget.select) currentTarget.select();
