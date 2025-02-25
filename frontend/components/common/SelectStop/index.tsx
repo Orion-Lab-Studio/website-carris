@@ -7,12 +7,13 @@ import type { Stop } from '@carrismetropolitana/api-types/network';
 import { StopDisplay } from '@/components/stops/StopDisplay';
 import { useLocationsContext } from '@/contexts/Locations.context';
 import { useProfileContext } from '@/contexts/Profile.context';
+import { useStopsContext } from '@/contexts/Stops.context';
 import { createDocCollection } from '@/hooks/useOtherSearch';
 import { ActionIcon, Combobox, Group, TextInput, useCombobox } from '@mantine/core';
 import { useDebouncedValue } from '@mantine/hooks';
 import { IconBusStop, IconSelector, IconX } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-import { useEffect, useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 
 import styles from './styles.module.css';
 
@@ -41,7 +42,7 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	const [debouncedSearchQuery] = useDebouncedValue(searchQuery, 200);
 
 	const profileContext = useProfileContext();
-	const locationsContext = useLocationsContext();
+	const stopsContext = useStopsContext();
 
 	const comboboxStore = useCombobox();
 
@@ -50,19 +51,16 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 
 	const { search } = useMemo(() => {
 		// Prepare data for search function
-		const preparedSearchCollection = locationsContext.data.parsedLocalities.map((item) => {
+		const preparedSearchCollection = stopsContext.data.parsedStops.map((item) => {
 			const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ? true : false;
 
 			return {
 				...item,
 				boost: isFavorite,
-				locality_display: item.display || '',
-
 			};
 		});
 		return createDocCollection(preparedSearchCollection, {
 			id: 2,
-			locality_display: 1,
 			long_name: 1,
 			short_name: 1,
 			tts_name: 1.5,
@@ -79,7 +77,6 @@ export function SelectStop({ data = [], label, nothingFound, onSelectStopId, pla
 	const allStopsDataFilteredBySearchQuery = useMemo(
 		() => (debouncedSearchQuery ? search(debouncedSearchQuery) : data).slice(0, 100),
 		[debouncedSearchQuery, search, data]);
-
 	//
 	// D. Handle actions
 

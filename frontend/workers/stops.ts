@@ -3,16 +3,21 @@
 //
 // This is the worker that will fetch the locality name for a given locality
 self.addEventListener('message', (event: MessageEvent) => {
-	const { locations, stops } = event.data;
+	const { localities, municipalities, stops } = event.data;
 
 	stops.forEach((stop) => {
-		const locality = locations.find(location => location.municipality_id === stop.municipality_id);
+		const municipality = municipalities.find(municipality => municipality.id === stop.municipality_id);
+		const locality = localities.find(location => location.id === stop.locality_id);
 
 		if (locality) {
-			stop.stop_locality_name = locality.name;
-			stop.display = locality.display;
+			stop.locality_name = locality.name;
+		}
+
+		if (municipality) {
+			stop.municipality_name = municipality.name;
 		}
 	});
+	console.log(stops);
 
 	self.postMessage(stops);
 });

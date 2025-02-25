@@ -67,7 +67,6 @@ export const StopsListContextProvider = ({ children }) => {
 
 	const profileContext = useProfileContext();
 	const stopsContext = useStopsContext();
-	const locationsContext = useLocationsContext();
 	const analyticsContext = useAnalyticsContext();
 
 	const searchHook = useRef<{ search: (query: string) => Stop[] }>(undefined);
@@ -110,16 +109,14 @@ export const StopsListContextProvider = ({ children }) => {
 			// Prepare data for search function
 			const preparedSearchCollection = stopsContext.data.stops.map((item) => {
 				const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ?? false;
-				const localityData = locationsContext.data.parsedLocalities.find(locality => locality.id === item.locality_id);
+				const localityData = stopsContext.data.parsedStops.find(locality => locality.id === item.locality_id);
 				return {
 					...item,
 					boost: isFavorite,
-					locality_display: localityData?.display ?? '',
 				};
 			});
 			searchHook.current = createDocCollection(preparedSearchCollection, {
 				id: 2,
-				locality_display: 1.5,
 				long_name: 1,
 				short_name: 1,
 				tts_name: 1.5,

@@ -6,8 +6,11 @@ import type { Stop } from '@carrismetropolitana/api-types/network';
 
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import { Routes } from '@/utils/routes';
-import { createContext, useContext } from 'react';
+import { Locality, Municipality } from '@carrismetropolitana/api-types/locations';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import useSWR from 'swr';
+
+import { useLocationsContext } from './Locations.context';
 
 /* * */
 
@@ -18,6 +21,7 @@ interface StopsContextState {
 		getStopByIdGeoJsonFC: (stopId: string) => GeoJSON.FeatureCollection | undefined
 	}
 	data: {
+		parsedStops: Stop[]
 		stops: Stop[]
 	}
 	flags: {
@@ -44,8 +48,10 @@ export const StopsContextProvider = ({ children }) => {
 
 	//
 	// A. Fetch data
-
+	const workerRef = useRef<null | Worker>(null);
 	const { data: allStopsData, isLoading: allStopsLoading } = useSWR<Stop[], Error>(`${Routes.API}/stops`);
+	const locationsContext = useLocationsContext();
+	const [parsedLocalities, setParsedLocalities] = useState<Stop[]>([]);
 
 	//
 	// B. Handle actions
@@ -73,6 +79,49 @@ export const StopsContextProvider = ({ children }) => {
 		return collection;
 	};
 
+	const setLocalitiesNames = (allMunicipalities: Municipality[], allLocalitiesData: Locality[], stopsData: Stop[]) => {
+		if (!workerRef.current) {
+			console.error('Worker not initialized');
+			return;
+		}
+
+		workerRef.current.onerror = (error) => {
+			console.error('Worker error:', error);
+		};
+
+		workerRef.current.postMessage({ localities: allLocalitiesData, municipalities: allMunicipalities, stops: stopsData });
+	};
+
+	useEffect(() => {
+		if (!locationsContext.data.localitites || !allStopsData) return;
+
+		if (!workerRef.current) {
+			workerRef.current = new Worker(new URL('../workers/stops.ts', import.meta.url));
+
+			workerRef.current.onmessage = (event: MessageEvent<Stop[]>) => {
+				setParsedLocalities((prev) => {
+					if (JSON.stringify(prev) === JSON.stringify(event.data)) {
+						return prev;
+					}
+					return event.data;
+				});
+			};
+
+			workerRef.current.onerror = (error) => {
+				console.error('Worker error:', error);
+			};
+		}
+
+		if (parsedLocalities.length === 0) {
+			setLocalitiesNames(locationsContext.data.municipalities, locationsContext.data.localitites, allStopsData);
+		}
+
+		return () => {
+			workerRef.current?.terminate();
+			workerRef.current = null;
+		};
+	}, [locationsContext.data.localitites, allStopsData]);
+
 	//
 	// C. Define context value
 
@@ -83,6 +132,7 @@ export const StopsContextProvider = ({ children }) => {
 			getStopByIdGeoJsonFC,
 		},
 		data: {
+			parsedStops: parsedLocalities || [],
 			stops: allStopsData || [],
 		},
 		flags: {

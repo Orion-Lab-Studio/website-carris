@@ -11,13 +11,6 @@ import { createContext, useContext, useEffect, useMemo, useRef, useState } from 
 import useSWR from 'swr';
 
 /* * */
-interface ExntendedStop extends Stop {
-	address_longname?: string
-	address_shortname?: string
-	address_ttsname?: string
-	display?: string
-	stop_locality_name?: string
-}
 
 interface LocationsContextState {
 	actions: {
@@ -31,7 +24,6 @@ interface LocationsContextState {
 		localitites: Locality[]
 		municipalities: Municipality[]
 		parishes: Parish[]
-		parsedLocalities: ExntendedStop[]
 		stops: Stop[]
 	}
 	flags: {
@@ -66,7 +58,6 @@ export const LocationsContextProvider = ({ children }) => {
 	const { data: fetchedParishesData, isLoading: fetchedParishesLoading } = useSWR<ApiResponse<Parish[]>, Error>(`${Routes.API}/locations/parishes`);
 	const { data: fetchedLocalitiesData, isLoading: fetchedLocalitiesLoading } = useSWR<ApiResponse<Locality[]>, Error>(`${Routes.API}/locations/localities`);
 	const { data: fetchedStopsData, isLoading: fetchedStopsDataLoading } = useSWR<Stop[], Error>(`${Routes.API}/stops`);
-	const [parsedLocalities, setParsedLocalities] = useState<ExntendedStop[]>([]);
 
 	//
 	// B. Transform data
@@ -128,36 +119,6 @@ export const LocationsContextProvider = ({ children }) => {
 		workerRef.current.postMessage({ locations: allLocalitiesData, stops: stopsData });
 	};
 
-	useEffect(() => {
-		if (!allLocalitiesData || !allStopsData) return;
-
-		if (!workerRef.current) {
-			workerRef.current = new Worker(new URL('../workers/stops.ts', import.meta.url));
-
-			workerRef.current.onmessage = (event: MessageEvent<ExntendedStop[]>) => {
-				setParsedLocalities((prev) => {
-					if (JSON.stringify(prev) === JSON.stringify(event.data)) {
-						return prev;
-					}
-					return event.data;
-				});
-			};
-
-			workerRef.current.onerror = (error) => {
-				console.error('Worker error:', error);
-			};
-		}
-
-		if (parsedLocalities.length === 0) {
-			setLocalitiesNames(allLocalitiesData, allStopsData);
-		}
-
-		return () => {
-			workerRef.current?.terminate();
-			workerRef.current = null;
-		};
-	}, [allLocalitiesData, allStopsData]);
-
 	//
 	// D. Define context value
 
@@ -173,7 +134,6 @@ export const LocationsContextProvider = ({ children }) => {
 			localitites: allLocalitiesData || [],
 			municipalities: allMunicipalitiesData || [],
 			parishes: allParishesData || [],
-			parsedLocalities: parsedLocalities || [],
 			stops: allStopsData || [],
 		},
 		flags: {
