@@ -70,10 +70,12 @@ export const StopsListContextProvider = ({ children }) => {
 	const analyticsContext = useAnalyticsContext();
 
 	const searchHook = useRef<{ search: (query: string) => Stop[] }>(undefined);
+	const workerRef = useRef<null | Worker>(null);
 
 	const [dataFilteredState, setDataFilteredState] = useState<Stop[]>([]);
 	const [dataFilteredGeojsonFCState, setDataFilteredGeojsonFCState] = useState<GeoJSON.FeatureCollection>();
 	const [dataFavoritesState, setDataFavoritesState] = useState<Stop[]>([]);
+	const [parsedStopsGeoJSon, setparsedStopsGeoJSon] = useState<Stop[]>([]);
 
 	const [filterByAttributeState, setFilterByAttributeState] = useState <StopsListContextState['filters']['by_attribute']>(null);
 	const [filterByCurrentViewState, setFilterByCurrentViewState] = useState <StopsListContextState['filters']['by_current_view']>('map');
@@ -109,7 +111,6 @@ export const StopsListContextProvider = ({ children }) => {
 			// Prepare data for search function
 			const preparedSearchCollection = stopsContext.data.stops.map((item) => {
 				const isFavorite = profileContext.data.favorite_stops?.includes(item.id) ?? false;
-				const localityData = stopsContext.data.parsedStops.find(locality => locality.id === item.locality_id);
 				return {
 					...item,
 					boost: isFavorite,
@@ -198,6 +199,19 @@ export const StopsListContextProvider = ({ children }) => {
 		//
 	};
 
+	const setStopsGeoJsonFeatureCollection = () => {
+		if (!workerRef.current) {
+			console.error('Worker not initialized');
+			return;
+		}
+
+		workerRef.current.onerror = (error) => {
+			console.error('Worker error:', error);
+		};
+
+		workerRef.current.postMessage({ type: 'stop_map_geojson' });
+	};
+
 	useEffect(() => {
 		const filteredData = applyFiltersToData(stopsContext.data.stops);
 		setDataFilteredState(filteredData);
@@ -208,6 +222,23 @@ export const StopsListContextProvider = ({ children }) => {
 		setDataFavoritesState(favoritesStopsData);
 	}, [stopsContext.data.stops, profileContext.data.favorite_stops]);
 
+	useEffect(() => {
+		if (!dataFilteredState || !workerRef) return;
+		if (!workerRef.current) {
+			workerRef.current = new Worker(new URL('../workers/stops.ts', import.meta.url));
+			workerRef.current.onmessage = (event: MessageEvent<Stop[]>) => {
+				setparsedStopsGeoJSon(() => {
+					return event.data;
+				});
+			};
+			workerRef.current.onerror = (error) => {
+				console.error('Worker error:', error);
+			};
+		}
+		if (!parsedStopsGeoJSon || []) {
+			setStopsGeoJsonFeatureCollection();
+		}
+	}, [dataFilteredState]);
 	//
 	// D. Handle actions
 

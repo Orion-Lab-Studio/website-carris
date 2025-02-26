@@ -51,10 +51,43 @@ export const StopsContextProvider = ({ children }) => {
 	const workerRef = useRef<null | Worker>(null);
 	const { data: allStopsData, isLoading: allStopsLoading } = useSWR<Stop[], Error>(`${Routes.API}/stops`);
 	const locationsContext = useLocationsContext();
-	const [parsedLocalities, setParsedLocalities] = useState<Stop[]>([]);
+	const [parsedStops, setParsedStops] = useState<Stop[]>([]);
 
 	//
-	// B. Handle actions
+	// B. Transform Data
+
+	useEffect(() => {
+		if (!locationsContext.data.localitites || !allStopsData) return;
+
+		if (!workerRef.current) {
+			workerRef.current = new Worker(new URL('../workers/stops.ts', import.meta.url));
+
+			workerRef.current.onmessage = (event: MessageEvent<Stop[]>) => {
+				setParsedStops((prev) => {
+					if (JSON.stringify(prev) === JSON.stringify(event.data)) {
+						return prev;
+					}
+					return event.data;
+				});
+			};
+
+			workerRef.current.onerror = (error) => {
+				console.error('Worker error:', error);
+			};
+		}
+
+		if (parsedStops.length === 0) {
+			setLocalitiesNames(locationsContext.data.municipalities, locationsContext.data.localitites, allStopsData);
+		}
+
+		return () => {
+			workerRef.current?.terminate();
+			workerRef.current = null;
+		};
+	}, [locationsContext.data.localitites, allStopsData]);
+
+	//
+	// C. Handle actions
 
 	const getStopById = (stopId: string): Stop | undefined => {
 		return allStopsData?.find(stop => stop.id === stopId);
@@ -89,41 +122,11 @@ export const StopsContextProvider = ({ children }) => {
 			console.error('Worker error:', error);
 		};
 
-		workerRef.current.postMessage({ localities: allLocalitiesData, municipalities: allMunicipalities, stops: stopsData });
+		workerRef.current.postMessage({ localities: allLocalitiesData, municipalities: allMunicipalities, stops: stopsData, type: 'stop_add_extra_fields' });
 	};
 
-	useEffect(() => {
-		if (!locationsContext.data.localitites || !allStopsData) return;
-
-		if (!workerRef.current) {
-			workerRef.current = new Worker(new URL('../workers/stops.ts', import.meta.url));
-
-			workerRef.current.onmessage = (event: MessageEvent<Stop[]>) => {
-				setParsedLocalities((prev) => {
-					if (JSON.stringify(prev) === JSON.stringify(event.data)) {
-						return prev;
-					}
-					return event.data;
-				});
-			};
-
-			workerRef.current.onerror = (error) => {
-				console.error('Worker error:', error);
-			};
-		}
-
-		if (parsedLocalities.length === 0) {
-			setLocalitiesNames(locationsContext.data.municipalities, locationsContext.data.localitites, allStopsData);
-		}
-
-		return () => {
-			workerRef.current?.terminate();
-			workerRef.current = null;
-		};
-	}, [locationsContext.data.localitites, allStopsData]);
-
 	//
-	// C. Define context value
+	// D. Define context value
 
 	const contextValue: StopsContextState = {
 		actions: {
@@ -132,7 +135,7 @@ export const StopsContextProvider = ({ children }) => {
 			getStopByIdGeoJsonFC,
 		},
 		data: {
-			parsedStops: parsedLocalities || [],
+			parsedStops: parsedStops || [],
 			stops: allStopsData || [],
 		},
 		flags: {
