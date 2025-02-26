@@ -59,7 +59,6 @@ export function MapViewToolbar({ className, onCenterMap }: Props) {
 			analyticsContext.actions.capture(ampli => ampli.openGoogleMapsClicked({ click: 'true', click_from: 'stores' }));
 		}
 	};
-
 	//
 	// D. Render component
 	return (
