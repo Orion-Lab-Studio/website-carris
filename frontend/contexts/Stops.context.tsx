@@ -61,7 +61,6 @@ export const StopsContextProvider = ({ children }) => {
 
 		if (!workerRef.current) {
 			workerRef.current = new Worker(new URL('../workers/heavyJobs.ts', import.meta.url));
-
 			workerRef.current.onmessage = (event: MessageEvent<Stop[]>) => {
 				setParsedStops((prev) => {
 					if (JSON.stringify(prev) === JSON.stringify(event.data)) {
@@ -70,7 +69,6 @@ export const StopsContextProvider = ({ children }) => {
 					return event.data;
 				});
 			};
-
 			workerRef.current.onerror = (error) => {
 				console.error('Worker error:', error);
 			};

@@ -22,18 +22,19 @@ export function StopsListViewMap() {
 	const { stopsListMap } = useMap();
 	const router = useRouter();
 	const stopsListContext = useStopsListContext();
+	const allStopsFeatureCollection = stopsListContext.data.all_geojson_feature_collection;
 
 	//
 	// B. Transform data
 
-	const allStopsFeatureCollection = useMemo(() => {
-		const collection = getBaseGeoJsonFeatureCollection();
-		stopsListContext.data.filtered.forEach((stop) => {
-			const stopFC = transformStopDataIntoGeoJsonFeature(stop);
-			if (stopFC) collection.features.push(stopFC);
-		});
-		return collection;
-	}, [stopsListContext.data.filtered]);
+	// const allStopsFeatureCollection = useMemo(() => {
+	// 	const collection = getBaseGeoJsonFeatureCollection();
+	// 	stopsListContext.data.filtered.forEach((stop) => {
+	// 		const stopFC = transformStopDataIntoGeoJsonFeature(stop);
+	// 		if (stopFC) collection.features.push(stopFC);
+	// 	});
+	// 	return collection;
+	// }, [stopsListContext.data.filtered]);
 
 	//
 	// C. Handle Actions
@@ -46,6 +47,7 @@ export function StopsListViewMap() {
 			centerMap(stopsListMap, allStopsFeatureCollection.features);
 			return;
 		}
+		console.log(allStopsFeatureCollection);
 		// When there are search filters, center the map on the cluster with the most points
 		const clusterPoints = turf.clustersKmeans(allStopsFeatureCollection, { mutate: true, numberOfClusters: 2 });
 		const clusterPointsCount = clusterPoints.features.reduce((acc, feature) => {

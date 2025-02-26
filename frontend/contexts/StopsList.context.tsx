@@ -29,6 +29,7 @@ interface StopsListContextState {
 		favorites: number
 	}
 	data: {
+		all_geojson_feature_collection: GeoJSON.FeatureCollection<GeoJSON.Point>
 		favorites: Stop[]
 		filtered: Stop[]
 		filtered_geojson_fc: GeoJSON.FeatureCollection
@@ -75,7 +76,7 @@ export const StopsListContextProvider = ({ children }) => {
 	const [dataFilteredState, setDataFilteredState] = useState<Stop[]>([]);
 	const [dataFilteredGeojsonFCState, setDataFilteredGeojsonFCState] = useState<GeoJSON.FeatureCollection>();
 	const [dataFavoritesState, setDataFavoritesState] = useState<Stop[]>([]);
-	const [parsedStopsGeoJSon, setparsedStopsGeoJSon] = useState<Stop[]>([]);
+	const [dataAllStopsFeatureCollection, setAllStopsFeatureCollection] = useState<GeoJSON.FeatureCollection<GeoJSON.Point>>();
 
 	const [filterByAttributeState, setFilterByAttributeState] = useState <StopsListContextState['filters']['by_attribute']>(null);
 	const [filterByCurrentViewState, setFilterByCurrentViewState] = useState <StopsListContextState['filters']['by_current_view']>('map');
@@ -199,7 +200,7 @@ export const StopsListContextProvider = ({ children }) => {
 		//
 	};
 
-	const setStopsGeoJsonFeatureCollection = () => {
+	const setStopsGeoJsonFeatureCollection = (filteredStops) => {
 		if (!workerRef.current) {
 			console.error('Worker not initialized');
 			return;
@@ -209,7 +210,7 @@ export const StopsListContextProvider = ({ children }) => {
 			console.error('Worker error:', error);
 		};
 
-		workerRef.current.postMessage({ type: 'stop_map_geojson' });
+		workerRef.current.postMessage({ filteredStops: filteredStops, type: 'stop_map_geojson' });
 	};
 
 	useEffect(() => {
@@ -226,8 +227,8 @@ export const StopsListContextProvider = ({ children }) => {
 		if (!dataFilteredState || !workerRef) return;
 		if (!workerRef.current) {
 			workerRef.current = new Worker(new URL('../workers/heavyJobs.ts', import.meta.url));
-			workerRef.current.onmessage = (event: MessageEvent<Stop[]>) => {
-				setparsedStopsGeoJSon(() => {
+			workerRef.current.onmessage = (event: MessageEvent<GeoJSON.FeatureCollection<GeoJSON.Point>>) => {
+				setAllStopsFeatureCollection(() => {
 					return event.data;
 				});
 			};
@@ -235,8 +236,9 @@ export const StopsListContextProvider = ({ children }) => {
 				console.error('Worker error:', error);
 			};
 		}
-		if (!parsedStopsGeoJSon || []) {
-			setStopsGeoJsonFeatureCollection();
+		if (!dataAllStopsFeatureCollection || []) {
+			setStopsGeoJsonFeatureCollection(dataFilteredState);
+			console.log(dataFilteredGeojsonFCState);
 		}
 	}, [dataFilteredState]);
 	//
@@ -279,6 +281,7 @@ export const StopsListContextProvider = ({ children }) => {
 			favorites: profileContext.counters.favorite_stops,
 		},
 		data: {
+			all_geojson_feature_collection: dataAllStopsFeatureCollection || getBaseGeoJsonFeatureCollection(),
 			favorites: dataFavoritesState,
 			filtered: dataFilteredState,
 			filtered_geojson_fc: dataFilteredGeojsonFCState || getBaseGeoJsonFeatureCollection(),

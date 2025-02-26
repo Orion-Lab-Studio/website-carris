@@ -1,9 +1,13 @@
 //
 
+import { transformStopDataIntoGeoJsonFeature } from '@/contexts/Stops.context';
+import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
+
 //
 // This is the worker that will fetch the locality name for a given locality
 self.addEventListener('message', (event: MessageEvent) => {
-	const { localities, municipalities, stops, type } = event.data;
+	const { filteredStops, localities, municipalities, stops, type } = event.data;
+	const collection = getBaseGeoJsonFeatureCollection();
 
 	switch (type) {
 		case 'stop_add_extra_fields':
@@ -23,9 +27,16 @@ self.addEventListener('message', (event: MessageEvent) => {
 
 			self.postMessage(stops);
 			break;
+
 		case 'stop_map_geojson':
-			console.log('hit here');
+			filteredStops.forEach((stop) => {
+				const stopFC = transformStopDataIntoGeoJsonFeature(stop);
+				if (stopFC) collection.features.push(stopFC);
+			});
+
+			self.postMessage(collection);
 			break;
+
 		default:
 			break;
 	}
