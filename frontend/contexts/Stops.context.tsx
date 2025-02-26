@@ -60,7 +60,7 @@ export const StopsContextProvider = ({ children }) => {
 		if (!locationsContext.data.localitites || !allStopsData) return;
 
 		if (!workerRef.current) {
-			workerRef.current = new Worker(new URL('../workers/stops.ts', import.meta.url));
+			workerRef.current = new Worker(new URL('../workers/heavyJobs.ts', import.meta.url));
 
 			workerRef.current.onmessage = (event: MessageEvent<Stop[]>) => {
 				setParsedStops((prev) => {
