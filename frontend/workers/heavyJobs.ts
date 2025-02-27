@@ -9,7 +9,11 @@ self.addEventListener('message', (event: MessageEvent) => {
 	const collection = getBaseGeoJsonFeatureCollection();
 
 	switch (type) {
+		//
+
+		//
 		// This is the worker that will fetch the locality name for a given locality
+
 		case 'stop_add_extra_fields':
 			stops.forEach((stop) => {
 				const municipality = municipalities.find(municipality => municipality.id === stop.municipality_id);
@@ -27,7 +31,9 @@ self.addEventListener('message', (event: MessageEvent) => {
 			self.postMessage(stops);
 			break;
 
-		// This is the worker that is responsible to generate the point collection for the map
+			//
+			// This is the worker that is responsible to generate the point collection for the map
+
 		case 'stop_map_geojson':
 			filteredStops.forEach((stop) => {
 				const stopFC = transformStopDataIntoGeoJsonFeature(stop);
@@ -36,7 +42,10 @@ self.addEventListener('message', (event: MessageEvent) => {
 
 			self.postMessage(collection);
 			break;
-		// Default behaviour
+
+			//
+			// Default behaviour
+
 		default:
 			break;
 	}
