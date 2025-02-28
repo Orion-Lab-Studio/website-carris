@@ -82,7 +82,8 @@ export function Survey2024LevelResults() {
 
 			filteredResults = filteredResults.filter((item) => {
 				const value = parseInt(item.header.value);
-				return value >= min / 10 && value <= max / 10;
+				console.log(value);
+				return value >= min && value <= max;
 			});
 
 			console.log(filteredResults);
@@ -110,7 +111,7 @@ export function Survey2024LevelResults() {
 		return (
 			<>
 				{allAccordions.map(accordion => (
-					<Accordion key={accordion.value}>
+					<Accordion key={accordion.value} defaultValue={accordion.value}>
 						<Accordion.Item value={accordion.value}>
 							<AccordionControl>{accordion.label}</AccordionControl>
 							<Accordion.Panel>

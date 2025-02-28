@@ -13,6 +13,8 @@ import { useTranslations } from 'next-intl';
 import { useQueryState } from 'nuqs';
 import { useEffect } from 'react';
 
+import styles from './styles.module.css';
+
 /* * */
 
 export function Survey2024ResultsToolbar({ handleSearch }) {
@@ -32,17 +34,16 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 	];
 	const marks = [
 		{ label: '0', value: 0 },
-		{ label: '1', value: 10 },
-		{ label: '2', value: 20 },
-		{ label: '3', value: 30 },
-		{ label: '4', value: 40 },
-		{ label: '5', value: 50 },
-		{ label: '6', value: 60 },
-		{ label: '7', value: 70 },
-		{ label: '8', value: 80 },
-		{ label: '9', value: 90 },
-		{ label: '10', value: 100 },
-
+		{ label: '1', value: 1 },
+		{ label: '2', value: 2 },
+		{ label: '3', value: 3 },
+		{ label: '4', value: 4 },
+		{ label: '5', value: 5 },
+		{ label: '6', value: 6 },
+		{ label: '7', value: 7 },
+		{ label: '8', value: 8 },
+		{ label: '9', value: 9 },
+		{ label: '10', value: 10 },
 	];
 
 	//
@@ -93,14 +94,21 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 			<div>
 				<p>{t('by_avaliation')}</p>
 				<RangeSlider
-					color="#ffdd01"
-					defaultValue={[0, 100]}
+					defaultValue={[0, 10]}
 					marks={marks}
+					max={10}
+					min={0}
 					onChange={_value => handleAvaliationValue(_value)}
-					styles={{ thumb: { borderWidth: 4, padding: 3 } }}
-					value={avaliationValue ? JSON.parse(avaliationValue) : [0, 100]}
+					step={0.1}
+					value={avaliationValue ? JSON.parse(avaliationValue) : [0, 10]}
 					w="100%"
-					restrictToMarks
+					classNames={{
+						bar: styles.custom_slider_bar,
+						mark: styles.custom_slider_mark,
+						root: styles.custom_slider_root,
+						thumb: styles.custom_slider_thumb,
+						track: styles.custom_slider_track,
+					}}
 				/>
 			</div>
 		</Grid>

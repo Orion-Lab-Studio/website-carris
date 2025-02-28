@@ -1,0 +1,24 @@
+/* SLIDER */
+
+.custom_slider_track::before {
+    background: red;
+  }
+  
+  .custom_slider_bar {
+    background: transparent !important;
+  }
+  
+  .custom_slider_thumb {
+    border-color: #000000 !important;
+  }
+  
+  .custom_slider_mark {
+    border-color: #000000 !important;
+    background-color: white;
+  }
+  
+  .custom_slider_root {
+    margin-bottom: 20px;
+
+  }
+  
