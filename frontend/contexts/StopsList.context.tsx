@@ -2,18 +2,13 @@
 
 /* * */
 
-import type { Stop } from '@carrismetropolitana/api-types/network';
-
-import { useLocationsContext } from '@/contexts/Locations.context';
+import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import { useStopsContext } from '@/contexts/Stops.context';
 import { createDocCollection } from '@/hooks/useOtherSearch';
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
-import { Routes } from '@/utils/routes';
+import { type Stop } from '@carrismetropolitana/api-types/network';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
-import useSWR from 'swr';
-
-import { useAnalyticsContext } from './Analytics.context';
 
 /* * */
 
