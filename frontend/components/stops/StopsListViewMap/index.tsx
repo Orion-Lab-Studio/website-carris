@@ -27,14 +27,14 @@ export function StopsListViewMap() {
 
 	useEffect(() => {
 		// Exit early if there are no stops or map
-		if (!stopsListContext.data.filtered_geojson_fc || !stopsListContext.data.filtered_geojson_fc.features.length || !stopsListMap) return;
+		if (!stopsListContext.data.filtered_fc || !stopsListContext.data.filtered_fc.features.length || !stopsListMap) return;
 		// When there are no search filters, center the map on all stops
 		if (!stopsListContext.filters.by_search.length) {
-			centerMap(stopsListMap, stopsListContext.data.filtered_geojson_fc.features);
+			centerMap(stopsListMap, stopsListContext.data.filtered_fc.features);
 			return;
 		}
 		// When there are search filters, center the map on the cluster with the most points
-		const clusterPoints = turf.clustersKmeans(stopsListContext.data.filtered_geojson_fc, { mutate: true, numberOfClusters: 2 });
+		const clusterPoints = turf.clustersKmeans(stopsListContext.data.filtered_fc, { mutate: true, numberOfClusters: 2 });
 		const clusterPointsCount = clusterPoints.features.reduce((acc, feature) => {
 			if (typeof feature.properties.cluster !== 'number') return acc;
 			const clusterId = feature.properties.cluster;
@@ -47,7 +47,7 @@ export function StopsListViewMap() {
 		console.log('filteredClusterPoints', filteredClusterPoints);
 		centerMap(stopsListMap, filteredClusterPoints);
 		//
-	}, [stopsListContext.data.filtered_geojson_fc, stopsListMap]);
+	}, [stopsListContext.data.filtered_fc, stopsListMap]);
 
 	function handleLayerClick(event) {
 		if (!stopsListMap) return;
@@ -72,7 +72,7 @@ export function StopsListViewMap() {
 					interactiveLayerIds={[MapViewStyleStopsInteractiveLayerId]}
 					onClick={handleLayerClick}
 				>
-					<MapViewStyleStops stopsData={stopsListContext.data.filtered_geojson_fc} />
+					<MapViewStyleStops stopsData={stopsListContext.data.filtered_fc} />
 				</MapView>
 			</div>
 		</Surface>

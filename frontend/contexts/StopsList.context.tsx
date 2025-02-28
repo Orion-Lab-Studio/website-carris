@@ -26,7 +26,7 @@ interface StopsListContextState {
 	data: {
 		favorites: Stop[]
 		filtered: Stop[]
-		filtered_geojson_fc: GeoJSON.FeatureCollection<GeoJSON.Point, GeoJSON.GeoJsonProperties>
+		filtered_fc: GeoJSON.FeatureCollection<GeoJSON.Point, GeoJSON.GeoJsonProperties>
 	}
 	filters: {
 		by_attribute: null | string
@@ -211,7 +211,7 @@ export const StopsListContextProvider = ({ children }) => {
 		data: {
 			favorites: dataFavoritesState,
 			filtered: dataFilteredState,
-			filtered_geojson_fc: dataFilteredGeojsonFCState || getBaseGeoJsonFeatureCollection(),
+			filtered_fc: dataFilteredGeojsonFCState || getBaseGeoJsonFeatureCollection(),
 		},
 		filters: {
 			by_attribute: filterByAttributeState,
