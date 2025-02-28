@@ -78,6 +78,7 @@ export const StopsListContextProvider = ({ children }) => {
 	const [filterByFacilityState, setFilterByFacilityState] = useState <StopsListContextState['filters']['by_facility']>(null);
 	const [filterByMunicipalityOrLocalityState, setFilterByMunicipalityOrLocalityState] = useState <StopsListContextState['filters']['by_municipality_or_locality']>(null);
 	const [filterBySearchState, setFilterBySearchState] = useState <StopsListContextState['filters']['by_search']>('');
+
 	//
 	// B. Transform data
 
