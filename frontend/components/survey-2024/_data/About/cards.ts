@@ -7,6 +7,7 @@ export interface Survery2024AboutCardSchema {
 		primary: string
 	}
 	content: {
+		header_title: string
 		legend: string
 		lottie_src?: string
 	}
@@ -29,6 +30,7 @@ export const allAboutCardsData: Survery2024AboutCardSchema[] = [
 			primary: '#FFDD00',
 		},
 		content: {
+			header_title: 'Com quem falámos?',
 			legend: 'Total de entrevistas concretizadas',
 			lottie_src: '/assets/survey-2024/animations/sobre/Total_Interviews.json',
 		},
@@ -45,6 +47,7 @@ export const allAboutCardsData: Survery2024AboutCardSchema[] = [
 			primary: '#FAFAFA',
 		},
 		content: {
+			header_title: 'Quantos entrevistadores?',
 			legend: 'Entrevistadores',
 			lottie_src: '/assets/survey-2024/animations/sobre/Total_Interviewers.json',
 
@@ -62,6 +65,7 @@ export const allAboutCardsData: Survery2024AboutCardSchema[] = [
 			primary: '#FAFAFA',
 		},
 		content: {
+			header_title: 'Linhas?',
 			legend: 'Linhas Analisadas',
 			lottie_src: '/assets/survey-2024/animations/sobre/Total_Lines.json',
 
@@ -79,6 +83,7 @@ export const allAboutCardsData: Survery2024AboutCardSchema[] = [
 			primary: '#FAFAFA',
 		},
 		content: {
+			header_title: 'Classes',
 			legend: 'Classes Amostrais Representativas',
 			lottie_src: '/assets/survey-2024/animations/sobre/Total_Classes.json',
 

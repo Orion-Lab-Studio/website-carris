@@ -22,18 +22,21 @@ export function Survey2024AboutCard({ cardData }: Props) {
 	// A. Render components
 
 	return (
-		<div className={styles.container} id={cardData._id}>
-			<div className={styles.header}>
-				{cardData.content.lottie_src && (
-					<LottiePlayer
-						className={styles.lottie}
-						path={cardData.content.lottie_src}
-						loop
-						play
-					/>
-				)}
-				<p className={styles.headerNumber}>{cardData.header.value}</p>
-				<p className={styles.headerTitle}>{cardData.content.legend}</p>
+		<div className={styles.container}>
+			<div className={styles.cardMainWrapperShadow}><p className={styles.headerTitle}>{cardData.content.header_title}</p></div>
+			<div className={styles.cardMainWrapper} id={cardData._id}>
+				<div className={styles.header}>
+					{cardData.content.lottie_src && (
+						<LottiePlayer
+							className={styles.lottie}
+							path={cardData.content.lottie_src}
+							loop
+							play
+						/>
+					)}
+					<p className={styles.headerNumber}>{cardData.header.value}</p>
+					<p className={styles.headerTitle}>{cardData.content.legend}</p>
+				</div>
 			</div>
 		</div>
 	);
