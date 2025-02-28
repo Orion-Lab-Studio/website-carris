@@ -1,38 +1,40 @@
 'use client';
+
 /* * */
 
-import Button from '@/components/common/Button';
-import { Affix, Transition } from '@mantine/core';
+import { Affix, Button, Transition } from '@mantine/core';
 import { useWindowScroll } from '@mantine/hooks';
 import { IconArrowUp } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
 interface Props {
-	scrollValue: number
+	showAfterHeight: number
 }
 
 /* * */
-export function GotoTopButton({ scrollValue }: Props) {
+export function ScrollToTopButton({ showAfterHeight }: Props) {
 	//
 
 	//
 	// A. Setup Variables
 
+	const t = useTranslations('common.ScrollToTopButton');
 	const [scroll, scrollTo] = useWindowScroll();
-	const t = useTranslations();
 
 	//
 	// B. Render Components
 
 	return (
 		<Affix position={{ bottom: 20, right: 20 }}>
-			<Transition mounted={scroll.y > scrollValue} transition="slide-up">
+			<Transition mounted={scroll.y > showAfterHeight} transition="slide-up">
 				{transitionStyles => (
 					<Button
-						icon={<IconArrowUp size={16} />}
-						label={t('gotoTop')}
+						leftSection={<IconArrowUp size={16} />}
 						onClick={() => scrollTo({ y: 0 })}
-					/>
+						style={transitionStyles}
+					>
+						{t('label')}
+					</Button>
 				)}
 			</Transition>
 		</Affix>

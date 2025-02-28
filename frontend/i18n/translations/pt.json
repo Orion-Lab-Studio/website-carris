@@ -562,6 +562,9 @@
 			"hours": "h",
 			"minutes": "min"
 		},
+		"ScrollToTopButton": {
+			"label": "Início da Página"
+		},
 		"SelectOperationalDay": {
 			"today": "Hoje",
 			"tomorrow": "Amanhã"
@@ -673,7 +676,6 @@
 			"copyright": "© Carris Metropolitana {year} - Todos os direitos reservados"
 		}
 	},
-	"gotoTop": "Para o topo",
 	"header": {
 		"LocaleSwitcher": {
 			"en": {
