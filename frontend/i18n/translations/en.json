@@ -1544,13 +1544,14 @@
 
 		},
 		"Survey2024Header": {
-			"AnchorAboutSurvey": "About the Survey",
+			"AnchorAboutSurvey": "Tecnhical Information",
 			"AnchorAboutSurveyTitle": "Techincal Information",
-			"AnchorIndex": "Recomendation Index",
-			"AnchorPassengerCaracter": "Passanger Caracter",
+			"AnchorIndex": "Global Satisfaction Index",
+			"AnchorPassengerCaracter": "Passanger Charecterization",
 			"AnchorResults": "Results",
 			"DownloadButton": "Download Report",
-			"title": "Passenger Satisfaction Survey 2024"
+			"subtitle": "Select one of the options below to browse trough the page.",
+			"title": "Quick Access"
 
 		},
 		"Survey2024PsgrCharacterCard": {
@@ -1564,9 +1565,10 @@
 		},
 		"Survey2024RecomendationIndex": {
 			"recomendationIdexDescription": "\"How likely would you be to recommend the services of Carris Metropolitana to a friend or a member of your family?\"",
-			"title": "Recomemndation Index"
+			"title": "Global Satisfaction Index"
 		},
 		"Survey2024ResultsCard": {
+			"footerInfo": "Carris Metropolitana is committed to ensuring clear and accessible communication for all passengers. Combining digital and physical media, information reaches the public in a timely manner, adapting to different habits and levels of technological familiarity. The integration of real-time data into the main mobility platforms and the expansion of Public Information Panels reinforce this strategy. Furthermore, continuous monitoring of the effectiveness of these channels allows you to adjust and improve the information experience on a daily basis.",
 			"heading": "Results",
 			"no_data": "No data available"
 

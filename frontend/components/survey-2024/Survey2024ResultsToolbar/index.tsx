@@ -3,6 +3,7 @@
 /* * */
 
 import { Grid } from '@/components/layout/Grid';
+import { Section } from '@/components/layout/Section';
 import { RangeSlider, Select, TextInput } from '@mantine/core';
 import {
 	IconFilter,
@@ -63,55 +64,57 @@ export function Survey2024ResultsToolbar({ handleSearch }) {
 	// C. Render components
 
 	return (
-		<Grid columns="abc" withGap>
-			<TextInput
-				leftSection={<IconSearch size={20} />}
-				onChange={e => setSearch(e.target.value)}
-				placeholder={t('searchInput')}
-				type="search"
-				value={search || ''}
-				w="100%"
-				rightSection={
-					search && (
-						<IconX
-							cursor="pointer"
-							onClick={() => setSearch(null)}
-							size={20}
-						/>
-					)
-				}
-			/>
-			<Select
-				data={filterCategories}
-				leftSection={<IconFilter size={20} />}
-				onChange={_value => setCategory(_value)}
-				onClear={() => setCategory(null)}
-				placeholder={t('by_category')}
-				value={category}
-				w="100%"
-				clearable
-			/>
-			<div>
-				<p>{t('by_avaliation')}</p>
-
-				<RangeSlider
-					color="#ffdd01"
-					defaultValue={[0, 10]}
-					marks={marks}
-					max={10}
-					min={0}
-					minRange={0.1}
-					onChange={_value => handleAvaliationValue(_value)}
-					step={0.1}
-					value={avaliationValue ? JSON.parse(avaliationValue) : [0, 10]}
+		<Section withPadding>
+			<Grid columns="abc" withGap>
+				<TextInput
+					leftSection={<IconSearch size={20} />}
+					onChange={e => setSearch(e.target.value)}
+					placeholder={t('searchInput')}
+					type="search"
+					value={search || ''}
 					w="100%"
-					classNames={{
-						mark: styles.custom_slider_mark,
-						thumb: styles.custom_slider_thumb,
-					}}
+					rightSection={
+						search && (
+							<IconX
+								cursor="pointer"
+								onClick={() => setSearch(null)}
+								size={20}
+							/>
+						)
+					}
 				/>
-			</div>
-		</Grid>
+				<Select
+					data={filterCategories}
+					leftSection={<IconFilter size={20} />}
+					onChange={_value => setCategory(_value)}
+					onClear={() => setCategory(null)}
+					placeholder={t('by_category')}
+					value={category}
+					w="100%"
+					clearable
+				/>
+				<div>
+					<p>{t('by_avaliation')}</p>
+
+					<RangeSlider
+						color="#ffdd01"
+						defaultValue={[0, 10]}
+						marks={marks}
+						max={10}
+						min={0}
+						minRange={0.1}
+						onChange={_value => handleAvaliationValue(_value)}
+						step={0.1}
+						value={avaliationValue ? JSON.parse(avaliationValue) : [0, 10]}
+						w="100%"
+						classNames={{
+							mark: styles.custom_slider_mark,
+							thumb: styles.custom_slider_thumb,
+						}}
+					/>
+				</div>
+			</Grid>
+		</Section>
 	);
 
 	//

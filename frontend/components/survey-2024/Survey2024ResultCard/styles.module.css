@@ -50,6 +50,7 @@
 	padding: 20px;
 	align-items: center;
 	min-height: 100%;
+	background-color: #FFFFFF !important;
 }
 
 .leftColumn {

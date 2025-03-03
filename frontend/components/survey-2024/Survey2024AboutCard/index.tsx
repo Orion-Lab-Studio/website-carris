@@ -4,6 +4,7 @@
 
 import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { Survery2024AboutCardSchema } from '@/components/survey-2024/_data/About/cards';
+import { useState } from 'react';
 
 import styles from './styles.module.css';
 
@@ -19,23 +20,32 @@ export function Survey2024AboutCard({ cardData }: Props) {
 	//
 
 	//
-	// A. Render components
+	// A. Setup Variables
+
+	const [isStopped, setIsStopped] = useState(false);
+
+	//
+	// B. Render Components
 
 	return (
 		<div className={styles.container}>
-			<div className={styles.cardMainWrapperShadow}><p className={styles.headerTitle}>{cardData.content.header_title}</p></div>
+			<div className={styles.cardMainWrapperShadow}>
+				<p className={styles.headerTitle}>{cardData.content.header_title}</p>
+			</div>
 			<div className={styles.cardMainWrapper} id={cardData._id}>
 				<div className={styles.header}>
 					{cardData.content.lottie_src && (
 						<LottiePlayer
 							className={styles.lottie}
+							loop={false}
+							onAnimationEnd={() => setIsStopped(true)}
 							path={cardData.content.lottie_src}
-							loop
-							play
+							play={!isStopped}
 						/>
 					)}
+					<p className={styles.intro}>{cardData.content.intro || ''}</p>
 					<p className={styles.headerNumber}>{cardData.header.value}</p>
-					<p className={styles.headerTitle}>{cardData.content.legend}</p>
+					<p className={styles.contentLegend}>{cardData.content.legend}</p>
 				</div>
 			</div>
 		</div>

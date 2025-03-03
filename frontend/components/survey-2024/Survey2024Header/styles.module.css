@@ -1,9 +1,21 @@
+/* * */
+/* Survey Title */
+
 .SurveyTitle {
     font-weight: var(--font-weight-title);
     font-size:var(--font-size-title) ;
     color: var(--color-system-text-100);
 }
+/* * */
+/* Survey  Subtitle */
+.SurveySubtitle {
+    font-weight: var(--font-weight-medium);
+    font-size: 12px;
+    color: var(--color-system-text-300);
+}
 
+/* * */
+/* DOWNLOAD BUTTON */
 .downloadButton{
     background: var(--color-brand);
     font-weight: var(--font-weight-semibold);
@@ -19,6 +31,8 @@
     width: 100%;
 }
 
+/* * */
+/* ANCHOR BUTTONS */
 .anchorButtonsContainer{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -28,17 +42,111 @@
 }
 @media(width <= 650px) {
 	.anchorButtonsContainer{
-        display: grid;
         grid-template-columns: 1fr;
-        gap: 10px;
         margin: 0 auto;
+        gap: 0;
        
     }
 }
 
-
 .anchorButtonsContainer a{
-    color: var(--color-system-text-300);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--color-system-text-100);
     font-weight: var(--font-weight-bold);
-    font-size:var(--font-size-text);
+    border-radius: 18px;
 }
+
+.anchorButtonsContainer a:nth-child(odd){
+    background-color: var(--color-brand);
+}
+
+.iconRight {
+    margin-left: auto;
+}
+
+/* CONTAINER */
+.cardContainer{
+    border: 1px solid #FFDD00;
+    padding: 20px;
+    border-radius: 18px;
+    background-color: #FFFFFF;
+}
+/* * */
+
+/* CARD HEADER */
+
+.header {
+	display: flex;
+	align-items: center;
+	gap: 10px; 
+  }
+
+.headerTitle {
+	font-size: 20px;
+	margin-left: 20px;
+	width: 100%;
+    font-weight: var(--font-weight-medium);
+	color: var(--color-system-text-200);
+	padding-right: 20px;
+    text-align: center;
+
+}
+
+.headerNumber {
+	font-size: 30px;
+	font-weight: var(--font-weight-bold);
+	color: #FFFFFF80;
+	position: relative;
+  }
+/* CARD CIRCLED NUMBER */
+
+.circledNumber {
+	position: relative;
+	width: 99px;
+	height: 99px;
+	border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .blurredCircle {
+    position: absolute;
+    width: 100%; 
+    height: 100%;
+    border-radius: 50%;
+    filter: blur(5px);
+    background-color: #CCCC1B;
+    color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+/* * */
+/* CARD SQUIRCLE */
+
+.squircle{
+    padding: 20px;
+    border: 2px solid #CCCC1B;
+    box-shadow: 0px 0px 3px 0px #CCCC1B;
+    border-radius: 20px;
+}
+
+
+/* * */
+/* CARD INFO TEXT */
+
+.globalSatisfactionText{
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: var(--font-weight-bold);
+    padding: 20px;
+    color: var(--color-system-text-300);
+    text-align: center;
+}
+
+/* * */

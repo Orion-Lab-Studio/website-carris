@@ -2,13 +2,12 @@
 
 /* * */
 
+import { Survey2024GlobalSatisfactionIndex } from '@/components/survey-2024/Survey2024GlobalSatisfactionIndex';
 import { Survey2024Header } from '@/components/survey-2024/Survey2024Header';
 import { Survey2024Intro } from '@/components/survey-2024/Survey2024Intro';
 import { Survey2024LevelAbout } from '@/components/survey-2024/Survey2024LevelAbout';
 import { Survey2024LevelPasgrCharacter } from '@/components/survey-2024/Survey2024LevelPasgrCharacter';
 import { Survey2024LevelResults } from '@/components/survey-2024/Survey2024LevelResults';
-
-import { Survey2024RecomendationIndex } from '../Survey2024RecomendationIndex';
 
 /* * */
 
@@ -25,7 +24,7 @@ export function Survey2024Page() {
 			<Survey2024LevelAbout />
 			<Survey2024LevelPasgrCharacter />
 			<Survey2024LevelResults />
-			<Survey2024RecomendationIndex />
+			<Survey2024GlobalSatisfactionIndex />
 		</>
 	);
 

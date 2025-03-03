@@ -4,6 +4,7 @@
 
 import { Grid } from '@/components/layout/Grid';
 import { NoDataLabel } from '@/components/layout/NoDataLabel';
+import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { allResultsCardData, Survery2024ResultsCardSchema } from '@/components/survey-2024/_data/Results/cards';
 import { Survey2024ResultCard } from '@/components/survey-2024/Survey2024ResultCard';
@@ -132,23 +133,29 @@ export function Survey2024LevelResults() {
 	return (
 		<div id="results">
 			<Surface forceOverflow>
-
-				<Accordion defaultValue="results">
-					<Accordion.Item value="results">
-						<Accordion.Control>
-							<h2 className={styles.heading}>{t('heading')}</h2>
-						</Accordion.Control>
-						<Accordion.Panel>
-							<Survey2024ResultsToolbar handleSearch={handleFilterData} />
-							<Space h="md" />
-							{filteredData.length === 0 ? (
-								<NoDataLabel text={t('no_data')} withMinHeight />
-							) : (
-								filteredData.length !== allData.length ? renderFilteredData() : renderAllData()
-							)}
-						</Accordion.Panel>
-					</Accordion.Item>
-				</Accordion>
+				<Section>
+					<Accordion defaultValue="results">
+						<Accordion.Item value="results">
+							<Accordion.Control>
+								<h2 className={styles.heading}>{t('heading')}</h2>
+							</Accordion.Control>
+							<Accordion.Panel>
+								<Survey2024ResultsToolbar handleSearch={handleFilterData} />
+								<Space h="md" />
+								{filteredData.length === 0 ? (
+									<NoDataLabel text={t('no_data')} withMinHeight />
+								) : (
+									filteredData.length !== allData.length ? renderFilteredData() : renderAllData()
+								)}
+							</Accordion.Panel>
+						</Accordion.Item>
+					</Accordion>
+				</Section>
+				<Section withPadding>
+					<div className={styles.resultsFooterInfoWrapper}>
+						<p className={styles.resultsFooterInfoText}>{t('footerInfo')}</p>
+					</div>
+				</Section>
 			</Surface>
 		</div>
 	);

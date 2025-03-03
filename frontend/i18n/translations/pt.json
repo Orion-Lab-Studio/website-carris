@@ -1551,7 +1551,8 @@
 			"AnchorPassengerCaracter": "Caracterização do Passageiro",
 			"AnchorResults": "Resultados",
 			"DownloadButton": "Descarregar Relatório",
-			"title": "Inquérito de Satisfação do Passageiro"
+			"subtitle": "Selecione as opções abaixo para navegar pela página.",
+			"title": "Acesso rápido"
 		},
 		"Survey2024PsgrCharacterCard": {
 			"age_heading": "Idade",
@@ -1564,9 +1565,10 @@
 		},
 		"Survey2024RecomendationIndex": {
 			"recomendationIdexDescription": "\"Até que ponto recomendaria o serviço da Carris Metropolitana a um amigo ou familiar?\"",
-			"title": "Índice de Recomendação"
+			"title": "Índice Global de Satisfação"
 		},
 		"Survey2024ResultsCard": {
+			"footerInfo": "A Carris Metropolitana está comprometida em garantir uma comunicação clara e acessível a todos os passageiros. Combinando suportes digitais e físicos, a informação chega ao público em tempo útil, adaptando-se a diferentes hábitos e níveis de familiaridade tecnológica. A integração dos dados em tempo real nas principais plataformas de mobilidade e a expansão dos Painéis de Informação ao Público reforçam essa estratégia. Além disso, a monitorização contínua da eficácia destes canais permite ajustar e melhorar a experiência informativa diariamente.",
 			"heading": "Resultados",
 			"no_data": "Nenhum cartão encontrado"
 		},
