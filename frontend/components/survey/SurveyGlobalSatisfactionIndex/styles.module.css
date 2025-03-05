@@ -74,7 +74,7 @@
     width: 100%; 
     height: 100%;
     border-radius: 50%;
-    filter: blur(5px);
+    filter: blur(3px);
     background-color: #CCCC1B;
     color: #FFFFFF;
     display: flex;
@@ -101,7 +101,7 @@
 
 .globalSatisfactionText{
     padding: 20px;
-    color: #FFFFFF;
+	color: var(--color-system-text-300);
     border-top: 1px solid var(--color-system-border-200);
     text-align: center;
 }

@@ -59,7 +59,7 @@ export const allResultsCardData: SurveryResultsCardSchema[] = [
 		_id: 3,
 		color: {
 			opacity: '50%',
-			primary: '#ffcc00',
+			primary: '#CCCC1B',
 			text: '#00000080',
 		},
 		content: {
@@ -90,7 +90,7 @@ export const allResultsCardData: SurveryResultsCardSchema[] = [
 		_id: 5,
 		color: {
 			opacity: '50%',
-			primary: '#ffcc00',
+			primary: '#CCCC1B',
 			text: '#00000080',
 		},
 		content: {
@@ -120,7 +120,7 @@ export const allResultsCardData: SurveryResultsCardSchema[] = [
 		_id: 7,
 		color: {
 			opacity: '50%',
-			primary: '#ffcc00',
+			primary: '#CCCC1B',
 			text: '#00000080',
 		},
 		content: {
@@ -244,7 +244,7 @@ export const allResultsCardData: SurveryResultsCardSchema[] = [
 		_id: 7,
 		color: {
 			opacity: '50%',
-			primary: '#ffcc00',
+			primary: '#CCCC1B',
 			text: '#00000080',
 		},
 		content: {
@@ -293,7 +293,7 @@ export const allResultsCardData: SurveryResultsCardSchema[] = [
 		_id: 1,
 		color: {
 			opacity: '50%',
-			primary: '#ffcc00',
+			primary: '#CCCC1B',
 			text: '#00000080',
 		},
 		content: {
@@ -308,7 +308,7 @@ export const allResultsCardData: SurveryResultsCardSchema[] = [
 		_id: 2,
 		color: {
 			opacity: '50%',
-			primary: '#ffcc00',
+			primary: '#CCCC1B',
 			text: '#00000080',
 		},
 		content: {
@@ -372,7 +372,7 @@ export const allResultsCardData: SurveryResultsCardSchema[] = [
 		_id: 3,
 		color: {
 			opacity: '70%',
-			primary: '#ACCC27',
+			primary: '#CCCC1B',
 			text: '#FFFFFFE6',
 		},
 		content: {
@@ -466,7 +466,7 @@ export const allResultsCardData: SurveryResultsCardSchema[] = [
 		_id: 4,
 		color: {
 			opacity: '50%',
-			primary: '#ffcc00',
+			primary: '#CCCC1B',
 			text: '#00000080',
 		},
 		content: {

@@ -110,7 +110,7 @@
     width: 100%; 
     height: 100%;
     border-radius: 50%;
-    filter: blur(5px);
+    filter: blur(3px);
     background-color: #CCCC1B;
     color: #FFFFFF;
     display: flex;
