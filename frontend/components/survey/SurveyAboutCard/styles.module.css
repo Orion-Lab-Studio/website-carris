@@ -3,57 +3,21 @@
 .container {
 	display: flex;
 	flex-direction: column;
-	width: 100%;
-	align-items: stretch;
 	position: relative;
 	margin-bottom: 60px;
 }
 /* * */
 /* HEADER */
 .header {
-	z-index: 10;
 	display: flex;
 	flex-direction: column;
 	gap: 5px;
 	align-items: center;
 	width: 100%;
 	padding: 10px;
-	min-height: 140px;
-	justify-content: center;
-}
-/* * */
-/* CONTENT */
-.content {
-	width: 100%;
-	border-right: 2px solid var(--color-border);
-	border-left: 2px solid var(--color-border);
-	transition: all 500ms ease-out;
-}
-/* * */
-/* CONTENT NUMBER */
-.contentNumber {
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	padding: 15px 20px;
-	background-color: var(--color-primary);
-	border-radius: 18px;
-}
-.contentNumberValue {
-	font-size: 26px;
-	font-weight: var(--font-weight-bold);
-	line-height: 1;
-	color: var(--color-text);
-}
-.contentNumberLegend {
-	font-size: 12px;
-	font-weight: var(--font-weight-semibold);
-	color: var(--color-text);
-	opacity: 0.8;
 }
 /* * */
 /* CONTENT LOTTIE */
-
 .contentLottie {
 	display: flex;
 	align-items: center;
@@ -64,21 +28,7 @@
 	border-radius: 18px;
 }
 /* * */
-/* CONTENT TITLE */
-
-.contentTitle {
-	font-size: 18px;
-	font-weight: var(--font-weight-bold);
-	color: var(--color-system-text-200);
-}
-.contentDescription {
-	font-size: 14px;
-	font-weight: var(--font-weight-medium);
-	color: var(--color-system-text-200);
-}
-/* * */
 /* CARD WRAPPER SHADOW */
-
 .cardMainWrapperShadow{
 	width: 100%;
     height: 150px;
@@ -91,9 +41,10 @@
 	position: absolute; 
     top: -50px; 
 }
+/* * */
+/* CARD CONTENT */
 .container:nth-child(1) .cardMainWrapperShadow{
 	background-color: var(--color-system-background-100);  
-
 }
 .container:nth-child(1) .cardMainWrapper{
 	background-color:var(--color-brand);  
@@ -113,9 +64,7 @@
     border-radius: 20px;
     background-color: var(--color-system-background-100);
     border: 1px solid var(--color-system-border-200);
-    width: 100%;
     flex: 1;
-    box-sizing: border-box;
     position: relative; 
     display: flex;
     flex-direction: column;

@@ -1,20 +1,16 @@
 /* * */
 /* HEADINGS */
-
 .sectionTitle{
 	font-weight: var(--font-weight-title);
     font-size:var(--font-size-title) ;
     color: var(--color-system-text-100);
 }
-
-
 .headerTitle {
 	font-size: 14px;
 	font-weight: var(--font-weight-text);
 	color: var(--color-system-text-300);
 	margin-left: 20px;
 }
-
 .headerTitleDetails {
 	font-size: 20px;
 	font-weight: var(--font-weight-text);
@@ -31,13 +27,11 @@
 	font-weight: var(--font-weight-bold);
 	color: var(--color-text);
 }
-
 .headerNumberDetails {
 	font-size: 28px;
 	font-weight: var(--font-weight-bold);
 	color: var(--color-text);
 }
-
 .header {
 	display: flex;
 	align-items: center;
@@ -45,12 +39,10 @@
 	justify-content: center;
 	padding: 10px;
 }
-
 .containerDetails .header{
 	justify-content: space-between;
 }
 /* SECTION CARDS */
-
 .cardSection {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -61,7 +53,6 @@
 	margin: 0 auto; 
 	align-items: stretch;
 }
-
 /* * */
 /*  CARDS CONTAINER */
 .containerStatistics {
@@ -76,7 +67,6 @@
 	border: 1px solid #BEBEC8;
 	padding: 10px;
 }
-
 .containerDetails {
 	display: grid;
 	grid-template-rows: 30% 20% 20% 30%;
@@ -85,34 +75,14 @@
 	border-radius: 18px;
 	border: 1px solid #BEBEC8;	
 }
-
 /* * */
-/*  DIVIDERS */
-.containerStatistics::after {
-	content: "";
-	position: absolute;
-	top: 50%;
-	left: 0;
-	width: 100%;
-	height: 1px;   
-	background-color: #BEBEC8;
-	transform: translateY(-0.5px);
-}
-
-.containerDetails .header:nth-child(2),
-.containerDetails .header:nth-child(3) {
-  border-bottom: 1px solid #BEBEC8;
-
-}
-
+/*  CRITERIA CARD AND PRECISION CARD SECTION" */
 .statisticsContainer{
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-auto-rows: auto;
 	gap: 20px;
 }
-
-
 @media(width <= 700px) {
 	.cardSection, .statisticsContainer {
 	grid-template-columns: repeat(1, 1fr);

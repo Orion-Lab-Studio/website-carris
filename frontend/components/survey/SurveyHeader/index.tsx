@@ -30,7 +30,7 @@ export function SurveyHeader() {
 
 	const renderDownloadButton = () => (
 		<div className={styles.downloadButtonContainer}>
-			<Button className={styles.downloadButton} icon={<IconDownload size={20} />} label={t('AnchorAboutSurveyTitle')} />
+			<Button className={styles.downloadButton} href="/assets/survey/CM _ Resultados Inquérito.pdf" icon={<IconDownload size={20} />} label={t('AnchorAboutSurveyTitle')} target="_blank" />
 		</div>
 	);
 

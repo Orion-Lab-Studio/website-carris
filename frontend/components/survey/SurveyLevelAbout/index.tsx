@@ -28,7 +28,7 @@ export function SurveyLevelAbout() {
 
 	return (
 		<Surface>
-			<Section heading={t('SurveyHeader.AnchorAboutSurveyTitle')} withGap withPadding>
+			<Section heading={t('SurveyHeader.AnchorAboutSurveyTitle')} withPadding>
 				<div id="aboutSurvey">
 					<div className={styles.cardSection}>
 						{allAboutCardData.map((cardData, index) => (

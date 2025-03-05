@@ -23,9 +23,8 @@
 
 }
 .resultsFooterInfoText{
-	font-size: 12px;
+	font-size: 14px;
 	font-weight: var(--font-weight-medium);
 	color: var(--color-system-text-300);
-	line-height: 14.53px;
 	padding: 30px;
 }

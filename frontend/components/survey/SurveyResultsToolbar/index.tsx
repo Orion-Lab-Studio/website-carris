@@ -7,8 +7,7 @@ import { Section } from '@/components/layout/Section';
 import { RangeSlider, Select, TextInput } from '@mantine/core';
 import { IconFilter, IconSearch, IconX } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-import { useQueryState } from 'nuqs';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import styles from './styles.module.css';
 
@@ -16,9 +15,9 @@ import styles from './styles.module.css';
 
 export function SurveyResultsToolbar({ handleSearch }) {
 	// A. Setup variables
-	const [avaliationValue, setAvalitaionValue] = useQueryState('avaliation');
-	const [category, setCategory] = useQueryState('category');
-	const [search, setSearch] = useQueryState('search');
+	const [avaliationValue, setAvalitaionValue] = useState<null | string>(null);
+	const [category, setCategory] = useState<null | string>(null);
+	const [search, setSearch] = useState<null | string>(null);
 	const t = useTranslations('survey.SurveyResultsToolbar');
 
 	const filterCategories = [

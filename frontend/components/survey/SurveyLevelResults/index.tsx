@@ -29,11 +29,11 @@ export function SurveyLevelResults() {
 
 	// B . Fetch Data
 	const allData = allResultsCardData;
-	const allPublicInfoData = allData.filter(item => item._group === 'info_ao_publico');
-	const allNetworkData = allData.filter(item => item._group === 'info_rede');
-	const allStopsData = allData.filter(item => item._group === 'info_stops');
-	const allBusData = allData.filter(item => item._group === 'info_bus');
-	const allSupportData = allData.filter(item => item._group === 'info_support');
+	const allPublicInfoData = allData.filter(item => item._group === 'info_ao_publico').sort((a, b) => parseFloat(b.header.value.replace(',', '.')) - parseFloat(a.header.value.replace(',', '.')));
+	const allNetworkData = allData.filter(item => item._group === 'info_rede').sort((a, b) => parseFloat(b.header.value.replace(',', '.')) - parseFloat(a.header.value.replace(',', '.')));
+	const allStopsData = allData.filter(item => item._group === 'info_stops').sort((a, b) => parseFloat(b.header.value.replace(',', '.')) - parseFloat(a.header.value.replace(',', '.')));
+	const allBusData = allData.filter(item => item._group === 'info_bus').sort((a, b) => parseFloat(b.header.value.replace(',', '.')) - parseFloat(a.header.value.replace(',', '.')));
+	const allSupportData = allData.filter(item => item._group === 'info_support').sort((a, b) => parseFloat(b.header.value.replace(',', '.')) - parseFloat(a.header.value.replace(',', '.')));
 
 	const allAccordions = [
 		{
@@ -69,15 +69,12 @@ export function SurveyLevelResults() {
 
 	const handleFilterData = (search: string, category: string, avaliationValue: string) => {
 		let filteredResults = allData;
-
 		if (search) {
 			filteredResults = filteredResults.filter(item => item.content.description.toLowerCase().includes(search.toLowerCase()));
 		}
-
 		if (category) {
 			filteredResults = filteredResults.filter(item => item._group.toLowerCase().includes(category.toLowerCase()));
 		}
-
 		if (avaliationValue) {
 			const [min, max] = JSON.parse(avaliationValue);
 			const parsedMin = parseFloat(min.toFixed(2).replace(',', '.'));
@@ -88,7 +85,7 @@ export function SurveyLevelResults() {
 				return value >= parsedMin && value <= parsedMax;
 			});
 		}
-
+		filteredResults = filteredResults.sort((a, b) => parseFloat(b.header.value.replace(',', '.')) - parseFloat(a.header.value.replace(',', '.')));
 		setFilteredData(filteredResults);
 	};
 
@@ -107,11 +104,41 @@ export function SurveyLevelResults() {
 		);
 	};
 
+	const renderFotterDescription = (accordionType: string) => {
+		let footerText = '';
+
+		switch (accordionType) {
+			case 'bus-cards':
+				footerText = t('footerInfoBus');
+				break;
+			case 'network-cards':
+				footerText = t('footerInfoNetwork');
+				break;
+			case 'public-info-cards':
+				footerText = t('footerInfoPublic');
+				break;
+			case 'stops-cards':
+				footerText = t('footerInfoStops');
+				break;
+			case 'support-cards':
+				footerText = t('footerInfoSupport');
+				break;
+			default:
+				footerText = t('footerInfo');
+		}
+
+		return (
+			<div className={styles.resultsFooterInfoWrapper}>
+				<p className={styles.resultsFooterInfoText}>{footerText}</p>
+			</div>
+		);
+	};
+
 	const renderAllData = () => {
 		return (
 			<>
 				{allAccordions.map(accordion => (
-					<Accordion key={accordion.value} defaultValue={accordion.value}>
+					<Accordion key={accordion.value} defaultValue={accordion.value} style={{ width: '100%' }}>
 						<Accordion.Item value={accordion.value}>
 							<AccordionControl>{accordion.label}</AccordionControl>
 							<Accordion.Panel>
@@ -119,8 +146,10 @@ export function SurveyLevelResults() {
 									<Grid columns="abc" withGap>
 										{accordion.data.map((item, index) => (
 											<SurveyResultCard key={index} cardData={item} />
+
 										))}
 									</Grid>
+									{renderFotterDescription(accordion.value)}
 								</div>
 							</Accordion.Panel>
 						</Accordion.Item>
@@ -133,28 +162,14 @@ export function SurveyLevelResults() {
 	return (
 		<div id="results">
 			<Surface forceOverflow>
-				<Section>
-					<Accordion defaultValue="results">
-						<Accordion.Item value="results">
-							<Accordion.Control>
-								<h2 className={styles.heading}>{t('heading')}</h2>
-							</Accordion.Control>
-							<Accordion.Panel>
-								<SurveyResultsToolbar handleSearch={handleFilterData} />
-								<Space h="md" />
-								{filteredData.length === 0 ? (
-									<NoDataLabel text={t('no_data')} withMinHeight />
-								) : (
-									filteredData.length !== allData.length ? renderFilteredData() : renderAllData()
-								)}
-							</Accordion.Panel>
-						</Accordion.Item>
-					</Accordion>
-				</Section>
-				<Section withPadding>
-					<div className={styles.resultsFooterInfoWrapper}>
-						<p className={styles.resultsFooterInfoText}>{t('footerInfo')}</p>
-					</div>
+				<Section heading={t('heading')}>
+					<SurveyResultsToolbar handleSearch={handleFilterData} />
+					<Space h="md" />
+					{filteredData.length === 0 ? (
+						<NoDataLabel text={t('no_data')} withMinHeight />
+					) : (
+						filteredData.length !== allData.length ? renderFilteredData() : renderAllData()
+					)}
 				</Section>
 			</Surface>
 		</div>

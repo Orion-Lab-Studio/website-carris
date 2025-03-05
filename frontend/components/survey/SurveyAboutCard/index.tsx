@@ -1,29 +1,22 @@
 'use client';
-
 /* * */
-
 import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { SurveryAboutCardSchema } from '@/components/survey/_data/About/cards';
 import { useState } from 'react';
 
 import styles from './styles.module.css';
-
 /* * */
-
 interface Props {
 	cardData: SurveryAboutCardSchema
 
 }
 /* * */
-
 export function SurveyAboutCard({ cardData }: Props) {
 	//
 
 	//
 	// A. Setup Variables
-
 	const [isStopped, setIsStopped] = useState(false);
-
 	//
 	// B. Render Components
 

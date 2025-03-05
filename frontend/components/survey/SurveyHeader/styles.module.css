@@ -40,17 +40,15 @@
 @media (width < 1000px) {
 	.gridNav {
 		grid-template-columns: 1fr 1fr;
-        margin: 0 auto;
 	}
 }
 
 @media (width <= 650px) {
 	.gridNav {
 		grid-template-columns: 1fr;
-        width: 100%;
 	}
 }
-.anchorButtonsContainer a:nth-child(odd){
+.gridNav a:nth-child(odd){
     background-color: var(--color-brand);
 }
 
