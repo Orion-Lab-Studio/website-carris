@@ -9,7 +9,7 @@
     border: 1px solid #CCCC1B;
     padding: 20px;
     border-radius: 28px;
-    background-color: #FFFFFF;
+    background-color: var(--color-system-background-100) ;
 }
 /* * */
 /* TITLE */

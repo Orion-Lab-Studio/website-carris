@@ -18,6 +18,7 @@
 /* DOWNLOAD BUTTON */
 .downloadButton{
     background: var(--color-brand);
+    color: var(--color-primary-black);
     font-weight: var(--font-weight-semibold);
     font-size:var(--color-system-text-300) ;
 }
@@ -48,8 +49,20 @@
 		grid-template-columns: 1fr;
 	}
 }
-.gridNav a:nth-child(odd){
+.gridNav a:nth-child(1){
     background-color: var(--color-brand);
+}
+
+.gridNav a:nth-child(3){
+    background-color: var(--color-brand);
+}
+
+.gridNav a:nth-child(1) div{
+    color: var(--color-primary-black);
+}
+
+.gridNav a:nth-child(3) div{
+    color: var(--color-primary-black);
 }
 
 /* CONTAINER */
@@ -57,7 +70,7 @@
     border: 1px solid #FFDD00;
     padding: 20px;
     border-radius: 18px;
-    background-color: #FFFFFF;
+    color: var(--color-primary-black);
     width: 100%;
 }
 @media(width <= 650px) {

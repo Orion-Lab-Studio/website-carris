@@ -67,7 +67,7 @@ export const allAboutCardsData: SurveryAboutCardSchema[] = [
 		content: {
 			header_title: 'Quando?',
 			intro: 'entre os meses de',
-			legend: 'de ',
+			legend: 'de 2024',
 			lottie_src: '/assets/survey/animations/sobre/Total_Interviewers.json',
 
 		},

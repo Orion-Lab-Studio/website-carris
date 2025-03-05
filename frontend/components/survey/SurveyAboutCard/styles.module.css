@@ -44,7 +44,7 @@
 /* * */
 /* CARD CONTENT */
 .container:nth-child(1) .cardMainWrapperShadow{
-	background-color: var(--color-system-background-100);  
+	background-color: var(--color-system-background-100); 
 }
 .container:nth-child(1) .cardMainWrapper{
 	background-color:var(--color-brand);  
@@ -54,6 +54,10 @@
 }
 .container:nth-child(5) .headerNumber{
 	font-size: 40px;
+}
+
+.container:nth-child(1) .cardMainWrapperShadow .headerTitle{
+	color: var(--color-system-text-200);
 }
 /* * */
 /* CARD WRAPPER */
@@ -84,7 +88,7 @@
 .headerTitle {
 	font-size: 18px;
 	font-weight: var(--font-weight-bold);
-	color: var(--color-text);
+	color: var(--color-primary-black);
 	padding: 10px;
 	text-align: center;
 }
