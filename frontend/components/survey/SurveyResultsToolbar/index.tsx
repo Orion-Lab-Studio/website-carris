@@ -69,7 +69,7 @@ export function SurveyResultsToolbar({ handleSearch }) {
 					w="100%"
 					clearable
 				/>
-				<div>
+				<div className={styles.custom_slider_container}>
 					<p>{t('by_avaliation')}</p>
 					<RangeSlider
 						color="#ffdd01"
