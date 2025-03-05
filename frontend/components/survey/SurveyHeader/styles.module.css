@@ -28,36 +28,28 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    padding: 20px;
 }
 
 /* * */
 /* ANCHOR BUTTONS */
-.anchorButtonsContainer{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-    margin: 0 auto;
-   
+.gridNav {
+	grid-template-columns: repeat(4, 1fr);
 }
-@media(width <= 650px) {
-	.anchorButtonsContainer{
-        grid-template-columns: 1fr;
+
+@media (width < 1000px) {
+	.gridNav {
+		grid-template-columns: 1fr 1fr;
+        margin: 0 auto;
+	}
+}
+
+@media (width <= 650px) {
+	.gridNav {
+		grid-template-columns: 1fr;
         width: 100%;
-        gap: 0;
-       
-    }
+	}
 }
-
-.anchorButtonsContainer a{
-    font-size: 14px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--color-system-text-100);
-    font-weight: var(--font-weight-bold);
-    border-radius: 18px;
-}
-
 .anchorButtonsContainer a:nth-child(odd){
     background-color: var(--color-brand);
 }
@@ -70,6 +62,12 @@
     background-color: #FFFFFF;
     width: 100%;
 }
+@media(width <= 650px) {
+	.cardContainer{
+        border-radius: 0px;
+    }
+}
+
 /* * */
 
 /* CARD HEADER */
@@ -86,15 +84,15 @@
 	width: 100%;
     font-weight: var(--font-weight-medium);
 	color: var(--color-system-text-200);
-	padding-right: 20px;
-    text-align: center;
+    text-align: flex-start;
+    padding-right: 30px;
 
 }
 
 .headerNumber {
 	font-size: 30px;
 	font-weight: var(--font-weight-bold);
-	color: #FFFFFF80;
+	color: #FFFFFF;
 	position: relative;
   }
 /* CARD CIRCLED NUMBER */

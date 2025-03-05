@@ -27,10 +27,9 @@ export function SurveyLevelAbout() {
 	// B. Render components
 
 	return (
-		<div id="aboutSurvey">
-			<Surface>
-				<Section withGap withPadding>
-					<h2 className={styles.sectionTitle}>{t('SurveyHeader.AnchorAboutSurveyTitle')}</h2>
+		<Surface>
+			<Section heading={t('SurveyHeader.AnchorAboutSurveyTitle')} withGap withPadding>
+				<div id="aboutSurvey">
 					<div className={styles.cardSection}>
 						{allAboutCardData.map((cardData, index) => (
 							<SurveyAboutCard key={index} cardData={cardData} />
@@ -40,9 +39,9 @@ export function SurveyLevelAbout() {
 						<SurveyAboutCardCriteria />
 						<SurveyAboutCardPrecision />
 					</div>
-				</Section>
-			</Surface>
-		</div>
+				</div>
+			</Section>
+		</Surface>
 	);
 
 	//

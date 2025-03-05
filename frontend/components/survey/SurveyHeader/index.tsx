@@ -1,7 +1,9 @@
 import Button from '@/components/common/Button';
+import { GridNav } from '@/components/layout/GridNav';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { IconArrowRight, IconDownload } from '@tabler/icons-react';
+import { Text } from '@mantine/core';
+import { IconDownload } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
@@ -14,25 +16,16 @@ export function SurveyHeader() {
 
 	const t = useTranslations('survey.SurveyHeader');
 	const anchorButtons = [
-		{ href: '#aboutSurvey', name: 'AboutSurvey' },
-		{ href: '#passangerChacterization', name: 'PassengerCaracter' },
-		{ href: '#recomendationIndex', name: 'Index' },
-		{ href: '#results', name: 'Results' },
+		{ _id: '0', href: '#aboutSurvey', label: `${t('AnchorAboutSurvey')}` },
+		{ _id: '1', href: '#passangerChacterization', label: `${t('AnchorPassengerCaracter')}` },
+		{ _id: '2', href: '#recomendationIndex', label: `${t('AnchorIndex')}` },
+		{ _id: '3', href: '#results', label: `${t('AnchorResults')}` },
 	];
 
 	//
 	// B. Render Components
 	const renderAnchorButtons = () => (
-		<div className={styles.anchorButtonsContainer}>
-			{anchorButtons.map((button, index) => (
-				<Button
-					key={index}
-					href={button.href}
-					label={t(`Anchor${button.name}`)}
-					rightIcon={<IconArrowRight />}
-				/>
-			))}
-		</div>
+		<GridNav className={styles.gridNav} items={anchorButtons} />
 	);
 
 	const renderDownloadButton = () => (
@@ -44,36 +37,38 @@ export function SurveyHeader() {
 	const renderHeaderContent = () => (
 		<div className={styles.cardContainer}>
 			<div className={styles.globalSatisfactionText}>
-				<p>{t('heading')}</p>
+				<Text>{t('heading')}</Text>
 			</div>
 			<div className={styles.header}>
 				<div className={styles.leftColumn}>
 					<div className={styles.squircle}>
 						<div className={styles.circledNumber}>
 							<div className={styles.blurredCircle} />
-							<p className={styles.headerNumber}>{t('value')}</p>
+							<Text className={styles.headerNumber}>{t('value')}</Text>
 						</div>
 					</div>
 				</div>
 				<div className={styles.rightColumn}>
-					<p className={styles.headerTitle}>{t('legend')}</p>
+					<Text className={styles.headerTitle}>{t('legend')}</Text>
 				</div>
 			</div>
 		</div>
 	);
 
 	return (
-		<Surface>
-			<Section withGap withPadding>
-				<p className={styles.SurveyTitle}>{t('title')}</p>
-				<p className={styles.SurveySubtitle}>{t('subtitle')}</p>
-				{renderAnchorButtons()}
-				{renderDownloadButton()}
-			</Section>
-			<Section withPadding>
-				{renderHeaderContent()}
-			</Section>
-		</Surface>
+		<>
+			<Surface>
+				<Section heading={t('title')} subheading={t('subtitle')}>
+					{renderAnchorButtons()}
+					{renderDownloadButton()}
+				</Section>
+			</Surface>
+			<Surface>
+				<Section>
+					{renderHeaderContent()}
+				</Section>
+			</Surface>
+		</>
 	);
 	//
 }

@@ -17,7 +17,6 @@
 .headerNumber {
 	font-size: 20px;
 	font-weight: var(--font-weight-bold);
-	color: red;
 	position: relative;
 	z-index: 1;
   }

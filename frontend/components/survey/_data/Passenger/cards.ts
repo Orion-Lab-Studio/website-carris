@@ -64,13 +64,13 @@ export const allPassangersCardsData: SurveyPassengersCardSchema[] = [
 			title: 'Nível de Instrução',
 		},
 	},
-	{
-		_id: 'last_card',
-		content: {
-			lottie_src: '/assets/survey/animations/passageiros/Passenger_Last.json',
-		},
-		header: {
-			title: '',
-		},
-	},
+	// {
+	// 	_id: 'last_card',
+	// 	content: {
+	// 		lottie_src: '/assets/survey/animations/passageiros/Passenger_Last.json',
+	// 	},
+	// 	header: {
+	// 		title: '',
+	// 	},
+	// },
 ];

@@ -22,7 +22,7 @@ export function SurveyPasgrCharacterCard({ cardData }: Props) {
 	return (
 		<div className={styles.container} id={cardData._id}>
 			{cardData.content.lottie_src && (
-				<div className={cardData._id === 'last_card' ? styles.lastCard : styles.contentLottie}>
+				<div className={styles.contentLottie}>
 					<p className={styles.headerTitle}>{cardData.header.title}</p>
 					<LottiePlayer path={cardData.content.lottie_src} loop play />
 				</div>

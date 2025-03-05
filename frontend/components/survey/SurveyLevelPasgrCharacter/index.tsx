@@ -28,25 +28,13 @@ export function SurveyLevelPasgrCharacter() {
 	return (
 		<div id="passangerChacterization">
 			<Surface forceOverflow>
-				<Accordion defaultValue="passangerChacterization">
-					<Accordion.Item value="passangerChacterization">
-						<Accordion.Control>
-							<h2 className={styles.heading}>{t('heading')}</h2>
-						</Accordion.Control>
-						<Accordion.Panel>
-							<Section withGap>
-								<div className={styles.headingWrapper}>
-									<h5 className={styles.subheading}>{t('subheading')}</h5>
-								</div>
-								<div className={styles.contentWrapper}>
-									{allPassengersCardData.map((cardData, index) => (
-										<SurveyPasgrCharacterCard key={index} cardData={cardData} />
-									))}
-								</div>
-							</Section>
-						</Accordion.Panel>
-					</Accordion.Item>
-				</Accordion>
+				<Section heading={t('heading')} subheading={t('subheading')} withPadding>
+					<div className={styles.contentWrapper}>
+						{allPassengersCardData.map((cardData, index) => (
+							<SurveyPasgrCharacterCard key={index} cardData={cardData} />
+						))}
+					</div>
+				</Section>
 			</Surface>
 		</div>
 	);

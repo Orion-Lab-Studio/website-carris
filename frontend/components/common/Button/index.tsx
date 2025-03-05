@@ -34,7 +34,7 @@ export default function Component({ className, href, icon, label, onClick, right
 
 	if (href) {
 		return (
-			<Button className={btnClass} component={Link} href={href} leftSection={icon && icon} rightSection={rightIcon} target={target} variant={variant}>
+			<Button className={btnClass} component={Link} href={href} leftSection={icon && icon} rightSection={rightIcon && rightIcon} target={target} variant={variant}>
 				{label}
 			</Button>
 		);
