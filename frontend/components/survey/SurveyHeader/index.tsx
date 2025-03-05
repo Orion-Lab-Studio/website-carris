@@ -26,34 +26,35 @@ export function SurveyHeader() {
 				<p className={styles.SurveyTitle}>{t('title')}</p>
 				<p className={styles.SurveySubtitle}>{t('subtitle')}</p>
 				<div className={styles.anchorButtonsContainer}>
-					<Button href="#aboutSurvey" label={t('AnchorAboutSurvey')} rightIcon={<IconArrowRight className={styles.iconRight} />} />
-					<Button href="#passangerChacterization" label={t('AnchorPassengerCaracter')} rightIcon={<IconArrowRight className={styles.iconRight} />} />
-					<Button href="#recomendationIndex" label={t('AnchorIndex')} rightIcon={<IconArrowRight className={styles.iconRight} />} />
-					<Button href="#results" label={t('AnchorResults')} rightIcon={<IconArrowRight className={styles.iconRight} />} />
+					<Button href="#aboutSurvey" label={t('AnchorAboutSurvey')} rightIcon={<IconArrowRight />} />
+					<Button href="#passangerChacterization" label={t('AnchorPassengerCaracter')} rightIcon={<IconArrowRight />} />
+					<Button href="#recomendationIndex" label={t('AnchorIndex')} rightIcon={<IconArrowRight />} />
+					<Button href="#results" label={t('AnchorResults')} rightIcon={<IconArrowRight />} />
 				</div>
 				<div className={styles.downloadButtonContainer}>
 					<Button className={styles.downloadButton} icon={<IconDownload size={20} />} label={t('AnchorAboutSurveyTitle')} />
 				</div>
 			</Section>
-			<div className={styles.cardContainer}>
-				<div className={styles.globalSatisfactionText}>
-					<p>{t('heading')}</p>
-				</div>
-				<div className={styles.header}>
-					<div className={styles.leftColumn}>
-						<div className={styles.squircle}>
-							<div className={styles.circledNumber}>
-								<div className={styles.blurredCircle} />
-								<p className={styles.headerNumber}>{t('value')}</p>
+			<Section withPadding>
+				<div className={styles.cardContainer}>
+					<div className={styles.globalSatisfactionText}>
+						<p>{t('heading')}</p>
+					</div>
+					<div className={styles.header}>
+						<div className={styles.leftColumn}>
+							<div className={styles.squircle}>
+								<div className={styles.circledNumber}>
+									<div className={styles.blurredCircle} />
+									<p className={styles.headerNumber}>{t('value')}</p>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div className={styles.rightColumn}>
-						<p className={styles.headerTitle}>{t('legend')}</p>
+						<div className={styles.rightColumn}>
+							<p className={styles.headerTitle}>{t('legend')}</p>
+						</div>
 					</div>
 				</div>
-
-			</div>
+			</Section>
 		</Surface>
 	);
 

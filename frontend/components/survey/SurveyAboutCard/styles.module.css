@@ -98,8 +98,8 @@
 .cardMainWrapperShadow{
 	align-items: stretch;
     width: 100%;
-    height: 80px;
-    margin-bottom: -23px;
+    height: 110px;
+    margin-bottom: -50px;
     background-color: var(--color-brand);  
     border-top-left-radius: 20px;  
     border-top-right-radius: 20px;  

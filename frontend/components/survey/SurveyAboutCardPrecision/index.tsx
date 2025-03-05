@@ -32,7 +32,7 @@ export function SurveyAboutCardPrecision() {
 						<p>{t('thirdRowValue')}</p>
 						<p>{t('thirdRowText')}</p>
 					</div>
-					<p>{t('fourthRowText')}</p>
+					<p className={styles.fourthRowText}>{t('fourthRowText')}</p>
 				</div>
 			</div>
 		</div>

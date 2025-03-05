@@ -1,7 +1,5 @@
 'use client';
-
 /* * */
-
 import { Surface } from '@/components/layout/Surface';
 import { Image } from '@mantine/core';
 

@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
     gap: 30px;
     margin: 0 auto;
     border: 1px solid #CCCC1B;
