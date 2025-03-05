@@ -35,6 +35,8 @@ export function SurveyLevelAbout() {
 						{allAboutCardData.map((cardData, index) => (
 							<SurveyAboutCard key={index} cardData={cardData} />
 						))}
+					</div>
+					<div className={styles.statisticsContainer}>
 						<SurveyAboutCardCriteria />
 						<SurveyAboutCardPrecision />
 					</div>

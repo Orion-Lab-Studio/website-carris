@@ -6,8 +6,6 @@ import styles from './styles.module.css';
 
 /* * */
 
-/* * */
-
 export function SurveyGlobalSatisfactionIndex() {
 	//
 
@@ -19,7 +17,7 @@ export function SurveyGlobalSatisfactionIndex() {
 	// B. Render components
 
 	return (
-		<div>
+		<div id="recomendationIndex">
 			<div className={styles.container}>
 				<div className={styles.header}>
 					<div className={styles.leftColumn}>

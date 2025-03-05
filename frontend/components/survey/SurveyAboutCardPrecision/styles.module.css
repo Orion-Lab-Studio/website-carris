@@ -37,6 +37,8 @@
     border-radius: 20px;
     background-color: var(--color-system-background-100);
     border: 1px solid var(--color-system-border-200);
+    display: flex;
+    height: 88%;
 }
 
 /* * */
@@ -59,7 +61,6 @@
     box-shadow: 0px -4px 0px rgba(0, 0, 0, 0.05);
     border-radius: 20px;
     background-color: var(--color-system-background-100);
-    border: 1px solid var(--color-system-border-200);
 }
 
 /* CARD ROWS */
@@ -98,7 +99,7 @@
     color: var(--color-system-text-300);
     border-top: 1px solid var(--color-system-border-200);
     padding: 10px;
-    word-break: break-all;
+ 
     text-align: center;
 
 }

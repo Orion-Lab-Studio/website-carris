@@ -11,7 +11,12 @@ export function SurveyAboutCardPrecision() {
 	//
 	// A. Setup Variables
 	const t = useTranslations('survey.SurveyPrecisionCard');
-	//
+	const rows = [
+		{ name: 'firstRow', text: t('firstRowText'), value: t('firstRowValue') },
+		{ name: 'secondRow', text: t('secondRowText'), value: t('secondRowValue') },
+		{ name: 'thirdRow', text: t('thirdRowText'), value: t('thirdRowValue') },
+	];
+		//
 	// B. Render Components
 	return (
 		<div>
@@ -20,18 +25,12 @@ export function SurveyAboutCardPrecision() {
 			</div>
 			<div className={styles.cardMainWrapper}>
 				<div className={styles.cardContent}>
-					<div className={styles.firstRow}>
-						<p>{t('firstRowValue')}</p>
-						<p>{t('firstRowText')}</p>
-					</div>
-					<div className={styles.secondRow}>
-						<p>{t('secondRowValue')}</p>
-						<p>{t('secondRowText')}</p>
-					</div>
-					<div className={styles.thirdRow}>
-						<p>{t('thirdRowValue')}</p>
-						<p>{t('thirdRowText')}</p>
-					</div>
+					{rows.map((row, index) => (
+						<div key={index} className={styles[`${row.name}`]}>
+							<p>{row.value}</p>
+							<p>{row.text}</p>
+						</div>
+					))}
 					<p className={styles.fourthRowText}>{t('fourthRowText')}</p>
 				</div>
 			</div>

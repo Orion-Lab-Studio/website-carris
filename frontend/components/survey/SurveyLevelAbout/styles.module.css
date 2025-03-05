@@ -62,13 +62,6 @@
 	align-items: stretch;
 }
 
-
-@media(width <= 700px) {
-	.cardSection {
-	grid-template-columns: repeat(1, 1fr);
-	}
-}
-
 /* * */
 /*  CARDS CONTAINER */
 .containerStatistics {
@@ -110,4 +103,18 @@
 .containerDetails .header:nth-child(3) {
   border-bottom: 1px solid #BEBEC8;
 
+}
+
+.statisticsContainer{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-auto-rows: auto;
+	gap: 20px;
+}
+
+
+@media(width <= 700px) {
+	.cardSection, .statisticsContainer {
+	grid-template-columns: repeat(1, 1fr);
+	}
 }

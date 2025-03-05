@@ -9,7 +9,7 @@ import styles from './styles.module.css';
 
 export function SurveyIntro() {
 	return (
-		<Surface forceOverflow>
+		<Surface>
 			<Image alt="Review " className={styles.image} src="/assets/survey/images/AF _ Inquérito _ Banner _ Small.png" />
 		</Surface>
 	);
