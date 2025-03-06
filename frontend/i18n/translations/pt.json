@@ -1555,9 +1555,9 @@
 			"thirdRowValue": "6"
 		},
 		"SurveyHeader": {
-			"AnchorAboutSurvey": "Sobre o Inquérito",
+			"AnchorAboutSurvey": "Ficha técnica",
 			"AnchorAboutSurveyTitle": "Ficha técnica",
-			"AnchorIndex": "Índice de Recomendação",
+			"AnchorIndex": "Índice Global de Satisfação",
 			"AnchorPassengerCaracter": "Caracterização do Passageiro",
 			"AnchorResults": "Resultados",
 			"DownloadButton": "Descarregar Relatório",
@@ -1567,7 +1567,6 @@
 			"title": "Acesso rápido",
 			"value": "7.2"
 		},
-
 		"SurveyPrecisionCard": {
 			"firstRowText": "intervalo de confiança",
 			"firstRowValue": "99,5%",
@@ -1595,6 +1594,7 @@
 			"title": "Índice Global de Satisfação"
 		},
 		"SurveyResultsCard": {
+			"AnchorResultsSubheading": "Aqui, poderá navegar pelos resultados do inquérito de satisfação do passageiros da Carris Metropolitana.",
 			"footerInfo": "A Carris Metropolitana está comprometida em garantir uma comunicação clara e acessível a todos os passageiros. Combinando suportes digitais e físicos, a informação chega ao público em tempo útil, adaptando-se a diferentes hábitos e níveis de familiaridade tecnológica. A integração dos dados em tempo real nas principais plataformas de mobilidade e a expansão dos Painéis de Informação ao Público reforçam essa estratégia. Além disso, a monitorização contínua da eficácia destes canais permite ajustar e melhorar a experiência informativa diariamente.",
 			"footerInfoBus": "A frota da Carris Metropolitana foi renovada para garantir veículos modernos, seguros e confortáveis, com uma idade média inferior a três anos. No entanto, para responder às diferentes necessidades da operação, e atender aos requisitos de segurança do Código da Estrada, é fundamental uma gestão dinâmica da frota e motoristas continuamente formados para lidar com desafios da operação. Além disso, a manutenção e limpeza rigorosas garantem uma experiência mais confortável para os passageiros, enquanto ações de sensibilização ajudam a combater o vandalismo e a preservar a qualidade dos veículos.",
 			"footerInfoNetwork": "A rede de transportes da Carris Metropolitana está em constante adaptação para garantir um serviço eficiente e alinhado com as necessidades dos passageiros. Através de uma monitorização rigorosa e da análise de padrões de procura, são feitos ajustes estratégicos nos horários e percursos para otimizar a operação. Em 2024, foram implementadas 1 900 melhorias na rede, reforçando a qualidade do serviço. Além disso, a sinalização e a organização nos terminais estão a ser revistas para melhorar a experiência de deslocação e orientação dos passageiros.",
@@ -1603,6 +1603,11 @@
 			"footerInfoSupport": "A Carris Metropolitana disponibiliza vários canais de contacto, incluindo e-mail, formulário online, call center e atendimento presencial nos espaços navegante. A escuta ativa dos passageiros, combinada com auditorias e monitorização em tempo real, permite ajustar e melhorar continuamente o serviço. Além disso, os motoristas, peça-chave na operação, recebem formação contínua para um atendimento de qualidade, com foco na segurança e acessibilidade.",
 			"heading": "Resultados",
 			"no_data": "Nenhum cartão encontrado"
+		},
+		"SurveyResultsInfoAccordion": {
+			"description1": "Foram avaliados diferentes indicadores (por exemplo: Conforto das paragens que utiliza), agrupados por temas como informação ao público, rede, paragens, autocarros e atendimento.",
+			"description2": "Cada indicador foi classificado numa escala de 0 a 10, representando a satisfação dos passageiros sobre aquele aspeto específico, em que 0 é 'nada satisfeito' e 10 significa 'totalmente satisfeito'.",
+			"heading": "Sobre os Resultados"
 		},
 		"SurveyResultsToolbar": {
 			"by_avaliation": "Filtrar por Avaliação",

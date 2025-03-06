@@ -13,6 +13,7 @@ import { Accordion, AccordionControl, Space } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
+import { SurveyResultsInfoAccordion } from '../SurveyResultsInfoAccordion';
 import { SurveyResultsToolbar } from '../SurveyResultsToolbar';
 import styles from './styles.module.css';
 
@@ -143,7 +144,6 @@ export function SurveyLevelResults() {
 									<Grid columns="abc" withGap>
 										{accordion.data.map((item, index) => (
 											<SurveyResultCard key={index} cardData={item} />
-
 										))}
 									</Grid>
 									{renderFotterDescription(accordion.value)}
@@ -159,9 +159,13 @@ export function SurveyLevelResults() {
 	return (
 		<div id="results">
 			<Surface forceOverflow>
-				<Section heading={t('heading')}>
+				<Section
+					heading={t('heading')}
+					subheading={t('AnchorResultsSubheading')}
+				>
+					<SurveyResultsInfoAccordion />
+					<br />
 					<SurveyResultsToolbar handleSearch={handleFilterData} />
-					<Space h="md" />
 					{filteredData.length === 0 ? (
 						<NoDataLabel text={t('no_data')} withMinHeight />
 					) : (

@@ -1,4 +1,5 @@
 import Button from '@/components/common/Button';
+import { LottiePlayer } from '@/components/common/LottiePlayer';
 import { GridNav } from '@/components/layout/GridNav';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
@@ -30,7 +31,7 @@ export function SurveyHeader() {
 
 	const renderDownloadButton = () => (
 		<div className={styles.downloadButtonContainer}>
-			<Button className={styles.downloadButton} href="/assets/survey/CM _ Resultados Inquérito.pdf" icon={<IconDownload size={20} />} label={t('AnchorAboutSurveyTitle')} target="_blank" />
+			<Button className={styles.downloadButton} href="/assets/survey/CM _ Resultados Inquérito.pdf" icon={<IconDownload size={20} />} label={t('DownloadButton')} target="_blank" />
 		</div>
 	);
 
@@ -38,7 +39,14 @@ export function SurveyHeader() {
 		<div className={styles.cardContainer}>
 			<div className={styles.globalSatisfactionText}>
 				<Text>{t('heading')}</Text>
+
 			</div>
+			<LottiePlayer
+				className={styles.lottieGlobalSatisfaction}
+				loop={false}
+				path="assets/survey/animations/sobre/ISGP.json"
+				play
+			/>
 			<div className={styles.header}>
 				<div className={styles.leftColumn}>
 					<div className={styles.squircle}>
