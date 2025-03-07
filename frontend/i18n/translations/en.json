@@ -1606,7 +1606,7 @@
 			"no_data": "No data available"
 		},
 		"SurveyResultsInfoAccordion": {
-			"description1": "Different indicators were assessed (e.g., Comfort of the stops you use), grouped into themes such as public information, network, stops, buses, and customer service.",
+			"description1": "Different indicators were assessed (e.g., Comfort of the stops you use), grouped into themes such as <b>public information, network, stops, buses, and customer service.</b>",
 			"description2": "Each indicator was rated on a scale from 0 to 10, representing passengers' satisfaction with that specific aspect, where 0 means 'not satisfied at all' and 10 means 'completely satisfied'.",
 			"heading": "About the Results"
 		},

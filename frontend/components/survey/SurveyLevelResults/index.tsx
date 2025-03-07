@@ -9,7 +9,7 @@ import { Surface } from '@/components/layout/Surface';
 import { allResultsCardData, SurveryResultsCardSchema } from '@/components/survey/_data/Results/cards';
 import { SurveyResultCard } from '@/components/survey/SurveyResultCard';
 import { useAnalyticsContext } from '@/contexts/Analytics.context';
-import { Accordion, AccordionControl, Space } from '@mantine/core';
+import { Accordion, AccordionControl } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 

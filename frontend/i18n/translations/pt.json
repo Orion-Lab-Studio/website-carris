@@ -1605,7 +1605,7 @@
 			"no_data": "Nenhum cartão encontrado"
 		},
 		"SurveyResultsInfoAccordion": {
-			"description1": "Foram avaliados diferentes indicadores (por exemplo: Conforto das paragens que utiliza), agrupados por temas como informação ao público, rede, paragens, autocarros e atendimento.",
+			"description1": "Foram avaliados diferentes indicadores (por exemplo: Conforto das paragens que utiliza), agrupados por temas como <b>informação ao público, rede, paragens, autocarros e atendimento.</b>",
 			"description2": "Cada indicador foi classificado numa escala de 0 a 10, representando a satisfação dos passageiros sobre aquele aspeto específico, em que 0 é 'nada satisfeito' e 10 significa 'totalmente satisfeito'.",
 			"heading": "Sobre os Resultados"
 		},

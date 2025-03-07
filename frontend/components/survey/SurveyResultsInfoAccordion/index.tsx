@@ -17,14 +17,12 @@ export function SurveyResultsInfoAccordion() {
 	//
 	// B. Render Components
 	return (
-		<Accordion style={{ borderBottom: '1px solid #e9e9e9', margin: '0 auto', width: '100%' }}>
+		<Accordion className={styles.accordionAboutResults}>
 			<Accordion.Item value="InfoResults">
 				<AccordionControl className={styles.control} icon={<IconInfoCircleFilled />}><Text className={styles.control}>{t('heading')}</Text></AccordionControl>
 				<Accordion.Panel>
 					<div className={styles.desc1}>
-						<Text>
-							{t('description1')}
-						</Text>
+						<Text dangerouslySetInnerHTML={{ __html: t.raw('description1') }} />
 					</div>
 					<div className={styles.desc2}>
 						<Text>
