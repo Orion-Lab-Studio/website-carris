@@ -1,26 +1,6 @@
-/* * */
-/* CONTAINER */
-/* 
-.container {
-	display: flex;
-	flex-direction: column;
-	gap: 0;
-	align-items: flex-start;
-	justify-content: flex-start;
-	width: 100%;
-}
-
-.groupTitle {
-	color: var(--color-system-text-200);
-	font-size: var(--font-size-subtitle);
-	font-weight: var(--font-weight-subtitle);
-	margin-bottom: var(--size-spacing-5);
-	padding: 20px;
-} */
-
 .cardSection {;
 	display: grid;
-	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-columns: 1fr 1fr 1fr; 	
 	gap: 20px;
 	align-items: stretch;
 	justify-content: center;
@@ -32,13 +12,6 @@
 	}
 }
 
-/* CONTAINER */
-.container {
-	display: flex;
-	flex-direction: column;
-}
-
-/* * */
 /* HEADER */
 .header {
 	display: flex;
@@ -50,20 +23,8 @@
 }
 
 /* * */
-/* CONTENT LOTTIE */
-.contentLottie {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	min-height: 200px;
-	background: #fff;
-	border: 1px solid var(--color-system-border-100);
-	border-radius: 18px;
-}
-
 /* CARD WRAPPER */
 .cardMainWrapper{
-    position: relative; 
     display: flex;
     flex: 1;
     flex-direction: column;
@@ -99,13 +60,6 @@
 
 /* * */
 /* CARD CONTENT */
-.container:nth-child(1) .cardMainWrapperShadow{
-	background-color: var(--color-system-background-100); 
-}
-
-.container:nth-child(1) .cardMainWrapper{
-	background-color:var(--color-brand);
-}
 
 .container:nth-child(3) .headerNumber{
 	font-size: 40px;

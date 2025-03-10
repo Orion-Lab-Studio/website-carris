@@ -2,12 +2,19 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    width: 100%;
+    padding-bottom: 20px;
 }
 
 @media (width <= 650px){
     .toolbarContainer{
         grid-template-columns: 1fr;
         gap: 0;
-        padding: 20px;
     }
+}
+
+.toolbarDescription{
+    font-size: 14px;
+    font-weight: var(--font-weight-medium);
+    color: var(--color-system-text-200);
 }

@@ -1,11 +1,13 @@
 /* * */
 
-import { NoDataLabel } from '@/components/layout/NoDataLabel';
 import { Section } from '@/components/layout/Section';
-import { Surface } from '@/components/layout/Surface';
+import { Routes } from '@/utils/routes';
+import { DemandMetricsByAgency } from '@carrismetropolitana/api-types/metrics';
 import { Text } from '@mantine/core';
+import { IconAt, IconPhoneCheck } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
+import useSWR from 'swr';
 
 import styles from './styles.module.css';
 /* * */
@@ -15,7 +17,7 @@ interface Complaints {
 	complaints: number
 	email: number
 	filter_value: string
-	info_request: number
+	info_requests: number
 	other: number
 	phone: number
 	total: number
@@ -24,61 +26,76 @@ interface Complaints {
 
 interface Props {
 	allData: Complaints[]
+	totalPassengersLastWeek: number
 }
 
-export function MetricsPageContactsGlobalCard({ allData }: Props) {
+export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek }: Props) {
 	//
 
 	//
 	// A. Setup variables
+
 	const t = useTranslations('metrics.MetricsPageContactsGlobalCard');
-	// B. Render Components
+
+	//
+	// C. Render Components
+
+	const renderTotalPassegersByDay = () => {
+		return (
+			<div>
+				<Text className={styles.totalPassengersContactsValue}>{t('total_passengers_day', { value: totalPassengersLastWeek })}</Text>
+				<Text className={styles.totalPassengersContactsDescription}>{t('totalPassengersDayContactsDesc')}</Text>
+			</div>
+		);
+	};
 
 	const renderTotalContacts = () => {
-		const totalContactsLastWeek = allData.map(item => item.total);
+		const totalContactsLastWeek = allData.map(item => item.total || 0);
 		return (
 			<div>
 				<Text className={styles.totalContactsValue}>{totalContactsLastWeek}</Text>
-				<Text className={styles.totalContactsDesciption}>{t('totalContactsDesc')}</Text>
+				<Text className={styles.totalContactsDescription}>{t('totalContactsDesc')}</Text>
 			</div>
 		);
 	};
 
 	const renderTotalPhoneContacts = () => {
-		const totalPhoneContactsLastWeek = allData.map(item => item.phone);
+		const totalPhoneContactsLastWeek = allData.map(item => item.phone || 0);
 		return (
-			<div>
+			<div className={styles.totalPhoneContactsValuesWrapper}>
+				<div className={styles.iconContainer}>
+					<IconPhoneCheck className={styles.icon} size={50} />
+				</div>
 				<Text className={styles.totalPhoneContactsValue}>{totalPhoneContactsLastWeek}</Text>
-				<Text className={styles.totalPhonrContactsDesciption}>{t('totalPhoneContactsDesc')}</Text>
+				<Text className={styles.totalPhoneContactsDescription}>{t('totalPhoneContactsDesc')}</Text>
 			</div>
 		);
 	};
 
 	const renderTotalEmailContacts = () => {
-		const totalEmailContactsLastWeek = allData.map(item => item.email);
+		const totalEmailContactsLastWeek = allData.map(item => item.email || 0) || 0;
 		return (
-			<div>
+			<div className={styles.totalEmailContactsValuesWrapper}>
+				<div className={styles.iconContainer}>
+					<IconAt className={styles.icon} size={50} />
+				</div>
 				<Text className={styles.totalEmailContactsValue}>{totalEmailContactsLastWeek}</Text>
-				<Text className={styles.totalEmailContactsDesciption}>{t('totalPhoneContactsDesc')}</Text>
+				<Text className={styles.totalEmailContactsDescription}>{t('totalEmailContactsDesc')}</Text>
 			</div>
 		);
 	};
 
-	const renderNoData = () => {
-		return (
-			<NoDataLabel text="No data available" />
-		);
-	};
 	return (
-		<Section withPadding>
+		<Section>
 			<div className={styles.container}>
-				{!allData.length && renderNoData()}
-				{renderTotalContacts()}
+				<div className={styles.globalCardFirstRow}>
+					{renderTotalPassegersByDay()}
+					{renderTotalContacts()}
+				</div>
 				{renderTotalPhoneContacts()}
 				{renderTotalEmailContacts()}
 			</div>
 		</Section>
 	);
-
 	//
 }

@@ -1,30 +1,27 @@
 /* * */
 
-import Button from '@/components/common/Button';
+import { Section } from '@/components/layout/Section';
 import { Line } from '@carrismetropolitana/api-types/network';
-import { Select } from '@mantine/core';
+import { Select, Text } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import styles from './styles.module.css';
 /* * */
-
 interface Props {
 	allLines: Line[]
 	filter_type: (value) => void
 	filter_value: (value) => void
 }
-
+/* * */
 export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value }: Props) {
 	//
 
 	//
 	// A. Setup variables
-
 	const t = useTranslations('metrics.MetricsPageContactsToolbar');
 	const [line, setLine] = useState(null);
 	const [municipality, setMunicipality] = useState(null);
-
 	const AML = [
 		{ label: 'Alcochete', value: '1520' },
 		{ label: 'Almada', value: '1503' },
@@ -44,49 +41,63 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 		{ label: 'Sintra', value: '1111' },
 		{ label: 'Vila Franca de Xira', value: '1114' },
 	];
-
 	// B. Handle Actions
 	const handleLineChange = (value) => {
 		if (municipality) {
 			setMunicipality(null);
 		}
-		filter_type('line');
-		filter_value(value);
-		setLine(value);
+		if (value === '-') {
+			filter_type('global');
+			filter_value(value);
+			setLine(null);
+		}
+		else {
+			filter_type('line');
+			filter_value(value);
+			setLine(value);
+		}
 	};
-
 	const handleMunicipalityChange = (value) => {
 		if (line) {
 			setLine(null);
 		}
-		filter_type('municipality');
-		filter_value(value);
-		setMunicipality(value);
+		if (value === '-') {
+			filter_type('global');
+			filter_value(value);
+			setMunicipality(null);
+		}
+		else {
+			filter_type('municipality');
+			filter_value(value);
+			setMunicipality(value);
+		}
 	};
 	//
 	// C. Render Components
 	return (
-		<div className={styles.toolbarContainer}>
-			<Select
-				data={allLines.map(item => ({ label: `${item.id} - ${item.long_name}`, value: item.id }))}
-				onChange={_value => handleLineChange(_value)}
-				onClear={() => handleLineChange}
-				placeholder={t('line')}
-				value={line}
-				clearable
-				searchable
-			/>
-			<Select
-				data={AML.map(item => ({ label: item.label, value: item.value }))}
-				onChange={_value => handleMunicipalityChange(_value)}
-				onClear={() => handleMunicipalityChange}
-				placeholder={t('municipality')}
-				value={municipality}
-				clearable
-				searchable
-			/>
-		</div>
+		<Section withPadding>
+			<Text className={styles.toolbarDescription}>{t('toolbar_desc')}</Text>
+			<div className={styles.toolbarContainer}>
+				<Select
+					data={allLines.map(item => ({ label: `${item.id} - ${item.long_name}`, value: item.id }))}
+					onChange={_value => handleLineChange(_value)}
+					onClear={() => handleLineChange('-')}
+					placeholder={t('line')}
+					value={line}
+					clearable
+					searchable
+				/>
+				<Select
+					data={AML.map(item => ({ label: item.label, value: item.value }))}
+					onChange={_value => handleMunicipalityChange(_value)}
+					onClear={() => handleMunicipalityChange('-')}
+					placeholder={t('municipality')}
+					value={municipality}
+					clearable
+					searchable
+				/>
+			</div>
+		</Section>
 	);
-
 	//
 }

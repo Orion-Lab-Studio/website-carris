@@ -1,92 +1,103 @@
 /* * */
 
-import { allCardsData } from '@/components/metrics/MetricsPageContacts/_data/cards';
-import { MetricsPageContactsCard } from '@/components/metrics/MetricsPageContactsCard';
+import { Image, Text } from '@mantine/core';
 
 import styles from './styles.module.css';
-
 /* * */
 interface Complaints {
 	_id: number
 	complaints: number
 	email: number
 	filter_value: string
-	info_request: number
+	info_requests: number
 	other: number
 	phone: number
 	total: number
 	type: string
 }
-
+/* * */
 interface Props {
 	data: Complaints[]
+	filter_type: string
+	filter_value: string
+	totalPassengersLastWeek: number
 }
 
+interface CardProps {
+	description1?: string
+	description2?: string
+	footer?: string
+	image?: string
+	subheading?: string
+	title: string
+	value: number
+}
 /* * */
-
-export function MetricsContactsPage2024CardGroup({ data }: Props) {
+export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, totalPassengersLastWeek }: Props) {
 	//
 
 	//
-	// A. Transform data
-
-	// const groupCards = allCardsData.filter(card => card._group === groupId);
-
-	// B. Render components
-
-	return (
-	// <div className={styles.container}>
-	// 	{groupCards[0]._group_title && <h3 className={styles.groupTitle}>{groupCards[0]._group_title}</h3>}
-	// 	{groupCards.map((cardData, index) => (
-	// 		<MetricsPageContactsCard
-	// 			key={cardData._id}
-	// 			cardData={cardData}
-	// 			isFirstChild={index === 0}
-	// 			isLastChild={index === groupCards.length - 1}
-	// 		/>
-	// 	))}
-	// </div>
-		<div className={styles.cardSection}>
-			<div className={styles.container}>
-				<div className={styles.cardMainWrapperShadow}>
-					<p className={styles.headerTitle}>Lisboa</p>
-				</div>
-				<div className={styles.cardMainWrapper}>
-					<div className={styles.header}>
-						<p className={styles.intro}>120K</p>
-						<p className={styles.headerNumber}>Reclamações</p>
-						<p className={styles.contentLegend}>0,78%</p>
-					</div>
-				</div>
+	// A. Setup variables
+	const cardData = [
+		{
+			description1: data.map(item => item.info_requests),
+			description2: 'total de pedidos de informação',
+			description3: 'total de reclamações',
+			description4: 'do total de passageiros transportados na amL na última semana',
+			image: '/assets/complaints/pedidos_info.svg',
+			subheading: 'área metropolitana de Lisboa',
+			title: 'Pedidos de Informação',
+			value: data.reduce((acc, item) => acc + item.info_requests, 0),
+		},
+		{
+			description1: data.map(item => item.complaints),
+			description2: 'total de reclamações',
+			description3: 'total de reclamações',
+			description4: 'do total de passageiros transportados na amL na última semana',
+			image: '/assets/complaints/reclamacoes_info.svg',
+			subheading: 'área metropolitana de Lisboa',
+			title: 'Reclamações', value: data.reduce((acc, item) => acc + item.complaints, 0) },
+		{
+			description1: data.map(item => item.other),
+			description2: 'total de outro* tipo de contactos',
+			description3: 'total de reclamações',
+			description4: 'do total de passageiros transportados na amL na última semana',
+			footer: '*perdidos e achados, sugestões e agradecimentos',
+			image: '/assets/complaints/outros_info.svg',
+			subheading: 'área metropolitana de Lisboa',
+			title: 'Outros*', value: data.reduce((acc, item) => acc + item.other, 0) },
+	];
+	//
+	// B. Render Components
+	const Card = ({ description1, description2, footer, image, subheading, title, value }: CardProps) => (
+		<>
+			<div className={styles.cardMainWrapperShadow}>
+				<Text className={styles.headerTitle}>{title}</Text>
 			</div>
+			<div className={styles.cardMainWrapper}>
+				<div className={styles.header}>
+					<Text>{subheading}</Text>
+					<Image alt={title} src={image} />
+				</div>
+				<div className={styles.cardBody}>
+					<Text className={styles.bodyValue1}>{value}</Text>
+					<Text className={styles.bodyDescription1}>{description1}</Text>
+					<Text className={styles.bodyDescription2}>{description2}</Text>
+				</div>
+				<div className={styles.card_footer}>
+					<Text className={styles.footerNotes}>{footer}</Text>
+				</div>
 
-			<div className={styles.container}>
-				<div className={styles.cardMainWrapperShadow}>
-					<p className={styles.headerTitle}>Lisboa</p>
-				</div>
-				<div className={styles.cardMainWrapper}>
-					<div className={styles.header}>
-						<p className={styles.intro}>120K</p>
-						<p className={styles.headerNumber}>Reclamações</p>
-						<p className={styles.contentLegend}>0,78%</p>
-					</div>
-				</div>
 			</div>
-			<div className={styles.container}>
-				<div className={styles.cardMainWrapperShadow}>
-					<p className={styles.headerTitle}>Lisboa</p>
-				</div>
-				<div className={styles.cardMainWrapper}>
-					<div className={styles.header}>
-						<p className={styles.intro}>120K</p>
-						<p className={styles.headerNumber}>Reclamações</p>
-						<p className={styles.contentLegend}>0,78%</p>
-					</div>
-				</div>
-			</div>
-
-		</div>
+		</>
 	);
 
+	return (
+		<div className={styles.container}>
+			{cardData.map((card, index) => (
+				<Card key={index} description1={card.description1.toString()} description2={card.description2} footer={card.footer} image={card.image} subheading={card.subheading} title={card.title} value={card.value} />
+			))}
+		</div>
+	);
 	//
 }

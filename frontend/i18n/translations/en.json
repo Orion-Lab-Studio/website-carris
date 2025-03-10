@@ -924,18 +924,21 @@
 		},
 		"MetricsPageContacts": {
 			"heading": "Contacts",
-			"text1": "Here, you can view all contacts received by Carris Metropolitana, broken down by Information Requests, Complaints, and Other types of contact.",
+			"subheading": "Here, you can view all contacts received by Carris Metropolitana, broken down by Information Requests, Complaints, and Other types of contact.",
 			"title1": "Open Data"
 		},
 		"MetricsPageContactsGlobalCard": {
 			"totalContactsDesc": "last week's contacts total",
 			"totalEmailContactsDesc": "contacts by email",
-			"totalPhoneContactsDesc": "contacts by phone"
+			"totalPassengersDayContactsDesc": "total passengers of the week",
+			"totalPhoneContactsDesc": "contacts by phone",
+			"total_passengers_day": "{value, number}"
 		},
 		"MetricsPageContactsToolbar": {
 			"global": "Global",
 			"line": "Line",
-			"municiplaity": "Municipality"
+			"municipality": "Municipality",
+			"toolbar_desc": "Choose if you want to see the different types of contacts (Information Requests, Complaints and Others), by municiplaity or line."
 		},
 		"MetricsPageIntro": {
 			"heading": "A nossa operação ao vivo",
