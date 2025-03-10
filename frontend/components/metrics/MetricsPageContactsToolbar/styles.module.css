@@ -1,5 +1,13 @@
 .toolbarContainer{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
+}
+
+@media (width <= 650px){
+    .toolbarContainer{
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 20px;
+    }
 }

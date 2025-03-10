@@ -1,7 +1,6 @@
 /* * */
 
 import Button from '@/components/common/Button';
-import { Municipality } from '@carrismetropolitana/api-types/locations';
 import { Line } from '@carrismetropolitana/api-types/network';
 import { Select } from '@mantine/core';
 import { useTranslations } from 'next-intl';
@@ -21,9 +20,10 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 
 	//
 	// A. Setup variables
-	// const t = useTranslations('metrics.MetricsPageContactsSelector');
-	const [line, setLine] = useState<string>('');
-	const [municipality, setMunicipality] = useState<string>('');
+
+	const t = useTranslations('metrics.MetricsPageContactsToolbar');
+	const [line, setLine] = useState(null);
+	const [municipality, setMunicipality] = useState(null);
 
 	const AML = [
 		{ label: 'Alcochete', value: '1520' },
@@ -48,9 +48,8 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 	// B. Handle Actions
 	const handleLineChange = (value) => {
 		if (municipality) {
-			setMunicipality('');
+			setMunicipality(null);
 		}
-
 		filter_type('line');
 		filter_value(value);
 		setLine(value);
@@ -58,21 +57,11 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 
 	const handleMunicipalityChange = (value) => {
 		if (line) {
-			setLine('');
+			setLine(null);
 		}
-
 		filter_type('municipality');
 		filter_value(value);
 		setMunicipality(value);
-	};
-
-	const handleGlobalClick = () => {
-		if (municipality || line) {
-			setLine('');
-			setMunicipality('');
-		}
-		filter_value('-');
-		filter_type('global');
 	};
 	//
 	// C. Render Components
@@ -80,27 +69,21 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 		<div className={styles.toolbarContainer}>
 			<Select
 				data={allLines.map(item => ({ label: `${item.id} - ${item.long_name}`, value: item.id }))}
-				label="Linhas"
 				onChange={_value => handleLineChange(_value)}
 				onClear={() => handleLineChange}
-				placeholder="Linhas"
+				placeholder={t('line')}
 				value={line}
 				clearable
 				searchable
 			/>
 			<Select
 				data={AML.map(item => ({ label: item.label, value: item.value }))}
-				label="Municípios"
 				onChange={_value => handleMunicipalityChange(_value)}
 				onClear={() => handleMunicipalityChange}
-				placeholder="Municípios"
+				placeholder={t('municipality')}
 				value={municipality}
 				clearable
 				searchable
-			/>
-			<Button
-				label="Geral"
-				onClick={handleGlobalClick}
 			/>
 		</div>
 	);

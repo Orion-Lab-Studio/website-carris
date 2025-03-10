@@ -927,6 +927,16 @@
 			"text1": "Here, you can view all contacts received by Carris Metropolitana, broken down by Information Requests, Complaints, and Other types of contact.",
 			"title1": "Open Data"
 		},
+		"MetricsPageContactsGlobalCard": {
+			"totalContactsDesc": "last week's contacts total",
+			"totalEmailContactsDesc": "contacts by email",
+			"totalPhoneContactsDesc": "contacts by phone"
+		},
+		"MetricsPageContactsToolbar": {
+			"global": "Global",
+			"line": "Line",
+			"municiplaity": "Municipality"
+		},
 		"MetricsPageIntro": {
 			"heading": "A nossa operação ao vivo",
 			"text_1": "A Carris Metropolitana possui uma política de dados abertos, com o objetivo de promover a transparência e a proximidade com os seus passageiros, divulgando publicamente informação relativa à sua operação.",
