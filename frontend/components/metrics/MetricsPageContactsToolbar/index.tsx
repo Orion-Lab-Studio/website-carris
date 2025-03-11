@@ -1,5 +1,4 @@
 /* * */
-
 import { Section } from '@/components/layout/Section';
 import { Line } from '@carrismetropolitana/api-types/network';
 import { Select, Text } from '@mantine/core';
@@ -23,7 +22,7 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 	const [line, setLine] = useState(null);
 	const [municipality, setMunicipality] = useState(null);
 	const AML = [
-		{ label: 'Alcochete', value: '1520' },
+		{ label: 'Alcochete', value: '1502' },
 		{ label: 'Almada', value: '1503' },
 		{ label: 'Amadora', value: '1115' },
 		{ label: 'Barreiro', value: '1504' },
@@ -41,7 +40,8 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 		{ label: 'Sintra', value: '1111' },
 		{ label: 'Vila Franca de Xira', value: '1114' },
 	];
-	// B. Handle Actions
+	//
+	// B. Handle actions
 	const handleLineChange = (value) => {
 		if (municipality) {
 			setMunicipality(null);
@@ -73,9 +73,9 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 		}
 	};
 	//
-	// C. Render Components
+	// C. Render components
 	return (
-		<Section withPadding>
+		<Section>
 			<Text className={styles.toolbarDescription}>{t('toolbar_desc')}</Text>
 			<div className={styles.toolbarContainer}>
 				<Select

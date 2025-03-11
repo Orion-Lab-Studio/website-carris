@@ -1,6 +1,4 @@
 /* * */
-
-import { Section } from '@/components/layout/Section';
 import { Complaints } from '@carrismetropolitana/api-types/metrics';
 import { Text } from '@mantine/core';
 import { IconAt, IconPhoneCheck } from '@tabler/icons-react';
@@ -8,23 +6,19 @@ import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
 /* * */
-
 interface Props {
 	allData: Complaints[]
 	totalPassengersLastWeek: number
 }
-
+/* * */
 export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek }: Props) {
 	//
 
 	//
 	// A. Setup variables
-
 	const t = useTranslations('metrics.MetricsPageContactsGlobalCard');
-
 	//
 	// C. Render Components
-
 	const renderTotalPassegersByDay = () => {
 		return (
 			<div>
@@ -73,18 +67,16 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek
 	};
 
 	return (
-		<Section>
-			<div className={styles.container}>
-				<div className={styles.globalCardFirstRow}>
-					{renderTotalPassegersByDay()}
-					{renderTotalContacts()}
-				</div>
-				<div className={styles.globalCardSecondRow}>
-					{renderTotalPhoneContacts()}
-					{renderTotalEmailContacts()}
-				</div>
+		<div className={styles.container}>
+			<div className={styles.globalCardFirstRow}>
+				{renderTotalPassegersByDay()}
+				{renderTotalContacts()}
 			</div>
-		</Section>
+			<div className={styles.globalCardSecondRow}>
+				{renderTotalPhoneContacts()}
+				{renderTotalEmailContacts()}
+			</div>
+		</div>
 	);
 	//
 }

@@ -5,7 +5,7 @@
     place-items: center;
     justify-content: center;
     width: 100%;
-    height: 100%;
+    height: 100%;   
     padding: 20px;
     text-align: center;
     background-color: var(--color-system-background-100);
@@ -132,8 +132,10 @@
     align-content: center;
     width: 100px;
     height: 100px;
+    margin: 0 auto;
     background-color: var(--color-system-background-300);
     border-radius: 20px;
+
 }
 
 /* ICON COLORS */
