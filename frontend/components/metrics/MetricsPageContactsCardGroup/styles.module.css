@@ -1,35 +1,11 @@
-.cardSection {;
-	display: grid;
-	grid-template-columns: 1fr 1fr 1fr; 	
-	gap: 20px;
-	align-items: stretch;
-	justify-content: center;
-}
-
-@media(width <= 700px) {
-	.cardSection {
-	grid-template-columns: repeat(1, 1fr);
-	}
-}
-
-/* HEADER */
-.header {
-	display: flex;
-	flex-direction: column;
-	gap: 5px;
-	align-items: center;
-	width: 100%;
-	padding: 10px;
-}
-
-/* * */
 /* CARD WRAPPER */
 .cardMainWrapper{
     display: flex;
-    flex: 1;
     flex-direction: column;
-    justify-content: space-evenly;
+	align-content: center;
+	align-items: center;
 	padding: 20px;
+	text-align: center;
     background-color: var(--color-system-background-100);
     border: 1px solid var(--color-system-border-200);
     border-radius: 20px;
@@ -51,38 +27,6 @@
 }
 
 /* * */
-/* Header Number */
-.headerNumber {
-	font-size: 50px;
-	font-weight: var(--font-weight-bold);
-	color: var(--color-system-text-200);
-}
-
-/* * */
-/* CARD CONTENT */
-
-.container:nth-child(3) .headerNumber{
-	font-size: 40px;
-}
-
-.container:nth-child(5) .headerNumber{
-	font-size: 40px;
-}
-
-/* * */
-
-
-/* * */
-/* Content Legend */
-.contentLegend {
-	padding: 10px;
-	font-size: 16px;
-	font-weight: var(--font-weight-medium);
-	color: var(--color-system-text-200);
-	text-align: center;
-}
-
-/* * */
 /* Header Title */
 .headerTitle {
 	padding: 10px;
@@ -93,48 +37,69 @@
 }
 
 /* * */
-/* Intro */
-.intro {
-	padding: 10px;
-	font-size: 14px;
+/* SUBHEADING */
+.subheading{
+	margin-bottom: 20px;
+	font-size: 16px;
+	font-weight: var(--font-weight-bold);
+	color: var(--color-system-text-200);
+}
+
+/* * */
+/* BODY CONTENT */
+.cardBody{
+margin: 0 auto;
+}
+
+.bodyValue1{
+	font-size: 50px;
+	font-weight: var(--font-weight-bold);
+	color: var(--color-system-text-200)
+}
+
+.bodyDescription1{
+	font-size: 16px;
 	font-weight: var(--font-weight-medium);
-	line-height: 19.36px;
-	color: var(--color-system-text-200);
-	text-align: center;
+	color: var(--color-system-text-200)
 }
 
-
-
-.container:nth-child(1) .cardMainWrapper .headerNumber{
-	color: var(--color-system-text-200);
-
-	@media (prefers-color-scheme: dark) {
-		color:var(--color-primary-black);
-	}
+.bodyDescription2{
+	font-size: 26px;
+	font-weight: var(--font-weight-bold);
+	color: var(--color-system-text-200)
 }
 
-.container:nth-child(1) .cardMainWrapper .intro{
-	color: var(--color-system-text-200);
-
-	@media (prefers-color-scheme: dark) {
-		color:var(--color-primary-black);
-	}
+.bodyDescription3{
+	font-size: 12px;
+	font-weight: var(--font-weight-semibold);
+	color: var(--color-system-text-200)
 }
 
-.container:nth-child(1) .cardMainWrapper .contentLegend{
+/* * */
+/* FOOTER NOTES */
+.footerNotes{
+	font-size: 11px;
+	font-weight: var(--font-weight-medium);
 	color: var(--color-system-text-200);
-
-	@media (prefers-color-scheme: dark) {
-		color:var(--color-primary-black);
-	}
 }
 
+/* * */
+/* INNER  BOY CARD */
+.cardBodyInnerCard{
+	display: flex;
+    flex-direction: column;
+    align-items: start;
+	width: 100%;
+	height: 100%;
+	padding: 20px;
+	margin-top:20px;
+	background-color: var(--color-system-background-200);
+	border-radius: 20px;
+}
 
-.container:nth-child(1) .cardMainWrapperShadow .headerTitle{
-	color:var(--color-primary-black);
-
-	@media (prefers-color-scheme: dark) {
-		color:var(--color-system-text-200);
-	}
+/* * */
+/* CARD FOOTER */
+.cardFooter{
+	margin-top: 20px;
 }
 

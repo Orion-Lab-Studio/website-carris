@@ -105,14 +105,15 @@ export function MetricsPageContacts() {
 	};
 	return (
 		<Surface>
+			{!allComplaintsData && renderNoData()}
 			<div id="contactsMetrics">
-				<Section heading={t('heading')} subheading={t('subheading')} withGap withPadding>
+				<Section heading={t('heading')} subheading={t('subheading')} withPadding>
 					<MetricsPageContactsGlobalCard allData={globalComplaints} totalPassengersLastWeek={totalPassengersLastWeek} />
 					<MetricsPageContactsToolbar allLines={linesContext.data.lines} filter_type={handleFilterChange} filter_value={setFilterValue} />
 					<MetricsContactsPageCardGroup data={filtered_data} filter_type={filter_type} filter_value={filter_value} totalPassengersLastWeek={totalPassengersLastWeek} />
 				</Section>
 			</div>
-			{!allComplaintsData && renderNoData()}
+
 		</Surface>
 	);
 	//
