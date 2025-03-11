@@ -46,8 +46,10 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek
 				<div className={styles.iconContainer}>
 					<IconPhoneCheck className={styles.icon} size={50} />
 				</div>
-				<Text className={styles.totalPhoneContactsValue}>{totalContactsLastWeekSum}</Text>
-				<Text className={styles.totalPhoneContactsDescription}>{t('total_phone_contacts_desc')}</Text>
+				<span>
+					<Text className={styles.totalPhoneContactsValue}>{totalContactsLastWeekSum}</Text>
+					<Text className={styles.totalPhoneContactsDescription}>{t('total_phone_contacts_desc')}</Text>
+				</span>
 			</div>
 		);
 	};
@@ -60,8 +62,10 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek
 				<div className={styles.iconContainer}>
 					<IconAt className={styles.icon} size={50} />
 				</div>
-				<Text className={styles.totalEmailContactsValue}>{totalContactsLastWeekSum}</Text>
-				<Text className={styles.totalEmailContactsDescription}>{t('total_email_contacts_desc')}</Text>
+				<span>
+					<Text className={styles.totalEmailContactsValue}>{totalContactsLastWeekSum}</Text>
+					<Text className={styles.totalEmailContactsDescription}>{t('total_email_contacts_desc')}</Text>
+				</span>
 			</div>
 		);
 	};
