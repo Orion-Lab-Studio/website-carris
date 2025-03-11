@@ -57,6 +57,7 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 			setLine(value);
 		}
 	};
+
 	const handleMunicipalityChange = (value) => {
 		if (line) {
 			setLine(null);

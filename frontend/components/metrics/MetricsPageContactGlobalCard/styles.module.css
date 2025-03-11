@@ -55,7 +55,7 @@
 .totalPassengersContactsValue{
     font-size: 50px;
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary); 
+    color: var(--color-system-text-200); 
 }
 
 .totalPassengersContactsDescription{
@@ -69,7 +69,7 @@
 .totalContactsValue{
     font-size: 50px;
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary); 
+    color: var(--color-system-text-200); 
 }
 
 .totalContactsDescription{
@@ -93,7 +93,7 @@
 .totalEmailContactsValue{
     font-size: 50px;
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary); 
+    color: var(--color-system-text-200); 
 }
 
 .totalEmailContactsDescription{
@@ -118,7 +118,7 @@
 .totalPhoneContactsValue{
     font-size: 50px;
     font-weight: var(--font-weight-bold);
-    color: var(--color-text-primary); 
+    color: var(--color-system-text-200); 
 }
 
 .totalPhoneContactsDescription{

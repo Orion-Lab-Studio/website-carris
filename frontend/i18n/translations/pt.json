@@ -942,7 +942,7 @@
 			"global": "Global",
 			"line": "Linha",
 			"municipality": "Município",
-			"toolbar_desc": "Escolha se quer ver os diferentes tipos de contacto (Pedidos de Informação, Reclamações e outros) por área, município ou linha."
+			"toolbar_desc": "Escolha se quer ver os diferentes tipos de contacto (Pedidos de Informação, Reclamações e outros) por município ou linha."
 
 		},
 		"MetricsPageIntro": {
