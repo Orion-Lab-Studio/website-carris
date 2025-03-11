@@ -1,7 +1,7 @@
 /* * */
 
+import { MetricsContactsPageCardGroupCard } from '@/components/metrics/MetricsPageContactsCardGroupCard';
 import { Complaints } from '@carrismetropolitana/api-types/metrics';
-import { Image, Text } from '@mantine/core';
 
 import styles from './styles.module.css';
 /* * */
@@ -12,16 +12,6 @@ interface Props {
 	totalPassengersLastWeek: number
 }
 
-interface CardProps {
-	description1?: string
-	description2?: string
-	description3?: string
-	footer?: string
-	image?: string
-	subheading?: string
-	title: string
-	value: number
-}
 /* * */
 export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, totalPassengersLastWeek }: Props) {
 	//
@@ -31,7 +21,7 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 	const cardData = [
 		{
 			description1: 'total de pedidos de informação',
-			description2: '99.99%',
+			description2: '99.99%', // repplace value with calculated percentage
 			description3: 'do total de passageiros transportados na amL na última semana',
 			image: '/assets/complaints/pedidos_info.svg',
 			subheading: 'área metropolitana de Lisboa',
@@ -40,14 +30,14 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 		},
 		{
 			description1: 'total de reclamações',
-			description2: '99.99%',
+			description2: '99.99%', // repplace value with calculated percentage
 			description3: 'do total de passageiros transportados na amL na última semana',
 			image: '/assets/complaints/reclamacoes_info.svg',
 			subheading: 'área metropolitana de Lisboa',
 			title: 'Reclamações', value: data.reduce((acc, item) => acc + item.complaints, 0) },
 		{
 			description1: 'total de outro* tipo de contactos',
-			description2: '99.99%',
+			description2: '99.99%', // repplace value with calculated percentage
 			description3: 'do total de passageiros transportados na amL na última semana',
 			footer: '*perdidos e achados, sugestões e agradecimentos',
 			image: '/assets/complaints/outros_info.svg',
@@ -55,35 +45,14 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 			title: 'Outros*', value: data.reduce((acc, item) => acc + item.other, 0) },
 	];
 	//
-	// B. Render Components
-	const Card = ({ description1, description2, description3, footer, image, subheading, title, value }: CardProps) => (
-		<>
-			<div className={styles.cardMainWrapperShadow}>
-				<Text className={styles.headerTitle}>{title}</Text>
-			</div>
-			<div className={styles.cardMainWrapper}>
-				<div className={styles.cardBody}>
-					<Text className={styles.subheading}>{subheading}</Text>
-					<Image alt={title}className={styles.image} src={image} />
-					<Text className={styles.bodyValue1}>{value}</Text>
-					<Text className={styles.bodyDescription1}>{description1}</Text>
-					<div className={styles.cardBodyInnerCard}>
-						<Text className={styles.bodyDescription2}>{description2}</Text>
-						<Text className={styles.bodyDescription3}>{description3}</Text>
-					</div>
-				</div>
-				<div className={styles.cardFooter}>
-					<Text className={styles.footerNotes}>{footer}</Text>
-				</div>
+	// B. Fecth data
 
-			</div>
-		</>
-	);
-
+	//
+	// C. Render domponents
 	return (
 		<div className={styles.container}>
 			{cardData.map((card, index) => (
-				<Card key={index} description1={card.description1.toString()} description2={card.description2} description3={card.description3} footer={card.footer} image={card.image} subheading={card.subheading} title={card.title} value={card.value} />
+				<MetricsContactsPageCardGroupCard key={index} description1={card.description1.toString()} description2={card.description2} description3={card.description3} footer={card.footer} image={card.image} subheading={card.subheading} title={card.title} value={card.value} />
 			))}
 		</div>
 	);
