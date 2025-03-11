@@ -21,7 +21,7 @@ export function MetricsPageContactsHeader({ data }: Props) {
 	const [totalComplaints, setTotalComplains] = useState<number>(0);
 
 	//
-	// B. Fetch Data
+	// B. Fetch data
 	useEffect(() => {
 		if (!data) return;
 
@@ -35,7 +35,7 @@ export function MetricsPageContactsHeader({ data }: Props) {
 	}, [data]);
 
 	//
-	// C. Render Components
+	// C. Render components
 	return (
 		<div className={styles.headerInfoContainer}>
 			<Text className={styles.complaintsTotal}>{totalComplaints}</Text>

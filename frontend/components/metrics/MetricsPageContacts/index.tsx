@@ -1,6 +1,5 @@
 'use client';
 /* * */
-import { NoDataLabel } from '@/components/layout/NoDataLabel';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { MetricsPageContactsGlobalCard } from '@/components/metrics/MetricsPageContactGlobalCard';
@@ -109,13 +108,10 @@ export function MetricsPageContacts() {
 			filter_type: value || 'global',
 		}));
 	};
-
-	const renderNoData = () => <NoDataLabel text="No data available" />;
 	//
 	// D. Render components
 	return (
 		<Surface>
-			{!allComplaintsData && renderNoData()}
 			<div id="contactsMetrics">
 				<Section heading={t('heading')} subheading={t('subheading')} withPadding>
 					<MetricsPageContactsGlobalCard allData={state.globalComplaints} totalPassengersLastWeek={state.totalPassengersLastWeek} />

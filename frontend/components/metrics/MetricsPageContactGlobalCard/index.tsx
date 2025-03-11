@@ -18,7 +18,7 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek
 	// A. Setup variables
 	const t = useTranslations('metrics.MetricsPageContactsGlobalCard');
 	//
-	// C. Render Components
+	// C. Render components
 	const renderTotalPassegersByDay = () => {
 		return (
 			<div>
