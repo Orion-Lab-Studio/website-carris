@@ -11,14 +11,18 @@ interface Props {
 	totalPassengersLastWeek: number
 }
 /* * */
+
 export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek }: Props) {
 	//
 
 	//
 	// A. Setup variables
+
 	const t = useTranslations('metrics.MetricsPageContactsGlobalCard');
+
 	//
 	// C. Render components
+
 	const renderTotalPassegersByDay = () => {
 		return (
 			<div>
@@ -82,5 +86,6 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek
 			</div>
 		</div>
 	);
+
 	//
 }

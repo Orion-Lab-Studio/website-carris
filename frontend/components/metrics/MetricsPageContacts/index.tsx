@@ -20,6 +20,7 @@ export function MetricsPageContacts() {
 
 	//
 	// A. Setup variables
+
 	const [state, setState] = useState({
 		filter_type: 'global',
 		filter_value: '-',
@@ -38,13 +39,13 @@ export function MetricsPageContacts() {
 
 	const { data: demandMetricsByAgencyMonthData } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/month`);
 	const { data: demandMetricsByLineMonthData } = useSWR<DemandMetricsByLine[]>(`${Routes.API}/metrics/demand/by_line`);
-
 	const { data: allComplaintsData } = useSWR(`${Routes.API}/metrics/complaints/`);
 
 	const t = useTranslations('metrics.MetricsPageContacts');
 
 	const linesContext = useLinesContext();
 	const locationsContext = useLocationsContext();
+
 	//
 	// B. Fetch data
 
@@ -76,7 +77,6 @@ export function MetricsPageContacts() {
 
 	useEffect(() => {
 		if (!allComplaintsData) return;
-
 		const line_complaints = allComplaintsData.filter(item => item.type === 'line' && item.filter_value === state.filter_value);
 		const municipal_complaints = allComplaintsData.filter(item => item.type === 'municipality' && item.filter_value === state.filter_value);
 		const global_complaints = allComplaintsData.filter(item => item.type === 'global' && item.filter_value === '-');
@@ -98,6 +98,7 @@ export function MetricsPageContacts() {
 	useEffect(() => {
 		handleDataSetup();
 	}, [state.filter_type, state.filter_value]);
+
 	//
 	// C. Handle actions
 
@@ -125,8 +126,10 @@ export function MetricsPageContacts() {
 			filter_type: value || 'global',
 		}));
 	};
+
 	//
 	// D. Render components
+
 	return (
 		<Surface>
 			<div id="contactsMetrics">
@@ -138,5 +141,6 @@ export function MetricsPageContacts() {
 			</div>
 		</Surface>
 	);
+
 	//
 }

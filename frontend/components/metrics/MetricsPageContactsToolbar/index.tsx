@@ -13,11 +13,13 @@ interface Props {
 	filter_value: (value) => void
 }
 /* * */
+
 export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value }: Props) {
 	//
 
 	//
 	// A. Setup variables
+
 	const t = useTranslations('metrics.MetricsPageContactsToolbar');
 	const [line, setLine] = useState(null);
 	const [municipality, setMunicipality] = useState(null);
@@ -42,6 +44,7 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 	];
 	//
 	// B. Handle actions
+
 	const handleLineChange = (value) => {
 		if (municipality) {
 			setMunicipality(null);
@@ -75,6 +78,7 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 	};
 	//
 	// C. Render components
+
 	return (
 		<Section>
 			<Text className={styles.toolbarDescription}>{t('toolbar_desc')}</Text>
@@ -100,5 +104,6 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 			</div>
 		</Section>
 	);
+
 	//
 }

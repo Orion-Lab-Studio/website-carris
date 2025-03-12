@@ -1,9 +1,10 @@
+/* * */
 import { MetricsContactsPageCardGroupCard } from '@/components/metrics/MetricsPageContactsCardGroupCard';
 import { Complaints } from '@carrismetropolitana/api-types/metrics';
 import { useMemo } from 'react';
 
 import styles from './styles.module.css';
-
+/* * */
 interface Props {
 	data: Complaints[]
 	filter_type: string
@@ -13,9 +14,14 @@ interface Props {
 	totalPassengersLastWeek?: number
 	totalPassengersLastWeekLineId?: number
 }
+/* * */
 
 export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, lineColor, municipalityName, totalPassengersLastWeek, totalPassengersLastWeekLineId }: Props) {
+	//
+
+	//
 	// A. Setup variables
+
 	const filteredData = useMemo(() => {
 		return data.filter(item => item.filter_value === filter_value && item.type === filter_type);
 	}, [data, filter_type, filter_value]);
@@ -32,7 +38,9 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 		return filteredData.reduce((acc, item) => acc + item.other, 0);
 	}, [filteredData]);
 
+	//
 	// B. Fetch data
+
 	const calcPercentage = (value: number, total: number) => {
 		return `${((value / total) * 100).toFixed(3)}%`;
 	};
@@ -58,6 +66,7 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 	], [totalInfoRequests, totalComplaints, totalOther, totalPassengersLastWeek, totalPassengersLastWeekLineId, filter_value, filter_type, lineColor, municipalityName]);
 
 	// C. Render components
+
 	return (
 		<div className={styles.container}>
 			{cardData.map((card, index) => (
@@ -78,4 +87,6 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 			))}
 		</div>
 	);
+
+	//
 }

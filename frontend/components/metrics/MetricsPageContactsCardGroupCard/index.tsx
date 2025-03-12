@@ -24,9 +24,12 @@ export function MetricsContactsPageCardGroupCard({ description1, description2, d
 
 	//
 	// A. Setup variables
+
 	const t = useTranslations('metrics.MetricsPageContactsCardGroup');
+
 	//
 	// B. Render components
+
 	return (
 		<div>
 			<div className={styles.cardMainWrapperShadow} style={{ backgroundColor: line_color }}>
@@ -54,5 +57,6 @@ export function MetricsContactsPageCardGroupCard({ description1, description2, d
 			</div>
 		</div>
 	);
+
 	//
 }
