@@ -101,7 +101,7 @@ export const AlertsListContextProvider = ({ children }) => {
 		const oneWeekFromNowInUnixSeconds = DateTime.now().plus({ week: 1 }).endOf('day').toSeconds();
 		const nowInUnixSeconds = DateTime.now().startOf('day').toSeconds();
 		const alertStartDateInSeconds = DateTime.fromJSDate(item.start_date).toSeconds();
-		const alertEndDate = DateTime.fromJSDate(item.end_date).toSeconds();
+		const alertEndDate = item.end_date ? DateTime.fromJSDate(item.end_date).toSeconds() : +Infinity;
 		//
 		if (alertStartDateInSeconds <= oneWeekFromNowInUnixSeconds && alertEndDate >= nowInUnixSeconds) {
 			return true;
@@ -121,7 +121,7 @@ export const AlertsListContextProvider = ({ children }) => {
 
 		filterResult = filterResult.filter((item) => {
 			const alertStartDateInSeconds = DateTime.fromJSDate(item.start_date).toSeconds();
-			const alertEndDate = DateTime.fromJSDate(item.end_date).toSeconds();
+			const alertEndDate = item.end_date ? DateTime.fromJSDate(item.end_date).toSeconds() : +Infinity;
 			//
 			if (filterByDateState === 'current') {
 				// If the alert start date is before one week from now, and if the end date is after or equal to today

@@ -30,7 +30,7 @@ export default (alertData: Alert, currentLocale = 'pt'): SimplifiedAlert => {
 	const startDateObject = DateTime.fromSeconds(startDate).toJSDate();
 	// End date
 	const endDate = alertData.active_period.end ? alertData.active_period.end : +Infinity;
-	const endDateObject = DateTime.fromSeconds(endDate).toJSDate();
+	const endDateObject = endDate === +Infinity ? undefined : DateTime.fromSeconds(endDate).toJSDate();
 	//
 	return {
 		alert_id: alertData.alert_id,
