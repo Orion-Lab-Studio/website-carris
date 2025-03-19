@@ -48,7 +48,6 @@ export function SurveyHeader() {
 			</div>
 			<LottiePlayer
 				className={styles.lottieGlobalSatisfaction}
-				loop={false}
 				path="/assets/survey-2024/animations/about/isgp.json"
 				play
 			/>
