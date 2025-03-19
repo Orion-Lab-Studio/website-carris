@@ -3,21 +3,21 @@
 
 /* * */
 
-import type { NextRequest } from 'next/server';
-
+import { type NextRequest } from 'next/server';
 import { NextResponse } from 'next/server';
 
 /* * */
 
 export function middleware(request: NextRequest) {
 	const parsedUrl = new URL(request.nextUrl.pathname.toLowerCase(), request.url);
-
 	return NextResponse.rewrite(parsedUrl, {
 		headers: {
 			'x-href': request.nextUrl.href,
 		},
 	});
 }
+
+/* * */
 
 export const config = {
 	matcher: [
