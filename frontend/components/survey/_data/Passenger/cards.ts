@@ -19,7 +19,7 @@ export const allPassangersCardsData: SurveyPassengersCardSchema[] = [
 	{
 		_id: 'Passenger_Gender',
 		content: {
-			lottie_src: '/assets/survey/animations/passageiros/Passenger_Gender.json',
+			lottie_src: '/assets/survey-2024/animations/passageiros/Passenger_Gender.json',
 		},
 		header: {
 			title: 'Género',
@@ -29,7 +29,7 @@ export const allPassangersCardsData: SurveyPassengersCardSchema[] = [
 	{
 		_id: 'Age',
 		content: {
-			lottie_src: '/assets/survey/animations/passageiros/Passenger_Age.json',
+			lottie_src: '/assets/survey-2024/animations/passageiros/Passenger_Age.json',
 		},
 		header: {
 			title: 'Idade',
@@ -39,7 +39,7 @@ export const allPassangersCardsData: SurveyPassengersCardSchema[] = [
 	{
 		_id: 'Occupation',
 		content: {
-			lottie_src: '/assets/survey/animations/passageiros/Passenger_Occupation.json',
+			lottie_src: '/assets/survey-2024/animations/passageiros/Passenger_Occupation.json',
 		},
 		header: {
 			title: 'Ocupação',
@@ -49,7 +49,7 @@ export const allPassangersCardsData: SurveyPassengersCardSchema[] = [
 	{
 		_id: 'Commute',
 		content: {
-			lottie_src: '/assets/survey/animations/passageiros/Passenger_Commute.json',
+			lottie_src: '/assets/survey-2024/animations/passageiros/Passenger_Commute.json',
 		},
 		header: {
 			title: 'Regime de Deslocação',
@@ -58,7 +58,7 @@ export const allPassangersCardsData: SurveyPassengersCardSchema[] = [
 	{
 		_id: 'Passenger_Education',
 		content: {
-			lottie_src: '/assets/survey/animations/passageiros/Passenger_Education.json',
+			lottie_src: '/assets/survey-2024/animations/passageiros/Passenger_Education.json',
 		},
 		header: {
 			title: 'Nível de Instrução',
@@ -67,7 +67,7 @@ export const allPassangersCardsData: SurveyPassengersCardSchema[] = [
 	// {
 	// 	_id: 'last_card',
 	// 	content: {
-	// 		lottie_src: '/assets/survey/animations/passageiros/Passenger_Last.json',
+	// 		lottie_src: '/assets/survey-2024/animations/passageiros/Passenger_Last.json',
 	// 	},
 	// 	header: {
 	// 		title: '',

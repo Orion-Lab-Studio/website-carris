@@ -33,7 +33,7 @@ export const allAboutCardsData: SurveryAboutCardSchema[] = [
 		content: {
 			header_title: 'Com quem falámos?',
 			legend: 'total de entrevistas presenciais concretizadas',
-			lottie_src: '/assets/survey/animations/sobre/Total_Interviews.json',
+			lottie_src: '/assets/survey-2024/animations/sobre/Total_Interviews.json',
 		},
 		header: {
 			value: '3200',
@@ -50,7 +50,7 @@ export const allAboutCardsData: SurveryAboutCardSchema[] = [
 			header_title: 'Onde ?',
 			intro: 'a bordo de',
 			legend: 'linhas de diferentes níveis de procura',
-			lottie_src: '/assets/survey/animations/sobre/Total_Lines.json',
+			lottie_src: '/assets/survey-2024/animations/sobre/Total_Lines.json',
 
 		},
 		header: {
@@ -68,7 +68,7 @@ export const allAboutCardsData: SurveryAboutCardSchema[] = [
 			header_title: 'Quando?',
 			intro: 'entre os meses de',
 			legend: 'de 2024',
-			lottie_src: '/assets/survey/animations/sobre/Total_Months.json',
+			lottie_src: '/assets/survey-2024/animations/sobre/Total_Months.json',
 
 		},
 		header: {
@@ -86,7 +86,7 @@ export const allAboutCardsData: SurveryAboutCardSchema[] = [
 		content: {
 			header_title: 'Durante Quanto Tempo?',
 			legend: 'duração média de cada entrevista',
-			lottie_src: '/assets/survey/animations/sobre/Total_Duration.json',
+			lottie_src: '/assets/survey-2024/animations/sobre/Total_Duration.json',
 
 		},
 		header: {
@@ -104,7 +104,7 @@ export const allAboutCardsData: SurveryAboutCardSchema[] = [
 			header_title: 'Como Testámos?',
 			intro: '',
 			legend: 'que incluiram focus group e inquéritos piloto',
-			lottie_src: '/assets/survey/animations/sobre/Total_Pilots.json',
+			lottie_src: '/assets/survey-2024/animations/sobre/Total_Pilots.json',
 
 		},
 		header: {
