@@ -73,7 +73,7 @@ export const AlertsContextProvider = ({ children }) => {
 	// D. Handle actions
 
 	const getSimplifiedAlertById = (alertId: string): null | SimplifiedAlert => {
-		return dataSimplifiedState.find(item => item.alert_id === alertId) || null;
+		return dataSimplifiedState.find(item => item.alert_id.toLowerCase() === alertId.toLowerCase()) || null;
 	};
 
 	const getSimplifiedAlertsByLineId = (lineId: string): SimplifiedAlert[] => {
