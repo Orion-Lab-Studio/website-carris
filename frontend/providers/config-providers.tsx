@@ -3,6 +3,7 @@
 /* * */
 
 import { DebugContextProvider } from '@/contexts/Debug.context';
+import { LocaleContextProvider } from '@/contexts/Locale.context';
 import { SWRConfig, SWRConfiguration } from 'swr';
 
 /* * */
@@ -38,9 +39,11 @@ export function ConfigProviders({ children }) {
 
 	return (
 		<SWRConfig value={swrSettings}>
-			<DebugContextProvider>
-				{children}
-			</DebugContextProvider>
+			<LocaleContextProvider>
+				<DebugContextProvider>
+					{children}
+				</DebugContextProvider>
+			</LocaleContextProvider>
 		</SWRConfig>
 	);
 

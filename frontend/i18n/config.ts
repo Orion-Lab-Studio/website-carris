@@ -1,6 +1,6 @@
 /* * */
 
-import type { Formats } from 'next-intl';
+import { type Formats } from 'next-intl';
 
 /* * */
 

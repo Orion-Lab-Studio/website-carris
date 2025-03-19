@@ -2,9 +2,8 @@
 
 /* * */
 
+import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { createContext, useContext, useState } from 'react';
-
-import { useAnalyticsContext } from './Analytics.context';
 
 /* * */
 
@@ -37,8 +36,9 @@ export const DebugContextProvider = ({ children }) => {
 	//
 	// A. Setup variables
 
-	const [flagIsDebugModeState, setFlagIsDebugModeState] = useState<boolean>(false);
 	const analyticsContext = useAnalyticsContext();
+
+	const [flagIsDebugModeState, setFlagIsDebugModeState] = useState<boolean>(false);
 
 	//
 	// B. Handle actions
