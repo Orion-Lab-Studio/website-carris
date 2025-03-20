@@ -3,6 +3,7 @@
 /* * */
 
 import { useAnalyticsContext } from '@/contexts/Analytics.context';
+import { defaultLocaleCode } from '@/i18n/config';
 import { getUserLocale, setUserLocale } from '@/i18n/locale';
 import { createContext, startTransition, useContext, useEffect, useMemo, useState } from 'react';
 
@@ -46,18 +47,19 @@ export const LocaleContextProvider = ({ children }) => {
 
 	const fetchLocaleCookie = async () => {
 		// Get the user locale using server algorithm
-		const locale = await getUserLocale();
+		// const locale = await getUserLocale();
 		// Ensure the locale is saved in a cookie
-		await setUserLocale(locale);
+		// await setUserLocale(locale);
 		// Update the context state
-		setDataCurrentLocaleState(locale);
+		setDataCurrentLocaleState(defaultLocaleCode);
 	};
 
 	const changeLocale = (value: string) => {
 		startTransition(async () => {
 			try {
 				await setUserLocale(value);
-				await fetchLocaleCookie();
+				setDataCurrentLocaleState(value);
+				// await fetchLocaleCookie();
 				analyticsContext.actions.capture((ampli, props) => ampli.changedLocale({ ...props, locale: value }));
 			}
 			catch (error) {
