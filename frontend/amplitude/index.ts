@@ -113,6 +113,7 @@ export interface ApplicationErroredProperties {
    * Captures an Error type
    */
   error_type: string;
+  locale: string;
   pathname: string;
   referrer?: string;
   referring_domain?: string;
@@ -120,21 +121,6 @@ export interface ApplicationErroredProperties {
 
 export interface CaptureAlertsRefererProperties {
   page_referer: string;
-}
-
-export interface CaptureFrontendErrorProperties {
-  /**
-   * Captures an error date
-   */
-  error_date: string;
-  /**
-   * Error text
-   */
-  error_title: string;
-  /**
-   * Captures an Error type
-   */
-  error_type: string;
 }
 
 export interface CaptureNewsRefererProperties {
@@ -568,16 +554,6 @@ export class CaptureAlertsReferer implements BaseEvent {
 
   constructor(
     public event_properties: CaptureAlertsRefererProperties,
-  ) {
-    this.event_properties = event_properties;
-  }
-}
-
-export class CaptureFrontendError implements BaseEvent {
-  event_type = 'Capture Frontend Error';
-
-  constructor(
-    public event_properties: CaptureFrontendErrorProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -1095,23 +1071,6 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new CaptureAlertsReferer(properties), options);
-  }
-
-  /**
-   * Capture Frontend Error
-   *
-   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Capture%20Frontend%20Error)
-   *
-   * Ocurred a frontend error
-   *
-   * @param properties The event's properties (e.g. error_date)
-   * @param options Amplitude event options.
-   */
-  captureFrontendError(
-    properties: CaptureFrontendErrorProperties,
-    options?: EventOptions,
-  ) {
-    return this.track(new CaptureFrontendError(properties), options);
   }
 
   /**

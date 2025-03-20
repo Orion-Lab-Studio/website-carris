@@ -100,10 +100,6 @@ export const NewsListContextProvider = ({ children }) => {
 		setDataFilteredState(filteredNews);
 	}, [allNewsData, filterBySearch, filterByDate]);
 
-	useEffect(() => {
-		// analyticsContext.actions.capture(ampli => ampli.captureNewsReferer({ page_referer: document.referrer }));
-	}, [allNewsData]);
-
 	//
 	// D. Handle actions
 

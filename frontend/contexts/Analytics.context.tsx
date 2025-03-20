@@ -12,9 +12,9 @@ import { createContext, useContext, useEffect } from 'react';
 interface DefaultEventProps {
 	app_version: string
 	domain: string
-	locale?: string
+	locale: string
 	pathname: string
-	referer?: string
+	referrer?: string
 	referring_domain?: string
 }
 
@@ -72,7 +72,7 @@ export const AnalyticsContextProvider = ({ children }) => {
 			domain: window.location.hostname,
 			locale: document.documentElement.lang,
 			pathname: window.location.pathname,
-			referer: document.referrer,
+			referrer: document.referrer,
 			referring_domain: document.referrer ? new URL(document.referrer).hostname : '',
 		};
 		// Execute the callback with the default event properties
