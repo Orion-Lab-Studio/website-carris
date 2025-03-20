@@ -123,25 +123,13 @@ export interface CaptureNewsRefererProperties {
   /**
    * The version of the application that generated the event.
    */
-  app_version?: string;
+  app_version: string;
   /**
    * | Rule | Value |
    * |---|---|
    * | Regex |  |
    */
-  event_date?: string;
-  /**
-   * | Rule | Value |
-   * |---|---|
-   * | Regex |  |
-   */
-  page_domain?: string;
-  /**
-   * | Rule | Value |
-   * |---|---|
-   * | Regex |  |
-   */
-  page_location?: string;
+  page_location: string;
   /**
    * Captures the Referrer for a page
    */
@@ -161,6 +149,18 @@ export interface ChangeStopsViewTypeProperties {
   view_type: string;
 }
 
+export interface ChangedLocaleProperties {
+  /**
+   * The version of the application that generated the event.
+   */
+  app_version: string;
+  domain: string;
+  locale: string;
+  pathname: string;
+  referrer?: string;
+  referring_domain?: string;
+}
+
 export interface ClickDebugToggleProperties {
   /**
    * Captures if something is enabled
@@ -177,6 +177,7 @@ export interface ClickLinkProperties {
    * This property indicates the href of the destination URL. This is used when the user is navigating out of the current screen by means of a link (either in-app or in a website).
    */
   destination_href: string;
+  pathname: string;
 }
 
 export interface DatePeriodSelectedProperties {
@@ -234,11 +235,31 @@ export interface OpenGoogleMapsClickedProperties {
   click_from: string;
 }
 
+export interface OpenedStopDetailsProperties {
+  /**
+   * The version of the application that generated the event.
+   */
+  app_version: string;
+  domain: string;
+  pathname: string;
+  referrer?: string;
+  referring_domain?: string;
+  /**
+   * Holds a the ID of the entity "Stop", which is always a 6-digit numeric string.
+   *
+   * | Rule | Value |
+   * |---|---|
+   * | Min Length | 6 |
+   * | Max Length | 6 |
+   */
+  stop_id: string;
+}
+
 export interface PingProperties {
   /**
    * The version of the application that generated the event.
    */
-  app_version?: string;
+  app_version: string;
   /**
    * This property indicates the location in the app (the pathname, the screen id) where the current event was generated at.
    */
@@ -310,52 +331,11 @@ export interface StopAudioPlayedProperties {
   stop_id: string;
 }
 
-export interface StopDetailRedirectedProperties {
-  "[Amplitude] Page Path"?: any;
+export interface StopSelectedProperties {
   /**
    * The version of the application that generated the event.
    */
-  app_version?: string;
-  /**
-   * | Rule | Value |
-   * |---|---|
-   * | Regex |  |
-   */
-  event_date?: string;
-  /**
-   * | Rule | Value |
-   * |---|---|
-   * | Regex |  |
-   */
-  page_domain?: string;
-  /**
-   * | Rule | Value |
-   * |---|---|
-   * | Regex |  |
-   */
-  page_location?: string;
-  /**
-   * Captures the Referrer for a page
-   */
-  page_referer?: string;
-  /**
-   * | Rule | Value |
-   * |---|---|
-   * | Regex |  |
-   */
-  page_title?: string;
-  /**
-   * Holds a the ID of the entity "Stop", which is always a 6-digit numeric string.
-   *
-   * | Rule | Value |
-   * |---|---|
-   * | Min Length | 6 |
-   * | Max Length | 6 |
-   */
-  stop_id: string;
-}
-
-export interface StopSelectedProperties {
+  app_version: string;
   /**
    * Holds a the ID of the entity "Stop", which is always a 6-digit numeric string.
    *
@@ -568,7 +548,7 @@ export class CaptureNewsReferer implements BaseEvent {
   event_type = 'Capture News Referer';
 
   constructor(
-    public event_properties?: CaptureNewsRefererProperties,
+    public event_properties: CaptureNewsRefererProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -579,6 +559,16 @@ export class ChangeStopsViewType implements BaseEvent {
 
   constructor(
     public event_properties: ChangeStopsViewTypeProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class ChangedLocale implements BaseEvent {
+  event_type = 'Changed Locale';
+
+  constructor(
+    public event_properties: ChangedLocaleProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -649,6 +639,16 @@ export class OpenGoogleMapsClicked implements BaseEvent {
 
   constructor(
     public event_properties: OpenGoogleMapsClickedProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class OpenedStopDetails implements BaseEvent {
+  event_type = 'Opened Stop Details';
+
+  constructor(
+    public event_properties: OpenedStopDetailsProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -739,16 +739,6 @@ export class StopAudioPlayed implements BaseEvent {
 
   constructor(
     public event_properties: StopAudioPlayedProperties,
-  ) {
-    this.event_properties = event_properties;
-  }
-}
-
-export class StopDetailRedirected implements BaseEvent {
-  event_type = 'Stop Detail Redirected';
-
-  constructor(
-    public event_properties: StopDetailRedirectedProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -1069,7 +1059,7 @@ export class Ampli {
    * @param options Amplitude event options.
    */
   captureNewsReferer(
-    properties?: CaptureNewsRefererProperties,
+    properties: CaptureNewsRefererProperties,
     options?: EventOptions,
   ) {
     return this.track(new CaptureNewsReferer(properties), options);
@@ -1090,6 +1080,23 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new ChangeStopsViewType(properties), options);
+  }
+
+  /**
+   * Changed Locale
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Changed%20Locale)
+   *
+   * Event to track when a user changes the language or region settings in the app.
+   *
+   * @param properties The event's properties (e.g. app_version)
+   * @param options Amplitude event options.
+   */
+  changedLocale(
+    properties: ChangedLocaleProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new ChangedLocale(properties), options);
   }
 
   /**
@@ -1212,6 +1219,23 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new OpenGoogleMapsClicked(properties), options);
+  }
+
+  /**
+   * Opened Stop Details
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Opened%20Stop%20Details)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. app_version)
+   * @param options Amplitude event options.
+   */
+  openedStopDetails(
+    properties: OpenedStopDetailsProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new OpenedStopDetails(properties), options);
   }
 
   /**
@@ -1368,30 +1392,13 @@ export class Ampli {
   }
 
   /**
-   * Stop Detail Redirected
-   *
-   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Stop%20Detail%20Redirected)
-   *
-   * Clicked something that redirected to a stop details page
-   *
-   * @param properties The event's properties (e.g. [Amplitude] Page Path)
-   * @param options Amplitude event options.
-   */
-  stopDetailRedirected(
-    properties: StopDetailRedirectedProperties,
-    options?: EventOptions,
-  ) {
-    return this.track(new StopDetailRedirected(properties), options);
-  }
-
-  /**
    * Stop Selected
    *
    * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Stop%20Selected)
    *
    * Selected a specific stop
    *
-   * @param properties The event's properties (e.g. stop_id)
+   * @param properties The event's properties (e.g. app_version)
    * @param options Amplitude event options.
    */
   stopSelected(

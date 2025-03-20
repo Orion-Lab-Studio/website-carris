@@ -12,9 +12,9 @@ import { createContext, useContext, useEffect } from 'react';
 interface DefaultEventProps {
 	app_version: string
 	domain: string
-	page_location: string
-	page_title: string
-	referer: string
+	pathname: string
+	referer?: string
+	referring_domain?: string
 }
 
 interface AnalyticsContextState {
@@ -81,9 +81,9 @@ export const AnalyticsContextProvider = ({ children }) => {
 		const defaultProps: DefaultEventProps = {
 			app_version: pjson.version,
 			domain: window.location.hostname,
-			page_location: window.location.href,
-			page_title: document.title,
+			pathname: window.location.pathname,
 			referer: document.referrer,
+			referring_domain: new URL(document.referrer).hostname,
 		};
 		// Execute the callback with the default event properties
 		callback(ampli, defaultProps);

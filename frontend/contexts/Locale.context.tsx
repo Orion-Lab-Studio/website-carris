@@ -2,7 +2,7 @@
 
 /* * */
 
-// import { useAnalyticsContext } from '@/contexts/Analytics.context';
+import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { getUserLocale, setUserLocale } from '@/i18n/locale';
 import { createContext, startTransition, useContext, useEffect, useMemo, useState } from 'react';
 
@@ -10,7 +10,7 @@ import { createContext, startTransition, useContext, useEffect, useMemo, useStat
 
 interface LocaleContextState {
 	actions: {
-		setLocale: (value: string) => void
+		changeLocale: (value: string) => void
 	}
 	data: {
 		current_locale: string | undefined
@@ -37,7 +37,7 @@ export const LocaleContextProvider = ({ children }) => {
 	//
 	// A. Setup variables
 
-	// const analyticsContext = useAnalyticsContext();
+	const analyticsContext = useAnalyticsContext();
 
 	const [dataCurrentLocaleState, setDataCurrentLocaleState] = useState<LocaleContextState['data']['current_locale']>();
 
@@ -54,12 +54,12 @@ export const LocaleContextProvider = ({ children }) => {
 		setDataCurrentLocaleState(locale);
 	};
 
-	const setLocale = (value: string) => {
+	const changeLocale = (value: string) => {
 		startTransition(async () => {
 			try {
 				await setUserLocale(value);
 				await fetchLocaleCookie();
-				// analyticsContext.actions.capture(ampli => ampli.changeLocale(value));
+				analyticsContext.actions.capture((ampli, props) => ampli.changedLocale({ ...props, locale: value }));
 			}
 			catch (error) {
 				console.error(error);
@@ -76,7 +76,7 @@ export const LocaleContextProvider = ({ children }) => {
 
 	const contextValue: LocaleContextState = useMemo(() => ({
 		actions: {
-			setLocale,
+			changeLocale,
 		},
 		data: {
 			current_locale: dataCurrentLocaleState,

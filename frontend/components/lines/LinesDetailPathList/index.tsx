@@ -77,9 +77,9 @@ export function LinesDetailPathList() {
 
 		const selectedStopId = selectedStop?.id.split('-')[1];
 
-		analyticsContext.actions.capture((ampli) => {
+		analyticsContext.actions.capture((ampli, props) => {
 			if (selectedStopId) {
-				ampli.stopSelected({ stop_id: selectedStopId });
+				ampli.stopSelected({ ...props, stop_id: selectedStopId });
 			}
 		});
 
@@ -92,9 +92,7 @@ export function LinesDetailPathList() {
 	// E. Render components
 
 	if (!sortedStops?.length || !linesDetailContext.data.active_pattern) {
-		return (
-			<NoDataLabel />
-		);
+		return <NoDataLabel />;
 	}
 
 	return (

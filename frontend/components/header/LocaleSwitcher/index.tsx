@@ -34,7 +34,7 @@ export function LocaleSwitcher() {
 	// C. Handle actions
 
 	const handleLocaleChange = (value: string) => {
-		localeContext.actions.setLocale(value);
+		localeContext.actions.changeLocale(value);
 	};
 
 	//
