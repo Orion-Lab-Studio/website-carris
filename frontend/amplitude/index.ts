@@ -310,6 +310,17 @@ export interface SearchStopProperties {
   search_value: string;
 }
 
+export interface SessionStartedProperties {
+  /**
+   * The version of the application that generated the event.
+   */
+  app_version: string;
+  domain: string;
+  pathname: string;
+  referrer?: string;
+  referring_domain?: string;
+}
+
 export interface ShareCardViagem2024Properties {
   card_id: string;
   card_title: string;
@@ -719,6 +730,16 @@ export class SearchStop implements BaseEvent {
 
   constructor(
     public event_properties: SearchStopProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class SessionStarted implements BaseEvent {
+  event_type = 'Session Started';
+
+  constructor(
+    public event_properties: SessionStartedProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -1226,7 +1247,7 @@ export class Ampli {
    *
    * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Opened%20Stop%20Details)
    *
-   * Event has no description in tracking plan.
+   * Event to track when a user opens the details of a Stop.
    *
    * @param properties The event's properties (e.g. app_version)
    * @param options Amplitude event options.
@@ -1355,6 +1376,23 @@ export class Ampli {
     options?: EventOptions,
   ) {
     return this.track(new SearchStop(properties), options);
+  }
+
+  /**
+   * Session Started
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Session%20Started)
+   *
+   * Event has no description in tracking plan.
+   *
+   * @param properties The event's properties (e.g. app_version)
+   * @param options Amplitude event options.
+   */
+  sessionStarted(
+    properties: SessionStartedProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new SessionStarted(properties), options);
   }
 
   /**
