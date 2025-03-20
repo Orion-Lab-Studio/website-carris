@@ -42,7 +42,7 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 	// B. Fetch data
 
 	const calcPercentage = (value: number, total: number) => {
-		return `${((value / total) * 100).toFixed(3)}%`;
+		return `${((value / total) * 100).toFixed(2)}%`;
 	};
 
 	const createCardData = (description1: string, value: number, image: string, title: string, footer?: string) => ({

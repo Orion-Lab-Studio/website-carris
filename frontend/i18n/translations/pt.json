@@ -933,7 +933,7 @@
 			"total_contacts_desc": "total de contactos na última semana",
 			"total_email_contacts_desc": "contactos por email",
 			"total_passengers_day": "{value, number}",
-			"total_passengers_day_contacts_desc": "total de passangeiros da semana",
+			"total_passengers_day_contacts_desc": "total de passageiros da última semana",
 			"total_phone_contacts_desc": "contactos telefónicos"
 		},
 		"MetricsPageContactsToolbar": {

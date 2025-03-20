@@ -39,7 +39,7 @@ export function MetricsContactsPageCardGroupCard({ description1, description2, d
 				<div className={styles.cardBody}>
 
 					{subheading === 'line' && <div className={styles.lineBadge}><LineBadge color={line_color} lineId={filter_value} /></div> }
-					{subheading === 'global' && <Text className={styles.subheading}>area metropolitana de Lisboa</Text> }
+					{subheading === 'global' && <Text className={styles.subheading}>área metropolitana de Lisboa</Text> }
 					{subheading === 'municipality' && <Text className={styles.subheading}>{municipality_name}</Text> }
 
 					<Image alt={title}className={styles.image} src={image} />
