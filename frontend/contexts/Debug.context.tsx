@@ -44,9 +44,10 @@ export const DebugContextProvider = ({ children }) => {
 	// B. Handle actions
 
 	useEffect(() => {
-		// Capture debug mode state when it changes
-		// This should stay in its own use effect to ensure the latest value of flagIsDebugModeState is captured
-		analyticsContext.actions.capture((ampli, props) => ampli.debugModeToggled({ ...props, debug_mode: flagIsDebugModeState }));
+		// Capture debug mode state when it changes.
+		// This should stay in its own use effect to ensure the latest value of flagIsDebugModeState is captured.
+		if (flagIsDebugModeState) analyticsContext.actions.capture((ampli, props) => ampli.debugModeEnabled(props));
+		else analyticsContext.actions.capture((ampli, props) => ampli.debugModeDisabled(props));
 	}, [flagIsDebugModeState]);
 
 	const toggleDebugMode = () => {

@@ -172,15 +172,23 @@ export interface DatePeriodSelectedProperties {
   date_value: string;
 }
 
-export interface DebugModeToggledProperties {
+export interface DebugModeDisabledProperties {
   /**
    * The version of the application that generated the event.
    */
   app_version: string;
+  domain: string;
+  locale: string;
+  pathname: string;
+  referrer?: string;
+  referring_domain?: string;
+}
+
+export interface DebugModeEnabledProperties {
   /**
-   * Captures if something is enabled
+   * The version of the application that generated the event.
    */
-  debug_mode: boolean;
+  app_version: string;
   domain: string;
   locale: string;
   pathname: string;
@@ -608,11 +616,21 @@ export class DatePeriodSelected implements BaseEvent {
   }
 }
 
-export class DebugModeToggled implements BaseEvent {
-  event_type = 'Debug Mode Toggled';
+export class DebugModeDisabled implements BaseEvent {
+  event_type = 'Debug Mode Disabled';
 
   constructor(
-    public event_properties: DebugModeToggledProperties,
+    public event_properties: DebugModeDisabledProperties,
+  ) {
+    this.event_properties = event_properties;
+  }
+}
+
+export class DebugModeEnabled implements BaseEvent {
+  event_type = 'Debug Mode Enabled';
+
+  constructor(
+    public event_properties: DebugModeEnabledProperties,
   ) {
     this.event_properties = event_properties;
   }
@@ -1151,20 +1169,37 @@ export class Ampli {
   }
 
   /**
-   * Debug Mode Toggled
+   * Debug Mode Disabled
    *
-   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Debug%20Mode%20Toggled)
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Debug%20Mode%20Disabled)
    *
-   * Event indicating when the debug mode has been toggled on or off within the application.
+   * Event indicating that the debug mode has been disabled in the user preferences.
    *
    * @param properties The event's properties (e.g. app_version)
    * @param options Amplitude event options.
    */
-  debugModeToggled(
-    properties: DebugModeToggledProperties,
+  debugModeDisabled(
+    properties: DebugModeDisabledProperties,
     options?: EventOptions,
   ) {
-    return this.track(new DebugModeToggled(properties), options);
+    return this.track(new DebugModeDisabled(properties), options);
+  }
+
+  /**
+   * Debug Mode Enabled
+   *
+   * [View in Tracking Plan](https://data.eu.amplitude.com/tmlmobilidade/default/events/main/latest/Debug%20Mode%20Enabled)
+   *
+   * Event indicating when a user enables debug mode in their preferences.
+   *
+   * @param properties The event's properties (e.g. app_version)
+   * @param options Amplitude event options.
+   */
+  debugModeEnabled(
+    properties: DebugModeEnabledProperties,
+    options?: EventOptions,
+  ) {
+    return this.track(new DebugModeEnabled(properties), options);
   }
 
   /**
