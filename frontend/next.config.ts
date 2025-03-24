@@ -36,6 +36,8 @@ const nextConfig: NextConfig = {
 			//
 			{ destination: '/cards', permanent: true, source: '/cartoes' },
 			//
+			{ destination: '/lost-and-found', permanent: true, source: '/perdidos-e-achados' },
+			//
 			{ destination: '/contacts', permanent: true, source: '/contactos' },
 			{ destination: '/contacts', permanent: true, source: '/apoio' },
 			//
