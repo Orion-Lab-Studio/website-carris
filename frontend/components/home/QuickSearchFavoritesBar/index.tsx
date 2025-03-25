@@ -2,18 +2,16 @@
 
 /* * */
 
-import type { Line } from '@carrismetropolitana/api-types/network';
-
 import { Loader } from '@/components/common/Loader';
 import { LineBadge } from '@/components/lines/LineBadge';
 import { useAlertsContext } from '@/contexts/Alerts.context';
+import { useLinesContext } from '@/contexts/Lines.context';
 import { useProfileContext } from '@/contexts/Profile.context';
-import { Routes, RoutesSchedule } from '@/utils/routes';
+import { type Line } from '@carrismetropolitana/api-types/network';
 import { useTranslations } from 'next-intl';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useMemo } from 'react';
-import useSWR from 'swr';
 
 import styles from './styles.module.css';
 
@@ -23,56 +21,61 @@ const DISPLAY_LIMIT = 5;
 
 /* * */
 
+interface FavoriteItem {
+	has_alert: boolean
+	line: Line
+}
+
+/* * */
+
 export function QuickSearchFavoritesBar() {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('home.QuickSearchFavoritesBar');
-
 	const router = useRouter();
+
+	const t = useTranslations('home.QuickSearchFavoritesBar');
 
 	const profileContext = useProfileContext();
 	const alertsContext = useAlertsContext();
+	const linesContext = useLinesContext();
 
 	//
-	// B. Fetch data
+	// B. Transform data
 
-	const { data: allLinesData, isLoading: allLinesLoading } = useSWR(`${Routes.API}/lines`);
-
-	//
-	// C. Transform data
-
-	const favoriteLinesData: { data: Line, has_alert: boolean }[] = useMemo(() => {
-		// Return early if data is not available
-		if (!allLinesData || !profileContext.data.favorite_lines?.length) return [];
+	const favoriteItemsData: FavoriteItem[] | undefined = useMemo(() => {
+		// Skip if data is not yet available
+		if (linesContext.flags.is_loading || profileContext.flags.is_loading) return;
+		// Return empty array if user has no favorite lines
+		if (!profileContext.data.favorite_lines) return [];
 		// Filter all lines to only include favorited lines
-		const filteredFavoriteLines = allLinesData.filter((lineData: Line) => profileContext.data.favorite_lines?.includes(lineData.id));
-		const sortedFavoriteLines = filteredFavoriteLines.sort((a: Line, b: Line) => a.short_name.localeCompare(b.short_name));
+		const filteredFavoriteLines = linesContext.data.lines.filter(lineData => profileContext.data.favorite_lines?.includes(lineData.id));
+		const sortedFavoriteLines = filteredFavoriteLines.sort((a, b) => a.short_name.localeCompare(b.short_name));
 		// Extend array with check if any of these lines have active alerts
-		const extendedFavoriteLinesWithAlerts = sortedFavoriteLines.map((lineData: Line) => {
+		const extendedFavoriteLinesWithAlerts = sortedFavoriteLines.map((lineData) => {
 			return {
-				data: lineData,
 				has_alert: alertsContext.actions.getSimplifiedAlertsByLineId(lineData.id).length > 0,
+				line: lineData,
 			};
 		});
 		// Return extended array
 		return extendedFavoriteLinesWithAlerts;
 		//
-	}, [allLinesData, profileContext.data.favorite_lines]);
+	}, [linesContext.flags.is_loading, linesContext.data.lines, profileContext.flags.is_loading, profileContext.data.favorite_lines]);
 
 	//
-	// D. Handle actions
+	// C. Handle actions
 
 	const handleClick = (lineId: string) => {
-		router.push(`${RoutesSchedule.LINES.route}/${lineId}`);
+		router.push(`/lines/${lineId}`);
 	};
 
 	//
-	// E. Render Components
+	// D. Render components
 
-	if (allLinesLoading || profileContext.flags.is_loading) {
+	if (!favoriteItemsData) {
 		return (
 			<div className={styles.container}>
 				<Loader size={26} visible />
@@ -80,7 +83,7 @@ export function QuickSearchFavoritesBar() {
 		);
 	}
 
-	if (favoriteLinesData.length === 0) {
+	if (favoriteItemsData.length === 0) {
 		return (
 			<div className={styles.container}>
 				<p className={styles.emptyMessage}>{t('empty')}</p>
@@ -90,17 +93,17 @@ export function QuickSearchFavoritesBar() {
 
 	return (
 		<div className={styles.container}>
-			{favoriteLinesData.slice(0, DISPLAY_LIMIT).map(favoriteLine => (
+			{favoriteItemsData.slice(0, DISPLAY_LIMIT).map(favoriteLine => (
 				<LineBadge
-					key={favoriteLine.data.id}
-					lineData={favoriteLine.data}
-					onClick={() => handleClick(favoriteLine.data.id)}
+					key={favoriteLine.line.id}
+					lineData={favoriteLine.line}
+					onClick={() => handleClick(favoriteLine.line.id)}
 					withAlertIcon={favoriteLine.has_alert}
 				/>
 			))}
-			{favoriteLinesData.length > DISPLAY_LIMIT && (
+			{favoriteItemsData.length > DISPLAY_LIMIT && (
 				<Link className={styles.more}href="/profile/favorites">
-					{t('more', { count: favoriteLinesData.length - DISPLAY_LIMIT })}
+					{t('more', { count: favoriteItemsData.length - DISPLAY_LIMIT })}
 				</Link>
 			)}
 		</div>

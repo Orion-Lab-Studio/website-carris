@@ -3,9 +3,8 @@
 /* * */
 
 import { useAnalyticsContext } from '@/contexts/Analytics.context';
-import { createContext, useContext, useEffect, useState } from 'react';
-
-import { useConsentContext } from './Consent.context';
+import { useConsentContext } from '@/contexts/Consent.context';
+import { createContext, useContext, useEffect, useMemo, useState } from 'react';
 
 /* * */
 
@@ -68,40 +67,47 @@ export const ProfileContextProvider = ({ children }) => {
 	//
 	// B. Fetch data
 
+	//
+	// C. Handle actions
+
+	const getDataFromLocalStorage = () => {
+		// Get previously stored favorite values from local storage
+		const foundFavoriteLines = localStorage.getItem(LOCAL_STORAGE_KEYS.favorite_lines);
+		const foundFavoriteStops = localStorage.getItem(LOCAL_STORAGE_KEYS.favorite_stops);
+		// If favorite lines were found, set them to local state
+		if (foundFavoriteLines) setDataFavoriteLinesState(JSON.parse(foundFavoriteLines));
+		// If favorite stop were found, set them to local state
+		if (foundFavoriteStops) setDataFavoriteStopsState(JSON.parse(foundFavoriteStops));
+	};
+
 	useEffect(() => {
-		// Return if consent if not given for functional features
+		// Skip if consent system is not yet initialized
+		if (!consentContext.data.init_status) return;
+		// Exit if consent is not given for functional features
 		if (!consentContext.data.enabled_functional) {
 			setFlagIsLoadingState(false);
 			return;
 		}
-		// Set loading state to true
-		setFlagIsLoadingState(true);
 		// Fetch favorites from local storage on a regular interval
 		// to accomodate changes made in other tabs.
-		const interval = setInterval(() => {
-			// Get previously stored favorite values from local storage
-			const foundFavoriteLines = localStorage.getItem(LOCAL_STORAGE_KEYS.favorite_lines);
-			const foundFavoriteStops = localStorage.getItem(LOCAL_STORAGE_KEYS.favorite_stops);
-			// If favorites were found, set them to local state
-			if (foundFavoriteLines) setDataFavoriteLinesState(JSON.parse(foundFavoriteLines));
-			if (foundFavoriteStops) setDataFavoriteStopsState(JSON.parse(foundFavoriteStops));
-		}, 1000);
+		getDataFromLocalStorage();
+		const interval = setInterval(getDataFromLocalStorage, 1000);
 		//
 		setFlagIsLoadingState(false);
 		//
 		return () => clearInterval(interval);
 		//
-	}, [consentContext.data.enabled_functional]);
-
-	//
-	// C. Handle actions
+	}, [consentContext.data.init_status, consentContext.data.enabled_functional]);
 
 	useEffect(() => {
+		// Skip if consent system is not yet initialized
+		if (!consentContext.data.init_status) return;
+		// Exit if consent is not given for functional features
 		if (!consentContext.data.enabled_functional) return;
 		// If favorites are updated, update local storage
 		if (dataFavoriteLinesState) localStorage.setItem(LOCAL_STORAGE_KEYS.favorite_lines, JSON.stringify(dataFavoriteLinesState));
 		if (dataFavoriteStopsState) localStorage.setItem(LOCAL_STORAGE_KEYS.favorite_stops, JSON.stringify(dataFavoriteStopsState));
-	}, [dataFavoriteLinesState, dataFavoriteStopsState]);
+	}, [consentContext.data.init_status, consentContext.data.enabled_functional, dataFavoriteLinesState, dataFavoriteStopsState]);
 
 	const toggleFavoriteLine = async (lineId: string) => {
 		if (!consentContext.data.enabled_functional) return;
@@ -136,7 +142,7 @@ export const ProfileContextProvider = ({ children }) => {
 	//
 	// D. Define context value
 
-	const contextValue: ProfileContextState = {
+	const contextValue: ProfileContextState = useMemo(() => ({
 		actions: {
 			toggleFavoriteLine,
 			toggleFavoriteStop,
@@ -153,7 +159,7 @@ export const ProfileContextProvider = ({ children }) => {
 			is_enabled: consentContext.data.enabled_functional,
 			is_loading: flagIsLoadingState,
 		},
-	};
+	}), [dataFavoriteLinesState, dataFavoriteStopsState, consentContext.data.enabled_functional, flagIsLoadingState]);
 
 	//
 	// E. Render components
