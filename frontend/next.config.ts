@@ -11,17 +11,36 @@ const nextConfig: NextConfig = {
 	async redirects() {
 		return [
 			//
+
+			/* * */
+			/* SCHEDULES */
+
 			{ destination: '/lines', permanent: true, source: '/linhas' },
 			{ destination: '/lines', permanent: true, source: '/horarios' },
-			//
+
 			{ destination: '/stops', permanent: true, source: '/paragens' },
-			//
+
 			{ destination: '/planner', permanent: true, source: '/planeador' },
 			{ destination: '/planner', permanent: true, source: '/planear-viagem' },
-			//
+
 			{ destination: '/alerts', permanent: true, source: '/alertas' },
 			{ destination: '/alerts', permanent: true, source: '/avisos' },
-			//
+
+			/* * */
+			/* FARES */
+
+			{ destination: '/tickets', permanent: true, source: '/tarifarios' },
+			{ destination: '/tickets', permanent: true, source: '/bilhetes' },
+
+			{ destination: '/cards', permanent: true, source: '/cartoes' },
+			{ destination: '/cards', permanent: true, source: '/passes' },
+
+			{ destination: '/helpdesks', permanent: true, source: '/comprar' },
+			{ destination: '/helpdesks', permanent: true, source: '/onde-comprar' },
+
+			/* * */
+			/* FARES */
+
 			{ destination: '/vehicles', permanent: true, source: '/veiculos' },
 			{ destination: '/vehicles', permanent: true, source: '/frota' },
 			//
@@ -35,10 +54,6 @@ const nextConfig: NextConfig = {
 			{ destination: '/stores', permanent: true, source: '/encm' },
 			{ destination: '/stores', permanent: true, source: '/lojas' },
 			{ destination: '/stores', permanent: true, source: '/espacos-navegante' },
-			//
-			{ destination: '/tickets', permanent: true, source: '/tarifarios' },
-			//
-			{ destination: '/cards', permanent: true, source: '/cartoes' },
 			//
 			{ destination: '/lost-and-found', permanent: true, source: '/perdidos-e-achados' },
 			//
