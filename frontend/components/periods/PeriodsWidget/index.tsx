@@ -56,8 +56,8 @@ export function PeriodsWidget() {
 				console.log('validPairsFiltered', validPairsFiltered);
 				// Format the valid pairs into the display format
 				const validPairsFormatted = validPairsFiltered.map((validPair) => {
-					const fromDateFormatted = DateTime.fromFormat(validPair.from, 'yyyyMMdd').toJSDate();
-					const untilDateFormatted = DateTime.fromFormat(validPair.until, 'yyyyMMdd').toJSDate();
+					const fromDateFormatted = DateTime.fromFormat(validPair.from, 'yyyyMMdd', { zone: 'Europe/Lisbon' }).set({ hour: 10 }).toJSDate();
+					const untilDateFormatted = DateTime.fromFormat(validPair.until, 'yyyyMMdd', { zone: 'Europe/Lisbon' }).set({ hour: 10 }).toJSDate();
 					return { from: fromDateFormatted, until: untilDateFormatted };
 				});
 				console.log('validPairsFormatted', validPairsFormatted);
