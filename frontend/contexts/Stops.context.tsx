@@ -61,7 +61,7 @@ export const StopsContextProvider = ({ children }) => {
 	//
 	// B. Fetch data
 
-	const { data: allStopsData, isLoading: allStopsLoading } = useSWR<Stop[]>(`${Routes.API}/stops`);
+	const { data: allStopsData, isLoading: allStopsLoading } = useSWR<Stop[]>(`${Routes.API}/stops`, { refreshInterval: 900000 }); // 15 minutes
 
 	//
 	// C. Transform data
