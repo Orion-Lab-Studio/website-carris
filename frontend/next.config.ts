@@ -39,31 +39,45 @@ const nextConfig: NextConfig = {
 			{ destination: '/helpdesks', permanent: true, source: '/onde-comprar' },
 
 			/* * */
-			/* FARES */
+			/* SUPPORT */
 
-			{ destination: '/vehicles', permanent: true, source: '/veiculos' },
-			{ destination: '/vehicles', permanent: true, source: '/frota' },
-			//
-			{ destination: '/news', permanent: true, source: '/noticias' },
-			//
-			{ destination: '/survey', permanent: true, source: '/inquerito' },
-			//
-			{ destination: '/open-data', permanent: true, source: '/opendata' },
-			{ destination: '/open-data', permanent: true, source: '/dados-abertos' },
-			//
+			{ destination: '/faq', permanent: true, source: '/perguntas' },
+			{ destination: '/faq', permanent: true, source: '/perguntas-frequentes' },
+
+			{ destination: '/lost-and-found', permanent: true, source: '/perdidos-e-achados' },
+
 			{ destination: '/stores', permanent: true, source: '/encm' },
 			{ destination: '/stores', permanent: true, source: '/lojas' },
 			{ destination: '/stores', permanent: true, source: '/espacos-navegante' },
-			//
-			{ destination: '/lost-and-found', permanent: true, source: '/perdidos-e-achados' },
-			//
+
 			{ destination: '/contacts', permanent: true, source: '/contactos' },
 			{ destination: '/contacts', permanent: true, source: '/apoio' },
-			//
-			{ destination: '/viagem-2024', permanent: true, source: '/viagem2024' },
-			//
+
+			/* * */
+			/* MORE */
+
+			{ destination: '/news', permanent: true, source: '/noticias' },
+
 			{ destination: '/metrics', permanent: true, source: '/metricas' },
-			//
+
+			{ destination: '/open-data', permanent: true, source: '/opendata' },
+			{ destination: '/open-data', permanent: true, source: '/dados-abertos' },
+
+			{ destination: '/about', permanent: true, source: '/sobre' },
+
+			{ destination: '/vehicles', permanent: true, source: '/veiculos' },
+			{ destination: '/vehicles', permanent: true, source: '/frota' },
+
+			/* * */
+			/* UNLISTED */
+
+			{ destination: '/survey', permanent: true, source: '/inquerito' },
+
+			{ destination: '/viagem-2024', permanent: true, source: '/viagem2024' },
+
+			/* * */
+			/* LEGACY */
+
 			{ destination: 'https://backoffice.carrismetropolitana.pt/imprensa', permanent: false, source: '/imprensa' },
 			{ destination: 'https://backoffice.carrismetropolitana.pt/embreveform', permanent: false, source: '/embreveform' },
 			{ destination: 'https://backoffice.carrismetropolitana.pt/knowledgebase', permanent: false, source: '/knowledgebase' },
@@ -83,7 +97,7 @@ const nextConfig: NextConfig = {
 			{ destination: 'https://backoffice.carrismetropolitana.pt/notasdeimprensa', permanent: false, source: '/notasdeimprensa' },
 			{ destination: 'https://backoffice.carrismetropolitana.pt/wtclisboa', permanent: false, source: '/wtclisboa' },
 			{ destination: 'https://backoffice.carrismetropolitana.pt/taguspark', permanent: false, source: '/taguspark' },
-			//
+
 		];
 	},
 };
