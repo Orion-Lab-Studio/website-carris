@@ -925,15 +925,16 @@
 			"title1": "Open Data"
 		},
 		"MetricsPageContactsCardGroup": {
-			"main_value": "{value, number}"
+			"main_value": "{value, number}",
+			"total_to": "total para:"
 		},
 		"MetricsPageContactsGlobalCard": {
-			"total_contacts_phone": "{value, number}",
+			"total_contacts_desc": "total de contactos nos útlimos 7 dias",
 			"total_contacts_email": "{value, number}",
-			"total_contacts_desc": "total de contactos na última semana",
+			"total_contacts_phone": "{value, number}",
 			"total_email_contacts_desc": "contactos por email",
 			"total_passengers_day": "{value, number}",
-			"total_passengers_day_contacts_desc": "total de passageiros da última semana",
+			"total_passengers_day_contacts_desc": "total de passageiros dos útlimos 7 dias",
 			"total_phone_contacts_desc": "contactos telefónicos"
 		},
 		"MetricsPageContactsToolbar": {

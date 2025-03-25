@@ -36,7 +36,7 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek
 		const totalContactsLastWeekSum = allData.reduce((acc, item) => acc + item.total, 0);
 		return (
 			<div>
-				<Text className={styles.totalContactsValue}>{t('total_contacts_phone',{ value : totalContactsLastWeekSum})}</Text>
+				<Text className={styles.totalContactsValue}>{t('total_contacts_phone', { value: totalContactsLastWeekSum })}</Text>
 				<Text className={styles.totalContactsDescription}>{t('total_contacts_desc')}</Text>
 			</div>
 		);
@@ -51,7 +51,7 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek
 					<IconPhoneCheck className={styles.icon} size={50} />
 				</div>
 				<span>
-					<Text className={styles.totalPhoneContactsValue}>{t('total_contacts_phone',{ value : totalPhoneContactsLastWeekSum})}</Text>
+					<Text className={styles.totalPhoneContactsValue}>{t('total_contacts_phone', { value: totalPhoneContactsLastWeekSum })}</Text>
 					<Text className={styles.totalPhoneContactsDescription}>{t('total_phone_contacts_desc')}</Text>
 				</span>
 			</div>
@@ -67,7 +67,7 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastWeek
 					<IconAt className={styles.icon} size={50} />
 				</div>
 				<span>
-					<Text className={styles.totalEmailContactsValue}>{t('total_contacts_email',{ value : totalEmailContactsLastWeekSum})}</Text>
+					<Text className={styles.totalEmailContactsValue}>{t('total_contacts_email', { value: totalEmailContactsLastWeekSum })}</Text>
 					<Text className={styles.totalEmailContactsDescription}>{t('total_email_contacts_desc')}</Text>
 				</span>
 			</div>

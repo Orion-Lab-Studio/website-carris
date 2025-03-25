@@ -48,7 +48,7 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 	const createCardData = (description1: string, value: number, image: string, title: string, footer?: string) => ({
 		description1,
 		description2: filter_type === 'line' ? calcPercentage(value, totalPassengersLastWeekLineId || 0) : calcPercentage(value, totalPassengersLastWeek || 0),
-		description3: ` ${filter_type === 'line' ? `do total de passageiros (${totalPassengersLastWeekLineId}) transportados na linha ${filter_value} na última semana` : 'do total de passageiros tranpostados na última semana'}`,
+		description3: ` ${filter_type === 'line' ? `do total de passageiros (${totalPassengersLastWeekLineId}) transportados na linha ${filter_value} nos últimos 7 dias` : 'do total de passageiros tranpostados nos últimos 7 dias'}`,
 		filter_value: filter_value,
 		footer,
 		image,
@@ -60,7 +60,7 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 	});
 
 	const cardData = useMemo(() => [
-		createCardData('total de pedidos de informação', totalInfoRequests, '/assets/complaints/pedidos_info.svg', 'Pedidos de Informação'),
+		createCardData('pedidos de informação', totalInfoRequests, '/assets/complaints/pedidos_info.svg', 'Pedidos de Informação'),
 		createCardData('total de reclamações', totalComplaints, '/assets/complaints/reclamacoes_info.svg', 'Reclamações'),
 		createCardData('total de outro* tipo de contactos', totalOther, '/assets/complaints/outros_info.svg', 'Outros*', '*perdidos e achados, sugestões e agradecimentos'),
 	], [totalInfoRequests, totalComplaints, totalOther, totalPassengersLastWeek, totalPassengersLastWeekLineId, filter_value, filter_type, lineColor, municipalityName]);

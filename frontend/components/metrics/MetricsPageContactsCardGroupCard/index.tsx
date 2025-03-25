@@ -37,7 +37,7 @@ export function MetricsContactsPageCardGroupCard({ description1, description2, d
 			</div>
 			<div className={styles.cardMainWrapper}>
 				<div className={styles.cardBody}>
-
+					<Text className={styles.totalToText}>{t('total_to')}</Text>
 					{subheading === 'line' && <div className={styles.lineBadge}><LineBadge color={line_color} lineId={filter_value} /></div> }
 					{subheading === 'global' && <Text className={styles.subheading}>área metropolitana de Lisboa</Text> }
 					{subheading === 'municipality' && <Text className={styles.subheading}>{municipality_name}</Text> }
