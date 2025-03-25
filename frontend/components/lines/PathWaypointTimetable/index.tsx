@@ -70,7 +70,7 @@ export function PathWaypointTimetable() {
 	// D. Render components
 
 	if (!timetableData || typeof timetableData === 'string') {
-		const nextDate = timetableData && DateTime.fromISO(timetableData).toJSDate();
+		const nextDate = timetableData && DateTime.fromFormat(timetableData, 'yyyyMMdd').toJSDate();
 		return (
 			<div className={styles.container}>
 				<p className={styles.noData}>{t('no_data')}</p>
