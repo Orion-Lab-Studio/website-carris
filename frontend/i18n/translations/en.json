@@ -848,7 +848,7 @@
 		"PathStopNextArrivals": {
 			"title": "Next circulations"
 		},
-		"PathStopTimetable": {
+		"PathWaypointTimetable": {
 			"next_date": "Next times available from {value, date, dayShort} {value, date, monthLong} {value, date, yearLong}",
 			"no_data": "Timetables unavailable for this date.",
 			"title": "Scheduled times at this stop:"

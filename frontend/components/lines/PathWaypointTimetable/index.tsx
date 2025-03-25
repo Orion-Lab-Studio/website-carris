@@ -18,7 +18,7 @@ export function PathWaypointTimetable() {
 	//
 	// A. Setup variables
 
-	const t = useTranslations('lines.PathStopTimetable');
+	const t = useTranslations('lines.PathWaypointTimetable');
 
 	const linesDetailContext = useLinesDetailContext();
 	const operationalDayContext = useOperationalDayContext();
