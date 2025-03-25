@@ -48,7 +48,7 @@
 		"uuid": "11.1.0"
 	},
 	"devDependencies": {
-		"@carrismetropolitana/api-types": "20250311.1610.37",
+		"@carrismetropolitana/api-types": "20250325.505.52",
 		"@carrismetropolitana/eslint": "20250303.2009.45",
 		"@types/geojson": "7946.0.16",
 		"@types/jsonwebtoken": "9.0.9",
