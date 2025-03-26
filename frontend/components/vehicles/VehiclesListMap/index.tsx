@@ -1,6 +1,5 @@
 'use client';
 
-import Button from '@/components/common/Button';
 /* * */
 
 import { MapView } from '@/components/map/MapView';
@@ -13,7 +12,6 @@ import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import getOperationalDay from '@/utils/operation';
 import { Routes } from '@/utils/routes';
 import { Pattern, Shape } from '@carrismetropolitana/api-types/network';
-import { IconX } from '@tabler/icons-react';
 import { useEffect, useMemo, useState } from 'react';
 
 /* * */
