@@ -237,7 +237,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 					const lastStopSequence = dataValidPatternsState
 						?.find(patternGroup => patternGroup.id === arrival.pattern_id)?.path
 						.sort((a, b) => a.stop_sequence - b.stop_sequence)
-						.slice(-1)[0].stop_sequence;
+						.slice(-1)[0]?.stop_sequence;
 					return arrival.stop_sequence !== lastStopSequence;
 				})
 				.sort((a, b) => {
@@ -258,7 +258,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 					const lastStopSequence = dataValidPatternsState
 						?.find(patternGroup => patternGroup.id === arrival.pattern_id)?.path
 						.sort((a, b) => a.stop_sequence - b.stop_sequence)
-						.slice(-1)[0].stop_sequence;
+						.slice(-1)[0]?.stop_sequence;
 					return arrival.stop_sequence !== lastStopSequence;
 				})
 				.sort((a, b) => {
@@ -287,7 +287,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 			// Skip the last stop
 			const lastStopSequence = patternGroup.path
 				.sort((a, b) => a.stop_sequence - b.stop_sequence)
-				.slice(-1)[0].stop_sequence;
+				.slice(-1)[0]?.stop_sequence;
 			// Find the trips for the given pattern
 			for (const trip of patternGroup.trips) {
 				// Skip if trip is not valid for the selected operational day

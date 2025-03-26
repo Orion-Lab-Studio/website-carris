@@ -29,7 +29,7 @@
 		"embla-carousel-react": "8.5.2",
 		"embla-carousel-wheel-gestures": "8.0.1",
 		"jsonwebtoken": "9.0.2",
-		"luxon": "3.5.0",
+		"luxon": "3.6.0",
 		"maplibre-gl": "5.2.0",
 		"next": "15.2.4",
 		"next-intl": "4.0.2",
@@ -48,8 +48,8 @@
 		"uuid": "11.1.0"
 	},
 	"devDependencies": {
-		"@carrismetropolitana/api-types": "20250325.505.52",
-		"@carrismetropolitana/eslint": "20250303.2009.45",
+		"@carrismetropolitana/api-types": "20250325.1534.33",
+		"@carrismetropolitana/eslint": "20250325.1926.5",
 		"@types/geojson": "7946.0.16",
 		"@types/jsonwebtoken": "9.0.9",
 		"@types/luxon": "3.4.2",
