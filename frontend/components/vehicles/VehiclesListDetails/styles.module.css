@@ -44,8 +44,9 @@
 	font-weight: var(--font-weight-semibold);
 	word-break: break-all;
 }
+
 /* * */
-/* Deselect Button */
+/* CLOSE BUTTON */
 
 .closeButton {
 	margin-left: auto;

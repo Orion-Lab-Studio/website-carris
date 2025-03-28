@@ -98,10 +98,10 @@ export function Pricing() {
 							<p className={styles.priceLabel}>{t('ticket_types.onboard')}</p>
 							<p className={styles.priceLabel}>{t('ticket_types.onboard_start_by_49')}</p>
 						</div>
-						<div className={styles.pricingItem}>
+						{/* <div className={styles.pricingItem}>
 							<h3 className={styles.priceValue}>1,55€</h3>
 							<p className={styles.priceLabel}>{t('ticket_types.prepaid')}</p>
-						</div>
+						</div> */}
 					</div>
 				</div>
 			</Surface>
