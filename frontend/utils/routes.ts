@@ -99,46 +99,6 @@ export const RoutesLostAndFound = Object.freeze({
 	VIACAO_ALVORADA: 'mailto:passageiro@viacaoalvorada.pt',
 });
 
-export const RoutesFooter = Object.freeze({
-	ABOUT: {
-		intl: {
-			pt: '/sobre',
-		},
-		route: '/about',
-	},
-	CONDITIONS: {
-		intl: {
-			pt: '/condicoes',
-		},
-		route: '/conditions',
-	},
-	COOKIES: {
-		intl: {
-			pt: '/cookies',
-		},
-		route: '/cookies',
-	},
-	LEGAL: {
-		intl: {
-			pt: '/legal',
-		},
-		route: '/legal',
-	},
-	OPEN_DATA: {
-		intl: {
-			pt: '/dados-abertos',
-		},
-		route: '/open-data',
-	},
-	PRIVACY: {
-		intl: {
-			pt: '/privacidade',
-		},
-		route: '/privacy',
-	},
-	STATUS: 'https://status.carrismetropolitana.pt/',
-});
-
 export const RoutesProfile = Object.freeze({
 	CONFIGS: {
 		intl: {
@@ -169,7 +129,6 @@ export const Routes = Object.freeze({
 	...RoutesSchedule,
 	...RoutesPricing,
 	...RoutesLostAndFound,
-	...RoutesFooter,
 
 	API: process.env.NEXT_PUBLIC_API_URL ?? 'https://api.carrismetropolitana.pt/v2',
 	API_ACCOUNTS: process.env.ACCOUNTS_API_URL ?? 'https:://accounts.carrismetropolitana.pt',

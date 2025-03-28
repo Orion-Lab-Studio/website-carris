@@ -2,7 +2,7 @@
 
 import type { NavigationGroup } from '@/types/navigation.types';
 
-import { RoutesFooter, RoutesPricing, RoutesSchedule, RoutesSupport } from '@/utils/routes';
+import { RoutesPricing, RoutesSchedule, RoutesSupport } from '@/utils/routes';
 import { IconAlertTriangle, IconArrowLoopRight, IconBellSchool, IconBuildingStore, IconBus, IconBusStop, IconChartBar, IconCreditCardPay, IconDirections, IconHelpHexagon, IconHomeSpark, IconMapQuestion, IconMessages, IconNews, IconPrompt, IconTicket, IconUmbrella, IconUserHeart } from '@tabler/icons-react';
 
 /* * */
@@ -76,19 +76,19 @@ export const footerNavigationGroup: NavigationGroup[] = [
 	{
 		_id: 'primary',
 		links: [
-			{ _id: 'about', href: RoutesFooter.ABOUT.route },
-			{ _id: 'open-data', href: RoutesFooter.OPEN_DATA.route },
-			{ _id: 'status', href: RoutesFooter.STATUS, target: '_blank' },
+			{ _id: 'about', href: '/about' },
+			{ _id: 'open-data', href: '/open-data' },
+			{ _id: 'status', href: 'https://status.carrismetropolitana.pt', target: '_blank' },
 		],
 	},
 
 	{
 		_id: 'secondary',
 		links: [
-			{ _id: 'conditions', href: RoutesFooter.CONDITIONS.route },
-			{ _id: 'privacy', href: RoutesFooter.PRIVACY.route },
-			{ _id: 'cookies', href: RoutesFooter.COOKIES.route },
-			{ _id: 'legal', href: RoutesFooter.LEGAL.route },
+			{ _id: 'conditions', href: '/files/cm-condicoes-gerais-transporte.pdf', target: '_blank' },
+			{ _id: 'privacy', href: '/privacy' },
+			{ _id: 'cookies', href: '/cookies' },
+			{ _id: 'legal', href: '/legal' },
 		],
 	},
 
