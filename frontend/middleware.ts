@@ -9,9 +9,8 @@ import { NextResponse } from 'next/server';
 /* * */
 
 export function middleware(request: NextRequest) {
-	// Ensure the URL is always lowercase.
-	// Transform the URL to lowercase and redirect
-	// to it if the URL is not already lowercase.
+	// Ensure the URL is always lowercase. Transform the URL to lowercase
+	// and redirect to it if the URL is not already lowercase.
 	const lowercasedUrl = new URL(request.nextUrl.pathname.toLowerCase() + request.nextUrl.search, request.url);
 	// Set the x-href header to the original URL
 	// to make it easily available in server-side code.
