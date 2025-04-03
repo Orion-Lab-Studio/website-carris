@@ -16,8 +16,8 @@ export function Logo() {
 	return (
 		<Link className={styles.container} href="/">
 			<ThemeSwitch
-				dark={<LottiePlayer path="/assets/header/spring/spring-dark.json" style={{ height: 70, width: 150 }} loop play />}
-				light={<LottiePlayer path="/assets/header/spring/spring-light.json" style={{ height: 70, width: 150 }} loop play />}
+				dark={<LottiePlayer path="/assets/header/mascot/mascot-dark.json" style={{ height: 70, width: 150 }} loop play />}
+				light={<LottiePlayer path="/assets/header/mascot/mascot-light.json" style={{ height: 70, width: 150 }} loop play />}
 			/>
 		</Link>
 	);
