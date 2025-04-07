@@ -61,9 +61,9 @@ export function MapViewStyleVehicles({ presentBeforeId, showCounter, vehiclesDat
 							['linear'],
 							['zoom'],
 							10,
-							0.05,
-							20,
 							0.15,
+							20,
+							0.35,
 						],
 						'symbol-placement': 'point',
 					}}
@@ -98,9 +98,9 @@ export function MapViewStyleVehicles({ presentBeforeId, showCounter, vehiclesDat
 							['linear'],
 							['zoom'],
 							10,
-							0.05,
-							20,
 							0.15,
+							20,
+							0.35,
 						],
 						'symbol-placement': 'point',
 					}}
