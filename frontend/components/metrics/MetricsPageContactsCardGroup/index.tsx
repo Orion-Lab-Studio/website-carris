@@ -13,10 +13,11 @@ interface Props {
 	municipalityName?: string
 	totalPassengersLastWeek?: number
 	totalPassengersLastWeekLineId?: number
+	totalPassengersLastYear?: number
 }
 /* * */
 
-export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, lineColor, municipalityName, totalPassengersLastWeek, totalPassengersLastWeekLineId }: Props) {
+export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, lineColor, municipalityName, totalPassengersLastWeek, totalPassengersLastWeekLineId, totalPassengersLastYear }: Props) {
 	//
 
 	//
@@ -59,7 +60,7 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 			description3 = '';
 		}
 		else if (filter_type === 'global') {
-			description2 = calcPercentageMunicipality(value, totalPassengersLastWeek || 0);
+			description2 = calcPercentageMunicipality(value, totalPassengersLastYear || 0);
 			description3 = ' do total de passageiros transportados no ultimo ano';
 		}
 

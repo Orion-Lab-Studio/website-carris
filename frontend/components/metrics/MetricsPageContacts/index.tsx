@@ -159,7 +159,7 @@ export function MetricsPageContacts() {
 				<Section heading={t('heading')} subheading={t('subheading')} withPadding>
 					<MetricsPageContactsGlobalCard allData={state.globalComplaints} totalPassengersLastYear={state.totalPassengersLastYear} />
 					<MetricsPageContactsToolbar allLines={linesContext.data.lines} filter_type={handleFilterChange} filter_value={value => setState(prevState => ({ ...prevState, filter_value: value }))} />
-					<MetricsContactsPageCardGroup data={state.filtered_data} filter_type={state.filter_type} filter_value={state.filter_value} lineColor={state.lineColor} municipalityName={state.municipalityName} totalPassengersLastWeek={state.totalPassengersLastWeek} totalPassengersLastWeekLineId={state.totalPassengersLastWeekLineId} />
+					<MetricsContactsPageCardGroup data={state.filtered_data} filter_type={state.filter_type} filter_value={state.filter_value} lineColor={state.lineColor} municipalityName={state.municipalityName} totalPassengersLastWeekLineId={state.totalPassengersLastWeekLineId} totalPassengersLastYear={state.totalPassengersLastYear} />
 				</Section>
 			</div>
 		</Surface>
