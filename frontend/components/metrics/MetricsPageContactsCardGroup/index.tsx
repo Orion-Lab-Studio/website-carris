@@ -41,9 +41,10 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 	//
 	// B. Fetch data
 
-	const calcPercentage = (value: number, total: number) => {
-		return `${((value / total) * 100).toFixed(2)}%`;
-	};
+	// const calcPercentage = (value: number, total: number) => {
+	// 	return `${((value / total) * 100).toFixed(2)}%`;
+	// };
+
 	const calcPercentageMunicipality = (value: number, total: number) => {
 		return total > 0 ? `${((value / total) * 100).toFixed(3)}%` : '0.00%';
 	};
