@@ -13,7 +13,7 @@ export const CAROUSEL_SLIDES: CarouselSlide[] = [
 
 	{
 		id: '0001',
-		src: 'frontend/public/assets/featured/mascote.png',
+		src: '/assets/featured/mascote.png',
 		url: '/news/30135',
 	},
 
