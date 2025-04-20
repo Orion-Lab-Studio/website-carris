@@ -19,7 +19,7 @@ export function CookiesPage() {
 	//
 	// A. Setup variables
 
-	const t = useTranslations('CookiesPage');
+	const t = useTranslations('legal.CookiesPage');
 	const consentContext = useConsentContext();
 
 	//
