@@ -50,9 +50,14 @@
 
 
 /* * */
-/* WP RESET / LINKS */
+/* WP RESET / LINKS & MARKS */
 
 #news-content-wrapper a,
 #news-content-wrapper a * {
 	color: var(--color-system-text-100) !important;
+}
+
+#news-content-wrapper .override-mark-highlight {
+	color: var(--color-primary-black) !important;
+	background-color: var(--color-brand) !important;
 }
