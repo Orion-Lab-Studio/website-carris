@@ -17,6 +17,7 @@ import { useProfileContext } from '@/contexts/Profile.context';
 import toast from '@/utils/toast';
 import { useTranslations } from 'next-intl';
 
+import { LineDisplayTts } from '../LineDisplayTts';
 import styles from './styles.module.css';
 
 /* * */
@@ -65,6 +66,7 @@ export function LinesDetailHeader() {
 						<div className={styles.headingSectionRow}>
 							<LineBadge lineData={linesDetailContext.data.line} size="lg" />
 							<FavoriteToggle color={linesDetailContext.data.line.color} isActive={linesDetailContext.flags.is_favorite} onToggle={handleToggleFavorite} />
+							<LineDisplayTts patternId={linesDetailContext.data.active_pattern?.id} />
 						</div>
 						<div className={styles.lineName}>
 							{linesDetailContext.data.line.long_name}
