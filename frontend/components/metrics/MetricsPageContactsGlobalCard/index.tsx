@@ -3,6 +3,7 @@
 import { type Complaints } from '@carrismetropolitana/api-types/metrics';
 import { Text } from '@mantine/core';
 import { IconAt, IconPhoneCheck } from '@tabler/icons-react';
+import { Dates } from '@tmlmobilidade/utils';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
@@ -81,6 +82,8 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastYear
 	//
 	// C. Render components
 
+	console.log('allData[0]?.current_date', allData[0]?.current_date);
+
 	return (
 		<>
 
@@ -95,7 +98,7 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastYear
 				</div>
 			</div>
 
-			{allData && <p className={styles.lastUpdatedDate}>{t('last_updated', { value: Dates.fromOperationalDate(allData[0]?.current_date) })}</p>}
+			{allData?.length > 0 && <p className={styles.lastUpdatedDate}>{t('last_updated', { value: Dates.fromOperationalDate(allData[0].current_date) })}</p>}
 
 		</>
 	);

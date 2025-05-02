@@ -2,8 +2,8 @@
 /* * */
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { MetricsPageContactsGlobalCard } from '@/components/metrics/MetricsPageContactGlobalCard';
 import { MetricsContactsPageCardGroup } from '@/components/metrics/MetricsPageContactsCardGroup';
+import { MetricsPageContactsGlobalCard } from '@/components/metrics/MetricsPageContactsGlobalCard';
 import { MetricsPageContactsToolbar } from '@/components/metrics/MetricsPageContactsToolbar';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useLocationsContext } from '@/contexts/Locations.context';
@@ -40,13 +40,6 @@ export function MetricsPageContacts() {
 	const sevenDaysAgoStr = DateTime.local().minus({ days: 7 }).toISODate();
 	const lastYearStr = DateTime.local().minus({ years: 1 }).toISODate();
 
-	const { data: demandMetricsByAgencyMonthData } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/month`);
-	const { data: demandMetricsByLineMonthData } = useSWR<DemandMetricsByLine[]>(`${Routes.API}/metrics/demand/by_line`);
-
-	const { data: demandMetricsByAgencyYearData } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/year`);
-
-	const { data: allComplaintsData } = useSWR(`${Routes.API}/metrics/complaints/`);
-
 	const t = useTranslations('metrics.MetricsPageContacts');
 
 	const linesContext = useLinesContext();
@@ -54,6 +47,16 @@ export function MetricsPageContacts() {
 
 	//
 	// B. Fetch data
+
+	const { data: demandMetricsByAgencyMonthData } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/month`);
+	const { data: demandMetricsByLineMonthData } = useSWR<DemandMetricsByLine[]>(`${Routes.API}/metrics/demand/by_line`);
+
+	const { data: demandMetricsByAgencyYearData } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/year`);
+
+	const { data: allComplaintsData } = useSWR(`${Routes.API}/metrics/complaints/`);
+
+	//
+	// C. Transform data
 
 	// By Month
 
@@ -125,7 +128,7 @@ export function MetricsPageContacts() {
 	}, [state.filter_type, state.filter_value]);
 
 	//
-	// C. Handle actions
+	// D. Handle actions
 
 	const handleDataSetup = () => {
 		if (!allComplaintsData) return;
@@ -153,7 +156,7 @@ export function MetricsPageContacts() {
 	};
 
 	//
-	// D. Render components
+	// E. Render components
 
 	return (
 		<Surface>
