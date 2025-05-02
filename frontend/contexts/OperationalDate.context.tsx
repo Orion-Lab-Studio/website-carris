@@ -2,17 +2,17 @@
 
 /* * */
 
-import { DateTime } from 'luxon';
+import { useAnalyticsContext } from '@/contexts/Analytics.context';
+import { type OperationalDate } from '@tmlmobilidade/types';
+import { Dates } from '@tmlmobilidade/utils';
 import { useQueryState } from 'nuqs';
 import { createContext, useContext, useEffect, useState } from 'react';
-
-import { useAnalyticsContext } from './Analytics.context';
 
 /* * */
 
 interface OperationalDateContextState {
 	actions: {
-		updateSelectedDay: (value: string) => void
+		updateSelectedDay: (value: OperationalDate) => void
 		updateSelectedDayFromJsDate: (value: Date) => void
 		updateSelectedDayToLessOneDay: () => void
 		updateSelectedDayToPlusOneDay: () => void
@@ -20,10 +20,9 @@ interface OperationalDateContextState {
 		updateSelectedDayToTomorrow: () => void
 	}
 	data: {
-		selected_day: null | string
-		selected_day_jsdate: Date | null
-		today: null | string
-		tomorrow: null | string
+		selected_date: Dates | null
+		today: Dates
+		tomorrow: Dates
 	}
 	flags: {
 		is_today_selected: boolean
@@ -51,83 +50,76 @@ export const OperationalDateContextProvider = ({ children }) => {
 	//
 	// A. Setup variables
 
-	const [selectedDayQuery, setSelectedDayQuery] = useQueryState('day');
-	const [selectedDay, setSelectedDay] = useState<null | string>(selectedDayQuery);
-	const [selectedDayJsDate, setSelectedDayJsDate] = useState<Date | null>(null);
-
 	const analyticsContext = useAnalyticsContext();
+
+	const [selectedDayQuery, setSelectedDayQuery] = useQueryState('date');
+	const [selectedDate, setSelectedDate] = useState<Dates | null>(null);
 
 	//
 	// B. Transform data
 
-	const todayDateString = (() => {
-		const now = DateTime.now();
-		if (now.get('hour') < 4) {
-			return now.minus({ days: 1 }).toFormat('yyyyMMdd');
-		}
-		return now.toFormat('yyyyMMdd');
-	})();
+	const todayDate = Dates
+		.now()
+		.setZone('Europe/Lisbon');
 
-	const tomorrowDateString = (() => {
-		const now = DateTime.now();
-		if (now.get('hour') < 4) {
-			return now.toFormat('yyyyMMdd');
-		}
-		return now.plus({ days: 1 }).toFormat('yyyyMMdd');
-	})();
+	const tomorrowDate = Dates
+		.now()
+		.setZone('Europe/Lisbon')
+		.plus({ days: 1 });
 
 	useEffect(() => {
-		if (!selectedDay) {
-			setSelectedDay(todayDateString);
+		if (!selectedDate && selectedDayQuery) {
+			const selectedDayValue = Dates
+				.fromFormat(selectedDayQuery, 'yyyyMMdd')
+				.set({ hour: 15 });
+			setSelectedDate(selectedDayValue);
+			return;
 		}
-
-		setSelectedDayQuery(todayDateString === selectedDay ? null : selectedDay);
-	}, [selectedDay]);
-
-	useEffect(() => {
-		if (!selectedDay) {
-			setSelectedDayJsDate(null);
-		}
-		else {
-			setSelectedDayJsDate(DateTime.fromFormat(selectedDay, 'yyyyMMdd').toJSDate());
-		}
-	}, [selectedDay]);
+		setSelectedDayQuery(todayDate.operational_date);
+	}, [todayDate, selectedDayQuery, selectedDate]);
 
 	//
 	// C. Handle actions
 
 	const updateSelectedDay = (value: string) => {
-		setSelectedDay(value);
+		const dateValue = Dates
+			.fromFormat(value, 'yyyyMMdd')
+			.set({ hour: 15 });
+		setSelectedDate(dateValue);
 	};
 
 	const updateSelectedDayFromJsDate = (value: Date) => {
-		const valueAsString = DateTime.fromJSDate(value).toFormat('yyyyMMdd');
-		setSelectedDay(valueAsString);
+		const dateValue = Dates
+			.fromJSDate(value)
+			.set({ hour: 15 });
+		setSelectedDate(dateValue);
 
-		if (valueAsString > todayDateString) {
+		if (dateValue.operational_date > todayDate.operational_date) {
 			analyticsContext.actions.capture(ampli => ampli.datePeriodSelected({ date_value: 'Future' }));
 		}
-		else if (valueAsString < todayDateString) {
+		else if (dateValue.operational_date < todayDate.operational_date) {
 			analyticsContext.actions.capture(ampli => ampli.datePeriodSelected({ date_value: 'Past' }));
 		}
 	};
 
 	const updateSelectedDayToToday = () => {
-		setSelectedDay(todayDateString);
+		setSelectedDate(todayDate);
 	};
 
 	const updateSelectedDayToTomorrow = () => {
-		setSelectedDay(tomorrowDateString);
+		setSelectedDate(tomorrowDate);
 	};
 
 	const updateSelectedDayToPlusOneDay = () => {
-		const selectedDayPlusOneDay = DateTime.fromFormat(selectedDay || todayDateString, 'yyyyMMdd').plus({ days: 1 }).toFormat('yyyyMMdd');
-		setSelectedDay(selectedDayPlusOneDay);
+		if (!selectedDate) return;
+		const dateValue = selectedDate?.plus({ days: 1 });
+		setSelectedDate(dateValue);
 	};
 
 	const updateSelectedDayToLessOneDay = () => {
-		const selectedDayPlusOneDay = DateTime.fromFormat(selectedDay || todayDateString, 'yyyyMMdd').minus({ days: 1 }).toFormat('yyyyMMdd');
-		setSelectedDay(selectedDayPlusOneDay);
+		if (!selectedDate) return;
+		const dateValue = selectedDate?.minus({ days: 1 });
+		setSelectedDate(dateValue);
 	};
 
 	//
@@ -143,14 +135,13 @@ export const OperationalDateContextProvider = ({ children }) => {
 			updateSelectedDayToTomorrow,
 		},
 		data: {
-			selected_day: selectedDay,
-			selected_day_jsdate: selectedDayJsDate,
-			today: todayDateString,
-			tomorrow: tomorrowDateString,
+			selected_date: selectedDate,
+			today: todayDate,
+			tomorrow: tomorrowDate,
 		},
 		flags: {
-			is_today_selected: selectedDay === todayDateString,
-			is_tomorrow_selected: selectedDay === tomorrowDateString,
+			is_today_selected: selectedDate?.operational_date === todayDate.operational_date,
+			is_tomorrow_selected: selectedDate?.operational_date === tomorrowDate.operational_date,
 		},
 	};
 

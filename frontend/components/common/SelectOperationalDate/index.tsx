@@ -42,7 +42,7 @@ export function SelectOperationalDate() {
 					leftSection={<IconCalendarEvent />}
 					onChange={operationalDateContext.actions.updateSelectedDayFromJsDate}
 					size="lg"
-					value={operationalDateContext.data.selected_day_jsdate}
+					value={operationalDateContext.data.selected_date?.js_date}
 					valueFormat="DD MMM YYYY"
 					variant="unstyled"
 				/>

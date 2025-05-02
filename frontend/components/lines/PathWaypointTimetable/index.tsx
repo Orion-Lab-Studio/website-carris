@@ -35,7 +35,7 @@ export function PathWaypointTimetable() {
 		const mentionedRoutes = linesDetailContext.data.routes;
 		const selectedStopId = linesDetailContext.data.active_waypoint?.stop_id;
 		const selectedStopSequence = linesDetailContext.data.active_waypoint?.stop_sequence;
-		const selectedOperationalDate = operationalDateContext.data.selected_day;
+		const selectedOperationalDate = operationalDateContext.data.selected_date?.operational_date;
 		// Check if all these variables are defined
 		if (!activePatternGroup || !mentionedRoutes || !selectedStopId || selectedStopSequence === undefined || !selectedOperationalDate) {
 			return null;
@@ -57,7 +57,7 @@ export function PathWaypointTimetable() {
 		else {
 			return createTimetable(activePatternGroup, [], [], selectedStopId, selectedStopSequence, selectedOperationalDate);
 		}
-	}, [linesDetailContext.data.active_pattern, linesDetailContext.data.valid_patterns, linesDetailContext.data.active_waypoint, operationalDateContext.data.selected_day]);
+	}, [linesDetailContext.data.active_pattern, linesDetailContext.data.valid_patterns, linesDetailContext.data.active_waypoint, operationalDateContext.data.selected_date]);
 
 	//
 	// C. Handle actions

@@ -33,7 +33,7 @@ export function LinesDetailPath() {
 	//
 	// B. Render components
 
-	if (!linesDetailContext.data.active_pattern || !operationalDateContext.data.selected_day_jsdate) {
+	if (!linesDetailContext.data.active_pattern || !operationalDateContext.data.selected_date) {
 		return (
 			<Surface>
 				<NoDataLabel text={t('no_data')} withMinHeight />
@@ -50,7 +50,7 @@ export function LinesDetailPath() {
 						<p className={styles.linesSummaryWrapper}>
 							{t.rich('summary', {
 								changeDay: chunks => <a className={styles.changeDay} href="#">{chunks}</a>,
-								day_name: operationalDateContext.data.selected_day_jsdate,
+								day_name: operationalDateContext.data.selected_date.js_date,
 								dayName: chunks => <span className={styles.dayName}>{chunks}</span>,
 								destination_name: linesDetailContext.data.active_pattern?.headsign,
 								destinationName: chunks => <span className={styles.destinationName}>{chunks}</span>,

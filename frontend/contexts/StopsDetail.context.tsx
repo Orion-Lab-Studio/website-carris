@@ -279,7 +279,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 	 */
 	useEffect(() => {
 		// Return if no valid pattern groups or operational day is selected
-		if (!operationalDateContext.data.selected_day || !dataValidPatternsState) return;
+		if (!operationalDateContext.data.selected_date || !dataValidPatternsState) return;
 
 		const validScheduledTrips: Arrival[] = [];
 
@@ -291,7 +291,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 			// Find the trips for the given pattern
 			for (const trip of patternGroup.trips) {
 				// Skip if trip is not valid for the selected operational day
-				if (!trip.valid_on.includes(operationalDateContext.data.selected_day)) continue;
+				if (!trip.valid_on.includes(operationalDateContext.data.selected_date.operational_date)) continue;
 				// Find the schedule for the given Stop ID
 				for (const stopTime of trip.schedule) {
 					// Skip if not for the selected stop
@@ -303,7 +303,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 					// Remember that if the hour is greater than 24, it means the arrival time is on the next day, and we need to add one day to the timestamp.
 					const [arrivalHours, arrivalMinutes, arrivalSeconds] = stopTime.arrival_time.split(':').map(Number);
 					const arrivalUnixTimestamp = DateTime
-						.fromFormat(operationalDateContext.data.selected_day, 'yyyyMMdd')
+						.fromFormat(operationalDateContext.data.selected_date.operational_date, 'yyyyMMdd')
 						.set({ hour: 0, minute: 0, second: 0 })
 						.plus({ hours: arrivalHours, minute: arrivalMinutes, second: arrivalSeconds })
 						.toUnixInteger();
@@ -327,23 +327,23 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		}
 		validScheduledTrips.sort((a, b) => (a.scheduled_arrival_unix - b.scheduled_arrival_unix));
 		setDataTimetableScheduleState(validScheduledTrips);
-	}, [operationalDateContext.data.selected_day, dataValidPatternsState, dataActiveStopIdState]);
+	}, [operationalDateContext.data.selected_date, dataValidPatternsState, dataActiveStopIdState]);
 
 	/**
 	 * Fill state with valid pattern groups for the selected operational day.
 	 */
 	useEffect(() => {
-		if (!dataPatternsState || !operationalDateContext.data.selected_day) return;
+		if (!dataPatternsState || !operationalDateContext.data.selected_date) return;
 		const activePatterns: Pattern[] = [];
 		for (const pattern of dataPatternsState) {
 			for (const patternGroup of pattern) {
-				if (patternGroup.valid_on.includes(operationalDateContext.data.selected_day)) {
+				if (patternGroup.valid_on.includes(operationalDateContext.data.selected_date.operational_date)) {
 					activePatterns.push(patternGroup);
 				}
 			}
 		}
 		setDataValidPatternsState(activePatterns);
-	}, [dataPatternsState, operationalDateContext.data.selected_day]);
+	}, [dataPatternsState, operationalDateContext.data.selected_date]);
 
 	useEffect(() => {
 		if (!alertsContext.data.simplified) return;
