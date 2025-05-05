@@ -1,9 +1,7 @@
 /* * */
 
-import type { Timetable } from '@/types/timetables.types';
-import type { Pattern, Route } from '@carrismetropolitana/api-types/network';
-
-/* * */
+import { type Timetable } from '@/types/timetables.types';
+import { type Pattern, type Route } from '@carrismetropolitana/api-types/network';
 
 /**
  * This function creates a timetable for a set of patterns of a line, for a specific stop and date.
@@ -17,7 +15,7 @@ import type { Pattern, Route } from '@carrismetropolitana/api-types/network';
  * @param operationalDate The day for which the timetable will be composed.
  * @returns The timetable for the given patterns and stop.
  */
-export default function createTimetable(primaryPatternGroup: Pattern, secondaryPatternGroups: Pattern[], mentionedRoutes: Route[], stopId: string, stopSequence: number, operationalDate: string): Timetable {
+export function createTimetable(primaryPatternGroup: Pattern, secondaryPatternGroups: Pattern[], mentionedRoutes: Route[], stopId: string, stopSequence: number, operationalDate: string): Timetable {
 	//
 
 	// 1.
