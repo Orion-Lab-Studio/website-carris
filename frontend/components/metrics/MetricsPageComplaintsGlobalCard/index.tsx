@@ -80,8 +80,6 @@ export function MetricsPageComplaintsGlobalCard({ allData, totalPassengersLastYe
 	//
 	// C. Render components
 
-	console.log('allData[0]?.current_date', allData);
-
 	return (
 		<>
 
