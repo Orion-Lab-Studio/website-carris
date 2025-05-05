@@ -40,8 +40,8 @@ export function MainCarousel() {
 		<>
 			<div className={`${styles.overlay} ${isHovered ? styles.overlayIsActive : ''}`} />
 			<Carousel
-				align="start"
 				classNames={{ control: styles.control, controls: styles.controlsWrapper, root: styles.root }}
+				emblaOptions={{ align: 'start' }}
 				height="100%"
 				nextControlIcon={<IconArrowRight size={20} />}
 				onMouseEnter={() => setIsHovered(true)}

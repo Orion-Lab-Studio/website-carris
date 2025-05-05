@@ -1,13 +1,16 @@
 /* * */
-import { MetricsContactsPageCardGroupCard } from '@/components/metrics/MetricsPageContactsCardGroupCard';
-import { Complaints } from '@carrismetropolitana/api-types/metrics';
+
+import { MetricsComplaintsPageCardGroupCard } from '@/components/metrics/MetricsPageComplaintsCardGroupCard';
+import { ComplaintMetrics } from '@carrismetropolitana/api-types/metrics';
 import { DateTime } from 'luxon';
 import { useMemo } from 'react';
 
 import styles from './styles.module.css';
+
 /* * */
+
 interface Props {
-	data: Complaints[]
+	data: ComplaintMetrics[]
 	filter_type: string
 	filter_value: string
 	last_update?: string
@@ -17,9 +20,10 @@ interface Props {
 	totalPassengersLastWeekLineId?: number
 	totalPassengersLastYear?: number
 }
+
 /* * */
 
-export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, last_update, lineColor, municipalityName, totalPassengersLastWeek, totalPassengersLastWeekLineId, totalPassengersLastYear }: Props) {
+export function MetricsComplaintsPageCardGroup({ data, filter_type, filter_value, last_update, lineColor, municipalityName, totalPassengersLastWeek, totalPassengersLastWeekLineId, totalPassengersLastYear }: Props) {
 	//
 
 	//
@@ -93,7 +97,7 @@ export function MetricsContactsPageCardGroup({ data, filter_type, filter_value, 
 	return (
 		<div className={styles.container}>
 			{cardData.map((card, index) => (
-				<MetricsContactsPageCardGroupCard
+				<MetricsComplaintsPageCardGroupCard
 					key={index}
 					description1={card.description1}
 					description2={card.description2}

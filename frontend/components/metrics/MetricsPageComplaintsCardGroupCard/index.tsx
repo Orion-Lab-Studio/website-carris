@@ -1,10 +1,13 @@
 /* * */
+
 import { LineBadge } from '@/components/lines/LineBadge';
 import { Image, Text } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
+
 /* * */
+
 interface Props {
 	description1?: string
 	description2?: string
@@ -18,14 +21,16 @@ interface Props {
 	title: string
 	value: number
 }
+
 /* * */
-export function MetricsContactsPageCardGroupCard({ description1, description2, description3, filter_value, footer, image, line_color, municipality_name, subheading, title, value }: Props) {
+
+export function MetricsComplaintsPageCardGroupCard({ description1, description2, description3, filter_value, footer, image, line_color, municipality_name, subheading, title, value }: Props) {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('metrics.MetricsPageContactsCardGroup');
+	const t = useTranslations('metrics.MetricsPageComplaintsCardGroup');
 
 	//
 	// B. Render components

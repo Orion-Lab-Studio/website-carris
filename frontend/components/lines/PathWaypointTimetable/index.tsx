@@ -63,14 +63,14 @@ export function PathWaypointTimetable() {
 	// C. Handle actions
 
 	function handleNextDateClick(date: Date) {
-		operationalDateContext.actions.updateSelectedDayFromJsDate(date);
+		operationalDateContext.actions.updateSelectedDateFromJsDate(date);
 	}
 
 	//
 	// D. Render components
 
 	if (!timetableData || typeof timetableData === 'string') {
-		const nextDate = timetableData && DateTime.fromFormat(timetableData, 'yyyyMMdd').toJSDate();
+		const nextDate = timetableData && Dates.fromFormat(timetableData, 'yyyyMMdd').js_date;
 		return (
 			<div className={styles.container}>
 				<p className={styles.noData}>{t('no_data')}</p>

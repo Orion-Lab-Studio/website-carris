@@ -1,4 +1,5 @@
 /* * */
+
 import { Section } from '@/components/layout/Section';
 import { Line } from '@carrismetropolitana/api-types/network';
 import { Select, Text } from '@mantine/core';
@@ -6,21 +7,24 @@ import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
 import styles from './styles.module.css';
+
 /* * */
+
 interface Props {
 	allLines: Line[]
 	filter_type: (value) => void
 	filter_value: (value) => void
 }
+
 /* * */
 
-export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value }: Props) {
+export function MetricsPageComplaintsToolbar({ allLines, filter_type, filter_value }: Props) {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('metrics.MetricsPageContactsToolbar');
+	const t = useTranslations('metrics.MetricsPageComplaintsToolbar');
 	const [line, setLine] = useState(null);
 	const [municipality, setMunicipality] = useState(null);
 	const AML = [
@@ -42,6 +46,7 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 		{ label: 'Sintra', value: '1111' },
 		{ label: 'Vila Franca de Xira', value: '1114' },
 	];
+
 	//
 	// B. Handle actions
 
@@ -76,6 +81,7 @@ export function MetricsPageContactsToolbar({ allLines, filter_type, filter_value
 			setMunicipality(value);
 		}
 	};
+
 	//
 	// C. Render components
 
