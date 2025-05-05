@@ -10,6 +10,8 @@ WORKDIR /app
 
 COPY . .
 
+RUN apk --no-cache add curl
+
 RUN sh ./init-cloudflare-ips.sh
 RUN mv ./cloudflare.conf ./configs/cloudflare.conf
 
