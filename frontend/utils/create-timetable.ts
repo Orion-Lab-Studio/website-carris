@@ -71,8 +71,8 @@ export function createTimetable(primaryPatternGroup: Pattern, secondaryPatternGr
 			if (!trip.valid_on.includes(operationalDate)) return;
 			// Find the schedule for the given Stop ID and Stop Sequence
 			trip.schedule.forEach((schedule) => {
-				// Skip if the schedule is not for the given stop and sequence combination
-				if (schedule.stop_id !== stopId || schedule.stop_sequence !== stopSequence) return;
+				// Skip if the schedule is not for the given stop ID (removed stop sequence check)
+				if (schedule.stop_id !== stopId /* || schedule.stop_sequence !== stopSequence */) return;
 				// Extract the hour and minute from the arrival time in 24h format
 				const [hourValue, minuteValue] = schedule.arrival_time.split(':').map(Number);
 				const [hour24, minute24] = schedule.arrival_time_24h.split(':').map(timeComponent => String(Number(timeComponent)).padStart(2, '0'));
@@ -125,6 +125,8 @@ export function createTimetable(primaryPatternGroup: Pattern, secondaryPatternGr
 
 	// 6.
 	// Finish the function by returning the composed timetable
+
+	console.log('Timetable created:', timetableResult);
 
 	return timetableResult;
 
