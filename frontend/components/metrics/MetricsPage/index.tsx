@@ -1,7 +1,7 @@
 /* * */
 
 import { MetricsPageAboutOpenData } from '@/components/metrics/MetricsPageAboutOpenData';
-import { MetricsPageContacts } from '@/components/metrics/MetricsPageContacts';
+import { MetricsPageComplaints } from '@/components/metrics/MetricsPageComplaints';
 import { MetricsPageIntro } from '@/components/metrics/MetricsPageIntro';
 import { MetricsPageLines } from '@/components/metrics/MetricsPageLines';
 import { MetricsPagePassengers } from '@/components/metrics/MetricsPagePassengers';
@@ -19,7 +19,7 @@ export function MetricsPage() {
 			<MetricsPageRecords />
 			<MetricsPageLines />
 			<MetricsPageService />
-			<MetricsPageContacts />
+			<MetricsPageComplaints />
 		</>
 	);
 }

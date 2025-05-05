@@ -24,6 +24,13 @@ export function NewsDetailContent({ content }: { content: string }) {
 			el.removeAttribute('height');
 			el.removeAttribute('sizes');
 		});
+		// Select all marks with yellow background
+		document.querySelectorAll(`#news-content-wrapper mark`).forEach((el) => {
+			const currentBackgroundColor = getComputedStyle(el).backgroundColor;
+			if (currentBackgroundColor === '#ffdd00' || currentBackgroundColor === 'rgb(255, 221, 0)') {
+				el.classList.add('override-mark-highlight');
+			}
+		});
 	});
 
 	//

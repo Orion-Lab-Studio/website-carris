@@ -4,7 +4,7 @@
 
 import { BackButton } from '@/components/common/BackButton';
 import { FavoriteToggle } from '@/components/common/FavoriteToggle';
-import { SelectOperationalDay } from '@/components/common/SelectOperationalDay';
+import { SelectOperationalDate } from '@/components/common/SelectOperationalDate';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { LineBadge } from '@/components/lines/LineBadge';
@@ -17,6 +17,7 @@ import { useProfileContext } from '@/contexts/Profile.context';
 import toast from '@/utils/toast';
 import { useTranslations } from 'next-intl';
 
+import { LineDisplayTts } from '../LineDisplayTts';
 import styles from './styles.module.css';
 
 /* * */
@@ -65,6 +66,7 @@ export function LinesDetailHeader() {
 						<div className={styles.headingSectionRow}>
 							<LineBadge lineData={linesDetailContext.data.line} size="lg" />
 							<FavoriteToggle color={linesDetailContext.data.line.color} isActive={linesDetailContext.flags.is_favorite} onToggle={handleToggleFavorite} />
+							<LineDisplayTts patternId={linesDetailContext.data.active_pattern?.id} />
 						</div>
 						<div className={styles.lineName}>
 							{linesDetailContext.data.line.long_name}
@@ -77,8 +79,8 @@ export function LinesDetailHeader() {
 						{/* <div className={styles.patternSelectorExplainerWrapper}>
 							<SelectActivePatternGroupExplainer />
 						</div> */}
-						<div className={styles.operationalDaySelectorWrapper}>
-							<SelectOperationalDay />
+						<div className={styles.operationalDateSelectorWrapper}>
+							<SelectOperationalDate />
 						</div>
 						<div className={styles.patternSelectorWrapper}>
 							<SelectActivePatternGroup />

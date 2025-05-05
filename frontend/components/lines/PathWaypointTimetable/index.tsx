@@ -2,8 +2,8 @@
 
 import Timetable from '@/components/common/Timetable';
 import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
-import { useOperationalDayContext } from '@/contexts/OperationalDay.context';
-import createTimetable from '@/utils/createTimetable';
+import { useOperationalDateContext } from '@/contexts/OperationalDate.context';
+import { createTimetable } from '@/utils/create-timetable';
 import { DateTime } from 'luxon';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
@@ -21,7 +21,7 @@ export function PathWaypointTimetable() {
 	const t = useTranslations('lines.PathWaypointTimetable');
 
 	const linesDetailContext = useLinesDetailContext();
-	const operationalDayContext = useOperationalDayContext();
+	const operationalDateContext = useOperationalDateContext();
 
 	const showVariantsOnTimetable = true;
 
@@ -35,42 +35,42 @@ export function PathWaypointTimetable() {
 		const mentionedRoutes = linesDetailContext.data.routes;
 		const selectedStopId = linesDetailContext.data.active_waypoint?.stop_id;
 		const selectedStopSequence = linesDetailContext.data.active_waypoint?.stop_sequence;
-		const selectedOperationalDay = operationalDayContext.data.selected_day;
+		const selectedOperationalDate = operationalDateContext.data.selected_date?.operational_date;
 		// Check if all these variables are defined
-		if (!activePatternGroup || !mentionedRoutes || !selectedStopId || selectedStopSequence === undefined || !selectedOperationalDay) {
+		if (!activePatternGroup || !mentionedRoutes || !selectedStopId || selectedStopSequence === undefined || !selectedOperationalDate) {
 			return null;
 		}
 
 		// Check if there are schedules for the selected operational day
-		if (!activePatternGroup.valid_on.includes(selectedOperationalDay)) {
+		if (!activePatternGroup.valid_on.includes(selectedOperationalDate)) {
 			// Find the closest valid date
 			return activePatternGroup.valid_on.reduce((acc, curr) => {
-				if (selectedOperationalDay <= curr && (acc === '' || curr < acc)) return curr;
+				if (selectedOperationalDate <= curr && (acc === '' || curr < acc)) return curr;
 				return acc;
 			}, '');
 		}
 
 		// Check if the user has enabled complex schedules
 		if (showVariantsOnTimetable) {
-			return createTimetable(activePatternGroup, secondaryPatternGroups, mentionedRoutes, selectedStopId, selectedStopSequence, selectedOperationalDay);
+			return createTimetable(activePatternGroup, secondaryPatternGroups, mentionedRoutes, selectedStopId, selectedStopSequence, selectedOperationalDate);
 		}
 		else {
-			return createTimetable(activePatternGroup, [], [], selectedStopId, selectedStopSequence, selectedOperationalDay);
+			return createTimetable(activePatternGroup, [], [], selectedStopId, selectedStopSequence, selectedOperationalDate);
 		}
-	}, [linesDetailContext.data.active_pattern, linesDetailContext.data.valid_patterns, linesDetailContext.data.active_waypoint, operationalDayContext.data.selected_day]);
+	}, [linesDetailContext.data.active_pattern, linesDetailContext.data.valid_patterns, linesDetailContext.data.active_waypoint, operationalDateContext.data.selected_date]);
 
 	//
 	// C. Handle actions
 
 	function handleNextDateClick(date: Date) {
-		operationalDayContext.actions.updateSelectedDayFromJsDate(date);
+		operationalDateContext.actions.updateSelectedDateFromJsDate(date);
 	}
 
 	//
 	// D. Render components
 
 	if (!timetableData || typeof timetableData === 'string') {
-		const nextDate = timetableData && DateTime.fromFormat(timetableData, 'yyyyMMdd').toJSDate();
+		const nextDate = timetableData && Dates.fromFormat(timetableData, 'yyyyMMdd').js_date;
 		return (
 			<div className={styles.container}>
 				<p className={styles.noData}>{t('no_data')}</p>

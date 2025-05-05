@@ -1,3 +1,4 @@
+/* stylelint-disable selector-id-pattern */
 /* stylelint-disable selector-class-pattern */
 
 /* * */
@@ -45,4 +46,18 @@
 
 .wp-block-cover video {
 	width: 100%;
+}
+
+
+/* * */
+/* WP RESET / LINKS & MARKS */
+
+#news-content-wrapper a,
+#news-content-wrapper a * {
+	color: var(--color-system-text-100) !important;
+}
+
+#news-content-wrapper .override-mark-highlight {
+	color: var(--color-primary-black) !important;
+	background-color: var(--color-brand) !important;
 }
