@@ -5,10 +5,9 @@
 import { EnvironmentContextProvider } from '@/contexts/Environment.context';
 import { getCssVariableValue } from '@/utils/getCssVariableValue';
 import { MantineProvider, MantineProviderProps } from '@mantine/core';
-import { DatesProvider } from '@mantine/dates';
-import { ModalsProvider } from '@mantine/modals';
+import { DatesProvider, type DatesProviderProps } from '@mantine/dates';
 import 'dayjs/locale/pt';
-import { DatesProviderValue } from 'node_modules/@mantine/dates/lib/components/DatesProvider/DatesProvider';
+import { ModalsProvider } from '@mantine/modals';
 import { useEffect } from 'react';
 
 /* * */
@@ -27,7 +26,7 @@ export function ThemeProviders({ children, themeData, themeId }: Props) {
 	//
 	// A. Setup variables
 
-	const mantineDatesSettings: Partial<DatesProviderValue> = {
+	const mantineDatesSettings: Partial<DatesProviderProps['settings']> = {
 		firstDayOfWeek: 1,
 		locale: 'pt',
 		weekendDays: [6, 0],

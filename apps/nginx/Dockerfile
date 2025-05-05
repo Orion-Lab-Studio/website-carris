@@ -9,9 +9,7 @@ WORKDIR /app
 # Set Cloudflare IPs
 # https://www.cloudflare.com/ips
 
-RUN echo "ls -la /app" && ls -la /app
-
-RUN echo "ls -la ~" && ls -la ~
+RUN echo "ls -la /../." && ls -la /../.
 
 RUN sh ./init-cloudflare-ips.sh
 RUN mv ./cloudflare.conf ./configs/cloudflare.conf
