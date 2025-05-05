@@ -1,5 +1,5 @@
 {
-	"name": "@carrismetropolitana/website-frontend",
+	"name": "@carrismetropolitana/website-backoffice",
 	"version": "1.0.0",
 	"private": true,
 	"scripts": {

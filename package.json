@@ -1,19 +1,18 @@
 {
-	"name": "@tmlmobilidade/alerts",
+	"name": "@carrismetropolitana/website",
 	"private": true,
 	"scripts": {
 		"build": "turbo build",
 		"clean": "sh cleanup.sh",
-		"dev": "dotenv-run -f ./_dev/secrets/.env -- turbo dev",
+		"dev": "dotenv-run -f ./configs/development/secrets/.env -- turbo dev",
 		"lint": "turbo lint",
 		"start": "turbo start"
 	},
 	"devDependencies": {
-		"@carrismetropolitana/eslint": "20250325.1926.5",
+		"@carrismetropolitana/eslint": "20250418.42.41",
 		"@tmlmobilidade/tsconfig": "20250325.1731.13",
 		"dotenv-cli": "8.0.0",
-		"prettier": "3.5.3",
-		"turbo": "2.5.0",
+		"turbo": "2.5.2",
 		"typescript": "5.8.3"
 	},
 	"packageManager": "npm@11.3.0",

@@ -2,22 +2,27 @@
 
 FROM node:22.6-alpine3.20 AS base
 
+ENV PROJECT=frontend
+
+RUN npm install -g turbo@^2
+
 # # # # # # # # #
 
 
-# PHASE 1
-# Install dependencies only when needed.
+# # #
+# PRUNER STAGE
 
-FROM base AS dependencies
+FROM base AS pruner
 
 RUN apk add --no-cache libc6-compat
+RUN apk update
 
 WORKDIR /app
 
 COPY package.json ./
+COPY . .
 
-RUN npm install --omit-dev \
-    && npm cache clean --force
+RUN turbo prune --scope=@carrismetropolitana/website-${PROJECT} --docker
 
 
 # # # # # # # # #
@@ -28,14 +33,18 @@ RUN npm install --omit-dev \
 
 FROM base AS builder
 
+RUN apk add --no-cache libc6-compat
+RUN apk update
+
 WORKDIR /app
 
-COPY --from=dependencies /app/node_modules ./node_modules
-COPY . .
+COPY --from=pruner /app/out/json/ .
+COPY --from=pruner /app/out/package-lock.json ./package-lock.json
+RUN npm install
 
-RUN npx @helperkits/bumper bump
-
-RUN npm run build
+# Build the project
+COPY --from=pruner /app/out/full/ .
+RUN turbo run build --filter=@carrismetropolitana/website-${PROJECT}
 
 
 # # # # # # # # #
@@ -52,16 +61,9 @@ ENV NODE_ENV=production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
-
-COPY --from=builder /app/public ./public
-
-COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
-
 USER nextjs
 
-EXPOSE 3000
-ENV PORT=3000
-ENV HOSTNAME=0.0.0.0
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/static ./apps/${PROJECT}/.next/static
 
-CMD ["node", "server.js"]
+CMD node /app/apps/${PROJECT}/server.js
