@@ -17,7 +17,6 @@ import styles from './styles.module.css';
 
 /* * */
 
-const partnerApps = [
 interface ParnerApp {
 	image_url: string
 	title: string
@@ -26,6 +25,7 @@ interface ParnerApp {
 
 /* * */
 
+const partnerApps: ParnerApp[] = [
 	{
 		image_url: '/assets/planner/citymapper.png',
 		title: 'Citymapper',
@@ -62,17 +62,16 @@ export function PlannerPartners() {
 	// A. Setup variables
 
 	const t = useTranslations('planner.PlannerPartners');
-	const locale = useLocale();
+
 	const analyticsContext = useAnalyticsContext();
-	const [shuffledApps, setShuffledApps] = useState(partnerApps);
-	const [isMounted, setIsMounted] = useState(false);
+
+	const [shuffledApps, setShuffledApps] = useState<ParnerApp[]>([]);
 
 	//
 	// B. Transform data
 
-	// Only shuffle on the client side after initial render
 	useEffect(() => {
-		setIsMounted(true);
+		// Only shuffle on the client side after initial render
 		setShuffledApps(shuffleArray([...partnerApps]));
 	}, []);
 
@@ -89,6 +88,7 @@ export function PlannerPartners() {
 
 	//
 	// C. Handle Actions
+
 	const handleGithubRedirect = () => {
 		analyticsContext.actions.capture(ampli => ampli.githubClicked({ click: 'true' }));
 	};
@@ -99,19 +99,18 @@ export function PlannerPartners() {
 	return (
 		<Surface>
 			<Section heading={t('heading')} subheading={t('subheading')}>
-				{/* Only show carousel when client-side hydration is complete */}
-				{isMounted ? (
-					<Carousel skeletonComponent={<PlannerCardSkeleton />} skeletonQty={4} slides={carouselSlides} slideSize={300} />
-				) : (
-					<div style={{ display: 'flex', gap: '20px' }}>
-						{[...Array(4)].map((_, i) => (
-							<div key={i} style={{ width: '300px' }}>
-								<PlannerCardSkeleton />
-							</div>
-						))}
-					</div>
-				)}
-				<Link className={styles.disclaimer} href="https://github.com/carrismetropolitana/website/blob/production/frontend/components/planner/PlannerPartners/index.tsx" onClick={handleGithubRedirect} target="_blank">
+				<Carousel
+					skeletonComponent={<PlannerCardSkeleton />}
+					skeletonQty={4}
+					slides={carouselSlides}
+					slideSize={300}
+				/>
+				<Link
+					className={styles.disclaimer}
+					href="https://github.com/carrismetropolitana/website/blob/production/frontend/components/planner/PlannerPartners/index.tsx"
+					onClick={handleGithubRedirect}
+					target="_blank"
+				>
 					{t('disclaimer')}
 				</Link>
 			</Section>
