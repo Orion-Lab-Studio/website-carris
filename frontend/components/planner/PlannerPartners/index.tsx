@@ -18,6 +18,14 @@ import styles from './styles.module.css';
 /* * */
 
 const partnerApps = [
+interface ParnerApp {
+	image_url: string
+	title: string
+	url: string
+}
+
+/* * */
+
 	{
 		image_url: '/assets/planner/citymapper.png',
 		title: 'Citymapper',
