@@ -1,6 +1,6 @@
 /* * */
 
-import { type Complaints } from '@carrismetropolitana/api-types/metrics';
+import { type ComplaintMetrics } from '@carrismetropolitana/api-types/metrics';
 import { Text } from '@mantine/core';
 import { IconAt, IconPhoneCheck } from '@tabler/icons-react';
 import { Dates } from '@tmlmobilidade/utils';
@@ -11,19 +11,19 @@ import styles from './styles.module.css';
 /* * */
 
 interface Props {
-	allData: Complaints[]
+	allData: ComplaintMetrics[]
 	totalPassengersLastYear: number
 }
 
 /* * */
 
-export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastYear }: Props) {
+export function MetricsPageComplaintsGlobalCard({ allData, totalPassengersLastYear }: Props) {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = useTranslations('metrics.MetricsPageContactsGlobalCard');
+	const t = useTranslations('metrics.MetricsPageComplaintsGlobalCard');
 
 	//
 	// B. Render components
@@ -49,7 +49,6 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastYear
 
 	const renderTotalPhoneContacts = () => {
 		const totalPhoneContactsLastWeekSum = allData.reduce((acc, item) => acc + item.phone, 0);
-
 		return (
 			<div className={styles.totalPhoneContactsValuesWrapper}>
 				<div className={styles.iconContainer}>
@@ -65,7 +64,6 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastYear
 
 	const renderTotalEmailContacts = () => {
 		const totalEmailContactsLastWeekSum = allData.reduce((acc, item) => acc + item.email, 0);
-
 		return (
 			<div className={styles.totalEmailContactsValuesWrapper}>
 				<div className={styles.iconContainer}>
@@ -82,7 +80,7 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastYear
 	//
 	// C. Render components
 
-	console.log('allData[0]?.current_date', allData[0]?.current_date);
+	console.log('allData[0]?.current_date', allData);
 
 	return (
 		<>
@@ -98,7 +96,7 @@ export function MetricsPageContactsGlobalCard({ allData, totalPassengersLastYear
 				</div>
 			</div>
 
-			{allData?.length > 0 && <p className={styles.lastUpdatedDate}>{t('last_updated', { value: Dates.fromOperationalDate(allData[0].current_date) })}</p>}
+			{allData?.length > 0 && <p className={styles.lastUpdatedDate}>{t('last_updated', { value: Dates.fromOperationalDate(allData[0].last_update).js_date })}</p>}
 
 		</>
 	);

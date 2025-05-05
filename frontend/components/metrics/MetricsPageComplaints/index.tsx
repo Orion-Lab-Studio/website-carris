@@ -1,46 +1,49 @@
 'use client';
+
 /* * */
+
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { MetricsContactsPageCardGroup } from '@/components/metrics/MetricsPageContactsCardGroup';
-import { MetricsPageContactsGlobalCard } from '@/components/metrics/MetricsPageContactsGlobalCard';
-import { MetricsPageContactsToolbar } from '@/components/metrics/MetricsPageContactsToolbar';
+import { MetricsComplaintsPageCardGroup } from '@/components/metrics/MetricsPageComplaintsCardGroup';
+import { MetricsPageComplaintsGlobalCard } from '@/components/metrics/MetricsPageComplaintsGlobalCard';
+import { MetricsPageComplaintsToolbar } from '@/components/metrics/MetricsPageComplaintsToolbar';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useLocationsContext } from '@/contexts/Locations.context';
 import { Routes } from '@/utils/routes';
-import { Complaints, DemandMetricsByAgency, DemandMetricsByAgencyMonth, DemandMetricsByAgencyYear, DemandMetricsByLine } from '@carrismetropolitana/api-types/metrics';
+import { type ComplaintMetrics, type DemandMetricsByAgency, type DemandMetricsByAgencyMonth, type DemandMetricsByAgencyYear, type DemandMetricsByLine } from '@carrismetropolitana/api-types/metrics';
 import { DateTime } from 'luxon';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
 import useSWR from 'swr';
+
 /* * */
 
-export function MetricsPageContacts() {
+export function MetricsPageComplaints() {
 	//
 
 	//
 	// A. Setup variables
 
 	const [state, setState] = useState({
+		complaints_by_line: [] as ComplaintMetrics[],
+		complaints_by_municipality: [] as ComplaintMetrics[],
+		complaints_global: [] as ComplaintMetrics[],
 		filter_type: 'global',
 		filter_value: '-',
-		filtered_data: [] as Complaints[],
-		globalComplaints: [] as Complaints[],
-		lastUpdate: '',
-		lineColor: '',
-		lineComplaints: [] as Complaints[],
-		municipalComplaints: [] as Complaints[],
-		municipalityName: '',
-		totalPassengersLastWeek: 0,
-		totalPassengersLastWeekLineId: 0,
-		totalPassengersLastYear: 0,
+		filtered_data: [] as ComplaintMetrics[],
+		last_update: '',
+		line_color: '',
+		municipality_name: '',
+		total_passengers_last_week: 0,
+		total_passengers_last_week_line_id: 0,
+		total_passengers_last_year: 0,
 	});
 
 	const todayStr = DateTime.local().toISODate();
 	const sevenDaysAgoStr = DateTime.local().minus({ days: 7 }).toISODate();
 	const lastYearStr = DateTime.local().minus({ years: 1 }).toISODate();
 
-	const t = useTranslations('metrics.MetricsPageContacts');
+	const t = useTranslations('metrics.MetricsPageComplaints');
 
 	const linesContext = useLinesContext();
 	const locationsContext = useLocationsContext();
@@ -53,7 +56,7 @@ export function MetricsPageContacts() {
 
 	const { data: demandMetricsByAgencyYearData } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/year`);
 
-	const { data: allComplaintsData } = useSWR(`${Routes.API}/metrics/complaints/`);
+	const { data: complaintsMetricsData } = useSWR<ComplaintMetrics[]>(`${Routes.API}/metrics/complaints/`);
 
 	//
 	// C. Transform data
@@ -69,7 +72,7 @@ export function MetricsPageContacts() {
 		});
 		setState(prevState => ({
 			...prevState,
-			totalPassengersLastWeek: byDayData.reduce((acc, block) => acc + block.qty, 0),
+			total_passengers_last_week: byDayData.reduce((acc, block) => acc + block.qty, 0),
 		}));
 	}, [demandMetricsByAgencyMonthData]);
 
@@ -82,7 +85,7 @@ export function MetricsPageContacts() {
 		});
 		setState(prevState => ({
 			...prevState,
-			totalPassengersLastWeekLineId: byLastWeekData.reduce((acc, block) => acc + block.qty, 0),
+			total_passengers_last_week_line_id: byLastWeekData.reduce((acc, block) => acc + block.qty, 0),
 		}));
 	}, [demandMetricsByLineMonthData, state.filter_type, state.filter_value]);
 
@@ -98,55 +101,51 @@ export function MetricsPageContacts() {
 
 		setState(prevState => ({
 			...prevState,
-			totalPassengersLastYear: byYearData.reduce((acc, block) => acc + block.qty, 0),
+			total_passengers_last_year: byYearData.reduce((acc, block) => acc + block.qty, 0),
 		}));
 	}, [demandMetricsByAgencyYearData]);
 
 	useEffect(() => {
-		if (!allComplaintsData) return;
-		const line_complaints = allComplaintsData.filter(item => item.type === 'line' && item.filter_value === state.filter_value);
-		const municipal_complaints = allComplaintsData.filter(item => item.type === 'municipality' && item.filter_value === state.filter_value);
-		const global_complaints = allComplaintsData.filter(item => item.type === 'global' && item.filter_value === '-');
-		const last_update = allComplaintsData.find(item => item.type === 'global' && item.filter_value === '-')?.current_date || '';
+		if (!complaintsMetricsData) return;
+		const line_complaints = complaintsMetricsData.filter(item => item.type === 'line' && item.filter_value === state.filter_value);
+		const municipal_complaints = complaintsMetricsData.filter(item => item.type === 'municipality' && item.filter_value === state.filter_value);
+		const global_complaints = complaintsMetricsData.filter(item => item.type === 'global' && item.filter_value === '-');
+		const last_update = complaintsMetricsData.find(item => item.type === 'global' && item.filter_value === '-')?.last_update || '';
 		const lineColor = linesContext.data.lines.find(line => line.id === state.filter_value)?.color || '';
 		const municipalityName = locationsContext.data.municipalities.find(municipality => municipality.id === state.filter_value)?.name || '';
 
 		setState(prevState => ({
 			...prevState,
+			complaints_by_line: line_complaints,
+			complaints_by_municipality: municipal_complaints,
+			complaints_global: global_complaints,
 			filtered_data: prevState.filtered_data.length ? prevState.filtered_data : global_complaints,
-			globalComplaints: global_complaints,
-			lastUpdate: last_update,
-			lineColor: lineColor,
-			lineComplaints: line_complaints,
-			municipalComplaints: municipal_complaints,
-			municipalityName: municipalityName,
+			last_update: last_update,
+			line_color: lineColor,
+			municipality_name: municipalityName,
 		}));
-	}, [allComplaintsData, state.filter_type, state.filter_value]);
-
-	useEffect(() => {
-		handleDataSetup();
-	}, [state.filter_type, state.filter_value]);
+	}, [complaintsMetricsData, state.filter_type, state.filter_value]);
 
 	//
 	// D. Handle actions
 
-	const handleDataSetup = () => {
-		if (!allComplaintsData) return;
+	useEffect(() => {
+		if (!complaintsMetricsData) return;
 
 		switch (state.filter_type) {
 			case 'global':
-				setState(prevState => ({ ...prevState, filtered_data: prevState.globalComplaints, lineColor: '', municipalityName: '' }));
+				setState(prevState => ({ ...prevState, filtered_data: prevState.complaints_global, line_color: '', municipality_name: '' }));
 				break;
 			case 'line':
-				setState(prevState => ({ ...prevState, filtered_data: prevState.lineComplaints, lineColor: prevState.lineColor, municipalityName: '' }));
+				setState(prevState => ({ ...prevState, filtered_data: prevState.complaints_by_line, line_color: prevState.line_color, municipality_name: '' }));
 				break;
 			case 'municipality':
-				setState(prevState => ({ ...prevState, filtered_data: prevState.municipalComplaints, lineColor: '', municipalityName: prevState.municipalityName }));
+				setState(prevState => ({ ...prevState, filtered_data: prevState.complaints_by_municipality, line_color: '', municipality_name: prevState.municipality_name }));
 				break;
 			default:
 				break;
 		}
-	};
+	}, [state.filter_type, state.filter_value]);
 
 	const handleFilterChange = (value: string) => {
 		setState(prevState => ({
@@ -162,9 +161,9 @@ export function MetricsPageContacts() {
 		<Surface>
 			<div id="contactsMetrics">
 				<Section heading={t('heading')} subheading={t('subheading')} withPadding>
-					<MetricsPageContactsGlobalCard allData={state.globalComplaints} totalPassengersLastYear={state.totalPassengersLastYear} />
-					<MetricsPageContactsToolbar allLines={linesContext.data.lines} filter_type={handleFilterChange} filter_value={value => setState(prevState => ({ ...prevState, filter_value: value }))} />
-					<MetricsContactsPageCardGroup data={state.filtered_data} filter_type={state.filter_type} filter_value={state.filter_value} last_update={state.lastUpdate} lineColor={state.lineColor} municipalityName={state.municipalityName} totalPassengersLastWeekLineId={state.totalPassengersLastWeekLineId} totalPassengersLastYear={state.totalPassengersLastYear} />
+					<MetricsPageComplaintsGlobalCard allData={state.complaints_global} totalPassengersLastYear={state.total_passengers_last_week} />
+					<MetricsPageComplaintsToolbar allLines={linesContext.data.lines} filter_type={handleFilterChange} filter_value={value => setState(prevState => ({ ...prevState, filter_value: value }))} />
+					<MetricsComplaintsPageCardGroup data={state.filtered_data} filter_type={state.filter_type} filter_value={state.filter_value} last_update={state.last_update} lineColor={state.line_color} municipalityName={state.municipality_name} totalPassengersLastWeekLineId={state.total_passengers_last_week_line_id} totalPassengersLastYear={state.total_passengers_last_year} />
 				</Section>
 			</div>
 		</Surface>
