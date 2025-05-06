@@ -29,8 +29,6 @@ WORKDIR /app
 
 COPY --from=builder /app/configs /etc/nginx/
 
-RUN cat /etc/nginx/cloudflare.conf
-
 # # #
 # Run Nginx	with auto-reload every 6 hours
 

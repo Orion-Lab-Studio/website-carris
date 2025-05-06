@@ -4,7 +4,7 @@
 
 import { type Ampli, ampli } from '@/amplitude';
 import { useConsentContext } from '@/contexts/Consent.context';
-import pjson from '@/package.json';
+import pjson from 'package.json';
 import { createContext, useContext, useEffect } from 'react';
 
 /* * */

@@ -2,7 +2,7 @@
   "Branch": "main",
   "Language": "TypeScript",
   "OrgId": "100009985",
-  "Path": "./amplitude",
+  "Path": "./src/amplitude",
   "Platform": "Browser",
   "Runtime": "browser:typescript-ampli-v2",
   "SDK": "@amplitude/analytics-browser@^1.0",

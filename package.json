@@ -2,9 +2,10 @@
 	"name": "@carrismetropolitana/website",
 	"private": true,
 	"scripts": {
-		"build": "turbo build",
+		"build": "turbo build --filter=@carrismetropolitana/website-frontend",
 		"clean": "sh cleanup.sh",
 		"dev": "dotenv-run -f ./configs/development/secrets/.env -- turbo dev",
+		"dev:frontend": "dotenv-run -f ./configs/development/secrets/.env -- turbo dev --filter=@carrismetropolitana/website-frontend",
 		"lint": "turbo lint",
 		"start": "turbo start"
 	},
