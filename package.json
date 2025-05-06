@@ -6,7 +6,7 @@
 		"clean": "sh cleanup.sh",
 		"dev": "dotenv-run -f ./configs/development/secrets/.env -- turbo dev",
 		"dev:frontend": "dotenv-run -f ./configs/development/secrets/.env -- turbo dev --filter=@carrismetropolitana/website-frontend",
-		"lint": "turbo lint",
+		"lint": "turbo lint --filter=@carrismetropolitana/website-frontend",
 		"start": "turbo start"
 	},
 	"devDependencies": {
