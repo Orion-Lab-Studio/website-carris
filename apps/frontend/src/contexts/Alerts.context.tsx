@@ -2,7 +2,7 @@
 
 /* * */
 
-import { type Alert, type SimplifiedAlert } from '@/types/alerts.types.js';
+import { type Alert, type SimplifiedAlert } from '@/types/alerts.types';
 import convertToSimplifiedAlert from '@/utils/convertToSimplifiedAlert';
 import { Routes } from '@/utils/routes';
 import { useLocale } from 'next-intl';

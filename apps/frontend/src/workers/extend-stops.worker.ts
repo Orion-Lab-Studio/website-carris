@@ -1,6 +1,6 @@
 /* * */
 
-import { type ExtendedStop } from '@/contexts/Stops.context';
+import { type ExtendedStop } from '@/contexts/Stops.context.js';
 import { type Locality, type Municipality } from '@carrismetropolitana/api-types/locations';
 import { type Stop } from '@carrismetropolitana/api-types/network';
 
