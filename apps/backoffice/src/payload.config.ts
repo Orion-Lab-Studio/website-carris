@@ -1,12 +1,11 @@
 /* * */
 
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud';
+import { nodemailerAdapter } from '@payloadcms/email-nodemailer';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
-import path from 'path';
+import { s3Storage } from '@payloadcms/storage-s3';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
-import { fileURLToPath } from 'url';
 
 /* * */
 
@@ -15,41 +14,84 @@ import { Users } from '@/collections/Users';
 
 /* * */
 
-const filename = fileURLToPath(import.meta.url);
-const dirname = path.dirname(filename);
-
 export default buildConfig({
 
+	// Only admins can access the CMS
 	admin: {
-		importMap: {
-			baseDir: path.resolve(dirname),
-		},
-		user: Users.slug,
+		user: 'users',
 	},
 
-	collections: [Users, Media],
-
-	db: mongooseAdapter({
-		url: process.env.DATABASE_URI || '',
-	}),
-
-	editor: lexicalEditor(),
-
-	plugins: [
-		payloadCloudPlugin(),
-		// storage-adapter-placeholder
+	// Define and configure your collections in this array
+	collections: [
+		Media,
+		Users,
 	],
 
-	routes: {
-		admin: '/',
-	},
+	// Whichever Database Adapter you're using should go here
+	// Mongoose is shown as an example, but you can also use Postgres
+	db: mongooseAdapter({
+		url: process.env.WEBSITEDB_URI || 'mongodb://placeholder:placeholder@localhost:27017/placeholder',
+	}),
 
-	secret: process.env.PAYLOAD_SECRET || '',
+	// If you'd like to use Rich Text,
+	// pass your editor here.
+	editor: lexicalEditor(),
+
+	// If you'd like to send emails from Payload,
+	// pass your email configuration here.
+	email: nodemailerAdapter({
+		defaultFromAddress: process.env.EMAIL_FROM_ADDRESS ?? '',
+		defaultFromName: process.env.EMAIL_FROM_NAME ?? '',
+		skipVerify: true,
+		transportOptions: {
+			auth: {
+				pass: process.env.EMAIL_SERVER_PASSWORD,
+				user: process.env.EMAIL_SERVER_USER,
+			},
+			host: process.env.EMAIL_SERVER_HOST,
+			port: Number(process.env.EMAIL_SERVER_PORT ?? 465),
+		},
+	}),
+
+	// Define and configure your globals in this array
+	globals: [
+		// LegalDocuments,
+		// SocialBodies,
+	],
+
+	// If you'd like to use S3 for file uploads,
+	// pass your S3 configuration here.
+	plugins: [
+		s3Storage({
+			bucket: process.env.CLOUDFLARE_R2_BUCKET ?? 'placeholder',
+			collections: {
+				// 'documents': true,
+				// 'internal-documents': true,
+				media: true,
+				// 'video-files': true,
+			},
+			config: {
+				bucketEndpoint: true,
+				credentials: {
+					accessKeyId: process.env.CLOUDFLARE_R2_ACCESS_KEY_ID ?? 'placeholder',
+					secretAccessKey: process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY ?? 'placeholder',
+				},
+				region: 'auto',
+			},
+		}),
+	],
+
+	// Your Payload secret - should be a complex and secure string, unguessable
+	secret: process.env.PAYLOAD_SECRET || 'placeholder',
+
+	// The URL where Payload is hosted
+	serverURL: process.env.NEXT_PUBLIC_URL || 'http://localhost:3005',
+
+	// If you want to resize images, crop, set focal point, etc.
+	// make sure to install it and pass it to the config.
+	// This is optional - if you don't need to do these things,
+	// you don't need it!
 
 	sharp,
-
-	typescript: {
-		outputFile: path.resolve(dirname, 'payload-types.ts'),
-	},
 
 });
