@@ -1,5 +1,6 @@
 /* * */
 
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { mongooseAdapter } from '@payloadcms/db-mongodb';
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
@@ -85,7 +86,7 @@ export default buildConfig({
 	secret: process.env.PAYLOAD_SECRET || 'placeholder',
 
 	// The URL where Payload is hosted
-	serverURL: process.env.NEXT_PUBLIC_URL || 'http://localhost:3005',
+	serverURL: getPublicVariable('backoffice_url'),
 
 	// If you want to resize images, crop, set focal point, etc.
 	// make sure to install it and pass it to the config.
