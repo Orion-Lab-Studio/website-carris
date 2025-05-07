@@ -25,6 +25,10 @@ export default buildConfig({
 		user: 'users',
 	},
 
+	routes: {
+		admin: '/',
+	},
+
 	// Define and configure your collections in this array
 	collections: [
 		CaseStudies,

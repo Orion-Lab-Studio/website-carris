@@ -16,8 +16,8 @@ export const PUBLIC_VARIABLES = Object.freeze({
 
 	backoffice_url: {
 		development: 'http://localhost:49001',
-		production: 'https://pl.carrismetropolitana.pt',
-		staging: 'https://staging.pl.carrismetropolitana.pt',
+		production: 'https://www.carrismetropolitana.pt',
+		staging: 'https://staging.carrismetropolitana.pt',
 	},
 
 	cookie_domain: {
