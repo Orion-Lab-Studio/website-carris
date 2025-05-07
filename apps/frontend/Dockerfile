@@ -1,10 +1,12 @@
 # # # # # # # # #
 
-FROM node:22.6-alpine3.20 AS base
+
+FROM node:lts-alpine AS base
 
 ENV PROJECT=frontend
 
 RUN npm install -g turbo@^2
+
 
 # # # # # # # # #
 
