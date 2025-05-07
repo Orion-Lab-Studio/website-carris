@@ -8,6 +8,11 @@ import { type NextConfig } from 'next';
 const nextConfig: NextConfig = {
 	output: 'standalone',
 	reactStrictMode: true,
+	redirects: async () => {
+		return [
+			{ destination: '/admin', permanent: true, source: '/' },
+		];
+	},
 };
 
 /* * */
