@@ -20,16 +20,8 @@ import { Users } from '@/schemas/Users/collection';
 
 export default buildConfig({
 
-	// Only admins can access the CMS
-	admin: {
-		user: 'users',
-	},
+	admin: { user: 'users' },
 
-	routes: {
-		admin: '/',
-	},
-
-	// Define and configure your collections in this array
 	collections: [
 		CaseStudies,
 		Media,
@@ -38,18 +30,10 @@ export default buildConfig({
 		Users,
 	],
 
-	// Whichever Database Adapter you're using should go here
-	// Mongoose is shown as an example, but you can also use Postgres
-	db: mongooseAdapter({
-		url: process.env.WEBSITEDB_URI || 'mongodb://placeholder:placeholder@placeholder:12345/placeholder',
-	}),
+	db: mongooseAdapter({ url: process.env.WEBSITEDB_URI || 'mongodb://placeholder:placeholder@placeholder:12345/placeholder' }),
 
-	// If you'd like to use Rich Text,
-	// pass your editor here.
 	editor: lexicalEditor(),
 
-	// If you'd like to send emails from Payload,
-	// pass your email configuration here.
 	email: nodemailerAdapter({
 		defaultFromAddress: process.env.EMAIL_FROM_ADDRESS ?? '',
 		defaultFromName: process.env.EMAIL_FROM_NAME ?? '',
@@ -64,22 +48,16 @@ export default buildConfig({
 		},
 	}),
 
-	// Define and configure your globals in this array
 	globals: [
 		// LegalDocuments,
 		// SocialBodies,
 	],
 
-	// If you'd like to use S3 for file uploads,
-	// pass your S3 configuration here.
 	plugins: [
 		s3Storage({
 			bucket: process.env.CLOUDFLARE_R2_BUCKET ?? 'placeholder',
 			collections: {
-				// 'documents': true,
-				// 'internal-documents': true,
 				media: true,
-				// 'video-files': true,
 			},
 			config: {
 				bucketEndpoint: true,
@@ -92,17 +70,14 @@ export default buildConfig({
 		}),
 	],
 
-	// Your Payload secret - should be a complex and secure string, unguessable
+	routes: {
+		admin: '/',
+	},
+
 	secret: process.env.PAYLOAD_SECRET || 'placeholder',
 
-	// The URL where Payload is hosted
 	serverURL: getPublicVariable('backoffice_url'),
 
-	// If you want to resize images, crop, set focal point, etc.
-	// make sure to install it and pass it to the config.
-	// This is optional - if you don't need to do these things,
-	// you don't need it!
-
-	sharp,
+	sharp: sharp,
 
 });
