@@ -10,6 +10,7 @@ import sharp from 'sharp';
 
 /* * */
 
+import { CaseStudies } from '@/schemas/CaseStudies/collection';
 import { Media } from '@/schemas/Media/collection';
 import { News } from '@/schemas/News/collection';
 import { Topics } from '@/schemas/Topics/collection';
@@ -26,6 +27,7 @@ export default buildConfig({
 
 	// Define and configure your collections in this array
 	collections: [
+		CaseStudies,
 		Media,
 		News,
 		Topics,
