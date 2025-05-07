@@ -37,7 +37,7 @@ services:
     volumes:
       - websitedbdata:/data/db
     env_file:
-      - .env
+      - ./secrets/.env
 
   # # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # # #
@@ -83,4 +83,4 @@ services:
         max-size: '1m'
         max-file: '1'
     env_file:
-      - .env
+      - ./secrets/.env

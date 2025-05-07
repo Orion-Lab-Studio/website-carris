@@ -19,9 +19,8 @@ services:
         max-size: '1m'
         max-file: '1'
     ports:
-      - 69001:27017
+      - 49101:27017
     volumes:
       - websitedbdata:/data/db
-    environment:
-      - MONGO_INITDB_ROOT_USERNAME=websitedbuser
-      - MONGO_INITDB_ROOT_PASSWORD=websitedbpassword
+    env_file:
+      - ./secrets/.env
