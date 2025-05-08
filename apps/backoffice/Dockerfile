@@ -75,7 +75,7 @@ RUN turbo run build --filter=@carrismetropolitana/website-${PROJECT}
 # # #
 # STAGE 4
 
-FROM base as runner
+FROM base AS runner
 
 WORKDIR /app
 
