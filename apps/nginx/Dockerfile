@@ -24,7 +24,7 @@ RUN mv ./cloudflare.conf ./configs/cloudflare.conf
 # replace the variables declared in the nginx.conf file
 # with the values from the environment variables.
 
-FROM alpine AS replacer
+FROM builder AS replacer
 
 WORKDIR /app
 
@@ -41,7 +41,7 @@ RUN cat ./configs/nginx.conf
 
 
 # # #
-# STAGE 2
+# STAGE 3
 
 # Use nginx:alpine-slim as base image and
 # copy only the necessary files into the final image
