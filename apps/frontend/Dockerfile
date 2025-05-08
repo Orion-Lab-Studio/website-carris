@@ -1,51 +1,49 @@
-# # # # # # # # #
+# # #
+# STAGE 1
 
+# Setup a stage to install the necessary packages
+# and build the project using the turbo monorepo tool.
 
 FROM node:lts-alpine AS base
 
-ENV PROJECT=frontend
+RUN apk update
+
+RUN apk add --no-cache libc6-compat
 
 RUN npm install -g turbo@^2
 
+# Set the project slug to be used
+# as the directory source for the build files.
 
-# # # # # # # # #
+ENV PROJECT=frontend
 
-
-# # #
-# PRUNER STAGE
-
-FROM base AS pruner
-
-RUN apk add --no-cache libc6-compat
-RUN apk update
+# Set the working directory to /app
+# and make the full repository available to the build step.
+# Use the turbo prune command to extract only the unnecessary
+# files from the current project and its dependencies.
 
 WORKDIR /app
 
 COPY package.json ./
+
 COPY . .
 
 RUN turbo prune --scope=@carrismetropolitana/website-${PROJECT} --docker
 
+# Copy the pruned files to the out directory
+# and install the necessary packages with npm.
 
-# # # # # # # # #
+# COPY /app/out/json/ .
 
+# COPY /app/out/package-lock.json ./package-lock.json
 
-# PHASE 2
-# Rebuild the source code only when needed.
+RUN npm ci
 
-FROM base AS builder
+# Actually build the project
+# using the turbo monorepo tool.
 
-RUN apk add --no-cache libc6-compat
-RUN apk update
+# COPY /app/out/full/ .
 
-WORKDIR /app
-
-COPY --from=pruner /app/out/json/ .
-COPY --from=pruner /app/out/package-lock.json ./package-lock.json
-RUN npm install
-
-# Build the project
-COPY --from=pruner /app/out/full/ .
 RUN turbo run build --filter=@carrismetropolitana/website-${PROJECT}
 
 
@@ -55,7 +53,7 @@ RUN turbo run build --filter=@carrismetropolitana/website-${PROJECT}
 # PHASE 3
 # Setup the final Docker image with only the required files.
 
-FROM base AS runner
+FROM node:lts-alpine
 
 WORKDIR /app
 
@@ -65,8 +63,8 @@ RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
 USER nextjs
 
-COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/public ./apps/${PROJECT}/public
-COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/standalone ./
-COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/static ./apps/${PROJECT}/.next/static
+COPY --from=base --chown=nextjs:nodejs /app/apps/${PROJECT}/public ./apps/${PROJECT}/public
+COPY --from=base --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/standalone ./
+COPY --from=base --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/static ./apps/${PROJECT}/.next/static
 
 CMD node /app/apps/${PROJECT}/server.js
