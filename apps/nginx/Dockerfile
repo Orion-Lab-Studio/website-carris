@@ -28,7 +28,7 @@ FROM builder AS replacer
 
 WORKDIR /app
 
-COPY --from=builder /app/configs /app/configs
+COPY --from=builder . .
 
 RUN apk --no-cache add envsubst
 
