@@ -46,6 +46,10 @@ RUN npm ci
 
 RUN turbo run build --filter=@carrismetropolitana/website-${PROJECT}
 
+RUN ls -la .
+
+RUN ls -la /
+
 
 # # # # # # # # #
 
