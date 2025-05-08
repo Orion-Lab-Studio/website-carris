@@ -20,6 +20,29 @@ RUN mv ./cloudflare.conf ./configs/cloudflare.conf
 # # #
 # STAGE 2
 
+# From the existing nginx configuration files,
+# replace the variables declared in the nginx.conf file
+# with the values from the environment variables.
+
+FROM alpine AS replacer
+
+WORKDIR /app
+
+COPY --from=builder /app/configs /app/configs
+
+RUN apk --no-cache add envsubst
+
+RUN set -a && . ./.variables && set +a
+
+RUN envsubst < ./configs/nginx.conf > ./configs/nginx.conf.tmp && \
+	mv ./configs/nginx.conf.tmp ./configs/nginx.conf
+
+RUN cat ./configs/nginx.conf
+
+
+# # #
+# STAGE 2
+
 # Use nginx:alpine-slim as base image and
 # copy only the necessary files into the final image
 
@@ -28,6 +51,9 @@ FROM nginx:alpine-slim
 WORKDIR /app
 
 COPY --from=builder /app/configs /etc/nginx/
+
+
+
 
 # # #
 # Run Nginx	with auto-reload every 6 hours
