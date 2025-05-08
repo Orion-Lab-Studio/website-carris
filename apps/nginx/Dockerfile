@@ -19,16 +19,16 @@ RUN mv ./cloudflare.conf ./configs/cloudflare.conf
 # replace the variables declared in the nginx.conf file
 # with the values from the environment variables.
 
-RUN ls -la
-
 RUN apk --no-cache add envsubst
 
-RUN set -a && . ./.variables && \
-	envsubst < ./configs/nginx.conf > ./configs/nginx.conf.tmp
+RUN ls -la .
 
-RUN mv ./configs/nginx.conf.tmp ./configs/nginx.conf
+# RUN set -a && . ./.variables && \
+# 	envsubst < ./configs/nginx.conf > ./configs/nginx.conf.tmp
 
-RUN cat ./configs/nginx.conf
+# RUN mv ./configs/nginx.conf.tmp ./configs/nginx.conf
+
+# RUN cat ./configs/nginx.conf
 
 
 # # #
