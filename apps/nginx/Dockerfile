@@ -12,10 +12,6 @@ COPY . .
 
 RUN apk --no-cache add curl
 
-RUN ls -la .
-
-RUN ls -la ./environments/staging
-
 RUN sh ./apps/nginx/init-cloudflare-ips.sh
 RUN mv ./cloudflare.conf ./apps/nginx/configs/cloudflare.conf
 
@@ -25,14 +21,12 @@ RUN mv ./cloudflare.conf ./apps/nginx/configs/cloudflare.conf
 
 RUN apk --no-cache add envsubst
 
+RUN set -a && . ./environments/staging/.variables && \
+	envsubst < ./apps/nginx/configs/nginx.conf > ./apps/nginx/configs/nginx.conf.tmp
 
+RUN mv ./apps/nginx/configs/nginx.conf.tmp ./apps/nginx/configs/nginx.conf
 
-# RUN set -a && . ./.variables && \
-# 	envsubst < ./configs/nginx.conf > ./configs/nginx.conf.tmp
-
-# RUN mv ./configs/nginx.conf.tmp ./configs/nginx.conf
-
-# RUN cat ./configs/nginx.conf
+RUN cat ./apps/nginx/configs/nginx.conf
 
 
 # # #
