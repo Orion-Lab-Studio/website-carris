@@ -6,23 +6,33 @@
 
 FROM node:lts-alpine AS base
 
+# Set the project slug to be used
+# as the directory source for the build files.
+
+ENV PROJECT=frontend
+
+# Install the necessary linux packages
+# as well as the turbo monorepo tool globally.
+# Set the environment variable to production.
+
 RUN apk update
 
 RUN apk add --no-cache libc6-compat
 
 RUN npm install -g turbo@^2
 
-# Set the project slug to be used
-# as the directory source for the build files.
 
-ENV PROJECT=frontend
 
-# Set the working directory to /app
-# and make the full repository available to the build step.
-# Use the turbo prune command to extract only the unnecessary
-# files from the current project and its dependencies.
+# # #
+# STAGE 2
+
+FROM base AS pruner
 
 WORKDIR /app
+
+# Make the full repository available to the build step.
+# Use the turbo prune command to extract only the unnecessary
+# files from the current project and its dependencies.
 
 COPY package.json ./
 
@@ -30,45 +40,56 @@ COPY . .
 
 RUN turbo prune --scope=@carrismetropolitana/website-${PROJECT} --docker
 
-# Copy the pruned files to the out directory
+
+
+# # #
+# STAGE 3
+
+FROM base AS builder
+
+WORKDIR /app
+
+# Copy the pruned json declarations to the out directory
 # and install the necessary packages with npm.
 
-# COPY /app/out/json/ .
-
-# COPY /app/out/package-lock.json ./package-lock.json
+COPY --from=pruner /app/out/json/ .
+COPY --from=pruner /app/out/package-lock.json ./package-lock.json
 
 RUN npm ci
 
-# Actually build the project
-# using the turbo monorepo tool.
+# Copy the pruned project files to the out directory and
+# actually build the project using the turbo monorepo tool.
 
-# COPY /app/out/full/ .
+COPY --from=pruner /app/out/full/ .
 
 RUN turbo run build --filter=@carrismetropolitana/website-${PROJECT}
 
-RUN ls -la /app/out/full
-
-RUN ls -la /app/out/json
 
 
-# # # # # # # # #
-
-
-# PHASE 3
-# Setup the final Docker image with only the required files.
+# # #
+# STAGE 4
 
 FROM node:lts-alpine
 
 WORKDIR /app
 
-ENV NODE_ENV=production
+# Create the nodejs and nextjs group and user
+# for the application to run under.
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
+
 USER nextjs
 
-COPY --from=base --chown=nextjs:nodejs /app/out/full/apps/${PROJECT}/public ./apps/${PROJECT}/public
-COPY --from=base --chown=nextjs:nodejs /app/out/full/apps/${PROJECT}/.next/standalone ./
-COPY --from=base --chown=nextjs:nodejs /app/out/full/apps/${PROJECT}/.next/static ./apps/${PROJECT}/.next/static
+# Copy the necessary files from the builder stage
+# to the final image. This includes the node_modules
+# directory, the public directory, the standalone
+# server, and the static files.
+
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/public ./apps/${PROJECT}/public
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/static ./apps/${PROJECT}/.next/static
+
+ENV NODE_ENV=production
 
 CMD node /app/apps/${PROJECT}/server.js
