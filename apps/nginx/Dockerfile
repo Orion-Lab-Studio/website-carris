@@ -34,8 +34,6 @@ RUN set -a && . ./environments/${ENVIRONMENT}/.variables && set +a && \
 
 RUN mv ./apps/nginx/configs/nginx.conf.tmp ./apps/nginx/configs/nginx.conf
 
-RUN cat ./apps/nginx/configs/nginx.conf
-
 
 
 # # #
