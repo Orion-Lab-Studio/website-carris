@@ -1,12 +1,16 @@
 # # #
 # STAGE 1
 
-# Make all nginx files available to the builder stage
-# and generate cloudflare.conf with the setup script
+# Use a generic alpine image as base image
+# to install the necessary packages and
+# transform the nginx configuration files
 
 FROM alpine AS builder
 
 WORKDIR /app
+
+# Make the full repository available to the builder stage
+# and generate cloudflare.conf with the setup script
 
 COPY . .
 
@@ -17,16 +21,19 @@ RUN mv ./cloudflare.conf ./apps/nginx/configs/cloudflare.conf
 
 # From the existing nginx configuration files,
 # replace the variables declared in the nginx.conf file
-# with the values from the environment variables.
+# with the values from the current environment variables.
+
+ARG ENVIRONMENT
 
 RUN apk --no-cache add envsubst
 
-RUN set -a && . ./environments/staging/.variables && \
+RUN set -a && . ./environments/${ENVIRONMENT}/.variables && \
 	envsubst < ./apps/nginx/configs/nginx.conf > ./apps/nginx/configs/nginx.conf.tmp
 
 RUN mv ./apps/nginx/configs/nginx.conf.tmp ./apps/nginx/configs/nginx.conf
 
 RUN cat ./apps/nginx/configs/nginx.conf
+
 
 
 # # #

@@ -2,7 +2,7 @@
 # # PUBLIC NONSENSITIVE VARIABLES # #
 # # # # # # # # # # # # # # # # # # #
 
-ENVIRONMENT="staging"
+ENVIRONMENT="production"
 
-PRIMARY_DOMAIN="staging.carrismetropolitana.pt"
+PRIMARY_DOMAIN="carrismetropolitana.pt"
 

@@ -51,6 +51,8 @@ jobs:
 #           push: true
 #           file: ./apps/backoffice/Dockerfile
 #           tags: ghcr.io/carrismetropolitana/website-backoffice:${{ github.ref_name }}
+#           build-args: |
+#             ENVIRONMENT=${{ github.ref_name }}
 
 #   # # # # # # # # # # # # # # # # # # # # #
 #   # # # # # # # # # # # # # # # # # # # # #
@@ -88,6 +90,8 @@ jobs:
 #           push: true
 #           file: ./apps/frontend/Dockerfile
 #           tags: ghcr.io/carrismetropolitana/website-frontend:${{ github.ref_name }}
+#           build-args: |
+#             ENVIRONMENT=${{ github.ref_name }}
 
   # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # #
@@ -126,3 +130,5 @@ jobs:
           context: .
           file: ./apps/nginx/Dockerfile
           tags: ghcr.io/carrismetropolitana/website-nginx:${{ github.ref_name }}
+          build-args: |
+            ENVIRONMENT=${{ github.ref_name }}
