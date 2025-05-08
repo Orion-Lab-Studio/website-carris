@@ -30,6 +30,8 @@ WORKDIR /app
 
 COPY --from=builder . .
 
+RUN ls -la .
+
 RUN apk --no-cache add envsubst
 
 RUN set -a && . ./.variables && \
