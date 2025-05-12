@@ -126,8 +126,6 @@ export function createTimetable(primaryPatternGroup: Pattern, secondaryPatternGr
 	// 6.
 	// Finish the function by returning the composed timetable
 
-	console.log('Timetable created:', timetableResult);
-
 	return timetableResult;
 
 	//
