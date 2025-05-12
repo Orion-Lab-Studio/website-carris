@@ -2,10 +2,9 @@
 
 /* * */
 
-import type { Vehicle } from '@carrismetropolitana/api-types/vehicles';
-
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import { Routes } from '@/utils/routes';
+import { type Vehicle } from '@carrismetropolitana/api-types/vehicles';
 import { DateTime } from 'luxon';
 import { createContext, useContext, useMemo } from 'react';
 import useSWR from 'swr';
