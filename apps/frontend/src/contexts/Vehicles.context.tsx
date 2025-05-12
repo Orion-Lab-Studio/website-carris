@@ -167,6 +167,7 @@ export function transformVehicleDataIntoGeoJsonFeature(vehicleData: Vehicle): Ge
 			coordinates: [vehicleData.lon || 0, vehicleData.lat || 0],
 			type: 'Point',
 		},
+		id: vehicleData.id,
 		properties: {
 			bearing: vehicleData.bearing,
 			block_id: vehicleData.block_id,
