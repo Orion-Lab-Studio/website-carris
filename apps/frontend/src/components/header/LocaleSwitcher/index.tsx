@@ -2,12 +2,12 @@
 
 /* * */
 
-import { useAnalyticsContext } from '@/contexts/Analytics.context';
+// import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { enabledLocaleCodes } from '@/i18n/config';
-import { setUserLocale } from '@/i18n/locale';
+// import { setUserLocale } from '@/i18n/locale';
 import { SegmentedControl, Skeleton } from '@mantine/core';
 import { useLocale, useTranslations } from 'next-intl';
-import { startTransition } from 'react';
+// import { startTransition } from 'react';
 
 import styles from './styles.module.css';
 
@@ -21,7 +21,7 @@ export function LocaleSwitcher() {
 
 	const currentLocale = useLocale();
 
-	const analyticsContext = useAnalyticsContext();
+	// const analyticsContext = useAnalyticsContext();
 
 	const t = useTranslations('header.LocaleSwitcher');
 
@@ -37,15 +37,17 @@ export function LocaleSwitcher() {
 	// C. Handle actions
 
 	const handleLocaleChange = (value: string) => {
-		startTransition(async () => {
-			try {
-				await setUserLocale(value);
-				analyticsContext.actions.capture((ampli, props) => ampli.localeChanged({ ...props, locale: value }));
-			}
-			catch (error) {
-				console.error(error);
-			}
-		});
+		const navigatorLocale = navigator.languages;
+		console.log('navigatorLocale', navigatorLocale);
+		// startTransition(async () => {
+		// 	try {
+		// 		await setUserLocale(value);
+		// 		analyticsContext.actions.capture((ampli, props) => ampli.localeChanged({ ...props, locale: value }));
+		// 	}
+		// 	catch (error) {
+		// 		console.error(error);
+		// 	}
+		// });
 	};
 
 	//

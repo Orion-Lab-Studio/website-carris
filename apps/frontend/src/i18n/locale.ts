@@ -22,7 +22,6 @@ export async function getUserLocale() {
 	// Get headers and cookies from request
 
 	const headersList = await headers();
-	const cookieStore = await cookies();
 
 	//
 	// If the request URL has a locale in the query string, use that locale.
@@ -37,9 +36,13 @@ export async function getUserLocale() {
 		return queryStringLocaleMatched.value;
 	}
 
+	return 'en';
+
 	//
 	// Read the cookie to retrieve the prefered locale setting fot the user.
 	// The locale code might be an alias, so we need to match it against the list of available locales.
+
+	const cookieStore = await cookies();
 
 	const userPreferedLocale = cookieStore.get(LOCALE_STORAGE_KEY)?.value;
 	const userPreferedLocaleMatched = userPreferedLocale && availableLocales.find(item => item.value === userPreferedLocale || item.alias.includes(userPreferedLocale));
