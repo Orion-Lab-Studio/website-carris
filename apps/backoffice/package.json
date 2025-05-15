@@ -30,10 +30,10 @@
 	},
 	"devDependencies": {
 		"@carrismetropolitana/eslint": "20250418.42.41",
-		"@tmlmobilidade/tsconfig": "20250512.1353.58",
-		"@types/node": "22.15.17",
+		"@tmlmobilidade/tsconfig": "20250513.1857.29",
+		"@types/node": "22.15.18",
 		"@types/react": "19.1.4",
-		"@types/react-dom": "19.1.4",
+		"@types/react-dom": "19.1.5",
 		"typescript": "5.8.3"
 	},
 	"overrides": {

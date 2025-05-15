@@ -1,17 +1,17 @@
 /* * */
 
-import NavigationMainMenu from '@/components/header/NavigationMainMenu';
+import { NavigationMainMenu } from '@/components/header/NavigationMainMenu';
 import { mainNavigationGroup } from '@/settings/navigation.settings';
 
 import styles from './styles.module.css';
 
 /* * */
 
-export default function Component() {
+export function NavigationMain() {
 	return (
 		<div className={styles.container}>
 			{mainNavigationGroup.map(item => (
-				<NavigationMainMenu key={item._id} item={item} />
+				<NavigationMainMenu key={item._id} navigationGroup={item} />
 			))}
 		</div>
 	);
