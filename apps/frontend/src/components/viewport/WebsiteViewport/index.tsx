@@ -1,11 +1,10 @@
-'use client';
-
 /* * */
 
 import { ConsentPopup } from '@/components/common/ConsentPopup';
 import { ScrollToTopButton } from '@/components/common/ScrollToTopButton';
 import { Footer } from '@/components/footer/Footer';
 import { Header } from '@/components/header/Header';
+import { useSearchParams } from 'next/navigation';
 
 import styles from './styles.module.css';
 
@@ -17,7 +16,7 @@ export function WebsiteViewport({ children }) {
 	//
 	// A. Setup variables
 
-	const searchParams = new URLSearchParams(window.location.search);
+	const searchParams = useSearchParams();
 
 	//
 	// B. Render components
