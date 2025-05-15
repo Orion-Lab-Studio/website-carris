@@ -73,5 +73,5 @@
 		"react": "19.1.0",
 		"react-dom": "19.1.0"
 	},
-	"packageManager": "npm@11.3.0"
+	"packageManager": "npm@11.4.0"
 }
