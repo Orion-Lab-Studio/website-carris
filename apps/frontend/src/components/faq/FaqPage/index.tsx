@@ -2,19 +2,18 @@
 
 /* * */
 
-import type { FaqGroupByTopic } from '@/types/faq.types';
-
 import Button from '@/components/common/Button';
 import FaqList from '@/components/faq/FaqList';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
+import { type FaqGroupByTopic } from '@/types/faq.types';
 import { IconPhoneCheck } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import useSWR from 'swr';
 
 /* * */
 
-export default function Component() {
+export function FaqPage() {
 	//
 
 	//

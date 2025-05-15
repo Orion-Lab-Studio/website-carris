@@ -6,19 +6,19 @@ import OperatorSection from '@/components/lost-and-found/OperatorSection';
 import { IconsCommon, ImagesCommon } from '@/settings/assets.settings';
 import { RoutesLostAndFound } from '@/utils/routes';
 import { Image } from '@mantine/core';
-import { getTranslations } from 'next-intl/server';
+import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
 
 /* * */
 
-export default async function Component() {
+export default function Component() {
 	//
 
 	//
 	// A. Setup variables
 
-	const t = await getTranslations('lost-and-found.Page');
+	const t = useTranslations('lost-and-found.Page');
 
 	//
 	// B. Render components

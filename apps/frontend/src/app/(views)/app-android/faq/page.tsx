@@ -1,6 +1,6 @@
 /* * */
 
-import FaqPage from '@/components/faq/Page';
+import { FaqPage } from '@/components/faq/FaqPage';
 
 /* * */
 
