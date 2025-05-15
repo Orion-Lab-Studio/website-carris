@@ -1,6 +1,7 @@
 /* * */
 
 import { RootProviders } from '@/providers/root-providers';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
@@ -22,7 +23,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
 	description: 'Horários e Paragens em Tempo Real',
-	metadataBase: process.env.NEXT_PUBLIC_URL ? new URL(process.env.NEXT_PUBLIC_URL) : new URL(`http://localhost:${process.env.PORT || 3000}`),
+	metadataBase: new URL(getPublicVariable('public_url')),
 	title: 'CMetropolitana',
 };
 

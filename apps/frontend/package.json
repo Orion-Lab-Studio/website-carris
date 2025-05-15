@@ -11,6 +11,7 @@
 	},
 	"dependencies": {
 		"@amplitude/analytics-browser": "2.17.6",
+		"@carrismetropolitana/website-settings": "*",
 		"@mantine/carousel": "8.0.1",
 		"@mantine/charts": "8.0.1",
 		"@mantine/core": "8.0.1",

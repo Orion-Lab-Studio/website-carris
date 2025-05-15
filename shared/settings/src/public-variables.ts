@@ -20,7 +20,7 @@ export const PUBLIC_VARIABLES = Object.freeze({
 		staging: 'https://staging.carrismetropolitana.pt',
 	},
 
-	cookie_domain: {
+	public_url: {
 		development: 'localhost:49001',
 		production: 'carrismetropolitana.pt',
 		staging: 'staging.carrismetropolitana.pt',
