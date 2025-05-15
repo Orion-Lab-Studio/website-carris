@@ -11,7 +11,7 @@ interface CarouselSlide {
 
 export const CAROUSEL_SLIDES: CarouselSlide[] = [
 
-		{
+	{
 		id: '0001',
 		src: '/assets/featured/survey-2025.png',
 		url: '/news/31017',
