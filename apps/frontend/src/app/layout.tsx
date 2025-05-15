@@ -1,10 +1,7 @@
 /* * */
 
-import { availableFormats } from '@/i18n/config';
-import { PrivacyProviders } from '@/providers/privacy-providers';
+import { RootProviders } from '@/providers/root-providers';
 import { type Metadata } from 'next';
-import { NextIntlClientProvider } from 'next-intl';
-import { getLocale } from 'next-intl/server';
 import { Inter } from 'next/font/google';
 import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
@@ -32,32 +29,18 @@ export const metadata: Metadata = {
 /* * */
 
 export default async function RootLayout({ children }) {
-	//
-
-	//
-	// A. Fetch data
-
-	const locale = await getLocale();
-
-	//
-	// B. Render components
-
 	return (
-		<html className={inter.variable} lang={locale}>
+		<html className={inter.variable}>
 			<head>
 				<meta content="transparent" name="theme-color" />
 			</head>
 			<body>
-				<NextIntlClientProvider formats={availableFormats}>
-					<NuqsAdapter>
-						<PrivacyProviders>
-							{children}
-						</PrivacyProviders>
-					</NuqsAdapter>
-				</NextIntlClientProvider>
+				<NuqsAdapter>
+					<RootProviders>
+						{children}
+					</RootProviders>
+				</NuqsAdapter>
 			</body>
 		</html>
 	);
-
-	//
 }

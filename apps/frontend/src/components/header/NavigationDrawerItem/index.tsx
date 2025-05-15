@@ -1,7 +1,6 @@
 /* * */
 
 import { type NavigationLink } from '@/types/navigation.types';
-import { Menu } from '@mantine/core';
 import { IconArrowNarrowRight, IconExternalLink } from '@tabler/icons-react';
 import Link from 'next/link';
 
@@ -13,14 +12,15 @@ interface Props {
 	href: NavigationLink['href']
 	icon?: NavigationLink['icon']
 	label: string
+	onClick?: () => void
 	target?: NavigationLink['target']
 }
 
 /* * */
 
-export function NavigationMainMenuItem({ href, icon, label, target, ...props }: Props) {
+export function NavigationDrawerItem({ href, icon, label, onClick, target, ...props }: Props) {
 	return (
-		<Menu.Item component={Link} href={href} target={target} {...props} classNames={{ item: styles.menuItem, itemLabel: styles.menuLabel }}>
+		<Link href={href} target={target} {...props} className={styles.container} onClick={onClick}>
 			<span className={styles.icon}>
 				{icon}
 			</span>
@@ -28,6 +28,6 @@ export function NavigationMainMenuItem({ href, icon, label, target, ...props }: 
 				{label}
 			</span>
 			{target === '_blank' ? <IconExternalLink className={styles.arrowIndicator} size={16} /> : <IconArrowNarrowRight className={styles.arrowIndicator} size={20} />}
-		</Menu.Item>
+		</Link>
 	);
 }

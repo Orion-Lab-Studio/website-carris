@@ -3,7 +3,7 @@
 /* * */
 
 import { LocaleSwitcher } from '@/components/header/LocaleSwitcher';
-import NavigationMainMenuItem from '@/components/header/NavigationMainMenuItem';
+import { NavigationDrawerItem } from '@/components/header/NavigationDrawerItem';
 // import AccountUserAvatar from '@/components/account/UserAvatar';
 // import SyncAccount from '@/components/profile/sync';
 import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
@@ -71,7 +71,14 @@ export default function Component() {
 							<div key={index} className={styles.group}>
 								<span className={styles.groupLabel}>{group.label}</span>
 								{group.items.map(item => (
-									<NavigationMainMenuItem key={item._id} label={item.label} navigationLink={item} onClick={closeDrawer} />
+									<NavigationDrawerItem
+										key={item._id}
+										href={item.href}
+										icon={item.icon}
+										label={item.label}
+										onClick={closeDrawer}
+										target={item.target}
+									/>
 								))}
 							</div>
 						))}

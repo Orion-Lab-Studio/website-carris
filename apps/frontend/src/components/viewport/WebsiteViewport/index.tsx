@@ -1,5 +1,3 @@
-'use client';
-
 /* * */
 
 import { ConsentPopup } from '@/components/common/ConsentPopup';
