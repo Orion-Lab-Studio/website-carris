@@ -1,5 +1,3 @@
-'use client';
-
 /* * */
 
 import { AppViewport } from '@/components/viewport/AppViewport';

@@ -1,5 +1,3 @@
-'use client';
-
 /* * */
 
 import { MupiViewport } from '@/components/viewport/MupiViewport';

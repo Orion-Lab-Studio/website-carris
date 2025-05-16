@@ -29,18 +29,16 @@ export function FaqPage() {
 	//
 	// C. Render components
 
-	return <div />;
-
-	// return (
-	// 	<>
-	// 		<Surface>
-	// 			<Section heading={t('heading')} subheading={t('subheading')} withPadding>
-	// 				<Button icon={<IconPhoneCheck size={18} />} label={t('contacts')} />
-	// 			</Section>
-	// 		</Surface>
-	// 		{allFaqData && <FaqList data={allFaqData} />}
-	// 	</>
-	// );
+	return (
+		<>
+			<Surface>
+				<Section heading={t('heading')} subheading={t('subheading')} withPadding>
+					<Button icon={<IconPhoneCheck size={18} />} label={t('contacts')} />
+				</Section>
+			</Surface>
+			{allFaqData && <FaqList data={allFaqData} />}
+		</>
+	);
 
 	//
 }
