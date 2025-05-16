@@ -2,10 +2,10 @@
 
 import { LinesDetail } from '@/components/lines/LinesDetail';
 import { LinesDetailContextProvider } from '@/contexts/LinesDetail.context';
-import { Routes } from '@/utils/routes';
 import { type ApiResponse } from '@carrismetropolitana/api-types/common';
 import { type Locality } from '@carrismetropolitana/api-types/locations';
 import { type Line } from '@carrismetropolitana/api-types/network';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { type Metadata } from 'next';
 
 /* * */

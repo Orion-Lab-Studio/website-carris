@@ -2,8 +2,8 @@
 
 import { StopsDetail } from '@/components/stops/StopsDetail';
 import { StopsDetailContextProvider } from '@/contexts/StopsDetail.context';
-import { Routes } from '@/utils/routes';
 import { type Line, type Stop } from '@carrismetropolitana/api-types/network';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { type Metadata } from 'next';
 
 /* * */
