@@ -3,7 +3,7 @@
 import { GroupedListItem } from '@/components/layout/GroupedListItem';
 import { Surface } from '@/components/layout/Surface';
 import { type FaqGroupByTopic } from '@/types/faq.types';
-import { Accordion } from '@mantine/core';
+import { Accordion, AccordionControl, AccordionItem, AccordionPanel } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
@@ -16,7 +16,7 @@ interface Props {
 
 /* * */
 
-export default function Component({ data }: Props) {
+export function FaqList({ data }: Props) {
 	//
 
 	//
@@ -33,12 +33,12 @@ export default function Component({ data }: Props) {
 				<GroupedListItem key={faqGroup._id} label={t('label')} title={faqGroup.title}>
 					<Accordion>
 						{faqGroup.items.map(topicItem => (
-							<Accordion.Item key={topicItem._id} value={topicItem.title}>
-								<Accordion.Control>{topicItem.title}</Accordion.Control>
-								<Accordion.Panel>
+							<AccordionItem key={topicItem._id} value={topicItem.title}>
+								<AccordionControl>{topicItem.title}</AccordionControl>
+								<AccordionPanel>
 									<div className={styles.innerWrapper} dangerouslySetInnerHTML={{ __html: topicItem.body }} />
-								</Accordion.Panel>
-							</Accordion.Item>
+								</AccordionPanel>
+							</AccordionItem>
 						))}
 					</Accordion>
 				</GroupedListItem>
