@@ -2,11 +2,10 @@
 
 /* * */
 
-import type { DemandMetricsByAgency, DemandMetricsByAgencyMonth } from '@carrismetropolitana/api-types/metrics';
-
 import { Grid } from '@/components/layout/Grid';
 import { MetricsDemandChart } from '@/components/metrics/MetricsDemandChart';
-import { Routes } from '@/utils/routes';
+import { type DemandMetricsByAgency, type DemandMetricsByAgencyMonth } from '@carrismetropolitana/api-types/metrics';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
 import useSWR from 'swr';
@@ -24,7 +23,7 @@ export function MetricsPagePassengersMonth() {
 	//
 	// B. Fetch Data
 
-	const { data: metricsByAgencyMonthData, isLoading: metricsByAgencyMonthLoading } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/month`);
+	const { data: metricsByAgencyMonthData, isLoading: metricsByAgencyMonthLoading } = useSWR<DemandMetricsByAgency[]>(`${getPublicVariable('api_url')}/metrics/demand/by_agency/month`);
 
 	//
 	// C. Transform data

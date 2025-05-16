@@ -19,10 +19,10 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 	//
 	// B. Fetch data
 
-	const allStopsResponse = await fetch(`${Routes.API}/stops`);
+	const allStopsResponse = await fetch(`${getPublicVariable('api_url')}/stops`);
 	const allStopsData: Stop[] = await allStopsResponse.json();
 
-	const allLinesResponse = await fetch(`${Routes.API}/lines`);
+	const allLinesResponse = await fetch(`${getPublicVariable('api_url')}/lines`);
 	const allLinesData: Line[] = await allLinesResponse.json();
 
 	//

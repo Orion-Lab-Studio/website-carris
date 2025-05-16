@@ -2,11 +2,10 @@
 
 /* * */
 
-import type { DemandMetricsByAgency, DemandMetricsByAgencyYear } from '@carrismetropolitana/api-types/metrics';
-
 import { Grid } from '@/components/layout/Grid';
 import { MetricsDemandChart } from '@/components/metrics/MetricsDemandChart';
-import { Routes } from '@/utils/routes';
+import { type DemandMetricsByAgency, type DemandMetricsByAgencyYear } from '@carrismetropolitana/api-types/metrics';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { DateTime } from 'luxon';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
@@ -25,7 +24,7 @@ export function MetricsPagePassengersYear() {
 	//
 	// B. Fetch Data
 
-	const { data: metricsByAgencyYearData, isLoading: metricsByAgencyYearLoading } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/year`);
+	const { data: metricsByAgencyYearData, isLoading: metricsByAgencyYearLoading } = useSWR<DemandMetricsByAgency[]>(`${getPublicVariable('api_url')}/metrics/demand/by_agency/year`);
 
 	//
 	// C. Transform data

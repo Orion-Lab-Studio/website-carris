@@ -2,13 +2,12 @@
 
 /* * */
 
-import type { DemandMetricsByLine } from '@carrismetropolitana/api-types/metrics';
-
 import { Grid } from '@/components/layout/Grid';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { MetricsCardByLine } from '@/components/metrics/MetricsCardByLine';
-import { Routes } from '@/utils/routes';
+import { type DemandMetricsByLine } from '@carrismetropolitana/api-types/metrics';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
 import useSWR from 'swr';
@@ -28,7 +27,7 @@ export function MetricsPageLines() {
 	//
 	// B. Fetch Data
 
-	const { data: metricsDemandByLineData } = useSWR<DemandMetricsByLine[]>(`${Routes.API}/metrics/demand/by_line`, { refreshInterval: 60000 });
+	const { data: metricsDemandByLineData } = useSWR<DemandMetricsByLine[]>(`${getPublicVariable('api_url')}/metrics/demand/by_line`, { refreshInterval: 60000 });
 
 	//
 	// C. Transform data

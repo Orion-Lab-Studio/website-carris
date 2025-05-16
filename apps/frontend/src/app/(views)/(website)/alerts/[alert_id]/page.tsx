@@ -1,8 +1,8 @@
 /* * */
 
 import { AlertsDetail } from '@/components/alerts/AlertsDetail';
-import { Routes } from '@/utils/routes';
 import { Alert } from '@carrismetropolitana/api-types/alerts';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { type Metadata } from 'next';
 
 /* * */
@@ -18,7 +18,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
 	//
 	// B. Fetch data
 
-	const allAlertsResponse = await fetch(`${Routes.API}/alerts`);
+	const allAlertsResponse = await fetch(`${getPublicVariable('api_url')}/alerts`);
 	const allAlertsData: Alert[] = await allAlertsResponse.json();
 
 	//

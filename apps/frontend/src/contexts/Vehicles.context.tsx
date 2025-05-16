@@ -3,8 +3,8 @@
 /* * */
 
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
-import { Routes } from '@/utils/routes';
 import { type Vehicle } from '@carrismetropolitana/api-types/vehicles';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { DateTime } from 'luxon';
 import { createContext, useContext, useMemo } from 'react';
 import useSWR from 'swr';
@@ -52,7 +52,7 @@ export const VehiclesContextProvider = ({ children }) => {
 	//
 	// A. Fetch data
 
-	const { data: fetchedVehiclesData, isLoading: allVehiclesLoading } = useSWR<Vehicle[], Error>(`${Routes.API}/vehicles`, { refreshInterval: 5000 }); // 5 seconds
+	const { data: fetchedVehiclesData, isLoading: allVehiclesLoading } = useSWR<Vehicle[], Error>(`${getPublicVariable('api_url')}/vehicles`, { refreshInterval: 5000 }); // 5 seconds
 
 	const allVehiclesData = useMemo(() => {
 		if (!fetchedVehiclesData) return [];

@@ -9,8 +9,8 @@ import { MetricsPageComplaintsGlobalCard } from '@/components/metrics/MetricsPag
 import { MetricsPageComplaintsToolbar } from '@/components/metrics/MetricsPageComplaintsToolbar';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useLocationsContext } from '@/contexts/Locations.context';
-import { Routes } from '@/utils/routes';
 import { type ComplaintMetrics, type DemandMetricsByAgency, type DemandMetricsByAgencyMonth, type DemandMetricsByAgencyYear, type DemandMetricsByLine } from '@carrismetropolitana/api-types/metrics';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { DateTime } from 'luxon';
 import { useTranslations } from 'next-intl';
 import { useEffect, useState } from 'react';
@@ -51,12 +51,12 @@ export function MetricsPageComplaints() {
 	//
 	// B. Fetch data
 
-	const { data: demandMetricsByAgencyMonthData } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/month`);
-	const { data: demandMetricsByLineMonthData } = useSWR<DemandMetricsByLine[]>(`${Routes.API}/metrics/demand/by_line`);
+	const { data: demandMetricsByAgencyMonthData } = useSWR<DemandMetricsByAgency[]>(`${getPublicVariable('api_url')}/metrics/demand/by_agency/month`);
+	const { data: demandMetricsByLineMonthData } = useSWR<DemandMetricsByLine[]>(`${getPublicVariable('api_url')}/metrics/demand/by_line`);
 
-	const { data: demandMetricsByAgencyYearData } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/year`);
+	const { data: demandMetricsByAgencyYearData } = useSWR<DemandMetricsByAgency[]>(`${getPublicVariable('api_url')}/metrics/demand/by_agency/year`);
 
-	const { data: complaintsMetricsData } = useSWR<ComplaintMetrics[]>(`${Routes.API}/metrics/complaints/`);
+	const { data: complaintsMetricsData } = useSWR<ComplaintMetrics[]>(`${getPublicVariable('api_url')}/metrics/complaints/`);
 
 	//
 	// C. Transform data

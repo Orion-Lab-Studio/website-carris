@@ -2,10 +2,9 @@
 
 /* * */
 
-import type { District, Locality, Municipality, Parish } from '@carrismetropolitana/api-types/locations';
-
-import { Routes } from '@/utils/routes';
 import { ApiResponse } from '@carrismetropolitana/api-types/common';
+import { type District, type Locality, type Municipality, type Parish } from '@carrismetropolitana/api-types/locations';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { createContext, useContext, useMemo } from 'react';
 import useSWR from 'swr';
 
@@ -49,10 +48,10 @@ export const LocationsContextProvider = ({ children }) => {
 	//
 	// A. Fetch data
 
-	const { data: fetchedDistrictsData, isLoading: fetchedDistrictsLoading } = useSWR<ApiResponse<District[]>, Error>(`${Routes.API}/locations/districts`, { refreshInterval: 900000 }); // 15 minutes
-	const { data: fetchedMunicipalitiesData, isLoading: fetchedMunicipalitiesLoading } = useSWR<ApiResponse<Municipality[]>, Error>(`${Routes.API}/locations/municipalities`, { refreshInterval: 900000 }); // 15 minutes
-	const { data: fetchedParishesData, isLoading: fetchedParishesLoading } = useSWR<ApiResponse<Parish[]>, Error>(`${Routes.API}/locations/parishes`, { refreshInterval: 900000 }); // 15 minutes
-	const { data: fetchedLocalitiesData, isLoading: fetchedLocalitiesLoading } = useSWR<ApiResponse<Locality[]>, Error>(`${Routes.API}/locations/localities`, { refreshInterval: 900000 }); // 15 minutes
+	const { data: fetchedDistrictsData, isLoading: fetchedDistrictsLoading } = useSWR<ApiResponse<District[]>, Error>(`${getPublicVariable('api_url')}/locations/districts`, { refreshInterval: 900000 }); // 15 minutes
+	const { data: fetchedMunicipalitiesData, isLoading: fetchedMunicipalitiesLoading } = useSWR<ApiResponse<Municipality[]>, Error>(`${getPublicVariable('api_url')}/locations/municipalities`, { refreshInterval: 900000 }); // 15 minutes
+	const { data: fetchedParishesData, isLoading: fetchedParishesLoading } = useSWR<ApiResponse<Parish[]>, Error>(`${getPublicVariable('api_url')}/locations/parishes`, { refreshInterval: 900000 }); // 15 minutes
+	const { data: fetchedLocalitiesData, isLoading: fetchedLocalitiesLoading } = useSWR<ApiResponse<Locality[]>, Error>(`${getPublicVariable('api_url')}/locations/localities`, { refreshInterval: 900000 }); // 15 minutes
 
 	//
 	// B. Transform data

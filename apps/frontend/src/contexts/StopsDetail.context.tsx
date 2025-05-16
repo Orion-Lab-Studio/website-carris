@@ -2,16 +2,16 @@
 
 /* * */
 
-import type { SimplifiedAlert } from '@/types/alerts.types';
-import type { Arrival } from '@/types/stops.types';
-import type { Line, Pattern, Shape, Stop } from '@carrismetropolitana/api-types/network';
-
 import { useAlertsContext } from '@/contexts/Alerts.context';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useOperationalDateContext } from '@/contexts/OperationalDate.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import { useStopsContext } from '@/contexts/Stops.context';
+import { type SimplifiedAlert } from '@/types/alerts.types';
+import { type Arrival } from '@/types/stops.types';
 import { Routes } from '@/utils/routes';
+import { type Line, type Pattern, type Shape, type Stop } from '@carrismetropolitana/api-types/network';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { DateTime } from 'luxon';
 import { notFound } from 'next/navigation';
 import { createContext, useContext, useEffect, useState } from 'react';
@@ -140,7 +140,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		const fetchData = async () => {
 			try {
 				if (!dataActiveStopIdState) return;
-				const realtimeData = await fetch(`${Routes.API}/arrivals/by_stop/${dataActiveStopIdState}`)
+				const realtimeData = await fetch(`${getPublicVariable('api_url')}/arrivals/by_stop/${dataActiveStopIdState}`)
 					.then((response) => {
 						if (!response.ok) console.log(`Failed to fetch realtime data for stopId: ${dataActiveStopIdState}`);
 						else return response.json();
@@ -168,7 +168,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		(async () => {
 			try {
 				const patternsData = await Promise.all(dataStopState.pattern_ids.map((patternId) => {
-					return fetch(`${Routes.API}/patterns/${patternId}`).then((response) => {
+					return fetch(`${getPublicVariable('api_url')}/patterns/${patternId}`).then((response) => {
 						if (!response.ok) console.log(`Failed to fetch pattern data for patternId: ${patternId}`);
 						else return response.json();
 					});
@@ -189,7 +189,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		if (!dataActivePatternState) return;
 		(async () => {
 			try {
-				const shapeData = await fetch(`${Routes.API}/shapes/${dataActivePatternState.shape_id}`).then((response) => {
+				const shapeData = await fetch(`${getPublicVariable('api_url')}/shapes/${dataActivePatternState.shape_id}`).then((response) => {
 					if (!response.ok) console.log(`Failed to fetch shape data for shapeId: ${dataActivePatternState.shape_id}`);
 					else return response.json();
 				});

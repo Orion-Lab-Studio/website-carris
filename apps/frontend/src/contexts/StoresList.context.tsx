@@ -2,16 +2,14 @@
 
 /* * */
 
-import type { Store } from '@carrismetropolitana/api-types/facilities';
-
+import { useAnalyticsContext } from '@/contexts/Analytics.context';
 import { moveMap } from '@/utils/map.utils';
-import { Routes } from '@/utils/routes';
+import { type Store } from '@carrismetropolitana/api-types/facilities';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { useMap } from '@vis.gl/react-maplibre';
 import { parseAsStringLiteral, useQueryState } from 'nuqs';
 import { createContext, useContext, useEffect, useState } from 'react';
 import useSWR from 'swr';
-
-import { useAnalyticsContext } from './Analytics.context';
 
 /* * */
 
@@ -81,7 +79,7 @@ export const StoresListContextProvider = ({ children }) => {
 	//
 	// B. Fetch data
 
-	const { data: allStoresData, isLoading: allStoresLoading } = useSWR<Store[], Error>(`${Routes.API}/facilities/stores`, { refreshInterval: 30000 }); // 30 seconds
+	const { data: allStoresData, isLoading: allStoresLoading } = useSWR<Store[], Error>(`${getPublicVariable('api_url')}/facilities/stores`, { refreshInterval: 30000 }); // 30 seconds
 
 	//
 	// C. Transform data

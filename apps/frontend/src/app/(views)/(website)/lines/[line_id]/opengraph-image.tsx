@@ -1,12 +1,11 @@
 /* * */
 
-import type { ApiResponse } from '@carrismetropolitana/api-types/common';
-import type { Locality } from '@carrismetropolitana/api-types/locations';
-import type { Line } from '@carrismetropolitana/api-types/network';
-
 import { OpenGraphLinesDefault } from '@/opengraph/OpenGraphLinesDefault';
 import { OpenGraphLinesDynamic } from '@/opengraph/OpenGraphLinesDynamic';
-import { Routes } from '@/utils/routes';
+import { type ApiResponse } from '@carrismetropolitana/api-types/common';
+import { type Locality } from '@carrismetropolitana/api-types/locations';
+import { type Line } from '@carrismetropolitana/api-types/network';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import fs from 'fs';
 import { ImageResponse } from 'next/og';
 
@@ -18,10 +17,10 @@ export default async function Image({ params }) {
 	//
 	// A. Fetch data
 
-	const allLinesResponse = await fetch(`${Routes.API}/lines`);
+	const allLinesResponse = await fetch(`${getPublicVariable('api_url')}/lines`);
 	const allLinesData: Line[] = await allLinesResponse.json();
 
-	const allLocalitiesResponse = await fetch(`${Routes.API}/locations/localities`);
+	const allLocalitiesResponse = await fetch(`${getPublicVariable('api_url')}/locations/localities`);
 	const allLocalitiesResult: ApiResponse<Locality[]> = await allLocalitiesResponse.json();
 	const allLocalitiesData = allLocalitiesResult.status === 'success' ? allLocalitiesResult.data : [];
 

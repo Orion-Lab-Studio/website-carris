@@ -1,10 +1,9 @@
 /* * */
 
-import type { Alert } from '@carrismetropolitana/api-types/alerts';
-
 import { OpenGraphAlertsDefault } from '@/opengraph/OpenGraphAlertsDefault';
 import { OpenGraphAlertsDynamic } from '@/opengraph/OpenGraphAlertsDynamic';
-import { Routes } from '@/utils/routes';
+import { type Alert } from '@carrismetropolitana/api-types/alerts';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import fs from 'fs';
 import { ImageResponse } from 'next/og';
 
@@ -22,7 +21,7 @@ export default async function Image({ params }) {
 	//
 	// A. Fetch data
 
-	const allAlertsResponse = await fetch(`${Routes.API}/alerts`);
+	const allAlertsResponse = await fetch(`${getPublicVariable('api_url')}/alerts`);
 	const allAlertsData: Alert[] = await allAlertsResponse.json();
 
 	//
@@ -51,9 +50,9 @@ export default async function Image({ params }) {
 	return new ImageResponse(
 		<OpenGraphAlertsDynamic
 			// @ts-expect-error: Improper formatting of API types
-			description={alertData.descriptionText.translation.pop()?.text}
+			description={alertData.descriptionText?.translation.pop()?.text}
 			// @ts-expect-error: Improper formatting of API types
-			title={alertData.headerText.translation.pop()?.text}
+			title={alertData.headerText?.translation.pop()?.text}
 		/>,
 		{
 			fonts: [

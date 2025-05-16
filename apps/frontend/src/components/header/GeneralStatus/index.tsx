@@ -17,7 +17,7 @@ export function GeneralStatus() {
 	//
 	// A. Fetch data
 
-	// const { data: appStatusData } = useSWR(`${Routes.API}/status/message`);
+	// const { data: appStatusData } = useSWR(`${getPublicVariable('api_url')}/status/message`);
 	// const appStatusData = null;
 
 	//

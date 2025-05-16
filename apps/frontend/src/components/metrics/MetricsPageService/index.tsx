@@ -5,9 +5,9 @@
 import { LiveIcon } from '@/components/common/LiveIcon';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { Routes } from '@/utils/routes';
 import { CachedResource } from '@carrismetropolitana/api-types/common';
 import { ServiceMetrics } from '@carrismetropolitana/api-types/metrics';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
 import useSWR from 'swr';
@@ -23,7 +23,7 @@ export function MetricsPageService() {
 	// A. Define Variables
 
 	const t = useTranslations('lines.LinesDetailMetricsService');
-	const { data: serviceMetricsData, isLoading: serviceMetricsLoading } = useSWR<CachedResource<ServiceMetrics[]>, Error>(`${Routes.API}/metrics/service/all`);
+	const { data: serviceMetricsData, isLoading: serviceMetricsLoading } = useSWR<CachedResource<ServiceMetrics[]>, Error>(`${getPublicVariable('api_url')}/metrics/service/all`);
 
 	//
 	// B. Transform data

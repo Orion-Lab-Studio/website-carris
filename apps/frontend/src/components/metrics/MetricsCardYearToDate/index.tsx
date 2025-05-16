@@ -4,7 +4,7 @@
 
 import { MetricsSectionDemandSkeleton } from '@/components/home/MetricsSectionDemandSkeleton';
 import { MonthlyMetrics } from '@/types/metrics.types';
-import { Routes } from '@/utils/routes';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { BarChart } from '@mantine/charts';
 import { ActionIcon, Popover } from '@mantine/core';
 import { IconInfoCircleFilled } from '@tabler/icons-react';
@@ -35,7 +35,7 @@ export default function Component({ chartHeight = 100, className }: Props) {
 	//
 	// B. Fetch data
 
-	const { data: metricsData } = useSWR<MonthlyMetrics[]>(`${Routes.API}/metrics/demand/by_month`);
+	const { data: metricsData } = useSWR<MonthlyMetrics[]>(`${getPublicVariable('api_url')}/metrics/demand/by_month`);
 
 	//
 	// C. Transform data

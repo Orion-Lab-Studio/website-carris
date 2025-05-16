@@ -1,13 +1,12 @@
 /* * */
 
-import type { Line, Stop } from '@carrismetropolitana/api-types/network';
-
 import { OpenGraphStopsDefault } from '@/opengraph/OpenGraphStopsDefault';
 import { OpenGraphStopsDynamic } from '@/opengraph/OpenGraphStopsDynamic';
 import { formatStopLocation } from '@/utils/formatStopLocation';
-import { Routes } from '@/utils/routes';
 import { ApiResponse } from '@carrismetropolitana/api-types/common';
 import { Locality, Municipality } from '@carrismetropolitana/api-types/locations';
+import { type Line, type Stop } from '@carrismetropolitana/api-types/network';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import fs from 'fs';
 import { ImageResponse } from 'next/og';
 
@@ -19,17 +18,17 @@ export default async function Image({ params }) {
 	//
 	// A. Fetch data
 
-	const allStopsResponse = await fetch(`${Routes.API}/stops`);
+	const allStopsResponse = await fetch(`${getPublicVariable('api_url')}/stops`);
 	const allStopsData: Stop[] = await allStopsResponse.json();
 
-	const allLinesResponse = await fetch(`${Routes.API}/lines`);
+	const allLinesResponse = await fetch(`${getPublicVariable('api_url')}/lines`);
 	const allLinesData: Line[] = await allLinesResponse.json();
 
-	const allMunicipalitiesResponse = await fetch(`${Routes.API}/locations/municipalities`);
+	const allMunicipalitiesResponse = await fetch(`${getPublicVariable('api_url')}/locations/municipalities`);
 	const allMunicipalitiesResult: ApiResponse<Municipality[]> = await allMunicipalitiesResponse.json();
 	const allMunicipalitiesData = allMunicipalitiesResult.status === 'success' ? allMunicipalitiesResult.data : [];
 
-	const allLocalitiesResponse = await fetch(`${Routes.API}/locations/localities`);
+	const allLocalitiesResponse = await fetch(`${getPublicVariable('api_url')}/locations/localities`);
 	const allLocalitiesResult: ApiResponse<Locality[]> = await allLocalitiesResponse.json();
 	const allLocalitiesData = allLocalitiesResult.status === 'success' ? allLocalitiesResult.data : [];
 

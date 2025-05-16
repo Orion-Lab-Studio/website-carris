@@ -4,9 +4,9 @@
 
 import { useLocationsContext } from '@/contexts/Locations.context';
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
-import { Routes } from '@/utils/routes';
 import { type ExtendStopsWorkerData } from '@/workers/extend-stops.worker';
 import { type Stop } from '@carrismetropolitana/api-types/network';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { createContext, useContext, useEffect, useRef, useState } from 'react';
 import useSWR from 'swr';
 
@@ -61,7 +61,7 @@ export const StopsContextProvider = ({ children }) => {
 	//
 	// B. Fetch data
 
-	const { data: allStopsData, isLoading: allStopsLoading } = useSWR<Stop[]>(`${Routes.API}/stops`, { refreshInterval: 900000 }); // 15 minutes
+	const { data: allStopsData, isLoading: allStopsLoading } = useSWR<Stop[]>(`${getPublicVariable('api_url')}/stops`, { refreshInterval: 900000 }); // 15 minutes
 
 	//
 	// C. Transform data

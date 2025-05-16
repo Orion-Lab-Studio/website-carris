@@ -2,11 +2,10 @@
 
 /* * */
 
-import type { DemandMetricsByAgency, DemandMetricsByAgencyDay } from '@carrismetropolitana/api-types/metrics';
-
 import { Grid } from '@/components/layout/Grid';
 import { MetricsDemandChart } from '@/components/metrics/MetricsDemandChart';
-import { Routes } from '@/utils/routes';
+import { type DemandMetricsByAgency, type DemandMetricsByAgencyDay } from '@carrismetropolitana/api-types/metrics';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { DateTime } from 'luxon';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
@@ -25,7 +24,7 @@ export function MetricsPagePassengersDay() {
 	//
 	// B. Fetch Data
 
-	const { data: metricsByAgencyDayData, isLoading: metricsByAgencyDayLoading } = useSWR<DemandMetricsByAgency[]>(`${Routes.API}/metrics/demand/by_agency/day`, { refreshInterval: 60000 });
+	const { data: metricsByAgencyDayData, isLoading: metricsByAgencyDayLoading } = useSWR<DemandMetricsByAgency[]>(`${getPublicVariable('api_url')}/metrics/demand/by_agency/day`, { refreshInterval: 60000 });
 
 	//
 	// C. Transform data

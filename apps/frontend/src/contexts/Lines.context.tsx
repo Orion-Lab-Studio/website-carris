@@ -2,11 +2,10 @@
 
 /* * */
 
-import type { CachedResource } from '@carrismetropolitana/api-types/common';
-import type { DemandMetricsByLine, ServiceMetrics } from '@carrismetropolitana/api-types/metrics';
-import type { Line, Route } from '@carrismetropolitana/api-types/network';
-
-import { Routes } from '@/utils/routes';
+import { type CachedResource } from '@carrismetropolitana/api-types/common';
+import { type DemandMetricsByLine, type ServiceMetrics } from '@carrismetropolitana/api-types/metrics';
+import { type Line, type Route } from '@carrismetropolitana/api-types/network';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { createContext, useContext, useMemo } from 'react';
 import useSWR from 'swr';
 
@@ -50,10 +49,10 @@ export const LinesContextProvider = ({ children }) => {
 	//
 	// A. Fetch data
 
-	const { data: allLinesData, isLoading: allLinesLoading } = useSWR<Line[], Error>(`${Routes.API}/lines`, { refreshInterval: 900000 }); // 15 minutes
-	const { data: allRoutesData, isLoading: allRoutesLoading } = useSWR<Route[], Error>(`${Routes.API}/routes`, { refreshInterval: 900000 }); // 15 minutes
-	const { data: demandByLineData, isLoading: demandByLineDataLoading } = useSWR<DemandMetricsByLine[], Error>(`${Routes.API}/metrics/demand/by_line`, { refreshInterval: 300000 }); // 5 minutes
-	const { data: serviceMetricsData, isLoading: serviceMetricsLoading } = useSWR<CachedResource<ServiceMetrics[]>, Error>(`${Routes.API}/metrics/service/all`, { refreshInterval: 900000 }); // 15 minutes
+	const { data: allLinesData, isLoading: allLinesLoading } = useSWR<Line[], Error>(`${getPublicVariable('api_url')}/lines`, { refreshInterval: 900000 }); // 15 minutes
+	const { data: allRoutesData, isLoading: allRoutesLoading } = useSWR<Route[], Error>(`${getPublicVariable('api_url')}/routes`, { refreshInterval: 900000 }); // 15 minutes
+	const { data: demandByLineData, isLoading: demandByLineDataLoading } = useSWR<DemandMetricsByLine[], Error>(`${getPublicVariable('api_url')}/metrics/demand/by_line`, { refreshInterval: 300000 }); // 5 minutes
+	const { data: serviceMetricsData, isLoading: serviceMetricsLoading } = useSWR<CachedResource<ServiceMetrics[]>, Error>(`${getPublicVariable('api_url')}/metrics/service/all`, { refreshInterval: 900000 }); // 15 minutes
 
 	//
 	// B. Handle actions

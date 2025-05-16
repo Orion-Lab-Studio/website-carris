@@ -8,9 +8,9 @@ import { useOperationalDateContext } from '@/contexts/OperationalDate.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import { useStopsContext } from '@/contexts/Stops.context';
 import { type SimplifiedAlert } from '@/types/alerts.types';
-import { Routes } from '@/utils/routes';
 import { type DemandMetricsByLine, type ServiceMetrics } from '@carrismetropolitana/api-types/metrics';
 import { type Line, type Pattern, type Route, type Shape, type Waypoint } from '@carrismetropolitana/api-types/network';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { useQueryState } from 'nuqs';
 import { createContext, useContext, useEffect, useState } from 'react';
 
@@ -132,7 +132,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 			try {
 				if (!dataLineState) return;
 				const fetchPromises = dataLineState.pattern_ids.map((patternId) => {
-					return fetch(`${Routes.API}/patterns/${patternId}`)
+					return fetch(`${getPublicVariable('api_url')}/patterns/${patternId}`)
 						.then(response => response.json())
 						.then((patternData) => {
 							return patternData.map((patternGroup) => {
@@ -162,7 +162,7 @@ export const LinesDetailContextProvider = ({ children, lineId }) => {
 		if (!dataActivePatternState) return;
 		(async () => {
 			try {
-				const shapeData = await fetch(`${Routes.API}/shapes/${dataActivePatternState.shape_id}`).then((response) => {
+				const shapeData = await fetch(`${getPublicVariable('api_url')}/shapes/${dataActivePatternState.shape_id}`).then((response) => {
 					if (!response.ok) console.log(`Failed to fetch shape data for shapeId: ${dataActivePatternState.shape_id}`);
 					else return response.json();
 				});

@@ -10,8 +10,8 @@ import { transformVehicleDataIntoGeoJsonFeature, useVehiclesContext } from '@/co
 import { useVehiclesListContext } from '@/contexts/VehiclesList.context';
 import { getBaseGeoJsonFeatureCollection } from '@/utils/map.utils';
 import getOperationalDate from '@/utils/operation';
-import { Routes } from '@/utils/routes';
 import { Pattern, Shape } from '@carrismetropolitana/api-types/network';
+import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { useEffect, useMemo, useState } from 'react';
 
 /* * */
@@ -37,7 +37,7 @@ export function VehiclesListMap() {
 			if (!vehiclesListContext.data.selected) return;
 			if (vehiclesListContext.data.selected.pattern_id) {
 				const todayOperationalDate = getOperationalDate();
-				const fetchedPatternResponse = await fetch(`${Routes.API}/patterns/${vehiclesListContext.data.selected.pattern_id}`);
+				const fetchedPatternResponse = await fetch(`${getPublicVariable('api_url')}/patterns/${vehiclesListContext.data.selected.pattern_id}`);
 				const fetchedPatternData = await fetchedPatternResponse.json();
 				const activePatternVersion = fetchedPatternData.find(item => item.valid_on.includes(todayOperationalDate));
 				setActivePatternData(activePatternVersion);
@@ -51,7 +51,7 @@ export function VehiclesListMap() {
 				setActiveShapeData(undefined);
 				return;
 			}
-			const fetchedShapeResponse = await fetch(`${Routes.API}/shapes/${activePatternData.shape_id}`);
+			const fetchedShapeResponse = await fetch(`${getPublicVariable('api_url')}/shapes/${activePatternData.shape_id}`);
 			if (!fetchedShapeResponse.ok) return;
 			const fetchedShapeData = await fetchedShapeResponse.json();
 			setActiveShapeData(fetchedShapeData);
