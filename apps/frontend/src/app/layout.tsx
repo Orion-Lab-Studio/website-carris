@@ -1,10 +1,8 @@
 /* * */
 
-import { RootProviders } from '@/providers/root-providers';
 import { getPublicVariable } from '@carrismetropolitana/website-settings';
 import { type Metadata } from 'next';
 import { Inter } from 'next/font/google';
-import { NuqsAdapter } from 'nuqs/adapters/next/app';
 
 /* * */
 
@@ -36,11 +34,7 @@ export default async function RootLayout({ children }) {
 				<meta content="transparent" name="theme-color" />
 			</head>
 			<body>
-				<NuqsAdapter>
-					<RootProviders>
-						{children}
-					</RootProviders>
-				</NuqsAdapter>
+				{children}
 			</body>
 		</html>
 	);

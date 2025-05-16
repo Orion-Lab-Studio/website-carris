@@ -4,19 +4,18 @@
 
 import { AnalyticsContextProvider } from '@/contexts/Analytics.context';
 import { ConsentContextProvider } from '@/contexts/Consent.context';
-
-import { LocaleProviders } from './locale-providers';
+import { LocaleContextProvider } from '@/contexts/Locale.context';
 
 /* * */
 
 export function RootProviders({ children }) {
 	return (
-		<LocaleProviders>
+		<LocaleContextProvider>
 			<ConsentContextProvider>
 				<AnalyticsContextProvider>
 					{children}
 				</AnalyticsContextProvider>
 			</ConsentContextProvider>
-		</LocaleProviders>
+		</LocaleContextProvider>
 	);
 }
