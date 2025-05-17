@@ -1,4 +1,3 @@
 /* * */
 
-export * from '@/environment.js';
-export * from '@/public-variables.js';
+export * from '@/general-status.js';

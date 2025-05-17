@@ -4,7 +4,7 @@
 
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { getPublicVariable } from '@carrismetropolitana/website-shared-settings';
+import { type GeneralStatusMessage } from '@carrismetropolitana/website-shared-types';
 import useSWR from 'swr';
 
 import styles from './styles.module.css';
@@ -17,9 +17,7 @@ export function GeneralStatus() {
 	//
 	// A. Fetch data
 
-	const { data: generalStatusData } = useSWR(`${getPublicVariable('backoffice_url')}/api/globals/general-status/public`);
-
-	console.log('generalStatusData', generalStatusData);
+	const { data: generalStatusData } = useSWR<GeneralStatusMessage>('/admin/api/globals/general-status/public');
 
 	//
 	// B. Handle actions
@@ -33,10 +31,13 @@ export function GeneralStatus() {
 	//
 	// C. Render Components
 
+	if (!generalStatusData) {
+		return null;
+	}
+
 	return (
 		<Surface variant="success">
-			<h1 className={styles.heading}>Lorem ipsum dolor sit amet</h1>
-			<Section heading="Trânsito estabilizado na Ponte 25 Abril" variant="success" withPadding>
+			<Section heading={generalStatusData[0].title} variant="success" withPadding>
 				<h3 className={styles.title}>Lorem ipsum dolor sit amet</h3>
 			</Section>
 		</Surface>
