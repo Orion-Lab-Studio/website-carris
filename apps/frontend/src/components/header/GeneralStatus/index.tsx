@@ -2,9 +2,8 @@
 
 /* * */
 
-import { Section } from '@/components/layout/Section';
-import { Surface } from '@/components/layout/Surface';
 import { type GeneralStatusMessage } from '@carrismetropolitana/website-shared-types';
+import { IconAlertOctagonFilled, IconCircleCheckFilled, IconInfoSquareFilled, IconTrafficCone } from '@tabler/icons-react';
 import useSWR from 'swr';
 
 import styles from './styles.module.css';
@@ -17,45 +16,24 @@ export function GeneralStatus() {
 	//
 	// A. Fetch data
 
-	const { data: generalStatusData } = useSWR<GeneralStatusMessage>('/admin/api/globals/general-status/public');
+	const { data: generalStatusData } = useSWR<GeneralStatusMessage[]>('/admin/api/globals/general-status/public');
 
 	//
-	// B. Handle actions
+	// B. Render Components
 
-	// const handleClick = () => {
-	// 	if (appStatusData.more_info) {
-	// 		window.open(appStatusData.more_info, '_blank');
-	// 	}
-	// };
-
-	//
-	// C. Render Components
-
-	if (!generalStatusData) {
+	if (!generalStatusData || !generalStatusData.length) {
 		return null;
 	}
 
-	return (
-		<Surface variant="success">
-			<Section heading={generalStatusData[0].title} variant="success" withPadding>
-				<h3 className={styles.title}>Lorem ipsum dolor sit amet</h3>
-			</Section>
-		</Surface>
-	);
-
-	// return appStatusData && appStatusData.title && (
-	// 	<div className={`${styles.container} ${appStatusData.more_info && styles.asLink} ${styles[`style_${appStatusData.style}`]}`} onClick={handleClick}>
-	// 		<div className={styles.iconWrapper}>
-	// 			{appStatusData.style === 'info' && <IconInfoCircleFilled className={styles.icon} size={22} />}
-	// 			{appStatusData.style === 'ok' && <IconCircleCheckFilled className={styles.icon} size={22} />}
-	// 			{appStatusData.style === 'warning' && <IconBellRingingFilled className={styles.icon} size={22} />}
-	// 			{appStatusData.style === 'danger' && <IconAlertTriangleFilled className={styles.icon} size={22} />}
-	// 		</div>
-	// 		<div className={styles.messageWrapper}>
-	// 			<h3 className={styles.title}>{appStatusData.title}</h3>
-	// 		</div>
-	// 	</div>
-	// );
+	return generalStatusData.map(item => (
+		<div key={item.title} className={styles.container} data-severity={item.severity}>
+			{item.severity === 'ok' && <IconCircleCheckFilled className={styles.icon} size={20} />}
+			{item.severity === 'info' && <IconInfoSquareFilled className={styles.icon} size={20} />}
+			{item.severity === 'warning' && <IconTrafficCone className={styles.icon} size={20} />}
+			{item.severity === 'danger' && <IconAlertOctagonFilled className={styles.icon} size={20} />}
+			<p className={styles.title}>{item.title}</p>
+		</div>
+	));
 
 	//
 }
