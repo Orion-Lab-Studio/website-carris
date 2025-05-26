@@ -64,7 +64,7 @@ export default function Component({ chartHeight = 100, className }: Props) {
 	}, [metricsData]);
 
 	//
-	// D. Render Components
+	// D. Render components
 
 	if (!metricsData) {
 		return <MetricsSectionDemandSkeleton />;

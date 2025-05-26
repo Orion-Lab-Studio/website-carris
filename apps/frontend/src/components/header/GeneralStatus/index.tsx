@@ -19,7 +19,7 @@ export function GeneralStatus() {
 	const { data: generalStatusData } = useSWR<GeneralStatusMessage[]>('/admin/api/globals/general-status/public');
 
 	//
-	// B. Render Components
+	// B. Render components
 
 	if (!generalStatusData || !generalStatusData.length) {
 		return null;
