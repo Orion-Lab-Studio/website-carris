@@ -27,10 +27,10 @@ export function GeneralStatus() {
 
 	return generalStatusData.map(item => (
 		<div key={item.title} className={styles.container} data-severity={item.severity}>
-			{item.severity === 'ok' && <IconCircleCheckFilled className={styles.icon} size={20} />}
-			{item.severity === 'info' && <IconInfoSquareFilled className={styles.icon} size={20} />}
-			{item.severity === 'warning' && <IconTrafficCone className={styles.icon} size={20} />}
-			{item.severity === 'danger' && <IconAlertOctagonFilled className={styles.icon} size={20} />}
+			{item.severity === 'ok' && <IconCircleCheckFilled className={styles.icon} size={24} />}
+			{item.severity === 'info' && <IconInfoSquareFilled className={styles.icon} size={24} />}
+			{item.severity === 'warning' && <IconTrafficCone className={styles.icon} size={24} />}
+			{item.severity === 'danger' && <IconAlertOctagonFilled className={styles.icon} size={24} />}
 			<p className={styles.title}>{item.title}</p>
 		</div>
 	));
