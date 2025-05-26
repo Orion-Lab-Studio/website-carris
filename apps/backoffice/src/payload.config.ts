@@ -19,6 +19,7 @@ import { Users } from '@/schemas/Users/collection';
 /* * */
 
 import { GeneralStatus } from '@/schemas/GeneralStatus/global';
+import { HomeSlider } from '@/schemas/HomeSlider/global';
 
 /* * */
 
@@ -54,20 +55,22 @@ export default buildConfig({
 
 	globals: [
 		GeneralStatus,
+		HomeSlider,
 	],
 
 	plugins: [
 		s3Storage({
-			bucket: process.env.CLOUDFLARE_R2_BUCKET ?? 'placeholder',
+			bucket: process.env.CLOUDFLARE_BUCKET_NAME ?? 'placeholder',
 			collections: {
 				media: true,
 			},
 			config: {
-				bucketEndpoint: true,
 				credentials: {
-					accessKeyId: process.env.CLOUDFLARE_R2_ACCESS_KEY_ID ?? 'placeholder',
-					secretAccessKey: process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY ?? 'placeholder',
+					accessKeyId: process.env.CLOUDFLARE_ACCESS_KEY_ID ?? 'placeholder',
+					accountId: process.env.CLOUDFLARE_ACCOUNT_ID ?? 'placeholder',
+					secretAccessKey: process.env.CLOUDFLARE_SECRET_ACCESS_KEY ?? 'placeholder',
 				},
+				endpoint: process.env.CLOUDFLARE_ENDPOINT ?? 'https://placeholder.endpoint.com',
 				region: 'auto',
 			},
 		}),

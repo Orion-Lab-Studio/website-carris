@@ -92,9 +92,11 @@ export interface Config {
   };
   globals: {
     'general-status': GeneralStatus;
+    'home-slider': HomeSlider;
   };
   globalsSelect: {
     'general-status': GeneralStatusSelect<false> | GeneralStatusSelect<true>;
+    'home-slider': HomeSliderSelect<false> | HomeSliderSelect<true>;
   };
   locale: null;
   user: User & {
@@ -404,6 +406,26 @@ export interface GeneralStatus {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-slider".
+ */
+export interface HomeSlider {
+  id: string;
+  slides?:
+    | {
+        is_enabled?: boolean | null;
+        image?: (string | null) | Media;
+        title?: string | null;
+        more_info_url?: string | null;
+        start_date?: string | null;
+        end_date?: string | null;
+        id?: string | null;
+      }[]
+    | null;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "general-status_select".
  */
 export interface GeneralStatusSelect<T extends boolean = true> {
@@ -414,6 +436,26 @@ export interface GeneralStatusSelect<T extends boolean = true> {
         title?: T;
         more_info_url?: T;
         severity?: T;
+        start_date?: T;
+        end_date?: T;
+        id?: T;
+      };
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "home-slider_select".
+ */
+export interface HomeSliderSelect<T extends boolean = true> {
+  slides?:
+    | T
+    | {
+        is_enabled?: T;
+        image?: T;
+        title?: T;
+        more_info_url?: T;
         start_date?: T;
         end_date?: T;
         id?: T;
