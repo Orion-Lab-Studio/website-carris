@@ -13,7 +13,7 @@ export const GET = async () => {
 	//
 	// Setup Payload and other necessary variables for handling requests.
 
-	const currentDate = Dates.now();
+	const currentDate = Dates.now('utc');
 	const payload = await getPayload({ config: payloadConfig });
 
 	//
