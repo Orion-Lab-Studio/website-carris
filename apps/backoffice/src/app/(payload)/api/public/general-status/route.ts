@@ -1,6 +1,7 @@
 /* * */
 
 import payloadConfig from '@/payload.config';
+import { getPublicHeaders } from '@/utils/get-public-headers';
 import { type GeneralStatusMessage } from '@carrismetropolitana/website-shared-types';
 import { Dates } from '@tmlmobilidade/utils';
 import { getPayload } from 'payload';
@@ -23,7 +24,7 @@ export const GET = async () => {
 	const allGeneralStatusMessages = foundGeneralStatusMessages?.messages.length ? foundGeneralStatusMessages.messages : null;
 
 	if (!allGeneralStatusMessages) return Response.json([], {
-		headers: { 'Access-Control-Allow-Origin': '*' },
+		headers: getPublicHeaders(60)
 	});
 
 	//
@@ -61,7 +62,7 @@ export const GET = async () => {
 	// Return the filtered and formatted messages as a JSON response.
 
 	return Response.json(publicMessages, {
-		headers: { 'Access-Control-Allow-Origin': '*' },
+		headers: getPublicHeaders(60)
 	});
 
 	//

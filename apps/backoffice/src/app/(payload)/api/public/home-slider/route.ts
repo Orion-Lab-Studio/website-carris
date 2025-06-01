@@ -1,6 +1,7 @@
 /* * */
 
 import payloadConfig from '@/payload.config';
+import { getPublicHeaders } from '@/utils/get-public-headers';
 import { type HomeSliderSlide } from '@carrismetropolitana/website-shared-types';
 import { Dates } from '@tmlmobilidade/utils';
 import { getPayload } from 'payload';
@@ -59,7 +60,7 @@ export const GET = async () => {
 	// Return the filtered and formatted slides as a JSON response.
 
 	return Response.json(publicSlides, {
-		headers: { 'Access-Control-Allow-Origin': '*' },
+		headers: getPublicHeaders(60)
 	});
 
 	//
