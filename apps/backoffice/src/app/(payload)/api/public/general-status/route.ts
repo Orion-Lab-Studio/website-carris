@@ -49,11 +49,11 @@ export const GET = async () => {
 		.map((item) => {
 			return {
 				_id: item.id,
-				end_date: Dates.fromISO(item.end_date).unix_timestamp,
+				end_date: item.end_date ? Dates.fromISO(item.end_date).unix_timestamp : null,
 				is_enabled: item.is_enabled,
 				more_info_url: item.more_info_url,
 				severity: item.severity,
-				start_date: Dates.fromISO(item.start_date).unix_timestamp,
+				start_date: item.start_date ? Dates.fromISO(item.start_date).unix_timestamp : null,
 				title: item.title,
 			};
 		});
