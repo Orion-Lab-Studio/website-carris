@@ -1,3 +1,5 @@
+'use client';
+
 /* * */
 
 import { balloons } from '@/components/festive/Balloons/balloons';
