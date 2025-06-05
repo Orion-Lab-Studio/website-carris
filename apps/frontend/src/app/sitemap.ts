@@ -53,7 +53,7 @@ export default async function Sitemap() {
 			changeFrequency: 'always',
 			lastModified: new Date(),
 			priority: 1,
-			url: `${baseUrl}/encm`,
+			url: `${baseUrl}/stores`,
 		},
 
 		{
