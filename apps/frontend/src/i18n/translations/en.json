@@ -300,21 +300,21 @@
 		},
 		"AppNaveganteStartup20250115": {
 			"actions": {
-				"close": "Fechar",
-				"update_android": "Atualizar na Play Store",
-				"update_ios": "Atualizar na App Store"
+				"close": "Close",
+				"update_android": "Update on Play Store",
+				"update_ios": "Update on App Store"
 			},
-			"heading": "A App navegante® tem uma nova versão com melhorias de usabilidade.",
-			"paragraph_1": "Agora é mais fácil:",
-			"paragraph_2": "• Consultar a validade do cartão e da gratuitidade jovem.",
-			"paragraph_3": "• Renovar o acesso à gratuitidade jovem.",
-			"paragraph_4": "• Utilizar a App em 'Dark Mode'",
-			"paragraph_5": "Simplifique a sua mobilidade com a App navegante®!"
+			"heading": "There is a new version with usability improvements and bug fixes.",
+			"paragraph_1": "Now it is easier:",
+			"paragraph_2": "• Check the validity of the card and discounts.",
+			"paragraph_3": "• Renew access to discounts.",
+			"paragraph_4": "• Use the app in 'Dark Mode'.",
+			"paragraph_5": "Simplify your mobility with the navegante® app!"
 		},
 		"AppNaveganteStartupNaoAumenta2025": {
 			"actions": {
-				"close": "Fechar",
-				"learn_more": "Saber mais"
+				"close": "Close",
+				"learn_more": "Learn More"
 			}
 		}
 	},
