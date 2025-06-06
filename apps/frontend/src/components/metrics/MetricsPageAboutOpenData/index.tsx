@@ -11,7 +11,7 @@ export function MetricsPageAboutOpenData() {
 	//
 
 	//
-	// A. Setup Variables
+	// A. Setup variables
 
 	const t = useTranslations('metrics.MetricsPageAboutOpenData');
 

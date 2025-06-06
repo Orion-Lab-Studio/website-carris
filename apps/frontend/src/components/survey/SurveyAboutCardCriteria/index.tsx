@@ -9,7 +9,7 @@ export function SurveyAboutCardCriteria() {
 	//
 
 	//
-	// A. Setup Variables
+	// A. Setup variables
 	const t = useTranslations('survey.SurveyCriteriaCard');
 	const rows = [
 		{ name: 'firstRow', text: t('firstRowText'), value: t('firstRowValue') },

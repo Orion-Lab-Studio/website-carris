@@ -24,7 +24,7 @@ export default function Component({ alertId, alertTitle, alt, href, src, target 
 	//
 
 	//
-	// A. Setup Variables
+	// A. Setup variables
 
 	const analyticsContext = useAnalyticsContext();
 

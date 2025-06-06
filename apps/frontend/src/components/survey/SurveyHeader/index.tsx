@@ -17,7 +17,7 @@ export function SurveyHeader() {
 	//
 
 	//
-	// A. Setup Variables
+	// A. Setup variables
 
 	const t = useTranslations('survey.SurveyHeader');
 	const anchorButtons = [

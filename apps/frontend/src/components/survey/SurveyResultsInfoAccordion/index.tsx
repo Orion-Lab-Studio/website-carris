@@ -12,7 +12,7 @@ export function SurveyResultsInfoAccordion() {
 	//
 
 	//
-	// A. Setup Variables
+	// A. Setup variables
 	const t = useTranslations('survey.SurveyResultsInfoAccordion');
 	//
 	// B. Render components
