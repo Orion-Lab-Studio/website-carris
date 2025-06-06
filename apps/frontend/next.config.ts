@@ -11,8 +11,10 @@ const nextConfig: NextConfig = {
 	async headers() {
 		return [
 			{
+				// Match everything except paths that contain a dot (e.g., .js, .png, .xml)
+				// and also ignore _next/ for Next.js internals
 				headers: [{ key: 'Cache-Control', value: 's-maxage=30' }],
-				source: '/:path*',
+				source: '/((?!_next/|.*\\..*).*)',
 			},
 		];
 	},
