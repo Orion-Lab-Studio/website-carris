@@ -17,8 +17,9 @@ const nextConfig: NextConfig = {
 				source: '/((?!_next/|api/|.*\\..*).*)',
 			},
 			{
-				// Match all static assets (e.g., images, CSS, JS) in the /assets/ directory
-				headers: [{ key: 'Cache-Control', value: 'public, max-age=45' }],
+				// This matches static assets from the /public/assets directory. It is used to serve
+				// images, fonts, and other static assets that are manually placed in the folder.
+				headers: [{ key: 'Cache-Control', value: 'public, max-age=3600, stale-while-revalidate=120' }],
 				source: '/assets/:path*',
 			},
 		];
