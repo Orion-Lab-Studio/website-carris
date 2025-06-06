@@ -45,13 +45,6 @@ export const BrandsOperators = Object.freeze({
  * Icons used by alerts
  */
 
-export const IconsSocial = Object.freeze({
-	facebook: '/icons/social/social-facebook.svg',
-	instagram: '/icons/social/social-instagram.svg',
-	whatsapp: '/icons/social/social-whatsapp.svg',
-	x: '/icons/social/social-twitter.svg',
-});
-
 export const IconsFacilities = Object.freeze({
 	court: '/icons/facilities/court.svg',
 	fire_station: '/icons/facilities/fire_station.svg',
@@ -90,24 +83,5 @@ export const IconsMap = Object.freeze({
 
 export const IconsCommon = Object.freeze({
 	AML_MAP_OPERATORS: '/icons/common/aml-map-with-operators.svg',
-	LINE_BADGE_BASE: '/icons/common/line-badge-base.svg',
 	LIVRO_RECLAMACOES: '/icons/common/livro-de-reclamacoes.svg',
-	MULTIBANCO_DARK: '/icons/common/multibanco-dark.svg',
-	MULTIBANCO_LIGHT: '/icons/common/multibanco-light.svg',
-	PAYSHOP: '/icons/common/payshop.png',
-	QUESTION: '/icons/common/question.svg',
-	RECEIPT: '/icons/common/receipt.svg',
-	SAFARI_PINNED_TAB: '/icons/common/safari-pinned-tab.svg',
-	TICKET: '/icons/common/ticket.svg',
-});
-
-// Images
-
-export const ImagesHome = Object.freeze({
-	CASO_DE_ESTUDO_LOURES: '/images/home/caso-de-estudo-loures.png',
-	DRIVERS: '/images/home/drivers.png',
-});
-
-export const Images = Object.freeze({
-	...ImagesHome,
 });
