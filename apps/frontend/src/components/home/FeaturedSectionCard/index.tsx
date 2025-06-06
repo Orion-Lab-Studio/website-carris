@@ -1,6 +1,5 @@
 /* * */
 
-import { ImagesCommon } from '@/settings/assets.settings';
 import { Image } from '@mantine/core';
 import Link from 'next/link';
 
@@ -24,7 +23,7 @@ export default function Component({ coverImageSrc, href, title }: Props) {
 
 	return (
 		<Link href={href} target="_blank">
-			<Image alt={title} className={styles.coverImage} fallbackSrc={ImagesCommon.PLACEHOLDER} src={coverImageSrc} />
+			<Image alt={title} className={styles.coverImage} fallbackSrc="/assets/common/placeholder.png" src={coverImageSrc} />
 		</Link>
 	);
 

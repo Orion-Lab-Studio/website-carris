@@ -1,6 +1,5 @@
 /* * */
 
-import { ImagesCommon } from '@/settings/assets.settings';
 import { Image } from '@mantine/core';
 import { IconArrowRight } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
@@ -31,7 +30,7 @@ export function MainCarouselCard({ coverImageSrc, href, title }: Props) {
 
 	if (!href) {
 		return (
-			<Image alt={title} fallbackSrc={ImagesCommon.PLACEHOLDER} src={coverImageSrc} />
+			<Image alt={title} fallbackSrc="/assets/common/placeholder.png" src={coverImageSrc} />
 		);
 	}
 
@@ -41,7 +40,7 @@ export function MainCarouselCard({ coverImageSrc, href, title }: Props) {
 				{t('learn_more')}
 				<IconArrowRight size={18} />
 			</Link>
-			<Image alt={title} fallbackSrc={ImagesCommon.PLACEHOLDER} src={coverImageSrc} />
+			<Image alt={title} fallbackSrc="/assets/common/placeholder.png" src={coverImageSrc} />
 		</div>
 	);
 

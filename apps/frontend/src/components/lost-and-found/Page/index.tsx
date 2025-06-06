@@ -3,7 +3,7 @@
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import OperatorSection from '@/components/lost-and-found/OperatorSection';
-import { IconsCommon, ImagesCommon } from '@/settings/assets.settings';
+import { IconsCommon } from '@/settings/assets.settings';
 import { RoutesLostAndFound } from '@/utils/routes';
 import { Image } from '@mantine/core';
 import { useTranslations } from 'next-intl';
@@ -27,7 +27,7 @@ export default function Component() {
 		<>
 			<Surface>
 				<Section heading={t('heading')} subheading={t('subheading')} withPadding>
-					<Image alt="AML Map" className={styles.map} fallbackSrc={ImagesCommon.PLACEHOLDER} src={IconsCommon.AML_MAP_OPERATORS} />
+					<Image alt="AML Map" className={styles.map} fallbackSrc="/assets/common/placeholder.png" src={IconsCommon.AML_MAP_OPERATORS} />
 				</Section>
 			</Surface>
 			<OperatorSection actions={[{ href: RoutesLostAndFound.VIACAO_ALVORADA, type: 'email' }]} description={t('operator_sections.41.description')} title={t('operator_sections.41.title')} />

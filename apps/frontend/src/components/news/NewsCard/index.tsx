@@ -1,6 +1,5 @@
 /* * */
 
-import { ImagesCommon } from '@/settings/assets.settings';
 import { Routes } from '@/utils/routes';
 import { Image } from '@mantine/core';
 import { DateTime } from 'luxon';
@@ -35,7 +34,7 @@ export function NewsCard({ _id, coverImageSrc, publishDate, title }: NewsCardPro
 
 	return (
 		<Link className={styles.container} href={`${Routes.NEWS.route}/${_id}`}>
-			<Image alt={title} className={styles.coverImage} fallbackSrc={ImagesCommon.PLACEHOLDER} src={coverImageSrc} />
+			<Image alt={title} className={styles.coverImage} fallbackSrc="/assets/common/placeholder.png" src={coverImageSrc} />
 			<p className={styles.publishDate}>{t('publish_date', { publishDate: publishDateObject })}</p>
 			<h4 className={styles.title}>{title}</h4>
 		</Link>

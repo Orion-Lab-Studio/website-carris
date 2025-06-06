@@ -1,5 +1,3 @@
-'use client';
-
 /* * */
 
 import { Surface } from '@/components/layout/Surface';
@@ -15,8 +13,6 @@ export function AboutPage() {
 	//
 
 	//
-
-	//
 	// A. Setup variables
 
 	const t = useTranslations('about.AboutPage');
@@ -28,7 +24,7 @@ export function AboutPage() {
 		<>
 
 			<Surface forceOverflow>
-				<Image alt="Carris Metropolitana" src="/images/about/about-header.svg" />
+				<Image alt="Carris Metropolitana" src="/assets/about/about-header.svg" />
 			</Surface>
 
 			<Surface forceOverflow>
@@ -68,8 +64,8 @@ export function AboutPage() {
 							<p className={styles.text}>{t('sections.section-4.text-3')}</p>
 							<p className={styles.text}>{t('sections.section-4.text-4')}</p>
 							<ThemeSwitch
-								dark={<Image alt="Estrutura da Carris Metropolitana" src="/images/about/about-estrutura-dark.svg" />}
-								light={<Image alt="Estrutura da Carris Metropolitana" src="/images/about/about-estrutura-light.svg" />}
+								dark={<Image alt="Estrutura da Carris Metropolitana" src="/assets/about/about-estrutura-dark.svg" />}
+								light={<Image alt="Estrutura da Carris Metropolitana" src="/assets/about/about-estrutura-light.svg" />}
 							/>
 						</Accordion.Panel>
 					</Accordion.Item>

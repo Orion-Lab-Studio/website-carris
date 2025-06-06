@@ -107,23 +107,11 @@ export const IconsCommon = Object.freeze({
 
 // Images
 
-export const ImagesCommon = Object.freeze({
-	AREA1: '/images/common/area1.svg',
-	AREA2: '/images/common/area2.svg',
-	AREA3: '/images/common/area3.svg',
-	AREA4: '/images/common/area4.svg',
-	COINS: '/images/common/coins.svg',
-	NAVEGANTE_CARD: '/images/common/navegante-card.png',
-	NAVEGANTE_OCASIONAL: '/images/common/navegante-occasional.png',
-	PLACEHOLDER: '/images/common/placeholder.png',
-});
-
 export const ImagesHome = Object.freeze({
 	CASO_DE_ESTUDO_LOURES: '/images/home/caso-de-estudo-loures.png',
 	DRIVERS: '/images/home/drivers.png',
 });
 
 export const Images = Object.freeze({
-	...ImagesCommon,
 	...ImagesHome,
 });
