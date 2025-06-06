@@ -1,6 +1,6 @@
 /* * */
 
-import payloadConfig from '@/payload.config';
+import payloadConfig from '@/payload-config';
 import { getPublicHeaders } from '@/utils/get-public-headers';
 import { type HomeSliderSlide } from '@carrismetropolitana/website-shared-types';
 import { Dates } from '@tmlmobilidade/utils';
