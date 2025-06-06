@@ -7,8 +7,20 @@ import createNextIntlPlugin from 'next-intl/plugin';
 /* * */
 
 const nextConfig: NextConfig = {
+
+	async headers() {
+		return [
+			{
+				headers: [{ key: 'Cache-Control', value: 's-maxage=30' }],
+				source: '/',
+			},
+		];
+	},
+
 	output: 'standalone',
+
 	reactStrictMode: true,
+
 	async redirects() {
 		return [
 			//
@@ -112,6 +124,7 @@ const nextConfig: NextConfig = {
 
 		];
 	},
+
 };
 
 /* * */
