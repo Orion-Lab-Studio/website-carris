@@ -13,7 +13,7 @@ const nextConfig: NextConfig = {
 			{
 				// Match everything except paths that contain a dot (e.g., .js, .png, .xml)
 				// and also ignore _next/ for Next.js internals
-				headers: [{ key: 'Cache-Control', value: 's-maxage=30' }],
+				headers: [{ key: 'Cache-Control', value: 'public, max-age=60, stale-while-revalidate=120' }],
 				source: '/((?!_next/|.*\\..*).*)',
 			},
 		];
