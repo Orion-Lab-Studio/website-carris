@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
 			{
 				// Match all static assets (e.g., images, CSS, JS) in the /assets/ directory
 				headers: [{ key: 'Cache-Control', value: 'public, max-age=45' }],
-				source: '/assets/*',
+				source: '/assets/:path*',
 			},
 		];
 	},
