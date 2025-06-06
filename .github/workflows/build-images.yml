@@ -93,6 +93,10 @@ jobs:
           build-args: |
             ENVIRONMENT=${{ github.ref_name }}
 
+      - name: Get npm cache directory
+        shell: bash
+        run: echo "dir=$(npm config get cache)" >> ${GITHUB_OUTPUT} && ls -la
+
   # # # # # # # # # # # # # # # # # # # #
   # # # # # # # # # # # # # # # # # # # #
 
