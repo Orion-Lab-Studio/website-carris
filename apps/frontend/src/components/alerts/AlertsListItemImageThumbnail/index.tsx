@@ -34,7 +34,10 @@ export default function Component({ alertId, alertTitle, alt, href, src, target 
 	const handleAlertDetailClick = () => {
 		analyticsContext.actions.capture(ampli => ampli.alertClicked({ alert_id: alertId, alert_title: alertTitle || '' }));
 	};
+
 	//
+	// C. Render components
+
 	return (
 		<Link className={styles.container} href={href} onClick={handleAlertDetailClick} target={target}>
 			<IconCircleArrowUpRightFilled className={styles.icon} size={25} />

@@ -84,7 +84,7 @@ export const footerNavigationGroup: NavigationGroup[] = [
 	{
 		_id: 'secondary',
 		links: [
-			{ _id: 'conditions', href: '/files/cm-condicoes-gerais-transporte.pdf', target: '_blank' },
+			{ _id: 'conditions', href: '/assets/legal/cm-condicoes-gerais-transporte.pdf', target: '_blank' },
 			{ _id: 'privacy', href: '/privacy' },
 			{ _id: 'cookies', href: '/cookies' },
 			{ _id: 'legal', href: '/legal' },

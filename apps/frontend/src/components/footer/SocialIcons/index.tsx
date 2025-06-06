@@ -9,11 +9,6 @@ import styles from './styles.module.css';
 /* * */
 
 export function SocialIcons() {
-	//
-
-	//
-	// A.Render components
-
 	return (
 		<div className={styles.container}>
 
@@ -41,6 +36,4 @@ export function SocialIcons() {
 			</Link>
 		</div>
 	);
-
-	//
 }
