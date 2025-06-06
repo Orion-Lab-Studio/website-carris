@@ -1,10 +1,5 @@
 /* * */
 
-export const BrandsCmet = Object.freeze({
-	cmet_dark: '/brands/cmet/cmet_dark.svg',
-	cmet_light: '/brands/cmet/cmet_light.svg',
-});
-
 export const BrandsMunicipalities = Object.freeze({
 	alcochete: '/brands/municipalities/alcochete.jpg',
 	alenquer: '/brands/municipalities/alenquer.jpg',
