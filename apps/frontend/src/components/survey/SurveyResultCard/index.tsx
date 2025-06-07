@@ -14,7 +14,7 @@ export function SurveyResultCard({ cardData }: Props) {
 	//
 
 	//
-	// A. Setup Variables
+	// A. Setup variables
 
 	const { _id, color, content, header } = cardData;
 	const { primary, text } = color;

@@ -7,7 +7,6 @@ import { NavigationDrawerItem } from '@/components/header/NavigationDrawerItem';
 // import AccountUserAvatar from '@/components/account/UserAvatar';
 // import SyncAccount from '@/components/profile/sync';
 import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
-import { BrandsCmet } from '@/settings/assets.settings';
 import { drawerNavigationGroup } from '@/settings/navigation.settings';
 import { CloseButton, Drawer, Image } from '@mantine/core';
 import { useDisclosure } from '@mantine/hooks';
@@ -58,8 +57,8 @@ export default function Component() {
 						{/* TODO: Stage 2 */}
 						{/* <AccountUserAvatar withName /> */}
 						<ThemeSwitch
-							dark={<Image alt="Logo" height={40} src={BrandsCmet.cmet_dark} width={112} />}
-							light={<Image alt="Logo" height={40} src={BrandsCmet.cmet_light} width={112} />}
+							dark={<Image alt="Carris Metropolitana" src="/assets/header/static/cmet-header-dark.svg" style={{ height: 70, width: 150 }} />}
+							light={<Image alt="Carris Metropolitana" src="/assets/header/static/cmet-header-light.svg" style={{ height: 70, width: 150 }} />}
 						/>
 						<CloseButton onClick={closeDrawer} />
 					</div>

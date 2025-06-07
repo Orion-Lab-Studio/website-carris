@@ -16,7 +16,7 @@ export function ScrollToTopButton({ showAfterHeight }: Props) {
 	//
 
 	//
-	// A. Setup Variables
+	// A. Setup variables
 
 	const t = useTranslations('common.ScrollToTopButton');
 	const [scroll, scrollTo] = useWindowScroll();

@@ -22,7 +22,7 @@ export default function Component({ alert }: Props) {
 	//
 
 	//
-	// A. Setup Variables
+	// A. Setup variables
 
 	const analyticsContext = useAnalyticsContext();
 
