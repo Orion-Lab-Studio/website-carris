@@ -1491,6 +1491,7 @@
 				},
 				"secondary": {
 					"links": {
+						"complaints": "Livro de Reclamações",
 						"conditions": "Condições Gerais de Transporte",
 						"cookies": "Política de Cookies",
 						"legal": "Aviso Legal",

@@ -1530,6 +1530,7 @@
 				},
 				"secondary": {
 					"links": {
+						"complaints": "Complains Book",
 						"conditions": "General Conditions of Transport",
 						"cookies": "Cookies Policy",
 						"legal": "Legal Notice",

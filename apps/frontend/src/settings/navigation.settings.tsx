@@ -88,6 +88,7 @@ export const footerNavigationGroup: NavigationGroup[] = [
 			{ _id: 'privacy', href: '/privacy' },
 			{ _id: 'cookies', href: '/cookies' },
 			{ _id: 'legal', href: '/legal' },
+			{ _id: 'complaints', href: 'https://www.livroreclamacoes.pt/Pedido/Reclamacao', target: '_blank' },
 		],
 	},
 
