@@ -68,11 +68,6 @@ COPY --from=pruner /app/out/package-lock.json ./package-lock.json
 
 RUN npm ci
 
-# Bump the version of the project to the current date
-
-RUN npx @helperkits/bumper /app/package.json
-RUN npx @helperkits/bumper /app/apps/${PROJECT}/package.json
-
 # Copy the pruned project files to the out directory and
 # actually build the project using the turbo monorepo tool.
 
@@ -88,6 +83,11 @@ RUN turbo run build --filter=@carrismetropolitana/website-${PROJECT}
 FROM base AS runner
 
 WORKDIR /app
+
+# Bump the version of the project
+# to the current date.
+
+RUN npx @helperkits/bumper /app/apps/${PROJECT}/package.json
 
 # Create the nodejs and nextjs group and user
 # for the application to run under.
