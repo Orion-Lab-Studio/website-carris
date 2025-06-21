@@ -72,6 +72,18 @@ export default buildConfig({
 				},
 				endpoint: process.env.CLOUDFLARE_R2_ENDPOINT ?? 'https://placeholder.endpoint.com',
 				region: 'auto',
+				requestHandler: {
+					connectionTimeout: 1_000,
+					httpAgent: {
+						keepAlive: true,
+						maxSockets: 500,
+					},
+					httpsAgent: {
+						keepAlive: true,
+						maxSockets: 500,
+					},
+					requestTimeout: 30_000,
+				},
 			},
 		}),
 	],
