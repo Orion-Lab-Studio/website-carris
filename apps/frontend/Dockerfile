@@ -84,11 +84,6 @@ FROM base AS runner
 
 WORKDIR /app
 
-# Bump the version of the project
-# to the current date.
-
-RUN npx @helperkits/bumper /app/apps/${PROJECT}/package.json
-
 # Create the nodejs and nextjs group and user
 # for the application to run under.
 
@@ -105,6 +100,11 @@ USER nextjs
 COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/public ./apps/${PROJECT}/public
 COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/apps/${PROJECT}/.next/static ./apps/${PROJECT}/.next/static
+
+# Bump the version of the project
+# to the current date.
+
+RUN npx @helperkits/bumper /app/apps/${PROJECT}/package.json
 
 ENV NODE_ENV=production
 
