@@ -12,7 +12,7 @@ export default function AppTopBar() {
 	return (
 		<div className={styles.container}>
 			<AppTopBarLink href="//www.tmlmobilidade.pt/" label="TML" />
-			<AppTopBarLink active href="//www.carrismetropolitana.pt/" label="Carris Metropolitana" />
+			<AppTopBarLink href="//www.carrismetropolitana.pt/" label="Carris Metropolitana" active />
 			<AppTopBarLink href="//www.navegante.pt/" label="navegante®" />
 		</div>
 	);
