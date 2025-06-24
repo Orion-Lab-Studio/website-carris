@@ -8,8 +8,7 @@ import styles from './CustomTimeInput.module.css';
 
 export default function CustomTimeInput({ inputProps }: { inputProps: GetInputPropsReturnType }) {
 	//
-
-	//
+//
 	// A. Setup variables
 
 	//
