@@ -4,14 +4,17 @@
 	"scripts": {
 		"build": "turbo build",
 		"build:backoffice": "turbo build --filter=@carrismetropolitana/website-backoffice",
+		"build:escolas": "turbo build --filter=@carrismetropolitana/website-escolas",
 		"build:frontend": "turbo build --filter=@carrismetropolitana/website-frontend",
 		"build:shared": "turbo build --filter=./shared/*",
 		"dev": "dotenv-run -f ./environments/development/secrets/.env -- turbo dev",
 		"dev:backoffice": "dotenv-run -f ./environments/development/secrets/.env -- turbo dev --filter=@carrismetropolitana/website-backoffice",
+		"dev:escolas": "dotenv-run -f ./environments/development/secrets/.env -- turbo dev --filter=@carrismetropolitana/website-escolas",
 		"dev:frontend": "dotenv-run -f ./environments/development/secrets/.env -- turbo dev --filter=@carrismetropolitana/website-frontend",
 		"lint": "turbo lint",
 		"lint-fix": "turbo lint-fix",
 		"lint:backoffice": "turbo lint --filter=@carrismetropolitana/website-backoffice",
+		"lint:escolas": "turbo lint --filter=@carrismetropolitana/website-escolas",
 		"lint:frontend": "turbo lint --filter=@carrismetropolitana/website-frontend",
 		"purge": "sh purge.sh",
 		"start": "turbo start"

@@ -1,0 +1,41 @@
+/* * */
+/* CONTAINER */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background-color: #000000;
+  border-radius: 10px;
+  padding: 20px;
+  transition: opacity 300ms ease;
+}
+
+.container[data-clickable='true'] {
+  cursor: pointer;
+}
+
+.container[data-clickable='true']:hover {
+  opacity: 0.75;
+}
+
+/* * */
+/* SCHOOL & MUNICIPALITY NAME */
+
+.schoolName {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.municipalityName {
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  color: #ffffff;
+}

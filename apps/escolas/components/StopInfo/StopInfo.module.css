@@ -1,0 +1,101 @@
+/* * */
+/* CONTAINER */
+
+.container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  page-break-inside: avoid;
+}
+
+/* * */
+/* HEADER */
+
+.headerWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 7px;
+  color: #000000;
+  border-bottom: 1px solid #e9e9e9;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  color: #000000;
+}
+
+.stopIndex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background-color: #235fe1;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 13px;
+  line-height: 1;
+  border-radius: 999px;
+  border: 2px solid #000;
+}
+
+.stopName {
+  font-size: 18px;
+  text-align: left;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.stopDetails {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 10px;
+}
+
+.stopLocation {
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1;
+  color: #505050;
+}
+
+.stopId {
+  font-size: 11px;
+  font-weight: 500;
+  line-height: 1;
+  color: #a1a1a1;
+}
+
+.stopId:hover {
+  color: var(--realtime-100);
+  text-decoration: underline;
+}
+
+.openInWebsite {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1;
+  color: #505050;
+}
+
+.openInWebsite:hover {
+  color: var(--realtime-100);
+  text-decoration: underline;
+}
+
+/* * */
+/* LINES LIST */
+
+.linesList {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 5px;
+}
