@@ -41,14 +41,14 @@ export default function SelectMunicipality({ onSelectMunicipalityId, selectedMun
 	return (
 		<div className={styles.container}>
 			<Select
-  aria-label="Filtrar por Município"
-  placeholder="Escolha ou digite um Município"
-  rightSection={selectedMunicipalityId ? <CloseButton onClick={handleClearSelectedMunicipalityId} /> : <IconChevronDown size={18} />}
-  nothingFoundMessage="Município inexistente"
-  data={allMunicipalitiesDataAsSelectOptions}
-  value={selectedMunicipalityId}
-  onChange={onSelectMunicipalityId}
-  searchable
+				aria-label="Filtrar por Município"
+				data={allMunicipalitiesDataAsSelectOptions}
+				nothingFoundMessage="Município inexistente"
+				onChange={onSelectMunicipalityId}
+				placeholder="Escolha ou digite um Município"
+				rightSection={selectedMunicipalityId ? <CloseButton onClick={handleClearSelectedMunicipalityId} /> : <IconChevronDown size={18} />}
+				value={selectedMunicipalityId}
+				searchable
 			/>
 		</div>
 	);
