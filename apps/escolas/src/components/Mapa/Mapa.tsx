@@ -10,6 +10,11 @@ import styles from './Mapa.module.css';
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
 export default function Mapa({ children, height, id, interactiveLayerIds = [], latitude, longitude, mapStyle, onClick = () => {}, schoolInfo, scrollZoom = true, toolbar, width }) {
+	//
+
+	//
+	// setup variables
+
 	// DEFAULTS FOR OSM MAP
 
 	// Bearing, Pitch and Zoom
