@@ -8,7 +8,8 @@ import Map, { FullscreenControl, Marker, NavigationControl, Popup, ScaleControl 
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './Mapa.module.css';
 
-export default function Mapa({ _stops, children, height, id, interactiveLayerIds = [], latitude, longitude, mapStyle, onClick = () => {}, schoolInfo, scrollZoom = true, toolbar, width }) {
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export default function Mapa({ children, height, id, interactiveLayerIds = [], latitude, longitude, mapStyle, onClick = () => {}, schoolInfo, scrollZoom = true, toolbar, width }) {
 	// DEFAULTS FOR OSM MAP
 
 	// Bearing, Pitch and Zoom
@@ -93,16 +94,15 @@ export default function Mapa({ _stops, children, height, id, interactiveLayerIds
 						<img alt="escola" className={styles.markerImage} src="/images/escola.png" />
 					</div>
 
-					{isPopupOpen
-					  && (
-					  	<Popup className={styles.popup} closeButton={true} closeOnClick={false} latitude={latitude} longitude={longitude} onClose={() => setIsPopupOpen(false)}>
-					  		<div className={styles.school}>
-					  			<div className={styles.schoolName}>{schoolInfo.name}</div>
-					  			<div className={styles.schoolAddress}>{schoolInfo.address}</div>
-					  			<div className={styles.schoolPostalCode}>{schoolInfo.postal_code}</div>
-      </div>
-      </Popup>
-					  )}
+					{isPopupOpen && (
+						<Popup className={styles.popup} closeButton={true} closeOnClick={false} latitude={latitude} longitude={longitude} onClose={() => setIsPopupOpen(false)}>
+							<div className={styles.school}>
+								<div className={styles.schoolName}>{schoolInfo.name}</div>
+								<div className={styles.schoolAddress}>{schoolInfo.address}</div>
+								<div className={styles.schoolPostalCode}>{schoolInfo.postal_code}</div>
+							</div>
+						</Popup>
+					)}
 				</Marker>
 
 				{/* {stops.map((stop, index) => (
