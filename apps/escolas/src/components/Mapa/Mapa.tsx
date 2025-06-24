@@ -8,11 +8,7 @@ import Map, { FullscreenControl, Marker, NavigationControl, Popup, ScaleControl 
 import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './Mapa.module.css';
 
-export default function Mapa({ children, height, id, interactiveLayerIds = [], latitude, longitude, mapStyle, onClick = () => {}, schoolInfo, scrollZoom = true, toolbar, width }) {
-	//
-
-	//
-	// setup variables
+export default function Mapa({ _stops, children, height, id, interactiveLayerIds = [], latitude, longitude, mapStyle, onClick = () => {}, schoolInfo, scrollZoom = true, toolbar, width }) {
 	// DEFAULTS FOR OSM MAP
 
 	// Bearing, Pitch and Zoom
@@ -78,34 +74,35 @@ export default function Mapa({ children, height, id, interactiveLayerIds = [], l
 	return (
 		<div className={styles.container} style={{ height: height || '100%', width: width || '100%' }}>
 			<Map
+				attributionControl={false}
 				id={`${id}Map`}
-				mapLib={maplibregl}
 				initialViewState={osmMapDefaults.initialViewState}
-				minZoom={osmMapDefaults.minZoom}
-				maxZoom={osmMapDefaults.maxZoom}
-				scrollZoom={scrollZoom}
-				mapStyle={osmMapDefaults.styles[mapStyle] || osmMapDefaults.styles.default}
-				style={{ height: height || '100%', width: width || '100%' }}
-				onClick={onClick}
 				interactive={interactiveLayerIds ? true : false}
 				interactiveLayerIds={interactiveLayerIds}
-				attributionControl={false}
+				mapLib={maplibregl}
+				mapStyle={osmMapDefaults.styles[mapStyle] || osmMapDefaults.styles.default}
+				maxZoom={osmMapDefaults.maxZoom}
+				minZoom={osmMapDefaults.minZoom}
+				onClick={onClick}
+				scrollZoom={scrollZoom}
+				style={{ height: height || '100%', width: width || '100%' }}
 			>
 				<Marker latitude={latitude} longitude={longitude}>
 					<div className={styles.customMarker} onMouseOut={handleMarkerClick} onMouseOver={handleMarkerClick}>
-						{}
+						{ }
 						<img alt="escola" className={styles.markerImage} src="/images/escola.png" />
 					</div>
 
-					{isPopupOpen && (
-						<Popup className={styles.popup} closeButton={true} closeOnClick={false} latitude={latitude} longitude={longitude} onClose={() => setIsPopupOpen(false)}>
-							<div className={styles.school}>
-								<div className={styles.schoolName}>{schoolInfo.name}</div>
-								<div className={styles.schoolAddress}>{schoolInfo.address}</div>
-								<div className={styles.schoolPostalCode}>{schoolInfo.postal_code}</div>
-							</div>
-						</Popup>
-					)}
+					{isPopupOpen
+					  && (
+					  	<Popup className={styles.popup} closeButton={true} closeOnClick={false} latitude={latitude} longitude={longitude} onClose={() => setIsPopupOpen(false)}>
+					  		<div className={styles.school}>
+					  			<div className={styles.schoolName}>{schoolInfo.name}</div>
+					  			<div className={styles.schoolAddress}>{schoolInfo.address}</div>
+					  			<div className={styles.schoolPostalCode}>{schoolInfo.postal_code}</div>
+      </div>
+      </Popup>
+					  )}
 				</Marker>
 
 				{/* {stops.map((stop, index) => (
