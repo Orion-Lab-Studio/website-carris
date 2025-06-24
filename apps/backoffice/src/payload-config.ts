@@ -60,18 +60,17 @@ export default buildConfig({
 
 	plugins: [
 		s3Storage({
-			bucket: process.env.CLOUDFLARE_R2_BUCKET_NAME ?? 'placeholder',
+			bucket: process.env.OCI_S3_NAMESPACE ?? 'placeholder', // Bucket should be the namespace in OCI Object Storage
 			collections: {
 				media: true,
 			},
 			config: {
 				credentials: {
-					accessKeyId: process.env.CLOUDFLARE_R2_ACCESS_KEY_ID ?? 'placeholder',
-					accountId: process.env.CLOUDFLARE_R2_ACCOUNT_ID ?? 'placeholder',
-					secretAccessKey: process.env.CLOUDFLARE_R2_SECRET_ACCESS_KEY ?? 'placeholder',
+					accessKeyId: process.env.OCI_S3_ACCESS_KEY_ID ?? 'placeholder',
+					secretAccessKey: process.env.OCI_S3_SECRET_ACCESS_KEY ?? 'placeholder',
 				},
-				endpoint: process.env.CLOUDFLARE_R2_ENDPOINT ?? 'https://placeholder.endpoint.com',
-				region: 'auto',
+				endpoint: process.env.OCI_S3_ENDPOINT ?? 'https://placeholder.endpoint.com',
+				region: process.env.OCI_S3_REGION ?? 'placeholder',
 				requestHandler: {
 					connectionTimeout: 5_000,
 					httpAgent: {
