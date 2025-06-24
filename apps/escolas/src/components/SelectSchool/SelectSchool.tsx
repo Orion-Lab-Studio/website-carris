@@ -37,15 +37,15 @@ export default function SelectSchool({ allSchoolsData, onSelectSchool }) {
 			<Combobox onOptionSubmit={onSelectSchool} store={comboboxStore}>
 				<Combobox.Target>
 					<TextInput
-  aria-label="Selecione uma instituição"
-  placeholder="Procure pelo nome da instituição"
-  value={searchQuery}
-  size="lg"
-  rightSection={<Combobox.Chevron />}
-  onChange={handleSearchQueryChange}
-  onClick={() => comboboxStore.openDropdown()}
-  onFocus={() => comboboxStore.openDropdown()}
-  onBlur={() => comboboxStore.closeDropdown()}
+						aria-label="Selecione uma instituição"
+						onBlur={() => comboboxStore.closeDropdown()}
+						onChange={handleSearchQueryChange}
+						onClick={() => comboboxStore.openDropdown()}
+						onFocus={() => comboboxStore.openDropdown()}
+						placeholder="Procure pelo nome da instituição"
+						rightSection={<Combobox.Chevron />}
+						size="lg"
+						value={searchQuery}
 					/>
 				</Combobox.Target>
 
@@ -54,7 +54,7 @@ export default function SelectSchool({ allSchoolsData, onSelectSchool }) {
 						{allSchoolsDataFilteredBySearchQuery.length === 0
 							? <Combobox.Empty>Nenhuma instituição encontrada</Combobox.Empty>
 							: allSchoolsDataFilteredBySearchQuery.map(item => (
-								<Combobox.Option k={item.id} key={item.id} value={item.id}>
+								<Combobox.Option key={item.id} value={item.id}>
 									<div>
 										<Highlight fw={500} fz="sm" highlight={searchQuery}>
 											{item.name}
