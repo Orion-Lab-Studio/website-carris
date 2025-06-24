@@ -6,12 +6,11 @@ import { env } from 'process';
 import { body } from './template';
 import { FormType, schoolCicles } from './types';
 
-const client = new google.auth.JWT(
-	env.GOOGLE_SERVICE_EMAIL,
-	null,
-	env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
-	['https://www.googleapis.com/auth/spreadsheets'],
-);
+const client = new google.auth.JWT({
+	email: env.GOOGLE_SERVICE_EMAIL,
+	key: env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+	scopes: ['https://www.googleapis.com/auth/spreadsheets'],
+});
 const sheets = google.sheets({ auth: client, version: 'v4' });
 
 const port = parseInt(env.EMAIL_SERVER_PORT);
@@ -40,7 +39,7 @@ export async function submit(data: FormType): Promise<{ message: string, success
 
 	const fmtDate = (d: Date) => `${d.getDate()}/${d.getMonth() + 1}/${d.getFullYear()}`;
 	const extractedCycles = schoolCicles.map(cicle => [cicle, data[cicle].hasCicle ? JSON.stringify({ ...data[cicle], hasCicle: undefined }) : false]);
-	const newCalendar = { ...data.calendar, vacations: data.calendar.vacations.filter((d: any) => d !== null && d[0] != null && d[1] != null) };
+	const newCalendar = { ...data.calendar, vacations: data.calendar.vacations.filter((d: unknown) => d !== null && d[0] != null && d[1] != null) };
 	// make sure we don't pass null items, if some smartypants makes requests manually
 	try {
 		const toSubmit = [data.id,
@@ -81,6 +80,7 @@ export async function submit(data: FormType): Promise<{ message: string, success
 	const schoolCyclesHeader = ['Pré-escolar', '1º Ciclo', '2º Ciclo', '3º Ciclo', 'Secundário', 'Ensino Profissional', 'Ensino Especial', 'Ensino Artístico', 'Ensino Superior', 'Outro'];
 	const to = emails[0];
 	try {
+		// eslint-disable-next-line @typescript-eslint/no-unused-vars
 		const mail = await transporter.sendMail({
 			from: env.EMAIL_FROM,
 			html: body({

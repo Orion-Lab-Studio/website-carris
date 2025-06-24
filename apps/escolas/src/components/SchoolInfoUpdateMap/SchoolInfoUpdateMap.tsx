@@ -2,7 +2,6 @@
 
 import OSMMap from '@/components/OSMMap/OSMMap';
 import { SegmentedControl } from '@mantine/core';
-import * as turf from '@turf/turf';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { Marker, useMap } from 'react-map-gl/maplibre';
@@ -40,18 +39,18 @@ export default function SchoolInfoUpdateMap({ schoolData }: { schoolData: School
 		schoolData
 		&& (
 			<OSMMap
-  id="schoolInfoMap"
-  scrollZoom={false}
-  navigation={true}
-  fullscreen={true}
-  mapStyle={mapStyle}
-  toolbar={(
+				fullscreen={true}
+				id="schoolInfoMap"
+				mapStyle={mapStyle}
+				navigation={true}
+				scrollZoom={false}
+				toolbar={(
 					<>
 						<SegmentedControl
-  value={mapStyle}
-  onChange={setMapStyle}
-  size="xs"
-  data={[
+							onChange={setMapStyle}
+							size="xs"
+							value={mapStyle}
+							data={[
 								{ label: 'Map', value: 'map' },
 								{ label: 'Satellite', value: 'satellite' },
 							]}
@@ -60,7 +59,7 @@ export default function SchoolInfoUpdateMap({ schoolData }: { schoolData: School
 				)}
 			>
 				<Marker latitude={parseFloat(schoolData.lat)} longitude={parseFloat(schoolData.lon)}>
-					<Image alt={schoolData.name} height={50} priority src="/images/escola.png" width={50} />
+					<Image alt={schoolData.name} height={50} src="/images/escola.png" width={50} priority />
 				</Marker>
 			</OSMMap>
 		)

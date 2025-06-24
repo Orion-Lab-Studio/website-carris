@@ -5,8 +5,7 @@ import Titles from '@/components/Titles/Titles';
 import SchoolInfoUpdateMap from '../SchoolInfoUpdateMap/SchoolInfoUpdateMap';
 // import { submit } from './SubmitAction';
 import { Button, Loader, Modal, Paper, PasswordInput, SegmentedControl, Stack, Text, Textarea, TextInput, Title } from '@mantine/core';
-import { useForm } from '@mantine/form';
-import { FormValidateInput } from '@mantine/form/lib/types';
+import { FormValidateInput, useForm } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
 import { IconX } from '@tabler/icons-react';
 import { useRouter } from 'next/navigation';
@@ -91,13 +90,13 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 		},
 		correctLocation: value => value !== '' ? null : 'Indique se a localização está correta',
 		email: value => /[^@ \t\r\n]+@[^@ \t\r\n]+\.[^@ \t\r\n]+/.test(value) ? null : 'Email inválido',
-		fillerIdentifier(value, _values, _path) {
+		fillerIdentifier(value) {
 			if (value === '') {
 				return 'Indique o seu nome';
 			}
 			return null;
 		},
-		fillerIdentifierPosition(value, _values, _path) {
+		fillerIdentifierPosition(value) {
 			if (value === '') {
 				return 'Indique o seu cargo';
 			}
@@ -152,9 +151,9 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 		}
 	};
 
+	// eslint-disable-next-line @typescript-eslint/no-unused-vars
 	const checkPassword = async (password: string) => {
 		const isCorrect = await isPasswordCorrect(form.getValues().password);
-
 		if (!isCorrect) {
 			notifications.show({ color: 'red', message: '', title: 'Código de acesso inválido' });
 		}
@@ -177,139 +176,143 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 				<Title fw={700} order={3}>Código de acesso</Title>
 				{form.getInputProps('password').error && <Text c="red" size="xs">{form.getInputProps('password').error}</Text>}
 				<PasswordInput
-  placeholder="********"
-  {...form.getInputProps('password')}
-  onKeyDown={(e) => {
+					placeholder="********"
+					{...form.getInputProps('password')}
+					onKeyDown={(e) => {
 						if (e.key === 'Enter') {
 							checkPassword(form.getValues().password);
 						}
 					}}
 				/>
 				<Button
-					mt={20} onClick={async () => {
+					mt={20}
+					size="md"
+					onClick={async () => {
 						checkPassword(form.getValues().password);
-					}} size="md"
+					}}
 				>
 					Verificar
 				</Button>
 			</Paper>
-			{formOpen
-			  && (
-			  	<>
-			  		<form
-  onSubmit={form.onSubmit(onSubmit, (errors) => {
-			  				const firstErrorPath = Object.keys(errors)[0];
-			  				form.getInputNode(firstErrorPath)?.focus();
-			  			})}
-			  			style={{ display: 'flex', flexDirection: 'column', gap: 8, textAlign: 'left' }}
-			  		>
-			  			<Paper radius="md" shadow="sm">
-			  				<SchoolInfoUpdateMap schoolData={schoolData} />
-			  			</Paper>
+			{formOpen && (
+				<>
+					<form
+						style={{ display: 'flex', flexDirection: 'column', gap: 8, textAlign: 'left' }}
+						onSubmit={form.onSubmit(onSubmit, (errors) => {
+							const firstErrorPath = Object.keys(errors)[0];
+							form.getInputNode(firstErrorPath)?.focus();
+						})}
+					>
+						<Paper radius="md" shadow="sm">
+							<SchoolInfoUpdateMap schoolData={schoolData} />
+						</Paper>
 
-			  			<Paper p={16} radius="md" shadow="sm">
-			  				<Title fw={700} order={3}>Localização</Title>
-			  				<Text c="dimmed" size="xs">A posição da escola no mapa corresponde com a posição da porta príncipal de entrada da escola?</Text>
-			  				{form.getInputProps('correctLocation').error && <Text c="red" size="xs">{form.getInputProps('correctLocation').error}</Text>}
-			  				<SegmentedControl
-			  					style={{ flexShrink: 0 }}
-			  					size="xs"
-			  					data={[
-			  						{ label: 'Sim', value: 'sim' },
-			  						{ label: 'Quase', value: 'quase' },
-			  						{ label: 'Não', value: 'nao' },
-			  					]}
+						<Paper p={16} radius="md" shadow="sm">
+							<Title fw={700} order={3}>Localização</Title>
+							<Text c="dimmed" size="xs">A posição da escola no mapa corresponde com a posição da porta príncipal de entrada da escola?</Text>
+							{form.getInputProps('correctLocation').error && <Text c="red" size="xs">{form.getInputProps('correctLocation').error}</Text>}
+							<SegmentedControl
+								size="xs"
+								style={{ flexShrink: 0 }}
+								data={[
+									{ label: 'Sim', value: 'sim' },
+									{ label: 'Quase', value: 'quase' },
+									{ label: 'Não', value: 'nao' },
+								]}
 
-			  					{...form.getInputProps('correctLocation', { type: 'input' })}
+								{...form.getInputProps('correctLocation', { type: 'input' })}
+							/>
+							<TextInput
+								label="Código Postal"
+								placeholder="1234-567"
+								{...form.getInputProps('postal_code')}
+							/>
+						</Paper>
+						<Paper p={16} radius="md" shadow="sm">
+							<Title fw={700} order={3}>Dados de contacto</Title>
+							<Stack gap={6}>
+								<TextInput
+									description="Email(s) separados por vírgulas"
+									label="Email"
+									placeholder="email@exemplo.pt"
+									{...form.getInputProps('email')}
+								/>
+								<TextInput
+									label="Website"
+									placeholder="www.escola.pt"
+									{...form.getInputProps('url')}
+								/>
+								<TextInput
+									label="Telefone"
+									placeholder="910001337"
+									{...form.getInputProps('phone')}
+								/>
+								<TextInput
+									label="Nome do responsável pela submissão do formulário"
+									placeholder="João Silva"
+									{...form.getInputProps('fillerIdentifier')}
+								/>
+								<TextInput
+									label="Cargo do responsável pela submissão do formulário"
+									placeholder="Diretor da Escola"
+									{...form.getInputProps('fillerIdentifierPosition')}
+								/>
+							</Stack>
+						</Paper>
+						{SchoolInfoUpdateCalendar({ form })}
+						<Paper p={16} radius="md" shadow="sm">
+							<Stack gap={6}>
+								<Title fw={700} order={3}>Modalidades de ensino</Title>
+								<Text c="dimmed" size="xs">Indique os ciclos e outros tipos de ensino presentes na escola</Text>
+								<Stack gap="xs">
+									<SchoolCycleItem form={form} k="pre_school" label="Pré-escolar" />
+									<SchoolCycleItem form={form} k="basic_1" label="1º Ciclo" />
+									<SchoolCycleItem form={form} k="basic_2" label="2º Ciclo" />
+									<SchoolCycleItem form={form} k="basic_3" label="3º Ciclo" />
+									<SchoolCycleItem form={form} k="high_school" label="Secundário" />
+									<SchoolCycleItem form={form} k="professional" label="Profissional" />
+									<SchoolCycleItem form={form} k="special" label="Especial" />
+									<SchoolCycleItem form={form} k="artistic" label="Artístico" />
+									<SchoolCycleItem form={form} k="university" label="Universitário" />
+									<SchoolCycleItem form={form} k="other" label="Outro" />
+								</Stack>
+							</Stack>
+						</Paper>
+						<Paper p={16} radius="md" shadow="sm">
+							<Title fw={700} order={3}>Informação adicional</Title>
+							<Textarea
+								description="Informação extra que queira transmitir sobre a escola"
+								label="Comentário"
+								placeholder="A Escola tem horário noturno desde as 18:35 até às 22:40/Há muitos estudantes que vêm de sitio X/Não há aulas sextas-feiras/etc"
+								{...form.getInputProps('comment')}
+							/>
+						</Paper>
+						<Button
+							size="md"
+							type="submit"
+							leftSection={
+								(
+									<div>
+										{submitState === 'processing' && <Loader color="white" size={16} />}
+										{submitState === 'done' && '✓'}
+										{submitState === 'error' && <IconX size={20} />}
+									</div>
+								)
+							}
+						>
+							Enviar
+						</Button>
 
-			  				/>
-			  				<TextInput
-			  					label="Código Postal"
-			  					placeholder="1234-567"
-			  					{...form.getInputProps('postal_code')}
-			  				/>
-			  			</Paper>
-			  			<Paper p={16} radius="md" shadow="sm">
-			  				<Title fw={700} order={3}>Dados de contacto</Title>
-			  				<Stack gap={6}>
-			  					<TextInput
-			  						label="Email"
-			  						description="Email(s) separados por vírgulas"
-			  						placeholder="email@exemplo.pt"
-			  						{...form.getInputProps('email')}
-			  					/>
-			  					<TextInput
-			  						label="Website"
-			  						placeholder="www.escola.pt"
-			  						{...form.getInputProps('url')}
-			  					/>
-			  					<TextInput
-			  						label="Telefone"
-			  						placeholder="910001337"
-			  						{...form.getInputProps('phone')}
-			  					/>
-			  					<TextInput
-			  						label="Nome do responsável pela submissão do formulário"
-			  						placeholder="João Silva"
-			  						{...form.getInputProps('fillerIdentifier')}
-			  					/>
-			  					<TextInput
-			  						label="Cargo do responsável pela submissão do formulário"
-			  						placeholder="Diretor da Escola"
-			  						{...form.getInputProps('fillerIdentifierPosition')}
-			  					/>
-			  				</Stack>
-			  			</Paper>
-			  			{SchoolInfoUpdateCalendar({ form })}
-			  			<Paper p={16} radius="md" shadow="sm">
-			  				<Stack gap={6}>
-			  					<Title fw={700} order={3}>Modalidades de ensino</Title>
-			  					<Text c="dimmed" size="xs">Indique os ciclos e outros tipos de ensino presentes na escola</Text>
-			  					<Stack gap="xs">
-			  						<SchoolCycleItem form={form} k="pre_school" label="Pré-escolar" />
-			  						<SchoolCycleItem form={form} k="basic_1" label="1º Ciclo" />
-			  						<SchoolCycleItem form={form} k="basic_2" label="2º Ciclo" />
-			  						<SchoolCycleItem form={form} k="basic_3" label="3º Ciclo" />
-			  						<SchoolCycleItem form={form} k="high_school" label="Secundário" />
-			  						<SchoolCycleItem form={form} k="professional" label="Profissional" />
-			  						<SchoolCycleItem form={form} k="special" label="Especial" />
-			  						<SchoolCycleItem form={form} k="artistic" label="Artístico" />
-			  						<SchoolCycleItem form={form} k="university" label="Universitário" />
-			  						<SchoolCycleItem form={form} k="other" label="Outro" />
-			  					</Stack>
-			  				</Stack>
-			  			</Paper>
-			  			<Paper p={16} radius="md" shadow="sm">
-			  				<Title fw={700} order={3}>Informação adicional</Title>
-			  				<Textarea
-			  					label="Comentário"
-			  					description="Informação extra que queira transmitir sobre a escola"
-			  					placeholder="A Escola tem horário noturno desde as 18:35 até às 22:40/Há muitos estudantes que vêm de sitio X/Não há aulas sextas-feiras/etc"
-			  					{...form.getInputProps('comment')}
-			  				/>
-			  			</Paper>
-			  			<Button
-  leftSection={
-			  					(
-			  						<div>
-			  							{submitState === 'processing' && <Loader color="white" size={16} />}
-			  							{submitState === 'done' && '✓'}
-			  							{submitState === 'error' && <IconX size={20} />}
-			  						</div>
-			  					)
-			  				}
-			  				type="submit" size="md"
-			  			>
-				Enviar
-			  			</Button>
-
-			  		</form>
-			  	</>
-			  )}
+					</form>
+				</>
+			)}
 			<Modal
-				opened={successMessage != null} onClose={() => {
+				opened={successMessage != null}
+				withCloseButton={false}
+				onClose={() => {
 					setSuccessMessage(null);
-				}} centered withCloseButton={false}
+				}}
+				centered
 			>
 				<div className={styles.modal}>
 					<h1>Obrigado pela sua submissão.</h1>
@@ -321,7 +324,8 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 						Fechar
 					</Button>
 					<Button
-						variant="subtle" onClick={() => {
+						variant="subtle"
+						onClick={() => {
 							setSuccessMessage(null);
 						}}
 					>

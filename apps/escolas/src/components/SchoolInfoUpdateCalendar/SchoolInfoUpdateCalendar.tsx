@@ -1,7 +1,7 @@
 'use client';
 import { ActionIcon, Button, Group, Paper, SegmentedControl, Stack, Text, Title } from '@mantine/core';
 import { DatePickerInput } from '@mantine/dates';
-import { UseFormReturnType } from '@mantine/form/lib/types';
+import { UseFormReturnType } from '@mantine/form';
 
 import '@mantine/dates/styles.css';
 import { IconTrash } from '@tabler/icons-react';
@@ -24,9 +24,9 @@ export function SchoolInfoUpdateCalendar({ form }: { form: UseFormReturnType<For
 			<Stack gap={6}>
 				<Text size="xs">Modo de funcionamento</Text>
 				<SegmentedControl
+					color="blue"
 					size="xs"
 					w={200}
-					color="blue"
 					data={[
 						{ label: 'Semestral', value: 'semester' },
 						{ label: 'Trimestral', value: 'trimester' },
@@ -39,15 +39,15 @@ export function SchoolInfoUpdateCalendar({ form }: { form: UseFormReturnType<For
 					<Stack gap={6}>
 						<Text size="xs">Periodo letivo do Primeiro Semestre</Text>
 						<DatePickerInput
-  type="range"
-  maw={300}
-  {...form.getInputProps('calendar.dates.0')}
+							maw={300}
+							type="range"
+							{...form.getInputProps('calendar.dates.0')}
 						/>
 						<Text size="xs">Periodo letivo do Segundo Semestre</Text>
 						<DatePickerInput
-  type="range"
-  maw={300}
-  {...form.getInputProps('calendar.dates.1')}
+							maw={300}
+							type="range"
+							{...form.getInputProps('calendar.dates.1')}
 						/>
 					</Stack>
 				)}
@@ -55,21 +55,21 @@ export function SchoolInfoUpdateCalendar({ form }: { form: UseFormReturnType<For
 					<Stack gap={6}>
 						<Text size="xs">Periodo letivo do Primeiro Período</Text>
 						<DatePickerInput
-  type="range"
-  maw={300}
-  {...form.getInputProps('calendar.dates.0')}
+							maw={300}
+							type="range"
+							{...form.getInputProps('calendar.dates.0')}
 						/>
 						<Text size="xs">Periodo letivo do Segundo Período</Text>
 						<DatePickerInput
-  type="range"
-  maw={300}
-  {...form.getInputProps('calendar.dates.1')}
+							maw={300}
+							type="range"
+							{...form.getInputProps('calendar.dates.1')}
 						/>
 						<Text size="xs">Periodo letivo do Terceiro Período</Text>
 						<DatePickerInput
-  type="range"
-  maw={300}
-  {...form.getInputProps('calendar.dates.2')}
+							maw={300}
+							type="range"
+							{...form.getInputProps('calendar.dates.2')}
 						/>
 					</Stack>
 				)}
@@ -80,10 +80,10 @@ export function SchoolInfoUpdateCalendar({ form }: { form: UseFormReturnType<For
 					{form.getValues().calendar.vacations.map((item, index) => (
 						<Group key={index}>
 							<DatePickerInput
-  style={{ flex: 1 }}
-  type="range"
-  allowSingleDateInRange={true}
-  {...form.getInputProps(`calendar.vacations.${index}`)}
+								allowSingleDateInRange={true}
+								style={{ flex: 1 }}
+								type="range"
+								{...form.getInputProps(`calendar.vacations.${index}`)}
 							/>
 
 							<ActionIcon color="red" onClick={() => form.removeListItem('calendar.vacations', index)} size="lg">
