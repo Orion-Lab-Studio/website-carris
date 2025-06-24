@@ -11,6 +11,10 @@ export default function SchoolCycleItem({ form, k, label }: { form: UseFormRetur
 	// console.log(form.getInputProps(k, { type: 'checkbox' }))
 
 	// Reset values when unchecked
+
+	//
+
+	//
 	// A. Setup Variables
 	const morningEntryProps = form.getInputProps(k + '.morningEntry', { type: 'input' });
 	const morningExitProps = form.getInputProps(k + '.morningExit', { type: 'input' });
@@ -19,43 +23,44 @@ export default function SchoolCycleItem({ form, k, label }: { form: UseFormRetur
 
 	const checked = form.values[k].hasCicle;
 
-	// B. Render
+	//
+	// B. Render Component
 	return (
 		<Paper bg={checked ? 'var(--mantine-color-blue-light)' : ''} shadow="none">
 			<Stack p={8}>
 				<Checkbox
-  c={checked ? 'blue' : ''}
-  fw={700}
-  label={label}
-  {...form.getInputProps(k + '.hasCicle', { type: 'checkbox' })}
+					c={checked ? 'blue' : ''}
+					fw={700}
+					label={label}
+					{...form.getInputProps(k + '.hasCicle', { type: 'checkbox' })}
 				/>
 
 				<Collapse
-  in={checked}
+					in={checked}
 				>
 					<Stack gap={10}>
 						<div>
 							<Text size="sm">Principal hora de entrada de manhã</Text>
 							<CustomTimeInput
-  inputProps={morningEntryProps}
+								inputProps={morningEntryProps}
 							/>
 						</div>
 						<div>
 							<Text size="sm">Principal hora de saída de manhã</Text>
 							<CustomTimeInput
-  inputProps={morningExitProps}
+								inputProps={morningExitProps}
 							/>
 						</div>
 						<div>
 							<Text size="sm">Principal hora de entrada de tarde</Text>
 							<CustomTimeInput
-  inputProps={afternoonEntryProps}
+								inputProps={afternoonEntryProps}
 							/>
 						</div>
 						<div>
 							<Text size="sm">Principal hora de saída de tarde</Text>
 							<CustomTimeInput
-  inputProps={afternoonExitProps}
+								inputProps={afternoonExitProps}
 							/>
 						</div>
 					</Stack>
