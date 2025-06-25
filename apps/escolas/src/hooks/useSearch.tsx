@@ -14,7 +14,7 @@ export default function useSearch(query, data, options) {
 		return data.filter((item) => {
 			let hasMatch = false;
 			for (const key of options.keys) {
-				if (item(key)) {
+				if (item.hasOwnProperty(key)) {
 					const value = item[key];
 					const stringifiedValue = value ? String(value).toLowerCase() : '';
 					const normalizedValue = transliterate(stringifiedValue);
