@@ -109,7 +109,7 @@ export default function SchoolPDF({ school_id }) {
 				<div className={styles.stopsWrapper}>
 					{schoolData.stops.map(stopId => (
 						<div key={stopId}>
-							<StopInfo stop_id={stopId} />
+							<StopInfo index={stopId} stop_id={stopId} />
 						</div>
 					))}
 				</div>
