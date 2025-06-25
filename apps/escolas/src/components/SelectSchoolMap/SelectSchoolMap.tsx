@@ -13,27 +13,30 @@ interface selectedSchoolMapProps {
 	allSchoolsData: any
 	onSelectSchool: (schoolId: string) => void
 }
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: selectedSchoolMapProps) {
-	// // descrobrir onde usar o onselectSchool
 
+export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: selectedSchoolMapProps) {
+	// // descubrir onde usar o onselectSchool
+	console.log(onSelectSchool, 'onSelectSchool');
 	//
 	// A. Setup variables
 
 	const { selectSchoolMap } = useMap();
 	const [mapStyle, setMapStyle] = useState('map');
 	const [allSchoolsAsGeojson, setAllSchoolsAsGeojson] = useState(undefined);
+	//
 
 	//
 	// B. Fetch data
 	const { data: allStopsData } = useSWR('https://api.carrismetropolitana.pt/stops');
 
 	//
+
+	//
 	// C. Transform data
 
 	useEffect(() => {
 		(async () => {
-			if (!selectSchoolMap || !allSchoolsAsGeojson?.features?.length) return;
+			if (!selectSchoolMap || !allSchoolsAsGeojson?.features?.length) return null;
 			const image = await selectSchoolMap.loadImage('/images/escola.png');
 			selectSchoolMap.addImage('store-icon', image.data, { sdf: false });
 
@@ -42,7 +45,7 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: sele
 				[boundingBox[0], boundingBox[1]], // southwest corner
 				[boundingBox[2], boundingBox[3]], // northeast corner
 			];
-			selectSchoolMap.fitBounds(bounds, { duration: 2000, padding: 5 });
+			selectSchoolMap.fitBounds(bounds, { duration: 2000, padding: 50 });
 		})();
 	}, [selectSchoolMap, allSchoolsAsGeojson]);
 
@@ -89,30 +92,33 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: sele
 		}
 		return geoJSON;
 	}, [allStopsData]);
+	//
 
 	//
 	// D. Handle actions
 
 	const handleMapClick = (event) => {
-		if (event?.features[0]) {
+		if (event?.features[0].porperties?.id) {
 			selectSchoolMap.getCanvas();
 		}
 	};
 
 	const handleMapMouseEnter = (event) => {
-		if (event?.features[0]?.properties?.id) {
+		if (event?.features[0].properties?.id) {
 			selectSchoolMap.getCanvas().style.cursor = 'pointer';
 		}
 	};
 
 	const handleMapMouseLeave = (event) => {
-		if (event?.features[0]?.properties?.id) {
+		if (event?.features[0].properties?.id) {
 			selectSchoolMap.getCanvas().style.cursor = 'default';
 		}
 	};
 
 	//
-	// D. Render components
+
+	//
+	// E. Render components
 
 	return (
 		allSchoolsData && allStopsData && (
