@@ -146,7 +146,7 @@ export default function SchoolInfo({ school_id }) {
 						{schoolData && schoolData.stops.length > 0
 							? (
 								<div className={styles.stopsList}>
-									{schoolData.stops.map((stopCode, stopIndex) => <StopInfo key={stopCode} index={stopIndex + 1} k={stopCode} stop_id={stopCode} />)}
+									{schoolData.stops.map((stopCode, stopIndex) => <StopInfo key={stopCode} index={stopIndex + 1} stop_id={stopCode} />)}
 								</div>
 							)
 							: (
