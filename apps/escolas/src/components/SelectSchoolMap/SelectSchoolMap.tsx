@@ -155,9 +155,11 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: sele
 							}}
 						/>
 					</Source>
-					<Source data={allSchoolsAsGeojson} id="allSchools" type="geojson">
-						<Layer id="allSchools" layout={{ 'icon-image': 'store-icon', 'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.1, 26, 0.75] }} source="allSchools" type="symbol" />
-					</Source>
+					{allSchoolsAsGeojson && (
+						<Source data={allSchoolsAsGeojson} id="allSchools" type="geojson">
+							<Layer id="allSchools" layout={{ 'icon-image': 'store-icon', 'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.1, 26, 0.75] }} source="allSchools" type="symbol" />
+						</Source>
+					)}
 				</OSMMap>
 			</div>
 		)
