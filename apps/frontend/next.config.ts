@@ -24,7 +24,7 @@ const nextConfig: NextConfig = {
 			},
 		];
 	},
-	
+
 	images: {
 		remotePatterns: [
 			{
@@ -116,6 +116,11 @@ const nextConfig: NextConfig = {
 			{ destination: '/survey', permanent: true, source: '/inquerito' },
 
 			{ destination: '/viagem-2024', permanent: true, source: '/viagem2024' },
+
+			/* * */
+			/* EXTERNAL */
+
+			{ destination: 'https://open.spotify.com/user/31zy3uavd2sad4ozlwoze2usqmku', permanent: false, source: '/spotify' },
 
 			/* * */
 			/* LEGACY */
