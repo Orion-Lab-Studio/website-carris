@@ -48,11 +48,11 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: sele
 
 	useEffect(() => {
 		(async () => {
-			const geoJSON = {
+			const geoJSON: GeoJSON.FeatureCollection = {
 				features: [],
 				type: 'FeatureCollection',
 			};
-			if (allSchoolsData && allSchoolsData.stops.length) {
+			if (allSchoolsData.length && allStopsData?.length) {
 				for (const school of allSchoolsData) {
 					for (const stop of allStopsData) {
 						geoJSON.features.push({
