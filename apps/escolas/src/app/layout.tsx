@@ -25,9 +25,13 @@ export const metadata = {
 	title: 'Carris Metropolitana',
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+	children,
+}: {
+	children: React.ReactNode
+}) {
 	return (
-		<html className={inter.variable}>
+		<html className={inter.variable} lang="pt">
 			<head>
 				<ColorSchemeScript />
 				<link href="/favicon.svg" rel="shortcut icon" />
