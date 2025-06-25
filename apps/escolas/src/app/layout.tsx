@@ -31,7 +31,7 @@ export default function RootLayout({
 	children: React.ReactNode
 }) {
 	return (
-		<html className={inter.variable} lang="pt">
+		<html className={inter.variable} data-mantine-color-scheme="light" lang="pt">
 			<head>
 				<ColorSchemeScript />
 				<link href="/favicon.svg" rel="shortcut icon" />
