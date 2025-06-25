@@ -14,13 +14,14 @@ export default function Page() {
 	const router = useRouter();
 	const [selectedMunicipalityId, setSelectedMunicipalityId] = useState(null);
 	const [selectedEducationLevel, setSelectedEducationLevel] = useState(null);
-	const [selectedSchool, _setSelectedSchool] = useState();
 
 	//
 	// B. Handle actions
 
 	const handleSelectSchool = (schoolId) => {
-		if (schoolId) router.push(`/${schoolId}`);
+		if (schoolId) {
+			router.push(`/${schoolId}`);
+		}
 	};
 
 	//
@@ -34,7 +35,6 @@ export default function Page() {
 				onSelectSchool={handleSelectSchool}
 				selectedEducationLevel={selectedEducationLevel}
 				selectedMunicipalityId={selectedMunicipalityId}
-				selectedSchool={selectedSchool}
 				title="Pesquise as linhas que servem a sua escola ou universidade."
 			/>
 		</Layout>

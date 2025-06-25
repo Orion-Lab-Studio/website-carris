@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import OSMMap from '@/components/OSMMap/OSMMap';
@@ -8,8 +9,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { Layer, Source, useMap } from 'react-map-gl/maplibre';
 import useSWR from 'swr';
 
-export default function SelectSchoolMap() {
-	//
+interface selectedSchoolMapProps {
+	allSchoolsData: any
+	onSelectSchool: (schoolId: string) => void
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: selectedSchoolMapProps) {
+	// // descrobrir onde usar o onselectSchool
 
 	//
 	// A. Setup variables
@@ -20,8 +26,6 @@ export default function SelectSchoolMap() {
 
 	//
 	// B. Fetch data
-
-	const { data: allSchoolsData } = useSWR('https://api.carrismetropolitana.pt/datasets/facilities/schools');
 	const { data: allStopsData } = useSWR('https://api.carrismetropolitana.pt/stops');
 
 	//
@@ -44,11 +48,11 @@ export default function SelectSchoolMap() {
 
 	useEffect(() => {
 		(async () => {
-			const geoJSON = {
+			const geoJSON: GeoJSON.FeatureCollection = {
 				features: [],
 				type: 'FeatureCollection',
 			};
-			if (allSchoolsData && allSchoolsData.stops.length) {
+			if (!allSchoolsData.length && allSchoolsData.length) {
 				for (const school of allSchoolsData) {
 					for (const stop of allStopsData) {
 						geoJSON.features.push({
@@ -111,9 +115,7 @@ export default function SelectSchoolMap() {
 	// D. Render components
 
 	return (
-		allSchoolsData
-		&& allStopsData
-		&& (
+		allSchoolsData && allStopsData && (
 			<div style={{ height: 400 }}>
 				<OSMMap
 					fullscreen={true}
@@ -153,9 +155,11 @@ export default function SelectSchoolMap() {
 							}}
 						/>
 					</Source>
-					<Source data={allSchoolsAsGeojson} id="allSchools" type="geojson">
-						<Layer id="allSchools" layout={{ 'icon-image': 'store-icon', 'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.1, 26, 0.75] }} source="allSchools" type="symbol" />
-					</Source>
+					{allSchoolsAsGeojson && (
+						<Source data={allSchoolsAsGeojson} id="allSchools" type="geojson">
+							<Layer id="allSchools" layout={{ 'icon-image': 'store-icon', 'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.1, 26, 0.75] }} source="allSchools" type="symbol" />
+						</Source>
+					)}
 				</OSMMap>
 			</div>
 		)
