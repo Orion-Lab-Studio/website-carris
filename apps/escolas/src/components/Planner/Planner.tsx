@@ -13,7 +13,7 @@ const Planner = () => {
 		<div className={styles.container}>
 			<BlackHeader text="Planeador de Viagem" />
 			<a href="https://www.carrismetropolitana.pt/planeador/" rel="noopener noreferrer" target="_blank">
-				<Image alt="Logotipo Carris Metropolitana próxima das escolas" height={900} src="@/public/images/planner.png" style={{ height: '100%', width: '100%' }} width={670} />
+				<Image alt="Logotipo Carris Metropolitana próxima das escolas" height={900} src="/images/planner.png" style={{ height: '100%', width: '100%' }} width={670} />
 			</a>
 		</div>
 	);
