@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import OSMMap from '@/components/OSMMap/OSMMap';
@@ -8,8 +9,13 @@ import { useEffect, useMemo, useState } from 'react';
 import { Layer, Source, useMap } from 'react-map-gl/maplibre';
 import useSWR from 'swr';
 
-export default function SelectSchoolMap() {
-	//
+interface selectedSchoolMapProps {
+	allSchoolsData: any
+	onSelectSchool: (schoolId: string) => void
+}
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: selectedSchoolMapProps) {
+	// // descrobrir onde usar o onselectSchool
 
 	//
 	// A. Setup variables
@@ -20,8 +26,6 @@ export default function SelectSchoolMap() {
 
 	//
 	// B. Fetch data
-
-	const { data: allSchoolsData } = useSWR('https://api.carrismetropolitana.pt/datasets/facilities/schools');
 	const { data: allStopsData } = useSWR('https://api.carrismetropolitana.pt/stops');
 
 	//
@@ -111,9 +115,7 @@ export default function SelectSchoolMap() {
 	// D. Render components
 
 	return (
-		allSchoolsData
-		&& allStopsData
-		&& (
+		allSchoolsData && allStopsData && (
 			<div style={{ height: 400 }}>
 				<OSMMap
 					fullscreen={true}
