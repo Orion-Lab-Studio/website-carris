@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 'use client';
 
 import OSMMap from '@/components/OSMMap/OSMMap';
@@ -9,14 +8,9 @@ import { useEffect, useMemo, useState } from 'react';
 import { Layer, Source, useMap } from 'react-map-gl/maplibre';
 import useSWR from 'swr';
 
-interface selectedSchoolMapProps {
-	allSchoolsData: any
-	onSelectSchool: (schoolId: string) => void
-}
+export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }) {
+	//
 
-export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: selectedSchoolMapProps) {
-	// // descubrir onde usar o onselectSchool
-	console.log(onSelectSchool, 'onSelectSchool');
 	//
 	// A. Setup variables
 
@@ -98,8 +92,8 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: sele
 	// D. Handle actions
 
 	const handleMapClick = (event) => {
-		if (event?.features[0].porperties?.id) {
-			selectSchoolMap.getCanvas();
+		if (event?.features[0].properties?.id) {
+			onSelectSchool(event.features[0].properties.id);
 		}
 	};
 
@@ -119,6 +113,8 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: sele
 
 	//
 	// E. Render components
+
+	console.log('allSchoolsAsGeojson', allSchoolsAsGeojson);
 
 	return (
 		allSchoolsData && allStopsData && (
@@ -161,9 +157,19 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }: sele
 							}}
 						/>
 					</Source>
-					{allSchoolsAsGeojson && (
+					{allSchoolsAsGeojson && allSchoolsAsGeojson.features.length > 0 && (
+						// Render all schools as points on the map
 						<Source data={allSchoolsAsGeojson} id="allSchools" type="geojson">
-							<Layer id="allSchools" layout={{ 'icon-image': 'store-icon', 'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.1, 26, 0.75] }} source="allSchools" type="symbol" />
+							<Layer
+								id="allSchools"
+								// layout={{ 'icon-image': 'store-icon', 'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.1, 26, 0.75] }}
+								source="allSchools"
+								type="symbol"
+								paint={{
+									'icon-color': ['case', ['boolean', ['feature-state', 'selected'], false], '#EE4B2B', '#ffdd01'],
+									'icon-opacity': ['case', ['boolean', ['feature-state', 'selected'], false], 1, 0.8],
+								}}
+							/>
 						</Source>
 					)}
 				</OSMMap>

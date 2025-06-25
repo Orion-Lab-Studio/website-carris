@@ -77,6 +77,7 @@ export default function SelectMunicipalityAndSchool({ onSelectEducationLevel, on
 		}
 		// Set filter results
 		return filterResult;
+
 		//
 	}, [allSchoolsSimplified, selectedMunicipalityId, selectedEducationLevel]);
 
