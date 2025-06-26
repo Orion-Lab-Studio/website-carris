@@ -13,12 +13,12 @@ import { useState } from 'react';
 
 import styles from './SchoolInfoUpdate.module.css';
 
-import { AdditionalInformation } from '../update-form/AdditionalInformation';
-import { ContactData } from '../update-form/ContactData';
-import { InfoUpdateCalendar } from '../update-form/InfoUpdateCalendar';
-import { Location } from '../update-form/Location';
-import { Modalities } from '../update-form/Modalities';
-import { ResponsibleContact } from '../update-form/ResponsibleContact';
+import { AdditionalInformation } from '../update-form/AdditionalInformationSelection';
+import { ContactData } from '../update-form/ContactDataSelection';
+import { Location } from '../update-form/LocationSelection';
+import { Modalities } from '../update-form/ModalitiesSection';
+import { ResponsibleContact } from '../update-form/ResponsibleContactSection';
+import { InfoUpdateCalendar } from '../update-form/SchoolCalendarSelection';
 import { SubmitCodeSection } from '../update-form/SubmitCodeSection';
 import { submit } from './SubmitAction';
 import { FormType, SchoolCicle, SchoolCicleObjects, schoolCicles, SchoolData } from './types';
@@ -181,7 +181,6 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 						</Paper>
 						<Location form={form} />
 						<ContactData form={form} />
-						<ResponsibleContact form={form} />
 						<ResponsibleContact form={form} />
 						<InfoUpdateCalendar form={form} />
 						<Modalities form={form} />

@@ -5,7 +5,7 @@ import { Paper, Stack, Text, TextInput, Title } from '@mantine/core';
 export function ResponsibleContact({ form }) {
 	return (
 		<Paper p={16} radius="md" shadow="sm">
-			<Title fw={700} order={3} style={{ marginBottom: '30px' }}>Dados de contacto do responsável </Title>
+			<Title fw={700} order={3} style={{ marginLeft: '4px' }}>Dados de contacto do responsável </Title>
 			<Text c="dimmed" size="sm" style={{ marginBottom: '10px', marginLeft: '4px' }}>A pessoa responsável em departamento de comunicação pelo preenchimento do formulário</Text>
 			<Stack gap={15}>
 
