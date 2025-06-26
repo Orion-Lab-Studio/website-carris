@@ -24,7 +24,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 	//
 	// A. Setup variables
 	const [submitState, setSubmitState] = useState<'done' | 'error' | 'no' | 'processing'>('no');
-	const [formOpen, setFormOpen] = useState(false);
+	const [formOpen, setFormOpen] = useState(true);
 	const [successMessage, setSuccessMessage] = useState<null | string>(null);
 	const router = useRouter();
 
@@ -209,11 +209,11 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 						</Paper>
 
 						<Paper p={16} radius="md" shadow="sm">
-							<Title fw={700} order={3}>Localização</Title>
-							<Text c="dimmed" size="s" style={{ marginBottom: '10px' }}>A posição da escola no mapa corresponde com a posição da porta príncipal de entrada da escola?</Text>
+							<Title fw={700} order={3} style={{ marginLeft: '4px' }}>Localização</Title>
+							<Text c="dimmed" size="sm" style={{ marginBottom: '10px', marginLeft: '4px' }}>A posição da escola no mapa corresponde com a posição da porta príncipal de entrada da escola?</Text>
 							{form.getInputProps('correctLocation').error && <Text c="red" size="md">{form.getInputProps('correctLocation').error}</Text>}
 							<SegmentedControl
-								size="md"
+								size="sm"
 								style={{ flexShrink: 0 }}
 								data={[
 									{ label: 'Sim', value: 'sim' },
@@ -250,6 +250,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 									label="Telefone"
 									placeholder="910001337"
 									size="md"
+
 									{...form.getInputProps('phone')}
 								/>
 								<TextInput
@@ -271,7 +272,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 							<Stack gap={10}>
 								<Title fw={700} order={3}>Modalidades de ensino</Title>
 								<Text c="dimmed" size="md">Indique os ciclos e outros tipos de ensino presentes na escola</Text>
-								<Stack gap="s">
+								<Stack gap="sm">
 									<SchoolCycleItem form={form} k="pre_school" label="Pré-escolar" />
 									<SchoolCycleItem form={form} k="basic_1" label="1º Ciclo" />
 									<SchoolCycleItem form={form} k="basic_2" label="2º Ciclo" />
