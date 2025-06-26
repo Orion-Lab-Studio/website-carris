@@ -11,7 +11,6 @@ export default function HomeUpdate() {
 	const router = useRouter();
 	const [selectedMunicipalityId, setSelectedMunicipalityId] = useState(null);
 	const [selectedEducationLevel, setSelectedEducationLevel] = useState(null);
-	const [selectedSchool, _setSelectedSchool] = useState();
 
 	const [activePage, setActivePage] = useState<'intro' | 'select'>('intro');
 

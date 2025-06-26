@@ -1,10 +1,8 @@
 'use client';
 
-import OSMMap from '@/components/OSMMap/OSMMap';
 import generateUUID from '@/services/generateUUID';
-import { SegmentedControl } from '@mantine/core';
 import * as turf from '@turf/turf';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useMemo } from 'react';
 import { Layer, Source, useMap } from 'react-map-gl/maplibre';
 import useSWR from 'swr';
 
@@ -16,7 +14,6 @@ export default function MapViewSchools({ allSchoolsData, onSelectSchool }) {
 	//
 	// A. Setup variables
 	const { selectSchoolMap } = useMap();
-	const [mapStyle, setMapStyle] = useState('map');
 	//
 
 	//
@@ -106,7 +103,7 @@ export default function MapViewSchools({ allSchoolsData, onSelectSchool }) {
 	// D. Handle actions
 
 	const handleMapClick = (event) => {
-		if (event?.features[0].properties?.id) {
+		if (event?.features[0]) {
 			onSelectSchool(event.features[0].properties.id);
 		}
 	};
@@ -164,7 +161,7 @@ export default function MapViewSchools({ allSchoolsData, onSelectSchool }) {
 							'icon-allow-overlap': true,
 							'icon-ignore-placement': true,
 							'icon-image': 'school-icon',
-							'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.01, 100, 3],
+							'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.05, 100, 3],
 						}}
 						paint={
 							{

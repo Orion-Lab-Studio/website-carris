@@ -3,9 +3,9 @@ import maplibregl from 'maplibre-gl';
 import Map, { FullscreenControl, NavigationControl, ScaleControl } from 'react-map-gl/maplibre';
 
 import styles from './OSMMap.module.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
 
 import osmMapDefaults from './OSMMap.config';
-import 'maplibre-gl/dist/maplibre-gl.css';
 
 export default function OSMMap({
 	children,
@@ -31,6 +31,7 @@ export default function OSMMap({
 	return (
 
 		<div className={styles.container}>
+			{toolbar && <div className={styles.toolbar}>{toolbar}</div>}
 			<Map
 				id={id}
 				initialViewState={osmMapDefaults.initialViewState}
@@ -54,7 +55,6 @@ export default function OSMMap({
 				{scale && <ScaleControl maxWidth={100} unit="metric" />}
 				{children}
 			</Map>
-			{toolbar && <div className={styles.toolbar}>{toolbar}</div>}
 		</div>
 	);
 }
