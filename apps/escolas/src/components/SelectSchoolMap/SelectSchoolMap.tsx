@@ -86,6 +86,23 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }) {
 		}
 		return geoJSON;
 	}, [allStopsData]);
+
+	const allSchoolsDataAsGeojson = useMemo(() => {
+		const geoJSON: GeoJSON.FeatureCollection = {
+			features: [],
+			type: 'FeatureCollection',
+		};
+		if (allSchoolsData) {
+			for (const school of allSchoolsData) {
+				geoJSON.features.push({
+					geometry: { coordinates: [school.lon, school.lat], type: 'Point' },
+					properties: {},
+					type: 'Feature',
+				});
+			}
+		}
+		return geoJSON;
+	}, [allSchoolsData]);
 	//
 
 	//
@@ -114,7 +131,7 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }) {
 	//
 	// E. Render components
 
-	console.log('allSchoolsAsGeojson', allSchoolsAsGeojson);
+	console.log('allSchoolsData', allSchoolsData);
 
 	return (
 		allSchoolsData && allStopsData && (
@@ -157,12 +174,12 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }) {
 							}}
 						/>
 					</Source>
-					{allSchoolsAsGeojson && allSchoolsAsGeojson.features.length > 0 && (
+					{ allSchoolsData ? (
 						// Render all schools as points on the map
-						<Source data={allSchoolsAsGeojson} id="allSchools" type="geojson">
+						<Source data={allSchoolsDataAsGeojson} id="allSchools" type="geojson">
 							<Layer
 								id="allSchools"
-								// layout={{ 'icon-image': 'store-icon', 'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.1, 26, 0.75] }}
+								layout={{ 'icon-image': 'store-icon', 'icon-size': ['interpolate', ['linear'], ['zoom'], 9, 0.1, 26, 0.75] }}
 								source="allSchools"
 								type="symbol"
 								paint={{
@@ -171,7 +188,7 @@ export default function SelectSchoolMap({ allSchoolsData, onSelectSchool }) {
 								}}
 							/>
 						</Source>
-					)}
+					) : null }
 				</OSMMap>
 			</div>
 		)

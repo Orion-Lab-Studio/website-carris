@@ -60,15 +60,17 @@ export default function HomeUpdate() {
 			)}
 
 			{activePage === 'select' && (
-				<div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+				<div style={{ display: 'flex', flexDirection: 'column', gap: 70 }}>
+
 					<SelectMunicipalityAndSchool
+
 						onSelectEducationLevel={setSelectedEducationLevel}
 						onSelectMunicipalityId={setSelectedMunicipalityId}
 						onSelectSchool={handleSelectSchool}
 						selectedEducationLevel={selectedEducationLevel}
 						selectedMunicipalityId={selectedMunicipalityId}
 						title="Selecione a escola ou universidade que representa."
-					/> <br />
+					/>
 					<Button onClick={() => setActivePage('intro')}>Voltar</Button>
 				</div>
 			)}
