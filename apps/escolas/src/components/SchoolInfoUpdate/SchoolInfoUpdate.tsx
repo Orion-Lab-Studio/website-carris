@@ -182,6 +182,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 						<Location form={form} />
 						<ContactData form={form} />
 						<ResponsibleContact form={form} />
+						<ResponsibleContact form={form} />
 						<InfoUpdateCalendar form={form} />
 						<Modalities form={form} />
 						<AdditionalInformation form={form} />
