@@ -4,9 +4,9 @@
 import '@/styles/reset.css';
 import '@/styles/defaults.css';
 import '@/styles/colors.css';
-import '@/styles/variables.css';
 import '@mantine/core/styles.css';
 import '@mantine/notifications/styles.css';
+import 'maplibre-gl/dist/maplibre-gl.css';
 import { ColorSchemeScript } from '@mantine/core';
 import { Notifications } from '@mantine/notifications';
 import { Inter } from 'next/font/google';

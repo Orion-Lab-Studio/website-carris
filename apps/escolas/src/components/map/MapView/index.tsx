@@ -128,7 +128,7 @@ export function MapView({
 
 	return (
 		<div className={styles.container}>
-			{toolbar && <MapViewToolbar className={styles.toolbar} onCenterMap={onCenterMap} />}
+
 			<Map
 				attributionControl={false}
 				cursor={cursor}
@@ -163,6 +163,8 @@ export function MapView({
 				<a href="https://www.openmaptiles.org/" target="_blank">© OpenMapTiles</a>
 				<a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>
 			</div>
+
+			{toolbar && <MapViewToolbar className={styles.toolbar} onCenterMap={onCenterMap} />}
 		</div>
 	);
 }
