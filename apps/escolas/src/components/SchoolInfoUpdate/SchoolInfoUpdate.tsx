@@ -13,7 +13,7 @@ import { useState } from 'react';
 
 import styles from './SchoolInfoUpdate.module.css';
 
-import { SchoolInfoUpdateCalendar } from '../SchoolInfoUpdateCalendar/SchoolInfoUpdateCalendar';
+import { SchoolInfoUpdateCalendar } from '../update-form/SchoolInfoUpdateCalendar/SchoolInfoUpdateCalendar';
 import { SubmitCodeSection } from '../update-form/SubmitCodeSection';
 import SchoolCycleItem from './SchoolCycleItem';
 import { submit } from './SubmitAction';
