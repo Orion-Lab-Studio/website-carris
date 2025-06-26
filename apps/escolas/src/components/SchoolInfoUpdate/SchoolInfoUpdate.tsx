@@ -2,7 +2,7 @@
 import BackHome from '@/components/BackHome/BackHome';
 import Titles from '@/components/Titles/Titles';
 
-import SchoolInfoUpdateMap from '../SchoolInfoUpdateMap/SchoolInfoUpdateMap';
+import InfoUpdateMap from '../SchoolInfoUpdateMap/SchoolInfoUpdateMap';
 // import { submit } from './SubmitAction';
 import { Button, Loader, Modal, Paper } from '@mantine/core';
 import { FormValidateInput, useForm } from '@mantine/form';
@@ -13,11 +13,12 @@ import { useState } from 'react';
 
 import styles from './SchoolInfoUpdate.module.css';
 
-import { SchoolAdditionalInformation } from '../update-form/AdditionalInformation';
-import { SchoolContactData } from '../update-form/ContactData';
-import { SchoolInfoUpdateCalendar } from '../update-form/InfoUpdateCalendar';
-import { SchoolLocation } from '../update-form/Location';
-import { SchoolModalities } from '../update-form/Modalities';
+import { AdditionalInformation } from '../update-form/AdditionalInformation';
+import { ContactData } from '../update-form/ContactData';
+import { InfoUpdateCalendar } from '../update-form/InfoUpdateCalendar';
+import { Location } from '../update-form/Location';
+import { Modalities } from '../update-form/Modalities';
+import { ResponsibleContact } from '../update-form/ResponsibleContact';
 import { SubmitCodeSection } from '../update-form/SubmitCodeSection';
 import { submit } from './SubmitAction';
 import { FormType, SchoolCicle, SchoolCicleObjects, schoolCicles, SchoolData } from './types';
@@ -176,13 +177,14 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 						})}
 					>
 						<Paper radius="md" shadow="sm">
-							<SchoolInfoUpdateMap schoolData={schoolData} />
+							<InfoUpdateMap schoolData={schoolData} />
 						</Paper>
-						<SchoolLocation form={form} />
-						<SchoolContactData form={form} />
-						<SchoolInfoUpdateCalendar form={form} />
-						<SchoolModalities form={form} />
-						<SchoolAdditionalInformation form={form} />
+						<Location form={form} />
+						<ContactData form={form} />
+						<ResponsibleContact form={form} />
+						<InfoUpdateCalendar form={form} />
+						<Modalities form={form} />
+						<AdditionalInformation form={form} />
 						<Button
 							size="md"
 							type="submit"

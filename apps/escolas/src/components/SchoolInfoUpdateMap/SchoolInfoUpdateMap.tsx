@@ -8,7 +8,7 @@ import { Marker, useMap } from 'react-map-gl/maplibre';
 
 import { SchoolData } from '../SchoolInfoUpdate/types';
 
-export default function SchoolInfoUpdateMap({ schoolData }: { schoolData: SchoolData }) {
+export default function InfoUpdateMap({ schoolData }: { schoolData: SchoolData }) {
 	//
 
 	//

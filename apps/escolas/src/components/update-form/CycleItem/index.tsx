@@ -5,7 +5,7 @@ import { UseFormReturnType } from '@mantine/form';
 import CustomTimeInput from '../../CustomTimeInput/CustomTimeInput';
 import { FormType, SchoolCicle } from '../../SchoolInfoUpdate/types';
 
-export default function SchoolCycleItem({ form, k, label }: { form: UseFormReturnType<FormType, (_: FormType) => FormType>, k: SchoolCicle, label: string }) {
+export default function CycleItem({ form, k, label }: { form: UseFormReturnType<FormType, (_: FormType) => FormType>, k: SchoolCicle, label: string }) {
 	// k stands for key, which cannot be used as it is a reserved react prop
 	// console.log(form.values[k])
 	// console.log(form.getInputProps(k, { type: 'checkbox' }))

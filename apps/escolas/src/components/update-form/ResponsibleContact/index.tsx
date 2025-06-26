@@ -2,7 +2,7 @@
 
 import { Paper, Stack, Text, TextInput, Title } from '@mantine/core';
 
-export function SchoolResponsibleContact({ form }) {
+export function ResponsibleContact({ form }) {
 	return (
 		<Paper p={16} radius="md" shadow="sm">
 			<Title fw={700} order={3} style={{ marginBottom: '30px' }}>Dados de contacto do responsável </Title>

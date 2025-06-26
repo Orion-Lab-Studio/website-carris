@@ -4,7 +4,7 @@ import { Paper, Stack, Text, Title } from '@mantine/core';
 
 import SchoolCycleItem from '../CycleItem';
 
-export function SchoolModalities({ form }) {
+export function Modalities({ form }) {
 	return (
 		<Paper p={16} radius="md" shadow="sm">
 			<Stack gap={10}>

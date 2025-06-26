@@ -8,7 +8,7 @@ import { IconTrash } from '@tabler/icons-react';
 
 import { FormType } from '../../SchoolInfoUpdate/types';
 
-export function SchoolInfoUpdateCalendar({ form }: { form: UseFormReturnType<FormType, (_: FormType) => FormType> }) {
+export function InfoUpdateCalendar({ form }: { form: UseFormReturnType<FormType, (_: FormType) => FormType> }) {
 	// A. Setup Variables
 	const cycleFrequencyProps = form.getInputProps('calendar.cycleFrequency', { type: 'input' });
 	const cycleFrequency: '' | 'semester' | 'trimester' = cycleFrequencyProps.value;

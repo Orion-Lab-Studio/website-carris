@@ -2,7 +2,7 @@
 
 import { Paper, Textarea, Title } from '@mantine/core';
 
-export function SchoolAdditionalInformation({ form }) {
+export function AdditionalInformation({ form }) {
 	return (
 		<Paper p={16} radius="md" shadow="sm">
 			<Title fw={700} order={3}>Informação adicional</Title>

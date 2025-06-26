@@ -2,7 +2,7 @@
 
 import { Paper, SegmentedControl, Text, TextInput, Title } from '@mantine/core';
 
-export function SchoolLocation({ form }) {
+export function Location({ form }) {
 	return (
 		<Paper p={16} radius="md" shadow="sm">
 			<Title fw={700} order={3} style={{ marginLeft: '4px' }}>Localização</Title>
