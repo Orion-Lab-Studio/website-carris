@@ -46,25 +46,6 @@ export function MapViewToolbar({ className, onCenterMap }: Props) {
 
 		const center = map.getCenter();
 		window.open(`https://www.google.com/maps?q=${center.lat},${center.lng}&z=${map.getZoom() + 2}`, '_blank');
-
-		if (clickedFrom.includes('lines')) {
-			clickSource = 'Line_Details_Page';
-			const line_id = clickedFrom.split('/')[2];
-			// analyticsContext.actions.capture(ampli => ampli.openGoogleMapsClicked({ click: 'true', click_from: `${clickSource}_${line_id}` }));
-		}
-		if (clickedFrom.includes('vehicles')) {
-			clickSource = 'Vehicle_Page';
-			// analyticsContext.actions.capture(ampli => ampli.openGoogleMapsClicked({ click: 'true', click_from: clickSource }));
-		}
-		if (clickedFrom.includes('stops')) {
-			clickSource = 'Stops_Page';
-			const stop_id = clickedFrom.split('/')[2];
-			// analyticsContext.actions.capture(ampli => ampli.openGoogleMapsClicked({ click: 'true', click_from: `${clickSource}_${stop_id}` }));
-		}
-		if (clickedFrom.includes('stores')) {
-			clickSource = 'Stores_Page';
-			// analyticsContext.actions.capture(ampli => ampli.openGoogleMapsClicked({ click: 'true', click_from: 'stores' }));
-		}
 	};
 
 	//

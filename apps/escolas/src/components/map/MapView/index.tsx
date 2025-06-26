@@ -148,7 +148,7 @@ export function MapView({
 				onMoveEnd={handleOnMoveEnd}
 				onMoveStart={handleOnMoveStart}
 				scrollZoom={scrollZoom}
-				style={{ height: '100%', width: '100%' }}
+				style={{ height: '100%', position: 'absolute', width: '100%' }}
 			>
 				{navigation && <NavigationControl />}
 				{fullscreen && <FullscreenControl />}
