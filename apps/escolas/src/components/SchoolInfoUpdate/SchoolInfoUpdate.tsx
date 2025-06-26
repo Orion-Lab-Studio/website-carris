@@ -4,7 +4,7 @@ import Titles from '@/components/Titles/Titles';
 
 import SchoolInfoUpdateMap from '../SchoolInfoUpdateMap/SchoolInfoUpdateMap';
 // import { submit } from './SubmitAction';
-import { Button, Loader, Modal, Paper, PasswordInput, SegmentedControl, Stack, Text, Textarea, TextInput, Title } from '@mantine/core';
+import { Button, Loader, Modal, Paper, SegmentedControl, Stack, Text, Textarea, TextInput, Title } from '@mantine/core';
 import { FormValidateInput, useForm } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
 import { IconX } from '@tabler/icons-react';
@@ -14,8 +14,9 @@ import { useState } from 'react';
 import styles from './SchoolInfoUpdate.module.css';
 
 import { SchoolInfoUpdateCalendar } from '../SchoolInfoUpdateCalendar/SchoolInfoUpdateCalendar';
+import { SubmitCodeSection } from '../update-form/SubmitCodeSection';
 import SchoolCycleItem from './SchoolCycleItem';
-import { isPasswordCorrect, submit } from './SubmitAction';
+import { submit } from './SubmitAction';
 import { FormType, SchoolCicle, SchoolCicleObjects, schoolCicles, SchoolData } from './types';
 
 export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id: string, schoolData: SchoolData }) {
@@ -24,7 +25,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 	//
 	// A. Setup variables
 	const [submitState, setSubmitState] = useState<'done' | 'error' | 'no' | 'processing'>('no');
-	const [formOpen, setFormOpen] = useState(true); // Don't forget to turn this to false so the submit code work properly
+	const [formOpen, setFormOpen] = useState(false); // Don't forget to turn this to false so the submit code work properly
 	const [successMessage, setSuccessMessage] = useState<null | string>(null);
 	const router = useRouter();
 
@@ -151,19 +152,6 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 		}
 	};
 
-	// eslint-disable-next-line @typescript-eslint/no-unused-vars
-	const checkPassword = async (password: string) => {
-		const isCorrect = await isPasswordCorrect(form.getValues().password);
-		if (!isCorrect) {
-			notifications.show({ color: 'red', message: '', title: 'Código de acesso inválido' });
-		}
-		else {
-			document.getElementById('submitCodeBox').style.display = 'none';
-			notifications.show({ color: 'blue', message: '', title: 'Código de acesso aceite' });
-		}
-		setFormOpen(isCorrect);
-	};
-
 	//
 	// D. Render components
 
@@ -173,28 +161,8 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 				<Titles municipality_name={schoolData.municipality_name} school_name={schoolData.name} />
 			</div>
 
-			<Paper id="submitCodeBox" p={16} radius="md" shadow="sm">
-				<Title fw={700} order={3}>Código de acesso</Title>
-				{form.getInputProps('password').error && <Text c="red" size="md">{form.getInputProps('password').error}</Text>}
-				<PasswordInput
-					placeholder="********"
-					{...form.getInputProps('password')}
-					onKeyDown={(e) => {
-						if (e.key === 'Enter') {
-							checkPassword(form.getValues().password);
-						}
-					}}
-				/>
-				<Button
-					mt={20}
-					size="md"
-					onClick={async () => {
-						checkPassword(form.getValues().password);
-					}}
-				>
-					Verificar
-				</Button>
-			</Paper>
+			{!formOpen && <SubmitCodeSection form={form} setFormOpen={setFormOpen} />}
+
 			{formOpen && (
 				<>
 					<form
@@ -289,18 +257,14 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 							</Stack>
 						</Paper>
 						<Paper p={16} radius="md" shadow="sm">
-							<Title fw={700} order={3} style={{ marginLeft: '4px' }}>Informação adicional</Title>
-							<Stack>
-								<div style={{ marginLeft: '4px', marginTop: '10px' }}>
-									<Text fw={500} size="lg">Comentário</Text>
-									<Text c="dimmed" fw={400} size="sm">Informação extra que queira transmitir sobre a escola</Text>
-								</div>
-								<Textarea
-									placeholder="A Escola tem horário noturno desde as 18:35 até às 22:40/Há muitos estudantes que vêm de sitio X/Não há aulas sextas-feiras/etc"
-									size="sm"
-									{...form.getInputProps('comment')}
-								/>
-							</Stack>
+							<Title fw={700} order={3}>Informação adicional</Title>
+							<Textarea
+								description="Informação extra que queira transmitir sobre a escola"
+								label="Comentário"
+								placeholder="A Escola tem horário noturno desde as 18:35 até às 22:40/Há muitos estudantes que vêm de sitio X/Não há aulas sextas-feiras/etc"
+								size="md"
+								{...form.getInputProps('comment')}
+							/>
 						</Paper>
 						<Button
 							size="md"

@@ -2,7 +2,7 @@
 
 O que mudar no formulário:
 
-	- Adicionar uma caixa Dados do Responsável de comunicação -> Prioridade
+	- Adicionar uma caixa Dados do Responsável de Comunicação (Nome, Email, Telefone) -> Prioridade
 
 	- Tirar a caixa "Código de acesso",  ---> DONE
 	- Adicionar espaçamento dos campos (margin),  ---> DONE
