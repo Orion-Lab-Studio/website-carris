@@ -1,7 +1,6 @@
 'use client';
 
-import { CloseButton, Select } from '@mantine/core';
-import { IconChevronDown } from '@tabler/icons-react';
+import { Select } from '@mantine/core';
 import { useMemo } from 'react';
 import useSWR from 'swr';
 
@@ -31,10 +30,6 @@ export default function SelectMunicipality({ onSelectMunicipalityId, selectedMun
 	//
 	// C. Handle actions
 
-	const handleClearSelectedMunicipalityId = () => {
-		onSelectMunicipalityId(null);
-	};
-
 	//
 	// D. Render components
 
@@ -46,8 +41,8 @@ export default function SelectMunicipality({ onSelectMunicipalityId, selectedMun
 				nothingFoundMessage="Município inexistente"
 				onChange={onSelectMunicipalityId}
 				placeholder="Escolha ou digite um Municípios"
-				rightSection={selectedMunicipalityId ? <CloseButton onClick={handleClearSelectedMunicipalityId} /> : <IconChevronDown size={18} />}
 				value={selectedMunicipalityId}
+				clearable
 				searchable
 			/>
 		</div>

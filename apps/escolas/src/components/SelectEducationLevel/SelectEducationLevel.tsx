@@ -1,7 +1,6 @@
 'use client';
 
-import { CloseButton, Select } from '@mantine/core';
-import { IconChevronDown } from '@tabler/icons-react';
+import { Select } from '@mantine/core';
 
 import styles from './SelectEducationLevel.module.css';
 
@@ -25,10 +24,6 @@ export default function SelectEducationLevel({ onSelectEducationLevel, selectedE
 	//
 	// C. Handle actions
 
-	const handleClearselectedEducationLevel = () => {
-		onSelectEducationLevel();
-	};
-
 	//
 	// D. Render components
 
@@ -39,8 +34,8 @@ export default function SelectEducationLevel({ onSelectEducationLevel, selectedE
 				data={allEducationLevels}
 				onChange={onSelectEducationLevel}
 				placeholder="Escolha um nível de educação"
-				rightSection={selectedEducationLevel ? <CloseButton onClick={handleClearselectedEducationLevel} /> : <IconChevronDown size={18} />}
 				value={selectedEducationLevel}
+				clearable
 				searchable
 			/>
 		</div>
