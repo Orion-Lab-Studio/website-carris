@@ -13,12 +13,12 @@ import { useState } from 'react';
 
 import styles from './SchoolInfoUpdate.module.css';
 
-import { AdditionalInformation } from '../update-form/AdditionalInformationSelection';
-import { ContactData } from '../update-form/ContactDataSelection';
-import { Location } from '../update-form/LocationSelection';
+import { AdditionalInformation } from '../update-form/AdditionalInformationSection';
+import { ContactData } from '../update-form/ContactDataSection';
+import { Location } from '../update-form/LocationSection';
 import { Modalities } from '../update-form/ModalitiesSection';
 import { ResponsibleContact } from '../update-form/ResponsibleContactSection';
-import { InfoUpdateCalendar } from '../update-form/SchoolCalendarSelection';
+import { InfoUpdateCalendar } from '../update-form/SchoolCalendarSection';
 import { SubmitCodeSection } from '../update-form/SubmitCodeSection';
 import { submit } from './SubmitAction';
 import { FormType, SchoolCicle, SchoolCicleObjects, schoolCicles, SchoolData } from './types';
