@@ -4,7 +4,7 @@ O que mudar no formulário:
 
 	- Adicionar uma caixa Dados do Responsável de comunicação -> Prioridade
 
-	- Tirar a caixa "Código de acesso",
+	- Tirar a caixa "Código de acesso",  ---> DONE
 	- Adicionar espaçamento dos campos (margin),
 	- Alinhar as labels mais para a direita,
 	- Alinhar os botões do Calendário Escolar,
@@ -15,4 +15,4 @@ O que mudar no formulário:
 ------------------------------------------------//----------//------------------------------------------------------------------------------
 
 Ficheiros com erros:
-	- SelectMunicipalityAndSchool
+	- 
