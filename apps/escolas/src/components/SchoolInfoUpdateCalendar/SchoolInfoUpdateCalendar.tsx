@@ -76,7 +76,7 @@ export function SchoolInfoUpdateCalendar({ form }: { form: UseFormReturnType<For
 				<Stack gap={8}>
 					<Text fw={500} size="md">Lista de Interrupções dentro do período escolar</Text>
 					<Text c="dimmed" fw={400} size="s">Não indique férias entre semestres/trimestres, apenas interrupções dentro desses períodos.</Text>
-					{vacationsProps.error && <Text c="red" size="xs">{vacationsProps.error}</Text>}
+					{vacationsProps.error && <Text c="red" size="lg">{vacationsProps.error}</Text>}
 					{form.getValues().calendar.vacations.map((item, index) => (
 						<Group key={index}>
 							<DatePickerInput
@@ -90,7 +90,7 @@ export function SchoolInfoUpdateCalendar({ form }: { form: UseFormReturnType<For
 								<IconTrash size="1rem" />
 							</ActionIcon>
 						</Group>
-					))}
+					))} <br />
 					<Group justify="flex-end">
 
 						<Button
