@@ -14,10 +14,10 @@ import { useState } from 'react';
 import styles from './SchoolInfoUpdate.module.css';
 
 import { SchoolContactData } from '../update-form/SchoolContactData';
+import SchoolCycleItem from '../update-form/SchoolCycleItem';
 import { SchoolInfoUpdateCalendar } from '../update-form/SchoolInfoUpdateCalendar';
 import { SchoolLocation } from '../update-form/SchoolLocation';
 import { SubmitCodeSection } from '../update-form/SubmitCodeSection';
-import SchoolCycleItem from './SchoolCycleItem';
 import { submit } from './SubmitAction';
 import { FormType, SchoolCicle, SchoolCicleObjects, schoolCicles, SchoolData } from './types';
 
@@ -177,11 +177,10 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 						<Paper radius="md" shadow="sm">
 							<SchoolInfoUpdateMap schoolData={schoolData} />
 						</Paper>
-
 						<SchoolLocation form={form} />
 						<SchoolContactData form={form} />
+						<SchoolInfoUpdateCalendar form={form} />
 
-						{SchoolInfoUpdateCalendar({ form })}
 						<Paper p={16} radius="md" shadow="sm">
 							<Stack gap={10}>
 								<div style={{ marginBottom: '10px', marginLeft: '4px' }}>
