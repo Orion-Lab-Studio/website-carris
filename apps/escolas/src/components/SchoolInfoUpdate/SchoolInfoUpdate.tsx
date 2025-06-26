@@ -291,7 +291,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 								description="Informação extra que queira transmitir sobre a escola"
 								label="Comentário"
 								placeholder="A Escola tem horário noturno desde as 18:35 até às 22:40/Há muitos estudantes que vêm de sitio X/Não há aulas sextas-feiras/etc"
-								size="md"
+								size="lg"
 								{...form.getInputProps('comment')}
 							/>
 						</Paper>
