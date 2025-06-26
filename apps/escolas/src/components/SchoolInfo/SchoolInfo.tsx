@@ -1,6 +1,6 @@
 'use client';
 
-import BackHome from '@/components/BackHome/BackHome';
+import BackHome2 from '@/components/BackHome/BackHome2';
 import BlackHeader from '@/components/BlackHeader/BlackHeader';
 import DownloadPDF from '@/components/DownloadPDF/DownloadPDF';
 import NaveganteCard from '@/components/NaveganteCard/NaveganteCard';
@@ -163,7 +163,7 @@ export default function SchoolInfo({ school_id }) {
 					</div>
 				</div>
 
-				<BackHome />
+				<BackHome2 />
 
 				<SourceDisclaimer />
 			</div>
