@@ -45,7 +45,7 @@ export default function SelectMunicipality({ onSelectMunicipalityId, selectedMun
 				data={allMunicipalitiesDataAsSelectOptions}
 				nothingFoundMessage="Município inexistente"
 				onChange={onSelectMunicipalityId}
-				placeholder="Escolha ou digite um Município"
+				placeholder="Escolha ou digite um Municípios"
 				rightSection={selectedMunicipalityId ? <CloseButton onClick={handleClearSelectedMunicipalityId} /> : <IconChevronDown size={18} />}
 				value={selectedMunicipalityId}
 				searchable
