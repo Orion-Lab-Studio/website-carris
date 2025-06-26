@@ -158,6 +158,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 			notifications.show({ color: 'red', message: '', title: 'Código de acesso inválido' });
 		}
 		else {
+			document.getElementById('submitCodeBox').style.display = 'none';
 			notifications.show({ color: 'blue', message: '', title: 'Código de acesso aceite' });
 		}
 		setFormOpen(isCorrect);
@@ -172,7 +173,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 				<Titles municipality_name={schoolData.municipality_name} school_name={schoolData.name} />
 			</div>
 
-			<Paper p={16} radius="md" shadow="sm">
+			<Paper id="submitCodeBox" p={16} radius="md" shadow="sm">
 				<Title fw={700} order={3}>Código de acesso</Title>
 				{form.getInputProps('password').error && <Text c="red" size="xs">{form.getInputProps('password').error}</Text>}
 				<PasswordInput
