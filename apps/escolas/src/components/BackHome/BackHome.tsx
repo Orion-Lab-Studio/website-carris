@@ -16,7 +16,7 @@ export default function BackHome() {
 	// B. Handle actions
 
 	const handleClick = () => {
-		router.push('/');
+		router.push('/portal-escolas');
 	};
 
 	//
