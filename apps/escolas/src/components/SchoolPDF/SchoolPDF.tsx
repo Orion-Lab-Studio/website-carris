@@ -8,7 +8,7 @@ import Image from 'next/image';
 import StopInfo from '@/components/StopInfo/StopInfo';
 
 import styles from './SchoolPDF.module.css';
-// import OSMMap from '@/components/OSMMap/OSMMap';
+// import { MapView } from '@/components/map/MapView';
 
 export default function SchoolPDF({ school_id }) {
 	//
@@ -94,7 +94,7 @@ export default function SchoolPDF({ school_id }) {
 					<p className={styles.municipalityName}>{schoolData.municipality_name}</p>
 				</div>
 
-				{/* <OSMMap id="pdfMap" height={400} scrollZoom={false} navigation={false} fullscreen={false}>
+				{/* <MapView id="pdfMap" height={100} scrollZoom={false} navigation={false}>
 					<Source id="allStops" type="geojson" data={allStopsDataAsGeojson}>
 						<Layer id="allStops" type="circle" source="allStops" paint={{ 'circle-color': '#ffdd01', 'circle-radius': 4, 'circle-stroke-width': 1, 'circle-stroke-color': '#000000' }} />
 					</Source>
@@ -104,7 +104,7 @@ export default function SchoolPDF({ school_id }) {
 					<Marker latitude={schoolData.lat} longitude={schoolData.lon}>
 						<Image priority src="/images/escola.png" height={50} width={50} alt={schoolData.name} />
 					</Marker>
-				</OSMMap> */}
+				</MapView> */}
 
 				<div className={styles.stopsWrapper}>
 					{schoolData.stops.map(stopId => (

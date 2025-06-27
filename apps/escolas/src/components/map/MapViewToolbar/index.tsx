@@ -26,8 +26,6 @@ export function MapViewToolbar({ className, onCenterMap }: Props) {
 	//
 	// A. Setup variables
 
-	// const t = useTranslations('map.toolbar');
-
 	const mapOptionsContext = useMapOptionsContext();
 
 	const mapStyles: SegmentedControlItem[] = [

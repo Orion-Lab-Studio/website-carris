@@ -136,6 +136,9 @@ export default function MapViewSchools({ allSchoolsData, onSelectSchool }) {
 				onClick={handleMapClick}
 				onMouseEnter={handleMapMouseEnter}
 				onMouseLeave={handleMapMouseLeave}
+				scale
+				scrollZoom
+				toolbar
 			>
 				<Source data={allStopsDataAsGeojson} id="allStops" type="geojson">
 					<Layer

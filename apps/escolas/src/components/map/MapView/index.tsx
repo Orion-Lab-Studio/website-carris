@@ -1,13 +1,15 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
 'use client';
 
 /* * */
 
+import mapDefaults from '@/components/map/MapConfig';
 import { MapViewToolbar } from '@/components/map/MapViewToolbar';
 import { useMapOptionsContext } from '@/contexts/MapOptions.context';
-import { mapDefaultConfig } from '@/settings/map.settings';
 import Map, { FullscreenControl, GeolocateControl, MapRef, NavigationControl, ScaleControl, useMap } from '@vis.gl/react-maplibre';
 import { useCallback, useEffect, useState } from 'react';
 
+import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './styles.module.css';
 
 /* * */
@@ -55,17 +57,17 @@ export function MapView({
 	mapStyle,
 	navigation = true,
 	onCenterMap,
-	onClick,
-	onMouseEnter,
-	onMouseLeave,
-	onMouseOut,
-	onMouseOver,
-	onMoveEnd,
-	onMoveStart,
+	onClick = () => {},
+	onMouseEnter = () => {},
+	onMouseLeave = () => {},
+	onMoveEnd = () => {},
+	onMoveStart = () => {},
 	scale = false,
 	scrollZoom = true,
 	toolbar = true,
 }: Props) {
+	//
+
 	//
 	// A. Setup variables
 	const [cursor, setCursor] = useState<string>('auto');
@@ -133,18 +135,15 @@ export function MapView({
 				attributionControl={false}
 				cursor={cursor}
 				id={id || 'map'}
-				initialViewState={mapDefaultConfig.initialViewState}
+				initialViewState={mapDefaults.initialViewState}
 				interactive={interactiveLayerIds ? true : false}
 				interactiveLayerIds={interactiveLayerIds}
-				mapStyle={mapDefaultConfig.styles[mapStyleValue as string]}
-				maxZoom={mapDefaultConfig.maxZoom}
-				minZoom={mapDefaultConfig.minZoom}
+				mapStyle={mapDefaults.styles[mapStyleValue] || mapDefaults.styles.default}
+				maxZoom={mapDefaults.maxZoom}
+				minZoom={mapDefaults.minZoom}
 				onClick={onClick}
 				onMouseEnter={handleOnMouseEnter}
 				onMouseLeave={handleOnMouseLeave}
-				onMouseOut={onMouseOut}
-				onMouseOver={onMouseOver}
-				onMove={handleOnMoveStart}
 				onMoveEnd={handleOnMoveEnd}
 				onMoveStart={handleOnMoveStart}
 				scrollZoom={scrollZoom}
@@ -153,16 +152,16 @@ export function MapView({
 				{navigation && <NavigationControl />}
 				{fullscreen && <FullscreenControl />}
 				{geolocate && <GeolocateControl />}
-				{scale && <ScaleControl />}
+				{scale && <ScaleControl maxWidth={100} unit="metric" />}
 				<div className={styles.childrenWrapper}>
 					{children}
 				</div>
+				<div className={styles.attributionWrapper}>
+					<a href="https://maplibre.org/" target="_blank">MapLibre</a>
+					<a href="https://www.openmaptiles.org/" target="_blank">© OpenMapTiles</a>
+					<a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>
+				</div>
 			</Map>
-			<div className={styles.attributionWrapper}>
-				<a href="https://maplibre.org/" target="_blank">MapLibre</a>
-				<a href="https://www.openmaptiles.org/" target="_blank">© OpenMapTiles</a>
-				<a href="https://www.openstreetmap.org/copyright" target="_blank">© OpenStreetMap contributors</a>
-			</div>
 
 			{toolbar && <MapViewToolbar className={styles.toolbar} onCenterMap={onCenterMap} />}
 		</div>

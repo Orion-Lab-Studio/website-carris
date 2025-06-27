@@ -3,14 +3,13 @@
 import BackHome2 from '@/components/BackHome/BackHome2';
 import BlackHeader from '@/components/BlackHeader/BlackHeader';
 import DownloadPDF from '@/components/DownloadPDF/DownloadPDF';
+import { MapView } from '@/components/map/MapView';
 import NaveganteCard from '@/components/NaveganteCard/NaveganteCard';
 import NoServiceMessage from '@/components/NoServiceMessage/NoServiceMessage';
-import OSMMap from '@/components/OSMMap/OSMMap';
 import Planner from '@/components/Planner/Planner';
 import SourceDisclaimer from '@/components/SourceDisclaimer/SourceDisclaimer';
 import StopInfo from '@/components/StopInfo/StopInfo';
 import Titles from '@/components/Titles/Titles';
-import { SegmentedControl } from '@mantine/core';
 import * as turf from '@turf/turf';
 import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
@@ -26,7 +25,6 @@ export default function SchoolInfo({ school_id }) {
 	// A. Setup variables
 
 	const { schoolInfoMap } = useMap();
-	const [mapStyle, setMapStyle] = useState('map');
 	const [schoolStopsAsGeojson, setSchoolStopsAsGeojson] = useState(null);
 
 	//
@@ -107,26 +105,12 @@ export default function SchoolInfo({ school_id }) {
 				</div>
 
 				<div style={{ height: 400 }}>
-					<OSMMap
+					<MapView
 
-						fullscreen={true}
 						id="schoolInfoMap"
-						mapStyle={mapStyle}
 						navigation={true}
 						scrollZoom={false}
-						toolbar={(
-							<>
-								<SegmentedControl
-									onChange={setMapStyle}
-									size="xs"
-									value={mapStyle}
-									data={[
-										{ label: 'Map', value: 'map' },
-										{ label: 'Satellite', value: 'satellite' },
-									]}
-								/>
-							</>
-						)}
+						toolbar
 					>
 						<Source data={allStopsDataAsGeojson} id="allStops" type="geojson">
 							<Layer id="allStops" paint={{ 'circle-color': '#ffdd01', 'circle-radius': 4, 'circle-stroke-color': '#000000', 'circle-stroke-width': 1 }} source="allStops" type="circle" />
@@ -136,9 +120,9 @@ export default function SchoolInfo({ school_id }) {
 							<Layer id="school-stops-labels" layout={{ 'text-anchor': 'center', 'text-field': ['get', 'index'], 'text-offset': [0, 0], 'text-size': 12 }} paint={{ 'text-color': '#ffffff' }} source="schoolStops" type="symbol" />
 						</Source>
 						<Marker latitude={schoolData.lat} longitude={schoolData.lon}>
-							<Image alt={schoolData.name} height={50} src="/images/escola.png" width={50} priority />
+							<Image alt={schoolData.name} src="/images/escola.png" width={50} priority />
 						</Marker>
-					</OSMMap>
+					</MapView>
 				</div> <br />
 
 				<div className={styles.gridWrapper}>

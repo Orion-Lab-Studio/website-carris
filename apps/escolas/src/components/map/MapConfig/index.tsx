@@ -7,12 +7,12 @@
 
 // Locations
 const defaultLat = 38.7;
-const defaultLon = -9.0;
+const defaultLon = -9.1;
 
 // Bearing, Pitch and Zoom
 const defaultBearing = 0;
 const defaultPicth = 0;
-const defaultZoom = 9.5;
+const defaultZoom = 9;
 
 // Min and Max Zoom
 const minZoom = 5;
