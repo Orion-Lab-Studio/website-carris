@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 import styles from './HomeUpdate.module.css';
 
-import SelectMunicipalityAndSchool from '../SelectMunicipalityAndSchool/SelectMunicipalityAndSchool';
+import SelectMunicipalityAndSchool from '../SchoolSelection/SelectMunicipalityAndSchool/SelectMunicipalityAndSchool';
 
 export default function HomeUpdate() {
 	const router = useRouter();

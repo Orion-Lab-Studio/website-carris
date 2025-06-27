@@ -1,7 +1,7 @@
 'use client';
 
 import Layout from '@/components/Layout/Layout';
-import SelectMunicipalityAndSchool from '@/components/SelectMunicipalityAndSchool/SelectMunicipalityAndSchool';
+import SelectMunicipalityAndSchool from '@/components/SchoolSelection/SelectMunicipalityAndSchool/SelectMunicipalityAndSchool';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 

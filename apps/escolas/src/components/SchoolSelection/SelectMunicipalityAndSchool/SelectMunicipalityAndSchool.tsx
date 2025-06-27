@@ -1,8 +1,8 @@
 'use client';
 
 import MapViewSchools from '@/components/map/MapViewSchools';
-import SelectMunicipality from '@/components/SelectMunicipality/SelectMunicipality';
-import SelectSchool from '@/components/SelectSchool/SelectSchool';
+import SelectMunicipality from '@/components/SchoolSelection/SelectMunicipality/SelectMunicipality';
+import SelectSchool from '@/components/SchoolSelection/SelectSchool/SelectSchool';
 import { useMemo } from 'react';
 import useSWR from 'swr';
 
