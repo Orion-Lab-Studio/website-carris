@@ -27,12 +27,7 @@ export function ContactData({ form }) {
 
 					{...form.getInputProps('phone')}
 				/>
-				<TextInput
-					label="Nome do responsável pela submissão do formulário"
-					placeholder="João Silva"
-					size="md"
-					{...form.getInputProps('fillerIdentifier')}
-				/>
+
 				<TextInput
 					label="Cargo do responsável pela submissão do formulário"
 					placeholder="Diretor da Escola"
