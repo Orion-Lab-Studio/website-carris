@@ -4,7 +4,7 @@
 
 import { FormType } from '@/components/SchoolInfoUpdate/types';
 import { Button, Paper, PasswordInput, Text, Title } from '@mantine/core';
-import { useForm, UseFormReturnType } from '@mantine/form';
+import { UseFormReturnType } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
 import { Dispatch, SetStateAction } from 'react';
 
