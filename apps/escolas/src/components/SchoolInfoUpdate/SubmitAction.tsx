@@ -13,16 +13,16 @@ const client = new google.auth.JWT({
 });
 const sheets = google.sheets({ auth: client, version: 'v4' });
 
-const port = parseInt(env.EMAIL_SERVER_PORT);
-const transporter = nodemailer.createTransport({
-	auth: {
-		pass: env.EMAIL_SERVER_PASSWORD,
-		user: env.EMAIL_SERVER_USER,
-	},
-	host: env.EMAIL_SERVER_HOST,
-	port: port,
-	secure: port === 465,
-});
+// const port = parseInt(env.EMAIL_SERVER_PORT);
+// const transporter = nodemailer.createTransport({
+// 	auth: {
+// 		pass: env.EMAIL_SERVER_PASSWORD,
+// 		user: env.EMAIL_SERVER_USER,
+// 	},
+// 	host: env.GOOGLE_SERVICE_EMAIL,
+// 	port: port,
+// 	secure: port === 465,
+// });
 
 export async function submit(data: FormType): Promise<{ message: string, success: boolean }> {
 	'use server';
@@ -43,6 +43,8 @@ export async function submit(data: FormType): Promise<{ message: string, success
 	const newCalendar = { ...data.calendar, vacations: data.calendar.vacations.filter((d: unknown) => d !== null && d[0] != null && d[1] != null) };
 	// make sure we don't pass null items, if some smartypants makes requests manually
 	try {
+		const parsedEducationCycles = extractedCycles.map(c => c[1]);
+
 		const toSubmit = [
 			data.id,
 			data.correctLocation,
@@ -62,7 +64,7 @@ export async function submit(data: FormType): Promise<{ message: string, success
 			data.calendar.dates[2] ? fmtDate(data.calendar.dates[2][0]) : '',
 			data.calendar.dates[2] ? fmtDate(data.calendar.dates[2][1]) : '',
 			JSON.stringify(newCalendar.vacations),
-			...extractedCycles.map(c => c[1]),
+			...parsedEducationCycles,
 		].map(v => v == null ? '' : v);
 
 		const response = await sheets.spreadsheets.values.get({
@@ -89,48 +91,48 @@ export async function submit(data: FormType): Promise<{ message: string, success
 	const schoolCyclesHeader = ['Pré-escolar', '1º Ciclo', '2º Ciclo', '3º Ciclo', 'Secundário', 'Ensino Profissional', 'Ensino Especial', 'Ensino Artístico', 'Ensino Superior', 'Outro'];
 	const to = emails[0];
 	try {
-		// eslint-disable-next-line @typescript-eslint/no-unused-vars
-		const mail = await transporter.sendMail({
-			from: env.EMAIL_FROM,
-			html: body({
-				body: `
-			<p>Agradecemos a sua colaboração!</p>
-			<p>O resumo da informação submetida no formulário encontra-se abaixo.</p>
-			<p>Iremos analisar as informações enviadas para garantir que o regresso às aulas corre sobre rodas.</p>
-			<p>A CMetropolitana continuará a trabalhar em conjunto com o Departamento da Mobilidade do município em prol de uma rede eficiente, próxima das escolas e dos passageiros.</p>
-			<br><br>
-			<b>Localização:</b>
-			<div style="padding-left:10px;padding-bottom:5px">
-				Localização correta: ${data.correctLocation}<br>
-				Código postal: ${data.postal_code}<br>
-			</div>
-			<b>Dados de contacto:</b>
-			<div style="padding-left:10px;padding-bottom:5px">
-				E-mail: ${data.email}<br>
-				Telefone: ${data.phone}<br>
-				Website: ${data.url}<br>
-			</div>
-			<b>Calendário escolar:</b>
-			<div style="padding-left:10px;padding-bottom:5px">
-				Tipo de calendário: ${data.calendar.cycleFrequency === 'semester' ? 'Semestre' : 'Trimestre'}<br>
-				${data.calendar.dates.map((d, i) => `${data.calendar.cycleFrequency === 'semester' ? 'Semestre' : 'Trimestre'} ${i + 1}: ${fmtDate(d[0])} a ${fmtDate(d[1])}`).join('<br>')}<br>
-				Férias: ${newCalendar.vacations.length > 0 ? newCalendar.vacations.map(d => `${fmtDate(d[0])} a ${fmtDate(d[1])}`).join('<br>') : 'Nenhuma preenchida'}<br>
-			</div>
-			<b>Modalidades de ensino:</b>
-			<div style="padding-left:10px;padding-bottom:5px">
-			${schoolCicles.map((c, i) => data[c].hasCicle ? `${schoolCyclesHeader[i]}:
-				<div style="padding-left:10px">Manhã: ${data[c].morningEntry} até ${data[c].morningExit}</div>
-				<div style="padding-left:10px">Tarde: ${data[c].afternoonEntry} até ${data[c].afternoonExit}</div>` : null).filter(v => v !== null).join('<br>')}<br>
-			</div>
-			<b>Comentário:</b>
-			<div style="padding-left:10px;padding-bottom:5px">
-				${data.comment}
-			</div>
-		`,
-			}),
-			subject: 'Confirmação de submissão de calendário escolar',
-			to: to,
-		});
+
+		// const mail = await transporter.sendMail({
+		// 	from: env.EMAIL_FROM,
+		// 	html: body({
+		// 		body: `
+		// 	<p>Agradecemos a sua colaboração!</p>
+		// 	<p>O resumo da informação submetida no formulário encontra-se abaixo.</p>
+		// 	<p>Iremos analisar as informações enviadas para garantir que o regresso às aulas corre sobre rodas.</p>
+		// 	<p>A CMetropolitana continuará a trabalhar em conjunto com o Departamento da Mobilidade do município em prol de uma rede eficiente, próxima das escolas e dos passageiros.</p>
+		// 	<br><br>
+		// 	<b>Localização:</b>
+		// 	<div style="padding-left:10px;padding-bottom:5px">
+		// 		Localização correta: ${data.correctLocation}<br>
+		// 		Código postal: ${data.postal_code}<br>
+		// 	</div>
+		// 	<b>Dados de contacto:</b>
+		// 	<div style="padding-left:10px;padding-bottom:5px">
+		// 		E-mail: ${data.email}<br>
+		// 		Telefone: ${data.phone}<br>
+		// 		Website: ${data.url}<br>
+		// 	</div>
+		// 	<b>Calendário escolar:</b>
+		// 	<div style="padding-left:10px;padding-bottom:5px">
+		// 		Tipo de calendário: ${data.calendar.cycleFrequency === 'semester' ? 'Semestre' : 'Trimestre'}<br>
+		// 		${data.calendar.dates.map((d, i) => `${data.calendar.cycleFrequency === 'semester' ? 'Semestre' : 'Trimestre'} ${i + 1}: ${fmtDate(d[0])} a ${fmtDate(d[1])}`).join('<br>')}<br>
+		// 		Férias: ${newCalendar.vacations.length > 0 ? newCalendar.vacations.map(d => `${fmtDate(d[0])} a ${fmtDate(d[1])}`).join('<br>') : 'Nenhuma preenchida'}<br>
+		// 	</div>
+		// 	<b>Modalidades de ensino:</b>
+		// 	<div style="padding-left:10px;padding-bottom:5px">
+		// 	${schoolCicles.map((c, i) => data[c].hasCicle ? `${schoolCyclesHeader[i]}:
+		// 		<div style="padding-left:10px">Manhã: ${data[c].morningEntry} até ${data[c].morningExit}</div>
+		// 		<div style="padding-left:10px">Tarde: ${data[c].afternoonEntry} até ${data[c].afternoonExit}</div>` : null).filter(v => v !== null).join('<br>')}<br>
+		// 	</div>
+		// 	<b>Comentário:</b>
+		// 	<div style="padding-left:10px;padding-bottom:5px">
+		// 		${data.comment}
+		// 	</div>
+		// `,
+		// 	}),
+		// 	subject: 'Confirmação de submissão de calendário escolar',
+		// 	to: to,
+		// });
 	}
 	catch (e: unknown) {
 		if (typeof e == 'object') {
