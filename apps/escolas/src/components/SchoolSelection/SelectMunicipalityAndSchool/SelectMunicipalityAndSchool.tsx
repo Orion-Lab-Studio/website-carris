@@ -77,7 +77,6 @@ export default function SelectMunicipalityAndSchool({ onSelectEducationLevel, on
 		}
 		// Set filter results
 		return filterResult;
-
 		//
 	}, [allSchoolsSimplified, selectedMunicipalityId, selectedEducationLevel]);
 
@@ -92,7 +91,12 @@ export default function SelectMunicipalityAndSchool({ onSelectEducationLevel, on
 				<SelectEducationLevel onSelectEducationLevel={onSelectEducationLevel} selectedEducationLevel={selectedEducationLevel} />
 			</div>
 			<SelectSchool allSchoolsData={allSchoolsFiltered} onSelectSchool={onSelectSchool} />
-			{ allSchoolsSimplified && <MapViewSchools allSchoolsData={allSchoolsFiltered.length === 0 ? allSchoolsFiltered : allSchoolsSimplified} onSelectSchool={onSelectSchool} />}
+			{allSchoolsSimplified && (
+				<MapViewSchools
+					allSchoolsData={allSchoolsFiltered}
+					onSelectSchool={onSelectSchool}
+				/>
+			)}
 		</div>
 	);
 }

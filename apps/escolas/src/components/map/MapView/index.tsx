@@ -26,6 +26,7 @@ interface Props {
 	children: React.ReactNode
 	fullscreen?: boolean
 	geolocate?: boolean
+	glyphs?: string
 	id?: string
 	interactiveLayerIds?: string[]
 	mapObject?: MapRef
@@ -78,7 +79,6 @@ export function MapView({
 	// B. Transform data
 
 	useEffect(() => {
-		console.log('MapView: useEffect', { allMaps, id });
 		if (!id || !allMaps || !allMaps[id]) return;
 		const mapObject = allMaps[id];
 		mapOptionsContext.actions.setMap(mapObject);
