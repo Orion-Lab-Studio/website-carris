@@ -1,6 +1,6 @@
 'use client';
 
-import { MapStyle } from '@/components/MapView';
+import { MapStyle } from '@/components/map/MapView';
 import { MapRef } from '@vis.gl/react-maplibre';
 /* * */
 
