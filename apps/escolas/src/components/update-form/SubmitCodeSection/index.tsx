@@ -2,14 +2,22 @@
 
 /* * */
 
+import { FormType } from '@/components/SchoolInfoUpdate/types';
 import { Button, Paper, PasswordInput, Text, Title } from '@mantine/core';
+import { UseFormReturnType } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
+import { Dispatch, SetStateAction } from 'react';
 
 import { isPasswordCorrect } from '../../SchoolInfoUpdate/SubmitAction';
 
 /* * */
 
-export function SubmitCodeSection({ form, setFormOpen }) {
+interface SubmitCodeSectionProps {
+	form: UseFormReturnType<FormType>
+	setFormOpen: Dispatch<SetStateAction<boolean>>
+}
+
+export function SubmitCodeSection({ form, setFormOpen }: SubmitCodeSectionProps) {
 	//
 
 	//
