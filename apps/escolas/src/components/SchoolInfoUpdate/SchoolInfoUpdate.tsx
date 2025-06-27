@@ -4,19 +4,17 @@ import Titles from '@/components/Titles/Titles';
 
 import InfoUpdateMap from '../SchoolInfoUpdateMap/SchoolInfoUpdateMap';
 // import { submit } from './SubmitAction';
-import { Button, Loader, Modal, Paper } from '@mantine/core';
+import { Button, Loader, Paper } from '@mantine/core';
 import { FormValidateInput, useForm } from '@mantine/form';
 import { notifications } from '@mantine/notifications';
 import { IconX } from '@tabler/icons-react';
-import { useRouter } from 'next/navigation';
 import { useState } from 'react';
-
-import styles from './SchoolInfoUpdate.module.css';
 
 import { AdditionalInformation } from '../update-form/AdditionalInformationSection';
 import { ContactData } from '../update-form/ContactDataSection';
 import { Location } from '../update-form/LocationSection';
 import { Modalities } from '../update-form/ModalitiesSection';
+import { ModalSection } from '../update-form/ModalSection';
 import { ResponsibleContact } from '../update-form/ResponsibleContactSection';
 import { InfoUpdateCalendar } from '../update-form/SchoolCalendarSection';
 import { SubmitCodeSection } from '../update-form/SubmitCodeSection';
@@ -31,19 +29,15 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 	const [submitState, setSubmitState] = useState<'done' | 'error' | 'no' | 'processing'>('no');
 	const [formOpen, setFormOpen] = useState(false); // Don't forget to turn this to false so the submit code work properly
 	const [successMessage, setSuccessMessage] = useState<null | string>(null);
-	const router = useRouter();
 
 	//
-	// B. Fetch data
-
-	//
-	// C. Transform data
+	// B. Transform data
 	const defaultCicle = {} as SchoolCicleObjects;
 	schoolCicles.forEach((cicle) => {
 		defaultCicle[cicle] = { afternoonEntry: '', afternoonExit: '', hasCicle: schoolData.cicles.includes(cicle), morningEntry: '', morningExit: '' };
 	});
 
-	// C.1) Form validation for school cicles
+	// Form validation for school cicles
 	const verifiers = {} as Record<SchoolCicle, {
 		afternoonEntry: (_value: string, _values: FormType) => null | string
 		afternoonExit: (_value: string, _values: FormType) => null | string
@@ -63,7 +57,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 		};
 	});
 
-	// C.2) Rest of form validation
+	// Rest of form validation
 	const validate: FormValidateInput<FormType> = {
 		calendar: {
 			cycleFrequency: value => value === 'semester' || value === 'trimester' ? null : 'Indique se o ensino é semestral ou trimestral',
@@ -134,12 +128,14 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 		validate: validate,
 	});
 
-	const onSubmit = async (values: FormType) => {
+	//
+	// C. Handle Actions
+	const onSubmit = async () => {
 		if (submitState === 'processing') {
 			return;
 		}
 		setSubmitState('processing');
-		const res = await submit(values);
+		const res = await submit(form.getValues());
 		const title = res.success ? 'Submissão efetuada' : 'Erro';
 		const body = res.message;
 		if (res.success) {
@@ -204,33 +200,7 @@ export default function SchoolInfoUpdate({ school_id, schoolData }: { school_id:
 					</form>
 				</>
 			)}
-			<Modal
-				opened={successMessage != null}
-				withCloseButton={false}
-				onClose={() => {
-					setSuccessMessage(null);
-				}}
-				centered
-			>
-				<div className={styles.modal}>
-					<h1>Obrigado pela sua submissão.</h1>
-					<p>{successMessage}</p>
-					<Button onClick={() => {
-						router.push('/portal-escolas');
-					}}
-					>
-						Fechar
-					</Button>
-					<Button
-						variant="subtle"
-						onClick={() => {
-							setSuccessMessage(null);
-						}}
-					>
-						Voltar ao formulário
-					</Button>
-				</div>
-			</Modal>
+			<ModalSection setSuccessMessage={setSuccessMessage} successMessage={successMessage} />
 			<BackHome />
 		</div>
 	);
