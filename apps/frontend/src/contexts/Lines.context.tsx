@@ -70,7 +70,7 @@ export const LinesContextProvider = ({ children }) => {
 	};
 
 	const getServiceMetricsByLineId = (lineId: string) => {
-		return serviceMetricsData?.data.filter(serviceMetrics => serviceMetrics.line_id === lineId);
+		return serviceMetricsData?.data.filter(serviceMetrics => String(serviceMetrics.line_id) === String(lineId));
 	};
 
 	//
