@@ -1,9 +1,7 @@
 'use server';
 import { google } from 'googleapis';
-import nodemailer from 'nodemailer';
 import { env } from 'process';
 
-import { body } from './template';
 import { FormType, schoolCicles } from './types';
 
 const client = new google.auth.JWT({
