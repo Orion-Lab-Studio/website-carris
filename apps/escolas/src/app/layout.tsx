@@ -12,6 +12,7 @@ import { Providers } from './providers';
 /* * */
 
 import '@mantine/core/styles.css';
+import '@mantine/dates/styles.css';
 import '@mantine/notifications/styles.css';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import '@/styles/reset.css';

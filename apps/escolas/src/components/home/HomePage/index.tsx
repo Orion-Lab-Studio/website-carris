@@ -2,7 +2,7 @@
 
 /* * */
 
-import { SelectMunicipalityAndSchool } from '@/components/SchoolSelection/SelectMunicipalityAndSchool/SelectMunicipalityAndSchool';
+import { SchoolFinder } from '@/components/common/SchoolFinder';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -31,7 +31,7 @@ export function HomePage() {
 	// C. Render components
 
 	return (
-		<SelectMunicipalityAndSchool
+		<SchoolFinder
 			onSelectEducationLevel={setSelectedEducationLevel}
 			onSelectMunicipalityId={setSelectedMunicipalityId}
 			onSelectSchool={handleSelectSchool}

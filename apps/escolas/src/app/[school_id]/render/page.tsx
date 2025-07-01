@@ -1,20 +1,21 @@
-'use client';
+/* * */
 
-import SchoolPDF from '@/components/SchoolPDF/SchoolPDF';
-import { useParams } from 'next/navigation';
+import { RenderSchoolPdf } from '@/components/home/RenderSchoolPdf';
 
-export default function Page() {
+/* * */
+
+export default async function Page({ params }) {
 	//
 
 	//
 	// A. Setup variables
 
-	const { school_id } = useParams();
+	const { school_id } = await params;
 
 	//
 	// B. Render components
 
-	return <SchoolPDF school_id={school_id} />;
+	return <RenderSchoolPdf schoolId={school_id} />;
 
 	//
 }

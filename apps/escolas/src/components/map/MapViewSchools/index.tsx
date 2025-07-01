@@ -1,26 +1,27 @@
 'use client';
 
+/* * */
+
+import { MapView } from '@/components/map/MapView';
 import * as turf from '@turf/turf';
 import { useEffect, useMemo } from 'react';
 import { Layer, Source, useMap } from 'react-map-gl/maplibre';
 import useSWR from 'swr';
 
-import { MapView } from '../MapView';
+/* * */
 
-export default function MapViewSchools({ allSchoolsData, onSelectSchool }) {
+export function MapViewSchools({ allSchoolsData, onSelectSchool }) {
 	//
 
 	//
 	// A. Setup variables
+
 	const { selectSchoolMap } = useMap();
 
 	//
-
-	//
 	// B. Fetch data
-	const { data: allStopsData } = useSWR('https://api.carrismetropolitana.pt/stops');
 
-	//
+	const { data: allStopsData } = useSWR('https://api.carrismetropolitana.pt/stops');
 
 	//
 	// C. Transform data
@@ -72,8 +73,6 @@ export default function MapViewSchools({ allSchoolsData, onSelectSchool }) {
 	}, [selectSchoolMap, allSchoolsDataAsGeojson]);
 
 	//
-
-	//
 	// D. Handle actions
 
 	function handleMapClick(event: { features?: { properties?: { id?: number } }[] }) {
@@ -85,8 +84,6 @@ export default function MapViewSchools({ allSchoolsData, onSelectSchool }) {
 		onSelectSchool(id);
 		console.log('finally work');
 	}
-
-	//
 
 	//
 	// E. Render components

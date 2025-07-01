@@ -1,0 +1,42 @@
+'use client';
+
+/* * */
+
+import { Paper, Stack, Text, TextInput, Title } from '@mantine/core';
+
+/* * */
+
+export function CommsResponsibleContactSection({ form }) {
+	return (
+		<Paper p={16} radius="md" shadow="sm">
+			<Title fw={700} order={3} style={{ marginLeft: '4px' }}>Dados de contacto do responsável </Title>
+			<Text c="dimmed" size="sm" style={{ marginBottom: '10px', marginLeft: '4px' }}>A pessoa responsável no departamento de comunicação pelo preenchimento do formulário</Text>
+			<Stack gap={15}>
+
+				<TextInput
+					label="Nome do responsável pela submissão do formulário"
+					placeholder="Ana Silva"
+					size="md"
+					{...form.getInputProps('fillerIdentifier')}
+				/>
+
+				<TextInput
+					description="Email(s) separados por vírgulas"
+					label="Email"
+					placeholder="email@exemplo.pt"
+					size="md"
+					{...form.getInputProps('email')}
+				/>
+
+				<TextInput
+					label="Telefone"
+					placeholder="910001337"
+					size="md"
+
+					{...form.getInputProps('phone')}
+				/>
+
+			</Stack>
+		</Paper>
+	);
+}

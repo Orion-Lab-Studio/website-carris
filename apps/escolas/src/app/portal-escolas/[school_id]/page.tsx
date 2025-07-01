@@ -1,5 +1,8 @@
-import Layout from '@/components/common/WebsiteWrapper';
-import SchoolInfoUpdate from '@/components/SchoolInfoUpdate/SchoolInfoUpdate';
+/* * */
+
+import { UpdatePortalSchoolDetail } from '@/components/update-portal/UpdatePortalSchoolDetail';
+
+/* * */
 
 export default async function Page({ params }) {
 	//
@@ -10,18 +13,9 @@ export default async function Page({ params }) {
 	const { school_id } = await params;
 
 	//
-	// B. Fetch data
+	// B. Render components
 
-	const schoolData = await fetch(`https://api.carrismetropolitana.pt/datasets/facilities/schools/${school_id}`).then(response => response.json());
-
-	//
-	// C. Render components
-
-	return (
-		<Layout>
-			<SchoolInfoUpdate school_id={school_id} schoolData={schoolData} />
-		</Layout>
-	);
+	return <UpdatePortalSchoolDetail schoolId={school_id} />;
 
 	//
 }

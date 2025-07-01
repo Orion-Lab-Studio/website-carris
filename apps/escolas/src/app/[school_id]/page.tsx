@@ -1,6 +1,6 @@
 /* * */
 
-import SchoolInfo from '@/components/SchoolInfo/SchoolInfo';
+import { SchoolDetail } from '@/components/home/SchoolDetail';
 
 /* * */
 
@@ -15,7 +15,7 @@ export default async function Page({ params }) {
 	//
 	// B. Render components
 
-	return <SchoolInfo school_id={school_id} />;
+	return <SchoolDetail schoolId={school_id} />;
 
 	//
 }
