@@ -10,11 +10,11 @@
 		"start": "next start"
 	},
 	"dependencies": {
-		"@mantine/core": "8.1.1",
-		"@mantine/dates": "8.1.1",
-		"@mantine/form": "8.1.1",
-		"@mantine/hooks": "8.1.1",
-		"@mantine/notifications": "8.1.1",
+		"@mantine/core": "8.1.2",
+		"@mantine/dates": "8.1.2",
+		"@mantine/form": "8.1.2",
+		"@mantine/hooks": "8.1.2",
+		"@mantine/notifications": "8.1.2",
 		"@tabler/icons-react": "3.34.0",
 		"@turf/turf": "7.2.0",
 		"@types/nodemailer": "6.4.17",
@@ -22,7 +22,7 @@
 		"inflected": "2.1.0",
 		"maplibre-gl": "5.6.0",
 		"next": "15.3.4",
-		"nodemailer": "7.0.3",
+		"nodemailer": "7.0.4",
 		"react": "19.1.0",
 		"react-dom": "19.1.0",
 		"react-map-gl": "8.0.4",
@@ -30,13 +30,13 @@
 		"swr": "2.3.3"
 	},
 	"devDependencies": {
-		"@carrismetropolitana/api-types": "20250603.1732.43",
+		"@carrismetropolitana/api-types": "20250628.1141.3",
 		"@carrismetropolitana/eslint": "20250622.1204.50",
-		"@tmlmobilidade/tsconfig": "20250624.1433.23",
-		"@types/node": "24.0.4",
+		"@tmlmobilidade/tsconfig": "20250701.1512.40",
+		"@types/node": "24.0.8",
 		"@types/react": "19.1.8",
 		"postcss": "8.5.6",
-		"postcss-preset-mantine": "1.17.0",
+		"postcss-preset-mantine": "1.18.0",
 		"postcss-simple-vars": "7.0.1"
 	}
 }
