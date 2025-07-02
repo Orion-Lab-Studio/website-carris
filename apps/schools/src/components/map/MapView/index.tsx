@@ -13,8 +13,8 @@ import styles from './styles.module.css';
 
 /* * */
 
-import NeedlePinImage from '@/images/needle-pin.png';
-import SchoolMarkerImage from '@/images/school-marker.png';
+import NeedlePinImage from '@/assets/map/needle-pin.png';
+import SchoolMarkerImage from '@/assets/map/school-marker.png';
 
 /* * */
 

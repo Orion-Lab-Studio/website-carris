@@ -6,8 +6,8 @@ import styles from './styles.module.css';
 
 /* * */
 
-import CarrisMetropolitanaLogo from '@/images/carris-metropolitana-logo.svg';
-import CMSchoolsLogo from '@/images/cm-schools-logo.svg';
+import CarrisMetropolitanaLogo from '@/assets/header/carris-metropolitana-logo.svg';
+import CMSchoolsLogo from '@/assets/header/cm-schools-logo.svg';
 
 /* * */
 
