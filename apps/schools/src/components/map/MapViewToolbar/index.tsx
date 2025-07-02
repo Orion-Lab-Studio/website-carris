@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 'use client';
 
 /* * */
@@ -7,7 +6,6 @@ import TextPopover from '@/components/common/TextPopover';
 import { useMapOptionsContext } from '@/contexts/MapOptions.context';
 import { SegmentedControl, SegmentedControlItem } from '@mantine/core';
 import { IconArrowsMinimize, IconMapShare } from '@tabler/icons-react';
-import classNames from 'classnames';
 
 import styles from './styles.module.css';
 
@@ -38,10 +36,7 @@ export function MapViewToolbar({ className, onCenterMap }: Props) {
 
 	const handleOpenInGoogle = () => {
 		const map = mapOptionsContext.data.map;
-		const clickedFrom: string = window.location.pathname;
-		let clickSource: string;
 		if (!map) return;
-
 		const center = map.getCenter();
 		window.open(`https://www.google.com/maps?q=${center.lat},${center.lng}&z=${map.getZoom() + 2}`, '_blank');
 	};
@@ -50,7 +45,7 @@ export function MapViewToolbar({ className, onCenterMap }: Props) {
 	// C. Render components
 
 	return (
-		<div className={classNames(styles.container, className)}>
+		<div className={`${styles.container} ${className ?? ''}`}>
 			<SegmentedControl classNames={{ label: styles.segmentedControlLabel }} data={mapStyles} onChange={mapOptionsContext.actions.setStyle} value={mapOptionsContext.data.style} />
 			{onCenterMap && (
 				<button className={styles.button} onClick={onCenterMap}>

@@ -9,7 +9,6 @@ import { useMapOptionsContext } from '@/contexts/MapOptions.context';
 import Map, { FullscreenControl, GeolocateControl, MapRef, NavigationControl, ScaleControl, useMap } from '@vis.gl/react-maplibre';
 import { useCallback, useEffect, useState } from 'react';
 
-import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './styles.module.css';
 
 /* * */
