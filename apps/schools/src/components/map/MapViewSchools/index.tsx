@@ -27,7 +27,6 @@ export function MapViewSchools({ allSchoolsData, onSelectSchool }) {
 	// C. Transform data
 
 	const allStopsDataAsGeojson = useMemo(() => {
-		console.log('allStopsDataAsGeojson');
 		const geoJSON: GeoJSON.FeatureCollection = {
 			features: [],
 			type: 'FeatureCollection',
