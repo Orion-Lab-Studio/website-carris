@@ -9,14 +9,18 @@ import { useMapOptionsContext } from '@/contexts/MapOptions.context';
 import Map, { FullscreenControl, GeolocateControl, MapRef, NavigationControl, ScaleControl, useMap } from '@vis.gl/react-maplibre';
 import { useCallback, useEffect, useState } from 'react';
 
-import 'maplibre-gl/dist/maplibre-gl.css';
 import styles from './styles.module.css';
 
 /* * */
 
+import NeedlePinImage from '@/assets/map/needle-pin.png';
+import SchoolMarkerImage from '@/assets/map/school-marker.png';
+
+/* * */
+
 const MAP_LOAD_ASSETS = [
-	{ name: 'school-icon', sdf: false, url: '/images/escola.png' },
-	{ name: 'needle-pin', sdf: false, url: '/images/needle-pin.png' },
+	{ name: 'school-marker', sdf: false, url: SchoolMarkerImage.src },
+	{ name: 'needle-pin', sdf: false, url: NeedlePinImage.src },
 ];
 
 /* * */

@@ -6,7 +6,6 @@ import { SelectLine } from '@/components/common/SelectLine';
 import { SelectStop } from '@/components/common/SelectStop';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useStopsContext } from '@/contexts/Stops.context';
-import { Routes } from '@/utils/routes';
 import { SegmentedControl } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import { useRouter } from 'next/navigation';
@@ -45,12 +44,12 @@ export function QuickSearchWidget() {
 
 	const handleSelectLine = (selectedLineId) => {
 		setSelectedLineId(selectedLineId);
-		router.push(`${Routes.LINES.route}/${selectedLineId}`);
+		router.push(`/lines/${selectedLineId}`);
 	};
 
 	const handleSelectStop = (selectedStopId) => {
 		setSelectedStopId(selectedStopId);
-		router.push(`${Routes.STOPS.route}/${selectedStopId}`);
+		router.push(`/stops/${selectedStopId}`);
 	};
 
 	//

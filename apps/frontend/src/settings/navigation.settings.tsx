@@ -1,7 +1,6 @@
 /* * */
 
 import { type NavigationGroup } from '@/types/navigation.types';
-import { RoutesPricing, RoutesSchedule, RoutesSupport } from '@/utils/routes';
 import { IconAlertTriangle, IconArrowLoopRight, IconBellSchool, IconBuildingStore, IconBus, IconBusStop, IconChartBar, IconCreditCardPay, IconDirections, IconHelpHexagon, IconHomeSpark, IconMapQuestion, IconMessages, IconNews, IconPrompt, IconTicket, IconUmbrella, IconUserHeart } from '@tabler/icons-react';
 
 /* * */
@@ -11,30 +10,30 @@ export const mainNavigationGroup: NavigationGroup[] = [
 	{
 		_id: 'schedules',
 		links: [
-			{ _id: 'lines', href: RoutesSchedule.LINES.route, icon: <IconArrowLoopRight /> },
-			{ _id: 'stops', href: RoutesSchedule.STOPS.route, icon: <IconBusStop /> },
-			{ _id: 'planner', href: RoutesSchedule.PLANNER.route, icon: <IconDirections /> },
-			{ _id: 'alerts', href: RoutesSchedule.ALERTS.route, icon: <IconAlertTriangle /> },
-			{ _id: 'schools', href: RoutesSchedule.SCHOOLS, icon: <IconBellSchool />, target: '_blank' },
+			{ _id: 'lines', href: '/lines', icon: <IconArrowLoopRight /> },
+			{ _id: 'stops', href: '/stops', icon: <IconBusStop /> },
+			{ _id: 'planner', href: '/planner', icon: <IconDirections /> },
+			{ _id: 'alerts', href: '/alerts', icon: <IconAlertTriangle /> },
+			{ _id: 'schools', href: '/schools', icon: <IconBellSchool />, target: '_blank' },
 		],
 	},
 
 	{
 		_id: 'tarifs',
 		links: [
-			{ _id: 'tickets', href: RoutesPricing.TICKETS.route, icon: <IconTicket /> },
-			{ _id: 'cards', href: RoutesPricing.CARDS.route, icon: <IconCreditCardPay /> },
-			{ _id: 'helpdesks', href: RoutesPricing.HELPDESKS.route, icon: <IconMapQuestion /> },
+			{ _id: 'tickets', href: '/tickets', icon: <IconTicket /> },
+			{ _id: 'cards', href: '/cards', icon: <IconCreditCardPay /> },
+			{ _id: 'helpdesks', href: '/helpdesks', icon: <IconMapQuestion /> },
 		],
 	},
 
 	{
 		_id: 'support',
 		links: [
-			{ _id: 'faq', href: RoutesSupport.FAQ.route, icon: <IconHelpHexagon /> },
-			{ _id: 'lost-and-found', href: RoutesSupport.LOST_AND_FOUND.route, icon: <IconUmbrella /> },
-			{ _id: 'stores', href: RoutesSupport.STORES.route, icon: <IconBuildingStore /> },
-			{ _id: 'contacts', href: RoutesSupport.CONTACTS.route, icon: <IconMessages /> },
+			{ _id: 'faq', href: '/faq', icon: <IconHelpHexagon /> },
+			{ _id: 'lost-and-found', href: '/lost-and-found', icon: <IconUmbrella /> },
+			{ _id: 'stores', href: '/stores', icon: <IconBuildingStore /> },
+			{ _id: 'contacts', href: '/contacts', icon: <IconMessages /> },
 		],
 	},
 

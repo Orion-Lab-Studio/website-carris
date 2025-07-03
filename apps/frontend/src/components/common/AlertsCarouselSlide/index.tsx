@@ -4,7 +4,6 @@ import type { SimplifiedAlert } from '@/types/alerts.types';
 
 import { AlertActivePeriodStart } from '@/components/alerts/AlertActivePeriod';
 import { useAnalyticsContext } from '@/contexts/Analytics.context';
-import { RoutesSchedule } from '@/utils/routes';
 import { IconCircleArrowRightFilled } from '@tabler/icons-react';
 import Link from 'next/link';
 
@@ -35,7 +34,7 @@ export default function Component({ alert }: Props) {
 
 	//
 	return (
-		<Link className={styles.container} href={`${RoutesSchedule.ALERTS.route}/${alert.alert_id}`} onClick={handleAlertClick} target="_blank">
+		<Link className={styles.container} href={`/alerts/${alert.alert_id}`} onClick={handleAlertClick} target="_blank">
 			<AlertActivePeriodStart date={alert.start_date} size="sm" />
 			<p className={styles.title}>
 				{alert.title}

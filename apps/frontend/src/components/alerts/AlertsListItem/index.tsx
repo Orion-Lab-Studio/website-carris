@@ -8,7 +8,6 @@ import AlertsListItemImageThumbnail from '@/components/alerts/AlertsListItemImag
 import Button from '@/components/common/Button';
 import { useAlertsContext } from '@/contexts/Alerts.context';
 import { useAnalyticsContext } from '@/contexts/Analytics.context';
-import { Routes } from '@/utils/routes';
 import { Accordion } from '@mantine/core';
 import { IconArrowUpRight } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
@@ -57,9 +56,9 @@ export default function Component({ alertId }: Props) {
 					<AlertActivePeriodEnd date={simplifiedAlertData?.end_date} size="sm" />
 				</div>
 				<p className={styles.description}>{simplifiedAlertData?.description}</p>
-				{simplifiedAlertData?.image_url && <AlertsListItemImageThumbnail alertId={simplifiedAlertData?.alert_id || ''} alertTitle={simplifiedAlertData?.title || ''} alt={simplifiedAlertData?.title} href={`${Routes.ALERTS.route}/${alertId}`} src={simplifiedAlertData.image_url} />}
+				{simplifiedAlertData?.image_url && <AlertsListItemImageThumbnail alertId={simplifiedAlertData?.alert_id || ''} alertTitle={simplifiedAlertData?.title || ''} alt={simplifiedAlertData?.title} href={`/alerts/${alertId}`} src={simplifiedAlertData.image_url} />}
 				<div onClick={handleAlertDetailClick}>
-					<Button href={`${Routes.ALERTS.route}/${alertId}`} icon={<IconArrowUpRight size={16} />} label={t('open')} variant="pill" />
+					<Button href={`/alerts/${alertId}`} icon={<IconArrowUpRight size={16} />} label={t('open')} variant="pill" />
 				</div>
 			</Accordion.Panel>
 		</Accordion.Item>

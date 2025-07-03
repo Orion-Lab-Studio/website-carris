@@ -31,67 +31,6 @@ export const RoutesSupport = Object.freeze({
 	},
 });
 
-export const RoutesSchedule = Object.freeze({
-	ALERTS: {
-		intl: {
-			pt: '/alertas',
-		},
-		route: '/alerts',
-	},
-	LINES: {
-		intl: {
-			pt: '/linhas',
-		},
-		route: '/lines',
-	},
-	LINES_DETAIL: {
-		intl: {
-			pt: '/linhas/[line_id]',
-		},
-		route: '/lines/[line_id]',
-	},
-	PLANNER: {
-		intl: {
-			pt: '/planeador',
-		},
-		route: '/planner',
-	},
-	SCHOOLS: 'https://escolas.carrismetropolitana.pt',
-	STOPS: {
-		intl: {
-			pt: '/paragens',
-		},
-		route: '/stops',
-	},
-	STOPS_DETAIL: {
-		intl: {
-			pt: '/paragens/[stop_id]',
-		},
-		route: '/stops/[stop_id]',
-	},
-});
-
-export const RoutesPricing = Object.freeze({
-	CARDS: {
-		intl: {
-			pt: '/passe',
-		},
-		route: '/cards',
-	},
-	HELPDESKS: {
-		intl: {
-			pt: '/onde-comprar',
-		},
-		route: '/helpdesks',
-	},
-	TICKETS: {
-		intl: {
-			pt: '/bilhetes',
-		},
-		route: '/tickets',
-	},
-});
-
 export const RoutesLostAndFound = Object.freeze({
 	ALSA: 'mailto:passageiros@alsa.com',
 	RODOVIARIA_LISBOA: 'https://www.rodoviariadelisboa.pt/perdidoAchado',
@@ -126,8 +65,6 @@ export const RoutesAccount = Object.freeze({
 
 export const Routes = Object.freeze({
 	...RoutesSupport,
-	...RoutesSchedule,
-	...RoutesPricing,
 	...RoutesLostAndFound,
 
 	API: process.env.NEXT_PUBLIC_API_URL ?? 'https://api.carrismetropolitana.pt/v2',

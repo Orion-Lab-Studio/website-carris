@@ -6,7 +6,6 @@ import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { LineDisplay } from '@/components/lines/LineDisplay';
 import { useLinesListContext } from '@/contexts/LinesList.context';
-import { RoutesSchedule } from '@/utils/routes';
 import { useTranslations } from 'next-intl';
 import { ViewportList } from 'react-viewport-list';
 
@@ -39,7 +38,7 @@ export function LinesListViewAll() {
 			<Section>
 				<ViewportList itemMargin={0} items={linesListContext.data.filtered}>
 					{item => (
-						<RegularListItem key={item.id} href={`${RoutesSchedule.LINES.route}/${item.id}`}>
+						<RegularListItem key={item.id} href={`/lines/${item.id}`}>
 							<LineDisplay lineData={item} />
 						</RegularListItem>
 					)}

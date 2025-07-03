@@ -118,6 +118,11 @@ const nextConfig: NextConfig = {
 			{ destination: '/viagem-2024', permanent: true, source: '/viagem2024' },
 
 			/* * */
+			/* SCHOOLS */
+
+			{ destination: '/schools/:path*', permanent: false, source: '/escolas/:path*' },
+
+			/* * */
 			/* EXTERNAL */
 
 			{ destination: 'https://open.spotify.com/user/31zy3uavd2sad4ozlwoze2usqmku', permanent: false, source: '/spotify' },

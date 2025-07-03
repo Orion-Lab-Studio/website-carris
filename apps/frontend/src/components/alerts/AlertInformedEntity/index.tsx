@@ -7,7 +7,6 @@ import type { Line, Stop } from '@carrismetropolitana/api-types/network';
 import { LineBadge } from '@/components/lines/LineBadge';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useStopsContext } from '@/contexts/Stops.context';
-import { Routes } from '@/utils/routes';
 import { useRouter } from 'next/navigation';
 import { useMemo } from 'react';
 
@@ -21,7 +20,7 @@ interface Props {
 
 /* * */
 
-export default function Component({ lineId, routeId, stopId }: Props) {
+export function AlertInformedEntity({ lineId, routeId, stopId }: Props) {
 	//
 
 	//
@@ -46,7 +45,7 @@ export default function Component({ lineId, routeId, stopId }: Props) {
 	// C. Handle actions
 
 	const handleLineBadgeClick = () => {
-		router.push(`${Routes.LINES.route}/${lineData?.id}`);
+		router.push(`/lines/${lineData?.id}`);
 	};
 
 	//

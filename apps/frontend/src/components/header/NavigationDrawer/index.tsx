@@ -2,10 +2,10 @@
 
 /* * */
 
-import { LocaleSwitcher } from '@/components/header/LocaleSwitcher';
-import { NavigationDrawerItem } from '@/components/header/NavigationDrawerItem';
 // import AccountUserAvatar from '@/components/account/UserAvatar';
 // import SyncAccount from '@/components/profile/sync';
+import { LocaleSwitcher } from '@/components/header/LocaleSwitcher';
+import { NavigationDrawerItem } from '@/components/header/NavigationDrawerItem';
 import { ThemeSwitch } from '@/components/responsive/ThemeSwitch';
 import { drawerNavigationGroup } from '@/settings/navigation.settings';
 import { CloseButton, Drawer, Image } from '@mantine/core';
@@ -17,7 +17,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export default function Component() {
+export function HeaderNavigationDrawer() {
 	//
 
 	//
