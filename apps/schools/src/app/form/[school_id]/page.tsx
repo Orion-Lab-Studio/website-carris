@@ -1,6 +1,6 @@
 /* * */
 
-import { PortalSchoolDetail } from '@/components/update-portal/PortalSchoolDetail';
+import { FormMain } from '@/components/form/FormMain';
 
 /* * */
 
@@ -15,7 +15,7 @@ export default async function Page({ params }) {
 	//
 	// B. Render components
 
-	return <PortalSchoolDetail schoolId={school_id} />;
+	return <FormMain schoolId={school_id} />;
 
 	//
 }

@@ -2,13 +2,13 @@
 
 /* * */
 
-import { UpdatePortalSetLocationMap } from '@/components/update-portal/UpdatePortalSetLocationMap';
+import { FormSectionLocationMap } from '@/components/form/FormSectionLocationMap';
 import { useUpdateSchoolFormContext } from '@/form/form';
 import { Paper, SegmentedControl, Text, TextInput, Title } from '@mantine/core';
 
 /* * */
 
-export function LocationFormSection({ schoolId }: { schoolId: string }) {
+export function FormSectionLocation({ schoolId }: { schoolId: string }) {
 	//
 
 	//
@@ -46,7 +46,7 @@ export function LocationFormSection({ schoolId }: { schoolId: string }) {
 				</Text>
 			)}
 
-			<UpdatePortalSetLocationMap schoolId={schoolId} />
+			<FormSectionLocationMap schoolId={schoolId} />
 
 			<TextInput
 				{...form.getInputProps('location.postal_code')}

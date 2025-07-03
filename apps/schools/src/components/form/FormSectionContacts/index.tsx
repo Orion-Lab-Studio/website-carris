@@ -7,7 +7,7 @@ import { Paper, Stack, TextInput, Title } from '@mantine/core';
 
 /* * */
 
-export function ContactsFormSection() {
+export function FormSectionContacts() {
 	//
 
 	//

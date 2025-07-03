@@ -11,7 +11,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export function UpdatePortalHomePage() {
+export function FormHomePage() {
 	//
 
 	//

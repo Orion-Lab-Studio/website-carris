@@ -17,7 +17,7 @@ interface Props {
 
 /* * */
 
-export function CycleItem({ fieldKey, label }: Props) {
+export function FormSectionCyclesItem({ fieldKey, label }: Props) {
 	//
 
 	//

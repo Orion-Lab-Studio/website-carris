@@ -1,9 +1,9 @@
 /* * */
 
-import { UpdatePortalHomePage } from '@/components/update-portal/UpdatePortalHomePage';
+import { FormHomePage } from '@/components/form/FormHomePage';
 
 /* * */
 
 export default function Page() {
-	return <UpdatePortalHomePage />;
+	return <FormHomePage />;
 }

@@ -3,9 +3,9 @@
 /* * */
 
 import { GoBackButton } from '@/components/common/GoBackButton';
+import { FormMainFields } from '@/components/form/FormMainFields';
+import { FormMainValidateCode } from '@/components/form/FormMainValidateCode';
 import Titles from '@/components/Titles/Titles';
-import { PortalSchoolDetailForm } from '@/components/update-portal/PortalSchoolDetailForm';
-import { ValidateCodeSection } from '@/components/update-portal/ValidateCodeSection';
 import { getPrefilledForm, UpdateSchoolFormProvider, useUpdateSchoolForm } from '@/form/form';
 import { updateSchoolFormSchema } from '@/form/schema';
 import { notifications } from '@mantine/notifications';
@@ -23,7 +23,7 @@ interface Props {
 
 /* * */
 
-export function PortalSchoolDetail({ schoolId }: Props) {
+export function FormMain({ schoolId }: Props) {
 	//
 
 	//
@@ -93,8 +93,8 @@ export function PortalSchoolDetail({ schoolId }: Props) {
 			<UpdateSchoolFormProvider form={form}>
 				<form onSubmit={form.onSubmit(handleSubmitForm)}>
 					{!isPasswordValid
-						? <ValidateCodeSection onSubmit={setIsPasswordValid} />
-						: <PortalSchoolDetailForm schoolId={schoolId} />}
+						? <FormMainValidateCode onSubmit={setIsPasswordValid} />
+						: <FormMainFields schoolId={schoolId} />}
 				</form>
 			</UpdateSchoolFormProvider>
 

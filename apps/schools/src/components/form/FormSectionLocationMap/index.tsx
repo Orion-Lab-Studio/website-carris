@@ -17,7 +17,7 @@ interface Props {
 
 /* * */
 
-export function UpdatePortalSetLocationMap({ schoolId }: Props) {
+export function FormSectionLocationMap({ schoolId }: Props) {
 	//
 
 	//

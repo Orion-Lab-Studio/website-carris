@@ -13,7 +13,7 @@ import styles from './styles.module.css';
 
 /* * */
 
-export function SchoolCalendarSection() {
+export function FormSectionSchoolCalendar() {
 	//
 
 	//

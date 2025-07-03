@@ -15,7 +15,7 @@ interface Props {
 
 /* * */
 
-export function ValidateCodeSection({ onSubmit }: Props) {
+export function FormMainValidateCode({ onSubmit }: Props) {
 	//
 
 	//

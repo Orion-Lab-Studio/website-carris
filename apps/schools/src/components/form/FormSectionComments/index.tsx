@@ -7,7 +7,7 @@ import { Paper, Textarea, Title } from '@mantine/core';
 
 /* * */
 
-export function CommentsFormSection() {
+export function FormSectionComments() {
 	//
 
 	//
