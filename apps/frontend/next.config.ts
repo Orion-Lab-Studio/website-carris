@@ -121,7 +121,6 @@ const nextConfig: NextConfig = {
 			/* SCHOOLS */
 
 			{ destination: '/schools/:path*', permanent: false, source: '/escolas/:path*' },
-			{ destination: '/schools/form/:path*', permanent: false, source: '/escolas/portal-escolas/:path*' },
 
 			/* * */
 			/* EXTERNAL */
