@@ -9,7 +9,6 @@ import { useProfileContext } from '@/contexts/Profile.context';
 import { useStopsContext } from '@/contexts/Stops.context';
 import { type SimplifiedAlert } from '@/types/alerts.types';
 import { type Arrival } from '@/types/stops.types';
-import { Routes } from '@/utils/routes';
 import { type Line, type Pattern, type Shape, type Stop } from '@carrismetropolitana/api-types/network';
 import { getPublicVariable } from '@carrismetropolitana/website-shared-settings';
 import { DateTime } from 'luxon';
@@ -111,7 +110,7 @@ export const StopsDetailContextProvider = ({ children, stopId }: { children: Rea
 		const foundStopData = stopsContext.actions.getStopById(dataActiveStopIdState);
 		if (foundStopData) {
 			setDataStopState(foundStopData);
-			window.history.replaceState({}, '', `${Routes.STOPS.route}/${dataActiveStopIdState}` + window.location.search);
+			window.history.replaceState({}, '', `/stops/${dataActiveStopIdState}` + window.location.search);
 		}
 		else {
 			notFound();

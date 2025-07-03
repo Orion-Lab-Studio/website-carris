@@ -46,7 +46,7 @@ export default function Component({ lineId, routeId, stopId }: Props) {
 	// C. Handle actions
 
 	const handleLineBadgeClick = () => {
-		router.push(`${Routes.LINES.route}/${lineData?.id}`);
+		router.push(`/lines/${lineData?.id}`);
 	};
 
 	//
