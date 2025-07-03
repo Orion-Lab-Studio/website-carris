@@ -23,8 +23,8 @@ export default function NoServiceMessage({ municipality_id, municipality_name })
 		const localOperatorDetails = otherOperators[municipality_id];
 		//
 		return {
-			subtitle: `Sugerimos que consulte o operador local "${localOperatorDetails.operator_name}" para mais detalhes sobre a oferta de transporte para esta instituição.`,
-			title: `A Carris Metropolitana serve parcialmente o município ${localOperatorDetails.article} ${municipality_name}.`,
+			subtitle: `Sugerimos que consulte o operador local "${localOperatorDetails?.operator_name}" para mais detalhes sobre a oferta de transporte para esta instituição.`,
+			title: `A Carris Metropolitana serve parcialmente o município ${localOperatorDetails?.article} ${municipality_name}.`,
 			...localOperatorDetails,
 		};
 	}, [municipality_id, municipality_name]);

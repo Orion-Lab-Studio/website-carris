@@ -4,18 +4,18 @@
 
 import BlackHeader from '@/components/BlackHeader/BlackHeader';
 import { GoBackButton } from '@/components/common/GoBackButton';
-import DownloadPDF from '@/components/DownloadPDF/DownloadPDF';
+// import DownloadPDF from '@/components/DownloadPDF/DownloadPDF';
+import { NaveganteCardCallout } from '@/components/home/NaveganteCardCallout';
+import { PlannerCallout } from '@/components/home/PlannerCallout';
 import { MapView } from '@/components/map/MapView';
-import NaveganteCard from '@/components/NaveganteCard/NaveganteCard';
+import { MapViewSingleSchool } from '@/components/map/MapViewSingleSchool';
 import NoServiceMessage from '@/components/NoServiceMessage/NoServiceMessage';
-import Planner from '@/components/Planner/Planner';
 import SourceDisclaimer from '@/components/SourceDisclaimer/SourceDisclaimer';
 import StopInfo from '@/components/StopInfo/StopInfo';
 import Titles from '@/components/Titles/Titles';
 import * as turf from '@turf/turf';
-import Image from 'next/image';
 import { useEffect, useMemo, useState } from 'react';
-import { Layer, Marker, Source, useMap } from 'react-map-gl/maplibre';
+import { Layer, Source, useMap } from 'react-map-gl/maplibre';
 import useSWR from 'swr';
 
 import styles from './styles.module.css';
@@ -123,23 +123,25 @@ export function SchoolDetail({ schoolId }: Props) {
 						scale
 						toolbar
 					>
+
+						<MapViewSingleSchool schoolData={schoolData} />
+
 						<Source data={allStopsDataAsGeojson} id="allStops" type="geojson">
 							<Layer id="allStops" paint={{ 'circle-color': '#ffdd01', 'circle-radius': 4, 'circle-stroke-color': '#000000', 'circle-stroke-width': 1 }} source="allStops" type="circle" />
 						</Source>
+
 						<Source data={schoolStopsAsGeojson} id="schoolStops" type="geojson">
 							<Layer id="schoolStops" paint={{ 'circle-color': '#235fe1', 'circle-radius': 10, 'circle-stroke-color': '#000000', 'circle-stroke-width': 2 }} source="schoolStops" type="circle" />
 							<Layer id="school-stops-labels" layout={{ 'text-anchor': 'center', 'text-field': ['get', 'index'], 'text-offset': [0, 0], 'text-size': 12 }} paint={{ 'text-color': '#ffffff' }} source="schoolStops" type="symbol" />
 						</Source>
-						<Marker latitude={schoolData.lat} longitude={schoolData.lon}>
-							<Image alt={schoolData.name} height={50} src="/images/escola.png" width={50} priority />
-						</Marker>
+
 					</MapView>
 				</div> <br />
 
 				<div className={styles.gridWrapper}>
 					<div className={styles.stopsWrapper}>
 						<BlackHeader text={`Paragens que servem a instituição: ${schoolData.name}`} />
-						{schoolData && schoolData.stops.length > 0
+						{schoolData && schoolData.stops?.length > 0
 							? (
 								<div className={styles.stopsList}>
 									{schoolData.stops.map((stopCode, stopIndex) => <StopInfo key={stopCode} index={stopIndex + 1} stop_id={stopCode} />)}
@@ -152,15 +154,16 @@ export function SchoolDetail({ schoolId }: Props) {
 							)}
 					</div>
 					<div className={styles.actionsWrapper}>
-						{schoolData && schoolData.stops.length > 0 && <DownloadPDF school_id={schoolId} />}
-						<Planner />
-						<NaveganteCard />
+						{/* {schoolData && schoolData.stops?.length > 0 && <DownloadPDF school_id={schoolId} />} */}
+						<PlannerCallout />
+						<NaveganteCardCallout />
 					</div>
 				</div>
 
 				<GoBackButton to="/" />
 
 				<SourceDisclaimer />
+
 			</div>
 		)
 
