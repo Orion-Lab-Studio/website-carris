@@ -117,6 +117,8 @@ const nextConfig: NextConfig = {
 
 			{ destination: '/viagem-2024', permanent: true, source: '/viagem2024' },
 
+			{ destination: '/schools', permanent: false, source: '/escolas' },
+
 			/* * */
 			/* EXTERNAL */
 

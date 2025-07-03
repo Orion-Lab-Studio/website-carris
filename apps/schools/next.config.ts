@@ -14,8 +14,7 @@ const nextConfig: NextConfig = {
 
 	async redirects() {
 		return [
-			// { destination: '/schools', permanent: true, source: '/' },
-			// { destination: '/schools', permanent: true, source: '/escolas' },
+			{ destination: '/form/:path*', permanent: false, source: '/portal-escolas/:path*' },
 		];
 	},
 
