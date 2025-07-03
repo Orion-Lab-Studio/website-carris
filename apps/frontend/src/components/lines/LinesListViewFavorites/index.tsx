@@ -6,7 +6,6 @@ import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { LineDisplay } from '@/components/lines/LineDisplay';
 import { useLinesListContext } from '@/contexts/LinesList.context';
-import { RoutesSchedule } from '@/utils/routes';
 import { useTranslations } from 'next-intl';
 
 /* * */
@@ -37,7 +36,7 @@ export function LinesListViewFavorites() {
 		<Surface variant="persistent" forceOverflow>
 			<Section>
 				{linesListContext.data.favorites.map(line => (
-					<RegularListItem key={line.id} href={`${RoutesSchedule.LINES.route}/${line.id}`}>
+					<RegularListItem key={line.id} href={`/lines/${line.id}`}>
 						<LineDisplay lineData={line} />
 					</RegularListItem>
 				))}

@@ -3,7 +3,7 @@
 /* * */
 
 import { Logo } from '@/components/header/Logo';
-import HeaderNavigationDrawer from '@/components/header/NavigationDrawer';
+import { HeaderNavigationDrawer } from '@/components/header/NavigationDrawer';
 import { NavigationMain } from '@/components/header/NavigationMain';
 import { useStickyObserver } from '@/hooks/useStickyObserver';
 import { useEffect } from 'react';
