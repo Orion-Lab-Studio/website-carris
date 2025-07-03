@@ -54,7 +54,7 @@ export function FormMain({ schoolId }: Props) {
 		// Get latest form values
 		const formValues = form.getValues();
 		// Submit the form data to the API
-		const response = await fetch('/api/submit', {
+		const response = await fetch('/schools/api/submit', {
 			body: JSON.stringify({ id: schoolData.id, ...formValues }),
 			headers: { 'Content-Type': 'application/json' },
 			method: 'POST',

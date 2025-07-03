@@ -52,7 +52,7 @@ export function FormMainValidateCode({ onSubmit }: Props) {
 		}
 		// Make an API call to check if the password is correct
 		const requestBody = JSON.stringify({ _password: formValues._password });
-		const response = await fetch('/api/check-password', { body: requestBody, method: 'POST' });
+		const response = await fetch('/schools/api/check-password', { body: requestBody, method: 'POST' });
 		const responseData = await response.json();
 
 		console.log('Response from API:', responseData);
