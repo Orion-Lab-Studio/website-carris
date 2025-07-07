@@ -76,7 +76,7 @@ export const footerNavigationGroup: NavigationGroup[] = [
 		links: [
 			{ _id: 'about', href: '/about' },
 			{ _id: 'open-data', href: '/open-data' },
-			{ _id: 'status', href: 'https://status.carrismetropolitana.pt', target: '_blank' },
+			{ _id: 'status', href: 'https://status.carrismetropolitana.pt/status/cm-status', target: '_blank' },
 		],
 	},
 
