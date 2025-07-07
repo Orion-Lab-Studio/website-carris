@@ -2,8 +2,8 @@
 
 /**
  * Use to show children only when desktop theme is active. Hidden otherwise.
- * @param {ReactNode} children The content to display in desktop theme.
- * @returns {JSX.Element} The rendered BreakpointDesktop component.
+ * @param children The content to display in desktop theme.
+ * @returns The rendered BreakpointDesktop component.
  */
 
 export function BreakpointDesktop({ children }) {
@@ -16,8 +16,8 @@ export function BreakpointDesktop({ children }) {
 
 /**
  * Use to show children only when mobile theme is active. Hidden otherwise.
- * @param {ReactNode} children The content to display in mobile theme.
- * @returns {JSX.Element} The rendered BreakpointMobile component.
+ * @param children The content to display in mobile theme.
+ * @returns The rendered BreakpointMobile component.
  */
 
 export function BreakpointMobile({ children }) {
@@ -30,9 +30,9 @@ export function BreakpointMobile({ children }) {
 
 /**
  * BreakpointSwitch component to automatically toggle children components between mobile and desktop themes.
- * @param {ReactNode} mobile The content to display in mobile theme.
- * @param {ReactNode} desktop The content to display in desktop theme.
- * @returns {JSX.Element} The rendered BreakpointSwitch component.
+ * @param mobile The content to display in mobile theme.
+ * @param desktop The content to display in desktop theme.
+ * @returns The rendered BreakpointSwitch component.
  */
 
 export function BreakpointSwitch({ desktop, mobile }) {

@@ -52,8 +52,8 @@ interface FinalOptions {
 
 /**
  * Normalize a string by converting to lowercase, removing accents, and non-alphanumeric characters.
- * @param {string} str - The string to normalize.
- * @returns {string} - The normalized string.
+ * @param str - The string to normalize.
+ * @returns The normalized string.
  */
 function normalizeString(str: string): string {
 	const res = str.toLowerCase()
@@ -126,9 +126,9 @@ const levenshteinDistance = (a: string, b: string, maxDistance: number, levensht
 /**
  * Calculate the score for a string, based on the number of consecutive query words that prefix match.
  * "The quick brown fox" has a score of 1 for "quick brown" and 0 for "quick fox".
- * @param {string} text - The text to score.
- * @param {Array<string>} queryWords - The query words to match.
- * @returns {number} - The context score.
+ * @param text The text to score.
+ * @param queryWords The query words to match.
+ * @returns The context score.
  */
 const sequentialWordsMatchScore = (text: string, queryWords: string[]): number => {
 	const textWords = text.split(' ');
@@ -145,9 +145,9 @@ const sequentialWordsMatchScore = (text: string, queryWords: string[]): number =
 
 /**
  * Check if a word starts with a given prefix.
- * @param {string} word - The word to check.
- * @param {string} prefix - The prefix to match.
- * @returns {boolean} - True if the word starts with the prefix, false otherwise.
+ * @param word The word to check.
+ * @param prefix The prefix to match.
+ * @returns True if the word starts with the prefix, false otherwise.
  */
 const isPrefixMatch = (word: string, prefix: string): boolean => {
 	const res = word.startsWith(prefix);
