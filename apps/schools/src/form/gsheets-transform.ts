@@ -29,6 +29,7 @@ export function transformDataForGoogleSheets(schoolId: string, data: UpdateSchoo
 
 		timestamp: Dates.now('Europe/Lisbon').iso,
 		schoolId: schoolId,
+		schoolName: 'school-name-here',
 
 		//
 		// LOCATION
