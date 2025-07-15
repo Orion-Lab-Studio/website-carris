@@ -31,7 +31,6 @@ export function transformDataForGoogleSheets(schoolId: string, schoolData: Schoo
 		timestamp: Dates.now('Europe/Lisbon').iso,
 		schoolId: schoolId,
 		schoolName: schoolData.name ?? '-',
-		municipality_id: schoolData.municipality_id ?? '-',
 		municipality_name: schoolData.municipality_name ?? '-',
 
 		//
