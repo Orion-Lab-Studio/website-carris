@@ -22,7 +22,6 @@
 		"@mantine/notifications": "8.1.3",
 		"@next/third-parties": "15.4.1",
 		"@tabler/icons-react": "3.34.0",
-		"@tmlmobilidade/types": "20250715.148.37",
 		"@tmlmobilidade/utils": "20250715.148.37",
 		"@turf/turf": "7.2.0",
 		"@vis.gl/react-maplibre": "8.0.4",
@@ -41,7 +40,7 @@
 		"react-lottie-player": "2.1.0",
 		"react-qr-code": "2.0.18",
 		"react-viewport-list": "7.1.2",
-		"recharts": "3.1.0",
+		"recharts": "2.15.4",
 		"sharp": "0.34.3",
 		"swr": "2.3.4",
 		"ukkonen": "2.2.0"
