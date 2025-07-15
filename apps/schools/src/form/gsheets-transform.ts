@@ -3,6 +3,7 @@
 /* * */
 
 import { type UpdateSchoolFormType } from '@/form/schema';
+import { type SchoolData } from '@/types/school';
 import { Dates } from '@tmlmobilidade/utils';
 
 /* * */
@@ -19,7 +20,7 @@ function parseTimeRange(start: string, end: string) {
 
 /* * */
 
-export function transformDataForGoogleSheets(schoolId: string, data: UpdateSchoolFormType) {
+export function transformDataForGoogleSheets(schoolId: string, schoolData: SchoolData | undefined, formData: UpdateSchoolFormType) {
 	//
 
 	const parsedData = {
@@ -29,78 +30,80 @@ export function transformDataForGoogleSheets(schoolId: string, data: UpdateSchoo
 
 		timestamp: Dates.now('Europe/Lisbon').iso,
 		schoolId: schoolId,
-		schoolName: 'school-name-here',
+		schoolName: schoolData.name ?? '-',
+		district_id: schoolData.district_id ?? '-',
+		district_name: schoolData.district_name ?? '-',
 
 		//
 		// LOCATION
 
-		correct_location: data.location.is_correct ? 'Sim' : 'Não',
-		latitude: data.location.latitude ?? '-',
-		longitude: data.location.longitude ?? '-',
-		postal_code: data.location.postal_code,
+		correct_location: formData.location.is_correct ? 'Sim' : 'Não',
+		latitude: formData.location.latitude ?? '-',
+		longitude: formData.location.longitude ?? '-',
+		postal_code: formData.location.postal_code,
 
 		//
 		// GENERAL CONTACTS
 
-		responsible_name: data.contacts.responder_name,
-		responsible_position: data.contacts.responder_position,
-		phone: data.contacts.phone ?? '-',
-		email: data.contacts.email ?? '-',
-		website: data.contacts.website ?? '-',
+		responsible_name: formData.contacts.responder_name,
+		responsible_position: formData.contacts.responder_position,
+		phone: formData.contacts.phone ?? '-',
+		email: formData.contacts.email ?? '-',
+		website: formData.contacts.website ?? '-',
 
 		//
 		// COMMUNICATION DEPT CONTACTS
 
-		comms_contact_name: data.comms_contact.name,
-		comms_contact_email: data.comms_contact.email ?? '-',
-		comms_contact_phone: data.comms_contact.phone ?? '-',
+		comms_contact_name: formData.comms_contact.name,
+		comms_contact_email: formData.comms_contact.email ?? '-',
+		comms_contact_phone: formData.comms_contact.phone ?? '-',
 
 		//
 		// COMMENTS
 
-		comments: data.comments ?? '-',
+		comments: formData.comments ?? '-',
 
 		//
 		// SCHOOL CALENDAR
 
-		calendar_type: data.school_calendar.calendar_type === 'semester' ? 'Semestral' : 'Trimestral',
-		block_1: parseDateRange(data.school_calendar.block_1.start_date, data.school_calendar.block_1.end_date),
-		block_2: parseDateRange(data.school_calendar.block_2.start_date, data.school_calendar.block_2.end_date),
-		block_3: parseDateRange(data.school_calendar.block_3.start_date, data.school_calendar.block_3.end_date),
-		interruptions: data.school_calendar.interruptions.length ? data.school_calendar.interruptions.map(interruption => (parseDateRange(interruption.start_date, interruption.end_date))).join('\n') : '-',
+		calendar_type: formData.school_calendar.calendar_type === 'semester' ? 'Semestral' : 'Trimestral',
+		block_1: parseDateRange(formData.school_calendar.block_1.start_date, formData.school_calendar.block_1.end_date),
+		block_2: parseDateRange(formData.school_calendar.block_2.start_date, formData.school_calendar.block_2.end_date),
+		block_3: parseDateRange(formData.school_calendar.block_3.start_date, formData.school_calendar.block_3.end_date),
+		interruptions: formData.school_calendar.interruptions.length ? formData.school_calendar.interruptions.map(interruption => (parseDateRange(interruption.start_date, interruption.end_date))).join('\n') : '-',
 
 		//
 		// SCHOOL CYCLE TIMES
 
-		pre_school_morning: parseTimeRange(data.school_cycles.pre_school.morning_entry, data.school_cycles.pre_school.morning_exit),
-		pre_school_afternoon: parseTimeRange(data.school_cycles.pre_school.afternoon_entry, data.school_cycles.pre_school.afternoon_exit),
+		pre_school_morning: parseTimeRange(formData.school_cycles.pre_school.morning_entry, formData.school_cycles.pre_school.morning_exit),
+		pre_school_afternoon: parseTimeRange(formData.school_cycles.pre_school.afternoon_entry, formData.school_cycles.pre_school.afternoon_exit),
 
-		basic_1_morning: parseTimeRange(data.school_cycles.basic_1.morning_entry, data.school_cycles.basic_1.morning_exit),
-		basic_1_afternoon: parseTimeRange(data.school_cycles.basic_1.afternoon_entry, data.school_cycles.basic_1.afternoon_exit),
+		basic_1_morning: parseTimeRange(formData.school_cycles.basic_1.morning_entry, formData.school_cycles.basic_1.morning_exit),
+		basic_1_afternoon: parseTimeRange(formData.school_cycles.basic_1.afternoon_entry, formData.school_cycles.basic_1.afternoon_exit),
 
-		basic_2_morning: parseTimeRange(data.school_cycles.basic_2.morning_entry, data.school_cycles.basic_2.morning_exit),
-		basic_2_afternoon: parseTimeRange(data.school_cycles.basic_2.afternoon_entry, data.school_cycles.basic_2.afternoon_exit),
+		basic_2_morning: parseTimeRange(formData.school_cycles.basic_2.morning_entry, formData.school_cycles.basic_2.morning_exit),
+		basic_2_afternoon: parseTimeRange(formData.school_cycles.basic_2.afternoon_entry, formData.school_cycles.basic_2.afternoon_exit),
 
-		basic_3_morning: parseTimeRange(data.school_cycles.basic_3.morning_entry, data.school_cycles.basic_3.morning_exit),
-		basic_3_afternoon: parseTimeRange(data.school_cycles.basic_3.afternoon_entry, data.school_cycles.basic_3.afternoon_exit),
+		basic_3_morning: parseTimeRange(formData.school_cycles.basic_3.morning_entry, formData.school_cycles.basic_3.morning_exit),
+		basic_3_afternoon: parseTimeRange(formData.school_cycles.basic_3.afternoon_entry, formData.school_cycles.basic_3.afternoon_exit),
 
-		secondary_morning: parseTimeRange(data.school_cycles.secondary.morning_entry, data.school_cycles.secondary.morning_exit),
-		secondary_afternoon: parseTimeRange(data.school_cycles.secondary.afternoon_entry, data.school_cycles.secondary.afternoon_exit),
+		secondary_morning: parseTimeRange(formData.school_cycles.secondary.morning_entry, formData.school_cycles.secondary.morning_exit),
+		secondary_afternoon: parseTimeRange(formData.school_cycles.secondary.afternoon_entry, formData.school_cycles.secondary.afternoon_exit),
 
-		professional_morning: parseTimeRange(data.school_cycles.professional.morning_entry, data.school_cycles.professional.morning_exit),
-		professional_afternoon: parseTimeRange(data.school_cycles.professional.afternoon_entry, data.school_cycles.professional.afternoon_exit),
+		professional_morning: parseTimeRange(formData.school_cycles.professional.morning_entry, formData.school_cycles.professional.morning_exit),
+		professional_afternoon: parseTimeRange(formData.school_cycles.professional.afternoon_entry, formData.school_cycles.professional.afternoon_exit),
 
-		special_morning: parseTimeRange(data.school_cycles.special.morning_entry, data.school_cycles.special.morning_exit),
-		special_afternoon: parseTimeRange(data.school_cycles.special.afternoon_entry, data.school_cycles.special.afternoon_exit),
+		special_morning: parseTimeRange(formData.school_cycles.special.morning_entry, formData.school_cycles.special.morning_exit),
+		special_afternoon: parseTimeRange(formData.school_cycles.special.afternoon_entry, formData.school_cycles.special.afternoon_exit),
 
-		artistic_morning: parseTimeRange(data.school_cycles.artistic.morning_entry, data.school_cycles.artistic.morning_exit),
-		artistic_afternoon: parseTimeRange(data.school_cycles.artistic.afternoon_entry, data.school_cycles.artistic.afternoon_exit),
+		artistic_morning: parseTimeRange(formData.school_cycles.artistic.morning_entry, formData.school_cycles.artistic.morning_exit),
+		artistic_afternoon: parseTimeRange(formData.school_cycles.artistic.afternoon_entry, formData.school_cycles.artistic.afternoon_exit),
 
-		university_morning: parseTimeRange(data.school_cycles.university.morning_entry, data.school_cycles.university.morning_exit),
-		university_afternoon: parseTimeRange(data.school_cycles.university.afternoon_entry, data.school_cycles.university.afternoon_exit),
+		university_morning: parseTimeRange(formData.school_cycles.university.morning_entry, formData.school_cycles.university.morning_exit),
+		university_afternoon: parseTimeRange(formData.school_cycles.university.afternoon_entry, formData.school_cycles.university.afternoon_exit),
 
-		other_morning: parseTimeRange(data.school_cycles.other.morning_entry, data.school_cycles.other.morning_exit),
-		other_afternoon: parseTimeRange(data.school_cycles.other.afternoon_entry, data.school_cycles.other.afternoon_exit),
+		other_morning: parseTimeRange(formData.school_cycles.other.morning_entry, formData.school_cycles.other.morning_exit),
+		other_afternoon: parseTimeRange(formData.school_cycles.other.afternoon_entry, formData.school_cycles.other.afternoon_exit),
 
 	};
 

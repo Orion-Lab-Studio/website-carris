@@ -2,6 +2,7 @@
 
 import { transformDataForGoogleSheets } from '@/form/gsheets-transform';
 import { updateSchoolFormSchema } from '@/form/schema';
+import { SchoolData } from '@/types/school';
 import { google } from 'googleapis';
 
 /* * */
@@ -58,12 +59,15 @@ export async function POST(request: Request) {
 		return new Response(responseBody, { headers: { 'Content-Type': 'application/json' }, status: 400 });
 	}
 
-	console.log(result.data.school_calendar);
-
 	//
 	// Prepare the data for Google Sheets
 
-	const parsedValuesToTable = transformDataForGoogleSheets(requestBody.id, result.data);
+	const allSchoolsRes = await fetch('https://api.carrismetropolitana.pt/datasets/facilities/schools');
+	const allSchoolsData: SchoolData[] = await allSchoolsRes.json();
+
+	const schoolData = allSchoolsData.find(school => school.id === requestBody.id);
+
+	const parsedValuesToTable = transformDataForGoogleSheets(requestBody.id, schoolData, result.data);
 
 	//
 	// Append the data to the Google Sheet
