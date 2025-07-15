@@ -5,7 +5,7 @@ const path = require("path");
 const axios = require("axios");
 
 const IMAGE_DIR = path.join(__dirname, "fallbacks"); // Folder containing fallback images
-const API_URL = "http://158.180.37.250:8001/api/panels"; // Panel API base
+const API_URL = process.env.PIP_URL; // Panel API base
 const MAX_PANEL_ID = 700;
 
 async function updateImage(panel, id) {
