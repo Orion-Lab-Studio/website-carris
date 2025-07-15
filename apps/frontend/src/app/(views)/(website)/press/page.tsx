@@ -1,9 +1,10 @@
+'use client';
 /* * */
 
-import { AboutPage } from '@/components/about/AboutPage';
+import { PressPage } from '../../../../components/home/PressPage';
 
 /* * */
 
 export default function Page() {
-	return <AboutPage />;
+	return <PressPage />;;
 }
