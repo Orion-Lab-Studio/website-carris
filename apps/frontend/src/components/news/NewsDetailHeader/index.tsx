@@ -38,7 +38,7 @@ export function NewsDetailHeader({ newsData }) {
 
 	return (
 		<Section withBottomDivider withGap withPadding>
-			<h1 className={styles.title}>{newsData?.title || 'title'}</h1>
+			<h1 className={styles.title} dangerouslySetInnerHTML={{ __html: newsData?.title || 'title' }} />
 			<p className={styles.publishDate}>{t('publish_date', { value: formattedDate })}</p>
 		</Section>
 	);
