@@ -161,6 +161,38 @@
 			}
 		}
 	},
+	"arrabida": {
+		"ArrabidaHeader": {
+			"title": "Descubra a Arrábida",
+			"subtitle": "Uma experiência única de natureza e sustentabilidade",
+			"navigation": {
+				"how_to_get": "Como chegar?",
+				"lines": "Linhas",
+				"about": "Sobre"
+			}
+		},
+		"ArrabidaPage": {
+			"title": "Arrábida",
+			"subtitle": "Descubra a Arrábida com a Carris Metropolitana",
+			"sections": {
+				"section-1": {
+					"title": "Sobre a Arrábida",
+					"text-1": "A Arrábida é uma região de beleza natural incomparável, localizada entre Setúbal e Sesimbra. Este parque natural oferece paisagens deslumbrantes, praias selvagens e uma rica biodiversidade.",
+					"text-2": "Com a Carris Metropolitana, pode facilmente aceder a esta joia da natureza portuguesa e explorar todas as suas maravilhas de forma sustentável e conveniente."
+				},
+				"section-2": {
+					"title": "Como Chegar",
+					"text-1": "A Carris Metropolitana oferece várias ligações diretas para a região da Arrábida, permitindo que visitantes e residentes se desloquem facilmente para este destino único.",
+					"text-2": "Consulte os nossos horários e planeie a sua viagem para descobrir as belezas naturais da Arrábida."
+				},
+				"section-3": {
+					"title": "O que Visitar",
+					"text-1": "A região da Arrábida oferece inúmeras atrações, desde as famosas praias de Portinho da Arrábida e Figueirinha até ao Convento da Arrábida.",
+					"text-2": "Não perca também a oportunidade de visitar as caves de vinho moscatel de Setúbal e provar os sabores únicos desta região."
+				}
+			}
+		}
+	},
 	"alerts": {
 		"AlertActivePeriod": {
 			"end": "Fim: <parsedDate>{end, date, dayShort} {end, date, monthLong} {end, date, yearLong}</parsedDate>",
