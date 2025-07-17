@@ -39,18 +39,19 @@ export function SchoolFinder({ onSelectEducationLevel, onSelectMunicipalityId, o
 		// Return empty array if data is not available
 		if (!allSchoolsData) return [];
 		// Filter out schools without stops on our municipalities
-		const filteredOutSchools = allSchoolsData.filter((item) => {
-			// Include the school if it is from Barreiro, Cascais or Lisbon
-			// even if it does not have associated stops.
-			const isFromBarreiro = item.municipality_id === '1504';
-			const isFromCascais = item.municipality_id === '1105';
-			const isFromLisbon = item.municipality_id === '1106';
-			if (isFromBarreiro || isFromCascais || isFromLisbon) return true;
-			// If it is from other municipalities,
-			// include the school only if it has associated stops
-			// return item.stops?.length > 0;
-			//
-		});
+		const filteredOutSchools = allSchoolsData;
+		// const filteredOutSchools = allSchoolsData.filter((item) => {
+		// 	// Include the school if it is from Barreiro, Cascais or Lisbon
+		// 	// even if it does not have associated stops.
+		// 	const isFromBarreiro = item.municipality_id === '1504';
+		// 	const isFromCascais = item.municipality_id === '1105';
+		// 	const isFromLisbon = item.municipality_id === '1106';
+		// 	if (isFromBarreiro || isFromCascais || isFromLisbon) return true;
+		// 	// If it is from other municipalities,
+		// 	// include the school only if it has associated stops
+		// 	return item.stops?.length > 0;
+		// 	//
+		// });
 		// Sort schools by name
 		const collator = new Intl.Collator('en', { numeric: true, sensitivity: 'base' });
 		const sortedSchools = filteredOutSchools.sort((a, b) => collator.compare(a.name, b.name));
