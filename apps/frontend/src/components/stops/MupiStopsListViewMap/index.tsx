@@ -3,6 +3,7 @@
 import { Surface } from '@/components/layout/Surface';
 import { MapView } from '@/components/map/MapView';
 import { MapViewStyleMupiStops, MapViewStyleMupiStopsInteractiveLayerId } from '@/components/map/MapViewStyleMupiStops';
+import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { useStopsListContext } from '@/contexts/StopsList.context';
 import { centerMap } from '@/utils/map.utils';
 import * as turf from '@turf/turf';
@@ -21,6 +22,7 @@ export function MupiStopsListViewMap() {
 	const { stopsListMap } = useMap();
 	const router = useRouter();
 	const stopsListContext = useStopsListContext();
+	const environmentContext = useEnvironmentContext();
 
 	//
 	// B. Handle actions
@@ -54,7 +56,8 @@ export function MupiStopsListViewMap() {
 		if (!features.length) return;
 		for (const feature of features) {
 			if (feature.layer.id === MapViewStyleMupiStopsInteractiveLayerId) {
-				router.push(`/mupi/stops/${feature.properties.id}`);
+				const stopHref = environmentContext.actions.getNormalizedHref(`/stops/${feature.properties.id}`);
+				router.push(stopHref);
 				return;
 			}
 		}

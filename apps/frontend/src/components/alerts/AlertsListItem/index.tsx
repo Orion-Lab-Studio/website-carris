@@ -8,6 +8,7 @@ import AlertsListItemImageThumbnail from '@/components/alerts/AlertsListItemImag
 import Button from '@/components/common/Button';
 import { useAlertsContext } from '@/contexts/Alerts.context';
 import { useAnalyticsContext } from '@/contexts/Analytics.context';
+import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { Accordion } from '@mantine/core';
 import { IconArrowUpRight } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
@@ -31,11 +32,14 @@ export function AlertListItem({ alertId }: Props) {
 	const t = useTranslations('alerts.AlertsListItem');
 	const alertsContext = useAlertsContext();
 	const analyticsContext = useAnalyticsContext();
+	const environmentContext = useEnvironmentContext();
 
 	//
 	// B. Transform data
 
 	const simplifiedAlertData = alertsContext.actions.getSimplifiedAlertById(alertId);
+
+	const alertHref = environmentContext.actions.getNormalizedHref(`/alerts/${alertId}`);
 
 	//
 	// C. Handle Actions
@@ -58,7 +62,7 @@ export function AlertListItem({ alertId }: Props) {
 				<p className={styles.description}>{simplifiedAlertData?.description}</p>
 				{simplifiedAlertData?.image_url && <AlertsListItemImageThumbnail alertId={simplifiedAlertData?.alert_id || ''} alertTitle={simplifiedAlertData?.title || ''} alt={simplifiedAlertData?.title} href={`/alerts/${alertId}`} src={simplifiedAlertData.image_url} />}
 				<div onClick={handleAlertDetailClick}>
-					<Button href={`/alerts/${alertId}`} icon={<IconArrowUpRight size={16} />} label={t('open')} variant="pill" />
+					<Button href={alertHref} icon={<IconArrowUpRight size={16} />} label={t('open')} variant="pill" />
 				</div>
 			</Accordion.Panel>
 		</Accordion.Item>

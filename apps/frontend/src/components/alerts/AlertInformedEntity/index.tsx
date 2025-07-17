@@ -2,11 +2,11 @@
 
 /* * */
 
-import type { Line, Stop } from '@carrismetropolitana/api-types/network';
-
 import { LineBadge } from '@/components/lines/LineBadge';
+import { useEnvironmentContext } from '@/contexts/Environment.context';
 import { useLinesContext } from '@/contexts/Lines.context';
 import { useStopsContext } from '@/contexts/Stops.context';
+import { type Line, type Stop } from '@carrismetropolitana/api-types/network';
 import { useRouter } from 'next/navigation';
 import { useMemo } from 'react';
 
@@ -29,6 +29,7 @@ export function AlertInformedEntity({ lineId, routeId, stopId }: Props) {
 	const router = useRouter();
 	const linesContext = useLinesContext();
 	const stopsContext = useStopsContext();
+	const environmentContext = useEnvironmentContext();
 
 	//
 	// B. Transform data
@@ -45,7 +46,8 @@ export function AlertInformedEntity({ lineId, routeId, stopId }: Props) {
 	// C. Handle actions
 
 	const handleLineBadgeClick = () => {
-		router.push(`/lines/${lineData?.id}`);
+		const lineHref = environmentContext.actions.getNormalizedHref(`/lines/${lineData?.id}`);
+		router.push(lineHref);
 	};
 
 	//
