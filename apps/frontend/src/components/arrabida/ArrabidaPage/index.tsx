@@ -8,6 +8,7 @@ import { Accordion, Image, Text, Title } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
+import { Arrabida365 } from '../Arrabida365';
 
 /* * */
 
@@ -24,16 +25,7 @@ export function ArrabidaPage() {
 
 	return (
 		<>
-			<Surface forceOverflow>
-				<div className={styles.headerContainer}>
-					<Title order={1} className={styles.title}>
-						{t('title')}
-					</Title>
-					<Text className={styles.subtitle}>
-						{t('subtitle')}
-					</Text>
-				</div>
-			</Surface>
+			<Arrabida365 />
 
 			<Surface forceOverflow>
 				<Accordion>

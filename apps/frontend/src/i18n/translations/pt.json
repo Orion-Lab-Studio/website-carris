@@ -172,13 +172,14 @@
 			}
 		},
 		"ArrabidaPage": {
-			"title": "Arrábida",
+			"title": "Arrábida 1",
 			"subtitle": "Descubra a Arrábida com a Carris Metropolitana",
 			"sections": {
-				"section-1": {
-					"title": "Sobre a Arrábida",
-					"text-1": "A Arrábida é uma região de beleza natural incomparável, localizada entre Setúbal e Sesimbra. Este parque natural oferece paisagens deslumbrantes, praias selvagens e uma rica biodiversidade.",
-					"text-2": "Com a Carris Metropolitana, pode facilmente aceder a esta joia da natureza portuguesa e explorar todas as suas maravilhas de forma sustentável e conveniente."
+				"Arrabida365": {
+					"title": "Arrábida 365",
+					"subtitle": "Este projeto tem como objetivo promover a mobilidade sustentável na Serra da Arrábida, incentivando o uso do transporte público para chegar às praias, eventos e locais de interesse da região. Aqui poderá acompanhar as últimas novidades na rede da Carris Metropolitana, campanhas em curso, eventos locais e parcerias especiais.",
+					"button": "Expandir",
+					"buttonSeeMore": "Saber Mais"
 				},
 				"section-2": {
 					"title": "Como Chegar",

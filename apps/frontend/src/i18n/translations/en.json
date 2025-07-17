@@ -172,13 +172,14 @@
 			}
 		},
 		"ArrabidaPage": {
-			"title": "Arrábida",
+			"title": "Arrábida 1",
 			"subtitle": "Discover Arrábida with Carris Metropolitana",
 			"sections": {
-				"section-1": {
-					"title": "About Arrábida",
-					"text-1": "Arrábida is a region of incomparable natural beauty, located between Setúbal and Sesimbra. This natural park offers stunning landscapes, wild beaches and rich biodiversity.",
-					"text-2": "With Carris Metropolitana, you can easily access this gem of Portuguese nature and explore all its wonders in a sustainable and convenient way."
+				"Arrabida365": {
+					"title": "Arrábida 365",
+			"subtitle": "This project aims to promote sustainable mobility in the Serra da Arrábida, encouraging the use of public transport to reach the beaches, events, and places of interest in the region. Here you can keep up with the latest news in the Carris Metropolitana network, ongoing campaigns, local events, and special partnerships.",
+			"button": "Expand",
+			"buttonSeeMore": "See More"
 				},
 				"section-2": {
 					"title": "How to Get There",
@@ -191,6 +192,11 @@
 					"text-2": "Don't miss the opportunity to visit the Setúbal moscatel wine cellars and taste the unique flavors of this region."
 				}
 			}
+		},
+		"Arrabida365": {
+			"title": "Arrábida 365",
+			"subtitle": "This project aims to promote sustainable mobility in the Serra da Arrábida, encouraging the use of public transport to reach the beaches, events, and places of interest in the region. Here you can keep up with the latest news in the Carris Metropolitana network, ongoing campaigns, local events, and special partnerships.",
+			"button": "Expand"
 		}
 	},
 	"alerts": {
