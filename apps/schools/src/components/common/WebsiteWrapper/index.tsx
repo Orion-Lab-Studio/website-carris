@@ -1,13 +1,11 @@
 /* * */
 
+import CarrisMetropolitanaLogo from '@/assets/header/carris-metropolitana-logo.svg';
+import CMSchoolsLogo from '@/assets/header/cm-schools-logo.svg';
+import { VersionControl } from '@/components/VersionControl';
 import Image from 'next/image';
 
 import styles from './styles.module.css';
-
-/* * */
-
-import CarrisMetropolitanaLogo from '@/assets/header/carris-metropolitana-logo.svg';
-import CMSchoolsLogo from '@/assets/header/cm-schools-logo.svg';
 
 /* * */
 
@@ -21,6 +19,7 @@ export function WebsiteWrapper({ children }) {
 			<main className={styles.main}>
 				{children}
 			</main>
+			<VersionControl />
 		</div>
 	);
 }
