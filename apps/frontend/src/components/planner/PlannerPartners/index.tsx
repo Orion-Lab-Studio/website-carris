@@ -47,12 +47,12 @@ const partnerApps: ParnerApp[] = [
 		url: 'https://transit.app',
 	},
 	{
-		image_url: 'assets/planner/apple-maps.png',
+		image_url: '/assets/planner/apple-maps.png',
 		title: 'Apple Maps',
 		url: 'https://www.apple.com/maps',
 	},
 	{
-		image_url: 'assets/planner/movize.png',
+		image_url: '/assets/planner/movize.png',
 		title: 'Movize',
 		url: 'https://movize.pt',
 	},
