@@ -27,6 +27,11 @@ interface ParnerApp {
 
 const partnerApps: ParnerApp[] = [
 	{
+		image_url: '/assets/planner/moovit.png',
+		title: 'Moovit',
+		url: 'https://moovitapp.com',
+	},
+	{
 		image_url: '/assets/planner/citymapper.png',
 		title: 'Citymapper',
 		url: 'https://citymapper.com',
@@ -37,19 +42,19 @@ const partnerApps: ParnerApp[] = [
 		url: 'https://www.google.com/maps',
 	},
 	{
-		image_url: '/assets/planner/moovit.png',
-		title: 'Moovit',
-		url: 'https://moovitapp.com',
-	},
-	{
 		image_url: '/assets/planner/transit.png',
 		title: 'Transit',
 		url: 'https://transit.app',
 	},
 	{
-		image_url: 'assets/planner/apple maps.png',
+		image_url: 'assets/planner/apple-maps.png',
 		title: 'Apple Maps',
-		url: 'https://www.apple.com/maps/',
+		url: 'https://www.apple.com/maps',
+	},
+	{
+		image_url: 'assets/planner/movize.png',
+		title: 'Movize',
+		url: 'https://movize.pt',
 	},
 ];
 
