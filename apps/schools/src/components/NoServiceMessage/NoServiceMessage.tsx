@@ -1,17 +1,18 @@
 'use client';
 
+/* * */
+
 import { useMemo } from 'react';
 
 import styles from './NoServiceMessage.module.css';
 
-export default function NoServiceMessage({ municipality_id, municipality_name }) {
+/* * */
+
+export function NoServiceMessage({ municipality_id, municipality_name }) {
 	//
 
 	//
-	// A. Setup variables
-
-	//
-	// B. Transform data
+	// A. Transform data
 
 	const messages = useMemo(() => {
 		const otherOperators = {
@@ -21,6 +22,12 @@ export default function NoServiceMessage({ municipality_id, municipality_name })
 		};
 		//
 		const localOperatorDetails = otherOperators[municipality_id];
+		if (!localOperatorDetails) {
+			return {
+				subtitle: `Não existem informações disponíveis sobre a oferta de transporte para esta instituição. Por favor entre em contacto connosco se detetar um erro na informação.`,
+				title: `Estamos próximos daqui, mas ainda não chegámos lá.`,
+			};
+		}
 		//
 		return {
 			subtitle: `Sugerimos que consulte o operador local "${localOperatorDetails?.operator_name}" para mais detalhes sobre a oferta de transporte para esta instituição.`,
@@ -40,9 +47,11 @@ export default function NoServiceMessage({ municipality_id, municipality_name })
 			<a className={styles.operatorPhone} href={`tel:${messages.operator_phone}`}>
 				{messages.operator_phone}
 			</a>
-			<a className={styles.operatorWebsite} href={messages.operator_website} target="__blank">
-				Visitar Website
-			</a>
+			{messages.operator_website && (
+				<a className={styles.operatorWebsite} href={messages.operator_website} target="__blank">
+					Visitar Website
+				</a>
+			)}
 		</div>
 	);
 }

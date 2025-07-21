@@ -9,7 +9,7 @@ import { NaveganteCardCallout } from '@/components/home/NaveganteCardCallout';
 import { PlannerCallout } from '@/components/home/PlannerCallout';
 import { MapView } from '@/components/map/MapView';
 import { MapViewSingleSchool } from '@/components/map/MapViewSingleSchool';
-import NoServiceMessage from '@/components/NoServiceMessage/NoServiceMessage';
+import { NoServiceMessage } from '@/components/NoServiceMessage/NoServiceMessage';
 import SourceDisclaimer from '@/components/SourceDisclaimer/SourceDisclaimer';
 import StopInfo from '@/components/StopInfo/StopInfo';
 import Titles from '@/components/Titles/Titles';
