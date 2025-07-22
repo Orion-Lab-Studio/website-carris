@@ -9,6 +9,7 @@ import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';
 import { Arrabida365 } from '../Arrabida365';
+import { ArrabidaAbout } from '../ArrabidaAbout';
 
 /* * */
 
@@ -26,6 +27,7 @@ export function ArrabidaPage() {
 	return (
 		<>
 			<Arrabida365 />
+			<ArrabidaAbout />
 
 			<Surface forceOverflow>
 				<Accordion>

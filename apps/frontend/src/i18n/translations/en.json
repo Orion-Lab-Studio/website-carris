@@ -181,10 +181,12 @@
 			"button": "Expand",
 			"buttonSeeMore": "See More"
 				},
-				"section-2": {
-					"title": "How to Get There",
-					"text-1": "Carris Metropolitana offers several direct connections to the Arrábida region, allowing visitors and residents to easily travel to this unique destination.",
-					"text-2": "Check our schedules and plan your trip to discover the natural beauties of Arrábida."
+				"ArrabidaAbout": {
+					"title": "About",
+					"text-1": "Arrábida 365",
+					"text-2": "is a project by Carris Metropolitana in collaboration with the Setubal municipality, aiming to ",
+					"text-3": "promote public transport as a privileged means of access to the Serra da Arrábida throughout the year.",
+					"text-4": "This project bets on sustainable mobility as a way to preserve the natural heritage of the serra, while facilitating access to beaches, events, and iconic places, with dedicated service and information."
 				},
 				"section-3": {
 					"title": "What to Visit",

@@ -181,10 +181,12 @@
 					"button": "Expandir",
 					"buttonSeeMore": "Saber Mais"
 				},
-				"section-2": {
-					"title": "Como Chegar",
-					"text-1": "A Carris Metropolitana oferece várias ligações diretas para a região da Arrábida, permitindo que visitantes e residentes se desloquem facilmente para este destino único.",
-					"text-2": "Consulte os nossos horários e planeie a sua viagem para descobrir as belezas naturais da Arrábida."
+				"ArrabidaAbout": {
+					"title": "Sobre",
+					"text-1": "Arrábida 365",
+					"text-2": "é uma iniciativa da Carris Metropolitana em colaboração com o município de Setubal, que visa",
+					"text-3": "promover o transporte publico como meio privilegiado de acesso à Serra da Arrábida, durante todo o ano.",
+					"text-4": "Este projeto aposta na mobilidade sustentável como forma de preservar o património natural da serra, ao mesmo tempo que facilita o acesso a praias, eventos e locaisemblemáticos, com reforço de serviço e informação dedicada."
 				},
 				"section-3": {
 					"title": "O que Visitar",
