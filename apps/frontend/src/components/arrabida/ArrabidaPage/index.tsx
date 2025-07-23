@@ -2,9 +2,8 @@
 
 /* * */
 
-import { ArrabidaHeader } from '@/components/arrabida/ArrabidaHeader';
 import { Surface } from '@/components/layout/Surface';
-import { Accordion, Image, Text, Title } from '@mantine/core';
+import { Accordion, Text } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 
 import styles from './styles.module.css';

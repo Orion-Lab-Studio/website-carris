@@ -1,5 +1,3 @@
-import { AlertActivePeriodStart } from '@/components/alerts/AlertActivePeriod';
-import { AlertEffectIcon } from '@/components/alerts/AlertCauseEffectIcon';
 import { AlertsCarousel } from '@/components/common/AlertsCarousel';
 import { FavoriteToggle } from '@/components/common/FavoriteToggle';
 import { NoDataLabel } from '@/components/layout/NoDataLabel';
@@ -8,9 +6,7 @@ import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { LineBadge } from '@/components/lines/LineBadge';
 import { LineName } from '@/components/lines/LineName';
-import { LinesDetailAlerts } from '@/components/lines/LinesDetailAlerts';
 import { useAlertsContext } from '@/contexts/Alerts.context';
-import { useLinesDetailContext } from '@/contexts/LinesDetail.context';
 import { useLinesListContext } from '@/contexts/LinesList.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import toast from '@/utils/toast';
