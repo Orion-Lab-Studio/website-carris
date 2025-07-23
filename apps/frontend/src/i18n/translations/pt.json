@@ -171,9 +171,11 @@
 				"about": "Sobre"
 			}
 		},
+		"ArrabidaWay": {
+			"title": "Como chegar?",
+			"subtitle": "Todos os passes da Arrábida servidos pela Carris Metropolitana"
+		},
 		"ArrabidaPage": {
-			"title": "Arrábida 1",
-			"subtitle": "Descubra a Arrábida com a Carris Metropolitana",
 			"sections": {
 				"Arrabida365": {
 					"title": "Arrábida 365",
@@ -187,11 +189,6 @@
 					"text-2": "é uma iniciativa da Carris Metropolitana em colaboração com o município de Setubal, que visa",
 					"text-3": "promover o transporte publico como meio privilegiado de acesso à Serra da Arrábida, durante todo o ano.",
 					"text-4": "Este projeto aposta na mobilidade sustentável como forma de preservar o património natural da serra, ao mesmo tempo que facilita o acesso a praias, eventos e locaisemblemáticos, com reforço de serviço e informação dedicada."
-				},
-				"section-3": {
-					"title": "O que Visitar",
-					"text-1": "A região da Arrábida oferece inúmeras atrações, desde as famosas praias de Portinho da Arrábida e Figueirinha até ao Convento da Arrábida.",
-					"text-2": "Não perca também a oportunidade de visitar as caves de vinho moscatel de Setúbal e provar os sabores únicos desta região."
 				}
 			}
 		}
