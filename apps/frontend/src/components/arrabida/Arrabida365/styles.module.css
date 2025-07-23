@@ -90,12 +90,6 @@
 	}
 }
 
-@media (width > 650px) {
-	.expandButton {
-		display: none;
-	}
-}
-
 .imageBeeWrapper {
     position: relative;
     width: 100%;
