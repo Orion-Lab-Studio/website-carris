@@ -28,7 +28,7 @@ export function MetricsPageComplaintsGlobalCard({ allData, totalPassengersLastYe
 	//
 	// B. Render components
 
-	const renderTotalPassegersByDay = () => {
+	const renderTotalPassegersLastYear = () => {
 		return (
 			<div>
 				<Text className={styles.totalPassengersContactsValue}>{t('total_passengers_day', { value: totalPassengersLastYear })}</Text>
@@ -85,7 +85,7 @@ export function MetricsPageComplaintsGlobalCard({ allData, totalPassengersLastYe
 
 			<div className={styles.container}>
 				<div className={styles.globalCardFirstRow}>
-					{renderTotalPassegersByDay()}
+					{renderTotalPassegersLastYear()}
 					{renderTotalContacts()}
 				</div>
 				<div className={styles.globalCardSecondRow}>

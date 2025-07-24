@@ -93,15 +93,16 @@ export function MetricsPageComplaints() {
 
 	useEffect(() => {
 		if (!demandMetricsByAgencyYearData || demandMetricsByAgencyYearData.length === 0) return;
-		const byYearData = demandMetricsByAgencyYearData.flatMap((agencyBlock) => {
-			return (agencyBlock.data as DemandMetricsByAgencyYear[]).filter((record) => {
-				return record.month_group >= lastYearStr && record.month_group <= todayStr;
-			});
-		});
-
+		let totalPassengersLastYear = 0;
+		// Sum total passengers for all agencies
+		for (const agencyBlock of demandMetricsByAgencyYearData) {
+			for (const record of agencyBlock.data) {
+				totalPassengersLastYear += record.qty;
+			}
+		}
 		setState(prevState => ({
 			...prevState,
-			total_passengers_last_year: byYearData.reduce((acc, block) => acc + block.qty, 0),
+			total_passengers_last_year: totalPassengersLastYear,
 		}));
 	}, [demandMetricsByAgencyYearData]);
 
@@ -161,7 +162,7 @@ export function MetricsPageComplaints() {
 		<Surface>
 			<div id="contactsMetrics">
 				<Section heading={t('heading')} subheading={t('subheading')} withPadding>
-					<MetricsPageComplaintsGlobalCard allData={state.complaints_global} totalPassengersLastYear={state.total_passengers_last_week} />
+					<MetricsPageComplaintsGlobalCard allData={state.complaints_global} totalPassengersLastYear={state.total_passengers_last_year} />
 					<MetricsPageComplaintsToolbar allLines={linesContext.data.lines} filter_type={handleFilterChange} filter_value={value => setState(prevState => ({ ...prevState, filter_value: value }))} />
 					<MetricsComplaintsPageCardGroup data={state.filtered_data} filter_type={state.filter_type} filter_value={state.filter_value} last_update={state.last_update} lineColor={state.line_color} municipalityName={state.municipality_name} totalPassengersLastWeekLineId={state.total_passengers_last_week_line_id} totalPassengersLastYear={state.total_passengers_last_year} />
 				</Section>
