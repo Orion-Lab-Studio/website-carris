@@ -1,24 +1,34 @@
-import { AlertsCarousel } from '@/components/common/AlertsCarousel';
-import { FavoriteToggle } from '@/components/common/FavoriteToggle';
 import { NoDataLabel } from '@/components/layout/NoDataLabel';
-import { RegularListItem } from '@/components/layout/RegularListItem';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
-import { LineBadge } from '@/components/lines/LineBadge';
-import { LineName } from '@/components/lines/LineName';
 import { useAlertsContext } from '@/contexts/Alerts.context';
 import { useLinesListContext } from '@/contexts/LinesList.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import toast from '@/utils/toast';
-import { Tooltip } from '@mantine/core';
-import { IconInfoTriangle } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
-import { ViewportList } from 'react-viewport-list';
 import { useMemo } from 'react';
 
+import { AlertsCarousel } from '@/components/common/AlertsCarousel';
+import { FavoriteToggle } from '@/components/common/FavoriteToggle';
+import { RegularListItem } from '@/components/layout/RegularListItem';
+import { LineBadge } from '@/components/lines/LineBadge';
+import { LineName } from '@/components/lines/LineName';
+import { Tooltip } from '@mantine/core';
+import { IconInfoTriangle } from '@tabler/icons-react';
 import styles from './styles.module.css';
 
 /* * */
+
+// IDs das linhas que servem as praias da Arrábida, conforme ArrabidaWay
+const ARRABIDA_LINE_IDS = [
+	'4474',
+	'4414',
+	'4415',
+	'4471',
+	'4414',
+	'4477',
+	'4470'
+];
 
 export function ArrabidaList() {
 	//
@@ -29,9 +39,11 @@ export function ArrabidaList() {
 	const alertsContext = useAlertsContext();
 	const t = useTranslations('arrabida.ArrabidaList');
 
-	// Memoize items to prevent ViewportList DOM issues
 	const stableItems = useMemo(() => {
-		return linesListContext.data.filtered.slice(0, 7);
+		const linesMap = new Map(linesListContext.data.filtered.map(l => [l.id, l]));
+			return ARRABIDA_LINE_IDS
+				.map(id => linesMap.get(id))
+				.filter(Boolean);
 	}, [linesListContext.data.filtered]);
 
 	//
@@ -42,7 +54,6 @@ export function ArrabidaList() {
 			const wasFavorite = profileContext.data.favorite_lines?.includes(lineId) || false;
 			await profileContext.actions.toggleFavoriteLine(lineId);
 
-			// Show feedback notification
 			if (wasFavorite) {
 				toast.success({ message: t('favorite_removed') + `: ${lineName}` });
 			}
@@ -59,7 +70,7 @@ export function ArrabidaList() {
 	//
 	// C. Render components
 
-	if (!linesListContext.data.filtered.length) {
+	if (!stableItems.length) {
 		return (
 			<div id="lines">
 				<Surface variant="persistent" forceOverflow>
@@ -75,29 +86,26 @@ export function ArrabidaList() {
 		<div id="lines" className={styles.arrabidaListContainer}>
 			<Surface variant="persistent" forceOverflow>
 				<Section heading={t('title')} subheading={t('subtitle')} withPadding withGap>
-					<ViewportList 
-						key={`viewport-${stableItems.length}`}
-						itemMargin={0} 
-						items={stableItems}
-					>
-						{(item, index, array) => {
+					<ul className={styles.listContainer} style={{width: '100%', height: '100%'}}>
+						{stableItems.map((item, index, array) => {
 							const isFavorite = profileContext.data.favorite_lines?.includes(item.id) || false;
 							const alerts = alertsContext.actions.getSimplifiedAlertsByLineId(item.id);
 							const hasAlert = alerts.length > 0;
 							const isLastItem = index === array.length - 1;
 
 							return (
-								<div key={item.id} className={`${styles.listItemWrapper} ${isLastItem ? styles.lastItem : ''}`}>
-									<RegularListItem href={`/lines/${item.id}`}>
+								<li key={item.id} className={`${styles.listItemWrapper} ${isLastItem ? styles.lastItem : ''}`}>
+									<RegularListItem href={`/lines/${item.id}`} style={{width: '100%', height: '100%'}}>
+								
 										<div className={styles.itemContainer}>
-											<div className={styles.lineInfo}>
+											<div className={styles.lineInfo} style={{flex: 1}}>
 												<LineBadge
 													lineData={item}
 													size="md"
 												/>
 												<LineName lineData={item} />
 											</div>
-											<div className={styles.actions}>
+											<div className={styles.actions} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
 												{hasAlert && (
 													<Tooltip
 														label={t('has_alerts')}
@@ -142,10 +150,10 @@ export function ArrabidaList() {
 											<AlertsCarousel alerts={alerts} />
 										</div>
 									)}
-								</div>
+								</li>
 							);
-						}}
-					</ViewportList>
+						})}
+					</ul>
 				</Section>
 			</Surface>
 		</div>

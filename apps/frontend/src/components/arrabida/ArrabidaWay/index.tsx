@@ -1,14 +1,14 @@
 
-import { Surface } from '@/components/layout/Surface';
-import { Section } from '@/components/layout/Section';
 import { RegularListItem } from '@/components/layout/RegularListItem';
+import { Section } from '@/components/layout/Section';
+import { Surface } from '@/components/layout/Surface';
 import { LineDisplay } from '@/components/lines/LineDisplay';
-import { Accordion, Text } from '@mantine/core';
 import { useLinesContext } from '@/contexts/Lines.context';
+import { Accordion, Text } from '@mantine/core';
 import { useTranslations } from 'next-intl';
-import Image from 'next/image';
 import { useState } from 'react';
 
+import { ArrabidaMap } from '../ArrabidaMap';
 import styles from './styles.module.css';
 
 interface StopData {
@@ -123,13 +123,7 @@ export function ArrabidaWay() {
 					<div className={styles.container}>
 						{/* Map Section */}
 						<div className={styles.mapContainer}>
-							<Image 
-								src="/assets/arrabidas/arrabida_map.png" 
-								alt="Arrabida Way Map" 
-								width={400}
-								height={600}
-								className={styles.mapImage}
-							/>
+							<ArrabidaMap />
 						</div>
 
 						{/* Journey Steps Section */}
