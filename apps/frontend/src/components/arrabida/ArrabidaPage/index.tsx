@@ -21,7 +21,7 @@ export function ArrabidaPage() {
 	return (
 		<>
 			<Arrabida365 />
-      		<ArrabidaWay />
+			<ArrabidaWay />
 			<ArrabidaList />
 			<ArrabidaAbout />
 		</>

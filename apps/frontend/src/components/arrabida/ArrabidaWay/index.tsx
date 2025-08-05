@@ -1,5 +1,3 @@
-
-import { RegularListItem } from '@/components/layout/RegularListItem';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
 import { LineDisplay } from '@/components/lines/LineDisplay';
@@ -8,18 +6,19 @@ import { Accordion, Text } from '@mantine/core';
 import { useTranslations } from 'next-intl';
 import { useState } from 'react';
 
-import { ArrabidaMap } from '../ArrabidaMap';
 import styles from './styles.module.css';
 
+import { ArrabidaMap } from '../ArrabidaMap';
+
 interface StopData {
-	name: string;
-	lineIds: string[];
+	lineIds: string[]
+	name: string
 }
 
 interface DestinationData {
-	id: string;
-	title: string;
-	stops: StopData[];
+	id: string
+	stops: StopData[]
+	title: string
 }
 
 export function ArrabidaWay() {
@@ -28,81 +27,82 @@ export function ArrabidaWay() {
 
 	const t = useTranslations('arrabida.ArrabidaWay');
 	const linesContext = useLinesContext();
-	const [openSections, setOpenSections] = useState<string>();
+	const [openSections, setOpenSections] = useState<string>('praia-albarquel');
+	const [selectedLineId, setSelectedLineId] = useState<null | string>(null);
 
 	// Destinations data based on the spreadsheet - now using line IDs
 	const destinationsData: DestinationData[] = [
 		{
 			id: 'praia-albarquel',
-			title: 'Praia de Albarquel',
 			stops: [
 				{
-					name: 'Albarquel (N10-4)',
 					lineIds: ['4474', '4414', '4415', '4471'],
+					name: 'Albarquel (N10-4)',
 				},
 				{
-					name: 'Praia Albarquel',
 					lineIds: ['4471', '4414'],
+					name: 'Praia Albarquel',
 				},
 				{
-					name: 'Setúbal (ITS)',
 					lineIds: ['4415', '4474'],
+					name: 'Setúbal (ITS)',
 				},
 				{
-					name: 'Setúbal (Centro Comercial)',
 					lineIds: ['4474'],
+					name: 'Setúbal (Centro Comercial)',
 				},
 			],
+			title: 'Praia de Albarquel',
 		},
 		{
 			id: 'praia-figueirinha',
-			title: 'Praia da Figueirinha',
 			stops: [
 				{
-					name: 'Outão X',
 					lineIds: ['4474'],
+					name: 'Outão X',
 				},
 				{
-					name: 'Praia da Figueirinha',
 					lineIds: ['4474'],
+					name: 'Praia da Figueirinha',
 				},
 			],
+			title: 'Praia da Figueirinha',
 		},
 		{
 			id: 'praia-galapos-galapinhos',
-			title: 'Praia dos Galápos e Galapinhos',
 			stops: [
 				{
+					lineIds: ['4477'],
 					name: 'Praia dos Galápos',
-					lineIds: ['4477'],
 				},
 				{
+					lineIds: ['4477'],
 					name: 'Praia dos Galápos (acesso Pedonal)',
-					lineIds: ['4477'],
 				},
 				{
-					name: 'Frente Praia dos Galapinhos',
 					lineIds: ['4477'],
+					name: 'Frente Praia dos Galapinhos',
 				},
 			],
+			title: 'Praia dos Galápos e Galapinhos',
 		},
 		{
 			id: 'praia-creiro',
-			title: 'Praia do Creiro',
 			stops: [
 				{
-					name: 'Praia do Creiro (Parque de Estacionamento)',
 					lineIds: ['4470', '4477'],
+					name: 'Praia do Creiro (Parque de Estacionamento)',
 				},
 				{
-					name: 'Praia do Creiro',
 					lineIds: ['4477'],
+					name: 'Praia do Creiro',
 				},
 				{
-					name: 'Setúbal (ITS)',
 					lineIds: ['4470'],
+					name: 'Setúbal (ITS)',
 				},
 			],
+			title: 'Praia do Creiro',
 		},
 	];
 
@@ -113,29 +113,37 @@ export function ArrabidaWay() {
 		setOpenSections(value);
 	};
 
+	const handleLineClick = (lineId: string) => {
+		setSelectedLineId(lineId);
+	};
+
 	//
 	// C. Render components
 
 	return (
 		<div id="how-to-get">
 			<Surface>
-				<Section heading={t('title')} subheading={t('subtitle')} withPadding withGap>
+				<Section heading={t('title')} subheading={t('subtitle')} withGap withPadding>
 					<div className={styles.container}>
 						{/* Map Section */}
 						<div className={styles.mapContainer}>
-							<ArrabidaMap />
+							<ArrabidaMap
+								onPinClick={handleAccordionChange}
+								selectedAccordionId={openSections}
+								selectedLineId={selectedLineId}
+							/>
 						</div>
 
 						{/* Journey Steps Section */}
 						<div className={styles.journeyContainer}>
-							<Accordion 
-								defaultValue="praia-albarquel"
-								value={openSections} 
-								onChange={handleAccordionChange}
+							<Accordion
 								className={styles.accordion}
+								defaultValue="praia-albarquel"
+								onChange={handleAccordionChange}
+								value={openSections}
 							>
-								{destinationsData.map((destination) => (
-									<Accordion.Item key={destination.id} value={destination.id} className={styles.accordionItem}>
+								{destinationsData.map(destination => (
+									<Accordion.Item key={destination.id} className={styles.accordionItem} value={destination.id}>
 										<Accordion.Control className={styles.accordionControl}>
 											<Text className={styles.stepTitle}>{destination.title}</Text>
 										</Accordion.Control>
@@ -145,11 +153,20 @@ export function ArrabidaWay() {
 													<span>{stop.name}</span>
 													{stop.lineIds.map((lineId, lineIndex) => {
 														const lineData = linesContext.actions.getLineDataById(lineId);
-														
+
 														return (
-															<RegularListItem key={lineIndex} href={`/lines/${lineId}`}>
+															<div
+																key={lineIndex}
+																className={styles.lineItem}
+																onClick={() => handleLineClick(lineId)}
+																style={{
+																	borderRadius: '8px',
+																	cursor: 'pointer',
+																	padding: '8px',
+																}}
+															>
 																<LineDisplay lineData={lineData} />
-															</RegularListItem>
+															</div>
 														);
 													})}
 												</div>

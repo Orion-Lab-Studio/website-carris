@@ -1,33 +1,32 @@
+import { AlertsCarousel } from '@/components/common/AlertsCarousel';
+import { FavoriteToggle } from '@/components/common/FavoriteToggle';
 import { NoDataLabel } from '@/components/layout/NoDataLabel';
+import { RegularListItem } from '@/components/layout/RegularListItem';
 import { Section } from '@/components/layout/Section';
 import { Surface } from '@/components/layout/Surface';
+import { LineBadge } from '@/components/lines/LineBadge';
+import { LineName } from '@/components/lines/LineName';
 import { useAlertsContext } from '@/contexts/Alerts.context';
 import { useLinesListContext } from '@/contexts/LinesList.context';
 import { useProfileContext } from '@/contexts/Profile.context';
 import toast from '@/utils/toast';
+import { Tooltip } from '@mantine/core';
+import { IconInfoTriangle } from '@tabler/icons-react';
 import { useTranslations } from 'next-intl';
 import { useMemo } from 'react';
 
-import { AlertsCarousel } from '@/components/common/AlertsCarousel';
-import { FavoriteToggle } from '@/components/common/FavoriteToggle';
-import { RegularListItem } from '@/components/layout/RegularListItem';
-import { LineBadge } from '@/components/lines/LineBadge';
-import { LineName } from '@/components/lines/LineName';
-import { Tooltip } from '@mantine/core';
-import { IconInfoTriangle } from '@tabler/icons-react';
 import styles from './styles.module.css';
 
 /* * */
 
-// IDs das linhas que servem as praias da Arrábida, conforme ArrabidaWay
+// IDs das linhas que servem as praias da Arrábida (deduplicated and sorted)
 const ARRABIDA_LINE_IDS = [
-	'4474',
-	'4414',
-	'4415',
-	'4471',
-	'4414',
-	'4477',
-	'4470'
+	'4414', // Albarquel
+	'4415', // Albarquel, ITS
+	'4470', // Creiro, ITS
+	'4471', // Albarquel
+	'4474', // Figueirinha, Albarquel
+	'4477', // Galápos, Galapinhos, Creiro
 ];
 
 export function ArrabidaList() {
@@ -40,10 +39,12 @@ export function ArrabidaList() {
 	const t = useTranslations('arrabida.ArrabidaList');
 
 	const stableItems = useMemo(() => {
-		const linesMap = new Map(linesListContext.data.filtered.map(l => [l.id, l]));
-			return ARRABIDA_LINE_IDS
-				.map(id => linesMap.get(id))
-				.filter(Boolean);
+		if (!linesListContext.data.filtered?.length) return [];
+
+		const linesMap = new Map(linesListContext.data.filtered.map(line => [line.id, line]));
+		return ARRABIDA_LINE_IDS
+			.map(lineId => linesMap.get(lineId))
+			.filter(Boolean) as typeof linesListContext.data.filtered;
 	}, [linesListContext.data.filtered]);
 
 	//
@@ -74,7 +75,7 @@ export function ArrabidaList() {
 		return (
 			<div id="lines">
 				<Surface variant="persistent" forceOverflow>
-					<Section heading={t('title')} subheading={t('subtitle')} withPadding withGap>
+					<Section heading={t('title')} subheading={t('subtitle')} withGap withPadding>
 						<NoDataLabel text={t('no_data', { defaultValue: 'Sem dados disponíveis' })} withMinHeight />
 					</Section>
 				</Surface>
@@ -83,10 +84,10 @@ export function ArrabidaList() {
 	}
 
 	return (
-		<div id="lines" className={styles.arrabidaListContainer}>
+		<div className={styles.arrabidaListContainer} id="lines">
 			<Surface variant="persistent" forceOverflow>
-				<Section heading={t('title')} subheading={t('subtitle')} withPadding withGap>
-					<ul className={styles.listContainer} style={{width: '100%', height: '100%'}}>
+				<Section heading={t('title')} subheading={t('subtitle')} withGap withPadding>
+					<ul className={styles.listContainer} style={{ height: '100%', width: '100%' }}>
 						{stableItems.map((item, index, array) => {
 							const isFavorite = profileContext.data.favorite_lines?.includes(item.id) || false;
 							const alerts = alertsContext.actions.getSimplifiedAlertsByLineId(item.id);
@@ -95,17 +96,17 @@ export function ArrabidaList() {
 
 							return (
 								<li key={item.id} className={`${styles.listItemWrapper} ${isLastItem ? styles.lastItem : ''}`}>
-									<RegularListItem href={`/lines/${item.id}`} style={{width: '100%', height: '100%'}}>
-								
+									<RegularListItem href={`/lines/${item.id}`} style={{ height: '100%', width: '100%' }}>
+
 										<div className={styles.itemContainer}>
-											<div className={styles.lineInfo} style={{flex: 1}}>
+											<div className={styles.lineInfo} style={{ flex: 1 }}>
 												<LineBadge
 													lineData={item}
 													size="md"
 												/>
 												<LineName lineData={item} />
 											</div>
-											<div className={styles.actions} style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+											<div className={styles.actions} style={{ alignItems: 'center', display: 'flex', justifyContent: 'center' }}>
 												{hasAlert && (
 													<Tooltip
 														label={t('has_alerts')}
@@ -122,12 +123,12 @@ export function ArrabidaList() {
 													position="top"
 													withArrow
 												>
-													<div 
-														onMouseDown={(event) => {
+													<div
+														onClick={(event) => {
 															event.preventDefault();
 															event.stopPropagation();
 														}}
-														onClick={(event) => {
+														onMouseDown={(event) => {
 															event.preventDefault();
 															event.stopPropagation();
 														}}
